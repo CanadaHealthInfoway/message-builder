@@ -18,12 +18,13 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example;
+package ca.infoway.messagebuilder.guide.examples;
 
 import static ca.infoway.messagebuilder.datatype.lang.PersonName.createFirstNameLastName;
 
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.devtools.DefaultValueHolder;
@@ -84,7 +85,8 @@ public class FindCandidatesExampleCreator {
 	
 	private void populateQueryControlActStandardValues(TriggerEventBean<ParameterListBean> triggerEventBean) {
 		triggerEventBean.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLow(new Date()));
+		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLowHigh(new Date(0), new Date()));
+		triggerEventBean.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
 		triggerEventBean.setAuthor(createAuthorBean());
 		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
 		triggerEventBean.getQueryByParameter().setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));

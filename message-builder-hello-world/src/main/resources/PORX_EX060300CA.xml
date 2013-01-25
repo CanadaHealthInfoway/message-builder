@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PORX_IN060300CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 ../../../HP/Infoway/InfowaySVN/CSI%20Developer%20Guides/trunk/references/MR2009%20R02.04.02%20(full)/XML%20Schema%20-%20All%20Volumes/PORX_IN060300CA.xsd"
+	xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+	<id use="BUS" root="34EFEAD5-027E-4663-8EEB-B801009748B7" />
+	<creationTime value="20091019174156-0700" />
+	<securityText>Some plain text goes here</securityText>
+	<responseModeCode code="I" />
+	<versionCode code="V3-2008N" />
+	<interactionId displayable="true" extension="PORX_IN060300CA"
+		root="2.16.840.1.113883.1.18" />
+	<profileId use="BUS" root="2.16.840.1.113883.2.20.2"
+		extension="R02.04.02" />
+	<profileId use="BUS" root="2.16.840.1.113883.2.20.2"
+		extension="R02.04.01" />
+	<processingCode code="D" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="AL" />
+	<receiver typeCode="RCV">
+		<telecom value="http://www.foothills-pharmacy.ca/pos" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="FOOT-PHARM" />
+			<name>Foothills Pharmacy POS</name>
+		</device>
+	</receiver>
+	<respondTo typeCode="RSP">
+		<telecom value="http://www.albertahealthservices.ca/HIAL" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="AB-HIAL" />
+		</device>
+	</respondTo>
+	<sender typeCode="SND">
+		<telecom value="http://www.albertahealthservices.ca/DIS" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="AB-DIS" />
+			<name>Alberta Drug Information System</name>
+			<desc>Alberta's repository for patient pharmacy records and drug
+				product detail</desc>
+			<existenceTime>
+				<low value="20091019" />
+			</existenceTime>
+			<manufacturerModelName>Some plain text goes here
+			</manufacturerModelName>
+			<softwareName>Some plain text goes here</softwareName>
+			<agent classCode="AGNT">
+				<agentOrganization classCode="ORG" determinerCode="INSTANCE">
+					<id root="ED5BBA3B-C326-455D-BD4E-3E4D64D9F4EE" />
+				</agentOrganization>
+			</agent>
+		</device>
+	</sender>
+	<attentionLine>
+		<keyWordText>ATTN</keyWordText>
+		<value>Attention DIS, please reply with prescriptions for Cyril
+			Lambert!</value>
+	</attentionLine>
+	<acknowledgement>
+		<typeCode code="AA" />
+		<messageWaitingNumber value="2" />
+		<messageWaitingPriorityCode code="H"
+			codeSystem="2.16.840.1.113883.5.1083" />
+		<targetMessage>
+			<id root="8ADA1809-2577-44DD-8ED6-749954D63FA7" />
+		</targetMessage>
+		<acknowledgementDetail typeCode="E">
+			<code code="INTERR" codeSystem="2.16.840.1.113883.5.1100" />
+			<text>Some plain text goes here</text>
+			<location>Some plain text goes here</location>
+		</acknowledgementDetail>
+	</acknowledgement>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id root="A22D6A41-36CF-434C-8BF4-809DA0A0B00E" />
+		<code code="COMT_TE400003CA" codeSystem="2.16.840.1.113883.1.18" />
+		<statusCode code="completed" />
+		<effectiveTime>
+			<low value="20091019174157.064-0700" />
+			<high value="20091019174157.064-0700" />
+		</effectiveTime>
+		<reasonCode code="ABORTED" codeSystem="2.16.840.1.113883.2.20.5.2" />
+		<languageCode code="en" codeSystem="2.16.840.1.113883.6.121" />
+		<recordTarget contextControlCode="AP" typeCode="RCT">
+			<patient1 classCode="PAT">
+				<id displayable="true" extension="9823448323" root="2.16.840.1.113883.3.19.3.163.1"
+					specializationType="II.PUBLIC" />
+				<patientPerson classCode="PSN" determinerCode="INSTANCE">
+					<name use="L" specializationType="PN.BASIC">
+						<given>Cyril</given>
+						<given qualifier="IN">A.</given>
+						<family>Lambert</family>
+					</name>
+					<administrativeGenderCode code="M"
+						codeSystem="2.16.840.1.113883.5.1" />
+					<birthTime value="19491105" />
+				</patientPerson>
+			</patient1>
+		</recordTarget>
+		<subject contextConductionInd="false" contextControlCode="AN"
+			typeCode="SUBJ">
+			<combinedMedicationRequest classCode="SBADM"
+				moodCode="RQO">
+				<id specializationType="II.BUS" root="4C61263E-895B-4C24-91E6-E6C8A6D930D4" />
+				<code code="02037" codeSystem="2.16.840.1.113883.5.1104" />
+				<statusCode code="aborted" />
+				<confidentialityCode code="N"
+					codeSystem="2.16.840.1.113883.5.25" />
+				<directTarget contextControlCode="OP" typeCode="DIR">
+					<medication classCode="ADMM">
+						<administerableMedicine classCode="MMAT"
+							determinerCode="KIND">
+							<code code="3597005" codeSystem="2.16.840.1.113883.6.96" />
+							<name>Some plain text goes here</name>
+							<desc>Some plain text goes here</desc>
+							<formCode code="AER" codeSystem="2.16.840.1.113883.5.85" />
+							<asManufacturedProduct classCode="MANU">
+								<manufacturer classCode="ORG" determinerCode="INSTANCE">
+									<id displayable="true" extension="?"
+										root="5436C3BB-FC87-4C86-8E60-13094A1BAE19" />
+									<name>Some plain text goes here</name>
+								</manufacturer>
+							</asManufacturedProduct>
+							<asContent classCode="CONT">
+								<quantity unit="mmol/L" value="140.0" />
+								<containerPackagedMedicine classCode="CONT"
+									determinerCode="KIND">
+									<formCode code="BLSTRPK" codeSystem="2.16.840.1.113883.5.1060" />
+								</containerPackagedMedicine>
+							</asContent>
+							<ingredient classCode="INGR" negationInd="false">
+								<quantity unit="mmol/L" value="140.0" />
+								<ingredient classCode="MMAT" determinerCode="KIND">
+									<code code="32792001" codeSystem="2.16.840.1.113883.6.96" />
+									<name>Some plain text goes here</name>
+								</ingredient>
+							</ingredient>
+						</administerableMedicine>
+					</medication>
+				</directTarget>
+				<responsibleParty contextControlCode="AP" typeCode="RESP">
+					<assignedEntity classCode="ASSIGNED">
+						<id displayable="true" extension="samantha.black"
+							root="C12631E4-1029-4847-B557-E13097111B16" />
+						<code code="ACP" codeSystem="2.16.840.1.113883.2.20.5.3" />
+						<telecom specializationType="TEL.PHONE" use="WP MC"
+							value="tel:+1(555)630-7960" />
+						<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<given>Samantha</given>
+								<given qualifier="IN">A.</given>
+								<family>Everyman</family>
+							</name>
+							<asHealthCareProvider classCode="PROV">
+								<id displayable="true" extension="?"
+									root="5F43E968-2707-4E05-8302-0858A05EDB19" />
+							</asHealthCareProvider>
+						</assignedPerson>
+						<representedOrganization classCode="ORG"
+							determinerCode="INSTANCE">
+							<id displayable="true" extension="?"
+								root="498225CB-BE4F-4ECD-AE30-004F765B085A" />
+							<name>Some plain text goes here</name>
+							<assignedOrganization classCode="ASSIGNED">
+								<code code="CHR" codeSystem="2.16.840.1.113883.5.111" />
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+							</assignedOrganization>
+						</representedOrganization>
+					</assignedEntity>
+				</responsibleParty>
+				<author contextControlCode="AP" typeCode="AUT">
+					<time value="20091019" />
+					<assignedEntity classCode="ASSIGNED">
+						<id displayable="true" extension="?"
+							root="53734039-713F-4191-9AFB-6F9C109AF2E0" />
+						<code code="ACP" codeSystem="2.16.840.1.113883.2.20.5.3" />
+						<telecom specializationType="TEL.PHONE" use="WP MC"
+							value="tel:+1(555)630-7960" />
+						<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<given>Samantha</given>
+								<given qualifier="IN">A.</given>
+								<family>Black</family>
+							</name>
+							<asHealthCareProvider classCode="PROV">
+								<id displayable="true" extension="?"
+									root="44E89E3B-5CBA-43E8-8119-F7FEAAE5066E" />
+							</asHealthCareProvider>
+						</assignedPerson>
+						<representedOrganization classCode="ORG"
+							determinerCode="INSTANCE">
+							<id displayable="true" extension="?"
+								root="861EC4F0-7F00-4C85-BE4C-FC20C4CF1AD9" />
+							<name>Some plain text goes here</name>
+							<assignedOrganization classCode="ASSIGNED">
+								<code code="CHR" codeSystem="2.16.840.1.113883.5.111" />
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+							</assignedOrganization>
+						</representedOrganization>
+					</assignedEntity>
+				</author>
+				<reason contextConductionInd="true" contextControlCode="AN"
+					typeCode="RSON">
+					<priorityNumber value="2" />
+					<observationProblem classCode="OBS" moodCode="EVN">
+						<code code="SYMPT" codeSystem="2.16.840.1.113883.2.20.5.2" />
+						<statusCode code="completed" />
+						<value code="G43.1" codeSystem="2.16.840.1.113883.6.94" />
+					</observationProblem>
+				</reason>
+				<precondition contextConductionInd="false"
+					contextControlCode="AN" typeCode="PRCN">
+					<verificationEventCriterion classCode="VERIF"
+						moodCode="EVN.CRT">
+						<code code="VFPAPER" />
+					</verificationEventCriterion>
+				</precondition>
+				<derivedFrom contextConductionInd="false"
+					contextControlCode="ON" typeCode="DRIV">
+					<sourceDispense classCode="SPLY" moodCode="EVN">
+						<statusCode code="completed" />
+					</sourceDispense>
+				</derivedFrom>
+				<component1 contextConductionInd="true"
+					contextControlCode="ON" typeCode="COMP">
+					<administrationInstructions classCode="SBADM"
+						moodCode="RQO">
+						<code code="02037" codeSystem="2.16.840.1.113883.5.1104" />
+						<text>Some plain text goes here</text>
+					</administrationInstructions>
+				</component1>
+				<component2 contextConductionInd="true"
+					contextControlCode="AN" typeCode="COMP">
+					<supplyRequest classCode="SPLY" moodCode="RQO">
+						<statusCode code="aborted" />
+						<quantity unit="mmol/L" value="140.0" />
+						<location contextControlCode="OP" typeCode="LOC">
+							<substitutionConditionCode code="NOSUB"
+								codeSystem="2.16.840.1.113883.5.1071" />
+							<serviceDeliveryLocation classCode="SDLOC">
+								<id displayable="true" extension="?"
+									root="925BB5D7-CE4F-4305-9D30-D90608E55E24" />
+								<code code="281PC2000N" codeSystem="2.16.840.1.113883.5.111" />
+								<addr use="WP PST">
+									<streetAddressLine>1050 W Wishard Blvd</streetAddressLine>
+									<streetAddressLine>RG 5th floor</streetAddressLine>
+									<city>Indianapolis</city>
+									<state>IN</state>
+									<postalCode>46240</postalCode>
+								</addr>
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+								<location classCode="PLC" determinerCode="INSTANCE">
+									<name>Some plain text goes here</name>
+								</location>
+								<subjectOf typeCode="SBJ">
+									<position classCode="POS" moodCode="EVN">
+										<code code="63266413" codeSystem="2.16.840.1.113883.6.278" />
+										<component contextConductionInd="true"
+											contextControlCode="AP" typeCode="COMP">
+											<positionCoordinate classCode="POSCOORD"
+												moodCode="EVN">
+												<code code="79" codeSystem="2.16.840.1.113883.6.279" />
+												<value value="1.3" />
+											</positionCoordinate>
+										</component>
+									</position>
+								</subjectOf>
+							</serviceDeliveryLocation>
+						</location>
+					</supplyRequest>
+				</component2>
+				<fulfillment1 contextConductionInd="true"
+					contextControlCode="ON" typeCode="FLFS">
+					<subsetCode code="FUTSUM" />
+					<supplyEventFutureSummary classCode="SPLY"
+						moodCode="EVN">
+						<repeatNumber value="2" />
+						<quantity unit="mmol/L" value="140.0" />
+					</supplyEventFutureSummary>
+				</fulfillment1>
+				<fulfillment2 contextConductionInd="true"
+					contextControlCode="ON" typeCode="FLFS">
+					<subsetCode code="FIRST" />
+					<supplyEventFirstSummary classCode="SPLY"
+						moodCode="EVN">
+						<effectiveTime>
+							<high value="20091019" />
+						</effectiveTime>
+						<quantity unit="mmol/L" value="140.0" />
+					</supplyEventFirstSummary>
+				</fulfillment2>
+				<fulfillment3 contextConductionInd="true"
+					contextControlCode="ON" typeCode="FLFS">
+					<subsetCode code="RECENT" />
+					<supplyEventLastSummary classCode="SPLY"
+						moodCode="EVN">
+						<effectiveTime>
+							<high value="20091019" />
+						</effectiveTime>
+						<quantity unit="mmol/L" value="140.0" />
+					</supplyEventLastSummary>
+				</fulfillment3>
+				<fulfillment4 contextConductionInd="true"
+					contextControlCode="ON" typeCode="FLFS">
+					<subsetCode code="PREVSUM" />
+					<supplyEventPastSummary classCode="SPLY"
+						moodCode="EVN">
+						<repeatNumber value="2" />
+						<quantity unit="mmol/L" value="140.0" />
+					</supplyEventPastSummary>
+				</fulfillment4>
+				<subjectOf1 contextConductionInd="false"
+					contextControlCode="ON" typeCode="SUBJ">
+					<subsetCode code="SUM" />
+					<annotationIndicator classCode="ACT" moodCode="EVN">
+						<statusCode code="completed" />
+					</annotationIndicator>
+				</subjectOf1>
+				<subjectOf2 contextConductionInd="false"
+					contextControlCode="ON" typeCode="SUBJ">
+					<subsetCode code="SUM" />
+					<detectedIssueIndicator classCode="ALRT"
+						moodCode="EVN">
+						<statusCode code="completed" />
+					</detectedIssueIndicator>
+				</subjectOf2>
+				<subjectOf3 contextConductionInd="false"
+					contextControlCode="AN" typeCode="SUBJ">
+					<refusalToFill classCode="CACT" moodCode="EVN">
+						<code code="PORX_TE010340CA" codeSystem="2.16.840.1.113883.1.18" />
+						<statusCode code="completed" />
+						<effectiveTime value="20091019" />
+						<reasonCode code="FRR01" codeSystem="2.16.840.1.113883.5.8" />
+						<author contextControlCode="OP" typeCode="AUT">
+							<assignedEntity classCode="ASSIGNED">
+								<id displayable="true" extension="?"
+									root="24402962-4FED-4AE7-9B34-8BE435BDC0FD" />
+								<code code="ACP" codeSystem="2.16.840.1.113883.2.20.5.3" />
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+								<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+									<name use="L">
+										<given>Samantha</given>
+										<given qualifier="IN">A.</given>
+										<family>Black</family>
+									</name>
+									<asHealthCareProvider classCode="PROV">
+										<id displayable="true" extension="?"
+											root="3BD6559E-7DF4-4217-9DF6-72A885434FE1" />
+									</asHealthCareProvider>
+								</assignedPerson>
+								<representedOrganization classCode="ORG"
+									determinerCode="INSTANCE">
+									<id displayable="true" extension="?"
+										root="C370F679-81BA-41E8-9748-A1F71C2C45E7" />
+									<name>Some plain text goes here</name>
+									<assignedOrganization classCode="ASSIGNED">
+										<code code="CHR" codeSystem="2.16.840.1.113883.5.111" />
+										<telecom specializationType="TEL.PHONE" use="WP MC"
+											value="tel:+1(555)630-7960" />
+									</assignedOrganization>
+								</representedOrganization>
+							</assignedEntity>
+						</author>
+						<location contextControlCode="OP" typeCode="LOC">
+							<serviceDeliveryLocation classCode="SDLOC">
+								<id displayable="true" extension="?"
+									root="01E1EA8D-9EC5-41AC-B3BC-9E32D14D7C84" />
+								<code code="281PC2000N" codeSystem="2.16.840.1.113883.5.111" />
+								<addr use="WP PST">
+									<streetAddressLine>1050 W Wishard Blvd</streetAddressLine>
+									<streetAddressLine>RG 5th floor</streetAddressLine>
+									<city>Indianapolis</city>
+									<state>IN</state>
+									<postalCode>46240</postalCode>
+								</addr>
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+								<location classCode="PLC" determinerCode="INSTANCE">
+									<name>Some plain text goes here</name>
+								</location>
+								<subjectOf typeCode="SBJ">
+									<position classCode="POS" moodCode="EVN">
+										<code code="63266413" codeSystem="2.16.840.1.113883.6.278" />
+										<component contextConductionInd="true"
+											contextControlCode="AP" typeCode="COMP">
+											<positionCoordinate classCode="POSCOORD"
+												moodCode="EVN">
+												<code code="79" codeSystem="2.16.840.1.113883.6.279" />
+												<value value="1.3" />
+											</positionCoordinate>
+										</component>
+									</position>
+								</subjectOf>
+							</serviceDeliveryLocation>
+						</location>
+						<reason contextConductionInd="true" contextControlCode="ON"
+							typeCode="RSON">
+							<detectedIssueEvent classCode="ALRT" moodCode="EVN">
+								<code code="ABUSE" codeSystem="2.16.840.1.113883.5.4" />
+								<text>Some plain text goes here</text>
+								<statusCode code="completed" />
+							</detectedIssueEvent>
+						</reason>
+					</refusalToFill>
+				</subjectOf3>
+				<componentOf1 contextConductionInd="false"
+					contextControlCode="AN" typeCode="COMP">
+					<patientCareProvisionEvent classCode="PCPR"
+						moodCode="EVN">
+						<id root="9ECB77A6-A459-4B0B-978C-8B82085B98DE" />
+						<code code="ALC" codeSystem="2.16.840.1.113883.5.4" />
+						<effectiveTime>
+							<low value="20091019174157.730-0700" />
+							<high value="20091019174157.731-0700" />
+						</effectiveTime>
+						<admitter typeCode="ADM">
+							<assignedEntity1 classCode="ASSIGNED">
+								<id displayable="true" extension="?"
+									root="8F9C0F6D-A0EA-4E36-974D-24500BB63EA5" />
+								<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+									<name use="L">
+										<given>Samantha</given>
+										<given qualifier="IN">A.</given>
+										<family>Black</family>
+									</name>
+									<asHealthCareProvider classCode="PROV">
+										<id displayable="true" extension="?"
+											root="03D3B5D4-3FA3-4441-978E-711A7E4560AC" />
+									</asHealthCareProvider>
+								</assignedPerson>
+								<representedOrganization classCode="ORG"
+									determinerCode="INSTANCE">
+									<id displayable="true" extension="?"
+										root="579AC7F3-2A0F-422A-8DFB-D5506F083A81" />
+									<name>Some plain text goes here</name>
+								</representedOrganization>
+							</assignedEntity1>
+						</admitter>
+						<attender typeCode="ATND">
+							<assignedEntity1 classCode="ASSIGNED">
+								<id displayable="true" extension="?"
+									root="AC533F65-8F16-4742-B3CE-3CB02CB59D4D" />
+								<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+									<name use="L">
+										<given>Samantha</given>
+										<given qualifier="IN">A.</given>
+										<family>Black</family>
+									</name>
+									<asHealthCareProvider classCode="PROV">
+										<id displayable="true" extension="?"
+											root="FAD80C6D-C732-4FC3-B0A0-0F9F6234D024" />
+									</asHealthCareProvider>
+								</assignedPerson>
+								<representedOrganization classCode="ORG"
+									determinerCode="INSTANCE">
+									<id displayable="true" extension="?"
+										root="B01605CD-A836-4A94-8B7D-DD7655A84654" />
+									<name>Some plain text goes here</name>
+								</representedOrganization>
+							</assignedEntity1>
+						</attender>
+						<location typeCode="LOC">
+							<serviceDeliveryLocation classCode="SDLOC">
+								<code code="281PC2000N" codeSystem="2.16.840.1.113883.5.111" />
+							</serviceDeliveryLocation>
+						</location>
+					</patientCareProvisionEvent>
+				</componentOf1>
+				<componentOf2 contextConductionInd="false"
+					contextControlCode="AN" typeCode="COMP">
+					<workingListEvent classCode="LIST" moodCode="EVN">
+						<code code="ACU" codeSystem="2.16.840.1.113883.5.4" />
+					</workingListEvent>
+				</componentOf2>
+			</combinedMedicationRequest>
+		</subject>
+		<subjectOf1 contextConductionInd="false"
+			contextControlCode="AP" typeCode="SUBJ">
+			<detectedIssueEvent classCode="ALRT" moodCode="EVN">
+				<code code="ABUSE" codeSystem="2.16.840.1.113883.5.4" />
+				<text>abuse of prescribed medications</text>
+				<statusCode code="completed" />
+				<priorityCode code="E" codeSystem="2.16.840.1.113883.5.1082" />
+				<targetSiteCode>Some plain text goes here</targetSiteCode>
+				<mitigatedBy contextConductionInd="false"
+					contextControlCode="ON" typeCode="MITGT">
+					<detectedIssueManagement classCode="ACT"
+						moodCode="DEF">
+						<code code="1" codeSystem="2.16.840.1.113883.5.4" />
+						<text>Some plain text goes here</text>
+						<author typeCode="AUT">
+							<time value="20091019174157-0700" />
+							<assignedEntity classCode="ASSIGNED">
+								<id displayable="true" extension="?"
+									root="D459FA64-2F68-4209-8F33-B7E6F51F95FF" />
+								<code code="ACP" codeSystem="2.16.840.1.113883.2.20.5.3" />
+								<telecom specializationType="TEL.PHONE" use="WP MC"
+									value="tel:+1(555)630-7960" />
+								<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+									<name use="L">
+										<given>Samantha</given>
+										<given qualifier="IN">A.</given>
+										<family>Black</family>
+									</name>
+									<asHealthCareProvider classCode="PROV">
+										<id displayable="true" extension="eeieigbke"
+											root="4634D2AF-9DD8-44F8-836A-19A37E601FCD" />
+									</asHealthCareProvider>
+								</assignedPerson>
+								<representedOrganization classCode="ORG"
+									determinerCode="INSTANCE">
+									<id displayable="true" extension="?"
+										root="E1A316FF-7A18-4E31-A12F-D95F30BCF9F6" />
+									<name>Some plain text goes here</name>
+									<assignedOrganization classCode="ASSIGNED">
+										<code code="CHR" codeSystem="2.16.840.1.113883.5.111" />
+										<telecom specializationType="TEL.PHONE" use="WP MC"
+											value="tel:+1(555)630-7960" />
+									</assignedOrganization>
+								</representedOrganization>
+							</assignedEntity>
+						</author>
+					</detectedIssueManagement>
+				</mitigatedBy>
+				<triggerFor contextConductionInd="false"
+					contextControlCode="ON" typeCode="TRIG">
+					<actRequest classCode="ACT" moodCode="RQO" />
+				</triggerFor>
+			</detectedIssueEvent>
+		</subjectOf1>
+		<subjectOf2 contextConductionInd="false"
+			contextControlCode="AP" typeCode="SUBJ">
+			<consentEvent classCode="CONS" moodCode="EVN">
+				<id root="8AB8A854-2CE0-43B3-84BD-019A2F7DA038" />
+				<code code="INFA" codeSystem="2.16.840.1.113883.5.4" />
+				<effectiveTime>
+					<low value="20091019" />
+					<high value="20091019" />
+				</effectiveTime>
+				<reasonCode code="OVRER" codeSystem="2.16.840.1.113883.5.8" />
+				<subject1 contextControlCode="OP" typeCode="SBJ">
+					<patient classCode="PAT">
+						<id use="BUS" specializationType="II.BUS" extension="PH1-22033942"
+							root="2.16.840.1.113883.3.19.3.163.8.2.7" />
+						<patientPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<given>Cyril</given>
+								<given qualifier="IN">A.</given>
+								<family>Lambert</family>
+							</name>
+							<administrativeGenderCode code="M"
+								codeSystem="2.16.840.1.113883.5.1" />
+							<birthTime value="19491105" />
+						</patientPerson>
+					</patient>
+				</subject1>
+				<author1 contextControlCode="OP" typeCode="AUT">
+					<modeCode code="PHYSICAL" codeSystem="2.16.840.1.113883.5.1064" />
+					<signatureText>Some plain text goes here</signatureText>
+					<personalRelationship classCode="PRS">
+						<id displayable="true" extension="?"
+							root="FEB3D5DE-4989-41A4-AEA0-63E2D9FE85B6" />
+						<code code="CHILD" codeSystem="2.16.840.1.113883.5.111" />
+						<relationshipHolder classCode="PSN"
+							determinerCode="INSTANCE">
+							<name use="L">
+								<given>Samantha</given>
+								<given qualifier="IN">A.</given>
+								<family>Black</family>
+							</name>
+							<telecom specializationType="TEL.PHONE" use="WP MC"
+								value="tel:+1(555)630-7960" />
+							<addr use="WP PST">
+								<streetAddressLine>1050 W Wishard Blvd</streetAddressLine>
+								<streetAddressLine>RG 5th floor</streetAddressLine>
+								<city>Indianapolis</city>
+								<state>IN</state>
+								<postalCode>46240</postalCode>
+							</addr>
+						</relationshipHolder>
+					</personalRelationship>
+				</author1>
+				<author2 contextControlCode="OP" typeCode="AUT">
+					<assignedEntity classCode="ASSIGNED">
+						<id displayable="true" extension="?"
+							root="588D91E5-DC01-4EC0-AE7C-4BB36CF9CA87" />
+						<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<prefix>Dr.</prefix>
+								<given>Samantha</given>
+								<family>Black</family>
+							</name>
+							<asHealthCareProvider classCode="PROV">
+								<id displayable="true" extension="?"
+									root="47697C46-9A9F-4C94-B790-E1449701DED9" />
+							</asHealthCareProvider>
+						</assignedPerson>
+						<representedOrganization classCode="ORG"
+							determinerCode="INSTANCE">
+							<id displayable="true" extension="sisididk"
+								root="9CE22528-EB7E-4EFA-910A-2D2E6839D565" />
+							<name>Some plain text goes here</name>
+						</representedOrganization>
+					</assignedEntity>
+				</author2>
+				<subject2 contextConductionInd="true" contextControlCode="AN"
+					typeCode="SUBJ">
+					<informDefinition classCode="INFRM" moodCode="DEF">
+						<receiver contextControlCode="OP" typeCode="RCV">
+							<assignedEntity classCode="ASSIGNED">
+								<id displayable="true" extension="?"
+									root="81AE4298-9AE1-42D6-85D4-DEA15F4307D6" />
+								<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+									<name use="L">
+										<prefix>Dr.</prefix>
+										<given>Samantha</given>
+										<family>Black</family>
+									</name>
+									<asHealthCareProvider classCode="PROV">
+										<id displayable="true" extension="?"
+											root="05C9DE73-5E2C-4457-9168-8312EA6A088F" />
+									</asHealthCareProvider>
+								</assignedPerson>
+								<representedOrganization classCode="ORG"
+									determinerCode="INSTANCE">
+									<id displayable="true" extension="AB-DIS"
+										root="2.16.840.1.113883.3.19.3.163.8" />
+									<name>Some plain text goes here</name>
+								</representedOrganization>
+							</assignedEntity>
+						</receiver>
+						<subject contextConductionInd="false" contextControlCode="AN"
+							typeCode="SUBJ">
+							<actDefinition classCode="ACT" moodCode="DEF">
+								<code code="ACADR" codeSystem="2.16.840.1.113883.5.4" />
+							</actDefinition>
+						</subject>
+					</informDefinition>
+				</subject2>
+			</consentEvent>
+		</subjectOf2>
+		<componentOf contextConductionInd="false"
+			contextControlCode="AP" typeCode="COMP">
+			<patientCareProvisionEvent classCode="PCPR"
+				moodCode="EVN">
+				<id root="22590717-1203-46F4-B017-5EF933A001E9" />
+				<code code="ALC" codeSystem="2.16.840.1.113883.5.4" />
+				<effectiveTime>
+					<low value="20091019174157.974-0700" />
+					<high value="20091019174157.974-0700" />
+				</effectiveTime>
+				<admitter typeCode="ADM">
+					<assignedEntity1 classCode="ASSIGNED">
+						<id displayable="true" extension="?"
+							root="1EFF2688-335B-4678-9944-87E5FDE61266" />
+						<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<given>Samantha</given>
+								<family>Black</family>
+							</name>
+							<asHealthCareProvider classCode="PROV">
+								<id displayable="true" extension="?"
+									root="497C3479-EF21-428B-94EF-D35D256A5F4D" />
+							</asHealthCareProvider>
+						</assignedPerson>
+						<representedOrganization classCode="ORG"
+							determinerCode="INSTANCE">
+							<id displayable="true" extension="?"
+								root="5AF040DB-584D-4467-86CF-88FB535D6AB9" />
+							<name>Some plain text goes here</name>
+						</representedOrganization>
+					</assignedEntity1>
+				</admitter>
+				<attender typeCode="ATND">
+					<assignedEntity1 classCode="ASSIGNED">
+						<id displayable="true" extension="022929292"
+							root="F93D3066-BCEB-4799-9C50-FE4550967666" />
+						<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<given>Samantha</given>
+								<family>Black</family>
+							</name>
+							<asHealthCareProvider classCode="PROV">
+								<id displayable="true" root="9AB22D0D-6353-4D16-ACCB-905E2DA93D3A" />
+							</asHealthCareProvider>
+						</assignedPerson>
+						<representedOrganization classCode="ORG"
+							determinerCode="INSTANCE">
+							<id displayable="true" root="14506321-99AC-43EE-8EB1-45C787678D01" />
+							<name>Some plain text goes here</name>
+						</representedOrganization>
+					</assignedEntity1>
+				</attender>
+				<location typeCode="LOC">
+					<serviceDeliveryLocation classCode="SDLOC">
+						<code code="281PC2000N" codeSystem="2.16.840.1.113883.5.111" />
+					</serviceDeliveryLocation>
+				</location>
+			</patientCareProvisionEvent>
+		</componentOf>
+		<queryAck>
+			<queryId root="0a6a4aec-06e6-4a02-abe1-ebaf54dce24d" />
+			<queryResponseCode code="OK" />
+			<resultTotalQuantity value="2" />
+			<resultCurrentQuantity value="2" />
+			<resultRemainingQuantity value="0" />
+		</queryAck>
+		<queryByParameter>
+			<queryId root="0a6a4aec-06e6-4a02-abe1-ebaf54dce24d" />
+			<parameterList>
+				<administrationEffectivePeriod>
+					<value>
+						<low value="19691231" />
+					</value>
+				</administrationEffectivePeriod>
+				<issueFilterCode>
+					<value code="A" codeSystem="2.16.840.1.113883.5.1096" />
+				</issueFilterCode>
+				<mostRecentByDrugIndicator>
+					<value value="false" />
+				</mostRecentByDrugIndicator>
+			</parameterList>
+		</queryByParameter>
+	</controlActEvent>
+</PORX_IN060300CA>

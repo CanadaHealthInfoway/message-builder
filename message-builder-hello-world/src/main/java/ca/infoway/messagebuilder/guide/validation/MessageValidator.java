@@ -1,0 +1,96 @@
+package ca.infoway.messagebuilder.guide.validation;
+
+import static ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.guide.hello_world.HelloWorldApp;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
+import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
+import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
+import ca.infoway.messagebuilder.xml.validator.Validator;
+
+/**
+ * <p>
+ * Example Message Validation. Uses the MB validation API to validate the files
+ * in the command-line arguments
+ * </p>
+ * <p>
+ * The pan-Canadian specifications supported used are base R02.04.02 release.
+ * 
+ * </p>
+ */
+public class MessageValidator {
+
+	public static void main(final String[] args) throws Exception {
+		MessageValidator app = new MessageValidator();
+		app.run(args);
+	}
+
+	public void run(String[] args) {
+		try {
+			configureCodeResolversWithTrivialDefault(); // Relaxes code
+														// vocabulary code
+														// checks.
+			Validator validator = this.createNewValidator("PRPA_EX101104CA.xml", HelloWorldApp.MBSpecificationVersion);
+			MessageValidatorResult result = validator.validate();
+
+			System.out.printf("There are %d errors\n", result.getHl7Errors().size());
+			Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
+			while (resultsIterator.hasNext()) {
+				Hl7Error hl7Err = resultsIterator.next();
+				System.out.printf("Error: %s at XPath: %s\n", hl7Err.getMessage(), hl7Err.getPath());
+			}
+		} catch (IOException e) {
+			// Problem opening the source file to validate
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// XML parsing error
+			e.printStackTrace();
+		}
+	}
+
+	public static void validate(String xmlString, VersionNumber versionNumber) {
+		try {
+			
+			System.out.println("\nValidation Errors:");
+			Document document = new DocumentFactory().createFromString(xmlString);
+			MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
+			Validator validator = new Validator(messageDefinitionService, document, versionNumber);
+			MessageValidatorResult result = validator.validate();
+				
+			System.out.printf("There are %d errors\n", result.getHl7Errors().size());
+			Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
+			while (resultsIterator.hasNext()) {
+				Hl7Error hl7Err = resultsIterator.next();
+				System.out.printf("Error (%s): %s at XPath: %s\n", hl7Err.getHl7ErrorCode(), hl7Err.getMessage(), hl7Err.getPath());				
+			}
+		} catch (SAXException e) {
+			// XML parsing error
+			e.printStackTrace();
+		}
+	}
+
+	private Validator createNewValidator(String resourceName, VersionNumber versionNumber) throws IOException, SAXException {
+
+		// For our example, we'll use the resource XML document that are in the
+		// jar.
+		Document document = new DocumentFactory().createFromStream(getClass().getResourceAsStream(resourceName));
+		// Document document = new
+		// DocumentFactory().createFromString(xmlString);
+		// Document document = new
+		// DocumentFactory().createFromResource(inputStreamResource);
+		// Document document = new DocumentFactory().createFromFile(file);
+
+		MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
+		return new Validator(messageDefinitionService, document, versionNumber);
+	}
+
+}

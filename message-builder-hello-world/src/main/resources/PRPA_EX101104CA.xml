@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PRPA_IN101104CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:hl7-org:v3 ../../../HP/Infoway/InfowaySVN/CSI%20Developer%20Guides/trunk/references/MR2009%20R02.04.02%20(full)/XML%20Schema%20-%20All%20Volumes/PRPA_IN101104CA.xsd">
+   <id root="4adc4470-6287-11de-8a39-0800200c9a66"/>
+   <creationTime value="20090630184400.100-0600"/>
+   <responseModeCode code="I"/>
+   <versionCode code="V3-2008N"/>
+   <interactionId root="2.16.840.1.113883.1.18" extension="PRPA_IN101104CA" displayable="true"/>
+   <profileId use="BUS" root="2.16.840.1.113883.2.20.2" extension="R02.04.02"/>
+   <profileId use="BUS" root="2.16.840.1.113883.2.20.2" extension="R02.04.01"/>
+   <processingCode code="D"/>
+   <processingModeCode code="T"/>
+   <acceptAckCode code="NE"/>
+   <receiver typeCode="RCV">
+      <telecom value="http://www.foothills-pharmacy.ca/pos"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+         <id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="FOOT-PHARM"/>
+         <name>Foothills Pharmacy POS</name>
+      </device>
+   </receiver>
+   <sender typeCode="SND">
+      <telecom value="http://www.albertahealthservices.ca/clientregistry"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+         <id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="AB-CR"/>
+         <name>Alberta Client Registry</name>
+      </device>
+   </sender>
+   <acknowledgement>
+      <typeCode code="AA"/>
+      <targetMessage>
+         <id root="3e1fa210-6280-11de-8a39-0800200c9a66"/>
+      </targetMessage>
+   </acknowledgement>
+   <controlActEvent classCode="CACT" moodCode="EVN">
+      <id use="BUS" root="fc9e18a0-6287-11de-8a39-0800200c9a66"/>
+      <code codeSystem="2.16.840.1.113883.1.18" code="PRPA_TE101104CA"/>
+      <statusCode code="completed"/>
+      <effectiveTime xsi:type="IVL_TS">
+         <low value="20090630184400.000-0600"/>
+      </effectiveTime>
+      <languageCode code="en" codeSystem="2.16.840.1.113883.6.121"/>
+      <subject contextConductionInd="false" contextControlCode="ON" typeCode="SUBJ">
+         <registrationEvent classCode="REG" moodCode="EVN">
+            <statusCode code="active"/>
+            <subject typeCode="SBJ" contextControlCode="AN">
+               <identifiedEntity classCode="IDENT">
+                  <id use="BUS" specializationType="II.BUS" 
+                     extension="PH1-22033942"
+                     root="2.16.840.1.113883.3.19.3.163.8.2.7"/>
+                  <!-- Assigned Alberta Health Number -->
+                  <id displayable="true" extension="9880897949"
+                     root="2.16.840.1.113883.3.19.3.163.1" specializationType="II.PUBLIC"/>
+                  <statusCode code="active"/>
+                  <effectiveTime>
+                     <low value="20090626113503-0600"/>
+                  </effectiveTime>
+                  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+                  <identifiedPerson classCode="PSN" determinerCode="INSTANCE">
+                     <name use="L">
+                        <given>Cyril</given>
+                        <given qualifier="IN">A.</given>
+                        <family>Lambert</family>
+                     </name>
+                     <telecom use="H HP" nullFlavor="NASK"/>
+                     <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+                     <birthTime value="19491105"/>
+                     <deceasedInd value="false"/>
+                     <addr use="PST HP">
+                        <streetAddressLine>3906 SLIVER Springs BLVD</streetAddressLine>
+                        <city>Calgary</city>
+                        <state>AB</state>
+                        <country code="CA">Canada</country>
+                        <postalCode>T3E 0K6</postalCode>
+                     </addr>
+                     <languageCommunication>
+                        <languageCode code="en" codeSystem="2.16.840.1.113883.6.121"/>
+                        <preferenceInd value="true"/>
+                     </languageCommunication>
+                  </identifiedPerson>
+               </identifiedEntity>
+            </subject>
+            <custodian contextControlCode="AP" typeCode="CST">
+               <assignedDevice classCode="ASSIGNED">
+                  <id use="BUS" root="2.16.840.1.113883.3.19.3.163.8" extension="AB-CR"/>
+                  <assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <name>Client Registry</name>
+                  </assignedRepository>
+                  <representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <name>Alberta</name>
+                  </representedRepositoryJurisdiction>
+               </assignedDevice>
+            </custodian>
+         </registrationEvent>
+      </subject>
+      <queryAck>
+         <queryId root="176f56f0-65f1-11de-8a39-0800200c9a66"/>
+         <queryResponseCode code="OK"/>
+         <resultTotalQuantity value="1"/>
+         <resultCurrentQuantity value="1"/>
+         <resultRemainingQuantity value="0"/>
+      </queryAck>    
+      <queryByParameter>
+         <queryId root="176f56f0-65f1-11de-8a39-0800200c9a66"/>
+         <parameterList>
+            <administrativeGender>
+               <value code="M" codeSystem="2.16.840.1.113883.5.1"/>
+            </administrativeGender>
+            <personBirthtime>
+               <value value="19491105" specializationType="TS.DATE"/>
+            </personBirthtime>
+            <personName>
+               <value use="L" specializationType="PN.BASIC">
+                  <given>Cyril</given>
+                  <family>Lambert</family>
+               </value>
+            </personName>
+         </parameterList>
+      </queryByParameter>
+   </controlActEvent>
+</PRPA_IN101104CA>

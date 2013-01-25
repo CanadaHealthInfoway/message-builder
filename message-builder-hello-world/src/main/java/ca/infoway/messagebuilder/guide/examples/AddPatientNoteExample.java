@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example;
+package ca.infoway.messagebuilder.guide.examples;
 
 import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ACT_CODE;
@@ -38,6 +38,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -114,6 +115,7 @@ public class AddPatientNoteExample {
 		// payload
 		controlActEvent.setSubject(new RefersTo_1Bean<CommentBean>());
 		controlActEvent.getSubject().setAct(createCommentBean());
+		controlActEvent.getSubject().setContextConductionInd(true);
 		
 		return messageBean;
 	}
@@ -153,7 +155,8 @@ public class AddPatientNoteExample {
 
 	private static void populateRecordControlActStandardValues(TriggerEvent_1Bean<CommentBean> controlActEvent) {
 		controlActEvent.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(new Date(0), null));
+		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(new Date(0), new Date()));
+		controlActEvent.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
 		controlActEvent.setAuthor(createAuthorBean());
 		controlActEvent.setLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
 		controlActEvent.setResponsiblePartyAssignedEntity(createHealthcareWorkerBean());

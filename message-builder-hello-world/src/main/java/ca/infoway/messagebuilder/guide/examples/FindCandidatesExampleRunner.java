@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example;
+package ca.infoway.messagebuilder.guide.examples;
 
 import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault;

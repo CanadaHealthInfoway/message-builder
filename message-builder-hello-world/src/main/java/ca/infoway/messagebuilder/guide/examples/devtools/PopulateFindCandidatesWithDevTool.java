@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example.devtools;
+package ca.infoway.messagebuilder.guide.examples.devtools;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.devtools.DefaultValueHolder;

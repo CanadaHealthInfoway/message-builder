@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example;
+package ca.infoway.messagebuilder.guide.examples;
 
 import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.ICD10;
@@ -52,6 +52,7 @@ import java.util.GregorianCalendar;
 import java.util.UUID;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -77,6 +78,7 @@ import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
+import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
@@ -156,6 +158,7 @@ public class AddAllergyIntoleranceExample {
 		controlActEvent
 				.setSubject(new RefersTo_1Bean<AllergyIntoleranceBean>());
 		controlActEvent.getSubject().setAct(createAllergyIntoleranceBean());
+		controlActEvent.getSubject().setContextConductionInd(true);
 
 		return messageBean;
 	}
@@ -274,7 +277,9 @@ public class AddAllergyIntoleranceExample {
 		controlActEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.6", "8141234"));
 		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(
-				new Date(0), null));
+				new Date(0), new Date(0)));
+		controlActEvent.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
+
 		controlActEvent.setAuthor(createAuthorBean());
 		controlActEvent
 				.setLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
@@ -392,7 +397,7 @@ public class AddAllergyIntoleranceExample {
 	}
 
 	private static MessageBeanTransformerImpl createTransformer() {
-		return new MessageBeanTransformerImpl();
+		return new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
 	}
 
 	private static CredentialsProvider createCredentialsProvider(

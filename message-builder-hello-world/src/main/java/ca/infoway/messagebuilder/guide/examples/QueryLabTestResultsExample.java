@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.example;
+package ca.infoway.messagebuilder.guide.examples;
 
 import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER;
@@ -35,6 +35,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -46,6 +47,7 @@ import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
+import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_1Bean;
@@ -169,7 +171,8 @@ public class QueryLabTestResultsExample {
 
 	private static void populateQueryControlActStandardValues(TriggerEvent_5Bean<ParameterListBean> triggerEventBean) {
 		triggerEventBean.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
-		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLow(new Date()));
+		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLowHigh(new Date(0), new Date()));
+		triggerEventBean.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
 		triggerEventBean.setAuthor(createAuthorBean());
 		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
 		triggerEventBean.getQueryByParameter().setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
@@ -207,7 +210,7 @@ public class QueryLabTestResultsExample {
 	}
 
 	private static MessageBeanTransformerImpl createTransformer() {
-		return new MessageBeanTransformerImpl();
+		return new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
 	}
 
 	private static CredentialsProvider createCredentialsProvider(
