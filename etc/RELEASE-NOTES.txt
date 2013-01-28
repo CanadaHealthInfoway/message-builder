@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.4.4
+                               Version 1.4.5
                                Release Notes
 
 INTRODUCTION:
