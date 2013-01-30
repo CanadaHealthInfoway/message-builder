@@ -26,7 +26,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
+  			<plugin>
 		        <groupId>org.apache.maven.plugins</groupId>
         		<artifactId>maven-dependency-plugin</artifactId>
         		<executions>
@@ -52,6 +52,45 @@
 			<groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
-		</plugins>
+		 <plugin>
+	        <groupId>com.google.code.maven-replacer-plugin</groupId>
+	            <artifactId>maven-replacer-plugin</artifactId>
+	            <version>1.4.0</version>
+	            <executions>                
+	                <execution>
+	                    <phase>initialize</phase>
+	                    <goals>
+	                        <goal>replace</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	            <configuration>
+	                <file>message-builder-hello-world-scratchpad-pom.xml.template</file>
+	                <outputFile>message-builder-hello-world-scratchpad-pom.xml</outputFile>
+	                <replacements>
+	                    <replacement>
+	                        <token>@pomversion@</token>
+	                        <value>${project.version}</value>
+	                    </replacement>
+	                </replacements>                        
+	            </configuration>
+	      </plugin>
+      </plugins>
+		<resources>
+			  <resource>
+			    <directory>${basedir}/src/main/resources</directory>
+			    <filtering>false</filtering>
+			    <includes>
+			      <include>**/*.xml</include>
+			    </includes>
+			  </resource>
+			  <resource>
+			    <directory>${basedir}</directory>
+			    <filtering>false</filtering>
+			    <includes>
+			      <include>message-builder-hello-world-scratchpad-pom.xml</include>
+			    </includes>
+			  </resource>
+		</resources>
 	</build>
 </project>
