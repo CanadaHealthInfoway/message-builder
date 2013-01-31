@@ -25,7 +25,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
-	<artifactId>message-builder-hello-world-scratchpad</artifactId>
+	<artifactId>message-builder-hello-world-project</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
 	<name>Message Builder Deployer</name>
@@ -34,12 +34,12 @@
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-core</artifactId>
-			<version>1.4.5-SNAPSHOT</version>
+			<version>@pomversion@</version>
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
-			<version>1.4.5-SNAPSHOT</version>
+			<version>@pomversion@</version>
 		</dependency>
 	</dependencies>
 

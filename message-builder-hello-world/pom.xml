@@ -65,8 +65,8 @@
 	                </execution>
 	            </executions>
 	            <configuration>
-	                <file>message-builder-hello-world-scratchpad-pom.xml.template</file>
-	                <outputFile>message-builder-hello-world-scratchpad-pom.xml</outputFile>
+	                <file>message-builder-hello-world-project-pom.xml.template</file>
+	                <outputFile>message-builder-hello-world-project-pom.xml</outputFile>
 	                <replacements>
 	                    <replacement>
 	                        <token>@pomversion@</token>
@@ -88,7 +88,7 @@
 			    <directory>${basedir}</directory>
 			    <filtering>false</filtering>
 			    <includes>
-			      <include>message-builder-hello-world-scratchpad-pom.xml</include>
+			      <include>message-builder-hello-world-project-pom.xml</include>
 			    </includes>
 			  </resource>
 		</resources>
