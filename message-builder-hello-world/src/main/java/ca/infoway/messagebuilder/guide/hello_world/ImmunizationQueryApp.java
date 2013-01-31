@@ -28,8 +28,8 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Refers
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_5Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.ImmunizationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt060140ca.ImmunizationQueryParametersBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt061140ca.PatientIDBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.ImmunizationsQueryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.ImmunizationsQueryResponseBean;
 

@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
-import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;

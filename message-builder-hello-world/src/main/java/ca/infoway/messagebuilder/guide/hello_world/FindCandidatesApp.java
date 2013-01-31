@@ -30,11 +30,10 @@ import java.util.UUID;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RegistrationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
@@ -42,7 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.Identified
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesResponseBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 
 /**
  * <p>
