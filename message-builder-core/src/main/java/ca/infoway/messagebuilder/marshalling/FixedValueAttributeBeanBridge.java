@@ -26,6 +26,8 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 class FixedValueAttributeBeanBridge implements AttributeBridge {
 
+	static final String FIXED = "fixed";
+	
 	private final BareANY any;
 	private final Object value;
 	private final Relationship relationship;
@@ -60,7 +62,7 @@ class FixedValueAttributeBeanBridge implements AttributeBridge {
 	}
 	
 	public String getPropertyName() {
-		return "fixed";
+		return FIXED;
 	}
 
 	public boolean isAssociation() {

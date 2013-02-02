@@ -79,6 +79,7 @@ import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.RenderMode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
@@ -132,6 +133,11 @@ public class AddAllergyIntoleranceExample {
 
 			System.out.println("Here's the request:");
 			System.out.println(xmlRequest.getXmlMessage());
+			
+			for (Hl7Error hl7Error : xmlRequest.getHl7Errors()) {
+				System.out.println(hl7Error);
+			}
+			
 
 			String xmlResponse = new RestTransportLayer(URL)
 					.sendRequestAndGetResponse(createCredentialsProvider(
@@ -352,11 +358,12 @@ public class AddAllergyIntoleranceExample {
 
 	private static ReportedReactionsBean createAssessment() {
 
+		// nothing in this "kindBean" will show up in the example, as this bean does not apply in the message context
 		AgentCategoryBean kindBean = new AgentCategoryBean();
 		kindBean.setName("material name");
 		kindBean.setCode(lookup(ExposureAgentEntityType.class,
 				"NDA05", VOCABULARY_ENTITY_CODE.getRoot()));
-
+		
 		ExposuresBean exposureEvent = new ExposuresBean();
 		exposureEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.133", "12"));
@@ -364,6 +371,10 @@ public class AddAllergyIntoleranceExample {
 				.setConsumableAdministrableMaterialAdministerableMaterialKind(kindBean);
 		exposureEvent.setRouteCode(lookup(RouteOfAdministration.class,
 				"CHEW", VOCABULARY_ROUTE_OF_ADMINISTRATION.getRoot()));
+		
+		// the code below is actually the correct way to have specified the code that isn't showing up, above
+//		exposureEvent.setConsumableAdministrableMaterialAdministerableMaterialKindCode(
+//				lookup(ExposureAgentEntityType.class, "NDA05", VOCABULARY_ENTITY_CODE.getRoot()));
 
 		AllergyIntoleranceSeverityLevelBean severityLevelBean = new AllergyIntoleranceSeverityLevelBean();
 		severityLevelBean.setValue(lookup(SeverityObservation.class,

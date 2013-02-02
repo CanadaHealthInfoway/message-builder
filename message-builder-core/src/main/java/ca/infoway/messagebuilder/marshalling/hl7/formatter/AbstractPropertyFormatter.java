@@ -25,6 +25,7 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
@@ -35,7 +36,7 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     static final Map<String, String> EMPTY_ATTRIBUTE_MAP = new HashMap<String, String>(); 
 
     static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
-    static final String NULL_FLAVOR_NO_INFORMATION = "NI";
+    static final String NULL_FLAVOR_NO_INFORMATION = NullFlavor.NO_INFORMATION.getCodeValue();
     static final Map<String, String> NULL_FLAVOR_ATTRIBUTES = new HashMap<String, String>();
     static {
         NULL_FLAVOR_ATTRIBUTES.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
