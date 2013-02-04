@@ -63,6 +63,7 @@ CHANGES for 1.4.5:
 - example project renamed to message-builder-hello-world
 - more examples added to hellow-world project
 - some updates to example code to take into account the changes to validation
+- 13948 - warnings in generated xml messages can be slightly out of place
 
 The following classes were moved from ca.infoway.messagebuilder.datatype.lang and placed in ca.infoway.messagebuilder.datatype.lang.util:
 
