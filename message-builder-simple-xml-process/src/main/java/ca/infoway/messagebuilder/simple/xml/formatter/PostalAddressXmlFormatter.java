@@ -99,7 +99,7 @@ public class PostalAddressXmlFormatter extends AbstractSimpleXmlFormatter {
 		NodeList countryNodes = value.getElementsByTagName("country");
 		
 		PostalAddress postalAddress = new PostalAddress();
-		addPostalAddressParts(addressLineNodes, postalAddress, PostalAddressPartType.ADDRESS_LINE);
+		addPostalAddressParts(addressLineNodes, postalAddress, PostalAddressPartType.STREET_ADDRESS_LINE);
 		addPostalAddressParts(cityNodes, postalAddress, PostalAddressPartType.CITY);
 		addPostalAddressParts(provinceNodes, postalAddress, PostalAddressPartType.STATE);
 		addPostalAddressParts(postalCodeNodes, postalAddress, PostalAddressPartType.POSTAL_CODE);

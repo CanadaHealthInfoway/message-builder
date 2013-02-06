@@ -46,7 +46,7 @@ public class PostalAddressPartType extends EnumPattern implements NamePartType, 
     public static final PostalAddressPartType CITY = new PostalAddressPartType("CITY", "CTY", "city"); // municipality? 
     public static final PostalAddressPartType STATE = new PostalAddressPartType("STATE", "STA", "state"); // province? 
     public static final PostalAddressPartType POSTAL_CODE = new PostalAddressPartType("POSTAL_CODE", "ZIP", "postalCode");
-    public static final PostalAddressPartType ADDRESS_LINE = new PostalAddressPartType("ADDRESS_LINE", "AL", "addressLine");  // will eventually be allowed as Basic
+//  public static final PostalAddressPartType ADDRESS_LINE = new PostalAddressPartType("ADDRESS_LINE", "AL", "addressLine");  // will eventually be allowed as Basic
     
     // x_FullAddressPartType (also includes the above)
     public static final PostalAddressPartType STREET_ADDRESS_LINE = new PostalAddressPartType("STREET_ADDRESS_LINE", "SAL", "streetAddressLine");

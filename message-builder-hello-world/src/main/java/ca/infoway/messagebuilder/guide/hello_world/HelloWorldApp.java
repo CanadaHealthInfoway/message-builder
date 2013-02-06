@@ -322,7 +322,7 @@ public abstract class HelloWorldApp {
 		PostalAddress addr = new PostalAddress();
 		addr.getUses().add(X_BasicPostalAddressUse.WORK_PLACE);
 		
-		addr.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.ADDRESS_LINE, "1566 Northmount Drive NW"));
+		addr.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STREET_ADDRESS_LINE, "1566 Northmount Drive NW"));
 		addr.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Calgary"));
 		addr.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "AB"));
 		addr.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "T2L 0G6"));
@@ -424,7 +424,7 @@ public abstract class HelloWorldApp {
 		addr.getUses().add(X_BasicPostalAddressUse.POSTAL);
 
 		PostalAddressPart part = new PostalAddressPart();
-		part.setType(PostalAddressPartType.ADDRESS_LINE);
+		part.setType(PostalAddressPartType.STREET_ADDRESS_LINE);
 		part.setValue("1234 Main Street");
 		addr.addPostalAddressPart(part);
 

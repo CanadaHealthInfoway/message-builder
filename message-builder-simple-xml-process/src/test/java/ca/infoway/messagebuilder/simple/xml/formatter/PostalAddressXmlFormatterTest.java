@@ -63,9 +63,9 @@ public class PostalAddressXmlFormatterTest {
 		assertEquals("WP", iterator.next().getCodeValue());
 		assertEquals("PST", iterator.next().getCodeValue());
 		assertEquals(6, ad.getValue().getParts().size());
-		assertEquals(PostalAddressPartType.ADDRESS_LINE, ad.getValue().getParts().get(0).getType());
+		assertEquals(PostalAddressPartType.STREET_ADDRESS_LINE, ad.getValue().getParts().get(0).getType());
 		assertEquals("addressline1", ad.getValue().getParts().get(0).getValue());
-		assertEquals(PostalAddressPartType.ADDRESS_LINE, ad.getValue().getParts().get(1).getType());
+		assertEquals(PostalAddressPartType.STREET_ADDRESS_LINE, ad.getValue().getParts().get(1).getType());
 		assertEquals("addressline2", ad.getValue().getParts().get(1).getValue());
 		assertEquals(PostalAddressPartType.CITY, ad.getValue().getParts().get(2).getType());
 		assertEquals("myCity", ad.getValue().getParts().get(2).getValue());
@@ -80,7 +80,7 @@ public class PostalAddressXmlFormatterTest {
 	@Test
 	public void shouldTransformXmlToAddressUsingPartBasedXml() throws Exception {
 		
-		Document document = new DocumentFactory().createFromString("<address" + ns  + " use=\"H WP PST\"><addressPart type=\"AL\">addressline1</addressPart><addressPart type=\"AL\">addressline2</addressPart><addressPart type=\"CTY\">myCity</addressPart><addressPart type=\"STA\">ON</addressPart><addressPart type=\"ZIP\">M1L4V1</addressPart><addressPart type=\"CNT\">CA</addressPart></address>");
+		Document document = new DocumentFactory().createFromString("<address" + ns  + " use=\"H WP PST\"><addressPart type=\"SAL\">addressline1</addressPart><addressPart type=\"SAL\">addressline2</addressPart><addressPart type=\"CTY\">myCity</addressPart><addressPart type=\"STA\">ON</addressPart><addressPart type=\"ZIP\">M1L4V1</addressPart><addressPart type=\"CNT\">CA</addressPart></address>");
 		PostalAddressXmlFormatter formatter = new PostalAddressXmlFormatter(new FormatterConfiguration());
 		
 		AD ad = formatter.format(new FormatterContextImpl(StandardDataType.AD, null), document.getDocumentElement());
@@ -91,9 +91,9 @@ public class PostalAddressXmlFormatterTest {
 		assertEquals("WP", iterator.next().getCodeValue());
 		assertEquals("PST", iterator.next().getCodeValue());
 		assertEquals(6, ad.getValue().getParts().size());
-		assertEquals(PostalAddressPartType.ADDRESS_LINE, ad.getValue().getParts().get(0).getType());
+		assertEquals(PostalAddressPartType.STREET_ADDRESS_LINE, ad.getValue().getParts().get(0).getType());
 		assertEquals("addressline1", ad.getValue().getParts().get(0).getValue());
-		assertEquals(PostalAddressPartType.ADDRESS_LINE, ad.getValue().getParts().get(1).getType());
+		assertEquals(PostalAddressPartType.STREET_ADDRESS_LINE, ad.getValue().getParts().get(1).getType());
 		assertEquals("addressline2", ad.getValue().getParts().get(1).getValue());
 		assertEquals(PostalAddressPartType.CITY, ad.getValue().getParts().get(2).getType());
 		assertEquals("myCity", ad.getValue().getParts().get(2).getValue());
@@ -116,7 +116,7 @@ public class PostalAddressXmlFormatterTest {
 	@Test
 	public void shouldAllowInvalidPartTypeIfConfigurationIsPermissive() throws Exception {
 		
-		Document document = new DocumentFactory().createFromString("<address" + ns  + " use=\"H WP PST\"><addressPart type=\"invalid_part_type\">addressline1</addressPart><addressPart type=\"AL\">addressline2</addressPart><addressPart type=\"CTY\">myCity</addressPart><addressPart type=\"STA\">ON</addressPart><addressPart type=\"ZIP\">M1L4V1</addressPart><addressPart type=\"CNT\">CA</addressPart></address>");
+		Document document = new DocumentFactory().createFromString("<address" + ns  + " use=\"H WP PST\"><addressPart type=\"invalid_part_type\">addressline1</addressPart><addressPart type=\"SAL\">addressline2</addressPart><addressPart type=\"CTY\">myCity</addressPart><addressPart type=\"STA\">ON</addressPart><addressPart type=\"ZIP\">M1L4V1</addressPart><addressPart type=\"CNT\">CA</addressPart></address>");
 		PostalAddressXmlFormatter formatter = new PostalAddressXmlFormatter(new FormatterConfiguration(true));
 		FormatterContextImpl formatContext = new FormatterContextImpl(StandardDataType.AD, null);
 		AD ad = formatter.format(formatContext, document.getDocumentElement());
