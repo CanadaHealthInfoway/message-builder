@@ -226,7 +226,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 
 	private void addExtraAttributes(String type, VersionNumber version, Map<String, String> result) {
 		if (II_PUBLIC.getType().equals(type)) {
-			if (iiValidationUtils.isMR2009(version)) {
+			if (!iiValidationUtils.isCerxOrMr2007(version)) {
 				result.put("use", "BUS");
             }
             result.put("displayable", "true");
@@ -239,7 +239,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         } else if (II_PUBLICVER.getType().equals(type)) {
             result.put("displayable", "true");
         } else if (II_OID.getType().equals(type)) {
-			if (iiValidationUtils.isMR2009(version)) {
+			if (!iiValidationUtils.isCerxOrMr2007(version)) {
 				result.put("use", "BUS");
             }
         }

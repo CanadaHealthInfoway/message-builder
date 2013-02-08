@@ -44,16 +44,16 @@ public class PnValidationUtils {
     private final static Map<Hl7BaseVersion, Set<String>> ALLOWABLE_NAME_USES_BY_VERSION = new HashMap<Hl7BaseVersion, Set<String>>();
     private final static Set<String> ALLOWABLE_NAME_PARTS = new HashSet<String>();
     private final static Set<String> ALLOWABLE_NAME_PART_QUALIFIERS = new HashSet<String>();
+    private final static Set<String> ALLOWABLE_NAME_USES = new HashSet<String>(); 
 
     static {
-    	Set<String> mr2009Uses = new HashSet<String>(); 
     	Set<String> mr2007Uses = new HashSet<String>(); 
     	Set<String> cerxUses = new HashSet<String>(); 
     	
-    	mr2009Uses.add("C");
-    	mr2009Uses.add("L");
-    	mr2009Uses.add("P");
-    	mr2009Uses.add("OR");
+    	ALLOWABLE_NAME_USES.add("C"); // MR2009 allowable uses
+    	ALLOWABLE_NAME_USES.add("L");
+    	ALLOWABLE_NAME_USES.add("P");
+    	ALLOWABLE_NAME_USES.add("OR");
     	
     	mr2007Uses.add("C");
     	mr2007Uses.add("L");
@@ -63,7 +63,6 @@ public class PnValidationUtils {
     	cerxUses.add("L");
     	cerxUses.add("P");
     	
-    	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.MR2009, mr2009Uses);
     	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.MR2007, mr2007Uses);
     	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.MR2007_V02R01, mr2007Uses);
     	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.CERX, cerxUses);
@@ -118,7 +117,7 @@ public class PnValidationUtils {
 			
 			String qualifier = personNamePart.getQualifier();
 			if (StringUtils.isNotBlank(qualifier)) {
-				if (isCeRx || (isMr2009(baseVersion) && isBasic)) {
+				if (isCeRx || (!isMr2007(baseVersion) && isBasic)) {
 					if (!"IN".equals(qualifier)) {
 		    			createError("Qualifier '" + qualifier + "' not valid. Only 'IN' is allowed.", element, propertyPath, errors);
 					}
@@ -159,15 +158,18 @@ public class PnValidationUtils {
 
 	public boolean isAllowableUse(String dataType, EntityNameUse personNameUse, Hl7BaseVersion baseVersion) {
 		Set<String> allowableUses = ALLOWABLE_NAME_USES_BY_VERSION.get(baseVersion);
-		return allowableUses != null && allowableUses.contains(personNameUse.getCodeValue());
+		if (allowableUses == null) {
+			allowableUses = ALLOWABLE_NAME_USES;
+		}
+		return allowableUses.contains(personNameUse.getCodeValue());
 	}
 
 	private boolean isCeRx(Hl7BaseVersion baseVersion) {
 		return baseVersion == Hl7BaseVersion.CERX;
 	}
 
-	private boolean isMr2009(Hl7BaseVersion baseVersion) {
-		return baseVersion == Hl7BaseVersion.MR2009;
+	private boolean isMr2007(Hl7BaseVersion baseVersion) {
+		return baseVersion == Hl7BaseVersion.MR2007 || baseVersion == Hl7BaseVersion.MR2007_V02R01;
 	}
 
 	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {

@@ -108,8 +108,10 @@ public class IiValidationUtils {
 		return StringUtils.length(extension) > getMaxExtensionLength();
 	}
 
-	public boolean isMR2009(VersionNumber version) {
-		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2009);
+	public boolean isCerxOrMr2007(VersionNumber version) {
+		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2007) ||
+			   SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2007_V02R01) || 
+			   SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
 	}
 
 	public boolean isSpecializationTypeRequired(VersionNumber version, String type) {

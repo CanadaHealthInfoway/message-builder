@@ -146,7 +146,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		validateRootAsOid(root, element, xmlToModelResult, version);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		if (iiValidationUtils.isMR2009(context.getVersion())) {
+		if (!iiValidationUtils.isCerxOrMr2007(context.getVersion())) {
 			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 		} else {
 			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
@@ -158,7 +158,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		validateExtensionForOid(xmlToModelResult, element, extension);
 		validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
 		// Redmine 11293 - TM - must have use=BUS, but not for MR2007 (use is not permitted in this case)
-		if (!isII_PUBLICVER && iiValidationUtils.isMR2009(context.getVersion())) {
+		if (!isII_PUBLICVER && !iiValidationUtils.isCerxOrMr2007(context.getVersion())) {
 			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 		} else {
 			validateUnallowedAttributes(type, element, xmlToModelResult, "use");

@@ -52,11 +52,18 @@ public class PqValidationUtils {
 
 	public static final int MAXIMUM_INTEGER_DIGITS = 11;
 	public static final int MAXIMUM_FRACTION_DIGITS = 2;
+	public static final int MAXIMUM_FRACTION_DIGITS_DRUG_LAB = 4;
 	
 	public static final Map<String, Integer> maximum_fraction_digits_exceptions = new HashMap<String, Integer>();
 	static {
-		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2009.name() + "_PQ.DRUG", 4);
-		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2009.name() + "_PQ.LAB", 4);
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007.name() + "_PQ.DRUG", 2);
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007.name() + "_PQ.LAB", 2);
+		
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007_V02R01.name() + "_PQ.DRUG", 2);
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007_V02R01.name() + "_PQ.LAB", 2);
+		
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.CERX.name() + "_PQ.DRUG", 2);
+		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.CERX.name() + "_PQ.LAB", 2);
 	}
 
 	public static final Map<String, Integer> maximum_integer_digits_exceptions = new HashMap<String, Integer>();
@@ -67,9 +74,14 @@ public class PqValidationUtils {
 		maximum_integer_digits_exceptions.put(Hl7BaseVersion.CERX.name() + "_PQ.HEIGHTWEIGHT", 8); // CeRx does not specify PQ.LAB or PQ.DISTANCE 
 	}
 	
-	public int getMaxFractionDigits(VersionNumber version, String type) {
+	public int getMaxFractionDigits(VersionNumber version, String typeAsString) {
+		int maxFractionDigits = MAXIMUM_FRACTION_DIGITS;
+		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
+		if (PQ_DRUG.equals(type) || PQ_LAB.equals(type)) {
+			maxFractionDigits = MAXIMUM_FRACTION_DIGITS_DRUG_LAB;
+		}
 		Integer exceptionValue = maximum_fraction_digits_exceptions.get(version.getBaseVersion().name() + "_" + type);
-		return exceptionValue == null ? MAXIMUM_FRACTION_DIGITS : exceptionValue;
+		return exceptionValue == null ? maxFractionDigits : exceptionValue;
 	}
 
 	public int getMaxIntDigits(VersionNumber version, String type) {

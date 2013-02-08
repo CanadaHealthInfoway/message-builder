@@ -30,7 +30,6 @@ import java.util.Map;
 import org.apache.commons.collections.CollectionUtils;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
-import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 
