@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
  * The TEL.PHONEMAIL variant defined by CeRx is for personal contact addresses only.
  * The only valid URLSchemes are FAX, MAILTO and TELEPHONE.
  */
-@DataTypeHandler({"TEL.PHONEMAIL", "TEL"})
+@DataTypeHandler({"TEL.ALL", "TEL.PHONEMAIL", "TEL"})
 public class TelPhonemailPropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> {
 
 	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();

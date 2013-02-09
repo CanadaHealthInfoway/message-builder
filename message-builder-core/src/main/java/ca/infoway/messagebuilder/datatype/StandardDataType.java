@@ -172,6 +172,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType TS_FULLDATETIME = new StandardDataType("TS_FULLDATETIME", "TS.FULLDATETIME", "FullDateTime");
 	
 	public static final StandardDataType TEL = new StandardDataType("TEL", "TEL", "BaseTelecommunicationAddress"); 
+	public static final StandardDataType TEL_ALL = new StandardDataType("TEL_ALL", "TEL.ALL", "PhonemailTelecommunicationAddress"); 
 	public static final StandardDataType TEL_PHONEMAIL = new StandardDataType("TEL_PHONEMAIL", "TEL.PHONEMAIL", "PhonemailTelecommunicationAddress"); 
 	public static final StandardDataType TEL_PHONE = new StandardDataType("TEL_PHONE", "TEL.PHONE", "PhoneNumber"); 
 	public static final StandardDataType TEL_EMAIL = new StandardDataType("TEL_EMAIL", "TEL.EMAIL", "EmailAddress"); 

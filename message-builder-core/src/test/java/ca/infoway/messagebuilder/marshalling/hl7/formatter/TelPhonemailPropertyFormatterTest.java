@@ -120,6 +120,22 @@ public class TelPhonemailPropertyFormatterTest {
 	}
 
 	@Test
+	public void testGetAttributeNameValuePairsTelAllMissingSpecializationType() throws Exception {
+		TelecommunicationAddress address = new TelecommunicationAddress();
+		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
+		address.setAddress("value");
+		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.ALL"), address, new TELImpl());
+		
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		assertEquals("value as expected", "tel:value", result.get("value"));
+	}
+
+	@Test
 	public void testGetAttributeNameValuePairsTelPhonemailMissingSpecializationType2() throws Exception {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);

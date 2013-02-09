@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TEL
  * 
  */
-@DataTypeHandler({"TEL.URI", "TEL.PHONEMAIL", "TEL"})
+@DataTypeHandler({"TEL.URI", "TEL.PHONEMAIL", "TEL.ALL", "TEL"})
 class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
 	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();

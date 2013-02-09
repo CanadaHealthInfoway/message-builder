@@ -19,6 +19,7 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7;
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -87,7 +88,10 @@ public class TelValidationUtils {
 
 	public String determineActualType(TelecommunicationAddress telecomAddress, String type, String specializationType, VersionNumber version, Element element, String propertyPath, Hl7Errors errors, boolean logErrors) {
 		String actualType = type;
-		if (StandardDataType.TEL_PHONEMAIL.getType().equals(type)) {
+		boolean isTelAll = StandardDataType.TEL_ALL.getType().equals(type);
+		boolean isTelPhonemail = StandardDataType.TEL_PHONEMAIL.getType().equals(type);
+		
+		if (isTelAll || isTelPhonemail) {
 			if (isCeRxOrNewfoundland(version)) {
 				URLScheme urlScheme = telecomAddress.getUrlScheme();
 				if ("mailto".equals(urlScheme == null ? null : urlScheme.getCodeValue())) {
@@ -98,12 +102,20 @@ public class TelValidationUtils {
 			} else {
 				if (StringUtils.isBlank(specializationType)) {
 					if (logErrors) {
-						createError("No specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, propertyPath, errors);
+						String errorMessage = MessageFormat.format(
+								"No specialization type provided. Specialization type of TEL.PHONE/TEL.EMAIL{0} must be specified for abstract data type {1}. Assuming TEL.PHONE",
+								isTelAll ? "/TEL.URI" : "", type);
+						createError(errorMessage, element, propertyPath, errors);
 					}
 					actualType = "TEL.PHONE";
-				} else if (!StandardDataType.TEL_PHONE.getType().equals(specializationType) && !StandardDataType.TEL_EMAIL.getType().equals(specializationType)) {
+				} else if (!StandardDataType.TEL_PHONE.getType().equals(specializationType) && 
+						   !StandardDataType.TEL_EMAIL.getType().equals(specializationType) && 
+						   !(StandardDataType.TEL_URI.getType().equals(specializationType) && isTelAll)) {
 					if (logErrors) {
-						createError("Invalid specialization type provided. Specialization type of TEL.PHONE or TEL.EMAIL must be specified for abstract data type TEL.PHONEMAIL. Assuming TEL.PHONE", element, propertyPath, errors);
+						String errorMessage = MessageFormat.format(
+								"Invalid specialization type provided. Specialization type of TEL.PHONE/TEL.EMAIL{0} must be specified for abstract data type {1}. Assuming TEL.PHONE",
+								isTelAll ? "/TEL.URI" : "", type);
+						createError(errorMessage, element, propertyPath, errors);
 					}
 					actualType = "TEL.PHONE";
 				} else {
