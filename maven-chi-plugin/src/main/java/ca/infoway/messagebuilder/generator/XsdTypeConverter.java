@@ -82,6 +82,7 @@ public class XsdTypeConverter {
         map.put("TS.FULLDATEWITHTIME", new XsdDataType("FullDateWithTime", Namespaces.CHI_NAMESPACE));
         map.put("TS.FULLDATETIME", new XsdDataType("FullDateTime", Namespaces.CHI_NAMESPACE));
         map.put("TEL.URI", new XsdDataType("Uri", Namespaces.CHI_NAMESPACE));
+        map.put("TEL.ALL", new XsdDataType("PhonemailTelecommunicationAddress", Namespaces.CHI_NAMESPACE));
         map.put("TEL.PHONEMAIL", new XsdDataType("PhonemailTelecommunicationAddress", Namespaces.CHI_NAMESPACE));
         map.put("TEL.PHONE", new XsdDataType("PhoneNumber", Namespaces.CHI_NAMESPACE));
         map.put("TEL.EMAIL", new XsdDataType("EmailAddress", Namespaces.CHI_NAMESPACE));
