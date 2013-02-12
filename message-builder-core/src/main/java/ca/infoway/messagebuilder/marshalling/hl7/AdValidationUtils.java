@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.isExactVersion;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,8 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
@@ -53,12 +57,12 @@ public class AdValidationUtils {
         ALLOWABLE_ADDRESS_USES.add("DIR");
     }
 
-	public void validatePostalAddress(PostalAddress postalAddress, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
-    	validatePostalAddressUses(postalAddress, type, baseVersion, element, propertyPath, errors);
-    	validatePostalAddressParts(postalAddress, type, baseVersion, element, propertyPath, errors);
+	public void validatePostalAddress(PostalAddress postalAddress, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
+    	validatePostalAddressUses(postalAddress, type, version, element, propertyPath, errors);
+    	validatePostalAddressParts(postalAddress, type, version, element, propertyPath, errors);
 	}
 
-	private void validatePostalAddressParts(PostalAddress postalAddress, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+	private void validatePostalAddressParts(PostalAddress postalAddress, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		int countBlankParts = 0;
     	boolean isBasic = StandardDataType.AD_BASIC.getType().equals(type);
     	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(type);
@@ -109,7 +113,8 @@ public class AdValidationUtils {
     	}
     	
     	// city/state/postalCode/country mandatory for AD.FULL
-    	if (isFull) {
+    	// new change for R02.05 onwards - these fields are now only *required*, not mandatory
+    	if (isFull && !isExactVersion(SpecificationVersion.R02_05_00_PA_AB, version)) {
     		validatePartTypeProvided(PostalAddressPartType.CITY, postalAddress.getParts(), element, propertyPath, errors);
     		validatePartTypeProvided(PostalAddressPartType.STATE, postalAddress.getParts(), element, propertyPath, errors);
     		validatePartTypeProvided(PostalAddressPartType.POSTAL_CODE, postalAddress.getParts(), element, propertyPath, errors);
@@ -130,7 +135,7 @@ public class AdValidationUtils {
 		}
 	}
 
-	private void validatePostalAddressUses(PostalAddress postalAddress, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+	private void validatePostalAddressUses(PostalAddress postalAddress, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		int numUses = postalAddress.getUses().size();
     	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(type);
 		if (isSearch && numUses > 0) {
@@ -145,7 +150,7 @@ public class AdValidationUtils {
     	
 		if (!isSearch) {
 			for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
-				if (!isAllowableUse(type, postalAddressUse, baseVersion)) {
+				if (!isAllowableUse(type, postalAddressUse, version.getBaseVersion())) {
 	   				createError("PostalAddressUse is not valid: " + (postalAddressUse == null ? "null" : postalAddressUse.getCodeValue()), element, propertyPath, errors);
 				}
 			}

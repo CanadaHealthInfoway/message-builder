@@ -73,7 +73,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion R02_04_03_AB = new SpecificationVersion("R02_04_03_AB", "Alberta (R02_04_03)", Hl7BaseVersion.MR2009);
 
 	// TBD if this is still considered as based on MR2009
-	public static final SpecificationVersion R02_05_AB = new SpecificationVersion("R02_05_AB", "Alberta (R02.05)", Hl7BaseVersion.MR2009);
+	public static final SpecificationVersion R02_05_00_PA_AB = new SpecificationVersion("R02_05_00_PA_AB", "Alberta (R02_05_00 Pre-Adopted)", Hl7BaseVersion.MR2009);
 	
 	
 	private final String description;
