@@ -283,6 +283,20 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
     }
 
 	@Test
+    public void testBasicForCeRxWithMultipleNameParts() throws Exception {
+        PnPropertyFormatter formatter = new PnPropertyFormatter();
+        
+        PersonName personName = new PersonName();
+        personName.addUse(EntityNameUse.LEGAL);
+        personName.addNamePart(new EntityNamePart("Steve", PersonNamePartType.GIVEN));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY));
+        
+        String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.V01R04_3), new PNImpl(personName));
+		assertTrue(this.result.isValid());
+        assertEquals("something in text node", "<name use=\"L\"><given>Steve</given><family>Shaw</family></name>", result.trim());
+    }
+
+	@Test
     public void testBasicForCeRxWithSimpleName() throws Exception {
         PnPropertyFormatter formatter = new PnPropertyFormatter();
         
@@ -308,6 +322,21 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
         assertEquals("something in text node", "<name use=\"L\">SteveShaw</name>", result.trim());
+    }
+
+	@Test
+    public void testBasicForCeRxWithSimpleNameInvalidMixedParts() throws Exception {
+        PnPropertyFormatter formatter = new PnPropertyFormatter();
+        
+        PersonName personName = new PersonName();
+        personName.addUse(EntityNameUse.LEGAL);
+        personName.addNamePart(new EntityNamePart("Steve", PersonNamePartType.GIVEN));
+        personName.addNamePart(new EntityNamePart("Shaw", null));
+        
+        String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.V01R04_3), new PNImpl(personName));
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+        assertEquals("something in text node", "<name use=\"L\"><given>Steve</given>Shaw</name>", result.trim());
     }
 
 	@Test

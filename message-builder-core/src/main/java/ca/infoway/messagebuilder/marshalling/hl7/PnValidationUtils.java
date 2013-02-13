@@ -130,8 +130,8 @@ public class PnValidationUtils {
     	if (isSimple && (countBlankParts > 1 || numParts > 1 || (numParts > 0 && countBlankParts == 0))) {
 			createError("For PN.SIMPLE, only one simple name (a name without a part type) is allowed, and no other name parts are allowed.", element, propertyPath, errors);
     	}
-    	if ((isBasic && isCeRx) && (countBlankParts > 1 || numParts > 1)) {
-			createError("For CeRx PN.BASIC, only a single simple name (a name without a part type) is allowed. Multiple name parts can be provided, but none of them may be simple.", element, propertyPath, errors);
+    	if ((isBasic && isCeRx) && ((countBlankParts > 1) || (countBlankParts == 1 && numParts > 1))) {
+			createError("For CeRx PN.BASIC a name can be provided without a part type, but only a single simple name (i.e. a name without a part type) is allowed in this case. Multiple name parts can be provided, but then all name parts must have part types.", element, propertyPath, errors);
     	}
     	
     	// confirmed with CHI that simple and basic types do not have to provide any name parts 
