@@ -23,7 +23,7 @@
 	<version>1.4.1a-SNAPSHOT</version>
 
 	<properties>
-		<messageBuilderVersion>1.4.1</messageBuilderVersion>
+		<messageBuilderVersion>1.4.5-SNAPSHOT</messageBuilderVersion>
 		<messageSetSuffix>JENKINS_MESSAGE_SET_SUFFIX</messageSetSuffix>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
