@@ -20,7 +20,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-hl7v3-release-JENKINS_ARTIFACT_ID_SUFFIX</artifactId>
-	<version>1.4.5-SNAPSHOT</version>
+	<version>1.4.6-SNAPSHOT</version>
 
 	<properties>
 		<messageBuilderVersion>1.4.5</messageBuilderVersion>
