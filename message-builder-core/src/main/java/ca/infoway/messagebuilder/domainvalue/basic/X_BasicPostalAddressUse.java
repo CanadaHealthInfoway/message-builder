@@ -29,8 +29,6 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * <p>From http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#domain-PostalAddressUse
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
- *
- * @sharpen.ignore - datatype - translated manually
  */
 public class X_BasicPostalAddressUse extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse {
 
