@@ -50,4 +50,8 @@
 		<name>ra</name>
 		<directory>./target/input/mifs/Volume 13 Record Access</directory>
 	</fileSet>
+	<fileSet>
+		<name>di</name>
+		<directory>./target/input/mifs/Volume X Diagnostic Imaging</directory>
+	</fileSet>
 </fileSets>
