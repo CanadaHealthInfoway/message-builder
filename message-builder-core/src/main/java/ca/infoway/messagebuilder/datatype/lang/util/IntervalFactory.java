@@ -101,8 +101,10 @@ public class IntervalFactory {
 	 * @return the constructed interval
 	 */
 	public static <T> Interval<T> createWidthHigh(Diff<T> width, T high, NullFlavor highNullFlavor) {
-		Diff<T> tempDiff = GenericMath.diff(width == null ? null : width.getValue(), high);
-		T low =  tempDiff == null ? null : tempDiff.getValue();
+		boolean widthNull = (width == (Diff<T>) null);
+		Diff<T> tempDiff = GenericMath.diff(widthNull ? null : width.getValue(), high);
+		boolean tempDiffNull = (tempDiff == (Diff<T>) null);
+		T low =  tempDiffNull ? null : tempDiff.getValue();
 		return new Interval<T>(low, high, GenericMath.average(low, high), width, Representation.WIDTH_HIGH, null, highNullFlavor, null);
 	}
 	
@@ -128,9 +130,11 @@ public class IntervalFactory {
 	 * @return the constructed interval
 	 */
 	public static <T> Interval<T> createCentreWidth(T centre, Diff<T> width, NullFlavor centreNullFlavor) {
-		T half = GenericMath.half(width == null ? null : width.getValue());
+		boolean widthNull = (width == (Diff<T>) null);
+		T half = GenericMath.half(widthNull ? null : width.getValue());
 		Diff<T> tempDiff = GenericMath.diff(half, centre);
-		T low = tempDiff == null ? null : tempDiff.getValue();
+		boolean tempDiffNull = (tempDiff == (Diff<T>) null);
+		T low = tempDiffNull ? null : tempDiff.getValue();
 		T high = GenericMath.add(low, width);
 		return new Interval<T>(low, high, centre, width, Representation.CENTRE_WIDTH, null, null, centreNullFlavor);
 	}
@@ -157,7 +161,8 @@ public class IntervalFactory {
 	 */
 	public static <T> Interval<T> createLowCentre(T low, T centre, NullFlavor lowNullFlavor, NullFlavor centreNullFlavor) {
 		Diff<T> tempDiff = GenericMath.diff(low, centre);
-		T halfDiff = tempDiff == null ? null : tempDiff.getValue();
+		boolean tempDiffNull = (tempDiff == (Diff<T>) null);
+		T halfDiff = tempDiffNull ? null : tempDiff.getValue();
 		T high = GenericMath.add(centre, halfDiff);
 		Diff<T> width = GenericMath.diff(low, high);
 		return new Interval<T>(low, high, centre, width, Representation.LOW_CENTER, lowNullFlavor, null, centreNullFlavor);
@@ -185,9 +190,11 @@ public class IntervalFactory {
 	 */
 	public static <T> Interval<T> createCentreHigh(T centre, T high, NullFlavor centreNullFlavor, NullFlavor highNullFlavor) {
 		Diff<T> tempDiff = GenericMath.diff(centre, high);
-		T halfDiff = tempDiff == null ? null : tempDiff.getValue();
+		boolean tempDiffNull = (tempDiff == (Diff<T>) null);
+		T halfDiff = tempDiffNull ? null : tempDiff.getValue();
 		Diff<T> tempDiff2 = GenericMath.diff(halfDiff, centre);
-		T low = tempDiff2 == null ? null : tempDiff2.getValue();
+		boolean tempDiff2Null = (tempDiff2 == (Diff<T>) null);
+		T low = tempDiff2Null ? null : tempDiff2.getValue();
 		Diff<T> width = GenericMath.diff(low, high);
 		return new Interval<T>(low, high, centre, width, Representation.CENTRE_HIGH, null, highNullFlavor, centreNullFlavor);
 	}
