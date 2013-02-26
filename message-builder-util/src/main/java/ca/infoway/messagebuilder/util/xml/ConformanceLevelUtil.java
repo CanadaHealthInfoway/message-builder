@@ -30,6 +30,6 @@ public class ConformanceLevelUtil {
 	public static final String IGNORED_AS_NOT_ALLOWED = "ignored.as.not.allowed";
 	
 	public static boolean isIgnoredNotAllowed() {
-		return Boolean.TRUE.toString().equalsIgnoreCase(System.getProperty(IGNORED_AS_NOT_ALLOWED));
+		return Boolean.valueOf(System.getProperty(IGNORED_AS_NOT_ALLOWED));
 	}
 }
