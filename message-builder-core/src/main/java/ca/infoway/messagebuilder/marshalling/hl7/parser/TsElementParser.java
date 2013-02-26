@@ -82,7 +82,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			// TM - 16/10/2012 - should be able to set specialization type now (need to specify IVL_FULL_DATE_TIME as the specialization type for IVL<TS.FULLDATEWITHTIME>, for example)
 			//                 - in a cowardly move, I have allowed for a system property to bypass this error
 			
-			if (Boolean.parseBoolean(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
+			if (Boolean.valueOf(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
 				// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 			} else {
 				xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));

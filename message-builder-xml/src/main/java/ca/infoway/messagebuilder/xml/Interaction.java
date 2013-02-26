@@ -138,7 +138,8 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	 */
 	public Documentation getDocumentation() {
 		// trigger side effect to force Documentation creation if using an old message set that only contains a business name element
-		getBusinessName();
+		// assigned to unused variable for translation purposes
+		String unusedVariable = getBusinessName();
 		return this.documentation;
 	}
 	/**

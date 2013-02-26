@@ -42,8 +42,11 @@ public class XmlWarningRenderer {
 	private boolean outputWarnings;
 	
 	public XmlWarningRenderer() {
-		String outputWarningsPropertyValue = System.getProperty(MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT);
-		this.outputWarnings = BooleanUtils.toBoolean(outputWarningsPropertyValue);
+		String outputWarningsPropertyValue = System.getProperty(MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML);
+		if (outputWarningsPropertyValue == null) {
+			outputWarningsPropertyValue = MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT;
+		}
+		this.outputWarnings = Boolean.valueOf(outputWarningsPropertyValue);
 	}
 	
 	public String createWarning(int indentLevel, String text) {
