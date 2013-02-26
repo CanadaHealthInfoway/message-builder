@@ -32,6 +32,10 @@ This document contains the release notes for this version of Infoway Message Bui
 SYSTEM PROPERTIES USED WITHIN MESSAGEBUILDER:
 =============================================
 
+(new for 1.4.x) ignored.as.not.allowed
+- treat "IGNORED" conformance as "not allowed"
+- defaults to false
+
 (new for 1.4.x) messagebuilder.abstract.ts.ignore.specializationtype.error
 - used to suppress errors caused by not specifying specializationType for the TS.FULLDATEWITHTIME type
 - defaults to "false"
