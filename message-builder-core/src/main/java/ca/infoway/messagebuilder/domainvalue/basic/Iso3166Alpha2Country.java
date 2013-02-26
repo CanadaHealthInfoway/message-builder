@@ -27,6 +27,9 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>The Enum Iso3166Alpha2Country.
+ * 
+ *  @sharpen.ignore - datatype - translated manually
+ *  
  */
 public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.Country, Describable {
 
