@@ -232,6 +232,10 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		this.cardinality = cardinality == null ? null : cardinality.toString();
 	}
 
+	public String getRawCardinality() {
+		return this.cardinality;
+	}
+	
 	/**
 	 * <p>Get the sort order.  The sort order represents the order that the 
 	 * XML elements appear in.

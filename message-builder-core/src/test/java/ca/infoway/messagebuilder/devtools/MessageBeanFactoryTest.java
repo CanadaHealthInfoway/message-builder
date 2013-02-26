@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.devtools;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 

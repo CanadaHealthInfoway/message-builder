@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.xml.util;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.apache.commons.lang.SystemUtils;
 import org.junit.Test;
+
 public class XmlWarningRendererTest {
 
 	@Test
@@ -40,14 +41,14 @@ public class XmlWarningRendererTest {
 	public void shouldOutputWarningWithTrueProperty() {
 		System.setProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, "TrUE");
 		assertEquals("output text with property true", "    <!-- WARNING: warning text -->" + SystemUtils.LINE_SEPARATOR, new XmlWarningRenderer().createWarning(2, "warning text"));
-		System.clearProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML);
+		System.setProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT);
 	}
 	
 	@Test
 	public void shouldNotOutputWarningWithFalseProperty() {
 		System.setProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, "false");
 		assertEquals("output text suppressed", "", new XmlWarningRenderer().createWarning(2, "warning text"));
-		System.clearProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML);
+		System.setProperty(XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, XmlWarningRenderer.MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT);
 	}
 	
 }

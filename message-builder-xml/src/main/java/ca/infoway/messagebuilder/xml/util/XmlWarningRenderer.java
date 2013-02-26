@@ -37,11 +37,12 @@ import ca.infoway.messagebuilder.util.text.Indenter;
 public class XmlWarningRenderer {
 	
 	public static String MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML = "messagebuilder.output.warnings.in.generated.xml";
+	public static String MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT = "true";
 	
 	private boolean outputWarnings;
 	
 	public XmlWarningRenderer() {
-		String outputWarningsPropertyValue = System.getProperty(MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, "true");
+		String outputWarningsPropertyValue = System.getProperty(MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML, MESSAGEBUILDER_OUTPUT_WARNINGS_IN_GENERATED_XML_DEFAULT);
 		this.outputWarnings = BooleanUtils.toBoolean(outputWarningsPropertyValue);
 	}
 	
