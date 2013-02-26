@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.marshalling.hl7;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ModelToXmlResult implements Hl7Errors {
@@ -29,7 +28,6 @@ public class ModelToXmlResult implements Hl7Errors {
 	private String xmlMessage;
 
 	private final List<Hl7Error> hl7Errors = new ArrayList<Hl7Error>();
-	private final List<Hl7Error> _hl7Errors = Collections.unmodifiableList(this.hl7Errors);
 	
 	public String getXmlMessage() {
 		return this.xmlMessage;
@@ -50,7 +48,7 @@ public class ModelToXmlResult implements Hl7Errors {
 	}
 	
 	public List<Hl7Error> getHl7Errors() {
-		return this._hl7Errors; // unmodifiable
+		return this.hl7Errors;
 	}
 	
 	public void clearErrors() {

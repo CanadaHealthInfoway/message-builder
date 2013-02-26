@@ -21,13 +21,12 @@
 package ca.infoway.messagebuilder.domainvalue.basic;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.domainvalue.Country;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>The Enum Iso3166Alpha2Country.
  */
-public class Iso3166Alpha2Country extends EnumPattern implements Country {
+public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.Country {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	

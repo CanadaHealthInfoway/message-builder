@@ -19,34 +19,37 @@
  */
 package ca.infoway.messagebuilder.datatype.lang;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 public class IntervalFactoryTest {
 
 	@Test
 	public void testNullParameters() {
-		IntervalFactory.createCentre(null);
-		IntervalFactory.createCentre(null, null);
-		IntervalFactory.createCentreHigh(null, null);
-		IntervalFactory.createCentreHigh(null, null, null, null);
-		IntervalFactory.createCentreWidth(null, null);
-		IntervalFactory.createCentreWidth(null, null, null);
-		IntervalFactory.createHigh(null);
-		IntervalFactory.createHigh(null, null);
-		IntervalFactory.createLow(null);
-		IntervalFactory.createLow(null, null);
-		IntervalFactory.createLowCentre(null, null);
-		IntervalFactory.createLowCentre(null, null, null, null);
-		IntervalFactory.createLowHigh(null, null);
-		IntervalFactory.createLowHigh(null, null, null, null);
-		IntervalFactory.createLowWidth(null, null);
-		IntervalFactory.createLowWidth(null, null, null);
-		IntervalFactory.createSimple(null);
-		IntervalFactory.createWidth(null);
-		IntervalFactory.createWidthHigh(null, null);
-		IntervalFactory.createWidthHigh(null, null, null);
+		IntervalFactory.createCentre((Date) null);
+		IntervalFactory.createCentre((Date) null, (NullFlavor) null);
+		IntervalFactory.createCentreHigh((Date) null, (Date) null);
+		IntervalFactory.createCentreHigh((Date) null, (Date) null, (NullFlavor) null, (NullFlavor) null);
+		IntervalFactory.createCentreWidth((Date) null, (Diff<Date>) null);
+		IntervalFactory.createCentreWidth((Date) null, (Diff<Date>) null, (NullFlavor) null);
+		IntervalFactory.createHigh((Date) null);
+		IntervalFactory.createHigh((Date) null, (NullFlavor) null);
+		IntervalFactory.createLow((Date) null);
+		IntervalFactory.createLow((Date) null, (NullFlavor) null);
+		IntervalFactory.createLowCentre((Date) null, (Date) null);
+		IntervalFactory.createLowCentre((Date) null, (Date) null, (NullFlavor) null, (NullFlavor) null);
+		IntervalFactory.createLowHigh((Date) null, (Date) null);
+		IntervalFactory.createLowHigh((Date) null, (Date) null, (NullFlavor) null, (NullFlavor) null);
+		IntervalFactory.createLowWidth((Date) null, (Diff<Date>) null);
+		IntervalFactory.createLowWidth((Date) null, (Diff<Date>) null, (NullFlavor) null);
+		IntervalFactory.createSimple((Date) null);
+		IntervalFactory.createWidth((Diff<Date>) null);
+		IntervalFactory.createWidthHigh((Diff<Date>) null, (Date) null);
+		IntervalFactory.createWidthHigh((Diff<Date>) null, (Date) null, (NullFlavor) null);
 	}
 	
 }
