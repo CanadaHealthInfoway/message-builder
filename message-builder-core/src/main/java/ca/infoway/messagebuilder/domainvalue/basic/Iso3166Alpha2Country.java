@@ -20,13 +20,15 @@
 
 package ca.infoway.messagebuilder.domainvalue.basic;
 
+import ca.infoway.messagebuilder.Describable;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
+import ca.infoway.messagebuilder.domainvalue.util.DescribableUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>The Enum Iso3166Alpha2Country.
  */
-public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.Country {
+public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.Country, Describable {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
@@ -55,4 +57,12 @@ public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.mess
 	public String getCodeValue() {
 		return this.codeValue;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getDescription() {
+		return DescribableUtil.getDefaultDescription(this);
+	}
+	
 }

@@ -244,7 +244,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		
 		String expectedResult = 
 			  "<address>" + LINE_SEPARATOR
-				+ "  <country code=\"CA\" codeSystem=\"1.0.3166.1.2.2\">CA</country>" + LINE_SEPARATOR 
+				+ "  <country code=\"CA\" codeSystem=\"1.0.3166.1.2.2\">Canada</country>" + LINE_SEPARATOR 
 			+ "</address>" + LINE_SEPARATOR;
 
 		assertXmlEquals("country", expectedResult, result);

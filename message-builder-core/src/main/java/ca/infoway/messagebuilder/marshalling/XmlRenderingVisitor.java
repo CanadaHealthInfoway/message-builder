@@ -203,7 +203,9 @@ class XmlRenderingVisitor implements Visitor {
 
 	private String determinePropertyName(String propertyName, Named nameFallBack) {
 		String backupName = (nameFallBack == null ? null : nameFallBack.getName());
-		return (StringUtils.isNotBlank(propertyName) && !FIXED.equals(propertyName)) ? propertyName : StringUtils.defaultString(backupName);
+		return (StringUtils.isNotBlank(propertyName) && !FIXED.equals(propertyName)) 
+				? propertyName 
+				: (backupName == null ? "" : backupName);
 	}
 	
 	/**
@@ -307,7 +309,7 @@ class XmlRenderingVisitor implements Visitor {
 			previousPathName = currentPathName;
 		}		
 		
-		return result.substring(1);
+		return result.toString().substring(1);
 	}
 
 	private boolean isInlined(String propertyName) {
