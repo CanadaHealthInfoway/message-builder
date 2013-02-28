@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder;
 
-import static ca.infoway.messagebuilder.Hl7BaseVersion.CERX;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -36,7 +35,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 * <p>This designation is used for a stand-alone version of the IEHR messages.  It
 	 * was released on 2007-05-08
 	 */
-	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3", CERX);
+	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3", Hl7BaseVersion.CERX);
 
 	public static final SpecificationVersion V02R01 = new SpecificationVersion("V02R01", "V02R01", Hl7BaseVersion.MR2007_V02R01);
 
@@ -118,10 +117,10 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 * @return
 	 */
 	public static boolean isVersion(VersionNumber version, Hl7BaseVersion versionToCheck) {
-		if (versionToCheck == null) {
+		if (versionToCheck == null || version == null) {
 			return false;
 		}
-		return (version == null ? null : version.getBaseVersion()) == versionToCheck;
+		return version.getBaseVersion() == versionToCheck;
 	}
 	
 	public static boolean isExactVersion(VersionNumber version1, VersionNumber version2) {

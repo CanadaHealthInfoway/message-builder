@@ -159,7 +159,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 				centerProvided ? value.getCentreNullFlavor() : null,
 				highProvided ? value.getHighNullFlavor() : null,
 				widthProvided ?	value.getWidth().getNullFlavor() : null,
-				(widthProvided && value.getWidth() instanceof DateDiff) ? ((DateDiff) value.getWidth()).getUnit() : null);
+				(widthProvided && value.getWidth() instanceof DateDiff) ? (DateDiff.convertDiff(value.getWidth())).getUnit() : null);
 		recordAnyErrors(errors, context);
 		
 		return context;

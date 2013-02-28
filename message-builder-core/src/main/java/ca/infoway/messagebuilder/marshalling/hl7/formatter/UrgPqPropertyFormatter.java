@@ -40,7 +40,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
     	Interval<PhysicalQuantity> convertedInterval = IntervalFactory.createFromUncertainRange(value);
     	IVLImpl<PQ, Interval<PhysicalQuantity>> convertedHl7Interval = new IVLImpl<PQ, Interval<PhysicalQuantity>>(convertedInterval);
     	
-    	FormatContext ivlContext = new FormatContextImpl(context.getType().replaceFirst("URG", "IVL"), context);
+    	FormatContext ivlContext = new FormatContextImpl(context.getType().replace("URG", "IVL"), context);
     	
 		String xml = this.formatter.format(ivlContext, convertedHl7Interval, indentLevel);
     	
@@ -57,7 +57,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
         return xml;
     }
 
-	private String addInclusiveAttribute(String xml, String elementName, boolean inclusive) {
+	private String addInclusiveAttribute(String xml, String elementName, Boolean inclusive) {
 		String searchString = "<" + elementName + " ";
 		int elementIndex = xml.indexOf(searchString);
 		if (elementIndex >= 0) {

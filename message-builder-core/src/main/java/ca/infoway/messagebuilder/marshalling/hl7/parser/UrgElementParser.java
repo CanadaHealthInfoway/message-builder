@@ -60,7 +60,10 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 			Node child = childNodes.item(i);
 			if (elementName.equalsIgnoreCase(child.getNodeName())) {
 				String inclusive = getAttributeValue(child, "inclusive");
-				result = (inclusive == null ? null : new Boolean(inclusive));
+				if (inclusive != null) {
+					result = new Boolean(inclusive);
+				}
+				
 				if (inclusive != null && !"true".equalsIgnoreCase(inclusive) && !"false".equalsIgnoreCase(inclusive)) {
 					xmlToModelResult.addHl7Error(
 						new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "The 'inclusive' attribute for URG." + elementName + " must be 'true' or 'false'", (Element) node)

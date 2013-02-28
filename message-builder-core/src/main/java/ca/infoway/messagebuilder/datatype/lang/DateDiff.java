@@ -151,5 +151,9 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
             return super.toString();
         }
     }
-    
+
+    // for translation purposes only
+    public static DateDiff convertDiff(Diff<?> inValue) {
+    	return inValue instanceof DateDiff ? (DateDiff) inValue : null;
+    }
 }

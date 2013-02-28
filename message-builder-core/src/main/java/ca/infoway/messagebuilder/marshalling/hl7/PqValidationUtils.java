@@ -80,12 +80,12 @@ public class PqValidationUtils {
 			maxFractionDigits = MAXIMUM_FRACTION_DIGITS_DRUG_LAB;
 		}
 		Integer exceptionValue = maximum_fraction_digits_exceptions.get(version.getBaseVersion() + "_" + type);
-		return exceptionValue == null ? maxFractionDigits : exceptionValue;
+		return (int) (exceptionValue == null ? maxFractionDigits : exceptionValue);
 	}
 
 	public int getMaxIntDigits(VersionNumber version, String type) {
 		Integer exceptionValue = maximum_integer_digits_exceptions.get(version.getBaseVersion() + "_" + type);
-		return exceptionValue == null ? MAXIMUM_INTEGER_DIGITS : exceptionValue;
+		return (int) (exceptionValue == null ? MAXIMUM_INTEGER_DIGITS : exceptionValue);
 	}
 
 	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(StandardDataType dataType, String propertyPath, Hl7Errors errors) {

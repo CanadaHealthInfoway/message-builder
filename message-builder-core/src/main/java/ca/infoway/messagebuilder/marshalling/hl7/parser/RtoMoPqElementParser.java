@@ -49,22 +49,24 @@ class RtoMoPqElementParser extends AbstractRtoElementParser<Money, PhysicalQuant
 	
 	@Override
 	protected Money getNumeratorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return (Money) getValue(element, type, moParser, context, xmlToModelResult);
-    }
-    
-	@Override
-	protected PhysicalQuantity getDenominatorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
-        return (PhysicalQuantity) getValue(element, type, pqParser, context, xmlToModelResult);
-    }
-
-    private Object getValue(Element element, String type, AbstractSingleElementParser<?> parser, ParseContext context, XmlToModelResult xmlToModelResult) {
     	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
     	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
-    	return parser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
+    	return (Money) moParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
+    }
+    
+	@Override
+	protected PhysicalQuantity getDenominatorValue(Element element, String type, ParseContext context, XmlToModelResult xmlToModelResult) {
+    	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
+    	
+    	// create new (mandatory) context
+    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
+    	
+    	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
+    	return (PhysicalQuantity) pqParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
     }
 
 }

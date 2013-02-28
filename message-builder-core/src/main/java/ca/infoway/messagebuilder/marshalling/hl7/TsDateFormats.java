@@ -83,13 +83,13 @@ public class TsDateFormats {
 
 		formats = Collections.unmodifiableMap(map);
 		
-		datetimeFormatsRequiringWarning = Collections.unmodifiableList(Arrays.asList(
+		datetimeFormatsRequiringWarning = Arrays.asList(
 				"yyyyMMddHHmmss.SSS0",
 				"yyyyMMddHHmmss.SSS",
 				"yyyyMMddHHmmss",
 				"yyyyMMddHHmm",
 				"yyyyMMddHH"
-				));
+				);
 
 		Map<String, String> _expandedFormats = new HashMap<String, String>();
 		_expandedFormats.put("yyyyMMddHHmmss.SSSZZZZZ", "yyyyMMddHHmmss.SSS0ZZZZZ");
@@ -132,10 +132,7 @@ public class TsDateFormats {
 			return new String[0];
 		}
 		
-		Map<StandardDataType, List<String>> exceptionMap = TsDateFormats.versionFormatExceptions.get(version);
-		if (exceptionMap == null) {
-			exceptionMap = TsDateFormats.versionFormatExceptions.get(version.getBaseVersion());
-		}
+		Map<StandardDataType, List<String>> exceptionMap = TsDateFormats.versionFormatExceptions.get(version.getBaseVersion());
 
 		List<String> formats = (exceptionMap == null ? null : exceptionMap.get(standardDataType));
 		if (formats == null) {

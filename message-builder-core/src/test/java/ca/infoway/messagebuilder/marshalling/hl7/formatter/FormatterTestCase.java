@@ -29,7 +29,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
@@ -85,11 +84,13 @@ public abstract class FormatterTestCase {
 	}
 
     protected final Set<Code> makeSet(Code... codes) {
-        return new TreeSet<Code>(Arrays.asList(codes));
+    	// leave TreeSet fully qualified for translation purposes 
+        return new java.util.TreeSet<Code>(Arrays.asList(codes));
     }
 
 	protected final Set<String> makeSet(String... strings) {
-		return new TreeSet<String>(Arrays.asList(strings));
+    	// leave TreeSet fully qualified for translation purposes 
+		return new java.util.TreeSet<String>(Arrays.asList(strings));
 	}
 
 	protected final Set<TelecommunicationAddress> makeTelecommunicationAddressSet(String... strings) {

@@ -73,7 +73,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
 		VersionNumber version = (context == null ? null : context.getVersion());
 		String[] allowedDateFormats = TsDateFormats.getAllDateFormats(standardDataType, version);
-		if (ArrayUtils.contains(allowedDateFormats, datePattern)) {
+		if (arrayContains(allowedDateFormats, datePattern)) {
 			// check if this pattern is missing a timezone
 			if (!isCerx(version) && TsDateFormats.datetimeFormatsRequiringWarning.contains(datePattern)) {
 				context.getModelToXmlResult().addHl7Error(
@@ -91,6 +91,15 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 							context.getPropertyPath()
 							));
 		}
+	}
+
+	private boolean arrayContains(String[] allowedDateFormats, String datePattern) {
+        for (int i = 0; i < allowedDateFormats.length; i++) {
+            if (allowedDateFormats[i].equals(datePattern)) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	private boolean isCerx(VersionNumber version) {

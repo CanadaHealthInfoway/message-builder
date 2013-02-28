@@ -74,13 +74,22 @@ public class TsFullDatePropertyFormatter extends AbstractValueNullFlavorProperty
 		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
 		VersionNumber version = (context == null ? null : context.getVersion());
 		String[] allowedDateFormats = TsDateFormats.getAllDateFormats(standardDataType, version);
-		if (!ArrayUtils.contains(allowedDateFormats, datePattern)) {
+		if (!arrayContains(allowedDateFormats, datePattern)) {
 			Hl7Error hl7Error = new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR, 
 					MessageFormat.format("Invalid date format {0} supplied for value of type {1}", datePattern, context == null ? "TS" : context.getType()),
 					context.getPropertyPath());
 			context.getModelToXmlResult().addHl7Error(hl7Error);
 		}
+	}
+
+	private boolean arrayContains(String[] allowedDateFormats, String datePattern) {
+        for (int i = 0; i < allowedDateFormats.length; i++) {
+            if (allowedDateFormats[i].equals(datePattern)) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	private String getPatternFromDateWithPattern(Date date) {

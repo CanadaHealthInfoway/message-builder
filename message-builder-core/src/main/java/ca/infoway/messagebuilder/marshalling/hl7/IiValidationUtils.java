@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.marshalling.hl7;
 
 import java.text.MessageFormat;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -46,16 +45,15 @@ public class IiValidationUtils {
 	public static final String II_BUSVER = "II.BUSVER";
 	public static final String II_PUBLICVER = "II.PUBLICVER";
 	
-	private static final Set<String> _concreteIiTypes = new HashSet<String>();
-	public static final Set<String> concreteIiTypes = Collections.unmodifiableSet(_concreteIiTypes);
+	public static final Set<String> concreteIiTypes = new HashSet<String>();
 	static {
-		_concreteIiTypes.add(II_TOKEN);
-		_concreteIiTypes.add(II_BUS);
-		_concreteIiTypes.add(II_PUBLIC);
-		_concreteIiTypes.add(II_OID);
-		_concreteIiTypes.add(II_VER);
-		_concreteIiTypes.add(II_BUSVER);
-		_concreteIiTypes.add(II_PUBLICVER);
+		concreteIiTypes.add(II_TOKEN);
+		concreteIiTypes.add(II_BUS);
+		concreteIiTypes.add(II_PUBLIC);
+		concreteIiTypes.add(II_OID);
+		concreteIiTypes.add(II_VER);
+		concreteIiTypes.add(II_BUSVER);
+		concreteIiTypes.add(II_PUBLICVER);
 	}
 	
 	private static final int EXTENSION_MAX_LENGTH = 20;
