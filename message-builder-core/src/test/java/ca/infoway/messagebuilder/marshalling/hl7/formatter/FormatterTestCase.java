@@ -85,12 +85,10 @@ public abstract class FormatterTestCase {
 	}
 
     protected final Set<Code> makeSet(Code... codes) {
-    	// leave TreeSet fully qualified for translation purposes 
         return new TreeSet<Code>(Arrays.asList(codes));
     }
 
 	protected final Set<String> makeSet(String... strings) {
-    	// leave TreeSet fully qualified for translation purposes 
 		return new TreeSet<String>(Arrays.asList(strings));
 	}
 

@@ -90,8 +90,8 @@ public class UrgTsElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("high", highDate, range.getHigh());
 		assertEquals("width", highDate.getTime()-lowDate.getTime(), range.getWidth().getValue().getTime());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
-		assertTrue(range.getLowInclusive());
-		assertTrue(range.getHighInclusive());
+		assertTrue(range.getLowInclusive().booleanValue());
+		assertTrue(range.getHighInclusive().booleanValue());
 	}
 	
 	private ParseContext createContext() {

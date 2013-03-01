@@ -54,6 +54,10 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
+/**
+ * @author administrator
+ * @sharpen.ignore Timezone handling
+ */
 public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 
 	private XmlToModelResult result;

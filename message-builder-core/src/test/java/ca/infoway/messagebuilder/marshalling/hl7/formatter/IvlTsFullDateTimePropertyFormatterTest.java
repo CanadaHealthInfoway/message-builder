@@ -81,6 +81,10 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
         assertXml("result", "<name><width nullFlavor=\"OTH\"/></name>", result);
     }
     
+	/**
+	 * 
+	 * @sharpen.remove timezone handling
+	 */
 	@Test
 	public void testBasicAbstract() throws Exception {
 		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
@@ -97,6 +101,10 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATETIME\" value=\"20061225111213.0000-0500\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATETIME\" value=\"20070102101112.0000-0500\" xsi:type=\"TS\"/></name>", result);
 	}
 
+	/**
+	 * 
+	 * @sharpen.remove timezone handling
+	 */
 	@Test
 	public void testBasicAbstractInvalidSpecializationType() throws Exception {
 		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
