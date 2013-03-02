@@ -26,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
@@ -34,6 +35,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 public class RealConfPropertyFormatterTest {
 
 	private ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
+	
+	@After
+	public void teardown() {
+		this.modelToXmlResult.clearErrors();
+	}
 	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {

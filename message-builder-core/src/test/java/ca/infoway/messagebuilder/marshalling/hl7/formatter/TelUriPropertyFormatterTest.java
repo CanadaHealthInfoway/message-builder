@@ -28,6 +28,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
@@ -41,6 +42,11 @@ public class TelUriPropertyFormatterTest {
 	
 	private ModelToXmlResult xmlResult = new ModelToXmlResult();
 
+	@After
+	public void teardown() {
+		this.xmlResult.clearErrors();
+	}
+	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), null, new TELImpl());

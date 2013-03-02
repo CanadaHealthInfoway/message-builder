@@ -26,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import org.junit.After;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
@@ -35,6 +36,11 @@ public class RealCoordPropertyFormatterTest {
 
 	private ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 	
+	@After
+	public void teardown() {
+		this.modelToXmlResult.clearErrors();
+	}
+
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		Map<String,String>  result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), null, new REALImpl());

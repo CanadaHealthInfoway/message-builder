@@ -31,6 +31,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Map;
 import java.util.Set;
 
+import org.junit.After;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
@@ -48,6 +49,11 @@ public class TelPhonemailPropertyFormatterTest {
 
 	private ModelToXmlResult xmlResult = new ModelToXmlResult();
 
+	@After
+	public void teardown() {
+		this.xmlResult.clearErrors();
+	}
+	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), null, new TELImpl());

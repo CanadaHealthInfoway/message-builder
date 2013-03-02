@@ -55,6 +55,7 @@ public abstract class FormatterTestCase {
 	@After
 	public void tearDown() {
 		CodeResolverRegistry.unregisterAll();
+		this.result.clearErrors();
 	}
 	
 	protected ModelToXmlResult result = new ModelToXmlResult();
