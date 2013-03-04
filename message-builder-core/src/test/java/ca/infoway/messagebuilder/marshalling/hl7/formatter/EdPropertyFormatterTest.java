@@ -39,6 +39,8 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
+import ca.infoway.messagebuilder.datatype.lang.util.Compression;
+import ca.infoway.messagebuilder.platform.Base64;
 
 public class EdPropertyFormatterTest extends FormatterTestCase {
 
@@ -135,9 +137,12 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueCompressedXmlData() throws Exception {
+		byte[] content = "<xml>foo</xml>".getBytes();
+		String finalContent = Base64.encodeBase64String(Compression.gzip(content));
+
 		String expectedResult = "<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
-				"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA");
+				finalContent + "</name>" + LINE_SEPARATOR;
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, content, GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
@@ -147,9 +152,12 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueCompressedXmlDataEmptyContent() throws Exception {
+		byte[] content = "".getBytes();
+		String finalContent = Base64.encodeBase64String(Compression.gzip(content));
+		
 		String expectedResult = "<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/xml\" representation=\"B64\">" +
-				"H4sIAAAAAAAAAAMAAAAAAAAAAAA=</name>" + LINE_SEPARATOR;
-		EncapsulatedData data = new CompressedData(XML_TEXT,  null, "".getBytes(), GZIP, "en-CA");
+				finalContent + "</name>" + LINE_SEPARATOR;
+		EncapsulatedData data = new CompressedData(XML_TEXT,  null, content, GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertFalse(this.result.isValid());
@@ -171,16 +179,20 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueCompressedTextData() throws Exception {
+		String contentAsString = "<xml>foo</xml>";
+		byte[] content = contentAsString.getBytes();
+		String finalContent = Base64.encodeBase64String(Compression.gzip(content));
+		
 		String expectedResult = 
 			"<name compression=\"GZ\" language=\"en-CA\" mediaType=\"text/plain\" representation=\"B64\">" +
-			"H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==</name>" + LINE_SEPARATOR;
+					finalContent + "</name>" + LINE_SEPARATOR;
 		
-		EncapsulatedData data = new CompressedData(PLAIN_TEXT, null, "<xml>foo</xml>".getBytes(), GZIP, "en-CA");
+		EncapsulatedData data = new CompressedData(PLAIN_TEXT, null, content, GZIP, "en-CA");
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), new EDImpl<EncapsulatedData>(data));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("element", clearPayload(expectedResult), clearPayload(result));
-		assertEquals("element payload", decodeAndUnzip(extractPayload(result)), "<xml>foo</xml>");
+		assertEquals("element payload", decodeAndUnzip(extractPayload(result)), contentAsString);
 	}
 
 	private String decodeAndUnzip(String payload) throws IOException {

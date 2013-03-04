@@ -63,7 +63,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 		if (elementIndex >= 0) {
 			String first = xml.substring(0, elementIndex + searchString.length());
 			String last = xml.substring(elementIndex + searchString.length());
-			xml = first + "inclusive=\"" + inclusive + "\" " + last;
+			xml = first + "inclusive=\"" + inclusive.toString().toLowerCase() + "\" " + last;
 		}
 		return xml;
 	}
