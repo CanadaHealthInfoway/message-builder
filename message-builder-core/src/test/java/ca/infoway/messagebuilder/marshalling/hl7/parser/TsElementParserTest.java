@@ -142,6 +142,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 	
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidDateForExceptionCase() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -182,6 +185,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("no timezone missing error", 0, this.xmlResult.getHl7Errors().size());
     }
 	
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseNoFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -231,6 +237,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -242,6 +251,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidFullDateTimeButWithFullDateSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -305,6 +317,9 @@ public class TsElementParserTest extends MarshallingTestCase {
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 	}
 	
+	/**
+	 * @sharpen.remove
+	 */
 	private String getCurrentTimeZone(Date calendar) {
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
 		String currentTimeZone = tzformat.format(calendar);
