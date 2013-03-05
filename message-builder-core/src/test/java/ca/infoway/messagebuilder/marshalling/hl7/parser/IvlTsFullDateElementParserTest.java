@@ -24,14 +24,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import junit.framework.Assert;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Before;
@@ -143,7 +142,7 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
 				return;
 			}
 		}
-		Assert.fail("The specified error was not detected as expected: " + error);
+		fail("The specified error was not detected as expected: " + error);
 	}
 
 	@Test
