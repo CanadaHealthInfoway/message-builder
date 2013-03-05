@@ -84,9 +84,11 @@ public class GenericMath {
 		if (ObjectUtils.equals(q1.getUnit(), q2.getUnit())) { // (null, null) = true
 			return new PhysicalQuantity(add(q1.getQuantity(), q2.getQuantity()), q1.getUnit());
 		} else {
+			String q1Units = (q1.getUnit() == null ? "" : q1.getUnit().getCodeValue()); 
+			String q2Units = (q2.getUnit() == null ? "" : q2.getUnit().getCodeValue()); 
 			throw new IllegalArgumentException(
-					"Can't add two quantities of different units: " + q1.getUnit() + 
-					" and " +q2.getUnit());
+					"Can't add two quantities of different units: " + q1Units + 
+					" and " +q2Units);
 		}
 	}
 	

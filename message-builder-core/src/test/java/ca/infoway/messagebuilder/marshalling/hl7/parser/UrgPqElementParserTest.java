@@ -92,7 +92,7 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		} catch(IllegalArgumentException e) {
 			// expected
 			assertEquals("syntax error", 
-					"Can't add two quantities of different units: METRE and HOUR",
+					"Can't add two quantities of different units: m and h",
 					e.getMessage());
 		}
 		
