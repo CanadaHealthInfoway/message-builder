@@ -310,10 +310,11 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseRepresentationValidB64() throws Exception {
-		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
+		String content = Base64.encodeBase64String("text value".getBytes());
+		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" + content + "</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", BytesUtil.asString(Base64.decodeBase64String("text value")), BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}

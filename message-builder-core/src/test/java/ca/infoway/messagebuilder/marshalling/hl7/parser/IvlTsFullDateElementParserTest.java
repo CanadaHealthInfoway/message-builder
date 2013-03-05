@@ -29,6 +29,9 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
+import junit.framework.Assert;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.Before;
@@ -131,11 +134,18 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
         // errors = need second value (low or high) to go with width; width value is not a number; width value must contain digits only
         assertEquals("error count", 2, this.result.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"d\" value=\"1.d\"/>)", hl7Error.getMessage());
-        assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
+        assertErrorsContains("value \"1.d\" must contain digits only (<width unit=\"d\" value=\"1.d\"/>)", this.result.getHl7Errors());
     }
     
+	private void assertErrorsContains(String error, List<Hl7Error> hl7Errors) {
+		for (Hl7Error hl7Error : hl7Errors) {
+			if (error.equals(hl7Error.getMessage())) {
+				return;
+			}
+		}
+		Assert.fail("The specified error was not detected as expected: " + error);
+	}
+
 	@Test
     public void testParseWidthFailureUnit() throws Exception {
         Node node = createNode(
@@ -167,13 +177,8 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
         // errors: new one of high/low; value must only contain digits; monkey invalid units
         assertEquals("error count", 3, this.result.getHl7Errors().size());
         
-        Hl7Error hl7Error = this.result.getHl7Errors().get(1);
-        assertEquals("message", "value \"1.d\" must contain digits only (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
-        assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
-
-        hl7Error = this.result.getHl7Errors().get(2);
-        assertEquals("message", "Unit \"monkey\" is not valid for type PQ.TIME (<width unit=\"monkey\" value=\"1.d\"/>)", hl7Error.getMessage());
-        assertEquals("error type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
+        assertErrorsContains("value \"1.d\" must contain digits only (<width unit=\"monkey\" value=\"1.d\"/>)", this.result.getHl7Errors());
+        assertErrorsContains("Unit \"monkey\" is not valid for type PQ.TIME (<width unit=\"monkey\" value=\"1.d\"/>)", this.result.getHl7Errors());
     }
 
     private Date parseDate(String date) throws ParseException {

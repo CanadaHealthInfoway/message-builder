@@ -20,12 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import java.util.Date;
+
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 @DataTypeHandler("URG<TS>")
-class UrgTsElementParser extends UrgElementParser<PQ, PhysicalQuantity> {
+class UrgTsElementParser extends UrgElementParser<TS, Date> {
 
 	@Override
 	protected ElementParser getIvlParser() {

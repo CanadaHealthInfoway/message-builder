@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -41,9 +42,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+
 /**
  * @author administrator
- * @sharpen.ignore Timezone handling
+ * 
  */
 public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 
@@ -99,6 +101,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
@@ -109,6 +114,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZonePlus() throws Exception {
 		//Date expectedCalendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862);

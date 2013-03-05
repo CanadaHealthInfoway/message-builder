@@ -97,6 +97,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertValidValueAttribute(DateUtil.getDate(1999, 2, 3, 0, 0, 0, 0), "19990303");
     }
     
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
@@ -105,6 +108,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertValidValueAttribute(calendar, expectedValue);
     }
     
+	/**
+	 * @sharpen.remove
+	 */
 	@Test
 	public void testParseValidValueAttributeWithTimeZonePlusHasCorrectDatePattern() throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
