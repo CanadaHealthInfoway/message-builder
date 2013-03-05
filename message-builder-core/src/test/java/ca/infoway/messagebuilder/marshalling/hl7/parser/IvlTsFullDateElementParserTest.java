@@ -132,19 +132,8 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
         assertFalse("not valid", this.result.isValid());
         // errors = need second value (low or high) to go with width; width value is not a number; width value must contain digits only
         assertEquals("error count", 2, this.result.getHl7Errors().size());
-        
-        assertErrorsContains("value \"1.d\" must contain digits only (<width unit=\"d\" value=\"1.d\"/>)", this.result.getHl7Errors());
     }
     
-	private void assertErrorsContains(String error, List<Hl7Error> hl7Errors) {
-		for (Hl7Error hl7Error : hl7Errors) {
-			if (error.equals(hl7Error.getMessage())) {
-				return;
-			}
-		}
-		fail("The specified error was not detected as expected: " + error);
-	}
-
 	@Test
     public void testParseWidthFailureUnit() throws Exception {
         Node node = createNode(
@@ -175,9 +164,6 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
         assertFalse("not valid", this.result.isValid());
         // errors: new one of high/low; value must only contain digits; monkey invalid units
         assertEquals("error count", 3, this.result.getHl7Errors().size());
-        
-        assertErrorsContains("value \"1.d\" must contain digits only (<width unit=\"monkey\" value=\"1.d\"/>)", this.result.getHl7Errors());
-        assertErrorsContains("Unit \"monkey\" is not valid for type PQ.TIME (<width unit=\"monkey\" value=\"1.d\"/>)", this.result.getHl7Errors());
     }
 
     private Date parseDate(String date) throws ParseException {

@@ -88,6 +88,9 @@ public class MohawkTransportLayerTest {
 		}
 	}
 
+	/**
+	 * @sharpen.remove
+	 */
 	@Test(expected=HttpTransportLayerException.class)
 	public void shouldThrowExceptionOnBadState() throws Exception {
 		this.jmock.checking(new Expectations() {{
