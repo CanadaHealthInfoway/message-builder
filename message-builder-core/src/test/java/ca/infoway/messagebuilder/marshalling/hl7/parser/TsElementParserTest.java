@@ -45,7 +45,6 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
  * @author administrator
- * @sharpen.ignore Timezone handling
  */
 public class TsElementParserTest extends MarshallingTestCase { 
 
