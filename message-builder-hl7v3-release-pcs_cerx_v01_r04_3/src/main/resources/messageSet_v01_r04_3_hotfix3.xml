@@ -19,7 +19,7 @@
     Revision:      $LastChangedRevision$
 
 -->
-<messageSet version="V01R04.3" schemaVersion="1.1">
+<messageSet version="V01R04_3" schemaVersion="1.1">
    <packageEntry name="COCT_MT040205CA">
       <packageLocation name="COCT_MT040205CA" desc="Responsible Party contact" rootType="COCT_MT040205CA.ResponsibleParty" category="common">
          <entry name="COCT_MT040205CA.Person">
