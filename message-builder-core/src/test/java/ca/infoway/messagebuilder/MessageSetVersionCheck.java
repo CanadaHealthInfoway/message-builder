@@ -44,7 +44,7 @@ public class MessageSetVersionCheck {
 
 	// This is not marked as a test; each HL7v3 release API should have a test which calls this method.
 	// This method will fail if the manifest or message set cannot be found. This is intentional.
-	public void testVersionMatches() throws Exception {
+	public void testVersionMatches(VersionNumber expectedVersion) throws Exception {
 		File manifestFile = new File(pathToResourcesDirectory + "/" + MANIFEST_META_INF_MANIFEST_MF_FILE);
 		Manifest manifest = new Manifest(new FileInputStream(manifestFile));
 		Attributes mainAttributes = manifest.getMainAttributes();
@@ -56,6 +56,7 @@ public class MessageSetVersionCheck {
 		String messageSetVersion = messageSet.getVersion();
 
 		Assert.assertEquals("Message set version must match manifest version", manifestVersion, messageSetVersion);
+		Assert.assertEquals("Message set version must match expected version (typically, but not always, from the SpecificationVersion class)", expectedVersion.getVersionLiteral(), messageSetVersion);
 	}
 	
 }

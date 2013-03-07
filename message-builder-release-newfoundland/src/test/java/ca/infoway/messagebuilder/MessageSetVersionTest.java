@@ -22,11 +22,13 @@ package ca.infoway.messagebuilder;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.marshalling.newfoundland.BaseTransformerTestCase;
+
 public class MessageSetVersionTest {
 
 	@Test
 	public void testVersionMatches() throws Exception {
-		new MessageSetVersionCheck().testVersionMatches();
+		new MessageSetVersionCheck().testVersionMatches(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK);
 	}
 	
 }
