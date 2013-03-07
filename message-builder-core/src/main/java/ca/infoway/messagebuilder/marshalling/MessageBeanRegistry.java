@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.j5goodies.EnumeratedIterable.iterable;
+import static ca.infoway.messagebuilder.xml.service.ManifestMessageDefinitionService.MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE;
 import static java.util.Arrays.asList;
 import static org.apache.commons.lang.StringUtils.split;
 
@@ -159,7 +160,7 @@ public class MessageBeanRegistry {
 				try {
 					Manifest manifest = new Manifest(input);
 					Attributes attributes = manifest.getMainAttributes();
-					String versionNumbers = attributes.getValue("MBT-Model-Version-Numbers");
+					String versionNumbers = attributes.getValue(MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE);
 					if (StringUtils.isNotBlank(versionNumbers)) {
 						manifests.put(url, asList(split(versionNumbers)));
 					}

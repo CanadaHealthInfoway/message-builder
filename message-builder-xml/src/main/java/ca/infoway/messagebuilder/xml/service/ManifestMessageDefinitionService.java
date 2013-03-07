@@ -40,7 +40,11 @@ import ca.infoway.messagebuilder.j5goodies.EnumeratedIterable;
 /**
  * @sharpen.ignore - xml.service - translated manually
  */
-class ManifestMessageDefinitionService extends BaseMessageDefinitionService {
+public class ManifestMessageDefinitionService extends BaseMessageDefinitionService {
+
+	public static final String MANIFEST_META_INF_MANIFEST_MF_FILE = "META-INF/MANIFEST.MF";
+	public static final String MANIFEST_MBT_MESSAGE_SET_ATTRIBUTE = "MBT-Message-Set";
+	public static final String MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE = "MBT-Model-Version-Numbers";
 
 	@Override
 	protected List<String> getNames() {
@@ -50,13 +54,13 @@ class ManifestMessageDefinitionService extends BaseMessageDefinitionService {
 	private List<String> getResourceNamesFromManifests() {
 		List<String> manifests = new ArrayList<String>();
 		try {
-			Enumeration<URL> resources = getClass().getClassLoader().getResources("META-INF/MANIFEST.MF");
+			Enumeration<URL> resources = getClass().getClassLoader().getResources(MANIFEST_META_INF_MANIFEST_MF_FILE);
 			for (URL url : EnumeratedIterable.iterable(resources)) {
 				InputStream input = url.openStream();
 				try {
 					Manifest manifest = new Manifest(input);
 					Attributes attributes = manifest.getMainAttributes();
-					String messageSets = attributes.getValue("MBT-Message-Set");
+					String messageSets = attributes.getValue(MANIFEST_MBT_MESSAGE_SET_ATTRIBUTE);
 					if (StringUtils.isNotBlank(messageSets)) {
 						manifests.addAll(asList(split(messageSets)));
 					}

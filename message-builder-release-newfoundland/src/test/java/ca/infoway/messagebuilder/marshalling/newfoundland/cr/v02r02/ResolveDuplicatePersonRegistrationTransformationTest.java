@@ -73,6 +73,7 @@ public class ResolveDuplicatePersonRegistrationTransformationTest extends BaseTr
 				actual);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void shouldParseRequest() throws Exception {
 		Document document = this.factory.createFromResource(new ClasspathResource(
