@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Discharg
 @Hl7PartTypeMapping({"REPC_IN000076CA"})
 public class RecordDischargeCareSummaryRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<DischargeCareSummaryBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
 
 }

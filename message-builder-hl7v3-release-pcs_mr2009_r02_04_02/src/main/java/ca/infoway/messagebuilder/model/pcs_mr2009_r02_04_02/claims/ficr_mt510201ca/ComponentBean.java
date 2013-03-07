@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Component"})
 public class ComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
@@ -54,11 +54,11 @@ public class ComponentBean extends MessagePartBean {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }
 
-    public FinancialTransactionIntentBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
-        return this.adjudicatedInvoiceElementChoice instanceof FinancialTransactionIntentBean ? (FinancialTransactionIntentBean) this.adjudicatedInvoiceElementChoice : null;
+    public AdjudicatedInvoiceElementGroupBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
+        return this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementGroupBean ? (AdjudicatedInvoiceElementGroupBean) this.adjudicatedInvoiceElementChoice : null;
     }
     public boolean hasAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
-        return (this.adjudicatedInvoiceElementChoice instanceof FinancialTransactionIntentBean);
+        return (this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementGroupBean);
     }
 
     public AdjudicatedInvoiceElementDetailBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {

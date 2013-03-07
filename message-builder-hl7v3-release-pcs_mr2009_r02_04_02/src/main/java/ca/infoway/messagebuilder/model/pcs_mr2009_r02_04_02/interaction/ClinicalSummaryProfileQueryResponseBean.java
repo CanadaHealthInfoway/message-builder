@@ -52,11 +52,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
  * 
  * <p>----> Sub-Payload Choice: COMT_MT111111CA.Lab</p>
  * 
+ * <p>----> Sub-Payload Choice: POIZ_MT061150CA.Immunization</p>
+ * 
  * <p>--> Sub-Payload: REPC_MT000008CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN200000CA"})
 public class ClinicalSummaryProfileQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<Summary,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
 
 }

@@ -43,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.QueryDefin
 @Hl7PartTypeMapping({"PRPA_IN202307CA"})
 public class LocationDetailsQueryBean extends HL7Message_1Bean<TriggerEventBean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
 
 }

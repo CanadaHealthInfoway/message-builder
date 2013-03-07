@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Organization","PRPA_MT202302CA.Organization","PRPA_MT202303CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private II id = new IIImpl();
     private ST name = new STImpl();
 

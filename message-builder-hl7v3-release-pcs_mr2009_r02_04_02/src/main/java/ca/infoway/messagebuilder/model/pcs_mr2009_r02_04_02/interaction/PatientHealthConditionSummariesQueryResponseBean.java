@@ -48,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000015ca
 @Hl7PartTypeMapping({"REPC_IN000024CA"})
 public class PatientHealthConditionSummariesQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<HealthConditionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
 
 }

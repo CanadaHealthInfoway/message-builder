@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.ManufacturedMaterialKind"})
 public class DrugFormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private CV formCode = new CVImpl();
 
 

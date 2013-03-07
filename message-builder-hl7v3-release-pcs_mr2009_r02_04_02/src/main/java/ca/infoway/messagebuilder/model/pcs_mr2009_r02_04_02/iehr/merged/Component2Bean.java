@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.Component2","REPC_MT420003CA.Component2","REPC_MT610002CA.Component"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private WorkingListEventBean workingListEvent;
 
 

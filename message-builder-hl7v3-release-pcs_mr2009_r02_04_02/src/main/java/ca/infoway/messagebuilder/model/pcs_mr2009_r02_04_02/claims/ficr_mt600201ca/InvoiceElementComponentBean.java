@@ -25,6 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.InvoiceElementDetailBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.InvoiceTypeBean;
 
 
@@ -40,7 +41,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Invoic
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private INT sequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 

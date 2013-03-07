@@ -99,7 +99,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.SortControl","MFMI_MT700751CA.SortControl","QUQI_MT020000CA.SortControl","QUQI_MT020002CA.SortControl","QUQI_MT120006CA.SortControl","QUQI_MT120008CA.SortControl"})
 public class SortControlBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private INT sequenceNumber = new INTImpl();
     private ST elementName = new STImpl();
     private CS directionCode = new CSImpl();

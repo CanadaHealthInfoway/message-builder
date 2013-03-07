@@ -47,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt
 @Hl7PartTypeMapping({"POIZ_IN020020CA"})
 public class ImmunizationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ImmunizationsBean,ImmunizationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
 
 }

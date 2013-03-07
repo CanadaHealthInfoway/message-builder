@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private CV patientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
 
 

@@ -122,7 +122,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.PersonalRelationship","PRPA_MT101002CA.PersonalRelationship","PRPA_MT101102CA.PersonalRelationship","PRPA_MT101104CA.PersonalRelationship"})
 public class PersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130307L;
     private CV code = new CVImpl();
     private II relationshipHolderId = new IIImpl();
     private PN relationshipHolderName = new PNImpl();
