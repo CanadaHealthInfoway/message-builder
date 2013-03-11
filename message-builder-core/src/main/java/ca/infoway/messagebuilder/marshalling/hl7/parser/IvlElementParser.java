@@ -162,7 +162,7 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 	
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String type = context.getType();
-		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		String specializationType = getSpecializationType(node);
 		List<String> errors = new ArrayList<String>();
 		
 		String newType = this.ivlValidationUtils.validateSpecializationType(type, specializationType, errors);

@@ -154,10 +154,7 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 	}
 
 	private String parseSpecializationType(Element element) {
-		if (element.hasAttribute(SPECIALIZATION_TYPE)) {
-			return element.getAttribute(SPECIALIZATION_TYPE);
-		}
-		return null;
+		return getSpecializationType(element);
 	}
 
 	private String parseLanguage(Element element) {

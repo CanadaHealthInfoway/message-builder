@@ -41,6 +41,16 @@ public abstract class AbstractElementParser implements ElementParser {
 		return node != null && node instanceof Element ? getAttributeValue((Element) node, attributeName) : null;
 	} 
 
+	protected String getSpecializationType(Node node) {
+		String specializationType = node != null && node instanceof Element ? getAttributeValue((Element) node, SPECIALIZATION_TYPE) : null;
+		// specialization types defined as A<B.C> are not a problem.
+		// specialization types defined as A_B.C (the way MB formats specializationType!) are not handled properly, so convert the value here
+		if (specializationType != null && specializationType.contains("_")) {
+			specializationType = specializationType.replaceAll("_", "<") + ">";
+		}
+		return specializationType;
+	} 
+	
 	protected String getAttributeValue(Element node, String attributeName) {
 		return node != null && node.hasAttribute(attributeName) ? node.getAttribute(attributeName) : null;
 	}

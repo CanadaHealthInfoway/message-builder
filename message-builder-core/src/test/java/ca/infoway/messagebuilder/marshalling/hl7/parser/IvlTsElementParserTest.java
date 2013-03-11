@@ -125,6 +125,31 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     }
 
 	@Test
+    public void testParseEffectiveTimeDateWithSpecializationTypeAlternative() throws Exception {
+		// specializationType should not have to be specified as "IVL&lt;TS.FULLDATETIME&gt;", but should be accepted as "IVL_TS.FULLDATETIME" (which is how the MB formatter would write it)
+    	Node node = createNode("<effectiveTime specializationType=\"IVL_TS.FULLDATETIME\"><low value=\"20130311164402.7530-0300\"/><high nullFlavor=\"NA\" /></effectiveTime>");
+    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
+    	
+        assertTrue("valid", this.result.isValid());
+    	assertNotNull("null", interval);
+    	assertDateEquals("low", FULL_DATE_TIME, parseDate("2013-03-11T16:44:02"), interval.getLow());
+    	assertNull(interval.getHigh());
+    	assertEquals(NullFlavor.NOT_APPLICABLE.getCodeValue(), interval.getHighNullFlavor().getCodeValue());
+    }
+	
+	@Test
+    public void testParseEffectiveTimeDateWithSpecializationTypeAlternative2() throws Exception {
+    	Node node = createNode("<effectiveTime specializationType=\"IVL&lt;TS.FULLDATETIME&gt;\"><low value=\"20130311164402.7530-0300\"/><high nullFlavor=\"NA\" /></effectiveTime>");
+    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
+    	
+        assertTrue("valid", this.result.isValid());
+    	assertNotNull("null", interval);
+    	assertDateEquals("low", FULL_DATE_TIME, parseDate("2013-03-11T16:44:02"), interval.getLow());
+    	assertNull(interval.getHigh());
+    	assertEquals(NullFlavor.NOT_APPLICABLE.getCodeValue(), interval.getHighNullFlavor().getCodeValue());
+    }
+	
+	@Test
     public void testParseEffectiveTimeDateWithMissingSpecializationType() throws Exception {
     	Node node = createNode("<effectiveTime><low value=\"20080918\"/><high value=\"20090918\"/></effectiveTime>");
     	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
