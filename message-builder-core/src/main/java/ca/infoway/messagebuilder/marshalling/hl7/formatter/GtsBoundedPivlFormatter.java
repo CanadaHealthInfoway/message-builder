@@ -53,9 +53,9 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private Map<String, String> createTypeAttributes(FormatContext context) {
 		Map<String, String> attributes = new HashMap<String, String>();
 		if (requiresSpecializationType(context)) {
-			attributes.put("specializationType", GTS_BOUNDED_PIVL);
+			attributes.put(SPECIALIZATION_TYPE, GTS_BOUNDED_PIVL);
 		}
-		attributes.put("xsi:type", "SXPR_TS");
+		attributes.put(XSI_TYPE, "SXPR_TS");
 		return attributes;
 	}
 
@@ -139,7 +139,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		@Override
 		protected String createElement(String name,	Map<String, String> attributes, int indentLevel, boolean close,	boolean lineBreak) {
 			if ("comp".equals(name) && !this.requiresSpecializationType && attributes != null) {
-				attributes.put("xsi:type", "PIVL_TS");
+				attributes.put(XSI_TYPE, "PIVL_TS");
 			}
 			return super.createElement(name, attributes, indentLevel, close, lineBreak);
 		}
@@ -164,7 +164,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 					attributes.put("operator", "I");
 				}
 				if (!this.requiresSpecializationType && attributes != null) {
-					attributes.put("xsi:type", "IVL_TS");
+					attributes.put(XSI_TYPE, "IVL_TS");
 				}
 			}
 			return super.createElement(name, attributes, indentLevel, close, lineBreak);
