@@ -48,17 +48,19 @@ import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifSpecializedByDomai
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifValueSet;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.VocabularyMifMarshaller;
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.CmetBinding;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.ContextBinding;
+import ca.infoway.messagebuilder.xml.ImportedPackage;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.RimClass;
+import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 
 import com.google.common.base.Predicate;
@@ -68,7 +70,6 @@ import com.google.common.collect.Lists;
 class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
 	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
-	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(true);
 	
 	private DocumentFactory factory = new DocumentFactory();
 	
@@ -97,6 +98,67 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		super.addMessagePartsFromMifs(messageSet, mifs, watch);
 	}
 	
+	@Override
+	protected List<MifReference> extractInteractionMifs(List<MifReference> mifs) {
+		return Lists.newArrayList(Iterables.filter(mifs, new Predicate<MifReference>(){
+			public boolean apply(MifReference reference) {
+				return "mif".equals(FilenameUtils.getExtension(reference.asFile().getName())) &&
+						PackageLocationDeriver.derive(reference.asFile()).isInteraction();
+			}
+		}));
+	}
+
+	@Override
+	protected void processInteractions(MessageSet messageSet,
+			List<MifReference> interactionMifs) throws GeneratorException, IOException {
+		
+		for (MifReference mifReference : interactionMifs) {
+			Interaction interaction = Mif2InteractionDefinition.create(mifReference, this.mifRegistry, this.outputUI).extract(messageSet);
+			messageSet.getInteractions().put(interaction.getName(), interaction);
+		}
+	}
+	
+	@Override
+	protected Element getEntryPointElement(MifReference reference) throws IOException, GeneratorException {
+		return this.helper.getOwnedEntryPointElement(this.mifRegistry.getMif(reference).asDocument());
+	}
+
+	@Override
+	protected List<MifReference> extractPartMifs(List<MifReference> mifs) {
+		return Lists.newArrayList(Iterables.filter(mifs, new Predicate<MifReference>(){
+			public boolean apply(MifReference reference) {
+				return "mif".equals(FilenameUtils.getExtension(reference.asFile().getName())) &&
+						!PackageLocationDeriver.derive(reference.asFile()).isInteraction();
+			}
+		}));
+	}
+	
+	@Override
+	protected void processRelationships(MessageSet messageSet, Mif mif) throws GeneratorException {
+		processAttributes(messageSet, Mif2XPathHelper.getContainedClasses(mif.asDocument()));
+		processAssociations(messageSet, Mif2XPathHelper.getAssociations(mif.asDocument()));
+	}
+
+	@Override
+	protected List<MessagePart> extractMessageParts(MessageSet messageSet, Mif mif) throws IOException, GeneratorException {
+		List<MessagePart> result = new ArrayList<MessagePart>();
+		Document document = mif.asDocument();
+		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(document);
+		String qualifier = createPackageLocation(messageSet, ownedEntryPoint);
+		HashMap<String, String> rimClassMap = new HashMap<String, String>();
+		
+		updatePackageLocation(messageSet, qualifier, document);
+		processGraphicRepresentation(rimClassMap, mif);
+		processContainedClasses(messageSet, result, qualifier, rimClassMap, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
+		
+		for (MessagePart messagePart : result) {
+			this.outputUI.log(LogLevel.DEBUG, "Entry point " + qualifier + " contains complex type " + messagePart.getName());
+			messageSet.addMessagePart(messagePart);
+		}
+		
+		return result;
+	}
+
 	private void createVocabularyInformation(MessageSet messageSet,
 			List<MifVocabularyModel> vocabularyModels) {
 
@@ -161,16 +223,33 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		vocabularyModels.add(new VocabularyMifMarshaller().unmarshallVocabularyModel(xmlFile));
 	}
 
-	private void processStaticModel(Document document) {
+	void processStaticModel(Document document) {
+		Element packageLocation = BaseMifXPathHelper.getSingleElement(document.getDocumentElement(), 
+				"/mif2:staticModelInterfacePackage/mif2:packageLocation");
+		String packageName = processPackageName(packageLocation).toTextRepresentation();
 		NodeList nodes = BaseMifXPathHelper.getNodes(document.getDocumentElement(), 
-				"/mif2:staticModelInterfacePackage/mif2:commonModelElementDefinition/mif2:boundStaticModel");
+				"/mif2:staticModelInterfacePackage/mif2:commonModelElementDefinition");
 		for (Element element : NodeListIterator.elementIterable(nodes)) {
-			Element parent = (Element) element.getParentNode();
-			String name = parent.getAttribute("name");
-			String entryPoint = EntryPointAssembler.getEntryPoint(element);
-
-			this.outputUI.log(LogLevel.DEBUG, "Alias " + name + " is associated with " + entryPoint);
-			this.mifRegistry.addAlias(name, entryPoint);
+			Element boundStaticModel = Mif2XPathHelper.getSingleElement(element, "mif2:boundStaticModel");
+			Element entryClass = Mif2XPathHelper.getSingleElement(element, "mif2:entryClass");
+			
+			String boundClassName = EntryPointAssembler.getEntryPoint(boundStaticModel);
+			if (entryClass != null) {
+				boundClassName += "." + entryClass.getAttribute("name");
+			}
+			
+			CmetDefinition cmetDefinition = new CmetDefinition();
+			cmetDefinition.setDefinitionPackage(packageName);
+			cmetDefinition.setCmetName(element.getAttribute("name"));
+			cmetDefinition.setAttributionLevel(element.getAttribute("attributionLevel"));
+			cmetDefinition.setCode(BaseMifXPathHelper.getAttribute(element, "mif2:definingVocabulary/mif2:code/@code"));
+			cmetDefinition.setCodeSystemOid(BaseMifXPathHelper.getAttribute(element, "mif2:definingVocabulary/mif2:code/@codeSystem"));
+			addDocumentationForCmetBinding(element, cmetDefinition);
+			cmetDefinition.setBoundClass(boundClassName);
+			
+			this.outputUI.log(LogLevel.DEBUG, "Alias " + cmetDefinition.getCmetName() + " is associated with " + cmetDefinition.getBoundClass());
+			
+			this.mifRegistry.registerCmet(cmetDefinition);
 		}
 	}
 
@@ -178,49 +257,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return filterFiles(mifs, "coremif");
 	}
 
-	@Override
-	protected List<MifReference> extractInteractionMifs(List<MifReference> mifs) {
-		return Lists.newArrayList(Iterables.filter(mifs, new Predicate<MifReference>(){
-			public boolean apply(MifReference reference) {
-				return "mif".equals(FilenameUtils.getExtension(reference.asFile().getName())) &&
-						PackageLocationDeriver.derive(reference.asFile()).isInteraction();
-			}
-		}));
-	}
-
-	@Override
-	protected void processInteractions(MessageSet messageSet,
-			List<MifReference> interactionMifs) throws GeneratorException, IOException {
-		
-		for (MifReference mifReference : interactionMifs) {
-			Interaction interaction = Mif2InteractionDefinition.create(mifReference, this.mifRegistry, this.outputUI).extract(messageSet);
-			messageSet.getInteractions().put(interaction.getName(), interaction);
-		}
-	}
-	
-	protected Element getEntryPointElement(MifReference reference) throws IOException, GeneratorException {
-		return this.helper.getOwnedEntryPointElement(this.mifRegistry.getMif(reference).asDocument());
-	}
-
-	@Override
-	protected List<MifReference> extractPartMifs(List<MifReference> mifs) {
-		return Lists.newArrayList(Iterables.filter(mifs, new Predicate<MifReference>(){
-			public boolean apply(MifReference reference) {
-				return "mif".equals(FilenameUtils.getExtension(reference.asFile().getName())) &&
-						!PackageLocationDeriver.derive(reference.asFile()).isInteraction();
-			}
-		}));
-	}
-	
-	protected void processRelationships(MessageSet messageSet, Mif mif) throws GeneratorException {
-		processAttributes(messageSet, Mif2XPathHelper.getContainedClasses(mif.asDocument()));
-		processAssociations(messageSet, Mif2XPathHelper.getAssociations(mif.asDocument()));
-	}
-
 	private void processAssociations(MessageSet messageSet, List<Element> associations) throws GeneratorException {
 		
 		List<Element> sortedAssociations = new ArrayList<Element>(associations);
-		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
 		
 		for (Element association : sortedAssociations) {
 			Element traversableConnection = Mif2XPathHelper.getTraversableConnection(association);
@@ -258,23 +297,44 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	protected List<MessagePart> extractMessageParts(MessageSet messageSet, Mif mif) throws IOException, GeneratorException {
-		List<MessagePart> result = new ArrayList<MessagePart>();
-		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(mif.asDocument());
-		String qualifier = createPackageLocation(messageSet, ownedEntryPoint);
-		HashMap<String, String> rimClassMap = new HashMap<String, String>();
+
+	private void updatePackageLocation(MessageSet messageSet, String packageName, Document document) {
+		PackageLocation packageLocation = messageSet.getPackageLocations().get(packageName);
 		
-		processGraphicRepresentation(rimClassMap, mif);
-		processContainedClasses(messageSet, result, qualifier, rimClassMap, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
+		packageLocation.setDerivedFromStaticModel(processPackageName(Mif2XPathHelper.getTargetStaticModel(document)));
+		packageLocation.setDatatypeModel(processPackageName(Mif2XPathHelper.getDatatypeModel(document)));
+		packageLocation.setVocabularyModel(processPackageName(Mif2XPathHelper.getVocabularyModel(document)));
+		ImportedPackage cmetDefiningPackage = processPackageName(Mif2XPathHelper.getCommonModelElementPackage(document));
+		packageLocation.setCommonModelElement(cmetDefiningPackage);
 		
-		for (MessagePart messagePart : result) {
-			this.outputUI.log(LogLevel.DEBUG, "Entry point " + qualifier + " contains complex type " + messagePart.getName());
-			messageSet.addMessagePart(messagePart);
+		CmetDefinition cmetDefinition = this.mifRegistry.getCmetByPackageName(cmetDefiningPackage.toTextRepresentation(), packageName);
+		if (cmetDefinition != null) {
+			CmetBinding cmetBinding = new CmetBinding();
+			cmetBinding.setCmetName(cmetDefinition.getCmetName());
+			cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
+			cmetBinding.setCode(cmetDefinition.getCode());
+			cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
+			cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
+			
+			packageLocation.setCmetBinding(cmetBinding);
+		}
+	}
+
+	private ImportedPackage processPackageName(Element packageElement) {
+		if (packageElement == null) {
+			return null;
+		}
+		
+		ImportedPackage result = new ImportedPackage();
+		result.setRoot(packageElement.getAttribute("root"));
+		result.setArtifact(packageElement.getAttribute("artifact"));
+		result.setVersion(packageElement.getAttribute("version"));
+		if (packageElement.hasAttribute("realmNamespace")) {
+			result.setRealm(packageElement.getAttribute("realmNamespace"));
 		}
 		
 		return result;
 	}
-
 
 	private void processGraphicRepresentation(HashMap<String, String> rimClassMap, Mif mif) {
 		List<Element> graphicRepresentationClasses = Mif2XPathHelper.getGraphicRepresentationClasses(mif.asDocument());		
@@ -295,6 +355,8 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				addDocumentation(Mif2XPathHelper.getClassElement(element), part);
 				processChilds(messageSet, element, part);
 				result.add(part);
+			} else if (Mif2XPathHelper.isTemplateParameterPresent(element)) {
+				result.add(createTemplateParameter(qualifier, element, rimClassMap));
 			}
 		}
 	}
@@ -312,12 +374,12 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + childClassName);
 				part.getSpecializationChilds().add(NameHelper.qualifiyName(element, childClassName));
 			} else {
+				PackageLocation parentPackage = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
 				String name = reference.getAttribute("cmetName");
-				Mif mif = this.mifRegistry.getMifByName(name);
-				if (mif != null) {
-					String rootType = messageSet.getPackageLocationRootType(mif.getPackageLocation());
-					part.getSpecializationChilds().add(rootType);
-					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + rootType);
+				CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(parentPackage.getCommonModelElement().toTextRepresentation(), name);
+				if (cmetDefinition != null) {
+					part.getSpecializationChilds().add(cmetDefinition.getBoundClass());
+					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + cmetDefinition.getBoundClass());
 				} else {
 					this.outputUI.log(LogLevel.SEVERE, part.getName() + ": Cannot resolve child class cmetName " + name);
 //					throw new GeneratorException("Cannot resolve child class cmetName " + name);
@@ -345,13 +407,20 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void createChoice(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
+		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
+		Element targetConnectionDerivation = Mif2XPathHelper.getTraversableConnectionDerivationMetadata(element);
+		Element reverseConnectionDerivation = Mif2XPathHelper.getNonTraversableConnectionDerivationMetadata(element);
+		
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		choice.setCardinality(createCardinality(targetConnection));
 		choice.setUpdateMode(createUpdateMode(targetConnection));
 		choice.setConformance(createConformance(targetConnection));
-		choice.setType(determineType(targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
+		choice.setType(determineType(packageLocation.getCommonModelElement().toTextRepresentation(), targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
+		choice.setAssociationSortKey(targetConnection.getAttribute("sortKey"));
+		choice.setTraversableAssociationName(targetConnectionDerivation.getAttribute("associationEndName"));
+		choice.setNontraversableAssociationName(reverseConnectionDerivation.getAttribute("associationEndName"));
 
 		addChoiceItems(messageSet, targetConnection, choice);
 		choice.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
@@ -398,7 +467,11 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
+		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
+		Element targetConnectionDerivation = Mif2XPathHelper.getTraversableConnectionDerivationMetadata(element);
+		Element reverseConnectionDerivation = Mif2XPathHelper.getNonTraversableConnectionDerivationMetadata(element);
+
 		Relationship relationship = new Relationship();
 		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		relationship.setName(targetConnection.getAttribute("name"));
@@ -412,7 +485,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				relationship.setTemplateParameterName(parameterName);
 			}
 		} else {
-			String type = determineType(messageSet, targetConnection);
+			String type = determineType(packageLocation.getCommonModelElement().toTextRepresentation(), messageSet, targetConnection);
 			if (StringUtils.isBlank(type)) {
 				this.outputUI.log(LogLevel.ERROR, "Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
 //				throw new GeneratorException("Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
@@ -424,6 +497,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setCardinality(createCardinality(targetConnection));
 		relationship.setConformance(createConformance(targetConnection));
 		relationship.setUpdateMode(createUpdateMode(targetConnection));
+		relationship.setAssociationSortKey(targetConnection.getAttribute("sortKey"));
+		relationship.setTraversableAssociationName(targetConnectionDerivation.getAttribute("associationEndName"));
+		relationship.setNontraversableAssociationName(reverseConnectionDerivation.getAttribute("associationEndName"));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
@@ -442,52 +518,51 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setUpdateMode(createUpdateMode(element));	
 		relationship.setCardinality(createCardinality(element));
 		relationship.setConformance(createConformance(element));
-		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
-			relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
-			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
-			relationship.setDomainSource(Mif2XPathHelper.getDomainSource(element));
-		}
+
+		// It turns out that some non-coded attributes have domain bindings as well. Don't know why, but we have to preserve it if it's present
+		relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
+		relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
+		relationship.setDomainSource(Mif2XPathHelper.getDomainSource(element));
+
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
 	}
 
-	String determineType(MessageSet messageSet, Element targetConnection) throws GeneratorException {
+	private String determineType(String definingPackage, MessageSet messageSet, Element targetConnection) throws GeneratorException {
 		String partName = targetConnection.getAttribute("participantClassName");
-		return determineType(partName, messageSet, targetConnection);
+		return determineType(definingPackage, partName, messageSet, targetConnection);
 	}
 
-	private String determineType(String name, MessageSet messageSet, Element element) {
+	private String determineType(String definingPackage, String name, MessageSet messageSet, Element element) {
 		if (isInternalReference(messageSet, element, name)) {
 			return getPart(messageSet, name, element).getName();
 		} else if (isCmetReference(element, name)) {
-			Mif mif = this.mifRegistry.getMifByName(name);
-			if (mif == null) {
+			CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(definingPackage, name);
+			if (cmetDefinition == null) {
 				this.outputUI.log(LogLevel.ERROR, "Cannot resolve MIF name " + name + " (check coremif files for possible missing MIF file)");
 				return null;
 //				throw new GeneratorException("Cannot resolve MIF name " + name);
 			} else {
-				String packageLocation = mif.getPackageLocation();
-				return messageSet.getPackageLocationRootType(packageLocation);
+				return cmetDefinition.getBoundClass();
 			}
 		} else if (isTemplateParameter(element)) {
 			return null;
 		} else if (isChoiceOfExternalCmet(name, element)) {
-			return resolveChoiceOfExternalCmet(name, messageSet, element);
+			return resolveChoiceOfExternalCmet(definingPackage, name, messageSet, element);
 		} else {
 			throw new MifProcessingException("Can't determine the type: " + name);
 		}
 	}
 
-	private String resolveChoiceOfExternalCmet(String name, MessageSet messageSet,
+	private String resolveChoiceOfExternalCmet(String definingPackage, String name, MessageSet messageSet,
 			Element choiceItem) throws GeneratorException {
 		String externalCmetName = getParentClassName(choiceItem);
 		
-		Mif externalCmet = this.mifRegistry.getMifByName(externalCmetName);
-		if (externalCmet == null) {
+		CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(definingPackage, externalCmetName);
+		if (cmetDefinition == null) {
 			throw new GeneratorException("Cannot resolve mif name \"" + externalCmetName + "\"");
 		} else {
-			String packageLocation = externalCmet.getPackageLocation();
-			MessagePart messagePart = messageSet.getMessagePart(packageLocation);
+			MessagePart messagePart = messageSet.getMessagePart(cmetDefinition.getBoundClass());
 			
 			int index = XmlDescriber.getIndexOf(choiceItem);
 			if (index < 1 || index > messagePart.getSpecializationChilds().size()) {
@@ -539,14 +614,6 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return getPart(messageSet, partName, targetConnection) != null;
 	}
 
-	private static boolean isTemplateParameter(Element targetConnection) {
-		return Mif2XPathHelper.getTemplateParameter(targetConnection) != null;
-	}
-
-	static boolean isParticipantClass(Element targetConnection) {
-		return StringUtils.isNotBlank(MifXPathHelper.getParticipantClassName(targetConnection));
-	}
-
 	private boolean isChoice(Element element) {
 		return Mif2XPathHelper.isChoiceItemPresent(element);
 	}
@@ -562,35 +629,36 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		} else {
 			msgPart = new MessagePart(name);
 		}
+		
+		Element derivationMetadata = Mif2XPathHelper.getDerivationMetadata(classElement);
+		if (derivationMetadata != null) {
+			msgPart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+		}
+		
 		addRimClass(classElement, msgPart, rimClassMap);
 		return msgPart;
 	}
 
+	private MessagePart createTemplateParameter(String qualifier,
+			Element element, HashMap<String, String> rimClassMap) {
+		Element templateParameterElement = Mif2XPathHelper.getTemplateParameterElement(element);
+		String name = NameHelper.createName(qualifier, templateParameterElement.getAttribute("name"));
+		
+		MessagePart msgPart = MessagePart.createTemplateParameter(name);
+		
+		Element derivationMetadata = Mif2XPathHelper.getDerivationMetadata(templateParameterElement);
+		if (derivationMetadata != null) {
+			msgPart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+		}
+
+		addDocumentation(templateParameterElement, msgPart);
+		addRimClass(templateParameterElement, msgPart, rimClassMap);
+		return msgPart;
+	}
+	
 	private void addRimClass(Element classElement, MessagePart msgPart, HashMap<String, String> rimClassMap) {
 		String rimClassName = rimClassMap.get(classElement.getAttribute("graphicLinkId"));
-		if(rimClassName.equals("RoleLinkR")) {
-			rimClassName = RimClass.ROLE_LINK.getCode();
-		} else if (rimClassName.equals("ActRelationshipR")) {
-			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
-		} else if (rimClassName.equals("Choice")) {
-			rimClassName = extractFromDerivedFromElement(classElement);
-		}
-		msgPart.setRimClass(getRimClassFromCode(rimClassName));
-	}
-
-	private RimClass getRimClassFromCode(String rimClassName) {
-		List<RimClass> values = EnumPattern.values(RimClass.class);
-		for (RimClass rimClass : values) {
-			if (rimClass.getCode().equals(rimClassName)) {
-				return rimClass;
-			}
-		}
-		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
-	}
-
-	private String extractFromDerivedFromElement(Element classElement) {
-		Element derivedFromElement = Mif2XPathHelper.getSingleElement(classElement, "mif2:derivedFrom");
-		return derivedFromElement.getAttribute("className");
+		msgPart.setRimClass(determineRimClass(classElement,	rimClassName));
 	}
 
 	private boolean isAbstract(Element classElement) {

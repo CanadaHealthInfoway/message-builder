@@ -51,6 +51,9 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	@Attribute(required=false,name="abstract")
 	private boolean isAbstract;
 	
+	@Attribute(required=false)
+	private boolean templateParameter;
+	
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
@@ -60,6 +63,9 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	
 	@Attribute(required=false)
 	private String rimClass;
+	
+	@Attribute(required=false)
+	private String derivedFromClass;
 	
 	@ElementList(required=false,inline=true)
 	private List<Relationship> relationships = new ArrayList<Relationship>();
@@ -107,6 +113,12 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	public void setDocumentation(Documentation documentation) {
 		this.documentation = documentation;
 	}
+	public String getDerivedFromClass() {
+		return derivedFromClass;
+	}
+	public void setDerivedFromClass(String derivedFromClass) {
+		this.derivedFromClass = derivedFromClass;
+	}
 	/**
 	 * <p>Get the list of relationships.
 	 * @return - the relationships
@@ -146,6 +158,22 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	public static MessagePart createAbstractPart(String name) {
 		MessagePart part = new MessagePart(name);
 		part.setAbstract(true);
+		return part;
+	}
+	public boolean isTemplateParameter() {
+		return templateParameter;
+	}
+	public void setTemplateParameter(boolean templateParameter) {
+		this.templateParameter = templateParameter;
+	}
+	/**
+	 * <p>Factory method for creating a template parameter.
+	 * @param name - the type name of the message part
+	 * @return - the newly-constructed message part
+	 */
+	public static MessagePart createTemplateParameter(String name) {
+		MessagePart part = new MessagePart(name);
+		part.setTemplateParameter(true);
 		return part;
 	}
 	/**

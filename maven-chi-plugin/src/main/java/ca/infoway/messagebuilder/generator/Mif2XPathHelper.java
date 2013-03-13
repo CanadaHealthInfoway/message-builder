@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.generator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -91,6 +90,19 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 			throw new MifProcessingException(specializedClass.getTagName() + " should have had a mif:class as a sub-element");
 		}
 	}
+	
+	public static Element getTemplateParameterElement(Element specializedClass) {
+		Element element = getSingleElement(specializedClass, "./mif2:templateParameter");
+		if (element != null) {
+			return element;
+		} else {
+			throw new MifProcessingException(specializedClass.getTagName() + " should have had a mif:templateParameter as a sub-element");
+		}
+	}
+	
+	public static Element getDerivationMetadata(Element element) {
+		return getSingleElement(element, "./mif2:derivedFrom");
+	}
 
 	public static List<Element> getContainedClasses(Document document) {
 		NodeList nodes = getNodes(document.getDocumentElement(), ".//mif2:containedClass");
@@ -119,6 +131,10 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		return null != getSingleElement(element, "./mif2:class");
 	}
 
+	public static boolean isTemplateParameterPresent(Element element) {
+		return null != getSingleElement(element, "./mif2:templateParameter");
+	}
+	
 	String getBusinessName(Element element) {
 		return removeNonAsciiCharacters(getAttribute(element, "./mif2:businessName/@name"));
 	}
@@ -128,27 +144,8 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	}
 	
 	List<Annotation> getDocumentation(Element classElement) {
-		return getDocumentation(classElement, "./mif2:annotations//mif2:", ".//mif2:text/html:p");
-	}
-	
-	List<Annotation> getDocumentationForInteraction(Element classElement) {
 		// this leaves text wrapped in <text>
-		List<Annotation> result = getDocumentation(classElement, "./mif2:annotations//mif:", ".//mif2:text");
-		if (result.isEmpty()) {
-			// pre-MR2009 MIFs didn't even use a text element
-			// the following leaves text wrapped in annotation type elements, mainly <description> (but could be others) 
-			result = getDocumentation(classElement, "./mif2:annotations//mif2:", ".");
-		}
-		for (Iterator<Annotation> iterator = result.iterator(); iterator.hasNext();) {
-			Annotation annotation = iterator.next();
-			String newText = cleanInteractionAnnotationText(annotation.getText(), annotation.getAnnotationType());
-			if (newText == null) {
-				iterator.remove();
-			} else {
-				annotation.setText(newText);
-			}
-		}
-		return result;
+		return getDocumentation(classElement, "./mif2:annotations//mif2:", ".//mif2:text/html:p", ".//mif2:text", ".");
 	}
 
 	public static String getAttributeType(Element attribute) {
@@ -224,6 +221,24 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		}
 	}
 
+	public static Element getTraversableConnectionDerivationMetadata(Element association) {
+		Element connection = getSingleElement(association, "./mif2:traversableConnection/mif2:derivedFrom");
+		if (connection != null) {
+			return connection;
+		} else {
+			throw new MifProcessingException("No non-traversable connection element found (" + XmlDescriber.describePath(association) + ")");
+		}
+	}
+	
+	public static Element getNonTraversableConnectionDerivationMetadata(Element association) {
+		Element connection = getSingleElement(association, "./mif2:nonTraversableConnection/mif2:derivedFrom");
+		if (connection != null) {
+			return connection;
+		} else {
+			throw new MifProcessingException("No non-traversable connection element found (" + XmlDescriber.describePath(association) + ")");
+		}
+	}
+	
 	public static String getNonTraversableConnectionClassName(Element association) {
 		String connection = getAttribute(association, "./mif2:nonTraversableConnection/@participantClassName");
 		if (StringUtils.isNotBlank(connection)) {
@@ -237,7 +252,7 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		return getNodes(element, "./mif2:choiceItem").getLength() > 0;
 	}
 
-	public static Element getTemplateParameter(Element targetConnection) {
+	public Element getTemplateParameter(Element targetConnection) {
 		String name = targetConnection.getAttribute("participantClassName");
 		return getSingleElement(targetConnection, "//mif2:containedClass/mif2:templateParameter[@name='" + name + "']");
 	}
@@ -263,4 +278,21 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	public static String getTemplateParameterName(Element targetConnection) {
 		return getAttribute(targetConnection, "./mif2:participantClass/mif2:templateParameter/@name");
 	}
+
+	public static Element getTargetStaticModel(Document document) {
+		return getSingleElement(document.getDocumentElement(), "//mif2:derivedFrom/mif2:targetStaticModel");
+	}
+	public static Element getDatatypeModel(Document document) {
+		return getSingleElement(document.getDocumentElement(), "//mif2:importedDatatypeModelPackage");
+	}
+	public static Element getVocabularyModel(Document document) {
+		return getSingleElement(document.getDocumentElement(), "//mif2:importedVocabularyModelPackage");
+	}
+	public static Element getCommonModelElementPackage(Document document) {
+		return getSingleElement(document.getDocumentElement(), "//mif2:importedCommonModelElementPackage");
+	}
+	public String determineRimClassForChoiceElement(Element classElement) {
+		return getAttribute(classElement, "mif2:derivedFrom/@className");
+	}
+
 }

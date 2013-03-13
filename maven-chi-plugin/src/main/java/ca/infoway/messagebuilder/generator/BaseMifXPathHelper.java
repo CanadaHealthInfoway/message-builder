@@ -24,6 +24,8 @@ import static ca.infoway.messagebuilder.generator.Namespaces.isMif1;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -95,7 +97,7 @@ abstract class BaseMifXPathHelper {
 		return document.getDocumentElement().getNamespaceURI();
 	}
 	
-	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String postMifAnnotationPath) {
+	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String... postMifAnnotationPaths) {
 		List<Annotation> result = new ArrayList<Annotation>();
 		// for every annotation type
 		for (AnnotationType annotationType : (List<AnnotationType>) EnumPattern.values(AnnotationType.class)) {
@@ -105,7 +107,7 @@ abstract class BaseMifXPathHelper {
 				List<Element> annotationElements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName));
 				// for every high-level annotation element (<mif:description>, for example)
 				for (Element annotationElement : annotationElements) {
-					List<Element> paragraphElements = toElementList(getNodes(annotationElement, postMifAnnotationPath));
+					List<Element> paragraphElements = extractParagraphElements(annotationElement, postMifAnnotationPaths);
 					if (!paragraphElements.isEmpty()) {
 						Annotation annotation = new Annotation();
 						
@@ -121,14 +123,9 @@ abstract class BaseMifXPathHelper {
 						}
 						// for every paragraph of text within the annotation
 						for (Element paragraphElement : paragraphElements) {
-							recurisvelyClearMifPrefix(paragraphElement);
-							try {
-								String text = StringUtils.trim(removeNonAsciiCharacters(DOMWriter.renderAsString(paragraphElement)));
-								if (StringUtils.isNotBlank(text)) {
-									annotation.setText( (annotation.getText() == null) ? text : annotation.getText() + text);
-								}
-							} catch (IOException e) {
-								throw new MifProcessingException(e);
+							String text = convertElementToText(paragraphElement);
+							if (StringUtils.isNotBlank(text)) {
+								annotation.setText( (annotation.getText() == null) ? text : annotation.getText() + text);
 							}
 						}
 						if (StringUtils.isNotBlank(annotation.getText())) {
@@ -138,7 +135,39 @@ abstract class BaseMifXPathHelper {
 				}
 			}
 		}
+		
+		for (Iterator<Annotation> iterator = result.iterator(); iterator.hasNext();) {
+			Annotation annotation = iterator.next();
+			String newText = cleanInteractionAnnotationText(annotation.getText(), annotation.getAnnotationType());
+			if (newText == null) {
+				iterator.remove();
+			} else {
+				annotation.setText(newText);
+			}
+		}
+
 		return result;
+	}
+
+	private List<Element> extractParagraphElements(Element annotationElement, String... postMifAnnotationPaths) {
+		List<Element> paragraphElements = Collections.emptyList();
+		int index = 0;
+		while (paragraphElements.isEmpty() && index < postMifAnnotationPaths.length) {
+			paragraphElements = toElementList(getNodes(annotationElement, postMifAnnotationPaths[index++]));
+		}
+		
+		return paragraphElements;
+	}
+
+	public String convertElementToText(Element element) {
+		String text = null;
+		recurisvelyClearMifPrefix(element);
+		try {
+			text = StringUtils.trim(removeNonAsciiCharacters(DOMWriter.renderAsString(element)));
+		} catch (IOException e) {
+			throw new MifProcessingException(e);
+		}
+		return text;
 	}
 
 	private void recurisvelyClearMifPrefix(Element element) {
@@ -171,7 +200,14 @@ abstract class BaseMifXPathHelper {
 			annotationText = StringUtils.remove(annotationText, "</" + tagToRemove + ">");
 		}
 		annotationText = StringUtils.trim(annotationText);
-		return StringUtils.isBlank(annotationText) ? null : "<p>" + annotationText + "</p>";
+		
+		if (StringUtils.isBlank(annotationText)) {
+			annotationText = null;
+		} else if (!annotationText.startsWith("<p>")) {
+			annotationText = "<p>" + annotationText + "</p>";
+		}
+		
+		return annotationText; 
 	}
 	
 	abstract String getOwnedEntryPoint(Document document);
@@ -180,5 +216,7 @@ abstract class BaseMifXPathHelper {
 	abstract String getBusinessName(Element element);
 	abstract Element getOwnedEntryPointElement(Document document);
 	abstract List<UpdateModeType> getAllowedUpdateModes(Element element);
+	abstract Element getTemplateParameter(Element targetConnection);
+	abstract String determineRimClassForChoiceElement(Element classElement);
 	
 }

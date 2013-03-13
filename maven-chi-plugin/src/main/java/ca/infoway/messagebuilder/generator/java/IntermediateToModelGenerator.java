@@ -214,6 +214,7 @@ public abstract class IntermediateToModelGenerator {
 
 	private void assignRelationshipsFromInterfaces(MessageSet messageSet, SimplifiableDefinitions definitions) {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
+			if (messagePart.isTemplateParameter()) { continue; }
 			TypeName name = new TypeName(messagePart.getName());
 			SimplifiableType simplifiableType = definitions.getType(messagePart.getName());
 
@@ -263,6 +264,7 @@ public abstract class IntermediateToModelGenerator {
 
 	private void createRelationships(MessageSet messageSet, SimplifiableDefinitions definitions) throws GeneratorException {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
+			if (messagePart.isTemplateParameter()) continue;
 			SimplifiableType simplifiableType = definitions.getType(messagePart.getName());
 			if (simplifiableType != null) {
 				createRelationships(messagePart, simplifiableType, definitions);
@@ -285,10 +287,16 @@ public abstract class IntermediateToModelGenerator {
 	private void sortRelationships(SimplifiableType simplifiableType) {
 		Collections.sort(simplifiableType.getRelationships(), new Comparator<SimplifiableRelationship>(){
 			public int compare(SimplifiableRelationship o1, SimplifiableRelationship o2) {
-				return new CompareToBuilder()
-							.append(o1.getRelationship().getSortOrder(), o2.getRelationship().getSortOrder())
-							.append(o1.getName(), o2.getName())
-							.toComparison();
+				CompareToBuilder builder = new CompareToBuilder();
+				builder.append(o1.getRelationship().isAssociation(), o2.getRelationship().isAssociation());
+				if (o1.getRelationship().isAttribute()) {
+					builder.append(o1.getRelationship().getSortOrder(), o2.getRelationship().getSortOrder());
+				}
+				if (o1.getRelationship().isAssociation()) {
+					builder.append(o1.getRelationship().getAssociationSortKey(), o2.getRelationship().getAssociationSortKey())
+						.append(o1.getName(), o2.getName());
+				}
+				return builder.toComparison();
 			}
 		});
 	}
@@ -313,7 +321,9 @@ public abstract class IntermediateToModelGenerator {
 	private void createTypes(MessageSet messageSet, SimplifiableDefinitions definitions) {
 		for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
 			for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
-				definitions.addType(new SimplifiableType(messagePart, isRootType(messagePart, packageLocation), packageLocation.getCategory()));
+				if (!messagePart.isTemplateParameter()) {
+					definitions.addType(new SimplifiableType(messagePart, isRootType(messagePart, packageLocation), packageLocation.getCategory()));
+				}
 			}
 		}
 	}

@@ -62,6 +62,10 @@ public class MimeTypes {
 	 */
 	public static final String PDF = "application/pdf";
 	/**
+	 * <p>The MIME type for SVG documents.
+	 */
+	public static final String SVG = "image/svg+xml";
+	/**
 	 * <p>The MIME type for Microsoft PowerPoint documents.
 	 */
 	public static final String MICROSOFT_POWERPOINT = "application/vnd.ms-powerpoint";

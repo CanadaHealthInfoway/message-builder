@@ -48,7 +48,10 @@ public class MessageSet implements MessagePartResolver {
 	private String component;
 	
 	@Attribute(required=false)
-	private String schemaVersion = "1.1";
+	private String schemaVersion = "2.0";
+	
+	@Attribute(required=false)
+	private String generatedBy;
 	
 	@Element(required=false)
 	private Vocabulary vocabulary;
@@ -112,6 +115,16 @@ public class MessageSet implements MessagePartResolver {
 	}
 	
 	/**
+	 * Get a single PackageLocation by name
+	 * 
+	 * @param name the name of the package location
+	 * @returns the package location, or null if no such location is known
+	 */
+	public PackageLocation getPackageLocation(String name) {
+		return this.packageLocations.get(name);
+	}
+	
+	/**
 	 * <p>Get a part by part type name.
 	 * @param type - the message part type name
 	 * @return - the message part
@@ -127,6 +140,24 @@ public class MessageSet implements MessagePartResolver {
 				messagePart = location.getMessageParts().get(type);
 			} else if (StringUtils.isNotBlank(location.getRootType())) {
 				messagePart = location.getMessageParts().get(location.getRootType());
+			} 
+		}
+		return messagePart;
+	}
+	
+	/**
+	 * <p>Get a template parameter part by name, relative to a referring part. It is assumed that the parameter part will be in the same package location
+	 * @param basePart the message part referring to the template parameter
+	 * @param templateParameterName the unqualified name of the template parameter
+	 * @return the message part defining the template parameter 
+	 */
+	public MessagePart resolveTemplateParameter(MessagePart basePart, String templateParameterName) {
+		MessagePart messagePart = null;
+		if (basePart != null) {
+			String packageLocationName = StringUtils.substringBefore(basePart.getName(), ".");
+			PackageLocation location = getPackageLocations().get(packageLocationName);
+			if (location != null && StringUtils.isNotBlank(templateParameterName)) {
+				messagePart = location.getMessageParts().get(packageLocationName + "." + templateParameterName);
 			} 
 		}
 		return messagePart;
@@ -227,5 +258,13 @@ public class MessageSet implements MessagePartResolver {
 		return this.vocabulary != null && 
 				!(this.vocabulary.getConceptDomains().isEmpty() && 
 						this.vocabulary.getValueSets().isEmpty());
+	}
+
+	public String getGeneratedBy() {
+		return generatedBy;
+	}
+
+	public void setGeneratedBy(String generatedBy) {
+		this.generatedBy = generatedBy;
 	}
 }

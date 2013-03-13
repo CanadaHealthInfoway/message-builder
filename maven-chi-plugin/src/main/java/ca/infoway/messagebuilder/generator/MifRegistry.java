@@ -73,7 +73,9 @@ class MifRegistry {
 	
 	protected Map<String,Mif> packageLocationToMif = Collections.synchronizedMap(new HashMap<String,Mif>());
 	private Map<String,Mif> nameToMif = Collections.synchronizedMap(new HashMap<String,Mif>());
-	private Map<String,String> aliasToMifId = Collections.synchronizedMap(new HashMap<String,String>());
+//	private Map<String,String> aliasToMifId = Collections.synchronizedMap(new HashMap<String,String>());
+	private Map<CmetDefinitionKey, CmetDefinition> cmetMapByAlias = Collections.synchronizedMap(new HashMap<CmetDefinitionKey, CmetDefinition>());
+	private Map<CmetDefinitionKey, CmetDefinition> cmetMapByPackageName = Collections.synchronizedMap(new HashMap<CmetDefinitionKey, CmetDefinition>());
 	private DocumentFactory factory;
 	private String mifVersion;
 	private final LogUI log;
@@ -102,15 +104,12 @@ class MifRegistry {
 	private String toKey(String packageLocation) {
 		return PackageLocationDeriver.derive(packageLocation).getName();
 	}
-	public Mif getMifByName(String name) {
-		if (this.aliasToMifId.containsKey(name)) {
-			return getMif(this.aliasToMifId.get(name));
+	public Mif getMifByName(String definingPackage, String name) {
+		CmetDefinitionKey key = new CmetDefinitionKey(definingPackage, name);
+		if (this.cmetMapByAlias.containsKey(key)) {
+			return getMif(this.cmetMapByAlias.get(key).getBoundClass());
 		} else {
-			if (StringUtils.length(name) >= 2 
-					&& name.charAt(1) == '_') {
-				name = name.substring(2);
-			}
-			return this.nameToMif.get(name);
+			throw new MifProcessingException("No CMET with name " + name + " defined in coremif " + definingPackage);
 		}
 	}
 	public Mif getMif(String packageLoction) {
@@ -195,19 +194,29 @@ class MifRegistry {
 		return StringUtils.remove(WordUtils.capitalizeFully(name), " ");
 	}
 
-	public void addAlias(String alias, String mifId) {
-		this.aliasToMifId.put(alias, mifId);
-	}
-
-	public String getMifIdFromAlias(String alias) {
-		return this.aliasToMifId.get(alias);
-	}
-	
+//	public void addAlias(String alias, String mifId) {
+//		this.aliasToMifId.put(alias, mifId);
+//	}
+//
+//	public String getMifIdFromAlias(String alias) {
+//		return this.aliasToMifId.get(alias);
+//	}
+//	
 	public boolean isMif1() {
 		return Namespaces.isMif1(this.namespace);
 	}
 
 	public boolean isMif2() {
 		return Namespaces.isMif2(this.namespace);
+	}
+	public void registerCmet(CmetDefinition cmet) {
+		cmetMapByAlias.put(cmet.toKeyByAlias(), cmet);
+		cmetMapByPackageName.put(cmet.toKeyByPackageName(), cmet);
+	}
+	public CmetDefinition getCmetByAlias(String definitionPackage, String cmetName) {
+		return cmetMapByAlias.get(new CmetDefinitionKey(definitionPackage, cmetName));
+	}
+	public CmetDefinition getCmetByPackageName(String definitionPackage, String packageName) {
+		return cmetMapByPackageName.get(new CmetDefinitionKey(definitionPackage, packageName));
 	}
 }

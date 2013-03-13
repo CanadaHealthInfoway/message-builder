@@ -93,7 +93,7 @@ class DmifProcessor {
 		Interaction interaction = new Interaction();
 		Element packageLocation = (Element) this.xpath.getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
 		Element parameterTypeModel = (Element) this.xpath.getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
-		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
+		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentation(element);
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		interaction.setCategory(category);
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);

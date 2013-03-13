@@ -77,6 +77,12 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String codingStrength;
 	@Attribute(required=false)
 	private String defaultValue;
+	@Attribute(required=false)
+	private String associationSortKey;
+	@Attribute(required=false)
+	private String traversableAssociationName;
+	@Attribute(required=false)
+	private String nontraversableAssociationName;
 	
 	
 	@ElementList(inline=true, required=false)
@@ -362,7 +368,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @return true if the relationship is a coded type; false otherwise.
 	 */
 	public boolean isCodedType() {
-		return StringUtils.isNotBlank(this.domainType);
+		return StringUtils.isNotBlank(this.domainType) && !"ST".equals(this.type);	// JR: Sometimes, strings get bound to data types in the MIF. We generally want to ignore this.
 	}
 
 	/**
@@ -410,7 +416,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public void setTemplateParameterName(String templateParameterName) {
 		this.templateParameterName = templateParameterName;
 	}
-
+	
 	/**
 	 * <p>Get the maximum string length.
 	 * @return the length
@@ -459,6 +465,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		this.defaultValue = defaultValue;
 	}
 	
+	public String getAssociationSortKey() {
+		return associationSortKey;
+	}
+
+	public void setAssociationSortKey(String associationSortKey) {
+		this.associationSortKey = associationSortKey;
+	}
+
 	/**
 	 * <p>Standard toString method.
 	 * @return a debug string.
@@ -527,6 +541,23 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setParentType(String parentType) {
 		this.parentType = parentType;
+	}
+
+	public String getTraversableAssociationName() {
+		return traversableAssociationName;
+	}
+
+	public void setTraversableAssociationName(String traversableAssociationName) {
+		this.traversableAssociationName = traversableAssociationName;
+	}
+
+	public String getNontraversableAssociationName() {
+		return nontraversableAssociationName;
+	}
+
+	public void setNontraversableAssociationName(
+			String nontraversableAssociationName) {
+		this.nontraversableAssociationName = nontraversableAssociationName;
 	}
 
 }

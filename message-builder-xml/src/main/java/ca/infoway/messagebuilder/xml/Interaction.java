@@ -42,6 +42,8 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 
 	@Attribute
 	private String name;
+	@Attribute(required=false)
+	private String triggerEvent;
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
@@ -58,6 +60,8 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	private Documentation documentation;
 	@Attribute(required=false)
 	private String category;
+	@ElementList(inline=true, required=false)
+	private List<ReceiverResponsibility> receiverResponsibilities = new ArrayList<ReceiverResponsibility>(); 
 	
 	/**
 	 * <p>Get the type name of the interaction.  For example, a name might be 
@@ -73,6 +77,12 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getTriggerEvent() {
+		return triggerEvent;
+	}
+	public void setTriggerEvent(String triggerEvent) {
+		this.triggerEvent = triggerEvent;
 	}
 	/**
 	 * <p>Get the type name of the parent type (or super type).
@@ -199,6 +209,16 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	}
 	public void addDifference(Difference difference) {
 		this.differences.add(difference);
+	}
+	public List<ReceiverResponsibility> getReceiverResponsibilities() {
+		return receiverResponsibilities;
+	}
+	public void setReceiverResponsibilities(
+			List<ReceiverResponsibility> receiverResponsibilities) {
+		this.receiverResponsibilities = receiverResponsibilities;
+	}
+	public void addResponsibility(ReceiverResponsibility responsibility) {
+		this.receiverResponsibilities.add(responsibility);
 	}
 	
 }

@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.RimClass;
 import ca.infoway.messagebuilder.xml.UpdateMode;
 import ca.infoway.messagebuilder.xml.UpdateModeType;
 
@@ -135,6 +136,7 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 			messageSet.getPackageLocations().put(qualifier, packageLocation);
 			
 			packageLocation.setRootType(NameHelper.createName(qualifier, this.helper.getRootType(ownedEntryPoint)));
+			addDocumentation(ownedEntryPoint, packageLocation);
 			this.outputUI.log(DEBUG, "Registering package location \"" + qualifier + "\" "
 					+ (StringUtils.isNotBlank(packageLocation.getDescriptiveName()) 
 							? "(" + packageLocation.getDescriptiveName() + ") " : "")
@@ -224,4 +226,35 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 		}
 		return result;
 	}
+	
+	protected boolean isTemplateParameter(Element targetConnection) {
+		return helper.getTemplateParameter(targetConnection) != null;
+	}
+
+	protected void addDocumentationForCmetBinding(Element element, Documentable part) {
+		List<Annotation> annotations = this.helper.getDocumentation(element);
+		part.setDocumentation(annotations==null || annotations.isEmpty() ? null : new Documentation(annotations));
+	}
+	
+	protected RimClass getRimClassFromCode(String rimClassName) {
+		List<RimClass> values = EnumPattern.values(RimClass.class);
+		for (RimClass rimClass : values) {
+			if (rimClass.getCode().equals(rimClassName)) {
+				return rimClass;
+			}
+		}
+		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
+	}
+
+	protected RimClass determineRimClass(Element classElement, String rimClassName) {
+		if(rimClassName.equals("RoleLinkR")) {
+			rimClassName = RimClass.ROLE_LINK.getCode();
+		} else if (rimClassName.equals("ActRelationshipR")) {
+			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
+		} else if (rimClassName.equals("Choice")) {
+			rimClassName = this.helper.determineRimClassForChoiceElement(classElement);
+		}
+		return getRimClassFromCode(rimClassName);
+	}
+
 }

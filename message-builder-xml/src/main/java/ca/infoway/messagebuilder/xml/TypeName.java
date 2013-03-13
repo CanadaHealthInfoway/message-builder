@@ -159,4 +159,27 @@ public class TypeName {
 		return getPartCount() == 1 && this.name.length() >= 7 
 			&& "_IN".equals(this.name.substring(4, 7));
 	}
+	
+	/**
+	 * <p>Get a flag indicating whether or not a type name is a package location.  
+	 * Interactions tend to have '_MT' in the middle of the name.  For example, 
+	 * "PORX_MT010120CA" is a package location name.
+	 * 
+	 * @return true if the type name is a package location; false otherwise.
+	 */
+	public boolean isPackageLocation() {
+		return getPartCount() == 1 && this.name.length() >= 7 
+				&& "_MT".equals(this.name.substring(4, 7));
+	}
+	
+	/**
+	 * <p>Get the name of the top-level type.  For example the root name of 
+	 * "PRPA_MT101103CA.ParameterList" is "PRPA_MT101103CA".  The root name
+	 * of "PRPA_MT101103CA" is "PRPA_MT101103CA".
+	 * @return the root name.
+	 */
+	public static String getRootName(String name) {
+		TypeName typeName = new TypeName(name);
+		return typeName.getRootName().getName();
+	}
 }

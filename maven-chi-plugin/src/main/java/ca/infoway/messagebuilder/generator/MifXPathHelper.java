@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.generator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -69,6 +68,15 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		}
 	}
 	
+	public static Element getTemplateParameterElement(Element specializedClass) {
+		Element element = getSingleElement(specializedClass, "./mif:templateParameter");
+		if (element != null) {
+			return element;
+		} else {
+			throw new MifProcessingException(specializedClass.getTagName() + " should have had a mif:templateParameter as a sub-element");
+		}
+	}
+	
 	public static List<Element> getSpecializedClasses(Element ownedEntryPoint) {
 		NodeList nodes = getNodes(ownedEntryPoint, ".//mif:specializedClass");
 		return toElementList(nodes);
@@ -89,27 +97,8 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	}	
 
 	List<Annotation> getDocumentation(Element classElement) {
-		return getDocumentation(classElement, "./mif:annotations//mif:", ".//mif:p/mif:p");
-	}
-	
-	List<Annotation> getDocumentationForInteraction(Element classElement) {
 		// this leaves text wrapped in <text>
-		List<Annotation> result = getDocumentation(classElement, "./mif:annotations//mif:", ".//mif:text");
-		if (result.isEmpty()) {
-			// pre-MR2009 MIFs didn't even use a text element
-			// the following leaves text wrapped in annotation type elements, mainly <description> (but could be others) 
-			result = getDocumentation(classElement, "./mif:annotations//mif:", ".");
-		}
-		for (Iterator<Annotation> iterator = result.iterator(); iterator.hasNext();) {
-			Annotation annotation = iterator.next();
-			String newText = cleanInteractionAnnotationText(annotation.getText(), annotation.getAnnotationType());
-			if (newText == null) {
-				iterator.remove();
-			} else {
-				annotation.setText(newText);
-			}
-		}
-		return result;
+		return getDocumentation(classElement, "./mif:annotations//mif:", ".//mif:p/mif:p", ".//mif:text", ".");
 	}
 
 	public static String getSuperTypeName(Element element) {
@@ -186,6 +175,11 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		
 	}
 
+	public static boolean isTemplateParameterPresent(Element element) {
+		return null != getSingleElement(element, "./mif:templateParameter");
+		
+	}
+	
 	public static boolean isParticipantClassSpecializationPresent(
 			Element element) {
 		NodeList list =  getNodes(element, "./mif:targetConnection/mif:participantClassSpecialization");
@@ -269,7 +263,7 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return getAttribute(targetConnection, "//mif:commonModelElementRef[@name='" + reference + "']/mif:generalizationParent/@name");
 	}
 
-	public static Element getTemplateParameter(Element targetConnection) {
+	public Element getTemplateParameter(Element targetConnection) {
 		return getSingleElement(targetConnection, "./mif:participantClass/mif:templateParameter");
 	}
 
@@ -337,6 +331,21 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		} else {
 			throw new MifProcessingException("Tried to access specialization child at index " + i + " but only found " + (specializationChilds == null ? 0 : specializationChilds.size()));
 		}
+	}
+
+	public static Element getTargetStaticModel(Document document) {
+		return getSingleElement(document.getDocumentElement(), "//mif:derivationSupplier/mif:targetStaticModel");
+	}
+	public static Element getDerivationMetadata(Element element) {
+		return getSingleElement(element, "./mif:derivationSupplier");
+	}
+
+	public static String getNontraversableAssociationName(Element targetConnection) {
+		return getAttribute(targetConnection, "./mif:sourceConnection/mif:nonTraversableConnection/mif:derivationSupplier/@associationEndName");
+	}
+
+	public String determineRimClassForChoiceElement(Element classElement) {
+		return getAttribute(classElement, "mif:derivationSupplier/@className");
 	}
 
 }

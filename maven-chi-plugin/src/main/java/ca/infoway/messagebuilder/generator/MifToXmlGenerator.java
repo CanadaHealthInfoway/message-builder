@@ -50,6 +50,7 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 		this.reportDir = reportDir;
 		this.mifRegistry = new MifRegistry(mifTransform, outputUI);
 		this.messageSet.setVersion(version);
+		this.messageSet.setGeneratedBy("message builder 3.0");
 		this.messageSetWriter = new MessageSetWriter(this.messageSet, this.outputUI);
 	}
 	

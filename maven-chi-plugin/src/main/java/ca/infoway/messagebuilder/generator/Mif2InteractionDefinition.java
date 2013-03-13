@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.generator;
 
+import static ca.infoway.messagebuilder.generator.Namespaces.HTML_NAMESPACE;
 import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
 
 import java.io.IOException;
@@ -43,6 +44,7 @@ import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
+import ca.infoway.messagebuilder.xml.ReceiverResponsibility;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -80,16 +82,37 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			Element packageLocation = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:packageLocation", MIF2_NAMESPACE);
 			interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 			
+			Element triggerEvent = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:invokingTriggerEvent", MIF2_NAMESPACE);
+			interaction.setTriggerEvent(EntryPointAssembler.getEntryPoint(triggerEvent));
+			
 			Element message = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:argumentMessage", MIF2_NAMESPACE);
 			interaction.setSuperTypeName(resolveType(interaction, resolver, message));
 			
 			Element interactionElement = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction", MIF2_NAMESPACE);
 			interaction.getDocumentation().setBusinessName(new Mif2XPathHelper().getBusinessName(interactionElement));
 			interaction.getDocumentation().setTitle(new Mif2XPathHelper().getTitle(interactionElement));
-			List<Annotation> annotations = new Mif2XPathHelper().getDocumentationForInteraction(interactionElement);
+			List<Annotation> annotations = new Mif2XPathHelper().getDocumentation(interactionElement);
 			interaction.getDocumentation().setAnnotations(annotations);
 			
 			addArguments(interaction, interaction.getArguments(), message, resolver);
+			
+			NodeList list = this.xPath.getNodes(this.document, "/mif2:interaction/mif2:receiverResponsibilities", MIF2_NAMESPACE);
+			for (Element responsibilityNode : NodeListIterator.elementIterable(list)) {
+				ReceiverResponsibility responsibility = new ReceiverResponsibility();
+				
+				Element targetInteraction = (Element) this.xPath.getSingleNode(responsibilityNode, "./mif2:invokeInteraction", MIF2_NAMESPACE);
+				responsibility.setInvokeInteraction(EntryPointAssembler.getEntryPoint(targetInteraction));
+				
+				Element targetTriggerEvent = (Element) this.xPath.getSingleNode(responsibilityNode, "./mif2:invokeTriggerEvent", MIF2_NAMESPACE);
+				responsibility.setIncludeTriggerEvent(targetTriggerEvent != null);
+
+				Element reasonElement = (Element) this.xPath.getSingleNode(responsibilityNode, "./mif2:reason", MIF2_NAMESPACE);
+				Element reasonText = (Element) this.xPath.getSingleNode(reasonElement, "./html:text", HTML_NAMESPACE);
+				if (reasonText != null) {
+					responsibility.setReason(new Mif2XPathHelper().convertElementToText(reasonText));
+				}
+				interaction.addResponsibility(responsibility);
+			}
 			
 			return interaction;
 		} catch (XPathExpressionException e) {

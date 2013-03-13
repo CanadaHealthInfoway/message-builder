@@ -21,6 +21,9 @@
 package ca.infoway.messagebuilder.generator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,6 +60,7 @@ public class Mif2InteractionDefinitionTest {
 		Document document = new DocumentFactory().createFromResource(new ClasspathResource(getClass(), "PRPA_IN101205CA - Person Revise Event Accept.mif"));
 		Interaction interaction = new Mif2InteractionDefinition(document, "myCategory", null, null).extract(this.resolver);
 		assertEquals("name", "PRPA_IN101205CA", interaction.getName());
+		assertEquals("trigger event", "PRPA_TE101205CA", interaction.getTriggerEvent());
 		assertEquals("category", "myCategory", interaction.getCategory());
 		assertEquals("businessName", "Person Revise Event Accept", interaction.getBusinessName());
 		assertEquals("title", "Identifiedperson Event Revise Confirmation", interaction.getDocumentation().getTitle());
@@ -137,4 +141,29 @@ public class Mif2InteractionDefinitionTest {
 		assertEquals("fourth sub-choices", 2, choices.get(3).getChoiceItems().size());
 		assertEquals("fifth sub-choices", 0, choices.get(4).getChoiceItems().size());
 	}
+	
+	@Test
+	public void shouldExtractResponsibilities() throws Exception {
+		this.jmock.checking(new Expectations() {{
+			one(resolver).getPackageLocationRootType("MCCI_MT002100CA"); will(returnValue("MCCI_MT002100CA.Message"));
+			one(resolver).getPackageLocationRootType("MCAI_MT700210CA"); will(returnValue("MCAI_MT700210CA.ControlActEvent"));
+			one(resolver).getPackageLocationRootType("COMT_MT001101CA"); will(returnValue("COMT_MT001101CA.ActRequest"));
+			allowing(resolver).getMessagePart( with(any(String.class)) ); will(returnValue(new MessagePart()));
+		}});
+		
+		Document document = new DocumentFactory().createFromResource(new ClasspathResource(getClass(), "PORX_IN010060CA - Record refusal to dispense request.mif"));
+		Interaction interaction = new Mif2InteractionDefinition(document, "myCategory", null, null).extract(this.resolver);
+		assertEquals("name", "PORX_IN010060CA", interaction.getName());
+		assertEquals("responsibilities", 2, interaction.getReceiverResponsibilities().size());
+		
+		assertEquals("responsibility 0 name", "PORX_IN010070CA", interaction.getReceiverResponsibilities().get(0).getInvokeInteraction());
+		assertTrue("responsibility 0 trigger event", interaction.getReceiverResponsibilities().get(0).isIncludeTriggerEvent());
+		assertEquals("responsibility 0 reason", "<text> <p>Refusal to fill is recorded</p> </text>", interaction.getReceiverResponsibilities().get(0).getReason());
+		
+		assertEquals("responsibility 1 name", "PORX_IN010080CA", interaction.getReceiverResponsibilities().get(1).getInvokeInteraction());
+		assertFalse("responsibility 1 trigger event", interaction.getReceiverResponsibilities().get(1).isIncludeTriggerEvent());
+		assertNull("responsibility 1 reason", interaction.getReceiverResponsibilities().get(1).getReason());
+		
+	}
+
 }

@@ -25,6 +25,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -35,6 +36,13 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 
 public class Mif2XPathHelperTest {
+	
+	private Mif2XPathHelper fixture;
+	
+	@Before
+	public void setUp() throws Exception {
+		fixture = new Mif2XPathHelper();
+	}
 	
 	@Test
 	public void shouldDetectDomainTypeSpecifiedUsingValueSet() throws Exception {
@@ -60,7 +68,7 @@ public class Mif2XPathHelperTest {
 		Element element = (Element) new XPathHelper().getSingleNode(mif, "//mif2:traversableConnection[@name='controlActEvent']", Namespaces.MIF2_NAMESPACE);
 		assertNotNull("target connection", element);
 		
-		Element templateParameter = Mif2XPathHelper.getTemplateParameter(element);
+		Element templateParameter = fixture.getTemplateParameter(element);
 		
 		assertNotNull("element", templateParameter);
 	}

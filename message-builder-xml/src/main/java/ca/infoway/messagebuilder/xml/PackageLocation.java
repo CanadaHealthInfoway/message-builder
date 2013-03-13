@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Namespace;
@@ -39,7 +40,7 @@ import ca.infoway.messagebuilder.Named;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class PackageLocation implements Categorizable, HasDifferences, Named {
+public class PackageLocation implements Categorizable, HasDifferences, Named, Documentable {
 	
 	@Attribute
 	private String name;
@@ -47,6 +48,18 @@ public class PackageLocation implements Categorizable, HasDifferences, Named {
 	private String descriptiveName;
 	@Attribute(required=false)
 	private String rootType;
+	@Element(required=false)
+	private ImportedPackage derivedFromStaticModel;
+	@Element(required=false)
+	private ImportedPackage datatypeModel;
+	@Element(required=false)
+	private ImportedPackage vocabularyModel;
+	@Element(required=false)
+	private ImportedPackage commonModelElement;
+	@Element(required=false)
+	private CmetBinding cmetBinding;
+	@Element(required=false)
+	private Documentation documentation;
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
@@ -54,7 +67,7 @@ public class PackageLocation implements Categorizable, HasDifferences, Named {
 	private Map<String,MessagePart> messageParts = new TreeMap<String,MessagePart>();
 	@Attribute(required=false)
 	private String category;
-
+	
 	/**
 	 * <p>The default constructor.
 	 */
@@ -151,6 +164,45 @@ public class PackageLocation implements Categorizable, HasDifferences, Named {
 	}
 	public void addDifference(Difference difference) {
 		this.differences.add(difference);
+	}
+	public Documentation getDocumentation() {
+		return documentation;
+	}
+	public void setDocumentation(Documentation documentation) {
+		this.documentation = documentation;
+	}
+	public ImportedPackage getDerivedFromStaticModel() {
+		return derivedFromStaticModel;
+	}
+	public void setDerivedFromStaticModel(ImportedPackage derivedFromStaticModel) {
+		this.derivedFromStaticModel = derivedFromStaticModel;
+	}
+	public ImportedPackage getDatatypeModel() {
+		return datatypeModel;
+	}
+	public void setDatatypeModel(ImportedPackage datatypeModel) {
+		this.datatypeModel = datatypeModel;
+	}
+	public ImportedPackage getVocabularyModel() {
+		return vocabularyModel;
+	}
+	public void setVocabularyModel(ImportedPackage vocabularyModel) {
+		this.vocabularyModel = vocabularyModel;
+	}
+	public ImportedPackage getCommonModelElement() {
+		return commonModelElement;
+	}
+	public void setCommonModelElement(ImportedPackage commonModelElement) {
+		this.commonModelElement = commonModelElement;
+	}
+	public CmetBinding getCmetBinding() {
+		return this.cmetBinding;
+	}
+	public void setCmetBinding(CmetBinding cmetbinding) {
+		this.cmetBinding = cmetbinding;
+	}
+	public boolean isCmet() {
+		return this.cmetBinding != null;
 	}
 	
 }

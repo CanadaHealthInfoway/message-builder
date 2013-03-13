@@ -20,8 +20,10 @@
 
 package ca.infoway.messagebuilder.generator;
 
+import static ca.infoway.messagebuilder.generator.LogLevel.INFO;
 import static ca.infoway.messagebuilder.generator.MifXPathHelper.getClassElement;
 import static ca.infoway.messagebuilder.generator.MifXPathHelper.getTemplateParameterName;
+import static ca.infoway.messagebuilder.util.xml.NodeUtil.getLocalOrTagName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,23 +33,27 @@ import java.util.List;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.StopWatch;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
+import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.CmetBinding;
+import ca.infoway.messagebuilder.xml.ImportedPackage;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.RimClass;
 
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
 	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
-	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(false);
+	
+	private DocumentFactory factory = new DocumentFactory();
 
 	public Mif1Processor(MifRegistry mifRegistry, OutputUI outputUI) {
 		super(mifRegistry, outputUI, new MifXPathHelper());
@@ -63,6 +69,22 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return filterFiles(mifs, "dmif");
 	}
 	
+	@Override
+	protected void addMessagePartsFromMifs(MessageSet messageSet,
+			List<MifReference> mifs, StopWatch watch) throws IOException,
+			GeneratorException {
+		
+		List<MifReference> coreMifs = extractCoreMifs(mifs);
+		this.outputUI.log(INFO, "MIF pre-processing - processing static model interface packages (" + coreMifs.size() + " files)");
+		for (MifReference reference : coreMifs) {
+			processCoreMif(reference);
+		}
+		this.outputUI.log(INFO, "MIF pre-processing - completed (" + renderTime(watch) + ")");
+		
+		super.addMessagePartsFromMifs(messageSet, mifs, watch);
+	}
+	
+	@Override
 	protected void processInteractions(MessageSet messageSet, List<MifReference> list) throws IOException,
 			GeneratorException {
 		try {
@@ -74,14 +96,78 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 	
+	@Override
 	protected Element getEntryPointElement(MifReference reference) throws IOException, GeneratorException {
 		return this.helper.getOwnedEntryPointElement(this.mifRegistry.getMif(reference).asDocument());
 	}
 
+	@Override
 	protected void processRelationships(MessageSet messageSet, Mif mif) {
 		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(mif.asDocument());
 		processRelationships(messageSet, MifXPathHelper.getSpecializedClasses(ownedEntryPoint));
 		processRelationships(messageSet, MifXPathHelper.getParticipantClasses(ownedEntryPoint));
+	}
+
+	@Override
+	protected List<MessagePart> extractMessageParts(MessageSet messageSet, Mif mif) throws GeneratorException, IOException {
+		List<MessagePart> result = new ArrayList<MessagePart>();
+		Document document = mif.asDocument();
+		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(document);
+		String qualifier = toQualifier(messageSet, mif);
+		
+		updatePackageLocation(messageSet, qualifier, document);
+
+		processSpecializedClasses(messageSet, result, qualifier, MifXPathHelper.getSpecializedClasses(ownedEntryPoint));
+		processSpecializedClasses(messageSet, result, qualifier, MifXPathHelper.getParticipantClasses(ownedEntryPoint));
+		
+		for (MessagePart messagePart : result) {
+			this.outputUI.log(LogLevel.DEBUG, "Adding message part: " + messagePart.getName());
+			messageSet.addMessagePart(messagePart);
+		}
+		
+		return result;
+	}
+	
+	private List<MifReference> extractCoreMifs(List<MifReference> mifs) {
+		return filterFiles(mifs, "coremif");
+	}
+
+	private void processCoreMif(MifReference reference) throws GeneratorException, IOException {
+		try {
+			Document document = this.factory.createFromFile(reference.asFile());
+			if ("commonModelElementPackage".equals(getLocalOrTagName(document.getDocumentElement()))) {
+				this.outputUI.log(LogLevel.INFO, "Processing static model information in " + reference.asFile().getName());
+				processStaticModel(document);
+			}
+		} catch (SAXException e) {
+			throw new GeneratorException(e);
+		}
+	}
+
+	private void processStaticModel(Document document) {
+		NodeList nodes = BaseMifXPathHelper.getNodes(document.getDocumentElement(), 
+				"/mif:commonModelElementPackage/mif:ownedCommonModelElement");
+		for (Element element : NodeListIterator.elementIterable(nodes)) {
+			Element boundStaticModel = BaseMifXPathHelper.getSingleElement(element, "mif:specializationChildStaticModel");
+			Element entryClass = BaseMifXPathHelper.getSingleElement(element, "mif:specializationChildEntryClass");
+			
+			String boundClassName = EntryPointAssembler.getEntryPoint(boundStaticModel);
+			if (entryClass != null) {
+				boundClassName += "." + entryClass.getAttribute("name");
+			}
+			
+			CmetDefinition cmetDefinition = new CmetDefinition();
+			cmetDefinition.setDefinitionPackage("cmetinfo");
+			cmetDefinition.setCmetName(element.getAttribute("name"));
+			cmetDefinition.setAttributionLevel(element.getAttribute("attributionLevel"));
+			cmetDefinition.setCode(BaseMifXPathHelper.getAttribute(element, "mif:supplierStructuralDomain/@mnemonic"));
+			addDocumentationForCmetBinding(element, cmetDefinition);
+			cmetDefinition.setBoundClass(boundClassName);
+			
+			this.outputUI.log(LogLevel.DEBUG, "Alias " + cmetDefinition.getCmetName() + " is associated with " + cmetDefinition.getBoundClass());
+			
+			this.mifRegistry.registerCmet(cmetDefinition);
+		}
 	}
 
 	private void processRelationships(MessageSet messageSet, List<Element> specializedClasses) {
@@ -100,30 +186,61 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	protected List<MessagePart> extractMessageParts(MessageSet messageSet, Mif mif) throws GeneratorException, IOException {
-		List<MessagePart> result = new ArrayList<MessagePart>();
-		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(mif.asDocument());
-		String qualifier = createPackageLocation(messageSet, ownedEntryPoint);
+	private void updatePackageLocation(MessageSet messageSet, String packageName, Document document) {
+		PackageLocation packageLocation = messageSet.getPackageLocations().get(packageName);
+		packageLocation.setDerivedFromStaticModel(processImportedPackage(MifXPathHelper.getTargetStaticModel(document)));
+
+		CmetDefinition cmetDefinition = this.mifRegistry.getCmetByPackageName("cmetinfo", packageName);
+		if (cmetDefinition != null) {
+			CmetBinding cmetBinding = new CmetBinding();
+			cmetBinding.setCmetName(cmetDefinition.getCmetName());
+			cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
+			cmetBinding.setCode(cmetDefinition.getCode());
+			cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
+			cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
+			
+			packageLocation.setCmetBinding(cmetBinding);
+		}
+	}
+	
+	private ImportedPackage processImportedPackage(Element packageElement) {
+		if (packageElement == null) {
+			return null;
+		}
 		
-		processSpecializedClasses(messageSet, result, qualifier, MifXPathHelper.getSpecializedClasses(ownedEntryPoint));
-		processSpecializedClasses(messageSet, result, qualifier, MifXPathHelper.getParticipantClasses(ownedEntryPoint));
-		
-		for (MessagePart messagePart : result) {
-			this.outputUI.log(LogLevel.DEBUG, "Adding message part: " + messagePart.getName());
-			messageSet.addMessagePart(messagePart);
+		ImportedPackage result = new ImportedPackage();
+		result.setRoot(packageElement.getAttribute("root"));
+		result.setArtifact(packageElement.getAttribute("artifact"));
+		result.setVersion(packageElement.getAttribute("version"));
+		if (packageElement.hasAttribute("realmNamespace")) {
+			result.setRealm(packageElement.getAttribute("realmNamespace"));
 		}
 		
 		return result;
+	}
+
+	private String toQualifier(MessageSet messageSet, Mif mif) {
+		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(mif.asDocument());
+		return createPackageLocation(messageSet, ownedEntryPoint);
 	}
 
 	private void processSpecializedClasses(MessageSet messageSet, List<MessagePart> result,
 			String qualifier, List<Element> specializedClasses) {
 		
 		for (Element element : specializedClasses) {
+			MessagePart part = null;
+			Element containedElement = null;
 			if (MifXPathHelper.isMifClassPresent(element)) {
-				MessagePart part = createPart(result, qualifier, element);
-				addDocumentation(getClassElement(element), part);
+				containedElement = MifXPathHelper.getClassElement(element);
+				part = createPart(result, qualifier, containedElement);
 				processChilds(messageSet, element, part);
+			} else if (MifXPathHelper.isTemplateParameterPresent(element)) {
+				containedElement = MifXPathHelper.getTemplateParameterElement(element);
+				part = createTemplateParameter(result, qualifier, containedElement);
+			}
+			
+			if (part != null) {
+				addDocumentation(containedElement, part);
 				result.add(part);
 			}
 		}
@@ -178,7 +295,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		Collections.sort(sortedAttributes, ATTRIBUTE_COMPARATOR);
-		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
 		
 		for (Element element : sortedAttributes) {
 			createAttribute(part, element);
@@ -227,7 +343,8 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
 		Element targetConnection = MifXPathHelper.getTargetConnection(element);
 		Relationship relationship = new Relationship();
-		relationship.setSortOrder(part.getRelationships().size());
+		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
+		relationship.setAssociationSortKey(StringUtils.replaceChars(targetConnection.getAttribute("sortKey"), '#', '_'));
 		relationship.setName(targetConnection.getAttribute("name"));
 		
 		relationship.setType(determineType(messageSet, targetConnection));
@@ -239,11 +356,15 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setConformance(createConformance(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
+		
+		Element derivationMetadata = MifXPathHelper.getDerivationMetadata(targetConnection);
+		relationship.setTraversableAssociationName(derivationMetadata.getAttribute("associationEndName"));
+		relationship.setNontraversableAssociationName(MifXPathHelper.getNontraversableAssociationName(element));
 	}
 
 	private void createAttribute(MessagePart part, Element element) {
 		Relationship relationship = new Relationship();
-		relationship.setSortOrder(part.getRelationships().size());
+		relationship.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		relationship.setName(element.getAttribute("name"));
 		relationship.setStructural("true".equals(element.getAttribute("isStructural")));
 		relationship.setFixedValue(StringUtils.trimToNull(element.getAttribute("fixedValue")));
@@ -266,7 +387,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		addDocumentation(element, relationship);
 	}
 
-	static String determineType(MessagePartResolver messagePartResolver, Element targetConnection) {
+	private String determineType(MessagePartResolver messagePartResolver, Element targetConnection) {
 		if (MifXPathHelper.isMifReferenceElementPresent(targetConnection) && !isExternalReference(targetConnection)) {
 			String type = MifXPathHelper.getMifReferenceType(targetConnection);
 			if (MifXPathHelper.isTypeDefinedInMif(type, targetConnection)) {
@@ -288,61 +409,52 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 	}
 
-	private static boolean isExternalReference(Element targetConnection) {
+	private boolean isExternalReference(Element targetConnection) {
 		return MifXPathHelper.isExternalReferenceType(targetConnection);
-	}
-
-	private static boolean isTemplateParameter(Element targetConnection) {
-		return MifXPathHelper.getTemplateParameter(targetConnection) != null;
-	}
-
-	static boolean isParticipantClass(Element targetConnection) {
-		return StringUtils.isNotBlank(MifXPathHelper.getParticipantClassName(targetConnection));
 	}
 
 	private boolean isChoice(Element element) {
 		return MifXPathHelper.isParticipantClassSpecializationPresent(element);
 	}
 
+	private boolean isParticipantClass(Element targetConnection) {
+		return StringUtils.isNotBlank(MifXPathHelper.getParticipantClassName(targetConnection));
+	}
+
 	protected MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
-		Element classElement = MifXPathHelper.getClassElement(element);
-		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
+		String name = NameHelper.createName(qualifier, element.getAttribute("name"));
 		MessagePart messagePart;
-		if (isAbstract(classElement)) {
+		if (isAbstract(element)) {
 			messagePart = MessagePart.createAbstractPart(name);
 		} else {
 			messagePart = new MessagePart(name);
 		}
-		addRimClass(classElement, messagePart);
+		
+		Element derivationMetadata = MifXPathHelper.getDerivationMetadata(element);
+		if (derivationMetadata != null) {
+			messagePart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+		}
+		
+		addRimClass(element, messagePart);
+		return messagePart;
+	}
+	
+	protected MessagePart createTemplateParameter(List<MessagePart> result, String qualifier, Element element) {
+		String name = NameHelper.createName(qualifier, element.getAttribute("name"));
+		MessagePart messagePart = MessagePart.createTemplateParameter(name);
+
+		Element derivationMetadata = Mif2XPathHelper.getDerivationMetadata(element);
+		if (derivationMetadata != null) {
+			messagePart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+		}
+
+		addRimClass(element, messagePart);
 		return messagePart;
 	}
 	
 	private void addRimClass(Element classElement, MessagePart messagePart) {
-		Element graphElement = MifXPathHelper.getSingleElement(classElement, "mif:graphicRepresentation/mif:graphElement");
-		String rimClassName = graphElement.getAttribute("shapeTemplate");
-		if(rimClassName.equals("RoleLinkR")) {
-			rimClassName = RimClass.ROLE_LINK.getCode();
-		} else if (rimClassName.equals("ActRelationshipR")) {
-			rimClassName = RimClass.ACT_RELATIONSHIP.getCode();
-		} else if (rimClassName.equals("Choice")) {
-			rimClassName = extractFromDerivationSupplierElement(classElement);
-		}
-		messagePart.setRimClass(getRimClassFromCode(rimClassName));
-	}
-
-	private RimClass getRimClassFromCode(String rimClassName) {
-		List<RimClass> values = EnumPattern.values(RimClass.class);
-		for (RimClass rimClass : values) {
-			if (rimClass.getCode().equals(rimClassName)) {
-				return rimClass;
-			}
-		}
-		throw new IllegalArgumentException("Unable to determine RimClass for '" + rimClassName + "'");
-	}
-
-	private String extractFromDerivationSupplierElement(Element classElement) {
-		Element derivedFromElement = Mif2XPathHelper.getSingleElement(classElement, "mif:derivationSupplier");
-		return derivedFromElement.getAttribute("className");
+		String rimClassName = BaseMifXPathHelper.getAttribute(classElement, "mif:graphicRepresentation/mif:graphElement/@shapeTemplate");
+		messagePart.setRimClass(determineRimClass(classElement,	rimClassName));
 	}
 
 	private boolean isAbstract(Element classElement) {

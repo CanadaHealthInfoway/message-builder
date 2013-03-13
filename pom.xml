@@ -17,12 +17,12 @@
 		<repository>
 	   	            <id>private-release</id>
                              <name>private-release</name>
-                             <url>https://infoapp.infoway-inforoute.ca/repo/private-release</url>
+                             <url>dav:https://infoapp.infoway-inforoute.ca/repo/private-release</url>
 		</repository>
 		<snapshotRepository>
 		                    <id>private-snapshot</id>
                                     <name>private-snapshot</name>
-                                    <url>https://infoapp.infoway-inforoute.ca/repo/private-snapshot</url>
+                                    <url>dav:https://infoapp.infoway-inforoute.ca/repo/private-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
 
