@@ -74,7 +74,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
-		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		String specializationType = getSpecializationType(node);
 		if (specializationType == null) {
 			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS type TS_FULLDATEWITHTIME
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)

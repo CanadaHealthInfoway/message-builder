@@ -120,11 +120,11 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	 * @return the converted specializationType
 	 */
 	private String obtainSpecializationType(String parentType, Node node, XmlToModelResult xmlToModelResult) {
-		String rawSpecializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		String rawSpecializationType = getSpecializationType(node);
 		
 		if (StringUtils.isBlank(rawSpecializationType)) {
 			
-			// some cases don't need "specializationType". Treat xsi:type as specializationType (internally)
+			// some cases don't need specialization type. Treat xsi:type as specializationType (internally)
 			// e.g. URG_PQ, ST
 			String xsiType = getXsiType(node);
 
@@ -133,7 +133,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				NodeList childNodes = node.getChildNodes();
 				for (int i = 0; i < childNodes.getLength(); i++) {
 					Node child = childNodes.item(0);
-					innerSpecializationType = getAttributeValue(child, SPECIALIZATION_TYPE);
+					innerSpecializationType = getSpecializationType(child);
 					if (StringUtils.isNotBlank(innerSpecializationType)) {
 						break;
 					}

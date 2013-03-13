@@ -31,6 +31,9 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 
+	protected static final String SPECIALIZATION_TYPE = "specializationType";
+	protected static final String XSI_TYPE = "xsi:type";
+
 	private static final XmlWarningRenderer warningRenderer = new XmlWarningRenderer();
 	
     static final Map<String, String> EMPTY_ATTRIBUTE_MAP = new HashMap<String, String>(); 
@@ -84,8 +87,8 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 
 	protected void addSpecializationType(Map<String, String> attributes, String typeAsString) {
 		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
-		attributes.put("xsi:type", xmlify(type.getTypeName().getUnspecializedName()));
-		attributes.put("specializationType", xmlify(type.getType()));
+		attributes.put(XSI_TYPE, xmlify(type.getTypeName().getUnspecializedName()));
+		attributes.put(SPECIALIZATION_TYPE, xmlify(type.getType()));
 	}
 	
 	protected boolean isNullFlavor(Map<String, String> attributes) {

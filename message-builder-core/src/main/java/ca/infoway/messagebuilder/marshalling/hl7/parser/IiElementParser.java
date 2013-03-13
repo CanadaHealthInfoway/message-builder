@@ -193,7 +193,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	private String handleSpecializationType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		VersionNumber version = context.getVersion();
 		String typeFromContext = context.getType(); 
-		String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
+		String specializationType = getSpecializationType(element);
 		
     	if (iiValidationUtils.isSpecializationTypeRequired(version, typeFromContext)) {
     		boolean validSpecializationType = isSpecializationTypeProvided(specializationType);

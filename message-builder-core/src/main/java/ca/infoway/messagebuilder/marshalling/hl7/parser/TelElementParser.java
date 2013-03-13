@@ -64,7 +64,7 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 	@Override
 	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
-		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
+		String specializationType = getSpecializationType(node);
 		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult);
 		
 		String type = context.getType();
