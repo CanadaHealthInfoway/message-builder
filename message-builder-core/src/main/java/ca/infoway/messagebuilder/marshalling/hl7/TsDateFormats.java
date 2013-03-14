@@ -35,6 +35,8 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 
 public class TsDateFormats {
 
+	public static final String ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME = "messagebuilder.abstract.ts.ignore.specializationtype.error";
+
 	public static final Map<StandardDataType, List<String>> formats;
 	public static final Map<String, String> expandedFormats;
 	public static final Map<Hl7BaseVersion, Map<StandardDataType, List<String>>> versionFormatExceptions;

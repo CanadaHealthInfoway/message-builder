@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats.ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME;
+
 import java.lang.reflect.Type;
 import java.text.MessageFormat;
 import java.util.Date;
@@ -59,8 +61,6 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  */
 @DataTypeHandler("TS")
 class TsElementParser extends AbstractSingleElementParser<Date> {
-
-	public static final String ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME = "messagebuilder.abstract.ts.ignore.specializationtype.error";
 
 	public TsElementParser() {
 	}

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats.ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME;
+
 import java.text.MessageFormat;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -75,14 +77,18 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 	}
 
 	private void validateSpecializationType(StandardDataType specializationType, FormatContext context) {
-		if (specializationType == StandardDataType.TS) {
-			context.getModelToXmlResult().addHl7Error(
-					new Hl7Error(
-							Hl7ErrorCode.DATA_TYPE_ERROR, 
-							MessageFormat.format("No specializationType provided. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType()),
-							context.getPropertyPath()
-					)
-			);
+		if (specializationType == StandardDataType.TS || specializationType == null) {
+			if (Boolean.valueOf(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
+				// user has specified that this validation error should be suppressed
+			} else {
+				context.getModelToXmlResult().addHl7Error(
+						new Hl7Error(
+								Hl7ErrorCode.DATA_TYPE_ERROR, 
+								MessageFormat.format("No specializationType provided. Value should be TS.FULLDATE or TS.FULLDATETIME. TS.FULLDATETIME will be assumed.", specializationType.getType()),
+								context.getPropertyPath()
+						)
+				);
+			}
 		} else if (specializationType != StandardDataType.TS_FULLDATE && specializationType != StandardDataType.TS_FULLDATETIME) {
 			context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(

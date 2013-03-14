@@ -21,6 +21,7 @@ package ca.infoway.messagebuilder.marshalling.hl7;
 
 import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.NEGATIVE_INFINITY;
 import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.POSITIVE_INFINITY;
+import static ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats.ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,12 @@ public class IvlValidationUtils {
 		if (StandardDataType.IVL_FULL_DATE_WITH_TIME.getType().equals(type)) {
 			// assume type to default to FULLDATETIME
 			resultType = StandardDataType.IVL_FULL_DATE_TIME.getType();
-			if (StringUtils.isBlank(specializationType)) {
-				errors.add("IVL<TS.FULLDATEWITHTIME> is an abstract type. A specialization type must be provided. IVL<TS.FULLDATETIME> will be assumed.");
+			if (StringUtils.isBlank(specializationType) || "IVL".equals(specializationType)) {
+				if (Boolean.valueOf(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
+					// do nothing - error message is to be suppressed
+				} else { 
+					errors.add("IVL<TS.FULLDATEWITHTIME> is an abstract type. A specialization type must be provided. IVL<TS.FULLDATETIME> will be assumed.");
+				}
 			} else {
 				StandardDataType concreteType = StandardDataType.getByTypeName(specializationType);
 				if (concreteType == StandardDataType.IVL_FULL_DATE || concreteType == StandardDataType.IVL_FULL_DATE_TIME) {
