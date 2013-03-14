@@ -374,7 +374,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + childClassName);
 				part.getSpecializationChilds().add(NameHelper.qualifiyName(element, childClassName));
 			} else {
-				PackageLocation parentPackage = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
+				PackageLocation parentPackage = messageSet.getPackageLocation(TypeName.determineRootName(part.getName()));
 				String name = reference.getAttribute("cmetName");
 				CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(parentPackage.getCommonModelElement().toTextRepresentation(), name);
 				if (cmetDefinition != null) {
@@ -407,7 +407,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void createChoice(MessageSet messageSet, MessagePart part, Element element) throws GeneratorException {
-		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
+		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.determineRootName(part.getName()));
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
 		Element targetConnectionDerivation = Mif2XPathHelper.getTraversableConnectionDerivationMetadata(element);
 		Element reverseConnectionDerivation = Mif2XPathHelper.getNonTraversableConnectionDerivationMetadata(element);
@@ -467,7 +467,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void createStandardAssociation(MessageSet messageSet, MessagePart part, Element element) {
-		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.getRootName(part.getName()));
+		PackageLocation packageLocation = messageSet.getPackageLocation(TypeName.determineRootName(part.getName()));
 		Element targetConnection = Mif2XPathHelper.getTraversableConnection(element);
 		Element targetConnectionDerivation = Mif2XPathHelper.getTraversableConnectionDerivationMetadata(element);
 		Element reverseConnectionDerivation = Mif2XPathHelper.getNonTraversableConnectionDerivationMetadata(element);

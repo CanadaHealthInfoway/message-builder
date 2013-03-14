@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
- * @sharpen.ignore isAbstract must be mapped to @abstract so simplexml works on .net.
  */
 @Root
 public class MessagePart implements Documentable, HasDifferences, Named {

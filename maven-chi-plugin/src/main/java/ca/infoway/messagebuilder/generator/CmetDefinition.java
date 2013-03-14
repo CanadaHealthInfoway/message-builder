@@ -80,6 +80,6 @@ public class CmetDefinition implements Documentable {
 		return new CmetDefinitionKey(this.definitionPackage, this.cmetName);
 	}
 	public CmetDefinitionKey toKeyByPackageName() {
-		return new CmetDefinitionKey(this.definitionPackage, TypeName.getRootName(this.boundClass));
+		return new CmetDefinitionKey(this.definitionPackage, TypeName.determineRootName(this.boundClass));
 	}
 }

@@ -178,7 +178,7 @@ public class TypeName {
 	 * of "PRPA_MT101103CA" is "PRPA_MT101103CA".
 	 * @return the root name.
 	 */
-	public static String getRootName(String name) {
+	public static String determineRootName(String name) {
 		TypeName typeName = new TypeName(name);
 		return typeName.getRootName().getName();
 	}
