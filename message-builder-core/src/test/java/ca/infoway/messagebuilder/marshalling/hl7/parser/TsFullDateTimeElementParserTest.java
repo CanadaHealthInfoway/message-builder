@@ -159,6 +159,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		return ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null);
 	}
 	
+	/**
+	 * @sharpen.remove
+	 */
 	private String getCurrentTimeZone(Date calendar) {
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
 		String currentTimeZone = tzformat.format(calendar);
