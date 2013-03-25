@@ -1,0 +1,58 @@
+#
+# This is the config file that evolved during the development of mif-comparer.
+# It is expected to be refined further over time.
+#
+
+[Filters]
+filter = delete /mif:staticModel/mif:graphicRepresentation
+filter = delete /mif:staticModel/mif:association/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:class/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:class/mif:annotations/mif:appInfo/mif:formalConstraint/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:class/mif:annotations/mif:documentation/mif:definition/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:class/mif:attribute/mif:annotations/mif:appInfo/mif:formalConstraint/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:class/mif:childClass/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:commonModelElementRef/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:templateParameter/@graphicLinkId
+filter = delete /mif:staticModel/mif:containedClass/mif:templateParameter/mif:annotations/mif:documentation/mif:definition/@graphicLinkId
+filter = delete /mif:staticModel/mif:entryPoint/@graphicLinkId
+
+filter = delete /mif:staticModel/mif:header/mif:renderingInformation/@application
+filter = delete /mif:staticModel/mif:header/mif:legalese/@copyrightYears
+
+filter = resequence sortKey /mif:staticModel/mif:association
+filter = resequence sortKey /staticModel/association/traversableConnection
+filter = resequence sortKey /mif:staticModel/mif:containedClass/mif:class/mif:attribute
+filter = resequence sortKey /mif:staticModel/mif:containedClass/mif:class/mif:childClass
+filter = resequence name    /mif:staticModelInterfacePackage/mif:commonModelElementDefinition
+
+filter = wrap-contents http://www.w3.org/1999/xhtml p /mif:staticModelInterfacePackage/mif:commonModelElementDefinition/mif:annotations/mif:documentation/mif:description/mif:text 
+filter = wrap-contents http://www.w3.org/1999/xhtml p /mif:interaction/mif:annotations/mif:documentation/mif:description/mif:text
+
+filter = normalize-whitespace //*[namespace-uri()='http://www.w3.org/1999/xhtml']
+filter = normalize-whitespace /mif:staticModel/mif:containedClass/mif:class/mif:attribute/mif:businessName/@name
+
+filter = change-namespace http://www.w3.org/1999/xhtml /mif:staticModel/mif:containedClass/mif:class/mif:annotations/mif:documentation/mif:*/mif:text/html:p//a
+filter = change-namespace http://www.w3.org/1999/xhtml /mif:staticModel/mif:containedClass/mif:class/mif:annotations/mif:documentation/mif:*/mif:text/html:p//i
+filter = change-namespace http://www.w3.org/1999/xhtml /mif:staticModel/mif:containedClass/mif:class/mif:attribute/mif:annotations/mif:documentation/mif:*/mif:text/html:p//a
+filter = change-namespace http://www.w3.org/1999/xhtml /mif:staticModel/mif:containedClass/mif:class/mif:attribute/mif:annotations/mif:documentation/mif:*/mif:text/html:p//i
+filter = change-namespace http://www.w3.org/1999/xhtml /mif:staticModel/mif:header/mif:legalese/mif:licenseTerms/html:p/a
+
+#
+# Following are kludges to work around differences that might or might not be
+# legitimate.  If any of these differences is indeed legit, move its filter
+# line out of this section; if not, delete its filter line once the MIF
+# generator has been fixed.
+#
+filter = delete /mif:staticModelInterfacePackage/mif:commonModelElementDefinition[@name="A_PatientProfileDeviceRx"]
+filter = delete /mif:staticModelInterfacePackage/mif:commonModelElementDefinition[@name="A_PatientProfileDrugRx"]
+filter = delete /mif:staticModel/mif:association/mif:nonTraversableConnection/mif:derivedFrom/@className
+filter = delete /mif:staticModel/mif:association/mif:traversableConnection/mif:derivedFrom/@className
+filter = delete /mif:interaction/mif:argumentMessage/mif:parameterModel/mif:parameterModel/mif:specialization/mif:choiceItem/@className
+filter = delete /mif:staticModel/mif:containedClass/mif:commonModelElementRef/mif:derivedFrom/@className
+
+
+[Namespaces]
+html      = http://www.w3.org/1999/xhtml
+xmldsig   = http://www.w3.org/2000/09/xmldsig#
+xsi       = http://www.w3.org/2001/XMLSchema-instance
+mif       = urn:hl7-org:v3/mif2

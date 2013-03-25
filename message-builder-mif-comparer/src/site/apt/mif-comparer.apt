@@ -1,0 +1,357 @@
+~~ Copyright 2013 Canada Health Infoway, Inc.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~        http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+~~
+~~ Author:        $LastChangedBy$
+~~ Last modified: $LastChangedDate$
+~~ Revision:      $LastChangedRevision$
+
+mif-comparer - compare MIF files
+
+* Usage
+~~~~~~~
+
+	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] old-mif-file new-mif-file
+
+	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] old-mif-dir  new-mif-dir
+
+* Options
+~~~~~~~~~
+
+	[-c config-file] Provides a config file that specifies filters to apply to the input XML, and namespace prefix->URI mappings
+
+	[-f output-format]
+		One of <<<xml>>>, <<<csv>>>, or <<<text>>>.  Default is <<<xml>>>.
+
+	[-s severity-level]
+		Minimum level of messages to output.  In increasing order, the levels are:
+			<<<debug>>>, <<<info>>>, <<<trivial>>>, <<<warning>>>, <<<error>>>, <<<fatal>>>.
+
+	[arguments]
+		The comparer can be given either two XML files, or two directories.
+
+* {Overall process flow}
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The overall process flow of <mif-comparer> is as follows:
+
+[[1]]	Scan both of the directories specified on the command line; build lists
+		of the files found in each
+
+[[2]]	Pair up files to compare based on their <keys> (this is explained in
+		more detail in {{Directory comparison}})
+
+[[3]]	(see also {{Comparing two XML files}}) For each pair of files to be compared:
+
+	[[a]]	read both files and parse them into DOM trees
+
+	[[b]]	run the entire list of filters on each file in turn
+
+	[[c]]	compare the resulting, modified DOM trees
+
+[[4]]	Write the output XML
+
+In particular, note that the comparison output is all generated right at the
+end, so don't be alarmed that the program runs for a long time with no obvious
+results.
+
+If files, not directories, were specified on the command line, of course, steps
+(1) and (2) do not apply.
+
+
+* {Directory comparison}
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+	If two directories are to be compared, they should contain MIF files and/or
+	.coremif's.  The program makes a list of all the files under each of the
+	directories, recursively; then pairs up files to compare based on the "keys" in
+	their names.  Thus the filenames need not match exactly, and the directory
+	substructure is ignored completely.
+
+	The program can cope with two filename schemes:
+
+		[AAAA_BB111111CA.mif, AAAA_BB111111CA - arbitrary text.mif]
+			The "key" is the "AAAA_BB111111CA" part.  If the arbitrary text differs
+			between the "old" and "new" files, a warning is emitted, but the files
+			are compared anyway.
+
+			The program attempts to deal with the case where a single directory
+			tree contains multiple files with the same key, but this is heuristic
+			and so may not deal optimally with all cases.
+
+		[DEFN=XX=YY=arbitrary-text.coremif]
+			Only DEFN=CA=IFC=*.coremif are compared; other files matching this pattern
+			are ignored (a warning is emitted).
+
+	Files that don't match either of those naming schemes are skipped, with an error message.
+
+	If the command line specifies files, not directories, none of the above
+	applies; the files can have arbitrary names.
+
+	Once <mif-comparer> has paired up two files, all of this ceases to matter;
+	regardless of their names or directory locations, all files are compared in
+	the same way.
+
+* {Comparing two XML files}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	The approach taken to XML comparison is to, by default, report (almost) all
+	differences between a given old and new file; but before the comparison is
+	done, the files (or rather, their parsed DOM trees), can be modified (see
+	{{Filters}}) to eliminate differences that don't matter.
+
+	By "almost all differences" is meant that minor things are ignored, such as:
+	  * sequence of attributes with in an element tag
+
+	  * XML comments
+
+	  * whitespace -- these three elements are considered identical:
+
+---
+<foo>   </foo>
+
+<foo>
+</foo>
+
+<foo/>
+---
+
+		as are these:
+
+---
+<foo> text </foo>
+
+<foo>text</foo>
+---
+
+		But internal whitespace is <not> normalized -- there's a filter for that.
+		These two elements are considered to differ:
+
+---
+<foo>hello world</foo>
+
+<foo>hello
+world</foo>
+---
+
+
+* {Config file}
+~~~~~~~~~~~~~~~
+
+	The config file is in modified Windows "ini" format.  The modification is that
+	keys can be multivalued -- there can be multiple entries for one key.  This
+	only makes sense for some keys, but where it doesn't make sense,
+	single-valued-ness is <not> enforced.
+
+	Note that <everything> in the config file -- section names, keys, and values
+	-- is case-sensitive.
+
+	The config file contains the following sections:
+
+	<<{Filters}>>
+	~~~~~~~~~~~~~
+
+---
+[Filters]
+filter = filter-name arguments
+
+e.g.
+
+filter = delete /mif:staticModel/mif:graphicRepresentation
+filter = resequence sortKey /mif:staticModel/mif:association
+---
+
+	The only allowed key is <<<filter>>>, which may occur multiple times.  For
+	each entry, the value consists of a <<<filter-name>>> followed by whatever arguments
+	that filter takes, all whitespace-separated.
+
+	If an argument needs to contain whitespace, either single or double quotes 
+	may be used.  There's no escape mechanism for quotes, though; use the other
+	style of quote.
+
+	The specific filters are described in {{Filters}}.
+
+	<<{Namespaces}>>
+	~~~~~~~~~~~~~~~~
+
+---
+[Namespaces]
+prefix = namespace-uri
+
+e.g.
+
+html = http://www.w3.org/1999/xhtml
+mif	 = urn:hl7-org:v3/mif2
+---
+
+	This section defines the mapping of XML-namespace prefixes to URIs that
+	will be used by <mif-comparer>.  These prefixes do not need to bear any
+	relation to the ones used in the XML documents being compared; only the
+	namespace URIs matter.  That is, if the config file contains:
+
+---
+html = http://www.w3.org/1999/xhtml
+---
+
+	then a filter definition with XPath expression <<<//html:a>>> will
+	match all XHTML \<a\> tags in the input files, whether the file itself
+	binds the XHTML namespace URI to <<<html:>>>, <<<xhtml:>>>, or even to the
+	default namespace.
+
+	(In practice, the namespace prefixes defined here are only used for
+	filtering.  The rest of <mif-comparer> is namespace-aware, but doesn't need
+	an externally provided mapping.)
+
+* {Filters}
+~~~~~~~~~~~
+
+	A number of filters are provided, each of which is able to perform a
+	specific transformation on an XML DOM tree.
+
+	Filters operate on each DOM tree independently; they do not simultaneously
+	consider both of the files being compared at any given time.
+
+	Note that filtering is not done automatically; in the absence of a config
+	file (or of <<<filter>>> directives within it), the XML is compared
+	verbatim, except for the very few points described in {{Comparing two XML files}}.
+
+	The filters make heavy use of XPath -- one argument to each is an XPath
+	expression, which determines which nodes the filter is to operate on.  The
+	namespace prefixes to be used in these expressions are the ones defined in
+	the {{{Namespaces}[Namespaces] section}} of the config file.
+
+	The available filters are:
+
+	<<filter = delete xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Deletes every node matching <<<xpath-expr>>>, and, recursively,
+		all substructure.
+
+	<<filter = change-namespace new-namespace-URI xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		For each node matching <<<xpath-expr>>>, change its namespace URI to
+		<<<new-namespace-URI>>>.  The new namespace prefix is the one to which the
+		<<<new-namespace-URI>>> is mapped in the {{{Namespaces}[Namespaces] section}}
+		of the config file.
+
+	<<filter = normalize-whitespace xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		For each matching node, normalize the whitespace of that node's direct
+		children:
+
+		* each run of whitespace, including CRs and LFs, is squashed to a single blank
+
+		* leading and trailing whitespace is stripped
+
+	Notes:
+
+		* leading and trailing whitespace means, for the list of N's children
+		  taken as a whole, not for each individual child.  Thus:
+
+		  <<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>bold\</b\>\ \ \ text\ \ \</p\>>>>
+
+		  gets normalized to:
+
+		  <<<\<p\>this\ is\ \<b\>bold\</b\>\ text\</p\>>>>
+
+		  not to:
+
+		  <<<\<p\>this\ is\<b\>bold\</b\>text\</p\>>>>
+
+		* normalization is not recursive -- descendents beyond direct children
+		  are not modified.  Thus:
+
+			<<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>\ bold\ \ \ face\ \</b\>\ \ \ text\ \ \</p\>>>>
+
+		  gets normalized to:
+
+			<<<\<p\>this\ is\ \<b\>\ bold\ \ \ face\ \</b\>\ text\</p\>>>>
+
+		  not to:
+
+			<<<\<p\>this\ is\ \<b\>bold\ face\</b\>\ text\</p\>>>>
+
+	<<filter = resequence sort-key-attr xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Resequences XML elements matching <<<xpath-expr>>>.
+
+		The sort key is the attribute named by <<<sort-key-attr>>>, which is
+		expected to be present on all of the elements matching
+		<<<xpath-expr>>>.  The sort will be either numeric or lexical, depending
+		on the values of the sort keys.
+
+		In more detail: the matching elements are divided into groups of siblings (i.e. sharing
+		the same parent element); each group is resequenced independently.  For each individual group:
+
+		* a numeric sort is used if <all> of the members' sort-key values are
+		  parseable as integers; else lexical ordering is used
+
+		* the nodes are physically reordered within the DOM tree
+
+		* in addition, if a numeric sort was used, the values of the sort-key
+		  attribute are renumbered to consecutive integers (one-based), in such
+		  a way as to preserve their sort order.  (If a lexical sort was used,
+		  the sort-key values are not modified.
+
+	<<filter = search xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Emits a \<file-message/\> for each matching node.  This "filter" does not actually
+		modify the DOM; think of it as a "grep" that uses XPath instead of regular expressions.
+
+	<<filter = wrap-contents wrapper-namespace-URI wrapper-tag xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Ensures that, for each node that matches <<<xpath-expr>>>, all of that
+		node's children are elements with the specified namespace URI and tag
+		(such elements are henceforth referred to as <wrapper elements>).
+
+		The filter's goal is simply to wrap each matching node's substructure in
+		a wrapper element, unless it (i.e. the substructure) already is one.
+		
+		The details are a bit more complicated.  Specifically: for each element
+		<E> matching the XPath expression, the filter checks whether all of
+		<E>'s (direct) children are elements matching the given namespace URI
+		and tag name.  If that's the case, it makes no changes.  If, on the
+		other hand, there are children that don't match the wrapper URI and tag (or
+		that aren't elements), a newly created wrapper element is interposed
+		between them and <E> (so that what were <E>'s children become its
+		grandchildren).  If some children are wrapper elements and some not, no
+		change is made, and a warning is issued.
+
+		(Note that child text nodes that are all whitespace are ignored for
+		purposes of deciding whether to interpose a wrapper element, but if one
+		is interposed, such children <are> included in it.)
+
+		<<<wrapper-namespace-URI>>> gives the namespace that an existing
+		element must be in, in order to be considered a wrapper.  As well, if a
+		wrapper element needs to be added, it will be put into namespace
+		<<<wrapper-namespace-URI>>>, and will be given the corresponding
+		namespace prefix from the {{{Namespaces}[Namespaces] section}} of the
+		config file.  An appropriate <<<xmlns>>> attribute will be added on
+		the new element if necessary.
+
+		<<Examples>>
+
+		In all of these, the XPath expresssion matches \<target\> elements, and <<<wrapper-tag>>> is <<<W>>>.
+
+		<<<\<outer\>\<target\>\<a/\>\<b/\>\</target\>\</outer\>>>> produces <<<\<outer\>\<target\>\<W\>\<a/\>\<b/\>\</W\>\</target\>\</outer\>>>>
+
+		<<<\<outer\>\<target\>\<W\>a\</W\>\</target\>\</outer\>>>> already satisfies the requirement, so is not modified.
+
+		<<<\<outer\>\<target\>\<W\>a\</W\>\<W\>\<sub/\>\</W\>\</target\>\</outer\>>>> likewise.
+
+		<<<\<outer\>\<target\>\<W\>a\</W\> some text \<W\>\<sub/\>\</W\>\</target\>\</outer\>>>> makes no change, and produces a warning

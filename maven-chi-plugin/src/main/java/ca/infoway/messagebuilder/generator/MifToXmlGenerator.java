@@ -28,12 +28,15 @@ import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 
 import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.collections.CollectionUtils;
 
 import ca.infoway.messagebuilder.generator.maven.FileSet;
+import ca.infoway.messagebuilder.j5goodies.ManifestReader;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
 public class MifToXmlGenerator implements MessageSetGenerator {
@@ -50,7 +53,17 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 		this.reportDir = reportDir;
 		this.mifRegistry = new MifRegistry(mifTransform, outputUI);
 		this.messageSet.setVersion(version);
-		this.messageSet.setGeneratedBy("message builder 3.0");
+		
+		String projectVersion;
+		try {
+			Manifest manifest = ManifestReader.read(getClass());
+			Attributes attributes = manifest.getMainAttributes();
+			projectVersion = attributes.getValue("Implementation-Version");
+		} catch(IOException e) {
+			projectVersion = "unknown version";
+		}
+		this.messageSet.setGeneratedBy(projectVersion);
+		
 		this.messageSetWriter = new MessageSetWriter(this.messageSet, this.outputUI);
 	}
 	

@@ -56,6 +56,7 @@
     		<module>message-builder-simple-xml-process-web</module>
     <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
     <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
+    <module>message-builder-mif-comparer</module>
   </modules>
 	<dependencies>
 		<dependency>
@@ -434,6 +435,8 @@
 			            <exclude>**/translation-*</exclude>
 			            <exclude>**/*.java1</exclude>
 			            <exclude>**/*.mif</exclude>
+			            <exclude>**/*.coremif</exclude>
+			            <exclude>**/etc/sample-config.txt</exclude>
 			        </excludes>
 				<skipExistingHeaders>true</skipExistingHeaders>
 			    </configuration>

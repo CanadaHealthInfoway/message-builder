@@ -84,6 +84,11 @@
 			<version>1.9.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>ca.infoway.svg</groupId>
+		    <artifactId>chi-demiftifier</artifactId>
+		    <version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -94,6 +99,19 @@
             <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                   <archive>
+	                    <manifest>
+	                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+	                    </manifest>
+                        <manifestEntries>
+                            <Application-Name>${project.name}</Application-Name>
+                            <Implementation-Build>${buildNumber}</Implementation-Build>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                            <Implementation-Build-Date>${timestamp}</Implementation-Build-Date>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
             </plugin>
 		</plugins>
 	</build>
