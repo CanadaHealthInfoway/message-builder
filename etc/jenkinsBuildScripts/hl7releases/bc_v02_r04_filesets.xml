@@ -1,0 +1,6 @@
+<fileSets>
+	<!-- the fileSet variables (Input) give the location of the MIF files. this 
+		should match the volume structure, if there is one, and the names must match 
+		the file names -->
+	
+</fileSets>
