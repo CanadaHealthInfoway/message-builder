@@ -4,6 +4,6 @@
 		the file names -->
 	<fileSet>
 			<name>bc_v02_r04</name>
-			<directory>./target/input/mifs/Volume 1 - Infrastructure</directory>
+			<directory>./target/input/mifs</directory>
 	</fileSet>
 </fileSets>
