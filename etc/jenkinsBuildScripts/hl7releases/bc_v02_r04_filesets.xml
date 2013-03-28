@@ -3,7 +3,7 @@
 		should match the volume structure, if there is one, and the names must match 
 		the file names -->
 	<fileSet>
-			<name>bc_v02_r04</name>
+			<name>lab</name>
 			<directory>./target/input/mifs</directory>
 	</fileSet>
 </fileSets>
