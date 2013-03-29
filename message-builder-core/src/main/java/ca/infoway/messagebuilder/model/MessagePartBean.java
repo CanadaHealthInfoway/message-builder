@@ -176,25 +176,27 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 	}
 
 	public boolean hasNullFlavorInList(String propertyName, int indexInList) {
-		return false;
+		return getNullFlavorInList(propertyName, indexInList) != null;
 	}
 
 	public NullFlavor getNullFlavorInList(String propertyName, int indexInList) {
-		return null;
+		return (NullFlavor) getMetadataInCollection(propertyName, indexInList, null, false);
 	}
 
-	public void setNullFlavorInList(String propertyName, int indexInList, NullFlavor nullFlavor) {
+	public boolean setNullFlavorInList(String propertyName, int indexInList, NullFlavor nullFlavor) {
+		return setMetadataInCollection(propertyName, indexInList, null, nullFlavor, false);
 	}
 
 	public boolean hasNullFlavorInSet(String propertyName, Object valueInSet) {
-		return false;
+		return getNullFlavorInSet(propertyName, valueInSet) != null;
 	}
 
 	public NullFlavor getNullFlavorInSet(String propertyName, Object valueInSet) {
-		return null;
+		return (NullFlavor) getMetadataInCollection(propertyName, -1, valueInSet, false);
 	}
 
-	public void setNullFlavorInSet(String propertyName, Object valueInSet, NullFlavor nullFlavor) {
+	public boolean setNullFlavorInSet(String propertyName, Object valueInSet, NullFlavor nullFlavor) {
+		return setMetadataInCollection(propertyName, -1, valueInSet, nullFlavor, false);
 	}
 
 	public StandardDataType getSpecializationType(String propertyName) {
@@ -216,6 +218,22 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 	}
 
 	public StandardDataType getSpecializationTypeInList(String propertyName, int indexInList) {
+		return (StandardDataType) getMetadataInCollection(propertyName, indexInList, null, true);
+	}
+
+	public boolean setSpecializationTypeInList(String propertyName, int indexInList, StandardDataType specializationType) {
+		return setMetadataInCollection(propertyName, indexInList, null, specializationType, true);
+	}
+
+	public StandardDataType getSpecializationTypeInSet(String propertyName, Object valueInSet) {
+		return (StandardDataType) getMetadataInCollection(propertyName, -1, valueInSet, true);
+	}
+
+	public boolean setSpecializationTypeInSet(String propertyName, Object valueInSet, StandardDataType specializationType) {
+		return setMetadataInCollection(propertyName, -1, valueInSet, specializationType, true);
+	}
+
+	private Object getMetadataInCollection(String propertyName, int indexInList, Object valueInSet, boolean isSpecializationType) {
 		ANY<?> field = (ANY<?>) getField(propertyName);
 		@SuppressWarnings("unchecked")
 		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
@@ -224,70 +242,42 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 			throw new IndexOutOfBoundsException("Property " + propertyName + " only has " + value.size() + " elements, but trying to access element " + indexInList);
 		}
 		
-		StandardDataType result = null;
+		Object result = null;
+
 		int pos = 0;
         for (Iterator<ANY<?>> iterator = value.iterator(); iterator.hasNext(); pos++) {
 			ANY<?> item = iterator.next();
-			if (pos == indexInList) {
-				result = item.getDataType();
+			Object actualValue = item.getValue();
+			if ((indexInList == -1 && valueInSet.equals(actualValue)) || pos == indexInList) {
+				result = isSpecializationType ? item.getDataType() : item.getNullFlavor();
 				break;
 			}
 		}
         
         return result;
 	}
-
-	public void setSpecializationTypeInList(String propertyName, int indexInList, StandardDataType specializationType) {
+	
+	private boolean setMetadataInCollection(String propertyName, int indexInList, Object valueInSet, Object valueToApply, boolean isSpecializationType) {
 		ANY<?> field = (ANY<?>) getField(propertyName);
 		@SuppressWarnings("unchecked")
 		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
 
 		if (indexInList >= value.size()) {
-			throw new IndexOutOfBoundsException("Property " + propertyName + " only has " + value.size() + " elements, but trying to access index " + indexInList);
+			throw new IndexOutOfBoundsException("Property " + propertyName + " only has " + value.size() + " elements, but trying to access element " + indexInList);
 		}
 		
+		boolean result = false;
+
 		int pos = 0;
         for (Iterator<ANY<?>> iterator = value.iterator(); iterator.hasNext(); pos++) {
 			ANY<?> item = iterator.next();
-			if (pos == indexInList) {
-				item.setDataType(specializationType);
-				break;
-			}
-		}
-        
-	}
-
-	public StandardDataType getSpecializationTypeInSet(String propertyName, Object valueInSet) {
-		ANY<?> field = (ANY<?>) getField(propertyName);
-		@SuppressWarnings("unchecked")
-		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
-
-		StandardDataType result = null;
-		
-        for (Iterator<ANY<?>> iterator = value.iterator(); iterator.hasNext(); ) {
-			ANY<?> item = iterator.next();
 			Object actualValue = item.getValue();
-			if (valueInSet.equals(actualValue)) {
-				result = item.getDataType();
-				break;
-			}
-		}
-        
-        return result;
-	}
-
-	public boolean setSpecializationTypeInSet(String propertyName,	Object valueInSet, StandardDataType specializationType) {
-		ANY<?> field = (ANY<?>) getField(propertyName);
-		@SuppressWarnings("unchecked")
-		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
-
-		boolean result = false;
-		
-        for (Iterator<ANY<?>> iterator = value.iterator(); iterator.hasNext(); ) {
-			ANY<?> item = iterator.next();
-			Object actualValue = item.getValue();
-			if (valueInSet.equals(actualValue)) {
-				item.setDataType(specializationType);
+			if ((indexInList == -1 && valueInSet.equals(actualValue)) || pos == indexInList) {
+				if (isSpecializationType) {
+					item.setDataType((StandardDataType) valueToApply);
+				} else {
+					item.setNullFlavor((NullFlavor) valueToApply);
+				}
 				result = true;
 				break;
 			}

@@ -31,10 +31,10 @@ public interface ExtendedNullFlavorSupport extends NullFlavorSupport {
 
 	public boolean hasNullFlavorInList(String propertyName, int indexInList);
 	public NullFlavor getNullFlavorInList(String propertyName, int indexInList);
-	public void setNullFlavorInList(String propertyName, int indexInList, NullFlavor nullFlavor);
+	public boolean setNullFlavorInList(String propertyName, int indexInList, NullFlavor nullFlavor);
 	
 	public boolean hasNullFlavorInSet(String propertyName, Object valueInSet);
 	public NullFlavor getNullFlavorInSet(String propertyName, Object valueInSet);
-	public void setNullFlavorInSet(String propertyName, Object valueInSet, NullFlavor nullFlavor);
+	public boolean setNullFlavorInSet(String propertyName, Object valueInSet, NullFlavor nullFlavor);
 
 }

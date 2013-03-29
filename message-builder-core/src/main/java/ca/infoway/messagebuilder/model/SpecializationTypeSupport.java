@@ -28,7 +28,7 @@ public interface SpecializationTypeSupport {
 	public void setSpecializationType(String propertyName, StandardDataType specializationType);
 
 	public StandardDataType getSpecializationTypeInList(String propertyName, int indexInList);
-	public void setSpecializationTypeInList(String propertyName, int indexInList, StandardDataType specializationType);
+	public boolean setSpecializationTypeInList(String propertyName, int indexInList, StandardDataType specializationType);
 	
 	public StandardDataType getSpecializationTypeInSet(String propertyName, Object valueInSet);
 	public boolean setSpecializationTypeInSet(String propertyName, Object valueInSet, StandardDataType specializationType);
