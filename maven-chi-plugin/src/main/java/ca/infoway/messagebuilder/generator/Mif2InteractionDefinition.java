@@ -140,11 +140,10 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 		MessagePart messagePart = resolver.getMessagePart(currentContext.getName());
 		NodeList nodes = Mif2XPathHelper.getNodes(parameterModel, "./mif2:" + childElementName);
 		
+		List<MifChoiceItem> result = new ArrayList<MifChoiceItem>();
 		if (messagePart == null) {
 			this.outputUI.log(LogLevel.ERROR, "Mif2InteractionDefinition.getAllChoices(): Could not find message part (likely due to an earlier error)");
-			return Collections.<MifChoiceItem>emptyList();
 		} else if (messagePart.getSpecializationChilds().size() == nodes.getLength()) {
-			List<MifChoiceItem> result = new ArrayList<MifChoiceItem>();
 			for (int i = 0, length = nodes.getLength(); i < length; i++) {
 				TypeName child = new TypeName(messagePart.getSpecializationChilds().get(i));
 				
@@ -153,10 +152,10 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 				
 				result.add(new Mif2ChoiceItem(child, element, subChoices));
 			}
-			return result;
 		} else {
-			throw new GeneratorException("Expecting message part " + currentContext.getName() + " to have " + nodes.getLength() + " specializations");
+			outputUI.log(LogLevel.ERROR, "Expecting message part " + currentContext.getName() + " to have " + nodes.getLength() + " specializations, but it had " + messagePart.getSpecializationChilds().size());
 		}
+		return result;
 	}
 
 	private void addArguments(Interaction interaction, List<Argument> arguments, Element element, MessagePartResolver resolver) throws XPathExpressionException {
