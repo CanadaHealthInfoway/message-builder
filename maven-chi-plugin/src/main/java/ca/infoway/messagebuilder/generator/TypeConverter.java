@@ -49,6 +49,9 @@ public class TypeConverter {
 		if (name!=null) {
 			List<DataType> parameters = convertAll(name.getParameters(), domainType);
 			DataType baseType = getBasicType(name.getUnparameterizedName(), domainType);
+			if (baseType.getParameters() != null && baseType.getParameters().length > 0) {
+				parameters.addAll(Arrays.asList(baseType.getParameters()));
+			}
 			dataType = new DataType(baseType.getType(), baseType.getTypeName(), parameters);
 		}
 		return dataType;
@@ -68,6 +71,8 @@ public class TypeConverter {
 			return new DataType(DataTypeGenerationDetails.ANY, Object.class.getName());
 		} else if (type.isCoded()) {
 			return resolveDomainType(type, type.getHl7TypeName(), domainType);
+		} else if ("SC".equals(type.getRootType())) {
+			return new DataType(type, type.getJavaTypeName(), resolveDomainType(type, type.getHl7TypeName(), domainType));
 		} else {
 			return new DataType(type, type.getJavaTypeName());
 		}

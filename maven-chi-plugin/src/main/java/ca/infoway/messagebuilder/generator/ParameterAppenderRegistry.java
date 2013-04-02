@@ -71,6 +71,7 @@ class ParameterAppenderRegistry {
 			map.put(StandardDataType.PIVL, new ParameterAppenderForPivl());
 			map.put(StandardDataType.ED, new ParameterAppenderForEd());
 			map.put(StandardDataType.URG, new ParameterAppenderForUrg());
+			map.put(StandardDataType.SC, new ParameterAppenderForSc());
 			instance = new ParameterAppenderRegistry(map);
 		}
 	}
@@ -124,6 +125,25 @@ class ParameterAppenderRegistry {
 			builder.append("<");
 			builder.append(dataType.getShortName(language));
 			builder.append(">");
+		}
+	}
+	
+	static class ParameterAppenderForSc extends DefaultWrappedParameterAppender {
+		@Override
+		public void appendWrapped(StringBuilder builder, DataType dataType,	List<DataType> parameters, ProgrammingLanguage language) {
+			if (!parameters.isEmpty()) {
+				builder.append("<");
+				builder.append(ClassUtils.getShortClassName(parameters.get(0).getTypeName()));
+				builder.append(">");
+			}
+		}
+		@Override
+		public void append(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
+			if (!parameters.isEmpty()) {
+				builder.append("<");
+				builder.append(ClassUtils.getShortClassName(parameters.get(0).getTypeName()));
+				builder.append(">");
+			}
 		}
 	}
 	
