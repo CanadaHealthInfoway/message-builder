@@ -62,16 +62,18 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>xmlunit</groupId>
+			<!-- This is a custom version of XMLUnit, which contains a custom fix 
+			Implemented by Intelliware and is not publicly available yet.  This 
+			custom JAR has been added to Infoway Maven repository -->
+			<groupId>ca.intelliware</groupId>
 			<artifactId>xmlunit</artifactId>
 			<version>1.5alpha~iwd1</version>
-			<!-- "Compile" scope because we're using its underlying
+			 <!-- "Compile" scope because we're using its underlying
 			XML-comparison functionality as part of the app itself -->
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/xmlunit-1.5alpha~iwd1.jar</systemPath>
-		</dependency>
+			<scope>compile</scope>
+		</dependency>  
 
 	</dependencies>
 	<build>
