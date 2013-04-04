@@ -170,6 +170,9 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 	public static final HL7TriggerEventCode DRUG_PRODUCT_DETAIL_QUERY = new HL7TriggerEventCode("DRUG_PRODUCT_DETAIL_QUERY", "POME_TE010070UV");
 	public static final HL7TriggerEventCode DRUG_PRODUCT_DETAIL_QUERY_RESPONSE = new HL7TriggerEventCode("DRUG_PRODUCT_DETAIL_QUERY_RESPONSE", "POME_TE010020UV");
  
+	public static final HL7TriggerEventCode DRUG_DOCUMENT_QUERY = new HL7TriggerEventCode("DRUG_DOCUMENT_QUERY", "POME_TE010090UV");
+	public static final HL7TriggerEventCode DRUG_DOCUMENT_QUERY_RESPONSE = new HL7TriggerEventCode("DRUG_DOCUMENT_QUERY_RESPONSE", "POME_TE010040UV");
+ 
 	public static final HL7TriggerEventCode MEDICATION_DISPENSE_SUMMARY_QUERY = new HL7TriggerEventCode("MEDICATION_DISPENSE_SUMMARY_QUERY", "PORX_TE060050UV");
 	public static final HL7TriggerEventCode MEDICATION_DISPENSE_SUMMARY_QUERY_RESPONSE = new HL7TriggerEventCode("MEDICATION_DISPENSE_SUMMARY_QUERY_RESPONSE", "PORX_TE060070UV");
  
