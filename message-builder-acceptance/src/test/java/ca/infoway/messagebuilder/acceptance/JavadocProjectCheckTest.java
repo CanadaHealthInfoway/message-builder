@@ -67,7 +67,6 @@ public class JavadocProjectCheckTest {
 //			"message-builder-release-newfoundland",
 //			"message-builder-hl7v3-release-pcs_mr2009_r02_04_02",
 //			"message-builder-hl7v3-release-pcs_cerx_v01_r04_3",
-//			"message-builder-hl7v3-release-pcs_mr2007_v02_r01",
 //			"message-builder-hl7v3-release-pcs_mr2007_v02_r02",
 //			"message-builder-simple-xml-process",
 //			"message-builder-simple-xml",
@@ -87,7 +86,6 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2009_r02_04_02");
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2009_r02_04_03");
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_cerx_v01_r04_3");
-		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2007_v02_r01");
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2007_v02_r02");
 		this.projectExclusions.add("message-builder-hl7v3-release-sk_cerx_v01_r04_3");
 		this.projectExclusions.add("message-builder-hl7v3-release-ab_mr2007_v02_r02");

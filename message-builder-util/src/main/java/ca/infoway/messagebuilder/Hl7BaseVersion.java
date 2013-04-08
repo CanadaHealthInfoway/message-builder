@@ -32,7 +32,6 @@ public enum Hl7BaseVersion {
 
 	MR2009,
 	MR2007,
-	MR2007_V02R01,  // does this have a better name to use?
 	CERX;
 	
 }

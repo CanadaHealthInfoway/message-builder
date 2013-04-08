@@ -61,9 +61,6 @@ public class PqValidationUtils {
 		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007 + "_PQ.DRUG", 2);
 		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007 + "_PQ.LAB", 2);
 		
-		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007_V02R01 + "_PQ.DRUG", 2);
-		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.MR2007_V02R01 + "_PQ.LAB", 2);
-		
 		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.CERX + "_PQ.DRUG", 2);
 		maximum_fraction_digits_exceptions.put(Hl7BaseVersion.CERX + "_PQ.LAB", 2);
 		

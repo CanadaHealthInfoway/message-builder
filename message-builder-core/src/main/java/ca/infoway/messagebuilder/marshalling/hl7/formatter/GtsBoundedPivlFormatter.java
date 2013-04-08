@@ -116,7 +116,6 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		boolean result = false;
 		if (formatContext != null && formatContext.getVersion() != null) {
 			result = SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX)
-				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007_V02R01)
 				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007);
 		}
 		return result;

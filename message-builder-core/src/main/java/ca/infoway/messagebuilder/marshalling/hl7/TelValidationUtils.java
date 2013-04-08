@@ -200,7 +200,7 @@ public class TelValidationUtils {
 	}
 
 	private boolean isMr2007(Hl7BaseVersion baseVersion) {
-		return baseVersion == Hl7BaseVersion.MR2007 || baseVersion == Hl7BaseVersion.MR2007_V02R01;
+		return baseVersion == Hl7BaseVersion.MR2007;
 	}
 
 	private boolean isCeRxOrNewfoundland(VersionNumber version) {

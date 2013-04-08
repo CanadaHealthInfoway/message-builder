@@ -64,7 +64,6 @@ public class PnValidationUtils {
     	cerxUses.add("P");
     	
     	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.MR2007, mr2007Uses);
-    	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.MR2007_V02R01, mr2007Uses);
     	ALLOWABLE_NAME_USES_BY_VERSION.put(Hl7BaseVersion.CERX, cerxUses);
     	
     	ALLOWABLE_NAME_PARTS.add("family");
@@ -169,7 +168,7 @@ public class PnValidationUtils {
 	}
 
 	private boolean isMr2007(Hl7BaseVersion baseVersion) {
-		return baseVersion == Hl7BaseVersion.MR2007 || baseVersion == Hl7BaseVersion.MR2007_V02R01;
+		return baseVersion == Hl7BaseVersion.MR2007;
 	}
 
 	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {

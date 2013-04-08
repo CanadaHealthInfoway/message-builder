@@ -108,7 +108,6 @@ public class IiValidationUtils {
 
 	public boolean isCerxOrMr2007(VersionNumber version) {
 		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2007) ||
-			   SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2007_V02R01) || 
 			   SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
 	}
 

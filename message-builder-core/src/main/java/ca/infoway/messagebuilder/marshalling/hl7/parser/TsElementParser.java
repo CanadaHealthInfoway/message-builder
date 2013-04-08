@@ -108,8 +108,8 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		return StandardDataType.TS_FULLDATEWITHTIME.equals(StandardDataType.getByTypeName(context));
 	}
 
-	// FIXME - TM - for V02R01, "width" property is allowed (PQ.TIME) - need to add support?
 	private Date parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
+		// TM - for V02R01, "width" property is allowed (PQ.TIME) - not including this here, as MB does not officially support that release
 		Date result = null;
 		String unparsedDate = getAttributeValue(element, "value");
 		if (StringUtils.isBlank(unparsedDate)) {

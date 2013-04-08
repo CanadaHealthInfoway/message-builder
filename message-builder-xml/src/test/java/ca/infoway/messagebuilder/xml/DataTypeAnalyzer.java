@@ -92,7 +92,6 @@ public class DataTypeAnalyzer {
 		DataTypeAnalyzer analyzer = new DataTypeAnalyzer();
 		analyzer.add(new File("../message-builder-hl7v3-release-pcs_cerx_v01_r04_3/src/main/resources/messageSet_v01r04_3_hotfix3.xml"));
 		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2007_v02_r02/src/main/resources/messageSet_v02_r02.xml"));
-		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2007_v02_r01/src/main/resources/messageSet_v02_r01.xml"));
 		analyzer.add(new File("../message-builder-hl7v3-release-pcs_mr2009_r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
 		analyzer.writeOutput();
 		

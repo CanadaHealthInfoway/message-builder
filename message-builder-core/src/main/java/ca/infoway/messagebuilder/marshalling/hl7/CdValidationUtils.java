@@ -189,7 +189,7 @@ public class CdValidationUtils {
 	}
 
 	private boolean isMr2007(Hl7BaseVersion baseVersion) {
-		return baseVersion == Hl7BaseVersion.MR2007 || baseVersion == Hl7BaseVersion.MR2007_V02R01;
+		return baseVersion == Hl7BaseVersion.MR2007;
 	}
 
 	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {

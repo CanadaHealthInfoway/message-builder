@@ -104,9 +104,6 @@ public class TsDateFormats {
 		Map<StandardDataType, List<String>> exceptionMapMR2007 = new LinkedHashMap<StandardDataType,List<String>>();
 		exceptionMapMR2007.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
 
-		Map<StandardDataType, List<String>> exceptionMapV02R01 = new LinkedHashMap<StandardDataType,List<String>>();
-		exceptionMapV02R01.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
-
 		Map<StandardDataType, List<String>> exceptionMapCeRx = new LinkedHashMap<StandardDataType,List<String>>();
 		exceptionMapCeRx.put(StandardDataType.TS_FULLDATEWITHTIME, Collections.<String>emptyList());
 		exceptionMapCeRx.put(StandardDataType.TS_FULLDATETIME, Arrays.asList("yyyyMMddHHmmss"));
@@ -122,7 +119,6 @@ public class TsDateFormats {
 
 		Map<Hl7BaseVersion, Map<StandardDataType, List<String>>> versionMap = new HashMap<Hl7BaseVersion, Map<StandardDataType,List<String>>>();
 		versionMap.put(Hl7BaseVersion.MR2007, Collections.unmodifiableMap(exceptionMapMR2007));
-		versionMap.put(Hl7BaseVersion.MR2007_V02R01, Collections.unmodifiableMap(exceptionMapV02R01));
 		versionMap.put(Hl7BaseVersion.CERX, Collections.unmodifiableMap(exceptionMapCeRx));
 
 		versionFormatExceptions = Collections.unmodifiableMap(versionMap);
