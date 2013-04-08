@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.generator.SysoutLogUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 @RunWith(JMock.class)
@@ -80,12 +81,12 @@ public class Case3ExactMatcherTest {
 	public void shouldCheckEqualityOfAbstractSimplifiableTypes() throws Exception {
 		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
 		type1.getMessagePart().setAbstract(true);
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
+		type1.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Quintessence"));
+		type1.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Spirit"));
 		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
 		type2.getMessagePart().setAbstract(true);
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
+		type2.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Quintessence"));
+		type2.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Spirit"));
 		this.jmock.checking(new Expectations() {{
 			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});
@@ -101,12 +102,12 @@ public class Case3ExactMatcherTest {
 	public void shouldCheckEqualityOfAbstractTypesAfterMerging() throws Exception {
 		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
 		type1.getMessagePart().setAbstract(true);
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
+		type1.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Quintessence"));
+		type1.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Spirit"));
 		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
 		type2.getMessagePart().setAbstract(true);
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT333333CA.Spirit");
+		type2.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT222222CA.Quintessence"));
+		type2.getMessagePart().getSpecializationChilds().add(new SpecializationChild("ABCD_MT333333CA.Spirit"));
 		this.jmock.checking(new Expectations() {{
 			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});

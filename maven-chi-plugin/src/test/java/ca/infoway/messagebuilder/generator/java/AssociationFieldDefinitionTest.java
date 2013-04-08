@@ -87,7 +87,9 @@ public class AssociationFieldDefinitionTest {
 	public void shouldProvideDataForGenericType() throws Exception {
 		Relationship relationship = new Relationship("component", "ABCD_MT123456CA.Component6", Cardinality.create("1"));
 		Type associationType = new Type(new TypeName(relationship.getType()));
-		associationType.getRelationships().add(new Association(new Relationship(), new TemplateVariable("ACT")));
+		Relationship associationRelationship = new Relationship();
+		associationRelationship.setTemplateParameterName("ACT");
+		associationType.getRelationships().add(new Association(associationRelationship, new TemplateVariable("ACT")));
 		final Association association = Association.createStandardAssociation(relationship, associationType);
 		
 		this.jmock.checking(new Expectations() {{

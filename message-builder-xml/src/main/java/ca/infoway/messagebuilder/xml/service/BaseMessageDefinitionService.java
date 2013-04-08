@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 /**
  * <p>A base class for the message defintion service.
@@ -342,11 +343,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		}
 	}
 
-	private void addMessagePartsFromSpecializationChilds(Map<String, MessagePart> allParts, List<String> specializationChilds, VersionNumber version) {
+	private void addMessagePartsFromSpecializationChilds(Map<String, MessagePart> allParts, List<SpecializationChild> specializationChilds, VersionNumber version) {
 		
-		for (String specializationChildName : specializationChilds) {
-			if (specializationChildName != null) {
-				MessagePart messagePart = this.getMessagePart(version, specializationChildName);
+		for (SpecializationChild specializationChild : specializationChilds) {
+			if (specializationChild != null && specializationChild.getName() != null) {
+				MessagePart messagePart = this.getMessagePart(version, specializationChild.getName());
 				if (messagePart != null && messagePart.getName() != null) {
 					if (!allParts.containsKey(messagePart.getName())) {
 						allParts.put(messagePart.getName(), messagePart);

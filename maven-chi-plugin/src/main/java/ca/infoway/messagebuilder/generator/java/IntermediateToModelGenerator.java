@@ -53,6 +53,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
@@ -241,12 +242,12 @@ public abstract class IntermediateToModelGenerator {
 	private void createChoiceStructures(MessageSet messageSet, SimplifiableDefinitions definitions) throws GeneratorException {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
 			String name = messagePart.getName();
-			List<String> childs = messagePart.getSpecializationChilds();
-			for (String childName : childs) {
-				SimplifiableType simplifiableChildType = definitions.getType(childName);
+			List<SpecializationChild> childs = messagePart.getSpecializationChilds();
+			for (SpecializationChild child : childs) {
+				SimplifiableType simplifiableChildType = definitions.getType(child.getName());
 				
 				if (simplifiableChildType == null) {
-					throw new GeneratorException("Type " + name + " has a specialization child " + childName + " which does not appear to be defined.");
+					throw new GeneratorException("Type " + name + " has a specialization child " + child.getName() + " which does not appear to be defined.");
 				} else if (messagePart.isAbstract()) {
 					simplifiableChildType.getInterfaceTypes().add(name);
 				} else {

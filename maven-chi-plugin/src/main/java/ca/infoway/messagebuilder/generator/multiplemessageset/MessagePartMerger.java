@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 class MessagePartMerger implements Merger<MessagePart> {
 
@@ -82,9 +83,9 @@ class MessagePartMerger implements Merger<MessagePart> {
 	}
 
 	// TODO - TM - perhaps log some differences here when appropriate? 
-	private void mergeSpecializationChilds(List<String> specializationChilds1, List<String> specializationChilds2) {
+	private void mergeSpecializationChilds(List<SpecializationChild> specializationChilds1, List<SpecializationChild> specializationChilds2) {
 		// can we really just merge this list? seems like it should be ok
-		Set<String> resultSet = new TreeSet<String>(); 
+		Set<SpecializationChild> resultSet = new TreeSet<SpecializationChild>(); 
 		resultSet.addAll(specializationChilds1);
 		resultSet.addAll(specializationChilds2);
 		this.result.getSpecializationChilds().addAll(resultSet);

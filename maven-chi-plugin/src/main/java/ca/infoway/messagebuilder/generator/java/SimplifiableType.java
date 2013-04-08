@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class SimplifiableType implements Named, NamedType {
@@ -162,8 +163,8 @@ public class SimplifiableType implements Named, NamedType {
 
 	public Set<TypeName> getChildTypes() {
 		Set<TypeName> result = new HashSet<TypeName>();
-		for (String typeName : this.messagePart.getSpecializationChilds()) {
-			result.add(new TypeName(typeName));
+		for (SpecializationChild child : this.messagePart.getSpecializationChilds()) {
+			result.add(new TypeName(child.getName()));
 		}
 		return result;
 	}

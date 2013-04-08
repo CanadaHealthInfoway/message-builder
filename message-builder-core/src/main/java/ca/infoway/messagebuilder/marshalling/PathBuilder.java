@@ -29,6 +29,7 @@ import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
@@ -64,9 +65,9 @@ class PathBuilder {
 	}
 
 	private boolean findPathTo(TypeName start, TypeName end, List<TypeName> results) {
-		List<String> childs = getMessagePart(start).getSpecializationChilds();
-		for (String childName : childs) {
-			TypeName childTypeName = new TypeName(childName); 
+		List<SpecializationChild> childs = getMessagePart(start).getSpecializationChilds();
+		for (SpecializationChild child : childs) {
+			TypeName childTypeName = new TypeName(child.getName()); 
 			if (ObjectUtils.equals(childTypeName, end)) {
 				results.add(start);
 				return true;

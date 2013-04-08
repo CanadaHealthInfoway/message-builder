@@ -466,6 +466,22 @@ public class MessageTest {
 					},
 					
 					{
+						"search-filter output",
+						
+						new Message(INFO, FILTER, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid1/inner1", null, null, null, null, null, null),
+
+						"INFO: the-file(/outer/mid1/inner1), (none): Found instance of \"//inner1\"",
+						
+						"INFO,FILTER,\"Found instance of \"\"//inner1\"\"\",the-file,,/outer/mid1/inner1,,,,,,",
+						
+						"<file-message message-type=\"filter\" severity=\"info\">\n" +
+						"	<file>the-file</file>\n" +
+						"   <xpath>/outer/mid1/inner1</xpath>\n" +
+						"	<message-text>Found instance of &quot;//inner1&quot;</message-text>\n" +
+						"</file-message>\n",
+					},
+
+					{
 						"missing sort key",
 						
 						new Message(WARNING, FILTER, "An element matching \"/outer/mid/inner\" contains no \"sortKey\" attribute",

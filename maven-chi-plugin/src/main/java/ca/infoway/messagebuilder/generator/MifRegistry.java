@@ -22,9 +22,11 @@ package ca.infoway.messagebuilder.generator;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.xpath.XPathException;
@@ -75,7 +77,7 @@ class MifRegistry {
 	private Map<String,Mif> nameToMif = Collections.synchronizedMap(new HashMap<String,Mif>());
 //	private Map<String,String> aliasToMifId = Collections.synchronizedMap(new HashMap<String,String>());
 	private Map<CmetDefinitionKey, CmetDefinition> cmetMapByAlias = Collections.synchronizedMap(new HashMap<CmetDefinitionKey, CmetDefinition>());
-	private Map<CmetDefinitionKey, CmetDefinition> cmetMapByPackageName = Collections.synchronizedMap(new HashMap<CmetDefinitionKey, CmetDefinition>());
+	private Map<CmetDefinitionKey, List<CmetDefinition>> cmetMapByPackageName = Collections.synchronizedMap(new HashMap<CmetDefinitionKey, List<CmetDefinition>>());
 	private DocumentFactory factory;
 	private String mifVersion;
 	private final LogUI log;
@@ -211,12 +213,21 @@ class MifRegistry {
 	}
 	public void registerCmet(CmetDefinition cmet) {
 		cmetMapByAlias.put(cmet.toKeyByAlias(), cmet);
-		cmetMapByPackageName.put(cmet.toKeyByPackageName(), cmet);
+		
+		List<CmetDefinition> listByPackage;
+		CmetDefinitionKey keyByPackageName = cmet.toKeyByPackageName();
+		if (cmetMapByPackageName.containsKey(keyByPackageName)) {
+			listByPackage = cmetMapByPackageName.get(keyByPackageName);
+		} else {
+			listByPackage = new ArrayList<CmetDefinition>();
+			cmetMapByPackageName.put(keyByPackageName, listByPackage);
+		}
+		listByPackage.add(cmet);
 	}
 	public CmetDefinition getCmetByAlias(String definitionPackage, String cmetName) {
 		return cmetMapByAlias.get(new CmetDefinitionKey(definitionPackage, cmetName));
 	}
-	public CmetDefinition getCmetByPackageName(String definitionPackage, String packageName) {
+	public List<CmetDefinition> getCmetByPackageName(String definitionPackage, String packageName) {
 		return cmetMapByPackageName.get(new CmetDefinitionKey(definitionPackage, packageName));
 	}
 }

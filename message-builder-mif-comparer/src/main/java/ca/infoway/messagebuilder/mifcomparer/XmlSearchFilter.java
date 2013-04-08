@@ -59,7 +59,7 @@ public class XmlSearchFilter extends XmlIndependentFilterBase {
 
 	@Override
 	public void filterNode(File f, Node n, MessageList msgs) {
-		msgs.add(new Message(INFO, TESTING_CODE, "Found instance of \"" + xpathExpr + "\"",
+		msgs.add(new Message(INFO, FILTER, "Found instance of \"" + xpathExpr + "\"",
 				f, null,
 				XmlDescriber.describePath(n), null,
 				null, null, null, null, null));

@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.xml;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
@@ -87,5 +89,31 @@ public class CmetBinding implements Documentable {
 
 	public void setDocumentation(Documentation documentation) {
 		this.documentation = documentation;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) return false;
+		if (!CmetBinding.class.isAssignableFrom(obj.getClass())) return false;
+		
+		CmetBinding that = (CmetBinding) obj;
+		return new EqualsBuilder()
+			.append(this.cmetName, that.cmetName)
+			.append(this.attributionLevel, that.attributionLevel)
+			.append(this.code, that.code)
+			.append(this.codeSystemOid, that.codeSystemOid)
+			.append(this.documentation, that.documentation)
+			.isEquals();
+	}
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder()
+			.append(this.cmetName)
+			.append(this.attributionLevel)
+			.append(this.code)
+			.append(this.codeSystemOid)
+			.append(this.documentation)
+			.toHashCode();
 	}
 }

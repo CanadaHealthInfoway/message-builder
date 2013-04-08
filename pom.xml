@@ -44,6 +44,7 @@
 		<module>message-builder-core</module>
 		<module>message-builder-sample-messages</module>
 		<module>message-builder-terminology</module>
+		<module>message-builder-demiftifier</module>
 		<module>message-builder-simple-xml</module>
 		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>

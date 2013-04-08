@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 
@@ -330,8 +331,8 @@ public class DefinitionToResultConverterTest {
 		simplifiableType1.setInlined(true);
 		
 		MessagePart messagePart = new MessagePart("ABCD_MT123456CA.Patient2");
-		messagePart.getSpecializationChilds().add("ABCD_MT123456CA.Patient3");
-		messagePart.getSpecializationChilds().add("ABCD_MT123456CA.Patient4");
+		messagePart.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.Patient3"));
+		messagePart.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.Patient4"));
 		SimplifiableType simplifiableType2 = new SimplifiableType(messagePart, false);
 		
 		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient3"), false);
@@ -373,13 +374,13 @@ public class DefinitionToResultConverterTest {
 	public void shouldConvertInlinedAndMergedCaseWithMultipleCardinality() throws Exception {
 
 		MessagePart messagePart1 = new MessagePart("ABCD_MT123456CA.MergedInterfaceType1");
-		messagePart1.getSpecializationChilds().add("ABCD_MT123456CA.ChildType1");
-		messagePart1.getSpecializationChilds().add("ABCD_MT123456CA.ChildType2");
+		messagePart1.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.ChildType1"));
+		messagePart1.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.ChildType2"));
 		SimplifiableType simplifiableType1 = new SimplifiableType(messagePart1, false);
 		
 		MessagePart messagePart2 = new MessagePart("ABCD_MT123456CA.MergedInterfaceType2");
-		messagePart2.getSpecializationChilds().add("ABCD_MT123456CA.ChildType1");
-		messagePart2.getSpecializationChilds().add("ABCD_MT123456CA.ChildType2");
+		messagePart2.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.ChildType1"));
+		messagePart2.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.ChildType2"));
 		SimplifiableType simplifiableType2 = new SimplifiableType(messagePart2, false);
 		
 		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.ChildType1"), false);

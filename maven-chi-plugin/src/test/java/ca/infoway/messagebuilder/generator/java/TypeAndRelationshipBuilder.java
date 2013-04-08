@@ -129,6 +129,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setName(name);
 		relationship.setCardinality(Cardinality.create("0-1"));
 		relationship.setConformance(ConformanceLevel.REQUIRED);
+		relationship.setTemplateParameterName(templateVariable);
 		return Association.createTemplateAssociation(relationship, new TemplateVariable(templateVariable));
 	}
 	public static SimplifiableRelationship createSimplifiableAssociation(String name, Cardinality cardinality, SimplifiableType type) {

@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.xml;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
@@ -70,7 +71,7 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	private List<Relationship> relationships = new ArrayList<Relationship>();
 
 	@ElementList(required=false,inline=true,entry="specializationChild") 
-	private List<String> specializationChilds = new ArrayList<String>();
+	private List<SpecializationChild> specializationChilds = new ArrayList<SpecializationChild>();
 	
 	/**
 	 * <p>Default constructor.
@@ -179,15 +180,52 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * <p>Get the list of names of the child types.
 	 * @return the child types.
 	 */
-	public List<String> getSpecializationChilds() {
+	public List<SpecializationChild> getSpecializationChilds() {
 		return this.specializationChilds;
 	}
 	/**
-	 * <p>Set the list of child types.
-	 * @param specializationChilds - the new child types
+	 * <p>Determines whether the message part has a specialization child
+	 * matching the given name
+	 * @param the name to test
+	 * @return true if the name matches
 	 */
-	public void setSpecializationChilds(List<String> specializationChilds) {
-		this.specializationChilds = specializationChilds;
+	public SpecializationChild getSpecializationChild(String childName) {
+		SpecializationChild result = null;
+		for (SpecializationChild child : this.specializationChilds) {
+			if (child.getName().equals(childName)) {
+				result = child;
+				break;
+			}
+		}
+		return result;
+	}
+	/**
+	 * <p>Add a child to the list of child types.
+	 * @param specializationChild - the new child
+	 */
+	public void addSpecializationChild(SpecializationChild specializationChild) {
+		this.specializationChilds.add(specializationChild);
+	}
+	/**
+	 * <p>Remove a specialization child from the list by name
+	 * @param childName the name of the child to remove
+	 */
+	public void removeSpecializationChild(String childName) {
+		for (Iterator<SpecializationChild> iterator = this.specializationChilds.iterator(); iterator.hasNext();) {
+			SpecializationChild child = iterator.next();
+			if (child.getName().equals(childName)) {
+				iterator.remove();
+			}
+		}
+	}
+	/**
+	 * <p>Determines whether the message part has a specialization child
+	 * matching the given name
+	 * @param the name to test
+	 * @return true if the name matches
+	 */
+	public boolean hasSpecializationChild(String childName) {
+		return getSpecializationChild(childName) != null;
 	}
 
 	/**

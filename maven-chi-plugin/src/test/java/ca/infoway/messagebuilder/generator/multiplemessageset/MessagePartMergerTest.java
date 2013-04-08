@@ -36,6 +36,7 @@ import org.junit.runner.RunWith;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 @RunWith(JMock.class)
 public class MessagePartMergerTest {
@@ -89,7 +90,7 @@ public class MessagePartMergerTest {
 		messagePart.setAbstract(true);
 		messagePart.setDocumentation(documentation);
 		messagePart.setName("myName");
-		messagePart.setSpecializationChilds(Arrays.asList("specializationChild1"));
+		messagePart.addSpecializationChild(new SpecializationChild("specializationChild1"));
 		messagePart.getRelationships().add(relationship);
 		
 		this.jmock.checking(new Expectations() {{
@@ -128,7 +129,7 @@ public class MessagePartMergerTest {
 		messagePart1.setAbstract(true);
 		messagePart1.setDocumentation(documentation1);
 		messagePart1.setName("myName");
-		messagePart1.setSpecializationChilds(Arrays.asList("specializationChild1"));
+		messagePart1.addSpecializationChild(new SpecializationChild("specializationChild1"));
 		messagePart1.getRelationships().add(relationship1);
 		
 		final Documentation documentation2 = new Documentation();
@@ -139,7 +140,7 @@ public class MessagePartMergerTest {
 		messagePart2.setAbstract(true);
 		messagePart2.setDocumentation(documentation2);
 		messagePart2.setName("myName");
-		messagePart2.setSpecializationChilds(Arrays.asList("specializationChild2"));
+		messagePart2.addSpecializationChild(new SpecializationChild("specializationChild2"));
 		messagePart2.getRelationships().add(relationship2);
 		
 		this.jmock.checking(new Expectations() {{

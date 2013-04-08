@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
 class Hl7PartSource implements Hl7Source {
@@ -109,9 +110,9 @@ class Hl7PartSource implements Hl7Source {
 	private Relationship getNestedRelationship(MessagePart part, String name) {
 		Relationship relationship = part.getRelationship(name, this.hl7InteractionSource.getInteraction());
 		if (relationship == null) {
-			for (String childType : part.getSpecializationChilds()) {
-				if (typeIsAssignable(childType)) {
-					MessagePart childPart = getService().getMessagePart(getVersion(), childType);
+			for (SpecializationChild childType : part.getSpecializationChilds()) {
+				if (typeIsAssignable(childType.getName())) {
+					MessagePart childPart = getService().getMessagePart(getVersion(), childType.getName());
 					relationship = getNestedRelationship(childPart, name);
 					if (relationship != null) {
 						break;
@@ -134,8 +135,8 @@ class Hl7PartSource implements Hl7Source {
 		if (!childPart.isAbstract()) {
 			result = StringUtils.equals(getType(), childPart.getName());
 		} else {
-			for (String specializationChild : childPart.getSpecializationChilds()) {
-				if (typeIsAssignable(specializationChild)) {
+			for (SpecializationChild specializationChild : childPart.getSpecializationChilds()) {
+				if (typeIsAssignable(specializationChild.getName())) {
 					result = true;
 					break;
 				}

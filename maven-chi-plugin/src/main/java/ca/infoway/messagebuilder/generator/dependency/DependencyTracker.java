@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.intelliware.commons.dependency.DependencyManager;
 import ca.intelliware.commons.dependency.LayeredGraph;
@@ -79,11 +80,11 @@ public class DependencyTracker {
 		// we have decided to *not* add the reverse dependency of package location to root type 
 		this.manager.add(name, new TypeName(name).getParent().getName());
 		
-		for (String child : messagePart.getSpecializationChilds()) {
+		for (SpecializationChild child : messagePart.getSpecializationChilds()) {
 			// Do NOT add dependency from implementors to interface
 			// otherwise removing an interface type could remove a huge number of components
 			//manager.add(child, name);  
-			this.choiceManager.add(name, child);
+			this.choiceManager.add(name, child.getName());
 		}
 		
 		for (Relationship relationship : messagePart.getRelationships()) {

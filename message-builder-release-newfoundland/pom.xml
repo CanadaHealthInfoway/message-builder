@@ -44,6 +44,18 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<executions>
 					<execution>
+						<id>build-main-jar</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+							</archive>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-test-jar</id>
 						<goals>
 							<goal>test-jar</goal>
 						</goals>

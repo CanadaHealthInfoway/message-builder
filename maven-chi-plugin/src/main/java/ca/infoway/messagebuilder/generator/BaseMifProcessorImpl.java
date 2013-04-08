@@ -166,14 +166,14 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 		String conformanceString = attribute.getAttribute("conformance");
 		if (Boolean.valueOf(isMandatoryString)) {
 			return ConformanceLevel.MANDATORY;
-		} else if (Integer.valueOf(minimumMultiplicityString) > 0) {
-			return ConformanceLevel.POPULATED;
-		} else if ("R".equals(conformanceString)) {
+		} else if ("R".equals(conformanceString)) {	// If the source MIF is explicit about conformance, respect that, even if it makes no sense
 			return ConformanceLevel.REQUIRED;
 		} else if ("I".equals(conformanceString)) {
 			return ConformanceLevel.IGNORED;
 		} else if ("NP".equals(conformanceString)) {
 			return ConformanceLevel.NOT_ALLOWED;
+		} else if (Integer.valueOf(minimumMultiplicityString) > 0) {
+			return ConformanceLevel.POPULATED;
 		} else if (Integer.valueOf(minimumMultiplicityString) == 0) {
 			return ConformanceLevel.OPTIONAL;
 		} else {

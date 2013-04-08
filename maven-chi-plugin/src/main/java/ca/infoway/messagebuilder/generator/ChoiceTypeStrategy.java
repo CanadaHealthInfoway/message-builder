@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 public abstract class ChoiceTypeStrategy {
 	
@@ -110,13 +111,13 @@ public abstract class ChoiceTypeStrategy {
 				throw new MifProcessingException(this.targetConnection, "Cannot find message part: " + getHighLevelType(resolver));
 			} else {
 				List<Element> specializations = MifXPathHelper.getParticipantSpecializations(this.targetConnection);
-				List<String> specializationChilds = part.getSpecializationChilds();
+				List<SpecializationChild> specializationChilds = part.getSpecializationChilds();
 				int numChildren = specializationChilds.size();
 				
 				Map<Element, MessagePart> map = new LinkedHashMap<Element, MessagePart>();
 				int i = 0;
 				for (Element specialization : specializations) {
-					String childType = specializationChilds.get(i % numChildren);
+					String childType = specializationChilds.get(i % numChildren).getName();
 					MessagePart childMessagePart = resolver.getMessagePart(childType);
 					map.put(specialization, childMessagePart);
 					i++;
@@ -194,10 +195,10 @@ public abstract class ChoiceTypeStrategy {
 		}
 	}
 
-	protected List<MessagePart> toParts(MessagePartResolver resolver, List<String> partNames) {
+	protected List<MessagePart> toParts(MessagePartResolver resolver, List<SpecializationChild> children) {
 		List<MessagePart> result = new ArrayList<MessagePart>();
-		for (String name : partNames) {
-			MessagePart messagePart = resolver.getMessagePart(name);
+		for (SpecializationChild child : children) {
+			MessagePart messagePart = resolver.getMessagePart(child.getName());
 			if (messagePart != null) {
 				result.add(messagePart);
 			}

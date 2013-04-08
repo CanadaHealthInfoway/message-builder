@@ -147,4 +147,12 @@ public class Documentation {
 	public void setAnnotations(List<Annotation> annotations) {
 		this.annotations = annotations;
 	}
+	
+	/**
+	 * <p>Determine whether the documentation has annotation
+	 * @return true is the annotation list is not empty
+	 */
+	public boolean hasAnnotations() {
+		return !(this.annotations == null || this.annotations.isEmpty());
+	}
 }

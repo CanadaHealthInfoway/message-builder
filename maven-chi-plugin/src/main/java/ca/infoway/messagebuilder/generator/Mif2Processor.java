@@ -60,6 +60,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 
@@ -307,16 +308,18 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		ImportedPackage cmetDefiningPackage = processPackageName(Mif2XPathHelper.getCommonModelElementPackage(document));
 		packageLocation.setCommonModelElement(cmetDefiningPackage);
 		
-		CmetDefinition cmetDefinition = this.mifRegistry.getCmetByPackageName(cmetDefiningPackage.toTextRepresentation(), packageName);
-		if (cmetDefinition != null) {
-			CmetBinding cmetBinding = new CmetBinding();
-			cmetBinding.setCmetName(cmetDefinition.getCmetName());
-			cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
-			cmetBinding.setCode(cmetDefinition.getCode());
-			cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
-			cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
-			
-			packageLocation.setCmetBinding(cmetBinding);
+		List<CmetDefinition> cmetListByPackageName = this.mifRegistry.getCmetByPackageName(cmetDefiningPackage.toTextRepresentation(), packageName);
+		if (cmetListByPackageName != null) {
+			for (CmetDefinition cmetDefinition : cmetListByPackageName) {
+				CmetBinding cmetBinding = new CmetBinding();
+				cmetBinding.setCmetName(cmetDefinition.getCmetName());
+				cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
+				cmetBinding.setCode(cmetDefinition.getCode());
+				cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
+				cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
+				
+				packageLocation.addCmetBinding(cmetBinding);
+			}
 		}
 	}
 
@@ -372,13 +375,13 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			if (reference == null) {
 				// BCH: assume that it's internal
 				this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + childClassName);
-				part.getSpecializationChilds().add(NameHelper.qualifiyName(element, childClassName));
+				part.getSpecializationChilds().add(new SpecializationChild(NameHelper.qualifiyName(element, childClassName)));
 			} else {
 				PackageLocation parentPackage = messageSet.getPackageLocation(TypeName.determineRootName(part.getName()));
 				String name = reference.getAttribute("cmetName");
 				CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(parentPackage.getCommonModelElement().toTextRepresentation(), name);
 				if (cmetDefinition != null) {
-					part.getSpecializationChilds().add(cmetDefinition.getBoundClass());
+					part.getSpecializationChilds().add(new SpecializationChild(cmetDefinition.getBoundClass(), cmetDefinition.getCmetName()));
 					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + cmetDefinition.getBoundClass());
 				} else {
 					this.outputUI.log(LogLevel.SEVERE, part.getName() + ": Cannot resolve child class cmetName " + name);
@@ -422,6 +425,11 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setTraversableAssociationName(targetConnectionDerivation.getAttribute("associationEndName"));
 		choice.setNontraversableAssociationName(reverseConnectionDerivation.getAttribute("associationEndName"));
 
+		String partName = targetConnection.getAttribute("participantClassName");
+		if (isCmetReference(targetConnection, partName)) {
+			choice.setCmetBindingName(partName);
+		}
+
 		addChoiceItems(messageSet, targetConnection, choice);
 		choice.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
 		part.getRelationships().add(choice);
@@ -444,7 +452,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	private String getSpecializationChild(MessagePart part, int i, MifChoiceItem choiceItem) {
 		if (part.getSpecializationChilds().size() > i) {
-			return part.getSpecializationChilds().get(i);
+			return part.getSpecializationChilds().get(i).getName();
 		} else {
 			throw new GeneratorInternalException("Part type : " + part.getName() 
 					+ " should have had a choice type at index " + i 
@@ -491,6 +499,11 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 //				throw new GeneratorException("Cannot determine the type name for relationship " + part.getName() + "." + relationship.getName());
 			} else {
 				relationship.setType(type);
+			}
+			
+			String partName = targetConnection.getAttribute("participantClassName");
+			if (isCmetReference(targetConnection, partName)) {
+				relationship.setCmetBindingName(partName);
 			}
 		}
 		
@@ -568,7 +581,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			if (index < 1 || index > messagePart.getSpecializationChilds().size()) {
 				throw new GeneratorException("Trying to resolve choice " + name + " (#" + index + ") against " + messagePart.getName());
 			} else {
-				return messagePart.getSpecializationChilds().get(index-1);
+				return messagePart.getSpecializationChilds().get(index-1).getName();
 			}
 		}
 	}

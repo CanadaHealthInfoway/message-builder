@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.jmock.Expectations;
@@ -33,6 +32,7 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
@@ -163,7 +163,9 @@ public class PathBuilderTest {
 	
 	private MessagePart createPartWithChilds(final String type, boolean expectServiceCall, String... childs) {
 		final MessagePart part = new MessagePart(type);
-		part.setSpecializationChilds(Arrays.asList(childs));
+		for (String childName : childs) {
+			part.addSpecializationChild(new SpecializationChild(childName));
+		}
 		
 		if (expectServiceCall) {
 			this.jmock.checking(new Expectations() {{

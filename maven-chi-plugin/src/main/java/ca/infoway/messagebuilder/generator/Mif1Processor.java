@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
@@ -190,16 +191,18 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		PackageLocation packageLocation = messageSet.getPackageLocations().get(packageName);
 		packageLocation.setDerivedFromStaticModel(processImportedPackage(MifXPathHelper.getTargetStaticModel(document)));
 
-		CmetDefinition cmetDefinition = this.mifRegistry.getCmetByPackageName("cmetinfo", packageName);
-		if (cmetDefinition != null) {
-			CmetBinding cmetBinding = new CmetBinding();
-			cmetBinding.setCmetName(cmetDefinition.getCmetName());
-			cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
-			cmetBinding.setCode(cmetDefinition.getCode());
-			cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
-			cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
-			
-			packageLocation.setCmetBinding(cmetBinding);
+		List<CmetDefinition> cmetListByPackageName = this.mifRegistry.getCmetByPackageName("cmetinfo", packageName);
+		if (cmetListByPackageName != null) {
+			for (CmetDefinition cmetDefinition : cmetListByPackageName) {
+				CmetBinding cmetBinding = new CmetBinding();
+				cmetBinding.setCmetName(cmetDefinition.getCmetName());
+				cmetBinding.setAttributionLevel(cmetDefinition.getAttributionLevel());
+				cmetBinding.setCode(cmetDefinition.getCode());
+				cmetBinding.setCodeSystemOid(cmetDefinition.getCodeSystemOid());
+				cmetBinding.setDocumentation(cmetDefinition.getDocumentation());
+				
+				packageLocation.addCmetBinding(cmetBinding);
+			}
 		}
 	}
 	
@@ -252,22 +255,22 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 			Element classElement = MifXPathHelper.getChildClassElement(child);
 			if (classElement != null) {
 				String name = classElement.getAttribute("name");
-				part.getSpecializationChilds().add(NameHelper.qualifiyName(child, name));
+				part.getSpecializationChilds().add(new SpecializationChild(NameHelper.qualifiyName(child, name)));
 			} else if (isReference(child)) {
 				String name = MifXPathHelper.getMifReferenceType(child);
 				if (MifXPathHelper.isExternalReferenceType(child)) {
 					String externalLocation = MifXPathHelper.getExternalReferenceType(child, name);
 					String rootType = messageSet.getPackageLocationRootType(externalLocation);
-					part.getSpecializationChilds().add(rootType);
+					part.getSpecializationChilds().add(new SpecializationChild(rootType, name));
 				} else {
-					part.getSpecializationChilds().add(NameHelper.qualifiyName(child, name));
+					part.getSpecializationChilds().add(new SpecializationChild(NameHelper.qualifiyName(child, name)));
 				}
 			} else {
 				String packageLocationName = MifXPathHelper.getGeneralizationTarget(child);
 				PackageLocation packageLocation = messageSet.getPackageLocations().get(packageLocationName);
 				String root = packageLocation == null ? null : packageLocation.getRootType();
 				if (StringUtils.isNotBlank(root)) {
-					part.getSpecializationChilds().add(root);
+					part.getSpecializationChilds().add(new SpecializationChild(root));
 				} else {
 					throw new MifProcessingException("Cannot find the packageLocation : " 
 							+ packageLocationName + " while processing " + part.getName());
@@ -321,6 +324,10 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setUpdateMode(createUpdateMode(targetConnection));		
 		choice.setConformance(createConformance(targetConnection));
 		
+		if (isExternalReference(targetConnection)) {
+			choice.setCmetBindingName(MifXPathHelper.getMifReferenceType(targetConnection));
+		}
+		
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
 		for (ChoiceOption choiceOption : choiceOptions) {
 			Relationship relationship = new Relationship();
@@ -350,6 +357,9 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setType(determineType(messageSet, targetConnection));
 		if (isTemplateParameter(targetConnection)) {
 			relationship.setTemplateParameterName(getTemplateParameterName(targetConnection));
+		}
+		if (isExternalReference(targetConnection)) {
+			relationship.setCmetBindingName(MifXPathHelper.getMifReferenceType(targetConnection));
 		}
 		
 		relationship.setCardinality(createCardinality(targetConnection));

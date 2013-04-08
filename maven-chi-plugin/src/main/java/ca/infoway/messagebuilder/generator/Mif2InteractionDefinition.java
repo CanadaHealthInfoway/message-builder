@@ -145,7 +145,7 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			this.outputUI.log(LogLevel.ERROR, "Mif2InteractionDefinition.getAllChoices(): Could not find message part (likely due to an earlier error)");
 		} else if (messagePart.getSpecializationChilds().size() == nodes.getLength()) {
 			for (int i = 0, length = nodes.getLength(); i < length; i++) {
-				TypeName child = new TypeName(messagePart.getSpecializationChilds().get(i));
+				TypeName child = new TypeName(messagePart.getSpecializationChilds().get(i).getName());
 				
 				Element element = (Element) nodes.item(i);
 				List<MifChoiceItem> subChoices = getAllChoices(child, element, "choiceItem", resolver); 

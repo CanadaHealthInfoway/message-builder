@@ -283,7 +283,7 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	}
 
 	String getBusinessName(Element element) {
-		return removeNonAsciiCharacters(getAttribute(element, "./mif:businessName/@name"));
+		return sanitizeText(getAttribute(element, "./mif:businessName/@name"));
 	}
 
 	public static List<Element> getParticipantSpecializations(Element targetConnection) {

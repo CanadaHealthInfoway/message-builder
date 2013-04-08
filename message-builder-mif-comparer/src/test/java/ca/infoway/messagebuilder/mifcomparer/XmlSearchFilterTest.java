@@ -77,8 +77,8 @@ public class XmlSearchFilterTest extends XmlFilterTest {
 			XML_FOR_TESTS,
 			XML_FOR_TESTS,
 			new Message[]{
-				new Message(INFO, TESTING_CODE, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid1/inner1", null, null, null, null, null, null),
-				new Message(INFO, TESTING_CODE, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid3/inner1", null, null, null, null, null, null),
+				new Message(INFO, FILTER, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid1/inner1", null, null, null, null, null, null),
+				new Message(INFO, FILTER, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid3/inner1", null, null, null, null, null, null),
 			});
 	}
 

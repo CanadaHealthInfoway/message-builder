@@ -291,6 +291,9 @@ class Message {
 			
 			f.format("<file-message message-type=\"%s\" severity=\"%s\">%n", elem, severity.toString().toLowerCase());
 			f.format("\t<file>%s</file>%n", quoteXML(this.sides[whichSide].file));
+			if (this.sides[whichSide].xpath != null) {
+				f.format("\t<xpath>%s</xpath>%n", quoteXML(this.sides[whichSide].xpath));
+			}
 			f.format("\t<message-text>%s</message-text>%n", quoteXML(this.message));
 			f.format("</file-message>%n");
 

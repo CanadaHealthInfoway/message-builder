@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.intelliware.commons.dependency.DependencyManager;
 import ca.intelliware.commons.dependency.Layer;
 import ca.intelliware.commons.dependency.Node;
@@ -176,7 +177,7 @@ public class DependencyTrackerTest {
 		MessageSet messageSet = new MessageSet();
 		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
 		MessagePart appendage = new MessagePart("ABCD_MT123456CA.Appendage");
-		appendage.getSpecializationChilds().add("ABCD_MT123456CA.Arm");
+		appendage.getSpecializationChilds().add(new SpecializationChild("ABCD_MT123456CA.Arm"));
 		messageSet.addMessagePart(appendage);
 		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
 		messageSet.addMessagePart(arm);

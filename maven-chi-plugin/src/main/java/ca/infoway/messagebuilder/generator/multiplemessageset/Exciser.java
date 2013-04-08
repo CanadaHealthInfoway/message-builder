@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.intelliware.commons.dependency.LayeredGraph;
 import ca.intelliware.commons.dependency.Node;
@@ -175,9 +176,9 @@ public class Exciser {
 
 	private void removeChoiceReferenceFromMessagePart(String name, MessagePart messagePart) {
 		if (messagePart.isAbstract()) {
-			List<String> specializationChilds = messagePart.getSpecializationChilds();
-			for (String child : new ArrayList<String>(specializationChilds)) {
-				if (StringUtils.equals(name, child)) {
+			List<SpecializationChild> specializationChilds = messagePart.getSpecializationChilds();
+			for (SpecializationChild child : new ArrayList<SpecializationChild>(specializationChilds)) {
+				if (StringUtils.equals(name, child.getName())) {
 					specializationChilds.remove(child);
 				}
 			}

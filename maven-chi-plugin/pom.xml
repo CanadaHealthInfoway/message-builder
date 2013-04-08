@@ -85,9 +85,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>ca.infoway.svg</groupId>
-		    <artifactId>chi-demiftifier</artifactId>
-		    <version>1.0-SNAPSHOT</version>
+			<groupId>ca.infoway.messagebuilder</groupId>
+		    <artifactId>message-builder-demiftifier</artifactId>
+			<version>${project.version}</version>		
 		</dependency>
 	</dependencies>
 	<build>

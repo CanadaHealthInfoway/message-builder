@@ -142,6 +142,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	
 	public static final StandardDataType PIVL = new StandardDataType("PIVL", "PIVL");
 	public static final StandardDataType PIVL_TS_DATETIME = new StandardDataType("PIVL_TS_DATETIME", "PIVL<TS.DATETIME>", "PeriodicIntervalOfTime");
+	public static final StandardDataType PIVL_TS_FULLDATETIME = new StandardDataType("PIVL_TS_FULLDATETIME", "PIVL<TS.FULLDATETIME>", "PeriodicIntervalOfTime");
 	
 	public static final StandardDataType INT = new StandardDataType("INT", "INT", "integer"); 
 	public static final StandardDataType INT_NONNEG = new StandardDataType("INT_NONNEG", "INT.NONNEG", "integer"); 

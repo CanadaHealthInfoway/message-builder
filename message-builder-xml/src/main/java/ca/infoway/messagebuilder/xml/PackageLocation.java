@@ -56,8 +56,8 @@ public class PackageLocation implements Categorizable, HasDifferences, Named, Do
 	private ImportedPackage vocabularyModel;
 	@Element(required=false)
 	private ImportedPackage commonModelElement;
-	@Element(required=false)
-	private CmetBinding cmetBinding;
+	@ElementList(inline=true,entry="cmetBinding",required=false)
+	private List<CmetBinding> cmetBindings = new ArrayList<CmetBinding>();
 	@Element(required=false)
 	private Documentation documentation;
 	@ElementList(inline=true, required=false)
@@ -195,14 +195,23 @@ public class PackageLocation implements Categorizable, HasDifferences, Named, Do
 	public void setCommonModelElement(ImportedPackage commonModelElement) {
 		this.commonModelElement = commonModelElement;
 	}
-	public CmetBinding getCmetBinding() {
-		return this.cmetBinding;
+	public List<CmetBinding> getCmetBindings() {
+		return this.cmetBindings;
 	}
-	public void setCmetBinding(CmetBinding cmetbinding) {
-		this.cmetBinding = cmetbinding;
+	public CmetBinding getCmetBinding(String name) {
+		CmetBinding result = null;
+		for (CmetBinding cmetBinding : this.cmetBindings) {
+			if (cmetBinding.getCmetName().equals(name)) {
+				result = cmetBinding;
+			}
+		}
+		return result;
+	}
+	public void addCmetBinding(CmetBinding cmetbinding) {
+		this.cmetBindings.add(cmetbinding);
 	}
 	public boolean isCmet() {
-		return this.cmetBinding != null;
+		return !this.cmetBindings.isEmpty();
 	}
 	
 }

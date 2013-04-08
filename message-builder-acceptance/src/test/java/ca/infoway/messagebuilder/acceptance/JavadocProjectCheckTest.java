@@ -92,6 +92,7 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-hl7v3-release-sk_cerx_v01_r04_3");
 		this.projectExclusions.add("message-builder-hl7v3-release-ab_mr2007_v02_r02");
 		this.projectExclusions.add("message-builder-mif-comparer");
+		this.projectExclusions.add("message-builder-demiftifier");
 		this.projectExclusions.add("junitUtils");
 		this.projectExclusions.add("stylesheet");
 		this.projectExclusions.add("src");

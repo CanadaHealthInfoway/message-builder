@@ -83,6 +83,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String traversableAssociationName;
 	@Attribute(required=false)
 	private String nontraversableAssociationName;
+	@Attribute(required=false)
+	private String cmetBindingName;
 	
 	
 	@ElementList(inline=true, required=false)
@@ -374,20 +376,18 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	/**
 	 * <p>Get a flag indicating whether or not the relationship is a template relationship.
 	 * 
-	 * <p>The implementation of this method is based on knowledge that sometimes message
-	 * sets have been complete.  In a perfect world, a relationship would be a template
-	 * relationship if there is a template parameter name.  In fact, some XSD-generated
-	 * message set files are missing the type of the choice.
+	 * <p>The implementation of this method used to contain special handling for some
+	 * cases where the message set was incomplete. However, message set generation is
+	 * much more reliable these days, and the special handling was causing more problems
+	 * than it solved, so we took it out. JR - 20130325
 	 * 
 	 * @return true if the relationship is a template relationship; false otherwise.
 	 */
 	public boolean isTemplateRelationship() {
 		if (StringUtils.isNotBlank(this.templateParameterName)) {
 			return true;
-		} else if (isChoice() && isAssociation() && StringUtils.isBlank(getType())) {
-			return false;
 		} else {
-			return isAssociation() && StringUtils.isBlank(getType());
+			return false;
 		}
 	}
 
@@ -558,6 +558,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public void setNontraversableAssociationName(
 			String nontraversableAssociationName) {
 		this.nontraversableAssociationName = nontraversableAssociationName;
+	}
+
+	public String getCmetBindingName() {
+		return cmetBindingName;
+	}
+
+	public void setCmetBindingName(String cmetBindingName) {
+		this.cmetBindingName = cmetBindingName;
 	}
 
 }
