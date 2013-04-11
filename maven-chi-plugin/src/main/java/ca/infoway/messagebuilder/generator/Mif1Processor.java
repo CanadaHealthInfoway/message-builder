@@ -53,6 +53,7 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
 	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
+	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(false);
 	
 	private DocumentFactory factory = new DocumentFactory();
 
@@ -298,6 +299,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		Collections.sort(sortedAttributes, ATTRIBUTE_COMPARATOR);
+		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
 		
 		for (Element element : sortedAttributes) {
 			createAttribute(part, element);

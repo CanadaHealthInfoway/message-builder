@@ -71,6 +71,7 @@ import com.google.common.collect.Lists;
 class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
 	private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();
+	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(true);
 	
 	private DocumentFactory factory = new DocumentFactory();
 	
@@ -261,6 +262,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	private void processAssociations(MessageSet messageSet, List<Element> associations) throws GeneratorException {
 		
 		List<Element> sortedAssociations = new ArrayList<Element>(associations);
+		Collections.sort(sortedAssociations, ASSOCIATION_COMPARATOR);
 		
 		for (Element association : sortedAssociations) {
 			Element traversableConnection = Mif2XPathHelper.getTraversableConnection(association);
