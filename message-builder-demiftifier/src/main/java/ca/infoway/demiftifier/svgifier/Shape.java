@@ -36,6 +36,8 @@ public abstract class Shape extends BasicShape {
 	public static final int MARGIN_TOP = 10;
 	public static final int MARGIN_BOTTOM = 10;
 	public static final int PADDING_BETWEEN_LABEL_AND_ATTRIBUTES = 5;
+	
+	private static final String CONFORMANCE_MARKER_MANDATORY = "*";
 
 	protected final LayoutItem item;
 	protected final FormatterUtil formatterUtil = new FormatterUtil();
@@ -102,7 +104,7 @@ public abstract class Shape extends BasicShape {
 
 	protected FormattedString getFormattedAttributeText(Relationship attribute) {
 		FormattedString result = new FormattedString();
-		result.addSegment(attribute.getName() + ": ", this.styleProvider.getAttributeNameTextFont(attribute));
+		result.addSegment(attribute.getName() + getConformanceMarker(attribute) + ": ", this.styleProvider.getAttributeNameTextFont(attribute));
 		if (!attribute.isStructural()) {
 			if (!isCodedSimple(attribute)) {
 				result.addSegment(attribute.getType(), this.styleProvider.getDefaultAttributeTextFont());
@@ -122,6 +124,14 @@ public abstract class Shape extends BasicShape {
 			result.addSegment("= \"" + attribute.getFixedValue() + "\"", this.styleProvider.getDefaultItalicAttributeTextFont());
 		}
 		return result;
+	}
+	
+	private String getConformanceMarker(Relationship attribute) {
+		if (attribute.isMandatory() || (attribute.isRequired() && attribute.getCardinality().isMandatory() && attribute.getCardinality().isSingle())) {
+			return CONFORMANCE_MARKER_MANDATORY;
+		} else {
+			return "";
+		}
 	}
 
 	private boolean isCodedSimple(Relationship attribute) {

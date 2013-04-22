@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Relationship extends ChoiceSupport implements Documentable, HasDifferences, NamedAndTyped {
+public class Relationship extends ChoiceSupport implements Documentable, HasDifferences, NamedAndTyped, Comparable<Relationship> {
 
 	@Attribute
 	private String name;
@@ -366,6 +366,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 	
 	/**
+	 * <p>Get a flag indicating whether or not the relationship is required.
+	 * @return true if the relationship is required; false otherwise.
+	 */
+	public boolean isRequired() {
+		return ConformanceLevel.REQUIRED.equals(getConformance());
+	}
+	
+	/**
 	 * <p>Get a flag indicating whether or not the relationship is a coded type.
 	 * @return true if the relationship is a coded type; false otherwise.
 	 */
@@ -566,6 +574,40 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 
 	public void setCmetBindingName(String cmetBindingName) {
 		this.cmetBindingName = cmetBindingName;
+	}
+
+	public int compareTo(Relationship o) {
+		int result = 0;
+		
+		if (o == null) {
+			result = 1;
+		}
+		
+		if (result == 0 && this.isAttribute() != o.isAttribute()) {
+			if (this.isAttribute()) {
+				result = -1;
+			} else {
+				result = 1;
+			}
+		}
+		
+		if (result == 0 && this.isAttribute()) {
+			result = this.getSortOrder() - o.getSortOrder();
+		}
+		
+		if (result == 0 && this.isAssociation()) {
+			String sortKey1 = this.getAssociationSortKey() == null ? "" : this.getAssociationSortKey();
+			String sortKey2 = o.getAssociationSortKey() == null ? "" : o.getAssociationSortKey();
+			result = sortKey1.compareTo(sortKey2);
+		}
+		
+		if (result == 0 && this.isAssociation()) {
+			String name1 = this.getName() == null ? "" : this.getName();
+			String name2 = o.getName() == null ? "" : o.getName();
+			result = name1.compareTo(name2);
+		}
+		
+		return result;
 	}
 
 }

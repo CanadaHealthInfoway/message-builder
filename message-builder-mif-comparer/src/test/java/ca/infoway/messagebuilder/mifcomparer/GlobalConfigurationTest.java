@@ -56,7 +56,7 @@ public class GlobalConfigurationTest {
 	}
 	
 	@Test
-	public void that_can_empty_Filters_section_doesnt_throw_NPE() throws IOException {
+	public void that_empty_Filters_section_doesnt_throw_NPE() throws IOException {
 		StringReader input = new StringReader(
 				"[Filters]\n" +
 				"[Namespaces]\n" +
@@ -70,7 +70,7 @@ public class GlobalConfigurationTest {
 	}	
 	
 	@Test
-	public void that_can_empty_Namespaces_section_doesnt_throw_NPE() throws IOException {
+	public void that_empty_Namespaces_section_doesnt_throw_NPE() throws IOException {
 		StringReader input = new StringReader(
 				"[Filters]\n" +
 				"filter = delete /a/b\n" +

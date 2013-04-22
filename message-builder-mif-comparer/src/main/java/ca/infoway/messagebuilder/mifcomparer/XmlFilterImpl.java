@@ -55,9 +55,11 @@ public abstract class XmlFilterImpl implements XmlFilter {
 		filterClasses.put("normalize-whitespace",	"ca.infoway.messagebuilder.mifcomparer.XmlNormalizeWhitespaceFilter");
 		filterClasses.put("wrap-contents",			"ca.infoway.messagebuilder.mifcomparer.XmlWrapContentFilter");
 		filterClasses.put("change-namespace",		"ca.infoway.messagebuilder.mifcomparer.XmlChangeNamespaceFilter");
+		filterClasses.put("replace-attr-value",		"ca.infoway.messagebuilder.mifcomparer.XmlReplaceAttributeValueFilter");
+		filterClasses.put("replace-text",			"ca.infoway.messagebuilder.mifcomparer.XmlReplaceTextFilter");
 	}
 
-	private static Pattern tokenizerPattern = Pattern.compile("\\s*([^\"']\\S*|\".+?\"|'.+?')\\s*");
+	private static Pattern tokenizerPattern = Pattern.compile("\\s*([^\"']\\S*|\".*?\"|'.*?')\\s*");
 
 	
 	/**

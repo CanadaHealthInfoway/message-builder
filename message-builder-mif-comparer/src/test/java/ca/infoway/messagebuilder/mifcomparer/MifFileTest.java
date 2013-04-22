@@ -56,6 +56,17 @@ public class MifFileTest extends TestCase {
 	}
 	
 	@Test
+	public void that_constructor_accepts_an_ON_key() {
+		File f = new File("Volume 4 Client Registry/PRPA_IN101001ON - New Person Added Notification.mif");
+		MifFile mf = new MifFile(f);
+		
+		assertNotNull(mf);
+		assertEquals(f, mf.getFile());
+		assertEquals("PRPA_IN101001ON", mf.getKey());
+		assertEquals("New Person Added Notification", mf.getDescription());
+	}
+	
+	@Test
 	public void that_constructor_rejects_an_invalid_key() {
 		File f = new File("Volume 4 Client Registry/PRPA_IN10001CA - New Person Added Notification.mif");
 		

@@ -35,7 +35,7 @@ import org.xml.sax.SAXException;
 
 public class MifFile {
 	private static Pattern parser = Pattern
-			.compile("^([A-Z]{4}_[A-Z]{2}[0-9]{6}CA)( - (.*))?\\.mif$");
+			.compile("^([A-Z]{4}_[A-Z]{2}[0-9]{6}[A-Z][A-Z])( - (.*))?\\.mif$");
 
 	private File file;
 	private String key;

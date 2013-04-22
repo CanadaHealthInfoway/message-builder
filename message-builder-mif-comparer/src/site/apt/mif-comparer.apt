@@ -338,12 +338,7 @@ mif  = urn:hl7-org:v3/mif2
 
 	The available filters are:
 
-	<<filter = delete xpath-expr>>
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 		Deletes every item matching <<<xpath-expr>>>, and, recursively,
-		all substructure.
-
 	<<filter = change-namespace new-namespace-URI xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -352,14 +347,26 @@ mif  = urn:hl7-org:v3/mif2
 		<<<new-namespace-URI>>> is mapped in the {{{Namespaces}[Namespaces] section}}
 		of the config file.
 
+	<<filter = delete xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		Deletes every item matching <<<xpath-expr>>>, and, recursively,
+		all substructure.
+
 	<<filter = normalize-whitespace xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		For each matching item, normalize the item's whitespace -- or, if the
 		item is an element, normalize the whitespace of its direct children:
+			* for <attributes>, normalizes the attribute's value
 
-		* each run of whitespace, including CRs and LFs, is squashed to a single blank
+			* for <elements>, normalizes the text that is <directly>
+			  within the element; it does <not> recurse into sub-elements
 
-		* leading and trailing whitespace is stripped
+		Normalizing whitespace means that:
+		
+			* each run of whitespace, including CRs and LFs, is squashed to a single blank
+
+			* leading and trailing whitespace is stripped
 
 	For elements:
 
@@ -367,28 +374,43 @@ mif  = urn:hl7-org:v3/mif2
 		  children taken as a whole, not from the ends of each individual
 		  child.  Thus:
 
-		  <<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>bold\</b\>\ \ \ text\ \ \</p\>>>>
+			  <<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>bold\</b\>\ \ \ text\ \ \</p\>>>>
 
-		  gets normalized to:
+			  gets normalized to:
 
-		  <<<\<p\>this\ is\ \<b\>bold\</b\>\ text\</p\>>>>
+			  <<<\<p\>this\ is\ \<b\>bold\</b\>\ text\</p\>>>>
 
-		  not to:
+			  not to:
 
-		  <<<\<p\>this\ is\<b\>bold\</b\>text\</p\>>>>
+			  <<<\<p\>this\ is\<b\>bold\</b\>text\</p\>>>>
 
-		* normalization is not recursive -- descendents beyond direct children
-		  are not modified.  Thus:
+			* normalization is not recursive -- descendents beyond direct children
+			  are not modified.  Thus:
 
 			<<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ \ \ text\ \ \</p\>>>>
 
-		  gets normalized to:
+			  gets normalized to:
 
 			<<<\<p\>this\ is\ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ text\</p\>>>>
 
-		  not to:
+			  not to:
 
-			<<<\<p\>this\ is\ \<b\>bold\ face\</b\>\ text\</p\>>>>
+				<<<\<p\>this\ is\ \<b\>bold\ face\</b\>\ text\</p\>>>>
+
+	<<filter = replace-text pattern replacement xpath-expr>>
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		For each item that matches <<<xpath-expr>>>, each occurrance of
+		<<<pattern>>> in the item's text is replaced with <<<replacement>>>:
+
+			* for <attributes>, the replacement is done on the attribute's value
+
+			* for <elements>, the replacement is done on text that is <directly>
+			  within the element; it does <not> recurse into sub-elements
+
+		This filter uses Java {{{http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html}regular expressions}}.
+		<<<pattern>>> is a regular expression, and <<<replacement>>> can contain references to <capturing groups>,
+		as described {{{http://docs.oracle.com/javase/6/docs/api/java/util/regex/Matcher.html#appendReplacement(java.lang.StringBuffer, java.lang.String)"}here}}.
 
 	<<filter = resequence sort-key-attr xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

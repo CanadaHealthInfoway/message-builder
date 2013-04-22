@@ -131,4 +131,24 @@ public abstract class XmlFilterImplTest extends XmlFilterTest {
 		
 		assertEquals(exp, act.toArray(new String[0]));
 	}
+	
+	@Test
+	public void that_tokenize_preserves_empty_words() {
+		String input = "this  is    \"\"  ''  test  ";
+		String[] exp = { "this", "is", "", "", "test" };
+		
+		List<String> act = XmlFilterImpl.tokenize(input);
+		
+		assertEquals(exp, act.toArray(new String[0]));
+	}			
+	
+	@Test
+	public void that_tokenize_preserves_whitespaceOnly_words() {
+		String input = "this  is    \"   \"  '  '  test  ";
+		String[] exp = { "this", "is", "   ", "  ", "test" };
+		
+		List<String> act = XmlFilterImpl.tokenize(input);
+		
+		assertEquals(exp, act.toArray(new String[0]));
+	}	
 }
