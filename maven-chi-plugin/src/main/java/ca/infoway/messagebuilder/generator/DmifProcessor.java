@@ -97,7 +97,13 @@ class DmifProcessor {
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		interaction.setCategory(category);
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
-		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
+
+		String packageLocationRootType = messageSet.getPackageLocationRootType(parent);
+		if (StringUtils.isBlank(packageLocationRootType)) {
+			this.outputUI.log(ERROR, interaction.getName() +  ": Could not find package location for " + parent);
+		}
+		interaction.setSuperTypeName(packageLocationRootType);
+		
 		interaction.setBusinessName(new MifXPathHelper().getBusinessName(element));
 		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
 			interaction.getDocumentation().setAnnotations(documentationForInteraction);

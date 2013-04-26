@@ -448,7 +448,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		int i = 0;
 		for (MifChoiceItem choiceItem : choices) {
 			String choiceType = getSpecializationChild(part, i++, choiceItem);
-			addChoiceItem(messageSet, choice, choiceItem, choiceType);
+			if (choiceType != null) {
+				addChoiceItem(messageSet, choice, choiceItem, choiceType);
+			}
 		}
 	}
 
@@ -456,9 +458,10 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		if (part.getSpecializationChilds().size() > i) {
 			return part.getSpecializationChilds().get(i).getName();
 		} else {
-			throw new GeneratorInternalException("Part type : " + part.getName() 
+			this.outputUI.log(LogLevel.ERROR, "Part type : " + part.getName() 
 					+ " should have had a choice type at index " + i 
 					+ " corresponding to " + choiceItem.getClassName());
+			return null;
 		}
 	}
 
