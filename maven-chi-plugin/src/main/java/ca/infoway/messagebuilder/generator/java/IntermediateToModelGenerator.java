@@ -163,7 +163,7 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	private void registerDomainInterface(String domainType, Collection<String> parents) {
-		DomainRegistry.getInstance().register(domainType, PackageName.createDomainValuesPackage(this.basePackageName), parents);
+		DomainRegistry.getInstance().register(domainType, PackageName.createDomainValuesPackage(this.basePackageName, getProgrammingLanguage()), parents);
 	}
 
 	/**

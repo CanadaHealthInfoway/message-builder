@@ -19,8 +19,13 @@
  */
 package ca.infoway.messagebuilder.generator.util;
 
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+
 public class PackageName {
 
+	private static final String DOMAINVALUE_JAVA = "domainvalue";
+	private static final String DOMAINVALUE_CSHARP = "Domainvalue";
+	
 	private final String packageName;
 
 	public PackageName(String packageName) {
@@ -30,11 +35,11 @@ public class PackageName {
 		this(basePackageName.packageName + "." + packageName);
 	}
 	
-	public static PackageName createDomainValuesPackage(String basePackageName) {
-		return createDomainValuesPackage(new PackageName(basePackageName));
+	public static PackageName createDomainValuesPackage(String basePackageName, ProgrammingLanguage programmingLanguage) {
+		return createDomainValuesPackage(new PackageName(basePackageName), programmingLanguage);
 	}
-	private static PackageName createDomainValuesPackage(PackageName basePackageName) {
-		return new PackageName(basePackageName, "domainvalue");
+	private static PackageName createDomainValuesPackage(PackageName basePackageName, ProgrammingLanguage programmingLanguage) {
+		return new PackageName(basePackageName, programmingLanguage == ProgrammingLanguage.C_SHARP ? DOMAINVALUE_CSHARP : DOMAINVALUE_JAVA);
 	}
 	public String qualifyClassName(String unqualifiedClassName) {
 		return this.packageName + "." + unqualifiedClassName;
