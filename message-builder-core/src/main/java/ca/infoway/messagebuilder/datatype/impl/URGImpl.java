@@ -50,6 +50,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class URGImpl<T extends QTY<V>, V> extends IVLImpl<T, UncertainRange<V>> implements URG<T, V> {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 4137576211765438292L;
 
 	/**

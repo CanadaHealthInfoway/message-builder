@@ -35,18 +35,4 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
  */
 public interface IVL<T extends QTY<?>, V extends Interval<?>> extends ANY<V> {
 
-	/**
-	 * <p>Determines whether the low bound is closed.
-	 * 
-	 * @return whether the low bound is closed
-	 */
-	public boolean isLowClosed();
-	
-	/**
-	 * <p>Determines whether the high bound is closed.
-	 * 
-	 * @return whether the high bound is closed
-	 */
-	public boolean isHighClosed();
-	
 }

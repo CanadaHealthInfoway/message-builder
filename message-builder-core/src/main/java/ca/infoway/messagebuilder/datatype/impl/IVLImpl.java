@@ -39,16 +39,14 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class IVLImpl<T extends QTY<?>, V extends Interval<?>> extends ANYImpl<V> implements IVL<T, V> {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -5984093680112937602L;
-	
-	private final boolean highClosed;
-	private final boolean lowClosed;
 	
 	/**
 	 * <p>Constructs an empty IVL.
 	 */
 	public IVLImpl() {
-		this(false, false, null);
+		this(null);
 	}
 
 	/**
@@ -57,30 +55,9 @@ public class IVLImpl<T extends QTY<?>, V extends Interval<?>> extends ANYImpl<V>
 	 * @param defaultValue an initial value
 	 */
 	public IVLImpl(V defaultValue) {
-		this(false, false, defaultValue);
-	}
-
-	/**
-	 * <p>Constructs an IVL using the supplied parameters.
-	 * 
-	 * @param lowClosed whether low bound is closed
-	 * @param highClosed whether high bound is closed
-	 */
-	public IVLImpl(boolean lowClosed, boolean highClosed) {
-		this(lowClosed, highClosed, null);
-	}
-
-	/**
-	 * <p>Constructs an IVL using the supplied parameters.
-	 * 
-	 * @param lowClosed whether low bound is closed
-	 * @param highClosed whether high bound is closed
-	 * @param defaultValue an initial value
-	 */
-	public IVLImpl(boolean lowClosed, boolean highClosed, V defaultValue) {
 		this(Interval.class, defaultValue, null, StandardDataType.IVL);
 	}
-	
+
 	/**
 	 * <p>Constructs an IVL using the supplied parameters.
 	 * 
@@ -90,41 +67,7 @@ public class IVLImpl<T extends QTY<?>, V extends Interval<?>> extends ANYImpl<V>
 	 * @param dataType the HL7 datatype
 	 */
 	public IVLImpl(Class<?> rawType, V value, NullFlavor nullFlavor, StandardDataType dataType) {
-		this(rawType, value, nullFlavor, dataType, false, false);
-	}
-
-	/**
-	 * <p>Constructs an IVL using the supplied parameters.
-	 * 
-	 * @param rawType the underlying java type
-	 * @param value an initial value
-	 * @param nullFlavor a null flavor
-	 * @param dataType the HL7 datatype
-	 * @param lowClosed whether low bound is closed
-	 * @param highClosed whether high bound is closed
-	 */
-	public IVLImpl(Class<?> rawType, V value, NullFlavor nullFlavor, StandardDataType dataType, boolean lowClosed, boolean highClosed) {
 		super(rawType, value, nullFlavor, dataType);
-		this.lowClosed = lowClosed;
-		this.highClosed = highClosed;
 	}
 
-	/**
-	 * <p>Determines whether the high bound is closed.
-	 * 
-	 * @return whether the high bound is closed
-	 */
-	public boolean isHighClosed() {
-		return this.highClosed;
-	}
-
-	/**
-	 * <p>Determines whether the low bound is closed.
-	 * 
-	 * @return whether the low bound is closed
-	 */
-	public boolean isLowClosed() {
-		return this.lowClosed;
-	}
-	
 }
