@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 /**
  * <p>The Enum ActMood. 
  */
-public class ActMood extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActCode, Describable {
+public class ActMood extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ActMood, Describable {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
