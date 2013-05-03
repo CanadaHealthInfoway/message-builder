@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static junit.framework.Assert.assertTrue;
+
 import java.math.BigDecimal;
 
 import org.junit.After;
@@ -29,11 +31,15 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
+import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
@@ -58,6 +64,40 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, false, SpecificationVersion.R02_04_02, null, null, null), urgImpl, 0);
 		assertXml("result", "<name specializationType=\"URG_PQ.BASIC\" xsi:type=\"URG_PQ\"><low specializationType=\"PQ.BASIC\" unit=\"mm\" value=\"55\" xsi:type=\"PQ\"/><high specializationType=\"PQ.BASIC\" unit=\"mm\" value=\"60\" xsi:type=\"PQ\"/></name>", result);
 		
+	}
+
+	@Test
+	public void testStLang() throws Exception {
+		String myString = "some value";
+		ANYImpl<Object> stImpl = new ANYImpl<Object>(myString, null, StandardDataType.ST_LANG);
+		stImpl.setLanguage("en-CA");
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
+		assertXml("result", "<name language=\"en-CA\" specializationType=\"ST.LANG\" xsi:type=\"ST\">some value</name>", result);
+	}
+
+	@Test
+	public void testCdWithAllMetadata() throws Exception {
+		ANYImpl<Object> cdImpl = new ANYImpl<Object>(MockEnum.BARNEY, null, StandardDataType.CD_LAB);
+		cdImpl.setDisplayName("disp name");
+		cdImpl.setOriginalText("orig text");
+		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
+		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
+		
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		assertXml("result", "<name code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" displayName=\"disp name\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
+		assertTrue(this.result.isValid());
+	}
+
+	@Test
+	public void testCdWithNullFlavorAndMetadata() throws Exception {
+		ANYImpl<Object> cdImpl = new ANYImpl<Object>(null, NullFlavor.UNKNOWN, StandardDataType.CD_LAB);
+		cdImpl.setOriginalText("orig text");
+		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
+		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
+		
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
+		assertTrue(this.result.isValid());
 	}
 
 	@Test

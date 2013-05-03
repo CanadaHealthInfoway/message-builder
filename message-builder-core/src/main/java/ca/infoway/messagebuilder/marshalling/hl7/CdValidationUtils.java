@@ -65,7 +65,7 @@ public class CdValidationUtils {
 			}
 			
 			if (!isTranslation && (!StandardDataType.CD_LAB.getType().equals(type) || hasNullFlavor)) {
-				validateUnallowedValue("displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, isTranslation);
+				validateUnallowedValue(StandardDataType.getByTypeName(type), "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, isTranslation);
 			}
 			
 			if (!isTranslation) {
@@ -129,9 +129,9 @@ public class CdValidationUtils {
 		validateCodeLength(codeAsString, baseVersion, element, propertyPath, errors, false);
 		// skip validating codeSystem (codes can be created with a codeSystem even if one wasn't provided, unfortunately)
 		// validateUnallowedValue("codeSystem", code == null ? null : code.getCodeSystem(), element, errors);
-		validateUnallowedValue("originalText", codeWrapper.getOriginalText(), element, propertyPath, errors, false);
-		validateUnallowedValue("displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, false);
-		validateUnallowedValue("translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
+		validateUnallowedValue(StandardDataType.CS, "originalText", codeWrapper.getOriginalText(), element, propertyPath, errors, false);
+		validateUnallowedValue(StandardDataType.CS, "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, false);
+		validateUnallowedValue(StandardDataType.CS, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
 	}
 
 	private void validateCodeLength(String codeAsString, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
@@ -144,7 +144,7 @@ public class CdValidationUtils {
 		} 
 			
 		if (StandardDataType.CV.getType().equals(type)) {
-			validateUnallowedValue("translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
+			validateUnallowedValue(StandardDataType.CV, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
 		} else {
 			// translation max 10; same type as root; no nesting; no NF
 			if (translations.size() > MAX_TRANSLATIONS) {
@@ -172,9 +172,9 @@ public class CdValidationUtils {
 		}
 	}
 
-	private void validateUnallowedValue(String propertyName, String value, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
+	private void validateUnallowedValue(StandardDataType type, String propertyName, String value, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
 		if (value != null) {
-			createError("CD should not include the '" + propertyName + "' property.", element, propertyPath, errors, isTranslation);
+			createError(type.getName() + " should not include the '" + propertyName + "' property.", element, propertyPath, errors, isTranslation);
 		}
 	}
 

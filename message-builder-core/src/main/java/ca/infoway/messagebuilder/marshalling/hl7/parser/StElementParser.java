@@ -115,6 +115,7 @@ class StElementParser extends AbstractSingleElementParser<String> {
         
         if (ST_LANG.getType().equals(context.getType())) {
 			String language = ((Element) node).getAttribute("language");
+			// this cast is safe - it will always be an STImpl due to the doCreateDataTypeInstance() method
 			((STImpl) dataType).setLanguage(StringUtils.trimToNull(language));
         }
 

@@ -54,8 +54,6 @@ public class STImpl extends EDImpl<String> implements ST {
 
 	public static List<String> ALLOWED_LANGUAGES = Arrays.asList("en-CA", "fr-CA");
 
-	private String language;
-	
 	/**
 	 * <p>Constructs an empty ST.
 	 */
@@ -92,21 +90,4 @@ public class STImpl extends EDImpl<String> implements ST {
 		super(String.class, null, nullFlavor, StandardDataType.ST);
 	}
 
-	/**
-	 * <p>Returns the ST's language.
-	 * 
-	 * @return the language of the ST
-	 */
-	public String getLanguage() {
-		return this.language;
-	}
-	
-	/**
-	 * <p>Sets the language of the ST.
-	 * 
-	 * @param language a language
-	 */
-	public void setLanguage(String language) {
-		this.language = language;
-	}
 }

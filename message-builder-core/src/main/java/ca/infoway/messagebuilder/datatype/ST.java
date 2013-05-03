@@ -47,4 +47,10 @@ public interface ST extends ED<String> {
 	 */
 	public String getLanguage();
 	
+	/**
+	 * <p>Sets the language.
+	 * 
+	 * @param language the language
+	 */
+	public void setLanguage(String language);
 }

@@ -89,7 +89,7 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
         ((BareANYImpl) dataType).setBareValue(value);
 	}
 	
-	protected void populateOriginalText(BareANY dataType, ParseContext context, Element element, Type returnType, XmlToModelResult xmlToModelResult) {
+	protected void populateOriginalText(BareANY dataType, ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		if (hasOriginalText(element)) {
         	((CD) dataType).setOriginalText(getOriginalText(element));
         }

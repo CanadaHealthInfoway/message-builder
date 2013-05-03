@@ -28,7 +28,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -72,7 +74,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				BareANY parsedValue = elementParser.parse(
 						ParserContextImpl.create(
 							specializationType,
-							getReturnType(context),
+							determineReturnType(specializationType, getReturnType(context)),
 							context.getVersion(),
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
@@ -83,11 +85,27 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 
 				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost.
 				hl7Result.setDataType(parsedValue.getDataType());
+				
+				// preserve all metadata (yes, also not a great side effect); this will have to be adjusted whenever new metadata is added to a data type (extremely infrequently)
+				((ANYImpl<?>) hl7Result).setLanguage(((ANYImpl<?>) parsedValue).getLanguage());
+				((ANYImpl<?>) hl7Result).setDisplayName(((ANYImpl<?>) parsedValue).getDisplayName());
+				((ANYImpl<?>) hl7Result).setOriginalText(((ANYImpl<?>) parsedValue).getOriginalText());
+				((ANYImpl<?>) hl7Result).getTranslations().addAll(((ANYImpl<?>) parsedValue).getTranslations());
 			}
 		} else {
 			xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		}
 		return result;
+	}
+
+	private Type determineReturnType(String specializationType, Type returnType) {
+		if (StandardDataType.getByTypeName(specializationType).isCoded()) {
+			// TODO - TM: expand this to try to obtain the actual domain type using the code and code system (possibly more trouble than its worth)
+			//            (this type of "lookup domain type by code system" is not currently supported; would need to watch out for multiple domains using same code system)
+			//            Also: MB doesn't track code systems, though it does have an enum of some of the more common ones
+			return ANY.class;
+		}
+		return returnType;
 	}
 
 	private boolean isValidTypeForAny(String parentType, String specializationType) {

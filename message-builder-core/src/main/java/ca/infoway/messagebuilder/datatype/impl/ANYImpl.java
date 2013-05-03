@@ -25,8 +25,11 @@ import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.OTHER;
 import static ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.UNKNOWN;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.ANY;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
@@ -46,6 +49,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class ANYImpl<V> extends BareANYImpl implements ANY<V> {
 	
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 5073666472702745793L;
 	
 	private final Class<?> rawType;
@@ -54,6 +58,12 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V> {
 	private NullFlavor nullFlavor;
 	
 	private StandardDataType dataType;
+
+	private String language;
+	
+	private String displayName;
+	private final List<CD> translations = new ArrayList<CD>();
+	private String originalText;
 	
 	/**
 	 * <p>Constructs an empty ANY.
@@ -298,4 +308,73 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V> {
 	public void setBareValue(Object value) {
 		this.value = (V) value;
 	}
+	
+	
+	
+	
+	
+	/**
+	 * <p>Returns the ST's language.
+	 * 
+	 * @return the language of the ST
+	 */
+	public String getLanguage() {
+		return this.language;
+	}
+	
+	/**
+	 * <p>Sets the language of the ST.
+	 * 
+	 * @param language a language
+	 */
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
+	
+	/**
+	 * <p>Returns the display name.
+	 * 
+	 * @return the display name
+	 */
+	public String getDisplayName() {
+		return this.displayName;
+	}
+	
+	/**
+	 * <p>Sets the display name.
+	 * 
+	 * @param displayName the display name
+	 */
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	/**
+	 * <p>Returns the translations for this CD.
+	 * 
+	 * @return the translations for this CD
+	 */
+	public List<CD> getTranslations() {
+		return this.translations;
+	}
+
+	/**
+	 * <p>Returns the original text.
+	 * 
+	 * @return the original text
+	 */
+	public String getOriginalText() {
+		return originalText;
+	}
+
+	/**
+	 * <p>Sets the original text.
+	 * 
+	 * @param originalText the original text
+	 */
+	public void setOriginalText(String originalText) {
+		this.originalText = originalText;
+	}
+	
 }

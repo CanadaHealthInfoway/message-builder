@@ -31,6 +31,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -41,6 +42,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 /**
@@ -94,8 +96,8 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
     	
     	Code code = getCorrespondingCode(context, element, codeType, xmlToModelResult, codeAttributeName);
-        populateOriginalText(result, context, (Element) node, getReturnType(context), xmlToModelResult);
-    	addTranslations(context, element, (CD) result, expectedReturnType, xmlToModelResult);
+        populateOriginalText(result, context, (Element) node, xmlToModelResult);
+    	addTranslations(context, element, (CD) result, xmlToModelResult);
     	addDisplayName(element, (CD) result);
 
         // this is not the usual way of doing things; this is to make validation easier
@@ -154,8 +156,16 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     }
 
 	private Code getCode(Type expectedReturnType, String codeValue, String codeSystem) {
-		Class<? extends Code> returnType = getReturnTypeAsCodeType(expectedReturnType);
-		CodeResolver resolver = CodeResolverRegistry.getResolver(returnType);
+		CodeResolver resolver = null;
+		Class<? extends Code> returnType = null;
+		if (ANY.class.equals(expectedReturnType)) {
+			// if the underlying datatype is an ANY, then we don't have enough information to figure out the domaintype; have to assume generic Code
+			returnType = Code.class;
+			resolver = new TrivialCodeResolver();
+		} else {
+			returnType = getReturnTypeAsCodeType(expectedReturnType);
+			resolver = CodeResolverRegistry.getResolver(returnType);
+		}
 		return resolver.<Code>lookup(returnType, codeValue, codeSystem);
 	}
     
@@ -164,7 +174,7 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
 		result.setDisplayName(displayName);
 	}
 
-	private void addTranslations(ParseContext context, Element element, CD result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
+	private void addTranslations(ParseContext context, Element element, CD result, XmlToModelResult xmlToModelResult) {
 		NodeList translations = element.getElementsByTagName("translation");
 		for (int i = 0, length=translations.getLength(); i < length; i++) {
 			Element translationElement = (Element) translations.item(i);

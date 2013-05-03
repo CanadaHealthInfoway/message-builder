@@ -55,7 +55,7 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     public abstract String format(FormatContext formatContext, BareANY dataType, int indentLevel);
 
     protected String createElement(FormatContext context, Map<String, String> attributes, int indentLevel, boolean close, boolean lineBreak) {
-    	if (!isNullFlavor(attributes)) {
+    	if (!isNullFlavor(attributes) || isCodedType(context)) {
     		if (attributes == null) {
     			attributes = new HashMap<String, String>();
     		}
@@ -69,6 +69,16 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     	return createElement(context.getElementName(), attributes, indentLevel, close, lineBreak); 
     }
     
+	private boolean isCodedType(FormatContext context) {
+		if (context != null && context.getType() != null) {
+			StandardDataType dataType = StandardDataType.getByTypeName(context);
+			if (dataType != null) {
+				return dataType.isCoded();
+			}
+		}
+		return false;
+	}
+
 	protected String createElement(String name, Map<String, String> attributes, int indentLevel, boolean close, boolean lineBreak) {
 		return XmlRenderingUtils.createStartElement(name, attributes, indentLevel, close, lineBreak);
 	}

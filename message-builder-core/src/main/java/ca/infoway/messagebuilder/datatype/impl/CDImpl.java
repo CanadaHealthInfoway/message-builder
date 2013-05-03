@@ -20,9 +20,6 @@
 
 package ca.infoway.messagebuilder.datatype.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -59,12 +56,9 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class CDImpl extends ANYImpl<Code> implements CD {
 	
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1152929036065255121L;
 
-	private String displayName;
-	private final List<CD> translations = new ArrayList<CD>();
-	private String originalText;
-	
 	/**
 	 * <p>Constructs an empty CD.
 	 */
@@ -101,49 +95,4 @@ public class CDImpl extends ANYImpl<Code> implements CD {
 		super(null, value, nullFlavor, dataType);
 	}
 
-	/**
-	 * <p>Returns the display name.
-	 * 
-	 * @return the display name
-	 */
-	public String getDisplayName() {
-		return this.displayName;
-	}
-	
-	/**
-	 * <p>Sets the display name.
-	 * 
-	 * @param displayName the display name
-	 */
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-	/**
-	 * <p>Returns the translations for this CD.
-	 * 
-	 * @return the translations for this CD
-	 */
-	public List<CD> getTranslations() {
-		return this.translations;
-	}
-
-	/**
-	 * <p>Returns the original text.
-	 * 
-	 * @return the original text
-	 */
-	public String getOriginalText() {
-		return originalText;
-	}
-
-	/**
-	 * <p>Sets the original text.
-	 * 
-	 * @param originalText the original text
-	 */
-	public void setOriginalText(String originalText) {
-		this.originalText = originalText;
-	}
-	
 }

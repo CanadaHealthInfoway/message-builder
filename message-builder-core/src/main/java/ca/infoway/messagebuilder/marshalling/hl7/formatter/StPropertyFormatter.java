@@ -27,6 +27,8 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -61,11 +63,10 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
 	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
     	Map<String, String> attributes = new HashMap<String, String>();
-    	boolean isStLang = dataType instanceof ST && "ST.LANG".equals(context.getType());
+    	boolean isStLang = StandardDataType.ST_LANG.getType().equals(context.getType());
     	validate(buffer, indentLevel, context, isStLang, dataType);
 		if (isStLang) {
-    		ST st = (ST) dataType;
-    		String language = st.getLanguage();
+    		String language = getLanguage(dataType);
 			attributes.put("language", !STImpl.ALLOWED_LANGUAGES.contains(language) ? "en-CA" : language);
     	}
         buffer.append(createElement(context, attributes, indentLevel, false, false));
@@ -75,11 +76,16 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
         return buffer.toString();
 	}
 
+	private String getLanguage(BareANY dataType) {
+		 // could be an ANY; need to be careful extracting metadata
+		return ((ANYImpl<?>) dataType).getLanguage();
+	}
+
 	private void validate(StringBuffer buffer, int indentLevel, FormatContext context, boolean isStLang, BareANY dataType) {
 		// ST.LANG not allowed for CeRx; not checking as this should be controlled by the message set
 		// is ST allowed to be 0 length or only whitespace???
 		ModelToXmlResult result = context.getModelToXmlResult();
-		String language = ((ST) dataType).getLanguage();
+		String language = getLanguage(dataType);
 		if (isStLang) {
 			if (!STImpl.ALLOWED_LANGUAGES.contains(language)) {
 				Hl7Error hl7Error = new Hl7Error(

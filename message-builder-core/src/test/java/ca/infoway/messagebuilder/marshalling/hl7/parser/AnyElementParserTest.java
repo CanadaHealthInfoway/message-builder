@@ -31,9 +31,11 @@ import java.math.BigDecimal;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
@@ -135,6 +137,26 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
+	public void testParseStLang() throws Exception {
+		Node node = createNode(
+				"<value xsi:type=\"ST\" specializationType=\"ST.LANG\" language=\"fr-CA\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">some text</value>");
+		
+		BareANY result = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
+				node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertNotNull("null", result);
+		assertEquals("type", StandardDataType.ST_LANG, result.getDataType());
+		
+		
+		assertNotNull("null", result.getBareValue());
+	
+		assertEquals("string", "some text", ((String) result.getBareValue()));
+		assertEquals("language", "fr-CA", ((ANYImpl<?>) result).getLanguage());
+	}
+	
+	@Test
 	public void testParseWithMissingSpecializationType() throws Exception {
 		Node node = createNode(
 		"<value xsi:type=\"PQ\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
@@ -188,6 +210,37 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("low quantity", new BigDecimal(0).setScale(1), interval.getLow().getQuantity());
 		assertEquals("high unit", "mg/dL", interval.getHigh().getUnit().getCodeValue());
 		assertEquals("high quantity", new BigDecimal(0.5), interval.getHigh().getQuantity());
+	}
+	
+	@Test
+	public void testParseCdWithAllMetadata() throws Exception {
+		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" displayName=\"a display name\" specializationType=\"CD.LAB\">" +
+				"<originalText>some original text</originalText>" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\" /></something>");
+		
+		BareANY cdAny = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
+				node, this.xmlResult);
+
+		assertTrue(this.xmlResult.isValid());
+		assertNotNull(cdAny.getBareValue());
+		assertTrue(cdAny.getBareValue() instanceof Code);
+		
+		@SuppressWarnings("unchecked")
+		ANYImpl<Code> cd = (ANYImpl<Code>) cdAny;
+		
+		assertNotNull("main enum found", cd.getValue());
+		assertFalse("translation enums found", cd.getTranslations().isEmpty());
+		assertTrue("translation enums found", cd.getTranslations().size() == 4);
+		assertEquals("error message count", 0, this.xmlResult.getHl7Errors().size());
+		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
+		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
+		assertEquals("translation", "WILMA", cd.getTranslations().get(1).getValue().getCodeValue());
+		assertEquals("translation", "BETTY", cd.getTranslations().get(2).getValue().getCodeValue());
+		assertEquals("translation", "BAM_BAM", cd.getTranslations().get(3).getValue().getCodeValue());
 	}
 	
 }

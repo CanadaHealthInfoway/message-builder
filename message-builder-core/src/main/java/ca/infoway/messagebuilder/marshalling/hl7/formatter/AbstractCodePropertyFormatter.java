@@ -34,6 +34,8 @@ import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
+import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
@@ -66,7 +68,14 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
 
-    	CD cd = (CD) hl7Value;
+    	boolean isAny = false;
+    	CD cd = null;
+    	if (hl7Value instanceof CD) {
+        	cd = (CD) hl7Value;
+    	} else {
+    		isAny = true; // bypass some validations
+    		cd = convertAnyToCd(hl7Value);
+    	}
     	
     	StringBuilder result = new StringBuilder();
     	if (cd != null) {
@@ -79,8 +88,12 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
 	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
 	    		
-	    		if (cd.getValue() != null && cd.getValue().getCodeValue() != null) {
-	    			validateCodeExists(cd.getValue(), context.getDomainType(), context.getVersion(), context.getPropertyPath(), errors);
+	    		// we can't lookup a code supplied in an ANY datatype as we don't know the domain
+	    		// a "reverse" lookup of domain type by code/codesystem could be possible, but difficult to implement to be 100% correct (MB does not track code systems)
+	    		if (!isAny) {
+		    		if (cd.getValue() != null && cd.getValue().getCodeValue() != null) {
+		    			validateCodeExists(cd.getValue(), context.getDomainType(), context.getVersion(), context.getPropertyPath(), errors);
+		    		}
 	    		}
 	    		
 	    		String codeAsString = (cd.getValue() != null ? cd.getValue().getCodeValue() : null);
@@ -122,6 +135,21 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     	}
         return result.toString();
     }
+
+	private CD convertAnyToCd(BareANY hl7Value) {
+		@SuppressWarnings("unchecked")
+		ANYImpl<Code> anyCd = (ANYImpl<Code>) hl7Value;
+		CD cd = new CDImpl();
+		if (anyCd != null) {
+			cd.setDataType(anyCd.getDataType());
+			cd.setDisplayName(anyCd.getDisplayName());
+			cd.setNullFlavor(anyCd.getNullFlavor());
+			cd.setOriginalText(anyCd.getOriginalText());
+			cd.setValue(anyCd.getValue());
+			cd.getTranslations().addAll(anyCd.getTranslations());
+		}
+		return cd;
+	}
 
 	private void validateCodeExists(Code value, String domainType, VersionNumber version, String propertyPath, Hl7Errors errors) {
 		@SuppressWarnings("unchecked")

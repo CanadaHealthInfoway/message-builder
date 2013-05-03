@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 /**
@@ -47,13 +48,14 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 			String errorText = "Cannot support properties of type " + specializationType + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
 			throw new ModelToXmlTransformationException(errorText);
 		} else {
+			StandardDataType type = hl7Value.getDataType();
 			return formatter.format(
 					new FormatContextImpl(
 							formatContext.getModelToXmlResult(), 
 							formatContext.getPropertyPath(), 
 							formatContext.getElementName(), 
 							specializationType,
-							formatContext.getDomainType(),
+							type.isCoded() ? "Code" : formatContext.getDomainType(),
 							formatContext.getConformanceLevel(), 
 							true, 
 							formatContext.getVersion(), 
