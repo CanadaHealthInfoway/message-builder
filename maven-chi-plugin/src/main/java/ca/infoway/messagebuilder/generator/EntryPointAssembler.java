@@ -34,10 +34,11 @@ class EntryPointAssembler {
 				element.getAttribute("id"), 
 				element.hasAttribute("realmNamespace") 
 					? element.getAttribute("realmNamespace")
-					: element.getAttribute("realm"));
+					: element.getAttribute("realm"),
+				element.getAttribute("version"));
 	}
 
-	public static String getEntryPoint(String subSection, String domain, String artifact, String id, String realm) {
+	public static String getEntryPoint(String subSection, String domain, String artifact, String id, String realm, String version) {
 		StringBuilder buffer = new StringBuilder();
 		if (isNotBlank(subSection) && 
 				isNotBlank(domain) &&
@@ -51,6 +52,11 @@ class EntryPointAssembler {
 					.append(id)
 					.append(realm);
 		}
+		
+		if (isNotBlank(version)) {
+			buffer.append(version);
+		}
+		
 		return buffer.toString().toUpperCase();
 	}
 

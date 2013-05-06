@@ -53,6 +53,8 @@ import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.Suite;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.mifcomparer.xmlunit.XmlunitState;
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({MessageTest.BasicTests.class, MessageTest.MessageFormattingTests.class})
 public class MessageTest {
@@ -268,6 +270,22 @@ public class MessageTest {
 					},
 
 					{
+						"TESTING_CODE",
+
+						new Message(DEBUG, TESTING_CODE, "Some text", new File("left-dir/left-file"), new File("right-dir/right-file")),
+
+						"DEBUG: " + new File("left-dir/left-file") + ", " + new File("right-dir/right-file") + ": Some text",
+
+						"DEBUG,TESTING_CODE,Some text," + new File("left-dir/left-file") + "," + new File("right-dir/right-file") + ",,,,,,,",
+
+						"<file-pair-message message-type=\"testing-code\" severity=\"debug\">\n" +
+						"	<expected-file>" + new File("left-dir/left-file") + "</expected-file>\n" +
+						"	<actual-file>" + new File("right-dir/right-file") + "</actual-file>\n" +
+						"	<message-text>Some text</message-text>\n" +
+						"</file-pair-message>\n",
+					},
+
+					{
 						"Internal error on left",
 
 						new Message(FATAL, INTERNAL_ERROR, "Error evaluating XPath expression \"/left/x/path\"", new File("left-dir/left-file"), null, "/left/x/path", null, null, null, null, null, null),
@@ -320,6 +338,21 @@ public class MessageTest {
 //						"	<message-text>message</message-text>\n" +
 //						"</internal-error>\n",
 //					},
+
+					{
+						"Unparseable filename",
+
+						new Message(ERROR, UNRECOGNIZED_FILE_TYPE, "Unrecognized filename pattern: \"left-file\"", new File("left-dir/left-sub/left-file"), null),
+						
+						"ERROR: " + new File("left-dir/left-sub/left-file") + ", (none): Unrecognized filename pattern: \"left-file\"",
+
+						"ERROR,UNRECOGNIZED_FILE_TYPE,\"Unrecognized filename pattern: \"\"left-file\"\"\"," + new File("left-dir/left-sub/left-file") + ",,,,,,,,",
+
+						"<file-message message-type=\"unrecognized-file-type\" severity=\"error\">\n" +
+						"	<file>" + new File("left-dir/left-sub/left-file") + "</file>\n" +
+						"	<message-text>Unrecognized filename pattern: &quot;left-file&quot;</message-text>\n" +
+						"</file-message>\n",
+					},
 
 					{
 						"Unpaired file on left",
@@ -610,6 +643,46 @@ public class MessageTest {
 					},
 
 					{
+						"XML_DIFFERENCE: missing text value",
+
+						new Message(ERROR, XML_DIFFERENCE, "missing text: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", null, TEXT, null, MISSING, "left-value", null),
+
+						"ERROR: left-file(/left/x/path), right-file(): missing text: \"left-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"missing text: \"\"left-value\"\"\",left-file,right-file,/left/x/path,,TEXT,,MISSING,left-value,",
+
+						"<difference severity=\"error\" type=\"text\" difference=\"missing\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath></actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value></actual-value>\n" +
+						"    <message-text>missing text: &quot;left-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: extra text value",
+
+						new Message(ERROR, XML_DIFFERENCE, "extra text: \"right-value\"", new File("left-file"), new File("right-file"), null, "/right/x/path", TEXT, null, EXTRA, null, "right-value"),
+
+						"ERROR: left-file(), right-file(/right/x/path): extra text: \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"extra text: \"\"right-value\"\"\",left-file,right-file,,/right/x/path,TEXT,,EXTRA,,right-value",
+
+						"<difference severity=\"error\" type=\"text\" difference=\"extra\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath></expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value></expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>extra text: &quot;right-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
 						"XML_DIFFERENCE: text value difference",
 
 						new Message(ERROR, XML_DIFFERENCE, "For text, expected \"the left text\", but got \"the right text\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", TEXT, null, VALUE, "the left text", "the right text"),
@@ -646,6 +719,209 @@ public class MessageTest {
 						"    <expected-value>x</expected-value>\n" +
 						"    <actual-value>y</actual-value>\n" +
 						"    <message-text>For namespace prefix, expected \"x\", but got \"y\"</message-text>\n" +
+						"</difference>\n",
+					},
+
+
+					{
+						"XML_DIFFERENCE: missing processing instruction",
+
+						new Message(ERROR, XML_DIFFERENCE, "missing processing instruction: \"<?left-value?>\"", new File("left-file"), new File("right-file"), "/left/x/path", null, PROCESSING_INSTRUCTION, null, MISSING, "left-value", null),
+
+						"ERROR: left-file(/left/x/path), right-file(): missing processing instruction: \"<?left-value?>\"",
+
+						"ERROR,XML_DIFFERENCE,\"missing processing instruction: \"\"<?left-value?>\"\"\",left-file,right-file,/left/x/path,,PROCESSING_INSTRUCTION,,MISSING,left-value,",
+
+						"<difference severity=\"error\" type=\"processing_instruction\" difference=\"missing\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath></actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value></actual-value>\n" +
+						"    <message-text>missing processing instruction: &quot;&lt;?left-value?&gt;&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: extra processing instruction",
+
+						new Message(ERROR, XML_DIFFERENCE, "extra processing instruction: \"<?right-value?>\"", new File("left-file"), new File("right-file"), null, "/right/x/path", PROCESSING_INSTRUCTION, null, EXTRA, null, "right-value"),
+
+						"ERROR: left-file(), right-file(/right/x/path): extra processing instruction: \"<?right-value?>\"",
+
+						"ERROR,XML_DIFFERENCE,\"extra processing instruction: \"\"<?right-value?>\"\"\",left-file,right-file,,/right/x/path,PROCESSING_INSTRUCTION,,EXTRA,,right-value",
+
+						"<difference severity=\"error\" type=\"processing_instruction\" difference=\"extra\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath></expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value></expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>extra processing instruction: &quot;&lt;?right-value?&gt;&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: processing-instruction target difference",
+
+						new Message(ERROR, XML_DIFFERENCE, "For processing instruction, expected target \"left-target\", but got \"right-target\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", PROCESSING_INSTRUCTION, null, PI_TARGET, "left-target", "right-target"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For processing instruction, expected target \"left-target\", but got \"right-target\"",
+
+						"ERROR,XML_DIFFERENCE,\"For processing instruction, expected target \"\"left-target\"\", but got \"\"right-target\"\"\",left-file,right-file,/left/x/path,/right/x/path,PROCESSING_INSTRUCTION,,PI_TARGET,left-target,right-target",
+
+						"<difference severity=\"error\" type=\"processing_instruction\" difference=\"pi_target\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value>left-target</expected-value>\n" +
+						"    <actual-value>right-target</actual-value>\n" +
+						"    <message-text>For processing instruction, expected target \"left-target\", but got \"right-target\"</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: processing-instruction data difference",
+
+						new Message(ERROR, XML_DIFFERENCE, "For processing instruction with target \"the-target\", expected data \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", PROCESSING_INSTRUCTION, null, VALUE, "left-value", "right-value"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For processing instruction with target \"the-target\", expected data \"left-value\", but got \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"For processing instruction with target \"\"the-target\"\", expected data \"\"left-value\"\", but got \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,PROCESSING_INSTRUCTION,,VALUE,left-value,right-value",
+
+						"<difference severity=\"error\" type=\"processing_instruction\" difference=\"value\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>For processing instruction with target &quot;the-target&quot;, expected data &quot;left-value&quot;, but got &quot;right-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+
+					{
+						"XML_DIFFERENCE: missing xsi:schemaLocation attribute",
+
+						new Message(ERROR, XML_DIFFERENCE, "missing xsi:schemaLocation attribute: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, MISSING, "left-value", null),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): missing xsi:schemaLocation attribute: \"left-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"missing xsi:schemaLocation attribute: \"\"left-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,SCHEMA_LOCATION,,MISSING,left-value,",
+
+						"<difference severity=\"error\" type=\"schema_location\" difference=\"missing\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath></actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value></actual-value>\n" +
+						"    <message-text>missing xsi:schemaLocation attribute: &quot;left-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: extra xsi:schemaLocation attribute",
+
+						new Message(ERROR, XML_DIFFERENCE, "extra xsi:schemaLocation attribute: \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, EXTRA, null, "right-value"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): extra xsi:schemaLocation attribute: \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"extra xsi:schemaLocation attribute: \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,SCHEMA_LOCATION,,EXTRA,,right-value",
+
+						"<difference severity=\"error\" type=\"schema_location\" difference=\"extra\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath></expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value></expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>extra xsi:schemaLocation attribute: &quot;right-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: xsi:schemaLocation value difference",
+
+						new Message(ERROR, XML_DIFFERENCE, "For xsi:schemaLocation attribute, expected value \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, VALUE, "left-value", "right-value"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For xsi:schemaLocation attribute, expected value \"left-value\", but got \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"For xsi:schemaLocation attribute, expected value \"\"left-value\"\", but got \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,SCHEMA_LOCATION,,VALUE,left-value,right-value",
+
+						"<difference severity=\"error\" type=\"schema_location\" difference=\"value\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>For xsi:schemaLocation attribute, expected value \"left-value\", but got \"right-value\"</message-text>\n" +
+						"</difference>\n",
+					},
+
+
+					{
+						"XML_DIFFERENCE: missing xsi:noNamespaceSchemaLocation attribute",
+
+						new Message(ERROR, XML_DIFFERENCE, "missing xsi:noNamespaceSchemaLocation attribute: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, MISSING, "left-value", null),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): missing xsi:noNamespaceSchemaLocation attribute: \"left-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"missing xsi:noNamespaceSchemaLocation attribute: \"\"left-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,NO_NAMESPACE_SCHEMA_LOCATION,,MISSING,left-value,",
+
+						"<difference severity=\"error\" type=\"no_namespace_schema_location\" difference=\"missing\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath></actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value></actual-value>\n" +
+						"    <message-text>missing xsi:noNamespaceSchemaLocation attribute: &quot;left-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: extra xsi:noNamespaceSchemaLocation attribute",
+
+						new Message(ERROR, XML_DIFFERENCE, "extra xsi:noNamespaceSchemaLocation attribute: \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, EXTRA, null, "right-value"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): extra xsi:noNamespaceSchemaLocation attribute: \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"extra xsi:noNamespaceSchemaLocation attribute: \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,NO_NAMESPACE_SCHEMA_LOCATION,,EXTRA,,right-value",
+
+						"<difference severity=\"error\" type=\"no_namespace_schema_location\" difference=\"extra\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath></expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value></expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>extra xsi:noNamespaceSchemaLocation attribute: &quot;right-value&quot;</message-text>\n" +
+						"</difference>\n",
+					},
+
+					{
+						"XML_DIFFERENCE: xsi:noNamespaceSchemaLocation value difference",
+
+						new Message(ERROR, XML_DIFFERENCE, "For xsi:noNamespaceSchemaLocation attribute, expected value \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, VALUE, "left-value", "right-value"),
+
+						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For xsi:noNamespaceSchemaLocation attribute, expected value \"left-value\", but got \"right-value\"",
+
+						"ERROR,XML_DIFFERENCE,\"For xsi:noNamespaceSchemaLocation attribute, expected value \"\"left-value\"\", but got \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,NO_NAMESPACE_SCHEMA_LOCATION,,VALUE,left-value,right-value",
+
+						"<difference severity=\"error\" type=\"no_namespace_schema_location\" difference=\"value\">\n" +
+						"    <expected-file>left-file</expected-file>\n" +
+						"    <actual-file>right-file</actual-file>\n" +
+						"    <expected-xpath>/left/x/path</expected-xpath>\n" +
+						"    <actual-xpath>/right/x/path</actual-xpath>\n" +
+						"    <expected-value>left-value</expected-value>\n" +
+						"    <actual-value>right-value</actual-value>\n" +
+						"    <message-text>For xsi:noNamespaceSchemaLocation attribute, expected value \"left-value\", but got \"right-value\"</message-text>\n" +
 						"</difference>\n",
 					},
 			});

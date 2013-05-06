@@ -4112,8 +4112,8 @@
          </entry>
          <entry name="COCT_MT470000CA.Consenter">
             <messagePart name="COCT_MT470000CA.Consenter" abstract="true">
-               <specializationChild>COCT_MT470000CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
+               <specializationChild name="COCT_MT470000CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
             </messagePart>
          </entry>
          <entry name="COCT_MT470000CA.InformDefinition">
@@ -4184,8 +4184,8 @@
          </entry>
          <entry name="COCT_MT470000CA.Recipient">
             <messagePart name="COCT_MT470000CA.Recipient" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT240003CA.ServiceDeliveryLocation</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT240003CA.ServiceDeliveryLocation" />
             </messagePart>
          </entry>
          <entry name="COCT_MT470000CA.Subject">
@@ -4493,8 +4493,8 @@
          </entry>
          <entry name="COCT_MT470002CA.Recipient">
             <messagePart name="COCT_MT470002CA.Recipient" abstract="true">
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT240003CA.ServiceDeliveryLocation_V02R02</specializationChild>
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT240003CA.ServiceDeliveryLocation_V02R02" />
             </messagePart>
          </entry>
          <entry name="COCT_MT470002CA.Subject">
@@ -4550,8 +4550,8 @@
          </entry>
          <entry name="COCT_MT470002CA.SubjectChoice">
             <messagePart name="COCT_MT470002CA.SubjectChoice" abstract="true">
-               <specializationChild>COCT_MT050202CA.Patient_V02R02</specializationChild>
-               <specializationChild>COCT_MT911102CA.ActingPerson</specializationChild>
+               <specializationChild name="COCT_MT050202CA.Patient_V02R02" />
+               <specializationChild name="COCT_MT911102CA.ActingPerson" />
             </messagePart>
          </entry>
          <entry name="COCT_MT470002CA.Subject_V02R02">
@@ -4983,9 +4983,9 @@
       <packageLocation name="COCT_MT911102CA" rootType="COCT_MT911102CA.ActingPerson">
          <entry name="COCT_MT911102CA.ActingPerson">
             <messagePart name="COCT_MT911102CA.ActingPerson" abstract="true">
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT090502CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT910102CA.PersonalRelationship_V02R02</specializationChild>
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT090502CA.AssignedEntity" />
+               <specializationChild name="COCT_MT910102CA.PersonalRelationship_V02R02" />
             </messagePart>
          </entry>
       </packageLocation>
@@ -9923,9 +9923,9 @@
          </entry>
          <entry name="MFMI_MT700711CA.AuthorPerson">
             <messagePart name="MFMI_MT700711CA.AuthorPerson" abstract="true">
-               <specializationChild>MFMI_MT700711CA.AuthorRole</specializationChild>
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT090502CA.AssignedEntity</specializationChild>
+               <specializationChild name="MFMI_MT700711CA.AuthorRole" />
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT090502CA.AssignedEntity" />
             </messagePart>
          </entry>
          <entry name="MFMI_MT700711CA.AuthorRole">
@@ -10067,8 +10067,8 @@
          </entry>
          <entry name="MFMI_MT700711CA.EntererChoice">
             <messagePart name="MFMI_MT700711CA.EntererChoice" abstract="true">
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT090502CA.AssignedEntity</specializationChild>
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT090502CA.AssignedEntity" />
             </messagePart>
          </entry>
          <entry name="MFMI_MT700711CA.Location">
@@ -11067,9 +11067,9 @@
          </entry>
          <entry name="MFMI_MT700751CA.AuthorPerson">
             <messagePart name="MFMI_MT700751CA.AuthorPerson" abstract="true">
-               <specializationChild>MFMI_MT700751CA.AuthorRole_V02R02</specializationChild>
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT090502CA.AssignedEntity_V02R02</specializationChild>
+               <specializationChild name="MFMI_MT700751CA.AuthorRole_V02R02" />
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT090502CA.AssignedEntity_V02R02" />
             </messagePart>
          </entry>
          <entry name="MFMI_MT700751CA.AuthorRole">
@@ -11355,8 +11355,8 @@
          </entry>
          <entry name="MFMI_MT700751CA.EntererChoice">
             <messagePart name="MFMI_MT700751CA.EntererChoice" abstract="true">
-               <specializationChild>COCT_MT090102CA.AssignedEntity</specializationChild>
-               <specializationChild>COCT_MT090502CA.AssignedEntity</specializationChild>
+               <specializationChild name="COCT_MT090102CA.AssignedEntity" />
+               <specializationChild name="COCT_MT090502CA.AssignedEntity" />
             </messagePart>
          </entry>
          <entry name="MFMI_MT700751CA.Location">
@@ -16170,8 +16170,8 @@
          </entry>
          <entry name="PORX_MT020060CA.Patient">
             <messagePart name="PORX_MT020060CA.Patient" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT050303CA.Patient</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT050303CA.Patient" />
             </messagePart>
          </entry>
          <entry name="PORX_MT020060CA.ProcedureRequest">
@@ -16516,8 +16516,8 @@
          </entry>
          <entry name="PORX_MT020070CA.Patient">
             <messagePart name="PORX_MT020070CA.Patient" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT050303CA.Patient</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT050303CA.Patient" />
             </messagePart>
          </entry>
          <entry name="PORX_MT020070CA.Product2">
@@ -17794,8 +17794,8 @@
          </entry>
          <entry name="PORX_MT060010CA.ChangedBy">
             <messagePart name="PORX_MT060010CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060010CA.Component">
@@ -18734,8 +18734,8 @@
          </entry>
          <entry name="PORX_MT060040CA.ChangedBy">
             <messagePart name="PORX_MT060040CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060040CA.Component">
@@ -20770,8 +20770,8 @@
          </entry>
          <entry name="PORX_MT060090CA.ChangedBy">
             <messagePart name="PORX_MT060090CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060090CA.Component">
@@ -21963,8 +21963,8 @@
          </entry>
          <entry name="PORX_MT060160CA.ChangedBy">
             <messagePart name="PORX_MT060160CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060160CA.CombinedMedicationRequest">
@@ -22658,8 +22658,8 @@
          </entry>
          <entry name="PORX_MT060160CA.MedicationRecord">
             <messagePart name="PORX_MT060160CA.MedicationRecord" abstract="true">
-               <specializationChild>PORX_MT060160CA.CombinedMedicationRequest</specializationChild>
-               <specializationChild>PORX_MT060160CA.OtherMedication</specializationChild>
+               <specializationChild name="PORX_MT060160CA.CombinedMedicationRequest" />
+               <specializationChild name="PORX_MT060160CA.OtherMedication" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060160CA.OtherMedication">
@@ -24637,8 +24637,8 @@
          </entry>
          <entry name="PORX_MT060190CA.MedicationRecord">
             <messagePart name="PORX_MT060190CA.MedicationRecord" abstract="true">
-               <specializationChild>PORX_MT060190CA.CombinedMedicationRequest</specializationChild>
-               <specializationChild>PORX_MT060190CA.OtherMedication</specializationChild>
+               <specializationChild name="PORX_MT060190CA.CombinedMedicationRequest" />
+               <specializationChild name="PORX_MT060190CA.OtherMedication" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060190CA.OtherMedication">
@@ -25243,8 +25243,8 @@
          </entry>
          <entry name="PORX_MT060210CA.ChangedBy">
             <messagePart name="PORX_MT060210CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060210CA.Component">
@@ -25977,8 +25977,8 @@
       <packageLocation name="PORX_MT060300CA" rootType="PORX_MT060300CA.Prescription">
          <entry name="PORX_MT060300CA.Prescription">
             <messagePart name="PORX_MT060300CA.Prescription" abstract="true">
-               <specializationChild>PORX_MT030040CA.CombinedMedicationRequest</specializationChild>
-               <specializationChild>PORX_MT060060CA.DevicePrescription</specializationChild>
+               <specializationChild name="PORX_MT030040CA.CombinedMedicationRequest" />
+               <specializationChild name="PORX_MT060060CA.DevicePrescription" />
             </messagePart>
          </entry>
       </packageLocation>
@@ -26112,8 +26112,8 @@
          </entry>
          <entry name="PORX_MT060340CA.ChangedBy">
             <messagePart name="PORX_MT060340CA.ChangedBy" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT090302CA.AssignedDevice</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT090302CA.AssignedDevice" />
             </messagePart>
          </entry>
          <entry name="PORX_MT060340CA.CombinedMedicationRequest">
@@ -27705,8 +27705,8 @@
       <packageLocation name="PORX_MT060350CA" rootType="PORX_MT060350CA.Prescription">
          <entry name="PORX_MT060350CA.Prescription">
             <messagePart name="PORX_MT060350CA.Prescription" abstract="true">
-               <specializationChild>PORX_MT060340CA.CombinedMedicationRequest</specializationChild>
-               <specializationChild>PORX_MT060040CA.DeviceRequest</specializationChild>
+               <specializationChild name="PORX_MT060340CA.CombinedMedicationRequest" />
+               <specializationChild name="PORX_MT060040CA.DeviceRequest" />
             </messagePart>
          </entry>
       </packageLocation>
@@ -27867,18 +27867,18 @@
          </entry>
          <entry name="PORX_MT980010CA.CausalActs">
             <messagePart name="PORX_MT980010CA.CausalActs" abstract="true">
-               <specializationChild>PORX_MT980010CA.SubstanceAdministration</specializationChild>
-               <specializationChild>PORX_MT980010CA.SupplyEvent</specializationChild>
-               <specializationChild>PORX_MT980010CA.ObservationCodedEvent</specializationChild>
-               <specializationChild>PORX_MT980010CA.ObservationMeasurableEvent</specializationChild>
+               <specializationChild name="PORX_MT980010CA.SubstanceAdministration" />
+               <specializationChild name="PORX_MT980010CA.SupplyEvent" />
+               <specializationChild name="PORX_MT980010CA.ObservationCodedEvent" />
+               <specializationChild name="PORX_MT980010CA.ObservationMeasurableEvent" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980010CA.CausalActs_V01R04_3_HOTFIX3">
             <messagePart name="PORX_MT980010CA.CausalActs_V01R04_3_HOTFIX3" abstract="true">
-               <specializationChild>PORX_MT980010CA.SubstanceAdministration_V01R04_3_HOTFIX3</specializationChild>
-               <specializationChild>PORX_MT980010CA.SupplyEvent_V01R04_3_HOTFIX3</specializationChild>
-               <specializationChild>PORX_MT980010CA.ObservationCodedEvent</specializationChild>
-               <specializationChild>PORX_MT980010CA.ObservationMeasurableEvent</specializationChild>
+               <specializationChild name="PORX_MT980010CA.SubstanceAdministration_V01R04_3_HOTFIX3" />
+               <specializationChild name="PORX_MT980010CA.SupplyEvent_V01R04_3_HOTFIX3" />
+               <specializationChild name="PORX_MT980010CA.ObservationCodedEvent" />
+               <specializationChild name="PORX_MT980010CA.ObservationMeasurableEvent" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980010CA.Component">
@@ -28765,18 +28765,18 @@
          </entry>
          <entry name="PORX_MT980020CA.CausalActs">
             <messagePart name="PORX_MT980020CA.CausalActs" abstract="true">
-               <specializationChild>PORX_MT980020CA.SubstanceAdministration</specializationChild>
-               <specializationChild>PORX_MT980020CA.SupplyEvent</specializationChild>
-               <specializationChild>PORX_MT980020CA.ObservationCodedEvent</specializationChild>
-               <specializationChild>PORX_MT980020CA.ObservationMeasurableEvent</specializationChild>
+               <specializationChild name="PORX_MT980020CA.SubstanceAdministration" />
+               <specializationChild name="PORX_MT980020CA.SupplyEvent" />
+               <specializationChild name="PORX_MT980020CA.ObservationCodedEvent" />
+               <specializationChild name="PORX_MT980020CA.ObservationMeasurableEvent" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980020CA.CausalActs_V01R04_3_HOTFIX3">
             <messagePart name="PORX_MT980020CA.CausalActs_V01R04_3_HOTFIX3" abstract="true">
-               <specializationChild>PORX_MT980020CA.SubstanceAdministration</specializationChild>
-               <specializationChild>PORX_MT980020CA.SupplyEvent_V01R04_3_HOTFIX3</specializationChild>
-               <specializationChild>PORX_MT980020CA.ObservationCodedEvent</specializationChild>
-               <specializationChild>PORX_MT980020CA.ObservationMeasurableEvent</specializationChild>
+               <specializationChild name="PORX_MT980020CA.SubstanceAdministration" />
+               <specializationChild name="PORX_MT980020CA.SupplyEvent_V01R04_3_HOTFIX3" />
+               <specializationChild name="PORX_MT980020CA.ObservationCodedEvent" />
+               <specializationChild name="PORX_MT980020CA.ObservationMeasurableEvent" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980020CA.Component">
@@ -29600,10 +29600,10 @@
          </entry>
          <entry name="PORX_MT980030CA.CausalActs">
             <messagePart name="PORX_MT980030CA.CausalActs" abstract="true">
-               <specializationChild>PORX_MT980030CA.SubstanceAdministration</specializationChild>
-               <specializationChild>PORX_MT980030CA.SupplyEvent</specializationChild>
-               <specializationChild>PORX_MT980030CA.ObservationCodedEvent</specializationChild>
-               <specializationChild>PORX_MT980030CA.ObservationMeasurableEvent</specializationChild>
+               <specializationChild name="PORX_MT980030CA.SubstanceAdministration" />
+               <specializationChild name="PORX_MT980030CA.SupplyEvent" />
+               <specializationChild name="PORX_MT980030CA.ObservationCodedEvent" />
+               <specializationChild name="PORX_MT980030CA.ObservationMeasurableEvent" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980030CA.Component">
@@ -30453,10 +30453,10 @@
          </entry>
          <entry name="PORX_MT980040CA.Medication">
             <messagePart name="PORX_MT980040CA.Medication" abstract="true">
-               <specializationChild>COCT_MT220100CA.Medication</specializationChild>
-               <specializationChild>COCT_MT220110CA.Medication</specializationChild>
-               <specializationChild>COCT_MT220200CA.Medication</specializationChild>
-               <specializationChild>COCT_MT220210CA.Medication</specializationChild>
+               <specializationChild name="COCT_MT220100CA.Medication" />
+               <specializationChild name="COCT_MT220110CA.Medication" />
+               <specializationChild name="COCT_MT220200CA.Medication" />
+               <specializationChild name="COCT_MT220210CA.Medication" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980040CA.SupplementalInstruction">
@@ -30509,9 +30509,9 @@
       <packageLocation name="PORX_MT980050CA" rootType="PORX_MT980050CA.Indications">
          <entry name="PORX_MT980050CA.Indications">
             <messagePart name="PORX_MT980050CA.Indications" abstract="true">
-               <specializationChild>PORX_MT980050CA.ObservationDiagnosis</specializationChild>
-               <specializationChild>PORX_MT980050CA.ObservationSymptom</specializationChild>
-               <specializationChild>PORX_MT980050CA.OtherIndication</specializationChild>
+               <specializationChild name="PORX_MT980050CA.ObservationDiagnosis" />
+               <specializationChild name="PORX_MT980050CA.ObservationSymptom" />
+               <specializationChild name="PORX_MT980050CA.OtherIndication" />
             </messagePart>
          </entry>
          <entry name="PORX_MT980050CA.ObservationDiagnosis">
@@ -33051,8 +33051,8 @@
          </entry>
          <entry name="PRPM_MT301010CA.Choice">
             <messagePart name="PRPM_MT301010CA.Choice" abstract="true">
-               <specializationChild>PRPM_MT301010CA.RoleChoice</specializationChild>
-               <specializationChild>PRPM_MT301010CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT301010CA.RoleChoice" />
+               <specializationChild name="PRPM_MT301010CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT301010CA.HealthCareProvider">
@@ -33481,9 +33481,9 @@
             <messagePart name="PRPM_MT301010CA.RoleChoice" abstract="true">
                <relationship name="responsibleFor" type="PRPM_MT301010CA.ResponsibleParty" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="0"/>
                <relationship name="relatedTo" type="PRPM_MT301010CA.RelatedTo" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="1"/>
-               <specializationChild>PRPM_MT301010CA.AssignedEntity</specializationChild>
-               <specializationChild>PRPM_MT301010CA.QualifiedEntity</specializationChild>
-               <specializationChild>PRPM_MT301010CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT301010CA.AssignedEntity" />
+               <specializationChild name="PRPM_MT301010CA.QualifiedEntity" />
+               <specializationChild name="PRPM_MT301010CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT301010CA.SequelTo">
@@ -33685,8 +33685,8 @@
          </entry>
          <entry name="PRPM_MT303010CA.Choice">
             <messagePart name="PRPM_MT303010CA.Choice" abstract="true">
-               <specializationChild>PRPM_MT303010CA.RoleChoice</specializationChild>
-               <specializationChild>PRPM_MT303010CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT303010CA.RoleChoice" />
+               <specializationChild name="PRPM_MT303010CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT303010CA.HealthCareProvider">
@@ -34112,9 +34112,9 @@
             <messagePart name="PRPM_MT303010CA.RoleChoice" abstract="true">
                <relationship name="responsibleFor" type="PRPM_MT303010CA.ResponsibleParty" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="0"/>
                <relationship name="relatedTo" type="PRPM_MT303010CA.RelatedTo" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="1"/>
-               <specializationChild>PRPM_MT303010CA.AssignedEntity</specializationChild>
-               <specializationChild>PRPM_MT303010CA.QualifiedEntity</specializationChild>
-               <specializationChild>PRPM_MT303010CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT303010CA.AssignedEntity" />
+               <specializationChild name="PRPM_MT303010CA.QualifiedEntity" />
+               <specializationChild name="PRPM_MT303010CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT303010CA.SequelTo">
@@ -34661,8 +34661,8 @@
          </entry>
          <entry name="PRPM_MT306011CA.Choice">
             <messagePart name="PRPM_MT306011CA.Choice" abstract="true">
-               <specializationChild>PRPM_MT306011CA.RoleChoice</specializationChild>
-               <specializationChild>PRPM_MT306011CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT306011CA.RoleChoice" />
+               <specializationChild name="PRPM_MT306011CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT306011CA.HealthCareProvider">
@@ -35084,9 +35084,9 @@
             <messagePart name="PRPM_MT306011CA.RoleChoice" abstract="true">
                <relationship name="responsibleFor" type="PRPM_MT306011CA.ResponsibleParty" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="0"/>
                <relationship name="relatedTo" type="PRPM_MT306011CA.RelatedTo" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="1"/>
-               <specializationChild>PRPM_MT306011CA.AssignedEntity</specializationChild>
-               <specializationChild>PRPM_MT306011CA.QualifiedEntity</specializationChild>
-               <specializationChild>PRPM_MT306011CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT306011CA.AssignedEntity" />
+               <specializationChild name="PRPM_MT306011CA.QualifiedEntity" />
+               <specializationChild name="PRPM_MT306011CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT306011CA.SequelTo">
@@ -35531,9 +35531,9 @@
          </entry>
          <entry name="PRPM_MT306051CA.RoleChoice">
             <messagePart name="PRPM_MT306051CA.RoleChoice" abstract="true">
-               <specializationChild>PRPM_MT306051CA.AssignedEntity</specializationChild>
-               <specializationChild>PRPM_MT306051CA.QualifiedEntity</specializationChild>
-               <specializationChild>PRPM_MT306051CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT306051CA.AssignedEntity" />
+               <specializationChild name="PRPM_MT306051CA.QualifiedEntity" />
+               <specializationChild name="PRPM_MT306051CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT306051CA.TerritorialAuthority">
@@ -35914,9 +35914,9 @@
             <messagePart name="PRPM_MT309000CA.RoleChoice" abstract="true">
                <relationship name="responsibleFor" type="PRPM_MT309000CA.ResponsibleParty" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="0"/>
                <relationship name="relatedTo" type="PRPM_MT309000CA.RelatedTo" structural="false" conformance="REQUIRED" cardinality="0-100" sortOrder="1"/>
-               <specializationChild>PRPM_MT309000CA.AssignedEntity</specializationChild>
-               <specializationChild>PRPM_MT309000CA.QualifiedEntity</specializationChild>
-               <specializationChild>PRPM_MT309000CA.HealthCareProvider</specializationChild>
+               <specializationChild name="PRPM_MT309000CA.AssignedEntity" />
+               <specializationChild name="PRPM_MT309000CA.QualifiedEntity" />
+               <specializationChild name="PRPM_MT309000CA.HealthCareProvider" />
             </messagePart>
          </entry>
          <entry name="PRPM_MT309000CA.ServiceDeliveryLocation">
@@ -36805,8 +36805,8 @@
          </entry>
          <entry name="RCMR_MT010001CA.Consenter">
             <messagePart name="RCMR_MT010001CA.Consenter" abstract="true">
-               <specializationChild>RCMR_MT010001CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
+               <specializationChild name="RCMR_MT010001CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
             </messagePart>
          </entry>
          <entry name="RCMR_MT010001CA.Patient">
@@ -36849,8 +36849,8 @@
          </entry>
          <entry name="RCMR_MT010001CA.Recipient">
             <messagePart name="RCMR_MT010001CA.Recipient" abstract="true">
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
-               <specializationChild>COCT_MT240003CA.ServiceDeliveryLocation</specializationChild>
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
+               <specializationChild name="COCT_MT240003CA.ServiceDeliveryLocation" />
             </messagePart>
          </entry>
          <entry name="RCMR_MT010001CA.RecordType">
@@ -36920,8 +36920,8 @@
          </entry>
          <entry name="RCMR_MT010002CA.Consenter">
             <messagePart name="RCMR_MT010002CA.Consenter" abstract="true">
-               <specializationChild>RCMR_MT010002CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
+               <specializationChild name="RCMR_MT010002CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
             </messagePart>
          </entry>
          <entry name="RCMR_MT010002CA.KeywordEvent">
@@ -37297,15 +37297,15 @@
          </entry>
          <entry name="REPC_MT000001CA.Party">
             <messagePart name="REPC_MT000001CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000001CA.Records">
             <messagePart name="REPC_MT000001CA.Records" abstract="true">
-               <specializationChild>REPC_MT000001CA.CausalityAssessment</specializationChild>
-               <specializationChild>REPC_MT000001CA.AllergyTestEvent</specializationChild>
+               <specializationChild name="REPC_MT000001CA.CausalityAssessment" />
+               <specializationChild name="REPC_MT000001CA.AllergyTestEvent" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000001CA.SeverityObservation">
@@ -37560,9 +37560,9 @@
          </entry>
          <entry name="REPC_MT000002CA.Party">
             <messagePart name="REPC_MT000002CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000002CA.ReactionObservationEvent">
@@ -37811,9 +37811,9 @@
          </entry>
          <entry name="REPC_MT000003CA.Party">
             <messagePart name="REPC_MT000003CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000003CA.Subject">
@@ -38336,15 +38336,15 @@
          </entry>
          <entry name="REPC_MT000005CA.Party">
             <messagePart name="REPC_MT000005CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000005CA.Records">
             <messagePart name="REPC_MT000005CA.Records" abstract="true">
-               <specializationChild>REPC_MT000005CA.CausalityAssessment</specializationChild>
-               <specializationChild>REPC_MT000005CA.AllergyTestEvent</specializationChild>
+               <specializationChild name="REPC_MT000005CA.CausalityAssessment" />
+               <specializationChild name="REPC_MT000005CA.AllergyTestEvent" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000005CA.ResponsibleParty">
@@ -38666,9 +38666,9 @@
          </entry>
          <entry name="REPC_MT000006CA.Party">
             <messagePart name="REPC_MT000006CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000006CA.ReactionObservationEvent">
@@ -38900,9 +38900,9 @@
          </entry>
          <entry name="REPC_MT000007CA.Consenter">
             <messagePart name="REPC_MT000007CA.Consenter" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000007CA.Informant">
@@ -39541,15 +39541,15 @@
          </entry>
          <entry name="REPC_MT000009CA.Party">
             <messagePart name="REPC_MT000009CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000009CA.Records">
             <messagePart name="REPC_MT000009CA.Records" abstract="true">
-               <specializationChild>REPC_MT000009CA.CausalityAssessment</specializationChild>
-               <specializationChild>REPC_MT000009CA.AllergyTestEvent</specializationChild>
+               <specializationChild name="REPC_MT000009CA.CausalityAssessment" />
+               <specializationChild name="REPC_MT000009CA.AllergyTestEvent" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000009CA.ReplacementOf">
@@ -39914,9 +39914,9 @@
          </entry>
          <entry name="REPC_MT000010CA.Party">
             <messagePart name="REPC_MT000010CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000010CA.ReplacementOf">
@@ -40055,9 +40055,9 @@
          </entry>
          <entry name="REPC_MT000012CA.Choice">
             <messagePart name="REPC_MT000012CA.Choice" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000012CA.Consumable">
@@ -40586,15 +40586,15 @@
          </entry>
          <entry name="REPC_MT000013CA.Party">
             <messagePart name="REPC_MT000013CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000013CA.Records">
             <messagePart name="REPC_MT000013CA.Records" abstract="true">
-               <specializationChild>REPC_MT000013CA.CausalityAssessment</specializationChild>
-               <specializationChild>REPC_MT000013CA.AllergyTestEvent</specializationChild>
+               <specializationChild name="REPC_MT000013CA.CausalityAssessment" />
+               <specializationChild name="REPC_MT000013CA.AllergyTestEvent" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000013CA.SeverityObservation">
@@ -40806,9 +40806,9 @@
          </entry>
          <entry name="REPC_MT000014CA.Party">
             <messagePart name="REPC_MT000014CA.Party" abstract="true">
-               <specializationChild>COCT_MT050203CA.Patient</specializationChild>
-               <specializationChild>COCT_MT040205CA.ResponsibleParty</specializationChild>
-               <specializationChild>COCT_MT090107CA.AssignedPerson</specializationChild>
+               <specializationChild name="COCT_MT050203CA.Patient" />
+               <specializationChild name="COCT_MT040205CA.ResponsibleParty" />
+               <specializationChild name="COCT_MT090107CA.AssignedPerson" />
             </messagePart>
          </entry>
          <entry name="REPC_MT000014CA.Subject">

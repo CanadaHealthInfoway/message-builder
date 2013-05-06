@@ -108,7 +108,7 @@ public class MifDirectory {
 			}
 
 			else {
-				errors.add(new Message(ERROR, UNRECOGNIZED_FILE_TYPE, "Unrecognized file type", f, null));
+				errors.add(new Message(ERROR, UNRECOGNIZED_FILE_TYPE, "Unrecognized filename pattern: \"" + baseName + "\"", f, null));
 			}
 		}
 		

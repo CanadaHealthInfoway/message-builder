@@ -61,18 +61,17 @@ public class AssertTest {
 	}
 
 	@Test
-	public void that_assertListsEqualUnordered_fails_with_different_types() {
+	public void that_assertListsEqualUnordered_fails_with_different_lists_when_values_are_the_same() {
 		List<String> l1 = new LinkedList<String>();
-		List<Integer> l2 = new LinkedList<Integer>();
+		List<String> l2 = new LinkedList<String>();
 	
 		l1.add("a");
 		l1.add("b");
-		l2.add(1);
-		l2.add(2);
+		l2.add("b");
+		l2.add("a");
+		l2.add("a");
 		exception.expect(AssertionError.class);
-		exception.expectMessage("expected:<[a, b]> but was:<[1, 2]>");
+		exception.expectMessage("expected:<[a, b]> but was:<[a, a, b]>");
 		assertEqualsUnordered(l1, l2);
 	}
-
-
 }

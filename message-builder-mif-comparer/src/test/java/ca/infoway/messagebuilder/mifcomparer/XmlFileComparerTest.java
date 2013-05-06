@@ -21,17 +21,10 @@
 package ca.infoway.messagebuilder.mifcomparer;
 
 import static ca.infoway.messagebuilder.mifcomparer.Assert.assertEqualsUnordered;
-import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.EXTRA;
-import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.MISSING;
-import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.VALUE;
-import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.FILE_SUMMARY;
-import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.XML_DIFFERENCE;
-import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.XML_ERROR;
+import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.*;
+import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.*;
-import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.ELEMENT;
-import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.TEXT;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.*;
-import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.INFO;
 import static ca.infoway.messagebuilder.mifcomparer.UtilsForTesting.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -996,6 +989,247 @@ public class XmlFileComparerTest {
 						new Message[] {
 							new Message(ERROR, XML_DIFFERENCE, "For text, expected \"the left text\", but got \"the right text\"", new File("left-file"), new File("right-file"), "/outer[1]/text()[1]", "/outer[1]/text()[1]", TEXT, null, VALUE, "the left text", "the right text"),
 							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+						},
+					},	
+
+					{
+						"text vs. element",
+
+						"<outer>subtext</outer>",
+						"<outer><sub-element/></outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "missing text: \"subtext\"", new File("left-file"), new File("right-file"), "/outer[1]/text()[1]", null, TEXT, null, MISSING, "subtext", null),
+							new Message(ERROR, XML_DIFFERENCE, "extra element: \"sub-element\"", new File("left-file"), new File("right-file"), null, "/outer[1]/sub-element[1]", ELEMENT, "sub-element", EXTRA, null, null),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+						},
+					},	
+
+					{
+						"element vs. text",
+
+						"<outer><sub-element/></outer>",
+						"<outer>subtext</outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "missing element: \"sub-element\"", new File("left-file"), new File("right-file"), "/outer[1]/sub-element[1]", null, ELEMENT, "sub-element", MISSING, null, null),
+							new Message(ERROR, XML_DIFFERENCE, "extra text: \"subtext\"", new File("left-file"), new File("right-file"), null, "/outer[1]/text()[1]", TEXT, null, EXTRA, null, "subtext"),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+						},
+					},	
+					
+					{
+						"processing instruction -- target",
+
+						"<outer><?leftTarget theValue?></outer>",
+						"<outer><?rightTarget theValue?></outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "For processing instruction, expected target \"leftTarget\", but got \"rightTarget\"", new File("left-file"), new File("right-file"), "/outer[1]/processing-instruction()[1]", "/outer[1]/processing-instruction()[1]", PROCESSING_INSTRUCTION, null, PI_TARGET, "leftTarget", "rightTarget"),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.PROCESSING_INSTRUCTION_TARGET,
+						},
+					},	
+					
+					{
+						"processing instruction -- data",
+
+						"<outer><?theTarget leftValue?></outer>",
+						"<outer><?theTarget rightValue?></outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "For processing instruction with target \"theTarget\", expected data \"leftValue\", but got \"rightValue\"", new File("left-file"), new File("right-file"), "/outer[1]/processing-instruction()[1]", "/outer[1]/processing-instruction()[1]", PROCESSING_INSTRUCTION, null, VALUE, "leftValue", "rightValue"),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.PROCESSING_INSTRUCTION_DATA,
+						},
+					},	
+					
+					{
+						"processing instruction -- missing",
+
+						"<outer><?theTarget theValue?></outer>",
+						"<outer></outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "missing processing instruction: \"<?theTarget theValue?>\"", new File("left-file"), new File("right-file"), "/outer[1]/processing-instruction()[1]", null, PROCESSING_INSTRUCTION, null, MISSING, "theTarget theValue", null),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.HAS_CHILD_NODES,
+							// DifferenceConstants.CHILD_NODELIST_LENGTH,
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+						},
+					},	
+					
+					{
+						"processing instruction -- extra",
+
+						"<outer></outer>",
+						"<outer><?theTarget theValue?></outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "extra processing instruction: \"<?theTarget theValue?>\"", new File("left-file"), new File("right-file"), null, "/outer[1]/processing-instruction()[1]", PROCESSING_INSTRUCTION, null, EXTRA, null, "theTarget theValue"),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.HAS_CHILD_NODES,
+							// DifferenceConstants.CHILD_NODELIST_LENGTH,
+							// DifferenceConstants.CHILD_NODE_NOT_FOUND,
+						},
+					},	
+					
+
+					{
+						"xsi:schemaLocation -- differ",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='left'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='right'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "For xsi:schemaLocation attribute, expected value \"left\", but got \"right\"", new File("left-file"), new File("right-file"), "/outer[1]/@schemaLocation", "/outer[1]/@schemaLocation", SCHEMA_LOCATION, null, VALUE, "left", "right"),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.SCHEMA_LOCATION,
+						},
+					},	
+					
+					{
+						"xsi:schemaLocation -- extra",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='right'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "extra xsi:schemaLocation attribute: \"right\"", new File("left-file"), new File("right-file"), "/outer[1]", "/outer[1]/@schemaLocation", SCHEMA_LOCATION, null, EXTRA, null, "right"),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.SCHEMA_LOCATION,
+						},
+					},	
+					
+					{
+						"xsi:schemaLocation -- missing",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='left'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "missing xsi:schemaLocation attribute: \"left\"", new File("left-file"), new File("right-file"), "/outer[1]/@schemaLocation", "/outer[1]", SCHEMA_LOCATION, null, MISSING, "left", null),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.SCHEMA_LOCATION,
+						},
+					},	
+
+					
+					{
+						"xsi:noNamespaceSchemaLocation -- differ",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='left'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='right'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "For xsi:noNamespaceSchemaLocation attribute, expected value \"left\", but got \"right\"", new File("left-file"), new File("right-file"), "/outer[1]/@noNamespaceSchemaLocation", "/outer[1]/@noNamespaceSchemaLocation", NO_NAMESPACE_SCHEMA_LOCATION, null, VALUE, "left", "right"),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.NO_NAMESPACE_SCHEMA_LOCATION,
+						},
+					},	
+					
+					{
+						"xsi:noNamespaceSchemaLocation -- extra",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='right'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "extra xsi:noNamespaceSchemaLocation attribute: \"right\"", new File("left-file"), new File("right-file"), "/outer[1]", "/outer[1]/@noNamespaceSchemaLocation", NO_NAMESPACE_SCHEMA_LOCATION, null, EXTRA, null, "right"),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.NO_NAMESPACE_SCHEMA_LOCATION,
+						},
+					},	
+					
+					{
+						"xsi:noNamespaceSchemaLocation -- missing",
+
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='left'/>",
+						"<outer xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'/>",
+
+						0,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "missing xsi:noNamespaceSchemaLocation attribute: \"left\"", new File("left-file"), new File("right-file"), "/outer[1]/@noNamespaceSchemaLocation", "/outer[1]", NO_NAMESPACE_SCHEMA_LOCATION, null, MISSING, "left", null),
+							new Message(INFO, FILE_SUMMARY, "Files are similar", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.NO_NAMESPACE_SCHEMA_LOCATION,
+						},
+					},	
+
+					
+					{
+						"CDATA vs. not -- underlying values are identical",
+
+						"<outer>" +
+						"	<cdata-leftonly><![CDATA[text1]]></cdata-leftonly>" +
+						"	<cdata-rightonly>text2</cdata-rightonly>" +
+						"	<cdata-both><![CDATA[text3]]></cdata-both>" +
+						"</outer>",
+
+						"<outer>" +
+						"	<cdata-leftonly>text1</cdata-leftonly>" +
+						"	<cdata-rightonly><![CDATA[text2]]></cdata-rightonly>" +
+						"	<cdata-both><![CDATA[text3]]></cdata-both>" +
+						"</outer>",
+
+						0,
+
+						new Message[] {
+							new Message(INFO, FILE_SUMMARY, "Files are identical", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+						},
+					},	
+					
+					{
+						"CDATA vs. not -- underlying values differ",
+
+						"<outer>" +
+						"	<cdata-leftonly><![CDATA[left1]]></cdata-leftonly>" +
+						"	<cdata-rightonly>left2</cdata-rightonly>" +
+						"	<cdata-both><![CDATA[left3]]></cdata-both>" +
+						"</outer>",
+
+						"<outer>" +
+						"	<cdata-leftonly>right1</cdata-leftonly>" +
+						"	<cdata-rightonly><![CDATA[right2]]></cdata-rightonly>" +
+						"	<cdata-both><![CDATA[right3]]></cdata-both>" +
+						"</outer>",
+
+						1,
+
+						new Message[] {
+							new Message(ERROR, XML_DIFFERENCE, "For text, expected \"left1\", but got \"right1\"", new File("left-file"), new File("right-file"), "/outer[1]/cdata-leftonly[1]/text()[1]", "/outer[1]/cdata-leftonly[1]/text()[1]", TEXT, null, VALUE, "left1", "right1"),
+							new Message(ERROR, XML_DIFFERENCE, "For text, expected \"left2\", but got \"right2\"", new File("left-file"), new File("right-file"), "/outer[1]/cdata-rightonly[1]/text()[1]", "/outer[1]/cdata-rightonly[1]/text()[1]", TEXT, null, VALUE, "left2", "right2"),
+							new Message(ERROR, XML_DIFFERENCE, "For text, expected \"left3\", but got \"right3\"", new File("left-file"), new File("right-file"), "/outer[1]/cdata-both[1]/text()[1]", "/outer[1]/cdata-both[1]/text()[1]", TEXT, null, VALUE, "left3", "right3"),
+							new Message(INFO, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
+							// DifferenceConstants.TEXT_VALUE,
+							// DifferenceConstants.TEXT_VALUE,
+							// DifferenceConstants.TEXT_VALUE,
 						},
 					},	
 			});

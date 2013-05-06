@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.mifcomparer;
 
 import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.ATTRIBUTE;
 import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.TEXT;
+import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.ELEMENT;
 import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.*;
 
@@ -30,6 +31,7 @@ import java.util.Arrays;
 import java.util.Formatter;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.w3c.dom.Node;
 
 /**
  * A diagnostic message.
@@ -136,10 +138,32 @@ class Message {
 	
 	public enum Severity { DEBUG, INFO, TRIVIAL, WARNING, ERROR, FATAL };
 	public static final Severity MINIMUM_SEVERITY = Severity.values()[0];
+
 	//FIXME: XML_DIFFERENCE_OLD should go away
-	public enum MessageType { UNPAIRED_FILE, UNRECOGNIZED_FILE_TYPE, IGNORED_FILE, DESCRIPTIONS_DIFFER, NO_DIFFERENCES, FILE_SUMMARY, XML_ERROR, XML_DIFFERENCE, PROGRESS, INTERNAL_ERROR, FILTER, TESTING_CODE };
-	public enum ObjectType { ELEMENT, ATTRIBUTE, TEXT, NAMESPACE_PREFIX };
-	public enum DifferenceType { MISSING, EXTRA, VALUE };
+	public enum MessageType {
+		UNPAIRED_FILE, UNRECOGNIZED_FILE_TYPE, IGNORED_FILE, DESCRIPTIONS_DIFFER,
+		FILE_SUMMARY, XML_ERROR, XML_DIFFERENCE, PROGRESS, INTERNAL_ERROR, FILTER, TESTING_CODE
+	};
+
+	public enum ObjectType {
+		// org.w3c.dom.Node types that we actually use
+		ELEMENT, ATTRIBUTE, TEXT, PROCESSING_INSTRUCTION,
+
+		// These don't correspond to Node types -- they're basically special kinds of XML attributes, which we distinguish but the DOM doesn't
+		NAMESPACE_PREFIX, SCHEMA_LOCATION, NO_NAMESPACE_SCHEMA_LOCATION,
+
+		// Node types that we don't care about; they're here only so that there exists an ObjectType corresponding to every org.w3c.dom.Node type
+		DOCUMENT_TYPE, DOCUMENT, DOCUMENT_FRAGMENT, COMMENT, CDATA_SECTION,
+		;
+		
+		public String toFriendlyString() {
+			String s = super.toString().toLowerCase();
+			s = s.replaceAll("_", " ");
+			return s;
+		}
+	};
+
+	public enum DifferenceType { MISSING, EXTRA, PI_TARGET, VALUE };
 
 	final Severity severity;
 	final MessageType msgType;
@@ -277,12 +301,19 @@ class Message {
 		 */
 		Formatter f = new Formatter(sb);
 		
-		if (msgType == XML_ERROR || msgType == UNPAIRED_FILE || msgType == IGNORED_FILE || msgType == FILTER) {
+		if (msgType == XML_ERROR ||
+			msgType == UNRECOGNIZED_FILE_TYPE ||
+			msgType == UNPAIRED_FILE ||
+			msgType == IGNORED_FILE ||
+			msgType == FILTER
+		) {
+
 			String elem =
-				msgType==XML_ERROR 			? "xml-error"		:
-				msgType==UNPAIRED_FILE 		? "unpaired-file"	:
-				msgType==IGNORED_FILE		? "ignored-file"	:
-				msgType==FILTER				? "filter"			:
+				msgType==XML_ERROR 				? "xml-error"				:
+				msgType==UNRECOGNIZED_FILE_TYPE	? "unrecognized-file-type"	:
+				msgType==UNPAIRED_FILE 			? "unpaired-file"			:
+				msgType==IGNORED_FILE			? "ignored-file"			:
+				msgType==FILTER					? "filter"					:
 				null;
 			if (elem == null)
 				throw new RuntimeException("Internal error: elem==null should never occur");
@@ -317,12 +348,13 @@ class Message {
 			f.format("</file-message>%n");
 		}
 
-		else if (msgType == FILE_SUMMARY || msgType == PROGRESS) {
+		else if (msgType == FILE_SUMMARY || msgType == PROGRESS || msgType == TESTING_CODE) {
 			// <file-pair-message> types without xpaths or values
 
 			String elem =
 				msgType==FILE_SUMMARY 		? "file-summary"	:
 				msgType==PROGRESS			? "progress"		:
+				msgType==TESTING_CODE		? "testing-code"	:
 				null;
 			if (elem == null)
 				throw new RuntimeException("Internal error: elem==null should never occur");
@@ -347,40 +379,35 @@ class Message {
 		
 		else if (msgType == XML_DIFFERENCE) {
 			if (diffType != null) {
+				f.format("<difference severity=\"%s\" type=\"%s\"", severity.toString().toLowerCase(), this.objType.toString().toLowerCase());
+				if (objType == ATTRIBUTE || objType == ELEMENT)
+					f.format(" name=\"%s\"", this.objName);
+				f.format(" difference=\"%s\">%n", this.diffType.toString().toLowerCase());
+
+				f.format("\t<expected-file>%s</expected-file>%n", quoteXML(this.sides[0].file));
+				f.format("\t<actual-file>%s</actual-file>%n", quoteXML(this.sides[1].file));
+
 				if (diffType == DifferenceType.EXTRA || diffType == DifferenceType.MISSING) {
-					f.format("<difference severity=\"%s\" type=\"%s\" name=\"%s\" difference=\"%s\">%n",
-						severity.toString().toLowerCase(),
-						this.objType.toString().toLowerCase(),
-						this.objName,
-						this.diffType.toString().toLowerCase());
-					f.format("\t<expected-file>%s</expected-file>%n", quoteXML(this.sides[0].file));
-					f.format("\t<actual-file>%s</actual-file>%n", quoteXML(this.sides[1].file));
 					f.format("\t<expected-xpath>%s</expected-xpath>%n",
 						diffType==MISSING ? quoteXML(this.sides[0].xpath) : "");
 					f.format("\t<actual-xpath>%s</actual-xpath>%n",
 						diffType==MISSING ? "" : quoteXML(this.sides[1].xpath));
-					if (objType == ATTRIBUTE) {
+					if (objType != ELEMENT) {
 						f.format("\t<expected-value>%s</expected-value>%n", quoteXML(this.sides[0].value));
 						f.format("\t<actual-value>%s</actual-value>%n", quoteXML(this.sides[1].value));
 					}
-					f.format("\t<message-text>%s</message-text>%n", quoteXML(this.message));
-					f.format("</difference>%n");
 
-				} else if (diffType == DifferenceType.VALUE) {
-					f.format("<difference severity=\"%s\" type=\"%s\"", severity.toString().toLowerCase(), this.objType.toString().toLowerCase());
-					if (objType == ATTRIBUTE)
-						f.format(" name=\"%s\"", this.objName);
-					f.format(" difference=\"%s\">%n", this.diffType.toString().toLowerCase());
-					f.format("\t<expected-file>%s</expected-file>%n", quoteXML(this.sides[0].file));
-					f.format("\t<actual-file>%s</actual-file>%n", quoteXML(this.sides[1].file));
+				} else {
 					f.format("\t<expected-xpath>%s</expected-xpath>%n", quoteXML(this.sides[0].xpath));
 					f.format("\t<actual-xpath>%s</actual-xpath>%n", quoteXML(this.sides[1].xpath));
 					f.format("\t<expected-value>%s</expected-value>%n", quoteXML(this.sides[0].value));
 					f.format("\t<actual-value>%s</actual-value>%n", quoteXML(this.sides[1].value));
-					f.format("\t<message-text>%s</message-text>%n", quoteXML(this.message));
-					f.format("</difference>%n");
 				}
+
+				f.format("\t<message-text>%s</message-text>%n", quoteXML(this.message));
+				f.format("</difference>%n");
 			}
+
 		} else {
 			System.err.println("XML not implemented for: " + this.toString());
 		}
@@ -457,6 +484,27 @@ class Message {
 		sb.append("}");
 
 		return sb.toString();
+	}
+
+	public static ObjectType nodeType2ObjectType(Node node) {
+		return nodeType2ObjectType(node.getNodeType());
+	}
+
+	public static ObjectType nodeType2ObjectType(short nodeType) {
+		switch (nodeType) {
+			case Node.ATTRIBUTE_NODE:				return ObjectType.ATTRIBUTE;
+			case Node.ELEMENT_NODE:					return ObjectType.ELEMENT;
+			case Node.PROCESSING_INSTRUCTION_NODE:	return ObjectType.PROCESSING_INSTRUCTION;
+			case Node.TEXT_NODE:					return ObjectType.TEXT;
+			case Node.DOCUMENT_TYPE_NODE:			return ObjectType.DOCUMENT_TYPE;
+			case Node.DOCUMENT_NODE:				return ObjectType.DOCUMENT;
+			case Node.DOCUMENT_FRAGMENT_NODE:		return ObjectType.DOCUMENT_FRAGMENT;
+			case Node.COMMENT_NODE:					return ObjectType.COMMENT;
+			case Node.CDATA_SECTION_NODE:			return ObjectType.CDATA_SECTION;
+
+			default:
+				throw new IllegalArgumentException("Unsupported org.w3c.dom.Node type: " + nodeType);
+		}
 	}
 
 	@Override

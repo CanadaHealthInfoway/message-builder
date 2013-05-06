@@ -249,6 +249,20 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		}
 	}
 
+	public static String getCmetSymbolicName(Element targetConnection) {
+		if (isTargetConnection(targetConnection)) {
+			return getAttribute(targetConnection, "./mif:participantClass/mif:commonModelElementRef/@name");
+		} else if (isParticipantClassSpecialization(targetConnection)) {
+			return targetConnection.getAttribute("className");
+		} else {
+			return getAttribute(targetConnection, "./mif:specializedClass/mif:commonModelElementRef/@name");
+		}
+	}
+
+	public static String getCmetDerivationClassName(Element targetConnection) {
+		return getAttribute(targetConnection, ".//mif:commonModelElementRef/mif:derivationSupplier/@className");
+	}
+	
 	public static boolean isExternalReferenceType(Element targetConnection) {
 		if (!isMifReferenceElementPresent(targetConnection)) {
 			return false; // TODO: BCH: I think?
@@ -344,6 +358,10 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return getAttribute(targetConnection, "./mif:sourceConnection/mif:nonTraversableConnection/mif:derivationSupplier/@associationEndName");
 	}
 
+	public static String getNontraversableDerivationClassName(Element targetConnection) {
+		return getAttribute(targetConnection, "./mif:sourceConnection/mif:nonTraversableConnection/mif:derivationSupplier/@className");
+	}
+	
 	public String determineRimClassForChoiceElement(Element classElement) {
 		return getAttribute(classElement, "mif:derivationSupplier/@className");
 	}

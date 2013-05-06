@@ -180,7 +180,7 @@ public class MessagePartLayoutItemTest {
 		
 		MessagePart parentMessagePart = MessagePartBuilder.basicBuilder("PORX_MT010101CA.Choice")
 				.withSpecChild("PORX_MT010101.Child")
-				.withSpecChild("COCT_MT050202CA.FOO", CMET_BINDING_NAME).build();
+				.withSpecChild("COCT_MT050202CA.FOO", CMET_BINDING_NAME, "Act").build();
 		MessagePartLayoutItem parentLayoutItem = LayoutItemBuilder.basicBuilder(parentMessagePart, this.layout).build();
 		
 		MessagePart messagePart = MessagePartBuilder.basicBuilder("COCT_MT050202CA.FOO").build();

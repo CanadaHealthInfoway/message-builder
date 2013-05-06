@@ -85,6 +85,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String nontraversableAssociationName;
 	@Attribute(required=false)
 	private String cmetBindingName;
+	@Attribute(required=false)
+	private String traversableDerivationClassName;
+	@Attribute(required=false)
+	private String nontraversableDerivationClassName;
+	@Attribute(required=false)
+	private String cmetDerivationClassName;
+	@Attribute(required=false)
+	private String nonFixedVocabularyBinding;
 	
 	
 	@ElementList(inline=true, required=false)
@@ -288,6 +296,17 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setFixedValue(String fixedValue) {
 		this.fixedValue = fixedValue;
+	}
+	
+	/**
+	 * <p>Get the vocabulary binding
+	 */
+	public String getVocabularyBinding() {
+		if (this.hasFixedValue()) {
+			return this.getFixedValue();
+		} else {
+			return this.getNonFixedVocabularyBinding();
+		}
 	}
 
 	/**
@@ -574,6 +593,40 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 
 	public void setCmetBindingName(String cmetBindingName) {
 		this.cmetBindingName = cmetBindingName;
+	}
+
+	public String getTraversableDerivationClassName() {
+		return traversableDerivationClassName;
+	}
+
+	public void setTraversableDerivationClassName(
+			String traversableDerivationClassName) {
+		this.traversableDerivationClassName = traversableDerivationClassName;
+	}
+
+	public String getNontraversableDerivationClassName() {
+		return nontraversableDerivationClassName;
+	}
+
+	public void setNontraversableDerivationClassName(
+			String nontraversableDerivationClassName) {
+		this.nontraversableDerivationClassName = nontraversableDerivationClassName;
+	}
+
+	public String getCmetDerivationClassName() {
+		return cmetDerivationClassName;
+	}
+
+	public void setCmetDerivationClassName(String cmetDerivationClassName) {
+		this.cmetDerivationClassName = cmetDerivationClassName;
+	}
+
+	public String getNonFixedVocabularyBinding() {
+		return nonFixedVocabularyBinding;
+	}
+
+	public void setNonFixedVocabularyBinding(String nonFixedVocabularyBinding) {
+		this.nonFixedVocabularyBinding = nonFixedVocabularyBinding;
 	}
 
 	public int compareTo(Relationship o) {

@@ -42,6 +42,8 @@ import org.junit.rules.ExpectedException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.mifcomparer.xmlunit.XmlunitState;
+
 public abstract class XmlFilterTest {
 	/**
 	 * Maps prefix "x" to "http://www.example.com/ns/x", and similarly "y" and "z".

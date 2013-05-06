@@ -59,20 +59,19 @@ public class Svgifier {
 		this.coordinateSpaceMapper.initialize(diagram);
 		
 		BoundingBox overall = this.coordinateSpaceMapper.getCoordinateSpaceBounds();
-		if (overall.getWidth() > maxWidth) {
+		double ratio = (((double) maxWidth) / (double) overall.getWidth());
+		if (ratio < 1) {
 			
-			double ratio = ((double) overall.getWidth()) / ((double) maxWidth);
-			int maxHeight = (int) Math.ceil(overall.getHeight() / ratio);
+			int maxHeight = (int) Math.ceil(overall.getHeight() * ratio);
 			
 			writer.write("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + maxWidth + 
-					"\" height=\"" + maxHeight + "\" viewBox=\"0 0 " + overall.getWidth() + " " + overall.getHeight() + "\" " +
-					CHI_NAMESPACE + ">");
+					"\" height=\"" + maxHeight + "\" " + CHI_NAMESPACE + ">");
 			
 		} else {
 			writer.write("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + overall.getWidth() + 
 					"\" height=\"" + overall.getHeight() + "\" " + CHI_NAMESPACE + ">");
 		}
-		writeAllShapes(writer, diagram);
+		writeAllShapes(writer, diagram, ratio);
 		writer.write("</svg>");
 	}
 	public void render(Layout layout, Writer writer) throws IOException {
@@ -83,12 +82,16 @@ public class Svgifier {
 		BoundingBox overall = this.coordinateSpaceMapper.getCoordinateSpaceBounds();
 		writer.write("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + overall.getWidth() + 
 				"\" height=\"" + overall.getHeight() + "\" " + CHI_NAMESPACE + ">");
-		writeAllShapes(writer, diagram);
+		writeAllShapes(writer, diagram, 1);
 		writer.write("</svg>");
 	}
-	private void writeAllShapes(Writer writer, Diagram diagram)
+	private void writeAllShapes(Writer writer, Diagram diagram, double scale)
 			throws IOException {
-		writer.write("<g class=\"demiftifier-root\">");
+		if (scale < 1) {
+			writer.write("<g class=\"demiftifier-root\" transform=\"scale(" + String.format("%3.2f", scale) + ")\">");
+		} else {
+			writer.write("<g class=\"demiftifier-root\">");
+		}
 		for (Shape shape : getOrderedShapes(diagram)) {
 			if (!shape.getItem().isSpecialization()) {
 				shape.renderGroup(this.coordinateSpaceMapper, writer);

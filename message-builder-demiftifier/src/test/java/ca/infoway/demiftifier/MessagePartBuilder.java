@@ -65,8 +65,8 @@ public class MessagePartBuilder {
 		return this;
 	}
 
-	public MessagePartBuilder withSpecChild(String childPartName, String cmetBindingName) {
-		this.messagePart.getSpecializationChilds().add(new SpecializationChild(childPartName, cmetBindingName));
+	public MessagePartBuilder withSpecChild(String childPartName, String cmetBindingName, String cmetDerivationClassName) {
+		this.messagePart.getSpecializationChilds().add(new SpecializationChild(childPartName, cmetBindingName, cmetDerivationClassName));
 		return this;
 	}
 	

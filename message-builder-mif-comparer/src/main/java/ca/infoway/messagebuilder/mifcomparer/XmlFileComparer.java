@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.mifcomparer;
 
 import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.EXTRA;
 import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.MISSING;
-import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.VALUE;
+import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.FILE_SUMMARY;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.INTERNAL_ERROR;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.PROGRESS;
@@ -53,17 +53,18 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathException;
 import javax.xml.xpath.XPathFactory;
 
-import org.custommonkey.xmlunit.DetailedDiff;
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Difference;
 import org.custommonkey.xmlunit.NodeDetail;
-import org.custommonkey.xmlunit.XMLUnit;
+import org.custommonkey.xmlunit.Difference;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.ProcessingInstruction;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
+
+import ca.infoway.messagebuilder.mifcomparer.xmlunit.XmlunitAdapter;
+import ca.infoway.messagebuilder.mifcomparer.xmlunit.XmlunitResult;
 
 public class XmlFileComparer extends FileComparer {
 	Document leftDOM;
@@ -111,37 +112,16 @@ public class XmlFileComparer extends FileComparer {
 			globalConfig.xmlFilters.apply(left.getFile(), leftDOM, messages);
 			globalConfig.xmlFilters.apply(right.getFile(), rightDOM, messages);
 		}
-		
-		boolean isIdentical;
-		boolean isSimilar;
-		List<Difference> diffs;
-		
-		XmlunitState.save();
-		try {
-			XMLUnit.setIgnoreWhitespace(true);
-			XMLUnit.setCompareUnmatched(false);
-			XMLUnit.setIgnoreComments(true);
-			DetailedDiff dd = new DetailedDiff(new Diff(leftDOM, rightDOM));
-		
-			isIdentical = dd.identical();
-			isSimilar = dd.similar();
-		
-			@SuppressWarnings("unchecked")							// Stupid dance because @SuppressWarnings can't be applied
-			List<Difference> t_diffs = dd.getAllDifferences();		// to a simple assignment
-			diffs = t_diffs;
-			
-		} finally {
-			XmlunitState.restore();
-		}
-		
-		for (Difference d : diffs) {
+
+		XmlunitResult result = new XmlunitAdapter().compare(leftDOM, rightDOM);
+		for (Difference d : result.getDifferences()) {
 			reportDifference(d);
 		}
 
-		if (isIdentical) {
+		if (result.isIdentical()) {
 			messages.add(new Message(INFO, FILE_SUMMARY, "Files are identical", left.getFile(), right.getFile()));
 			return 0;
-		} else if (isSimilar) {
+		} else if (result.isSimilar()) {
 			messages.add(new Message(INFO, FILE_SUMMARY, "Files are similar", left.getFile(), right.getFile()));
 			return 0;
 		} else {
@@ -191,24 +171,56 @@ public class XmlFileComparer extends FileComparer {
 			messages.add(m);
 			
 		} else if (desc.equals("presence of child node")) {
-			String nodeName;
+			String nodeName, nodeValue, msgValue;
+			NodeDetail nd;
+			Message.ObjectType objType;
 			Message.DifferenceType diffType;
 			boolean isExtra = leftNode.getXpathLocation() == null  ||  leftNode.getXpathLocation().equals("");
 			
 			if (isExtra) {
-				nodeName = rightNode.getValue();
+				nd = rightNode;
 				diffType = EXTRA;
 			} else {
-				nodeName = leftNode.getValue();
+				nd = leftNode;
 				diffType = MISSING;
+			}
+
+			objType = Message.nodeType2ObjectType(nd.getNode());
+			
+			switch (objType) {
+			case ELEMENT:
+				nodeName = nd.getValue();
+				nodeValue = null;
+				msgValue = nodeName;
+				break;
+					
+			case TEXT:
+				nodeName = null;
+				nodeValue = nd.getNode().getNodeValue();
+				msgValue = nodeValue;
+				break;
+				
+			case PROCESSING_INSTRUCTION:
+				ProcessingInstruction pi = (ProcessingInstruction) nd.getNode();
+				nodeName = null;
+				nodeValue = String.format("%s %s", pi.getTarget(), pi.getData());
+				msgValue = String.format("<?%s?>", nodeValue);
+				break;
+
+			default:
+				nodeName = nodeValue = msgValue = String.format("(%s node)", objType);
+				break;
 			}
 			
 			Message m = new Message(ERROR, XML_DIFFERENCE,
-					diffType.toString().toLowerCase() + " element: \"" + nodeName + "\"",
+					String.format("%s %s: \"%s\"", 
+							diffType.toString().toLowerCase(), objType.toFriendlyString(),
+							msgValue),
 					left.getFile(), right.getFile(),
 					leftNode.getXpathLocation(), rightNode.getXpathLocation(),
-					ELEMENT, nodeName, diffType,
-					null, null
+					objType, nodeName, diffType,
+					isExtra ? null : nodeValue,
+					isExtra ? nodeValue : null
 					);
 			messages.add(m);
 			
@@ -266,9 +278,96 @@ public class XmlFileComparer extends FileComparer {
 					);
 			messages.add(m);
 
+		} else if (desc.equals("processing instruction target")) {
+			Message m = new Message(ERROR, XML_DIFFERENCE,
+					String.format("For processing instruction, expected target \"%s\", but got \"%s\"",
+						leftNode.getValue(), rightNode.getValue()),
+					left.getFile(), right.getFile(),
+					leftNode.getXpathLocation(), rightNode.getXpathLocation(),
+					PROCESSING_INSTRUCTION,
+					null,
+					PI_TARGET,
+					leftNode.getValue(), rightNode.getValue()
+					);
+			messages.add(m);
+
+		} else if (desc.equals("processing instruction data")) {
+			Message m = new Message(ERROR, XML_DIFFERENCE,
+					String.format("For processing instruction with target \"%s\", expected data \"%s\", but got \"%s\"",
+						((ProcessingInstruction) leftNode.getNode()).getTarget(),
+						leftNode.getValue(), rightNode.getValue()),
+					left.getFile(), right.getFile(),
+					leftNode.getXpathLocation(), rightNode.getXpathLocation(),
+					PROCESSING_INSTRUCTION,
+					null,
+					VALUE,
+					leftNode.getValue(), rightNode.getValue()
+					);
+			messages.add(m);
+
+		} else if (desc.equals("xsi:schemaLocation attribute") ||
+				   desc.equals("xsi:noNamespaceSchemaLocation attribute")) {
+			String nodeName, nodeValue, msgValue;
+			String leftValue, rightValue;
+			NodeDetail nd;
+			Message.ObjectType objType;
+			Message.DifferenceType diffType;
+
+			if (leftNode.getNode() == null) {
+				diffType = EXTRA;
+				leftValue = null;
+				rightValue = rightNode.getValue();
+				msgValue = rightValue;
+
+			} else if (rightNode.getNode() == null) {
+				diffType = MISSING;
+				leftValue = leftNode.getValue();
+				rightValue = null;
+				msgValue = leftValue;
+
+			} else {
+				diffType = VALUE;
+				leftValue = leftNode.getValue();
+				rightValue = rightNode.getValue();
+				msgValue = null;
+			}
+
+			objType = (desc.equals("xsi:noNamespaceSchemaLocation attribute") ? NO_NAMESPACE_SCHEMA_LOCATION : SCHEMA_LOCATION);
+
+			Message m;
+
+			if (diffType == VALUE) {
+				m = new Message(ERROR, XML_DIFFERENCE,
+						String.format("For %s, expected value \"%s\", but got \"%s\"", desc, leftValue, rightValue),
+						left.getFile(), right.getFile(),
+						leftNode.getXpathLocation(), rightNode.getXpathLocation(),
+						objType, null, diffType,
+						leftValue, rightValue
+						);
+			} else {
+				m = new Message(ERROR, XML_DIFFERENCE,
+						String.format("%s %s: \"%s\"", diffType.toString().toLowerCase(), desc, msgValue),
+						left.getFile(), right.getFile(),
+						leftNode.getXpathLocation(), rightNode.getXpathLocation(),
+						objType, null, diffType,
+						leftValue, rightValue
+						);
+			}
+
+			messages.add(m);
+			
+//TODO DifferenceConstants.SCHEMA_LOCATION,
+//TODO DifferenceConstants.NO_NAMESPACE_SCHEMA_LOCATION,
+
 		} else {
-			messages.add(new Message(FATAL, INTERNAL_ERROR,
-					"Unknown Difference type \"" + desc + "\" from XMLUnit",
+			/*
+			 * We don't recognize the Difference object.
+			 *
+			 * But we need to report it even so, so assume that, as its name
+			 * implies, it does indeed signify an XML_DIFFERENCE.
+			 */
+			messages.add(new Message(ERROR, XML_DIFFERENCE,
+					desc,
 					left.getFile(), right.getFile(),
 					leftNode.getXpathLocation(), rightNode.getXpathLocation(),
 					null, null, null,

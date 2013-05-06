@@ -89,6 +89,11 @@
 		    <artifactId>message-builder-demiftifier</artifactId>
 			<version>${project.version}</version>		
 		</dependency>
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+		    <artifactId>message-builder-html</artifactId>
+			<version>${project.version}</version>		
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

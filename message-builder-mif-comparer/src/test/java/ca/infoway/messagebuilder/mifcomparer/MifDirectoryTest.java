@@ -177,10 +177,10 @@ public class MifDirectoryTest extends TestCase {
 	public void that_analyzeContents_handles_an_unrecognized_filename() {
 		// Setup
 		File root = new File("root");
-		String[] inputRelNames = { "bad_file_name.unknown", };
+		String[] inputRelNames = { "dir1/dir2/bad_file_name.unknown", };
 		List<File> inputFiles = makeFileCollection(root, inputRelNames);
 		MifDirectory obj = new MifDirectory(root);
-		expMsgs = new String[] { "ERROR: " + inputFiles.get(0).toString() + ", (none): Unrecognized file type" };
+		expMsgs = new String[] { "ERROR: " + inputFiles.get(0).toString() + ", (none): Unrecognized filename pattern: \"bad_file_name.unknown\"" };
 
 		// Action
 		obj.analyzeContents(inputFiles, actMsgs);

@@ -51,12 +51,16 @@ public class UtilsForTesting {
 	 * the results.  This can be used to assert the equality of two Message lists, ignoring order,
 	 * in such a way that Eclipse can display the results should the assertion fail.
 	 */
-	static String messagesToSortedString(Collection<Message> msgs) {
+	public static String messagesToSortedString(Collection<Message> msgs) {
 		List<String> strings = new LinkedList<String>();
 		for (Message m : msgs) {
 			strings.add(m.toString() + NEWLINE);
 		}
 		
+		return stringList2SortedString(strings);
+	}
+	
+	public static String stringList2SortedString(List<String> strings) {
 		Collections.sort(strings);
 		
 		StringBuilder sb = new StringBuilder();
@@ -67,14 +71,14 @@ public class UtilsForTesting {
 		return sb.toString();
 	}
 	
-	static String messagesToSortedString(Message[] msgs) {
+	public static String messagesToSortedString(Message[] msgs) {
 		return messagesToSortedString(Arrays.asList(msgs));
 	}
 	
 	/**
 	 * Given some XML, turn it into a DOM Document.
 	 */
-	static Document xml2DOM(String xml) throws SAXException, IOException {
+	public static Document xml2DOM(String xml) throws SAXException, IOException {
 		Reader r = new StringReader(xml);
 		InputSource is = new InputSource(r);
 		DocumentBuilder db = XmlDocument.getDocumentBuilder();
@@ -83,7 +87,7 @@ public class UtilsForTesting {
 		return doc;
 	}
 	
-	static String dom2XML(Document doc) {
+	public static String dom2XML(Document doc) {
 		DOMImplementationLS dils = (DOMImplementationLS)doc.getImplementation(); 
 		return dils.createLSSerializer().writeToString(doc);
 	}

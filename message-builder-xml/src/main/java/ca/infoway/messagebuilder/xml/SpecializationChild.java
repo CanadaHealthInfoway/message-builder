@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.xml;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Root;
-import org.simpleframework.xml.Text;
 
 /**
  * <p>A class that models a specialization child of an abstract class.
@@ -33,11 +32,13 @@ import org.simpleframework.xml.Text;
 @Root
 public class SpecializationChild implements Comparable<SpecializationChild> {
 
-	@Text
+	@Attribute
 	private String name;
 	
 	@Attribute(required=false)
 	private String cmetBindingName;
+	@Attribute(required=false)
+	private String cmetDerivationClassName;
 	
 	/**
 	 * <p>Standard constructor.
@@ -58,9 +59,10 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 	 * @param name the name of the specializing class
 	 * @param cmetBindingName the name used in MIF files to refer to an external message part
 	 */	
-	public SpecializationChild(String name, String cmetBindingName) {
+	public SpecializationChild(String name, String cmetBindingName, String cmetDerivationClassName) {
 		this.name = name;
 		this.cmetBindingName = cmetBindingName;
+		this.cmetDerivationClassName = cmetDerivationClassName;
 	}
 
 	public String getName() {
@@ -77,6 +79,14 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 
 	public void setCmetBindingName(String cmetBindingName) {
 		this.cmetBindingName = cmetBindingName;
+	}
+
+	public String getCmetDerivationClassName() {
+		return cmetDerivationClassName;
+	}
+
+	public void setCmetDerivationClassName(String cmetDerivationClassName) {
+		this.cmetDerivationClassName = cmetDerivationClassName;
 	}
 
 	public int compareTo(SpecializationChild o) {

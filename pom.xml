@@ -57,6 +57,7 @@
     <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
     <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
     <module>message-builder-mif-comparer</module>
+    <module>message-builder-html</module>
   </modules>
 	<dependencies>
 		<dependency>
@@ -436,6 +437,11 @@
 			            <exclude>**/*.mif</exclude>
 			            <exclude>**/*.coremif</exclude>
 			            <exclude>**/etc/sample-config.txt</exclude>
+			            <exclude>**/html/js/jquery-1.7.2.js</exclude>
+			            <exclude>**/html/js/jquery.jstree.js</exclude>
+			            <exclude>**/html/js/jquery-ui-1.8.21.custom.min.js</exclude>
+			            <exclude>**/html/js/themes/default/style.css</exclude>
+			            <exclude>**/html/css/jquery-ui-1.8.21.custom.css</exclude>
 			        </excludes>
 				<skipExistingHeaders>true</skipExistingHeaders>
 			    </configuration>

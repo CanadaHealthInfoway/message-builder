@@ -22,20 +22,21 @@ package ca.infoway.messagebuilder.mifcomparer;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.junit.Test;
 
 
 public class Assert {
 
-	public static void assertEqualsUnordered(Collection<?> exp, Collection<?> act) {
-		SortedSet<?> expSet = new TreeSet<Object>(exp);
-		SortedSet<?> actSet = new TreeSet<Object>(act);
-		assertEquals(expSet, actSet);
+	public static <T extends Comparable> void assertEqualsUnordered(Collection<T> exp, Collection<T> act) {
+		List<T> expList = new LinkedList<T>(exp);
+		List<T> actList = new LinkedList<T>(act);
+
+		Collections.sort(expList);
+		Collections.sort(actList);
+		
+		assertEquals(expList, actList);
 	}
 
 }

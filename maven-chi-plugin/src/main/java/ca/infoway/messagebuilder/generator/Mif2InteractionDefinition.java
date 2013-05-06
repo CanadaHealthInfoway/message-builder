@@ -25,7 +25,6 @@ import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;

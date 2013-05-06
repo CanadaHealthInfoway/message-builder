@@ -42,6 +42,7 @@ import org.xml.sax.SAXException;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.CmetBinding;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.ImportedPackage;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
@@ -262,7 +263,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 				if (MifXPathHelper.isExternalReferenceType(child)) {
 					String externalLocation = MifXPathHelper.getExternalReferenceType(child, name);
 					String rootType = messageSet.getPackageLocationRootType(externalLocation);
-					part.getSpecializationChilds().add(new SpecializationChild(rootType, name));
+					part.getSpecializationChilds().add(new SpecializationChild(rootType, name, null));
 				} else {
 					part.getSpecializationChilds().add(new SpecializationChild(NameHelper.qualifiyName(child, name)));
 				}
@@ -270,8 +271,14 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 				String packageLocationName = MifXPathHelper.getGeneralizationTarget(child);
 				PackageLocation packageLocation = messageSet.getPackageLocations().get(packageLocationName);
 				String root = packageLocation == null ? null : packageLocation.getRootType();
+				String cmetSymbolicName = MifXPathHelper.getCmetSymbolicName(child);
+				String cmetDerivationClassName = MifXPathHelper.getCmetDerivationClassName(child);
 				if (StringUtils.isNotBlank(root)) {
-					part.getSpecializationChilds().add(new SpecializationChild(root));
+					if (StringUtils.isBlank(cmetSymbolicName)) {
+						part.getSpecializationChilds().add(new SpecializationChild(root));
+					} else {
+						part.getSpecializationChilds().add(new SpecializationChild(root, cmetSymbolicName, cmetDerivationClassName));
+					}
 				} else {
 					throw new MifProcessingException("Cannot find the packageLocation : " 
 							+ packageLocationName + " while processing " + part.getName());
@@ -326,10 +333,21 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setUpdateMode(createUpdateMode(targetConnection));		
 		choice.setConformance(createConformance(targetConnection));
 		
+		if (MifXPathHelper.isReferenceToOtherModelType(targetConnection)) {
+			choice.setCmetBindingName(MifXPathHelper.getCmetSymbolicName(targetConnection));
+			choice.setCmetDerivationClassName(MifXPathHelper.getCmetDerivationClassName(targetConnection));
+		}
 		if (isExternalReference(targetConnection)) {
 			choice.setCmetBindingName(MifXPathHelper.getMifReferenceType(targetConnection));
 		}
 		
+		
+		Element derivationMetadata = MifXPathHelper.getDerivationMetadata(targetConnection);
+		choice.setTraversableDerivationClassName(derivationMetadata.getAttribute("className"));
+		choice.setTraversableAssociationName(derivationMetadata.getAttribute("associationEndName"));
+		choice.setNontraversableDerivationClassName(MifXPathHelper.getNontraversableDerivationClassName(element));
+		choice.setNontraversableAssociationName(MifXPathHelper.getNontraversableAssociationName(element));
+
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
 		for (ChoiceOption choiceOption : choiceOptions) {
 			Relationship relationship = new Relationship();
@@ -360,6 +378,10 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		if (isTemplateParameter(targetConnection)) {
 			relationship.setTemplateParameterName(getTemplateParameterName(targetConnection));
 		}
+		if (MifXPathHelper.isReferenceToOtherModelType(targetConnection)) {
+			relationship.setCmetBindingName(MifXPathHelper.getCmetSymbolicName(targetConnection));
+			relationship.setCmetDerivationClassName(MifXPathHelper.getCmetDerivationClassName(targetConnection));
+		}
 		if (isExternalReference(targetConnection)) {
 			relationship.setCmetBindingName(MifXPathHelper.getMifReferenceType(targetConnection));
 		}
@@ -370,7 +392,9 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		addDocumentation(targetConnection, relationship);
 		
 		Element derivationMetadata = MifXPathHelper.getDerivationMetadata(targetConnection);
+		relationship.setTraversableDerivationClassName(derivationMetadata.getAttribute("className"));
 		relationship.setTraversableAssociationName(derivationMetadata.getAttribute("associationEndName"));
+		relationship.setNontraversableDerivationClassName(MifXPathHelper.getNontraversableDerivationClassName(element));
 		relationship.setNontraversableAssociationName(MifXPathHelper.getNontraversableAssociationName(element));
 	}
 
@@ -391,10 +415,22 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setConformance(createConformance(element));
 		
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
-			relationship.setDomainType(MifXPathHelper.getDomainType(element));
-			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
-			relationship.setDomainSource(MifXPathHelper.getDomainSource(element));
+			DomainSource domainSource = MifXPathHelper.getDomainSource(element);
+			String domainType = MifXPathHelper.getDomainType(element);
+			relationship.setDomainSource(domainSource);
+			relationship.setDomainType(domainType);
+			
+			if (DomainSource.VALUE_SET == domainSource) {
+				relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
+			} else if (DomainSource.CONCEPT_DOMAIN == domainSource) {
+				relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));	// In MIF2, we source this from the vocab mif. What's the equivalent rule for MIF1? -- JR 20130430
+			} else if (DomainSource.CODE_SYSTEM == domainSource && !relationship.hasFixedValue()) {
+				relationship.setNonFixedVocabularyBinding(MifXPathHelper.getAttribute(element, "./mif:vocabulary/mif:code/@code"));
+			}
 		}
+/*
+
+ */
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
 	}

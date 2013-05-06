@@ -44,4 +44,14 @@ public class EntryPointAssemblerTest {
 				document, "/mif2:interaction/mif2:packageLocation", MIF2_NAMESPACE)));
 	}
 
+	@Test
+	public void shouldFindTriggerEventWithVersion() throws Exception {
+		Document document = new DocumentFactory().createFromResource(
+				new ClasspathResource(getClass(), 
+						"MCCI_IN000002CA - Accept Ack.mif"));
+		assertEquals("trigger event", "MCCI_TE000002CA01", 
+				EntryPointAssembler.getEntryPoint((Element) new XPathHelper().getSingleNode(
+						document, "/mif2:interaction/mif2:invokingTriggerEvent", MIF2_NAMESPACE)));
+	}
+	
 }

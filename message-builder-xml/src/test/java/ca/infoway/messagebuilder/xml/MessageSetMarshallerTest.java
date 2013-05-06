@@ -31,6 +31,7 @@ import java.util.Collection;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -45,6 +46,7 @@ public class MessageSetMarshallerTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testShouldReadSampleXmlWithBreadcrumbHistory() throws Exception {
 		MessageSet testset = getMessageSet("sample_with_breadcrumbs.xml");
 		assertTrue(testset.getRemixHistory().size() > 0);

@@ -48,12 +48,15 @@ import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifSpecializedByDomai
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifValueSet;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.VocabularyMifMarshaller;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.CmetBinding;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.ContextBinding;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.ImportedPackage;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -74,6 +77,8 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(true);
 	
 	private DocumentFactory factory = new DocumentFactory();
+	
+	private Map<String, String> conceptDomainToStrength = new HashMap<String, String>(); 
 	
 	public Mif2Processor(File mifTransform, OutputUI outputUI) throws GeneratorException {
 		this(new MifRegistry(mifTransform, outputUI), outputUI);
@@ -189,6 +194,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				}
 				bindings.get(binding.getValueSet()).add(
 						new ContextBinding(binding.getConceptDomain(), binding.getBindingRealmName(), binding.getCodingStrength()));
+				conceptDomainToStrength.put(binding.getConceptDomain(), binding.getCodingStrength());
 			}
 		}
 		
@@ -383,7 +389,8 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 				String name = reference.getAttribute("cmetName");
 				CmetDefinition cmetDefinition = this.mifRegistry.getCmetByAlias(parentPackage.getCommonModelElement().toTextRepresentation(), name);
 				if (cmetDefinition != null) {
-					part.getSpecializationChilds().add(new SpecializationChild(cmetDefinition.getBoundClass(), cmetDefinition.getCmetName()));
+					Element cmetReference = Mif2XPathHelper.findCmetReference(child, name);
+					part.getSpecializationChilds().add(new SpecializationChild(cmetDefinition.getBoundClass(), cmetDefinition.getCmetName(), Mif2XPathHelper.getAttribute(cmetReference, "./mif2:derivedFrom/@className")));
 					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + cmetDefinition.getBoundClass());
 				} else {
 					this.outputUI.log(LogLevel.SEVERE, part.getName() + ": Cannot resolve child class cmetName " + name);
@@ -424,12 +431,16 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		choice.setConformance(createConformance(targetConnection));
 		choice.setType(determineType(packageLocation.getCommonModelElement().toTextRepresentation(), targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
 		choice.setAssociationSortKey(targetConnection.getAttribute("sortKey"));
+		choice.setTraversableDerivationClassName(targetConnectionDerivation.getAttribute("className"));
 		choice.setTraversableAssociationName(targetConnectionDerivation.getAttribute("associationEndName"));
+		choice.setNontraversableDerivationClassName(reverseConnectionDerivation.getAttribute("className"));
 		choice.setNontraversableAssociationName(reverseConnectionDerivation.getAttribute("associationEndName"));
 
 		String partName = targetConnection.getAttribute("participantClassName");
-		if (isCmetReference(targetConnection, partName)) {
+		Element cmetReference = Mif2XPathHelper.findCmetReference(targetConnection, partName);
+		if (cmetReference != null) {
 			choice.setCmetBindingName(partName);
+			choice.setCmetDerivationClassName(Mif2XPathHelper.getAttribute(cmetReference, "./mif2:derivedFrom/@className"));
 		}
 
 		addChoiceItems(messageSet, targetConnection, choice);
@@ -507,8 +518,10 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			}
 			
 			String partName = targetConnection.getAttribute("participantClassName");
-			if (isCmetReference(targetConnection, partName)) {
+			Element cmetReference = Mif2XPathHelper.findCmetReference(targetConnection, partName);
+			if (cmetReference != null) {
 				relationship.setCmetBindingName(partName);
+				relationship.setCmetDerivationClassName(Mif2XPathHelper.getAttribute(cmetReference, "./mif2:derivedFrom/@className"));
 			}
 		}
 		
@@ -516,7 +529,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setConformance(createConformance(targetConnection));
 		relationship.setUpdateMode(createUpdateMode(targetConnection));
 		relationship.setAssociationSortKey(targetConnection.getAttribute("sortKey"));
+		relationship.setTraversableDerivationClassName(targetConnectionDerivation.getAttribute("className"));
 		relationship.setTraversableAssociationName(targetConnectionDerivation.getAttribute("associationEndName"));
+		relationship.setNontraversableDerivationClassName(reverseConnectionDerivation.getAttribute("className"));
 		relationship.setNontraversableAssociationName(reverseConnectionDerivation.getAttribute("associationEndName"));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
@@ -538,9 +553,19 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setConformance(createConformance(element));
 
 		// It turns out that some non-coded attributes have domain bindings as well. Don't know why, but we have to preserve it if it's present
-		relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
-		relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
-		relationship.setDomainSource(Mif2XPathHelper.getDomainSource(element));
+		DomainSource domainSource = Mif2XPathHelper.getDomainSource(element);
+		String domainType = Mif2XPathHelper.getDomainType(element);
+		relationship.setDomainSource(domainSource);
+		relationship.setDomainType(domainType);
+		
+		if (DomainSource.VALUE_SET == domainSource) {
+			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
+		} else if (DomainSource.CONCEPT_DOMAIN == domainSource) {
+			String codingStrength = conceptDomainToStrength.get(domainType);
+			relationship.setCodingStrength(StringUtils.isBlank(codingStrength) ? null : EnumPattern.valueOf(CodingStrength.class, codingStrength));
+		} else if (DomainSource.CODE_SYSTEM == domainSource && !relationship.hasFixedValue()) {
+			relationship.setNonFixedVocabularyBinding(Mif2XPathHelper.getAttribute(element, "./mif2:vocabulary/mif2:code/@code"));
+		}
 
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
