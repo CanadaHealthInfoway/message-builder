@@ -50,7 +50,7 @@ public class CompositeCodeResolver extends CodeResolverImpl {
      * {@inheritDoc}
      */
     @Override
-	public <T extends Code> Collection<T> lookup(Class<T> type) {
+	public <T extends Code> Collection<T> lookup(Class<? extends T> type) {
     	List<T> result = new ArrayList<T>();
     	for (CodeResolver resolver : this.resolvers) {
 			Collection<T> collection = resolver.lookup(type);
@@ -64,7 +64,7 @@ public class CompositeCodeResolver extends CodeResolverImpl {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<T> type, String code) {
+	public <T extends Code> T lookup(Class<? extends T> type, String code) {
         Object result = null;
         for (CodeResolver resolver : this.resolvers) {
             Object object = resolver.lookup(type, code);

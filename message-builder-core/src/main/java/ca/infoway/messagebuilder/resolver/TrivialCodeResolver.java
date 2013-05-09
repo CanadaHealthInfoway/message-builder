@@ -124,7 +124,7 @@ public class TrivialCodeResolver extends CodeResolverImpl {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public <T extends Code> T lookup(Class<T> interfaceType, String code) {
+	public <T extends Code> T lookup(Class<? extends T> interfaceType, String code) {
     	return lookup(interfaceType, code, null);
 	}
 

@@ -60,7 +60,7 @@ public class DatabaseCodeResolver implements CodeResolver {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<T> type, String code) {
+	public <T extends Code> T lookup(Class<? extends T> type, String code) {
 		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code);
 		return (codedValues.isEmpty()) ? null : createCode(type, codedValues.get(0));
 	}
@@ -76,12 +76,12 @@ public class DatabaseCodeResolver implements CodeResolver {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> Collection<T> lookup(Class<T> type) {
+	public <T extends Code> Collection<T> lookup(Class<? extends T> type) {
 		List<ValueSetEntry> values = dao.selectValueSetsByVocabularyDomain(type);
 		return convertValuesToCodes(type, values);
 	}
 
-	private <T extends Code> Collection<T> convertValuesToCodes(Class<T> type, List<ValueSetEntry> values) {
+	private <T extends Code> Collection<T> convertValuesToCodes(Class<? extends T> type, List<ValueSetEntry> values) {
 		List<T> result = new ArrayList<T>();
 		for (ValueSetEntry valueSet : values) {
 			result.add(createCode(type, valueSet));
