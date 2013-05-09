@@ -104,7 +104,9 @@ public abstract class AbstractCodedTypeXmlFormatter extends AbstractSimpleXmlFor
 		Code result = null;
 		if (StringUtils.isNotBlank(codeValue)) {
 			CodeResolver resolver = CodeResolverRegistry.getResolver(returnType);
-			result = resolver.lookup(returnType, codeValue, codeSystem);
+			result = (StringUtils.isBlank(codeSystem) 
+					? resolver.<Code>lookup(returnType, codeValue)
+					: resolver.<Code>lookup(returnType, codeValue, codeSystem));
 		}
 		return result;
 	}

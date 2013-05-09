@@ -27,6 +27,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
@@ -69,8 +71,15 @@ public class DatabaseCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<? extends T> type, String code, String codeSystemOid) {
-		ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid);
-		return valueSet == null ? null : createCode(type, valueSet);
+		// RM 15390 (and others) - TM: The lookup won't work if no code system is provided.
+		// An argument could be made that if this method is called then we should expect the code system to be valid,
+		// but let's err on the side of caution and do our best to find a matching code.
+		if (StringUtils.isBlank(codeSystemOid)) {
+			return lookup(type, code);
+		} else {
+			ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid);
+			return valueSet == null ? null : createCode(type, valueSet);
+		}
 	}
 
 	/**

@@ -171,7 +171,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
 	private Code getCode(Class<Code> returnType, String codeValue, String codeSystem) {
 		CodeResolver resolver = CodeResolverRegistry.getResolver(returnType);
-		return codeSystem == null 
+		return StringUtils.isBlank(codeSystem) 
 				? resolver.<Code>lookup(returnType, codeValue)
 				: resolver.<Code>lookup(returnType, codeValue, codeSystem);
 	}

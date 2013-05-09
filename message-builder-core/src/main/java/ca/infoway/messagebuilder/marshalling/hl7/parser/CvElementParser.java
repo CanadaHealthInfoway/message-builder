@@ -166,7 +166,9 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
 			returnType = getReturnTypeAsCodeType(expectedReturnType);
 			resolver = CodeResolverRegistry.getResolver(returnType);
 		}
-		return resolver.<Code>lookup(returnType, codeValue, codeSystem);
+		return (StringUtils.isBlank(codeSystem) 
+				? resolver.<Code>lookup(returnType, codeValue)
+				: resolver.<Code>lookup(returnType, codeValue, codeSystem));
 	}
     
 	private void addDisplayName(Element element, CD result) {
