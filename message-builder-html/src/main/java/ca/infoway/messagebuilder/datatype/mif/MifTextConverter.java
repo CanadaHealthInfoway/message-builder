@@ -40,6 +40,7 @@ import org.cyberneko.html.parsers.DOMFragmentParser;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.convert.Converter;
 import org.simpleframework.xml.stream.InputNode;
+import org.simpleframework.xml.stream.NodeMap;
 import org.simpleframework.xml.stream.OutputNode;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;
@@ -78,15 +79,35 @@ public class MifTextConverter implements Converter<MifText> {
 		while(childNode != null) {
 			String childValue = childNode.getValue();
 			String childName = childNode.getName();
-			nodeText += "<" + childName + ">";
+			NodeMap<InputNode> attributes = childNode.getAttributes();
+			nodeText += "<" + childName;
+			for (String attributeName : attributes) {
+				InputNode attributeNode = attributes.get(attributeName);
+				nodeText += " " + attributeName + "='" + attributeNode.getValue() + "'";
+			}
+				
 			String childText = "";
-			if (childValue != null) {
+			if (childValue != null && childValue.trim().length() > 0) {
 				childText = parseInnerNodes(childNode, childValue);
+				if (childText != null && childText.trim().length() > 0) {
+					nodeText += ">";
+					nodeText += childText.trim();
+					nodeText += "</" + childName + ">";
+				} else {
+					nodeText += "/>";
+					nodeText += childText.trim();
+				}
 			} else {
 				childText = parseInnerNodes(childNode, "");
+				if (childText != null && childText.trim().length() > 0) {
+					nodeText += ">";
+					nodeText += childText.trim();
+					nodeText += "</" + childName + ">";
+				} else {
+					nodeText += "/>";
+					nodeText += childText.trim();
+				}
 			}
-			nodeText += childText;
-			nodeText += "</" + childName + ">";
 			childNode = node.getNext();
 		}
 		return nodeText;

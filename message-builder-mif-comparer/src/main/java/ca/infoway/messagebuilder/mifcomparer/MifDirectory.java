@@ -39,6 +39,7 @@ public class MifDirectory {
 	private File defnFile; 								// DEFN=CA=IFC=*.coremif
 	private SortedMap<String, List<MifFile>> mifMap = new TreeMap<String, List<MifFile>>();
 	private boolean isScanned = false;
+	private boolean ignoreRealms = false;
 
 	public MifDirectory(String dir) {
 		this(new File(dir));
@@ -46,6 +47,14 @@ public class MifDirectory {
 	
 	public MifDirectory(File dir) {
 		this.directory = dir;
+	}
+
+	public boolean isIgnoreRealms() {
+		return this.ignoreRealms;
+	}
+
+	public void setIgnoreRealms(boolean ignoreRealms) {
+		this.ignoreRealms = ignoreRealms;
 	}
 
 	Collection<File> scanDirectory() throws FileNotFoundException {
@@ -71,7 +80,9 @@ public class MifDirectory {
 	}
 
 	void addMif(MifFile mf) {
-		String key = mf.getKey();
+		String key = mf.getSubSection() + mf.getDomain() + "_" + mf.getArtifact() + mf.getId() +
+			(ignoreRealms ? "" : mf.getRealm());
+
 		List<MifFile> files = this.mifMap.get(key);
 		if (files == null) {
 			files = new LinkedList<MifFile>();

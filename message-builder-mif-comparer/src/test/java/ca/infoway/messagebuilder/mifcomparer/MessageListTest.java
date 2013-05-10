@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.mifcomparer;
 
-import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.TESTING_CODE;
+import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.ERROR;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.FATAL;
@@ -32,7 +32,9 @@ import static ca.infoway.messagebuilder.mifcomparer.Assert.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -161,7 +163,7 @@ public class MessageListTest {
 		
 		assertEqualsUnordered(Arrays.asList(exp), actStrings);		
 	}
-
+	
 	// Utility methods
 
 	private MessageList messageListWithAllSeverities() {
@@ -173,6 +175,15 @@ public class MessageListTest {
 		obj.add(new Message(DEBUG, TESTING_CODE, "debug message", new File("left5"), new File("right5")));
 		obj.add(new Message(TRIVIAL, TESTING_CODE, "trivial message", new File("left6"), new File("right6")));
 
+		return obj;
+	}
+	
+	private MessageList messageListForStatsTests() {
+		MessageList obj = new MessageList();
+		obj.add(new Message(INFO, FILE_SUMMARY, "Files are identical", new File("left1"), new File("right1")));
+		obj.add(new Message(INFO, FILE_SUMMARY, "Files differ", new File("left2"), new File("right2")));
+		obj.add(new Message(INFO, FILE_SUMMARY, "Files are identical", new File("left3"), new File("right3")));
+		
 		return obj;
 	}
 }

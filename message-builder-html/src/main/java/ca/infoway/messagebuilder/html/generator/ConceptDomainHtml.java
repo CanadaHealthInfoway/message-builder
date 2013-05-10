@@ -25,8 +25,11 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PAGE_DIV_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
@@ -50,8 +53,8 @@ public class ConceptDomainHtml extends BaseHtmlGenerator {
 	}
 	
 	public ConceptDomainHtml(ConceptDomain conceptDomain, MessageSet messageSet,
-			String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, javascriptPath, resourcesPath);
+			String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath) {
+		super(interactionsPath, messagePartsPath, datatypesPath, javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
 		this.conceptDomain = conceptDomain;
 	}
@@ -59,6 +62,13 @@ public class ConceptDomainHtml extends BaseHtmlGenerator {
 	@Override
 	public String write() {
 		return writeConceptDomain();
+	}
+	
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
 	}
 	
 	protected String writeConceptDomain() {

@@ -57,7 +57,7 @@ public class PackageLocationHtmlTest {
 		testSet.getPackageLocations().put(packageName, testPackage);
 		testSet.addMessagePart(testPart);
 		
-		PackageLocationHtml html = new PackageLocationHtml(testPackage, testSet, false);
+		PackageLocationHtml html = new PackageLocationHtml(testPackage, testSet, null, false);
 		html.setSvgifier(mockSvgifier);
 		
 		String result = html.write();

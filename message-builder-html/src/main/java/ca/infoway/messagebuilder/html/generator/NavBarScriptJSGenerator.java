@@ -33,6 +33,9 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.model.Datatype;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -47,18 +50,21 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	private MessageSet messageSet;
+	private DatatypeSet datatypeSet;
 	private Map<String, String> categoryNames;
 	
-	public NavBarScriptJSGenerator(MessageSet messageSet, Map<String, String> categoryNames) {
+	public NavBarScriptJSGenerator(MessageSet messageSet, DatatypeSet datatypeSet, Map<String, String> categoryNames) {
 		super();
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		this.categoryNames = categoryNames;
 	}
 
-	public NavBarScriptJSGenerator(MessageSet messageSet, Map<String, String> categoryNames,
-			String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, javascriptPath, resourcesPath);
+	public NavBarScriptJSGenerator(MessageSet messageSet, DatatypeSet datatypeSet, Map<String, String> categoryNames,
+			String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath) {
+		super(interactionsPath, messagePartsPath, datatypesPath, javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		this.categoryNames = categoryNames;
 	}
 	
@@ -68,6 +74,13 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 		return writeSideNavBarScript();
 	}
 
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
+	}
+	
 	protected String writeSideNavBarScript() {
 		String result = "$(function() {" + LINE_SEPARATOR +
 				"	$(\"#" + LEFT_NAV_BAR_ID + "\").jstree({" + LINE_SEPARATOR +
@@ -174,6 +187,17 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 
 		messageSetListItem.appendChild(messagePartHeaderList);
 		
+		Ul datatypeHeaderList = new Ul();
+		Li datatypeHeaderListItem = new Li();
+		datatypeHeaderListItem.setId("datatypeHeaderNode");
+		datatypeHeaderListItem.appendChild(createLink("#", new Text("Datatypes"), 
+				"datatypeTreeNode", "datatypeTreeNode"));
+		Ul datatypeList = new Ul();
+		datatypeHeaderListItem.appendChild(datatypeList);
+		datatypeHeaderList.appendChild(datatypeHeaderListItem);
+
+		messageSetListItem.appendChild(datatypeHeaderList);
+		
 		Map<String, Set<String>> msgPartPackageLocationMap = new HashMap<String, Set<String>>();
 		Map<String, Set<String>> msgPartPackagePrefixMap = new HashMap<String, Set<String>>(); 
 		for (MessagePart messagePart : getMessageSet().getAllMessageParts()) {
@@ -277,6 +301,20 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 			interactionList.appendChild(interactionPackagePrefixList);
 		}		
 		
+		if(getDatatypeSet() != null) {
+			Map<String, Datatype> datatypes = getDatatypeSet().getDatatypes();
+			ArrayList<String> sortedDatatypeNames = new ArrayList<String>();
+			sortedDatatypeNames.addAll(datatypes.keySet());
+			Collections.sort(sortedDatatypeNames);
+			
+			for (String datatypeName : sortedDatatypeNames) {
+				Li datatypeListItem = new Li();
+				datatypeListItem.setId(getMessagePartName(datatypeName) + "_li");
+				datatypeListItem.appendChild(createLink(getDatatypeUrl(datatypeName), new Text(datatypeName), "leafNode", datatypeName));
+				datatypeList.appendChild(datatypeListItem);
+			}
+		}
+		
 		return messageSetListItem.write();
 	}
 
@@ -337,5 +375,13 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 
 	public void setCategoryNames(Map<String, String> categoryNames) {
 		this.categoryNames = categoryNames;
+	}
+
+	public DatatypeSet getDatatypeSet() {
+		return datatypeSet;
+	}
+
+	public void setDatatypeSet(DatatypeSet datatypeSet) {
+		this.datatypeSet = datatypeSet;
 	}
 }

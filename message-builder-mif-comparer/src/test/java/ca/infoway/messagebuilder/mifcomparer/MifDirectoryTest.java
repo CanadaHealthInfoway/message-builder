@@ -44,6 +44,7 @@ public class MifDirectoryTest extends TestCase {
 		MifFile mif = new MifFile(new File(root, "subdir/MIFA_AA123456CA - a MIF file.mif"));
 		MifFile[] exp = {mif};
 		MifDirectory obj = new MifDirectory(root);
+		obj.setIgnoreRealms(false);				// This test doubles as a test for the setIgnoreRealms(false) case
 
 		// Action
 		obj.addMif(mif);
@@ -51,6 +52,25 @@ public class MifDirectoryTest extends TestCase {
 		// Test
 		assertEquals(1, obj.getMifMap().size());
 		Collection<MifFile> act = obj.getMifMap().get("MIFA_AA123456CA");
+		assertNotNull(act);
+		assertEquals(Arrays.asList(exp), act);
+	}
+		
+	@Test
+	public void that_addMif_ignores_realm_if_so_requested() {
+		// Setup
+		File root = new File("root");
+		MifFile mif = new MifFile(new File(root, "subdir/MIFA_AA123456CA - a MIF file.mif"));
+		MifFile[] exp = {mif};
+		MifDirectory obj = new MifDirectory(root);
+		obj.setIgnoreRealms(true);
+
+		// Action
+		obj.addMif(mif);
+		
+		// Test
+		assertEquals(1, obj.getMifMap().size());
+		Collection<MifFile> act = obj.getMifMap().get("MIFA_AA123456");
 		assertNotNull(act);
 		assertEquals(Arrays.asList(exp), act);
 	}

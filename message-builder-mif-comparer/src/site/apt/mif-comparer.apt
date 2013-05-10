@@ -23,7 +23,7 @@ mif-comparer - compare MIF files
 
 	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] old-mif-file new-mif-file
 
-	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] old-mif-dir  new-mif-dir
+	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] [-ignore-realms] old-mif-dir  new-mif-dir
 
 * Options
 ~~~~~~~~~
@@ -33,6 +33,10 @@ mif-comparer - compare MIF files
 	[-f output-format]
 		One of <<<xml>>>, <<<csv>>>, or <<<text>>>.  Default is <<<xml>>>.
 
+	[-ignore-realms] 
+		Ignore the filenames' <realm> fields when choosing pairs of files to compare.
+		(This option is only meaningful when doing a directory comparison.)
+		
 	[-s severity-level]
 		Minimum level of messages to output.  In increasing order, the levels are:
 			<<<debug>>>, <<<info>>>, <<<trivial>>>, <<<warning>>>, <<<error>>>, <<<fatal>>>.
@@ -116,12 +120,14 @@ mif-comparer - compare MIF files
 	The program can cope with the following filename schemes:
 
 		[AAAA_BB111111CA.mif]
-			The <key> is the "AAAA_BB111111CA" part.
+			By default, the <key> is the "AAAA_BB111111CA" part.  If the <-ignore-realms>
+			option was given, the key does not include the <realm> field, i.e.
+			it is of the form "AAAA_BB111111".
 
 		[AAAA_BB111111CA - arbitrary text.mif]
-			The <key> is the "AAAA_BB111111CA" part.  If the arbitrary text differs
-			between the "old" and "new" files, a warning is emitted, but the files
-			are compared anyway.
+			The <key> is the "AAAA_BB111111CA" or "AAAA_BB111111" part, as described above.
+			If the <arbitrary text> part differs between the "old" and "new" files,
+			a message is emitted (with severity <trivial>), but the files are compared anyway.
 
 		[DEFN=XX=YY=arbitrary-text.coremif]
 			Only DEFN=CA=IFC=*.coremif are compared; other files matching this pattern

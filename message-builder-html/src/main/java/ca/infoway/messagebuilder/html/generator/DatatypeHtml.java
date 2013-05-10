@@ -25,7 +25,9 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PAGE_DIV_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -38,12 +40,16 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.H3;
+import com.hp.gagawa.java.elements.Pre;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
+import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Thead;
 
 public class DatatypeHtml extends BaseHtmlGenerator {
-
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	
 	private Datatype datatype;
 	private DatatypeSet datatypeSet;
 	private MessageSet messageSet;
@@ -59,6 +65,16 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		return writeDatatype().write();
 	}
 
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		filterTypes.add(AnnotationType.STATIC_EXAMPLE);
+		//FIXME: Filter out design comments for datatypes now.  Annotations have a weird mixture of nested tags which make marshalling difficult
+		filterTypes.add(AnnotationType.DESIGN_COMMENTS);
+		return filterTypes;
+	}
+	
 	protected Document writeDatatype() {
 		Document doc = new Document(DocumentType.XHTMLStrict);
 			
@@ -71,7 +87,7 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		containerDiv.setId(CONTAINER_DIV_ID);
 		containerDiv.setCSSClass(CONTENT_DIV_ID);
 		
-		addDetailsMetaHeader(getDatatype().getName(), containerDiv);
+		addDatatypeDetailsMetaHeader(getDatatype().getName(), containerDiv);
 		
 		addBreadcrumbHeader(getMessageSet(), containerDiv);
 		
@@ -122,13 +138,20 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		
 		for (StaticExampleAnnotation annotation : exampleAnnotations) {
 			if (AnnotationType.STATIC_EXAMPLE.equals(annotation.getAnnotationTypeAsEnum())) {
+				H3 exampleHeader = new H3();
+				exampleHeader.setCSSClass("staticExampleHeader");
+				exampleHeader.appendText("Example: ");
+				parentDiv.appendChild(exampleHeader);
 				Div headerTextDiv = new Div();
-				headerTextDiv.setCSSClass("datatypeExampleHeaderDiv");	
+				headerTextDiv.setCSSClass("datatypeExampleHeaderDiv");
 				headerTextDiv.appendText(annotation.getBusinessName());
 				parentDiv.appendChild(headerTextDiv);
+				Pre exampleSection = new Pre();
+				exampleSection.appendText(annotation.getText());
 				Div exampleTextDiv = new Div();
-				exampleTextDiv.setCSSClass("datatypeExampleTextDiv");	
-				exampleTextDiv.appendText(annotation.getText());
+				exampleTextDiv.setCSSClass("datatypeExampleTextDiv");
+				exampleTextDiv.appendText(LINE_SEPARATOR);
+				exampleTextDiv.appendChild(exampleSection);
 				parentDiv.appendChild(exampleTextDiv);
 			}
 		}
@@ -148,7 +171,17 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		Thead tHead = new Thead();
 		Tbody tBody = new Tbody();
 		
-		addAnnotationDetails(getDatatype().getDocumentation(), tBody);
+		if (getDatatypeSet() != null && 
+				getDatatypeSet().getDatatype(getDatatype().getSuperType()) != null) {
+			tBody.appendChild(createDataRow("Super Type:", 
+				createLink(getDatatypeUrl(getDatatype().getSuperType()), 
+				new Text(getDatatype().getSuperType()), "detailsRow", ""), ""));
+		} else {
+			tBody.appendChild(createDataRow("Super Type:", 
+					new Text(getDatatype().getSuperType()), ""));
+		}
+		
+		addAnnotationDetails(getDatatype().getDocumentation(), "Description:", tBody);
 		
 		result.appendChild(tHead);
 		result.appendChild(tBody);

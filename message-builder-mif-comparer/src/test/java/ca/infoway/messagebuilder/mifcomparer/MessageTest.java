@@ -33,6 +33,7 @@ import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.TEXT;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.INFO;
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.WARNING;
+import static ca.infoway.messagebuilder.mifcomparer.MessageStatistics.StatisticsGroup.*;
 import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -44,8 +45,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.custommonkey.xmlunit.XMLUnit;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -53,6 +56,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.Suite;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.mifcomparer.MessageStatistics.StatisticsGroup;
 import ca.infoway.messagebuilder.mifcomparer.xmlunit.XmlunitState;
 
 @RunWith(Suite.class)
@@ -228,6 +232,46 @@ public class MessageTest {
 			
 			assertEquals("", sb.toString());
 		}
+			
+		@Test
+		public void that_accumulateMainStatistics_accumulates_correctly() {
+			// Prepare
+			Message msg = new Message(ERROR, XML_DIFFERENCE, "message",
+					new File("left-file"), new File("right-file"),
+					"/the[1]/x[3]/path[1]", "/the[1]/x[5]/path[1]",
+					ELEMENT, "foo", EXTRA,
+					null, "the-value");
+			MessageStatistics stats = new MessageStatistics();
+			
+			// Perform
+			msg.accumulateMainStatistics(stats);
+			
+			// Test
+			MessageStatisticsTest.assertMainStatsContainOnly(stats, XML_DIFFS, "element (foo) extra", 1);
+		}
+		
+				@Test
+		public void that_accumulateXpathStatistics_accumulates_correctly() {
+			// Prepare
+			Message msg1 = new Message(ERROR, XML_DIFFERENCE, "message",
+					new File("left-file"), new File("right-file"),
+					"/the[1]/x[3]/path[1]", "/the[1]/x[5]/path[1]",
+					ELEMENT, "foo", EXTRA,
+					null, "the-value");
+			Message msg2 = new Message(ERROR, XML_DIFFERENCE, "message",
+					new File("left-file"), new File("right-file"),
+					"/the[1]/x[47]/path[1]", "/the[1]/x[49]/path[1]",
+					ELEMENT, "foo", EXTRA,
+					null, "the-value");
+			MessageStatistics stats = new MessageStatistics();
+			
+			// Perform
+			msg1.accumulateXpathStatistics(stats);
+			msg2.accumulateXpathStatistics(stats);
+			
+			// Test
+			MessageStatisticsTest.assertXpathStatsContainOnly(stats, "/the[?]/x[?]/path[?]", 2);
+		}
 	}
 
 
@@ -235,6 +279,9 @@ public class MessageTest {
 	public static class MessageFormattingTests {
 		String testName;			// JUnit doesn't use this; it's here purely as a (debugger-visible) comment
 		Message inputMsg;
+		StatisticsGroup expStatsGroup;
+		String expStatsKey;
+		String expXpathStatsKey;
 		String expText;
 		String expCSV;
 		String expXML;
@@ -245,7 +292,10 @@ public class MessageTest {
 			 * Each element of the outer array contains the data for a test case.
 			 * Its contents are, in order:
 			 *		- test-case name
-			 *		- Input message list
+			 *		- Input message
+			 *		- Expected StatisticsGroup
+			 *		- Expected main-statistics key
+			 *		- Expected xpath-statistics key
 			 *		- Expected text-format output
 			 *		- Expected CSV-format output
 			 *		- Expected XML-format output
@@ -257,6 +307,8 @@ public class MessageTest {
 						"Progress",
 
 						new Message(DEBUG, PROGRESS, "Comparing using XmlFileComparer", new File("left-dir/left-file"), new File("right-dir/right-file"), null, null, null, null, null, null, null),
+
+						StatisticsGroup.OTHER, "(ignore)", null,
 
 						"DEBUG: " + new File("left-dir/left-file") + ", " + new File("right-dir/right-file") + ": Comparing using XmlFileComparer",
 
@@ -274,6 +326,8 @@ public class MessageTest {
 
 						new Message(DEBUG, TESTING_CODE, "Some text", new File("left-dir/left-file"), new File("right-dir/right-file")),
 
+						StatisticsGroup.OTHER, "(ignore)", null,
+
 						"DEBUG: " + new File("left-dir/left-file") + ", " + new File("right-dir/right-file") + ": Some text",
 
 						"DEBUG,TESTING_CODE,Some text," + new File("left-dir/left-file") + "," + new File("right-dir/right-file") + ",,,,,,,",
@@ -289,6 +343,8 @@ public class MessageTest {
 						"Internal error on left",
 
 						new Message(FATAL, INTERNAL_ERROR, "Error evaluating XPath expression \"/left/x/path\"", new File("left-dir/left-file"), null, "/left/x/path", null, null, null, null, null, null),
+
+						StatisticsGroup.OTHER, "internal error", "/left/x/path",
 
 						"FATAL: " + new File("left-dir/left-file") + "(/left/x/path), (none): Error evaluating XPath expression \"/left/x/path\"",
 
@@ -307,6 +363,8 @@ public class MessageTest {
 
 						new Message(FATAL, INTERNAL_ERROR, "Error evaluating XPath expression \"/right/x/path\"", null, new File("right-dir/right-file"), null, "/right/x/path", null, null, null, null, null),
 
+						StatisticsGroup.OTHER, "internal error", "/right/x/path",
+
 						"FATAL: (none), " + new File("right-dir/right-file") + "(/right/x/path): Error evaluating XPath expression \"/right/x/path\"",
 
 						"FATAL,INTERNAL_ERROR,\"Error evaluating XPath expression \"\"/right/x/path\"\"\",," + new File("right-dir/right-file") + ",,/right/x/path,,,,,",
@@ -323,6 +381,8 @@ public class MessageTest {
 //						"Internal error on both",
 //
 //						new Message(FATAL, INTERNAL_ERROR, "message", new File("left-dir/left-file"), new File("right-dir/right-file"), "/left/x/path", "/right/x/path", null, null, null, null, null),
+//
+//						StatisticsGroup.OTHER, "internal error", null,
 //
 //						"FATAL: " + new File("left-dir/left-file") + "(/left/x/path), " + new File("right-dir/right-file") + "(/right/x/path): message",
 //
@@ -343,6 +403,8 @@ public class MessageTest {
 						"Unparseable filename",
 
 						new Message(ERROR, UNRECOGNIZED_FILE_TYPE, "Unrecognized filename pattern: \"left-file\"", new File("left-dir/left-sub/left-file"), null),
+
+						StatisticsGroup.PER_FILE, "unrecognized filename pattern", null,
 						
 						"ERROR: " + new File("left-dir/left-sub/left-file") + ", (none): Unrecognized filename pattern: \"left-file\"",
 
@@ -359,6 +421,8 @@ public class MessageTest {
 
 						new Message(ERROR, UNPAIRED_FILE, "File occurs only in left-dir", new File("left-dir/left-sub/left-file"), null, null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "unpaired file", null,
+
 						"ERROR: " + new File("left-dir/left-sub/left-file") + ", (none): File occurs only in left-dir",
 
 						"ERROR,UNPAIRED_FILE,File occurs only in left-dir," + new File("left-dir/left-sub/left-file") + ",,,,,,,,",
@@ -373,6 +437,8 @@ public class MessageTest {
 						"Unpaired file on right",
 
 						new Message(ERROR, UNPAIRED_FILE, "File occurs only in right-dir", null, new File("right-dir/right-sub/right-file"), null, null, null, null, null, null, null),
+
+						StatisticsGroup.PER_FILE, "unpaired file", null,
 
 						"ERROR: (none), " + new File("right-dir/right-sub/right-file") + ": File occurs only in right-dir",
 
@@ -389,6 +455,8 @@ public class MessageTest {
 
 						new Message(INFO, IGNORED_FILE, "Ignored coremif file", new File("left-dir/left-file"), null, null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "ignored file", null,
+
 						"INFO: " + new File("left-dir/left-file").toString() + ", (none): Ignored coremif file",
 
 						"INFO,IGNORED_FILE,Ignored coremif file," + new File("left-dir/left-file") + ",,,,,,,,",
@@ -404,6 +472,8 @@ public class MessageTest {
 
 						new Message(INFO, IGNORED_FILE, "Ignored some extraneous file", null, new File("right-dir/right-file"), null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "ignored file", null,
+
 						"INFO: (none), " + new File("right-dir/right-file").toString() + ": Ignored some extraneous file",
 
 						"INFO,IGNORED_FILE,Ignored some extraneous file,," + new File("right-dir/right-file") + ",,,,,,,",
@@ -418,6 +488,8 @@ public class MessageTest {
 						"Descriptions differ",
 
 						new Message(WARNING, DESCRIPTIONS_DIFFER, "For descriptive text in filename, expected \"left desc\", but got \"right desc\"", new File("left-dir/left-sub/AAAA_AA111111CA - left desc.mif"), new File("right-dir/right-sub/AAAA_AA111111CA - right desc.mif"), null, null, null, null, null, "left desc", "right desc"),
+
+						StatisticsGroup.OTHER, "descriptions differ", null,
 
 						"WARNING: " + new File("left-dir/left-sub/AAAA_AA111111CA - left desc.mif").toString() + ", " + new File("right-dir/right-sub/AAAA_AA111111CA - right desc.mif").toString() + ": For descriptive text in filename, expected \"left desc\", but got \"right desc\"",
 
@@ -437,6 +509,8 @@ public class MessageTest {
 
 						new Message(INFO, FILE_SUMMARY, "Files are identical", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "files are identical", null,
+
 						"INFO: left-file, right-file: Files are identical",
 
 						"INFO,FILE_SUMMARY,Files are identical,left-file,right-file,,,,,,,",
@@ -452,6 +526,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: text value difference (leading & trailing whitespace)",
 
 						new Message(ERROR, XML_DIFFERENCE, "For text, expected \"test\", but got \" test \"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", TEXT, null, VALUE, "test", " test "),
+
+						StatisticsGroup.XML_DIFFS, "text differs", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For text, expected \"test\", but got \" test \"",
 
@@ -473,6 +549,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_ERROR, "XML error: 1:18: The element type \"inner1\" must be terminated by the matching end-tag \"</inner1>\".", new File("left-file"), null, null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "XML error", null,
+
 						"ERROR: left-file, (none): XML error: 1:18: The element type \"inner1\" must be terminated by the matching end-tag \"</inner1>\".",
 
 						"ERROR,XML_ERROR,\"XML error: 1:18: The element type \"\"inner1\"\" must be terminated by the matching end-tag \"\"</inner1>\"\".\",left-file,,,,,,,,",
@@ -488,6 +566,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_ERROR, "XML error: 1:18: The element type \"inner1\" must be terminated by the matching end-tag \"</inner1>\".", null, new File("right-file"), null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "XML error", null,
+
 						"ERROR: (none), right-file: XML error: 1:18: The element type \"inner1\" must be terminated by the matching end-tag \"</inner1>\".",
 
 						"ERROR,XML_ERROR,\"XML error: 1:18: The element type \"\"inner1\"\" must be terminated by the matching end-tag \"\"</inner1>\"\".\",,right-file,,,,,,,",
@@ -502,6 +582,8 @@ public class MessageTest {
 						"search-filter output",
 						
 						new Message(INFO, FILTER, "Found instance of \"//inner1\"", new File("the-file"), null, "/outer/mid1/inner1", null, null, null, null, null, null),
+
+						StatisticsGroup.OTHER, "(ignore)", null,
 
 						"INFO: the-file(/outer/mid1/inner1), (none): Found instance of \"//inner1\"",
 						
@@ -520,6 +602,8 @@ public class MessageTest {
 						new Message(WARNING, FILTER, "An element matching \"/outer/mid/inner\" contains no \"sortKey\" attribute",
 								new File("the-file"), null),
 
+						StatisticsGroup.OTHER, "filter messages", null,
+
 						"WARNING: the-file, (none): An element matching \"/outer/mid/inner\" contains no \"sortKey\" attribute",
 						
 						"WARNING,FILTER,\"An element matching \"\"/outer/mid/inner\"\" contains no \"\"sortKey\"\" attribute\",the-file,,,,,,,,",
@@ -534,6 +618,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: missing element",
 
 						new Message(ERROR, XML_DIFFERENCE, "missing element: \"a\"", new File("left-file"), new File("right-file"), "/left/x/path", null, ELEMENT, "a", MISSING, null, null),
+
+						StatisticsGroup.XML_DIFFS, "element (a) missing", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(): missing element: \"a\"",
 
@@ -553,6 +639,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "extra element: \"a\"", new File("left-file"), new File("right-file"), null, "/right/x/path", ELEMENT, "a", EXTRA, null, null),
 
+						StatisticsGroup.XML_DIFFS, "element (a) extra", "/right/x/path",
+
 						"ERROR: left-file(), right-file(/right/x/path): extra element: \"a\"",
 
 						"ERROR,XML_DIFFERENCE,\"extra element: \"\"a\"\"\",left-file,right-file,,/right/x/path,ELEMENT,a,EXTRA,,",
@@ -571,6 +659,8 @@ public class MessageTest {
 
 						new Message(ERROR, FILE_SUMMARY, "Files differ", new File("left-file"), new File("right-file"), null, null, null, null, null, null, null),
 
+						StatisticsGroup.PER_FILE, "files differ", null,
+
 						"ERROR: left-file, right-file: Files differ",
 
 						"ERROR,FILE_SUMMARY,Files differ,left-file,right-file,,,,,,,",
@@ -586,6 +676,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: missing attribute",
 
 						new Message(ERROR, XML_DIFFERENCE, "missing attribute: \"a\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", ATTRIBUTE, "a", MISSING, "left-value", null),
+
+						StatisticsGroup.XML_DIFFS, "attribute (a) missing", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): missing attribute: \"a\"",
 
@@ -607,6 +699,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "extra attribute: \"a\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", ATTRIBUTE, "a", EXTRA, null, "right-value"),
 
+						StatisticsGroup.XML_DIFFS, "attribute (a) extra", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): extra attribute: \"a\"",
 
 						"ERROR,XML_DIFFERENCE,\"extra attribute: \"\"a\"\"\",left-file,right-file,/left/x/path,/right/x/path,ATTRIBUTE,a,EXTRA,,right-value",
@@ -626,6 +720,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: attribute value difference",
 
 						new Message(ERROR, XML_DIFFERENCE, "For attribute \"attr\", expected \"leftVal\", but got \"rightVal\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", ATTRIBUTE, "attr", VALUE, "leftVal", "rightVal"),
+
+						StatisticsGroup.XML_DIFFS, "attribute (attr) differs", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For attribute \"attr\", expected \"leftVal\", but got \"rightVal\"",
 
@@ -647,6 +743,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "missing text: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", null, TEXT, null, MISSING, "left-value", null),
 
+						StatisticsGroup.XML_DIFFS, "text missing", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(): missing text: \"left-value\"",
 
 						"ERROR,XML_DIFFERENCE,\"missing text: \"\"left-value\"\"\",left-file,right-file,/left/x/path,,TEXT,,MISSING,left-value,",
@@ -666,6 +764,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: extra text value",
 
 						new Message(ERROR, XML_DIFFERENCE, "extra text: \"right-value\"", new File("left-file"), new File("right-file"), null, "/right/x/path", TEXT, null, EXTRA, null, "right-value"),
+
+						StatisticsGroup.XML_DIFFS, "text extra", "/right/x/path",
 
 						"ERROR: left-file(), right-file(/right/x/path): extra text: \"right-value\"",
 
@@ -687,6 +787,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "For text, expected \"the left text\", but got \"the right text\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", TEXT, null, VALUE, "the left text", "the right text"),
 
+						StatisticsGroup.XML_DIFFS, "text differs", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For text, expected \"the left text\", but got \"the right text\"",
 
 						"ERROR,XML_DIFFERENCE,\"For text, expected \"\"the left text\"\", but got \"\"the right text\"\"\",left-file,right-file,/left/x/path,/right/x/path,TEXT,,VALUE,the left text,the right text",
@@ -706,6 +808,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: namespace-prefix difference",
 
 						new Message(TRIVIAL, XML_DIFFERENCE, "For namespace prefix, expected \"x\", but got \"y\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NAMESPACE_PREFIX, null, VALUE, "x", "y"),
+
+						StatisticsGroup.XML_DIFFS, "namespace prefix differs", "/left/x/path",
 
 						"TRIVIAL: left-file(/left/x/path), right-file(/right/x/path): For namespace prefix, expected \"x\", but got \"y\"",
 
@@ -728,6 +832,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "missing processing instruction: \"<?left-value?>\"", new File("left-file"), new File("right-file"), "/left/x/path", null, PROCESSING_INSTRUCTION, null, MISSING, "left-value", null),
 
+						StatisticsGroup.XML_DIFFS, "processing instruction missing", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(): missing processing instruction: \"<?left-value?>\"",
 
 						"ERROR,XML_DIFFERENCE,\"missing processing instruction: \"\"<?left-value?>\"\"\",left-file,right-file,/left/x/path,,PROCESSING_INSTRUCTION,,MISSING,left-value,",
@@ -747,6 +853,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: extra processing instruction",
 
 						new Message(ERROR, XML_DIFFERENCE, "extra processing instruction: \"<?right-value?>\"", new File("left-file"), new File("right-file"), null, "/right/x/path", PROCESSING_INSTRUCTION, null, EXTRA, null, "right-value"),
+
+						StatisticsGroup.XML_DIFFS, "processing instruction extra", "/right/x/path",
 
 						"ERROR: left-file(), right-file(/right/x/path): extra processing instruction: \"<?right-value?>\"",
 
@@ -768,6 +876,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "For processing instruction, expected target \"left-target\", but got \"right-target\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", PROCESSING_INSTRUCTION, null, PI_TARGET, "left-target", "right-target"),
 
+						StatisticsGroup.XML_DIFFS, "processing instruction differs", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For processing instruction, expected target \"left-target\", but got \"right-target\"",
 
 						"ERROR,XML_DIFFERENCE,\"For processing instruction, expected target \"\"left-target\"\", but got \"\"right-target\"\"\",left-file,right-file,/left/x/path,/right/x/path,PROCESSING_INSTRUCTION,,PI_TARGET,left-target,right-target",
@@ -787,6 +897,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: processing-instruction data difference",
 
 						new Message(ERROR, XML_DIFFERENCE, "For processing instruction with target \"the-target\", expected data \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", PROCESSING_INSTRUCTION, null, VALUE, "left-value", "right-value"),
+
+						StatisticsGroup.XML_DIFFS, "processing instruction differs", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For processing instruction with target \"the-target\", expected data \"left-value\", but got \"right-value\"",
 
@@ -809,6 +921,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "missing xsi:schemaLocation attribute: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, MISSING, "left-value", null),
 
+						StatisticsGroup.XML_DIFFS, "xsi:schemaLocation missing", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): missing xsi:schemaLocation attribute: \"left-value\"",
 
 						"ERROR,XML_DIFFERENCE,\"missing xsi:schemaLocation attribute: \"\"left-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,SCHEMA_LOCATION,,MISSING,left-value,",
@@ -829,6 +943,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "extra xsi:schemaLocation attribute: \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, EXTRA, null, "right-value"),
 
+						StatisticsGroup.XML_DIFFS, "xsi:schemaLocation extra", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): extra xsi:schemaLocation attribute: \"right-value\"",
 
 						"ERROR,XML_DIFFERENCE,\"extra xsi:schemaLocation attribute: \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,SCHEMA_LOCATION,,EXTRA,,right-value",
@@ -848,6 +964,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: xsi:schemaLocation value difference",
 
 						new Message(ERROR, XML_DIFFERENCE, "For xsi:schemaLocation attribute, expected value \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", SCHEMA_LOCATION, null, VALUE, "left-value", "right-value"),
+
+						StatisticsGroup.XML_DIFFS, "xsi:schemaLocation differs", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For xsi:schemaLocation attribute, expected value \"left-value\", but got \"right-value\"",
 
@@ -870,6 +988,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "missing xsi:noNamespaceSchemaLocation attribute: \"left-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, MISSING, "left-value", null),
 
+						StatisticsGroup.XML_DIFFS, "xsi:noNamespaceSchemaLocation missing", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): missing xsi:noNamespaceSchemaLocation attribute: \"left-value\"",
 
 						"ERROR,XML_DIFFERENCE,\"missing xsi:noNamespaceSchemaLocation attribute: \"\"left-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,NO_NAMESPACE_SCHEMA_LOCATION,,MISSING,left-value,",
@@ -889,6 +1009,8 @@ public class MessageTest {
 						"XML_DIFFERENCE: extra xsi:noNamespaceSchemaLocation attribute",
 
 						new Message(ERROR, XML_DIFFERENCE, "extra xsi:noNamespaceSchemaLocation attribute: \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, EXTRA, null, "right-value"),
+
+						StatisticsGroup.XML_DIFFS, "xsi:noNamespaceSchemaLocation extra", "/left/x/path",
 
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): extra xsi:noNamespaceSchemaLocation attribute: \"right-value\"",
 
@@ -910,6 +1032,8 @@ public class MessageTest {
 
 						new Message(ERROR, XML_DIFFERENCE, "For xsi:noNamespaceSchemaLocation attribute, expected value \"left-value\", but got \"right-value\"", new File("left-file"), new File("right-file"), "/left/x/path", "/right/x/path", NO_NAMESPACE_SCHEMA_LOCATION, null, VALUE, "left-value", "right-value"),
 
+						StatisticsGroup.XML_DIFFS, "xsi:noNamespaceSchemaLocation differs", "/left/x/path",
+
 						"ERROR: left-file(/left/x/path), right-file(/right/x/path): For xsi:noNamespaceSchemaLocation attribute, expected value \"left-value\", but got \"right-value\"",
 
 						"ERROR,XML_DIFFERENCE,\"For xsi:noNamespaceSchemaLocation attribute, expected value \"\"left-value\"\", but got \"\"right-value\"\"\",left-file,right-file,/left/x/path,/right/x/path,NO_NAMESPACE_SCHEMA_LOCATION,,VALUE,left-value,right-value",
@@ -927,14 +1051,44 @@ public class MessageTest {
 			});
 		}
 		
-		public MessageFormattingTests(String testName, Message inputMsg, String expText, String expCSV, String expXML) {
+		public MessageFormattingTests(String testName, Message inputMsg,
+				StatisticsGroup expStatsGroup, String expStatsKey, String expXpathStatsKey,
+				String expText, String expCSV, String expXML) {
 			this.testName = testName;
 			this.inputMsg = inputMsg;
+			this.expStatsGroup = expStatsGroup;
+			this.expStatsKey = expStatsKey;
+			this.expXpathStatsKey = expXpathStatsKey;
 			this.expText = expText;
 			this.expCSV = expCSV;
 			this.expXML = expXML;
 		}
+		
+		@Test
+		public void test_accumulateStatistics() {
+			System.out.println(testName);
+			
+			// Perform
+			MessageStatistics stats = new MessageStatistics();
+			inputMsg.accumulateStatistics(stats);
+			
+			// Test
+			if (this.expStatsKey.equals("(ignore)")) {
+				MessageStatisticsTest.assertStatsEmpty(stats);
+			} else {
+				MessageStatisticsTest.assertMainStatsContainOnly(stats, this.expStatsGroup, this.expStatsKey, 1);
+			}
 
+			if (this.expXpathStatsKey == null) {
+				MessageStatisticsTest.assertGroupEmpty(stats, BY_XPATH);
+			} else {
+				MessageStatisticsTest.assertXpathStatsContainOnly(stats, this.expXpathStatsKey, 1);
+			}
+		}
+		
+		// accumulateXpathStatistics() isn't tested here, but only in BasicTests.  There's not enough
+		// variability to be worth testing this method for each individual Message type.
+		
 		@Test
 		public void test_text_format() {
 			System.out.println(testName);

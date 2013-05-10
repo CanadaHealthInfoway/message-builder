@@ -34,10 +34,10 @@ import ca.infoway.messagebuilder.xml.ValueSet;
 public interface HtmlMessageSetRenderer {
 	public String writeInteraction(Interaction interaction, MessageSet messageSet);
 
-	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet);
-	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, Boolean excludeStructuralAttributes);
+	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet);
+	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes);
 
-	public String writeMessagePart(MessagePart messagePart, MessageSet messageSet);
+	public String writeMessagePart(MessagePart messagePart, MessageSet messageSet, DatatypeSet datatypeSet);
 
 	public String writeValueSet(ValueSet valueSet, MessageSet messageSet);
 	
@@ -45,13 +45,14 @@ public interface HtmlMessageSetRenderer {
 	
 	public String writeDatatype(Datatype datatype, DatatypeSet datatypeSet, MessageSet messageSet);
 	
-	public String writeSideNavBarScript(MessageSet messageSet,
+	public String writeSideNavBarScript(MessageSet messageSet, DatatypeSet datatypeSet,
 			Map<String, String> categoryNames);
 	
 	public String writeOuterStartFile(String pathToIndexPage, String indexFileName);
 	public String writeInnerStartFile(MessageSet messageSet);
 
 	public Map<String, InputStream> getStaticResourceFiles();
+	public Map<String, InputStream> getStaticDatatypeFiles(String datatypeVersion);
 	
 	public void setJavascriptPath(String javascriptPath);
 	public String getJavascriptPath();
@@ -62,6 +63,9 @@ public interface HtmlMessageSetRenderer {
 	public void setInteractionsPath(String interactionsPath);
 	public String getInteractionsPath();
 
+	public void setDatatypesPath(String datatypesPath);
+	public String getDatatypesPath();
+	
 	public void setResourcesPath(String resourcesPath);
 	public String getResourcesPath();
 	

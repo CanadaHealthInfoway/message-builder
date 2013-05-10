@@ -21,6 +21,7 @@ package ca.infoway.messagebuilder.html.generator;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.assertEquals;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +41,7 @@ import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DatatypeHtmlTest {
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	private DatatypeMifMarshaller marshaller = new DatatypeMifMarshaller();
 	private MifDatatypeModelLibrary uvDatatypeModel;
@@ -69,6 +71,100 @@ public class DatatypeHtmlTest {
 		
 		assertNotNull(html.write());
 		assertTrue(html.write().length() > 0);
+	}
+	
+	@Test
+	public void testShouldContainBasicHtmlStructure() {
+		Datatype datatype = testCADatatypeSet.getDatatype("CD.LAB");
+		DatatypeHtml html = new DatatypeHtml(datatype, testCADatatypeSet, testMessageSet);
+		String result = html.write();
+		
+		String headElement =
+				"<head>" +
+					"<title>Datatype: CD.LAB for: R02.04.00</title>" +
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/mystyle.css\"></link>" +
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/jquery-ui-1.8.21.custom.css\"></link>" +
+					"<script type=\"text/javascript\" src=\"../resources/js/jquery-1.7.2.js\"></script>" +
+					"<script type=\"text/javascript\" src=\"../resources/js/jquery-ui-1.8.21.custom.min.js\"></script>" +
+					"<script type=\"text/javascript\" src=\"../resources/js/jquery.jstree.js\"></script>" +
+					"<script type=\"text/javascript\" src=\"../resources/js/mainNavBar.js\"></script>" +
+				"</head>";
+		
+		String datatypeSummaryDiv =
+			"<div class=\"datatypeSummaryDiv\" id=\"datatypeSummary_CD.LAB\">" +
+				"<table class=\"datatypeSummaryTable\">" +
+					"<thead></thead>" +
+					"<tbody>" +
+						"<tr>" +
+							"<td class=\"detailsTableLabelCol\">Super Type:</td><td class=\"detailsTableValueCol\" colspan=\"3\">CD.UV</td>" +
+						"</tr>" +
+						"<tr>" +
+							"<td class=\"detailsTableLabelCol\">Usage notes:</td>" +
+							"<td class=\"detailsTableValueCol\" colspan=\"3\">" + LINE_SEPARATOR + 
+								"<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>" + LINE_SEPARATOR + 
+								"<p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>" + LINE_SEPARATOR + 
+								"<p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>" + LINE_SEPARATOR + 
+								"<p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>" + LINE_SEPARATOR + 
+							"</td>" +
+						"</tr>" +
+					"</tbody>" +
+				"</table>" +
+			"</div>";
+		
+		String staticExampleDiv =
+				"<div class=\"datatypeExampleDiv\">" +
+					"<h3 class=\"staticExampleHeader\">Example: </h3>" +
+					"<div class=\"datatypeExampleHeaderDiv\">a diagnosis of moderate to severe psoriasis of the face with sudden onset</div>" +
+					"<div class=\"datatypeExampleTextDiv\">" + LINE_SEPARATOR + 
+						"<pre>" +
+						"&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;402320002&apos;&gt;" + LINE_SEPARATOR + 
+						"	&lt;originalText&gt;Acute, moderate facial psoriasis&lt;/originalText&gt;" + LINE_SEPARATOR + 
+						"	&lt;qualifier&gt;" + LINE_SEPARATOR +
+						"		&lt;name codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;246100006&apos;/&gt;" + LINE_SEPARATOR +
+						"		&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;385315009&apos;/&gt;" + LINE_SEPARATOR + 
+						"	&lt;/qualifier&gt;" + LINE_SEPARATOR +
+						"	&lt;qualifier&gt;" + LINE_SEPARATOR +
+						"		&lt;name codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;246112005&apos;/&gt;" + LINE_SEPARATOR +
+						"		&lt;value codeSystem=&apos;2.16.840.1.113883.6.96&apos; code=&apos;371924009&apos;/&gt;" + LINE_SEPARATOR +
+						"	&lt;/qualifier&gt;" + LINE_SEPARATOR +
+						"&lt;/value&gt;" + LINE_SEPARATOR +
+						"</pre>" +
+					"</div>" +
+				"</div>";
+		
+		String expected=
+				"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">" +
+				"<html xmlns=\"http://www.w3.org/1999/xhtml\">" +
+					headElement +
+					"<body>" +
+						"<div id=\"wrapper\">" +
+							"<div id=\"headerDiv\" class=\"headerDiv\">" +
+								"<div id=\"iconDiv\" class=\"iconDiv\"></div>" +
+							"</div>" +
+							"<div id=\"container\" class=\"content\">" +
+								"<div id=\"metaDiv\" partname=\"CD.LAB\" packagename=\"CD-LAB\"></div>" +
+								"<div id=\"breadcrumbDiv\">" +
+									"<h2 class=\"breadcrumbHeader\">MessageSet Version: R02_04_03</h2>" +
+								"</div>" +
+								"<div id=\"page\">" +
+									"<div id=\"leftSideColumn\">" +
+										"<div id=\"navControlDiv\">" +
+											"<a id=\"toggleNavBarButton\" href=\"#\">[<<<]</a></div><div id=\"leftNavBar\">" +
+										"</div>" +
+									"</div>" +
+									"<div id=\"mainColumn\">" +
+										"<h2 class=\"titleHeader\">CD.LAB</h2>" +
+										"<h3 id=\"titleHeader-CD-LAB\" class=\"subTitleHeader\">(Coded Value (Lab))</h3>" +
+										datatypeSummaryDiv +
+										staticExampleDiv +
+									"</div>" +
+								"</div>" +
+							"</div>" +
+							"<div id=\"footerDiv\" class=\"footerDiv\"></div>" +
+						"</div>" +
+					"</body>" +
+				"</html>";
+		assertEquals(expected, result);
 	}
 	
 	private MifDatatypeModelLibrary getMifTestModel(InputStream input) throws IOException {

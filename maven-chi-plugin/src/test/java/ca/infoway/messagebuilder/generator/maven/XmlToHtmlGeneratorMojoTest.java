@@ -29,6 +29,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
@@ -83,6 +84,6 @@ public class XmlToHtmlGeneratorMojoTest {
 		mojo.messageSet = file;
 		mojo.execute();
 		
-		Mockito.verify(this.generator).execute(Mockito.any(MessageSet.class), Mockito.eq(mojo.htmlFolder), Mockito.anyBoolean());
+		Mockito.verify(this.generator).execute(Mockito.any(MessageSet.class), Mockito.any(DatatypeSet.class), Mockito.eq(mojo.htmlFolder), Mockito.anyBoolean());
 	}
 }

@@ -22,8 +22,7 @@ package ca.infoway.messagebuilder.mifcomparer;
 
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.DESCRIPTIONS_DIFFER;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.UNPAIRED_FILE;
-import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.ERROR;
-import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.WARNING;
+import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -138,7 +137,7 @@ public class MifDirectoryComparer {
 		 * At this point, we know that no entry in leftList *exactly* matches
 		 * any entry in rightList.
 		 *
-		 * We just compare the file pairs in order, but also emit a warning for each pair.
+		 * We just compare the file pairs in order.
 		 */
 		while (leftList.size() > 0 && rightList.size() > 0) {
 			MifFile left = leftList.get(0);
@@ -146,7 +145,12 @@ public class MifDirectoryComparer {
 			leftList.remove(left);
 			rightList.remove(right);
 			
-			msgs.add(new Message(WARNING, DESCRIPTIONS_DIFFER, "Different descriptions for same key", left, right));
+			if (!left.getDescription().equals(right.getDescription())) {
+				msgs.add(new Message(TRIVIAL, DESCRIPTIONS_DIFFER, "Different descriptions for same key", left, right));
+			} else {
+				// Do nothing.  If "-ignore-realms" option was passed, the realms might differ,
+				// but we don't report that since the user specifically asked to ignore the fact.
+			}
 			compareFiles(left, right, msgs);
 		}
 

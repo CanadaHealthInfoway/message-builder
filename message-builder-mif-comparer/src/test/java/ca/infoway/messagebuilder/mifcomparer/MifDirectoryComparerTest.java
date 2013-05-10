@@ -67,7 +67,7 @@ public class MifDirectoryComparerTest extends TestCase {
 				"INFO: "  + new File(leftDir, "dir2/BBBB_BB222222CA")		+ " - differing in name and content.mif, " +
 							new File(rightDir, "dirB/BBBB_BB222222CA")		+ " - differing in content and name.mif: Files differ",
 							
-				"WARNING: " + new File(leftDir, "dir2/BBBB_BB222222CA")		+ " - differing in name and content.mif, " +
+				"TRIVIAL: " + new File(leftDir, "dir2/BBBB_BB222222CA")		+ " - differing in name and content.mif, " +
 							  new File(rightDir, "dirB/BBBB_BB222222CA")	+ " - differing in content and name.mif: Different descriptions for same key",
 							  
 
@@ -109,7 +109,7 @@ public class MifDirectoryComparerTest extends TestCase {
 		};
 		expMsgs = new String[] {
 			"DEBUG: " + left[0].toString() + ", " + right[0].toString() + ": These files were paired up for comparison",
-			"WARNING: " + left[0].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
+			"TRIVIAL: " + left[0].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
 		};
 						
 		MifDirectoryComparer obj = createComparerFromFileLists(left, right);
@@ -172,7 +172,7 @@ public class MifDirectoryComparerTest extends TestCase {
 		expMsgs = new String[] {
 			"DEBUG: " + left[0].toString() + ", " + right[1].toString() + ": These files were paired up for comparison",
 			"DEBUG: " + left[1].toString() + ", " + right[0].toString() + ": These files were paired up for comparison",
-			"WARNING: " + left[1].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
+			"TRIVIAL: " + left[1].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
 		};
 						
 		MifDirectoryComparer obj = createComparerFromFileLists(left, right);
@@ -215,8 +215,8 @@ public class MifDirectoryComparerTest extends TestCase {
 		expMsgs = new String[] {
 				"DEBUG: " + left[0].toString() + ", " + right[0].toString() + ": These files were paired up for comparison",
 				"DEBUG: " + left[1].toString() + ", " + right[1].toString() + ": These files were paired up for comparison",
-				"WARNING: " + left[0].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
-				"WARNING: " + left[1].toString() + ", " + right[1].toString() + ": Different descriptions for same key",
+				"TRIVIAL: " + left[0].toString() + ", " + right[0].toString() + ": Different descriptions for same key",
+				"TRIVIAL: " + left[1].toString() + ", " + right[1].toString() + ": Different descriptions for same key",
 		};
 						
 		MifDirectoryComparer obj = createComparerFromFileLists(left, right);

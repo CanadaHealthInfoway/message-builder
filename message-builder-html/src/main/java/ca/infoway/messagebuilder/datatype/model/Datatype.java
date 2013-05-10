@@ -22,6 +22,12 @@ package ca.infoway.messagebuilder.datatype.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Root;
+
 import ca.infoway.messagebuilder.datatype.mif.MifAnnotations;
 import ca.infoway.messagebuilder.datatype.mif.MifAppInfo;
 import ca.infoway.messagebuilder.datatype.mif.MifBasicAnnotation;
@@ -29,25 +35,37 @@ import ca.infoway.messagebuilder.datatype.mif.MifDatatype;
 import ca.infoway.messagebuilder.datatype.mif.MifDerivedFrom;
 import ca.infoway.messagebuilder.datatype.mif.MifDocumentation;
 import ca.infoway.messagebuilder.datatype.mif.MifFormalConstraint;
+import ca.infoway.messagebuilder.datatype.mif.MifHttpParagraph;
 import ca.infoway.messagebuilder.datatype.mif.MifStaticExample;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Documentation;
 
+@Root(strict=false)
 public class Datatype {
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	
+	@Attribute(required=false)
 	private Boolean isAbstract;
-	
+	@Attribute(required=false)
 	private String name;
-	
+	@Attribute(required=false)
 	private String businessName;
-	
+	@Attribute(required=false)
 	private String visibility;
+	@Attribute(required=false)
+	private String superType;
+	@Attribute(required=false)
+	private Boolean isMerged = false;
 	
+	@Element(required=false)
 	private Documentation documentation;
 	
-	private List<StaticExampleAnnotation> staticExamples = new ArrayList<StaticExampleAnnotation>(); 
+	@ElementList(name="staticExample",required=false,inline=true,entry="staticExampleEntry") 
+	private List<StaticExampleAnnotation> staticExamples = new ArrayList<StaticExampleAnnotation>();
 	
-	private String superType;
+	@Element(required=false)
+	private Datatype parentDatatype;
 	
 	public Datatype(){}
 	
@@ -59,20 +77,34 @@ public class Datatype {
 		this.superType = determineSuperType(mifDatatype.getDerivedFrom());
 		this.documentation = createDocumentation(mifDatatype.getAnnotations());
 		this.staticExamples = createStaticExamples(mifDatatype.getAnnotations());
+		this.isMerged = false;
+	}
+	
+	public Datatype(MifDatatype mifDatatype, DatatypeSet parentDatatypeSet) {
+		this(mifDatatype);
+		if (getSuperType() != null && parentDatatypeSet != null) {
+			this.parentDatatype = parentDatatypeSet.getDatatype(getSuperType());
+			if (this.parentDatatype != null) { 
+				if (this.getName().equals(getParentDatatype().getName())) {
+					getDocumentation().getAnnotations().addAll(getParentDatatype().getDocumentation().getAnnotations());
+					this.superType = getParentDatatype().getSuperType();
+					this.isMerged = true;
+				}
+			}
+		}
 	}
 	
 
 	private List<StaticExampleAnnotation> createStaticExamples(MifAnnotations annotations) {
 		List<StaticExampleAnnotation> result = new ArrayList<StaticExampleAnnotation>();
-		if (annotations != null) {
+		if (annotations != null && annotations.getAppInfo() != null) {
 			MifAppInfo appInfo = annotations.getAppInfo();
-			if (appInfo != null) {
-				List<MifStaticExample> staticExamples = appInfo.getStaticExamples();
-				for (MifStaticExample mifStaticExample : staticExamples) {
-					Annotation annotation = createAnnotation(AnnotationType.STATIC_EXAMPLE, mifStaticExample);
-					StaticExampleAnnotation staticExampleAnnotation = new StaticExampleAnnotation(annotation, mifStaticExample.getBusinessName()==null?"":mifStaticExample.getBusinessName().getValue());
-					result.add(staticExampleAnnotation);
-				}
+			List<MifStaticExample> staticExamples = appInfo.getStaticExamples();
+			for (MifStaticExample mifStaticExample : staticExamples) {
+				Annotation annotation = createAnnotation(AnnotationType.STATIC_EXAMPLE, mifStaticExample);
+				StaticExampleAnnotation staticExampleAnnotation = new StaticExampleAnnotation(
+						annotation, mifStaticExample.getBusinessName()==null?"":mifStaticExample.getBusinessName().getName());
+				result.add(staticExampleAnnotation);			
 			}
 		}
 		return result;
@@ -83,6 +115,12 @@ public class Datatype {
 		
 		result.setBusinessName(getBusinessName());
 		
+		addAnnotations(annotations, result);	
+
+		return result;
+	}
+
+	private void addAnnotations(MifAnnotations annotations, Documentation documentation) {
 		if (annotations != null) {		
 			MifDocumentation mifDocumentation = annotations.getDocumentation();
 			
@@ -90,30 +128,30 @@ public class Datatype {
 				//ADD BASIC ANNOTATIONS
 				Annotation definition = createAnnotation(AnnotationType.DEFINITION, mifDocumentation.getDefinition());
 				if (definition != null) {
-					result.getAnnotations().add(definition);
+					documentation.getAnnotations().add(definition);
 				}
 				Annotation description = createAnnotation(AnnotationType.DESCRIPTION, mifDocumentation.getDescription());
 				if (description != null) {
-					result.getAnnotations().add(description);
+					documentation.getAnnotations().add(description);
 				}
 				Annotation rationale = createAnnotation(AnnotationType.RATIONALE, mifDocumentation.getRationale());
 				if (rationale != null) {
-					result.getAnnotations().add(rationale);
+					documentation.getAnnotations().add(rationale);
 				}
 				Annotation requirements = createAnnotation(AnnotationType.REQUIREMENTS, mifDocumentation.getRequirements());
 				if (requirements != null) {
-					result.getAnnotations().add(requirements);
+					documentation.getAnnotations().add(requirements);
 				}
 				Annotation walkthrough = createAnnotation(AnnotationType.WALKTHROUGH, mifDocumentation.getWalkthrough());
 				if (walkthrough != null) {
-					result.getAnnotations().add(walkthrough);
+					documentation.getAnnotations().add(walkthrough);
 				}
 				
 				List<MifBasicAnnotation> usageNotes = mifDocumentation.getUsageNotes();
 				for (MifBasicAnnotation usageNote : usageNotes) {
 					Annotation usageNoteAnnotation = createAnnotation(AnnotationType.USAGE_NOTES, usageNote);
 					if (usageNoteAnnotation != null) {
-						result.getAnnotations().add(usageNoteAnnotation);
+						documentation.getAnnotations().add(usageNoteAnnotation);
 					}
 				}
 				
@@ -121,7 +159,7 @@ public class Datatype {
 				for (MifBasicAnnotation designComment : designComments) {
 					Annotation designCommentAnnotation = createAnnotation(AnnotationType.DESIGN_COMMENTS, designComment);
 					if (designCommentAnnotation != null) { 
-						result.getAnnotations().add(designCommentAnnotation);
+						documentation.getAnnotations().add(designCommentAnnotation);
 					}
 				}
 				
@@ -129,7 +167,7 @@ public class Datatype {
 				for (MifBasicAnnotation usageConstraint : usageConstraints) {
 					Annotation usageConstraintAnnotation = createAnnotation(AnnotationType.USAGE_CONSTRAINT, usageConstraint);
 					if (usageConstraintAnnotation != null) {
-						result.getAnnotations().add(usageConstraintAnnotation);
+						documentation.getAnnotations().add(usageConstraintAnnotation);
 					}
 				}
 			}
@@ -140,14 +178,11 @@ public class Datatype {
 				for (MifFormalConstraint mifFormalConstraint : formalConstraints) {
 					Annotation formalConstraint = createAnnotation(AnnotationType.CONSTRAINT, mifFormalConstraint);
 					if (formalConstraint != null) {
-						result.getAnnotations().add(formalConstraint);
+						documentation.getAnnotations().add(formalConstraint);
 					}
 				}
 			}
-		}	
-			
-		
-		return result;
+		}
 	}
 
 	private Annotation createAnnotation(AnnotationType type, MifStaticExample example) {
@@ -161,7 +196,16 @@ public class Datatype {
 		if (mifBasicDefinition != null) {
 			Annotation result = new Annotation();
 			result.setAnnotationTypeAsEnum(type);
-			result.setText(mifBasicDefinition.getText().getValue());
+			String textValue = mifBasicDefinition.getText().getValue();
+			if (StringUtils.isNotBlank(textValue)) {
+				result.setText(textValue);
+			} else {
+				String paragraphValue = "" + LINE_SEPARATOR;
+				for (MifHttpParagraph mifHttpParagraph : mifBasicDefinition.getText().getParagraphs()) {
+					paragraphValue += "<p>" + mifHttpParagraph.getValue() + "</p>" + LINE_SEPARATOR;
+				}
+				result.setText(paragraphValue);
+			}
 			return result;
 		}
 		return null;
@@ -229,5 +273,21 @@ public class Datatype {
 
 	public void setStaticExamples(List<StaticExampleAnnotation> staticExamples) {
 		this.staticExamples = staticExamples;
+	}
+
+	public Datatype getParentDatatype() {
+		return parentDatatype;
+	}
+
+	public void setParentDatatype(Datatype parentDatatype) {
+		this.parentDatatype = parentDatatype;
+	}
+
+	public Boolean getIsMerged() {
+		return isMerged;
+	}
+
+	public void setIsMerged(Boolean isMerged) {
+		this.isMerged = isMerged;
 	}
 }

@@ -25,10 +25,13 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PAGE_DIV_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -63,14 +66,22 @@ public class InteractionHtml extends BaseHtmlGenerator{
 	}
 	
 	public InteractionHtml(Interaction interaction, MessageSet messageSet, 
-			String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, javascriptPath, resourcesPath);
+			String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath) {
+		super(interactionsPath, messagePartsPath, datatypesPath, javascriptPath, resourcesPath);
 		this.interaction = interaction;
 		this.messageSet = messageSet;
 	}
 	
+	@Override
 	public String write(){
 		return writeInteraction().write();
+	}
+	
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
 	}
 	
 	private Document writeInteraction() {
@@ -191,7 +202,7 @@ public class InteractionHtml extends BaseHtmlGenerator{
 			tBody.appendChild(createDataRow("Responses:", new Text("Not Applicable"), ""));
 		}
 		
-		addAnnotationDetails(interaction.getDocumentation(), tBody);
+		addAnnotationDetails(interaction.getDocumentation(), "Note:", tBody);
 		
 		detailsTable.appendChild(tBody);
 		

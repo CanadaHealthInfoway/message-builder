@@ -19,6 +19,11 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import ca.infoway.messagebuilder.xml.AnnotationType;
+
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
 import com.hp.gagawa.java.elements.Link;
@@ -36,10 +41,17 @@ public class StartPageRedirectHtml extends BaseHtmlGenerator {
 	
 	@Override
 	public String write() {
-		return this.writeOuterStartFile();
+		return this.writeOuterStartFile().write();
 	}
 
-	public String writeOuterStartFile() {
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
+	}
+	
+	public Document writeOuterStartFile() {
 		Document doc = new Document(DocumentType.HTMLStrict);
 		
 		Title title = new Title();
@@ -55,7 +67,7 @@ public class StartPageRedirectHtml extends BaseHtmlGenerator {
 		doc.head.appendChild(cssLink);
 		doc.head.appendChild(redirectScript);
 		
-		return doc.write();
+		return doc;
 	}
 
 	public String getPathToIndexPage() {

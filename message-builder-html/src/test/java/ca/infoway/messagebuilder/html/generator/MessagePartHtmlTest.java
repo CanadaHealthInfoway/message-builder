@@ -28,6 +28,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -43,12 +44,14 @@ import com.hp.gagawa.java.elements.Table;
 @RunWith(MockitoJUnitRunner.class)
 public class MessagePartHtmlTest {
 	private MessageSet testMessageSet;
+	private DatatypeSet testDatatypeSet;
 	
 	@Before
 	public void setUp() throws Exception {
 		MessageSetMarshaller marshaller = new MessageSetMarshaller();
 		InputStream resourceAsStream = getClass().getResourceAsStream("/test_messageSet.xml");
-		testMessageSet = marshaller.unmarshall(resourceAsStream);		
+		testMessageSet = marshaller.unmarshall(resourceAsStream);
+		testDatatypeSet = new DatatypeSet();
 	}
 	
 	@Test
@@ -60,7 +63,7 @@ public class MessagePartHtmlTest {
 		testAnnotation.setAnnotationTypeAsEnum(AnnotationType.RATIONALE);
 		testPart.getDocumentation().getAnnotations().add(testAnnotation);
 		testPart.getDocumentation().setBusinessName("this is a part for test");
-		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, testDatatypeSet, false);
 		String result = html.write();
 		
 		String expectedMetaHtml
@@ -137,7 +140,7 @@ public class MessagePartHtmlTest {
 		testRelationship.setDocumentation(documentation);
 		testPart.getRelationships().add(testRelationship);
 		
-		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, false);	
+		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, testDatatypeSet, false);	
 		Div mainContentDiv = new Div();
 		html.addRelationshipsSection(mainContentDiv);
 		String result = mainContentDiv.write();
@@ -178,7 +181,7 @@ public class MessagePartHtmlTest {
 		testRelationship.setType("CV");
 		testPart.getRelationships().add(testRelationship);
 		
-		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, testDatatypeSet, false);
 		
 		Li messagePartTOC = html.createMessagePartTOCList();
 		String result = messagePartTOC.write();
@@ -206,7 +209,7 @@ public class MessagePartHtmlTest {
 		testRelationship.getChoices().add(choiceRelationship);
 		testPart.getRelationships().add(testRelationship);
 		
-		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(testPart, testMessageSet, testDatatypeSet, false);
 		
 		Li messagePartTOC = html.createMessagePartTOCList();
 		String result = messagePartTOC.write();
@@ -238,7 +241,7 @@ public class MessagePartHtmlTest {
 		
 		MessagePart messagePart = testMessageSet.getMessagePart("FICR_MT600201CA.PaymentRequest");
 				
-		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Li msgPartTOC = html.createMessagePartTOCList();
 		
@@ -252,7 +255,7 @@ public class MessagePartHtmlTest {
 		
 		Relationship relationship = messagePart.getRelationship("id");
 		
-		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Table result = html.createRelationshipTable(relationship);
 		
@@ -266,7 +269,7 @@ public class MessagePartHtmlTest {
 		
 		Relationship relationship = messagePart.getRelationship("id");
 		
-		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Table result = html.createRelationshipTable(relationship);
 		
@@ -280,7 +283,7 @@ public class MessagePartHtmlTest {
 		
 		Relationship relationship = messagePart.getRelationship("code");
 		
-		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Table result = html.createRelationshipTable(relationship);
 		Assert.assertTrue("Coded Data Type Details Row", result.write().contains("<tr><td class=\"detailsTableLabelCol\">Coding Strength:</td><td class=\"detailsTableValueCol\">CNE</td><td class=\"detailsTableLabelCol\">Concept Domain</td><td class=\"detailsTableValueCol\">ActInvoiceDetailCode</td></tr>"));
@@ -291,7 +294,7 @@ public class MessagePartHtmlTest {
 	public void shouldShowDefinitionAnnotationAsNote() throws Exception {
 		MessagePart messagePart = testMessageSet.getMessagePart("FICR_MT600201CA.PatientConsent");
 		
-		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, false);
+		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		String result = html.write();
 		

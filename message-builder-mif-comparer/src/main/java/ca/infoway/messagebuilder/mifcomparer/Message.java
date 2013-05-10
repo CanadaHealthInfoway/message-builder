@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.TEXT;
 import static ca.infoway.messagebuilder.mifcomparer.Message.ObjectType.ELEMENT;
 import static ca.infoway.messagebuilder.mifcomparer.Message.DifferenceType.*;
 import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.*;
+import static ca.infoway.messagebuilder.mifcomparer.MessageStatistics.StatisticsGroup.*;
 
 import java.io.File;
 import java.util.Arrays;
@@ -139,10 +140,17 @@ class Message {
 	public enum Severity { DEBUG, INFO, TRIVIAL, WARNING, ERROR, FATAL };
 	public static final Severity MINIMUM_SEVERITY = Severity.values()[0];
 
-	//FIXME: XML_DIFFERENCE_OLD should go away
 	public enum MessageType {
 		UNPAIRED_FILE, UNRECOGNIZED_FILE_TYPE, IGNORED_FILE, DESCRIPTIONS_DIFFER,
-		FILE_SUMMARY, XML_ERROR, XML_DIFFERENCE, PROGRESS, INTERNAL_ERROR, FILTER, TESTING_CODE
+		FILE_SUMMARY, XML_ERROR, XML_DIFFERENCE, PROGRESS, INTERNAL_ERROR, FILTER, TESTING_CODE,
+		;
+		
+		public String toFriendlyString() {
+			String s = super.toString().toLowerCase();
+			s = s.replaceAll("_", " ");
+			s = s.replaceAll("\\bxml\\b", "XML");				// Preceding .toLowerCase() overdid it just a bit
+			return s;
+		}
 	};
 
 	public enum ObjectType {
@@ -150,7 +158,18 @@ class Message {
 		ELEMENT, ATTRIBUTE, TEXT, PROCESSING_INSTRUCTION,
 
 		// These don't correspond to Node types -- they're basically special kinds of XML attributes, which we distinguish but the DOM doesn't
-		NAMESPACE_PREFIX, SCHEMA_LOCATION, NO_NAMESPACE_SCHEMA_LOCATION,
+		NAMESPACE_PREFIX,
+		SCHEMA_LOCATION {
+			public String toFriendlyString() {
+				return "xsi:schemaLocation";
+			}
+		},
+				
+		NO_NAMESPACE_SCHEMA_LOCATION {
+			public String toFriendlyString() {
+				return "xsi:noNamespaceSchemaLocation";
+			}
+		},
 
 		// Node types that we don't care about; they're here only so that there exists an ObjectType corresponding to every org.w3c.dom.Node type
 		DOCUMENT_TYPE, DOCUMENT, DOCUMENT_FRAGMENT, COMMENT, CDATA_SECTION,
@@ -446,6 +465,91 @@ class Message {
 		
 		String s = o.toString();
 		return StringEscapeUtils.escapeXml(s);
+	}
+	
+	private String classifyXmlDifference() {
+		String objDesc = this.objType.toFriendlyString();
+		if (this.objType == ELEMENT || this.objType == ATTRIBUTE)
+			objDesc += String.format(" (%s)", this.objName);
+		
+		switch (this.diffType) {
+		case EXTRA:
+			return objDesc + " extra";
+
+		case MISSING:
+			return objDesc + " missing";
+
+		case VALUE:
+		case PI_TARGET:
+			return objDesc + " differs";
+
+		default:
+			return "other XML difference";
+		}
+	}
+	
+	public void accumulateStatistics(MessageStatistics stats) {
+		if (accumulateMainStatistics(stats))
+			accumulateXpathStatistics(stats);
+	}
+	
+	boolean accumulateMainStatistics(MessageStatistics stats) {
+		boolean wasTallied = false;
+
+		switch (this.msgType) {
+			case PROGRESS:
+			case TESTING_CODE:
+				break;      // don't count these
+
+			case INTERNAL_ERROR:
+			case DESCRIPTIONS_DIFFER:
+				stats.tally(OTHER, this.msgType.toFriendlyString());
+				wasTallied = true;
+				break;
+
+			case FILTER:
+				if (this.severity.compareTo(Severity.INFO) > 0) {
+					stats.tally(OTHER, "filter messages");
+					wasTallied = true;
+				}
+
+				break;
+
+			case IGNORED_FILE:
+			case UNPAIRED_FILE:
+			case XML_ERROR:
+				stats.tally(PER_FILE, this.msgType.toFriendlyString());
+				wasTallied = true;
+				break;
+
+			case UNRECOGNIZED_FILE_TYPE:
+				stats.tally(PER_FILE, "unrecognized filename pattern");
+				wasTallied = true;
+				break;
+				
+			case FILE_SUMMARY:
+				stats.tally(PER_FILE, this.message.toLowerCase());
+				wasTallied = true;
+				break;
+
+			case XML_DIFFERENCE:
+				stats.tally(XML_DIFFS, this.classifyXmlDifference());
+				wasTallied = true;
+				break;
+
+			default:
+				break;              // Don't count unrecognized ones
+		}
+
+		return wasTallied;
+	}
+	
+	void accumulateXpathStatistics(MessageStatistics stats) {
+		String xpath = sides[0].xpath != null ? sides[0].xpath : sides[1].xpath;
+		if (xpath != null) {
+			String generalizedXpath = xpath.replaceAll("\\[[0-9]+\\]", "[?]");
+			stats.tally(BY_XPATH, generalizedXpath);
+		}			
 	}
 	
 	/**

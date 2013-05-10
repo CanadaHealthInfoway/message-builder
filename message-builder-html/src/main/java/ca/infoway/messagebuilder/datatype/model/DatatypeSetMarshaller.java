@@ -17,7 +17,7 @@
  * Last modified: $LastChangedDate: 2013-01-02 17:05:34 -0500 (Wed, 02 Jan 2013) $
  * Revision:      $LastChangedRevision: 6471 $
  */
-package ca.infoway.messagebuilder.datatype.mif;
+package ca.infoway.messagebuilder.datatype.model;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,13 +28,13 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
-public class DatatypeMifMarshaller {
+public class DatatypeSetMarshaller {
 	
-	private Serializer serializer = new Persister(new AnnotationStrategy());
+	Serializer serializer = new Persister(new AnnotationStrategy());
 	
-	public MifDatatypeModelLibrary unmarshallDatatypeModel(File inputFile) throws IOException {
+	public DatatypeSet unmarshallDatatypeModel(File inputFile) throws IOException {
 		try {
-			return (MifDatatypeModelLibrary) this.serializer.read(MifDatatypeModelLibrary.class, inputFile);
+			return (DatatypeSet) this.serializer.read(DatatypeSet.class, inputFile);
 		} catch (IOException e) {
 			throw e;
 		} catch (Exception e) {
@@ -42,9 +42,9 @@ public class DatatypeMifMarshaller {
 		}
 	}
 	
-	public MifDatatypeModelLibrary unmarshallDatatypeModel(InputStream input) throws IOException {
+	public DatatypeSet unmarshallDatatypeModel(InputStream input) throws IOException {
 		try {
-			return (MifDatatypeModelLibrary) this.serializer.read(MifDatatypeModelLibrary.class, input);
+			return (DatatypeSet) this.serializer.read(DatatypeSet.class, input);
 		} catch (IOException e) {
 			throw e;
 		} catch (Exception e) {
@@ -52,7 +52,7 @@ public class DatatypeMifMarshaller {
 		}
 	}
 
-	public void marshall(MifDatatypeModelLibrary model, OutputStream outputStream) throws IOException {
+	public void marshall(DatatypeSet model, OutputStream outputStream) throws IOException {
 		try {
 			this.serializer.write(model, outputStream);
 		} catch (IOException e) {

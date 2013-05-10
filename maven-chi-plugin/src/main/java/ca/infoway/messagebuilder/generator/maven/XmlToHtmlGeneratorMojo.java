@@ -26,6 +26,9 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
+import ca.infoway.messagebuilder.datatype.mif.DatatypeMifMarshaller;
+import ca.infoway.messagebuilder.datatype.mif.MifDatatypeModelLibrary;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
@@ -38,7 +41,7 @@ import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 public class XmlToHtmlGeneratorMojo extends AbstractMojo {
 
     /**
-     * The output directory for the generated svg files.
+     * The output directory for the generated html files.
      * 
      * @parameter
      * @required
@@ -46,12 +49,33 @@ public class XmlToHtmlGeneratorMojo extends AbstractMojo {
     File htmlFolder;
 	
     /**
-     * The messageSet used to derive diagrams.
+     * The messageSet used to derive html.
      * 
      * @parameter
      * @required
      */
     File messageSet;
+    
+    /**
+     * The datatype coremif used to derive html.
+     * 
+     * @parameter
+     */
+    File datatypeCoremif;
+    
+    /**
+     * The canadian parent datatype coremif used to derive html.
+     * 
+     * @parameter
+     */
+    File caDatatypeCoremif;
+    
+    /**
+     * The universal parent datatype coremif used to derive html.
+     * 
+     * @parameter
+     */
+    File uvDatatypeCoremif;
     
     /**
      * The messageSet used to derive diagrams.
@@ -84,7 +108,24 @@ public class XmlToHtmlGeneratorMojo extends AbstractMojo {
 	private void generate() throws MojoExecutionException {
 		try {
 			MessageSet messageSet = new MessageSetMarshaller().unmarshall(this.messageSet);
-			this.factory.create(new OutputUIImpl(this)).execute(messageSet, this.htmlFolder, this.excludeStructuralAttributes);
+			DatatypeSet datatypeSet = null;
+			if (this.uvDatatypeCoremif != null && this.caDatatypeCoremif != null && this.datatypeCoremif != null) {
+				MifDatatypeModelLibrary	uvDatatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.uvDatatypeCoremif);
+				MifDatatypeModelLibrary caDatatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.caDatatypeCoremif);
+				MifDatatypeModelLibrary datatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.datatypeCoremif);
+				DatatypeSet uvDatatypeSet = new DatatypeSet(uvDatatypeCoreMifLib);
+				DatatypeSet caDatatypeSet = new DatatypeSet(uvDatatypeSet, caDatatypeCoreMifLib);
+				datatypeSet = new DatatypeSet(caDatatypeSet, datatypeCoreMifLib);
+			} else if (this.uvDatatypeCoremif != null && this.datatypeCoremif != null) {
+				MifDatatypeModelLibrary uvDatatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.uvDatatypeCoremif);
+				MifDatatypeModelLibrary datatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.datatypeCoremif);
+				DatatypeSet parentDatatypeSet = new DatatypeSet(uvDatatypeCoreMifLib);
+				datatypeSet = new DatatypeSet(parentDatatypeSet, datatypeCoreMifLib);
+			} else if (this.datatypeCoremif != null) {
+				MifDatatypeModelLibrary datatypeCoreMifLib = new DatatypeMifMarshaller().unmarshallDatatypeModel(this.datatypeCoremif);
+				datatypeSet = new DatatypeSet(datatypeCoreMifLib);
+			}
+			this.factory.create(new OutputUIImpl(this)).execute(messageSet, datatypeSet, this.htmlFolder, this.excludeStructuralAttributes);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);
 		} catch (Exception e) {

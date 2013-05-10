@@ -29,11 +29,15 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.TOC_LIST_ITEM_CLASS;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -59,11 +63,13 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 
 	private MessagePart messagePart;
 	private MessageSet messageSet;
+	private DatatypeSet datatypeSet;
 	private Boolean excludeStructuralAttributes;
 	
-	public MessagePartHtml(MessagePart messagePart, MessageSet messageSet, Boolean excludeStructuralAttributes) {
+	public MessagePartHtml(MessagePart messagePart, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes) {
 		this.messagePart = messagePart;
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		if (excludeStructuralAttributes == null) {
 			this.excludeStructuralAttributes = false;
 		} else { 
@@ -71,10 +77,11 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 		}
 	}
 	
-	public MessagePartHtml(MessagePart messagePart, MessageSet messageSet, Boolean excludeStructuralAttributes,
-			String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, javascriptPath, resourcesPath);
+	public MessagePartHtml(MessagePart messagePart, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes,
+			String interactionsPath, String packagesPath, String datatypesPath, String javascriptPath, String resourcesPath) {
+		super(interactionsPath, packagesPath, datatypesPath, javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		this.messagePart = messagePart;
 		if (excludeStructuralAttributes == null) {
 			this.excludeStructuralAttributes = false;
@@ -88,6 +95,13 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 		return writeMessagePart().write();
 	}
 
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
+	}
+	
 	protected Document writeMessagePart() {
 		Document doc = new Document(DocumentType.HTMLStrict);
 	
@@ -254,7 +268,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 			
 		}
 		
-		numRows+=addAnnotationDetails(messagePart.getDocumentation(), tBody);
+		numRows+=addAnnotationDetails(messagePart.getDocumentation(), "Note:", tBody);
 		if (numRows > 0) {
 			result.appendChild(tBody);
 			return result;
@@ -294,7 +308,14 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 //		tBody.appendChild(createDataRow("Business Name:", new Text(getBusinessName(relationship.getDocumentation())), ""));			
 		
 		if (relationship.isAttribute()) {
-			tBody.appendChild(createDataRow("Data Type:", new Text(StringEscapeUtils.escapeHtml(relationship.getType())), ""));
+			if (getDatatypeSet() != null && getDatatypeSet().getDatatype(relationship.getType()) != null) {
+				tBody.appendChild(createDataRow("Data Type:", 
+						createLink(getDatatypeUrl(relationship.getType()), 
+								new Text(StringEscapeUtils.escapeHtml(relationship.getType())), "detailsRow", 
+								"detailsRow_"+relationship.getType()), ""));
+			} else {
+				tBody.appendChild(createDataRow("Data Type:", new Text(StringEscapeUtils.escapeHtml(relationship.getType())), ""));
+			}
 			if (relationship.isFixed()) {
 				tBody.appendChild(createDataRow("Fixed Value:", new Text(relationship.getFixedValue()), 
 						"This member is fixed to " + relationship.getFixedValue()));
@@ -309,7 +330,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 			if (StringUtils.isNotBlank(relationship.getType()))	{
 				tBody.appendChild(createDataRow("Target:", 
 						createLink(getMessagePartUrl(relationship.getType()), 
-								new Text(relationship.getType()), "detailsRow", relationship.getType()), ""));
+								new Text(relationship.getType()), "detailsRow", "detailsRow_" + relationship.getType()), ""));
 			} else if (StringUtils.isBlank(relationship.getType()) && StringUtils.isNotBlank(relationship.getTemplateParameterName())) {
 				tBody.appendChild(createDataRow("Data Type:", new Text(relationship.getTemplateParameterName()), ""));
 			}
@@ -350,7 +371,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 			if (StringUtils.isNotBlank(relationship.getDocumentation().getTitle())){
 				tBody.appendChild(createDataRow("Title:", new Text(relationship.getDocumentation().getTitle()), ""));
 			}
-			addAnnotationDetails(relationship.getDocumentation(), tBody);
+			addAnnotationDetails(relationship.getDocumentation(), "Note:", tBody);
 		}
 		
 		result.appendChild(tBody);
@@ -422,5 +443,13 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 
 	public void setExcludeStructuralAttributes(Boolean excludeStructuralAttributes) {
 		this.excludeStructuralAttributes = excludeStructuralAttributes;
+	}
+
+	public DatatypeSet getDatatypeSet() {
+		return datatypeSet;
+	}
+
+	public void setDatatypeSet(DatatypeSet datatypeSet) {
+		this.datatypeSet = datatypeSet;
 	}
 }

@@ -40,7 +40,11 @@ public class MifFileTest extends TestCase {
 		
 		assertNotNull(mf);
 		assertEquals(f, mf.getFile());
-		assertEquals("PRPA_IN101001CA", mf.getKey());
+		assertEquals("PR", mf.getSubSection());
+		assertEquals("PA", mf.getDomain());
+		assertEquals("IN", mf.getArtifact());
+		assertEquals("101001", mf.getId());
+		assertEquals("CA", mf.getRealm());
 		assertEquals("New Person Added Notification", mf.getDescription());
 	}
 	
@@ -51,24 +55,32 @@ public class MifFileTest extends TestCase {
 		
 		assertNotNull(mf);
 		assertEquals(f, mf.getFile());
-		assertEquals("PRPA_IN101001CA", mf.getKey());
-		assertNull(mf.getDescription());
+		assertEquals("PR", mf.getSubSection());
+		assertEquals("PA", mf.getDomain());
+		assertEquals("IN", mf.getArtifact());
+		assertEquals("101001", mf.getId());
+		assertEquals("CA", mf.getRealm());
+		assertEquals("", mf.getDescription());
 	}
 	
 	@Test
-	public void that_constructor_accepts_an_ON_key() {
+	public void that_constructor_accepts_an_ON_realm() {
 		File f = new File("Volume 4 Client Registry/PRPA_IN101001ON - New Person Added Notification.mif");
 		MifFile mf = new MifFile(f);
 		
 		assertNotNull(mf);
 		assertEquals(f, mf.getFile());
-		assertEquals("PRPA_IN101001ON", mf.getKey());
+		assertEquals("PR", mf.getSubSection());
+		assertEquals("PA", mf.getDomain());
+		assertEquals("IN", mf.getArtifact());
+		assertEquals("101001", mf.getId());
+		assertEquals("ON", mf.getRealm());
 		assertEquals("New Person Added Notification", mf.getDescription());
 	}
 	
 	@Test
-	public void that_constructor_rejects_an_invalid_key() {
-		File f = new File("Volume 4 Client Registry/PRPA_IN10001CA - New Person Added Notification.mif");
+	public void that_constructor_rejects_an_invalid_pathname() {
+		File f = new File("Volume 4 Client Registry/PRPA_IN10001CA - New Person Added Notification.mif");	// Invalid ID -- only 5 digits
 		
 		exception.expect(IllegalArgumentException.class);
 		MifFile mf = new MifFile(f);
@@ -91,7 +103,11 @@ public class MifFileTest extends TestCase {
 		assertEquals(exp, mf.getDirname());
 
 		assertEquals("AAAA_BB111111CA - desc.mif", mf.getBasename());
-		assertEquals("AAAA_BB111111CA", mf.getKey());
+		assertEquals("AA", mf.getSubSection());
+		assertEquals("AA", mf.getDomain());
+		assertEquals("BB", mf.getArtifact());
+		assertEquals("111111", mf.getId());
+		assertEquals("CA", mf.getRealm());
 		assertEquals("desc", mf.getDescription());
 	}
 

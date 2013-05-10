@@ -31,7 +31,7 @@ public class MifIdentifier {
 	private String artifact;
 	@Attribute
 	private String realmNamespace;
-	@Attribute
+	@Attribute (required=false)
 	private String version;
 	
 	public String getRoot() {

@@ -21,11 +21,14 @@
 package ca.infoway.messagebuilder.mifcomparer;
 
 import static ca.infoway.messagebuilder.mifcomparer.Message.Severity.*;
+import static ca.infoway.messagebuilder.mifcomparer.Message.MessageType.*;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import ca.infoway.messagebuilder.mifcomparer.Message.MessageType;
 import ca.infoway.messagebuilder.mifcomparer.Message.Severity;
@@ -36,9 +39,11 @@ public class MessageList {
 	static final String CSV_HEADER = "Severity,Message Type,Message,File 1,File 2,XPath 1,XPath 2,Object Type,Object Name,Kind of Difference,Value 1,Value 2";
 
 	private List<Message> messages = new LinkedList<Message>();
+	private MessageStatistics stats = new MessageStatistics();
 
 	public void add(Message m) {
 		messages.add(m);
+		m.accumulateStatistics(stats);
 	}
 	
 	List<Message> filterMessagesBySeverity(Severity s) {
@@ -149,4 +154,26 @@ public class MessageList {
 		
 		return filterMessagesBySeverity(s);
 	}
+	
+	public String getStatistics() {
+		return stats.toString();
+	}
+	
+//	public Map<String, Integer> getPerFileStatistics() {
+//		Map<String, Integer> stats = new HashMap<String, Integer>();
+//		
+//		// UNPAIRED_FILE, UNRECOGNIZED_FILE_TYPE, IGNORED_FILE, DESCRIPTIONS_DIFFER,
+//		// FILE_SUMMARY, XML_ERROR, XML_DIFFERENCE, PROGRESS, INTERNAL_ERROR, FILTER, TESTING_CODE,
+//		
+//		for (Message m : this.getMessages()) {
+//			switch (m.msgType) {
+//			case FILE_SUMMARY:
+//				increment(stats, m.message);
+//				increment(stats, "were compared");			// Total files compared
+//			}
+//		}
+//		
+//		return stats;
+//	}
+
 }

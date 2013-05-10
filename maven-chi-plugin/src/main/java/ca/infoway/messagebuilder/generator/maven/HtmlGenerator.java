@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.generator.maven;
 
+import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DEFAULT_DATATYPE_FILE_PREFIX;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -29,6 +31,9 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 
+import ca.infoway.messagebuilder.datatype.model.Datatype;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSetMarshaller;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault;
@@ -44,7 +49,7 @@ public class HtmlGenerator {
 		this.logUI = logUI;
 	}
 
-	public void execute(MessageSet messageSet, File htmlFolder, Boolean excludeStructuralAttributes) throws IOException {
+	public void execute(MessageSet messageSet, DatatypeSet inputDatatypeSet, File htmlFolder, Boolean excludeStructuralAttributes) throws IOException {
 		int count = 0;
 		
 		Boolean excludeStrucAttrFlag = false;
@@ -52,27 +57,35 @@ public class HtmlGenerator {
 			excludeStrucAttrFlag = excludeStructuralAttributes;
 		}
 		
+		DatatypeSet datatypeSet = null;
+		if (inputDatatypeSet == null) {
+			datatypeSet = getDefaultDatatypeSet(messageSet);
+		}
+		
 		File resourcesFolder = createResourceFolderStructure(htmlFolder);
 		
 		addStaticResources(resourcesFolder);
 		
-		addNavBar(messageSet, resourcesFolder);
+		addNavBar(messageSet, datatypeSet, resourcesFolder);
 		count++;
 		
-		File interactionFolder = new File(htmlFolder, "interactions");
-		if (!interactionFolder.exists() || !interactionFolder.isDirectory()) {
-			new File(htmlFolder, "interactions").mkdir();
-		}
-		for (Interaction interaction : messageSet.getInteractions().values()) {
-			this.logUI.log(LogLevel.DEBUG, "Now processing package location " + interaction.getName());
-			File htmlFile = createHtmlFile(interaction, interactionFolder);
-			FileWriter writer = new FileWriter(htmlFile);
-			try {
-				writer.write(new HtmlMessageSetRendererImpl().writeInteraction(interaction, messageSet));
-			} finally {
-				IOUtils.closeQuietly(writer);
+		if (datatypeSet != null) {
+			File datatypeFolder = new File(htmlFolder, "datatypes");
+			if (!datatypeFolder.exists() || !datatypeFolder.isDirectory()) {
+				new File(htmlFolder, "datatypes").mkdir();
 			}
-			count++;			
+			
+			for (Datatype datatype : datatypeSet.getAllDatatypes()) {
+				this.logUI.log(LogLevel.DEBUG, "Now processing datatype " + datatype.getName());
+				File htmlFile = createHtmlFile(datatype, datatypeFolder);
+				FileWriter writer = new FileWriter(htmlFile);
+				try {
+					writer.write(new HtmlMessageSetRendererImpl().writeDatatype(datatype, datatypeSet, messageSet));
+				} finally {
+					IOUtils.closeQuietly(writer);
+				}
+				count++;
+			}
 		}
 		
 		File packageFolder = new File(htmlFolder, "packages");
@@ -84,13 +97,28 @@ public class HtmlGenerator {
 			File htmlFile = createHtmlFile(packageLocation, packageFolder);
 			FileWriter writer = new FileWriter(htmlFile);
 			try {
-				writer.write(new HtmlMessageSetRendererImpl().writePackageLocation(packageLocation, messageSet, excludeStrucAttrFlag));
+				writer.write(new HtmlMessageSetRendererImpl().writePackageLocation(packageLocation, messageSet, datatypeSet, excludeStrucAttrFlag));
 			} finally {
 				IOUtils.closeQuietly(writer);
 			}
 			count++;
 		}
 		
+		File interactionFolder = new File(htmlFolder, "interactions");
+		if (!interactionFolder.exists() || !interactionFolder.isDirectory()) {
+			new File(htmlFolder, "interactions").mkdir();
+		}
+		for (Interaction interaction : messageSet.getInteractions().values()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing interaction " + interaction.getName());
+			File htmlFile = createHtmlFile(interaction, interactionFolder);
+			FileWriter writer = new FileWriter(htmlFile);
+			try {
+				writer.write(new HtmlMessageSetRendererImpl().writeInteraction(interaction, messageSet));
+			} finally {
+				IOUtils.closeQuietly(writer);
+			}
+			count++;			
+		}
 		addStartPages(messageSet, htmlFolder);
 		count+=2;
 		
@@ -98,6 +126,34 @@ public class HtmlGenerator {
 		
 	}
 
+	private DatatypeSet getDefaultDatatypeSet(MessageSet messageSet) throws IOException {
+		String datatypeVersion = getDatatypeVersions(messageSet);
+		if (datatypeVersion != null) {
+			this.logUI.log(LogLevel.DEBUG, "Now datatypeSet filename: " + datatypeVersion);
+			Map<String, InputStream> staticDatatypeFilesMap = new HtmlMessageSetRendererImpl().getStaticDatatypeFiles(datatypeVersion);
+			InputStream datatypeSetInputStream = staticDatatypeFilesMap.get(DEFAULT_DATATYPE_FILE_PREFIX + "_" + datatypeVersion + ".xml");
+			if (datatypeSetInputStream != null) {
+				DatatypeSet defaultDatatypeSet = new DatatypeSetMarshaller().unmarshallDatatypeModel(datatypeSetInputStream);
+				return defaultDatatypeSet;
+			}
+		}
+		return null;
+	}
+
+	private String getDatatypeVersions(MessageSet messageSet) {
+		Map<String, PackageLocation> packageLocations = messageSet.getPackageLocations();
+		for (String packageLocationName : packageLocations.keySet()) {
+			PackageLocation packageLocation = packageLocations.get(packageLocationName);
+			if (packageLocation.getDatatypeModel() != null 
+					&& packageLocation.getDatatypeModel().getVersion() != null) {
+				
+				String result = packageLocation.getDatatypeModel().getVersion() + "_" + packageLocation.getDatatypeModel().getRealm();
+				return result.replaceAll("[.]", "_");
+			}
+		}
+		return null;
+	}
+	
 	private void addStaticResources(File resourcesFolder)
 			throws FileNotFoundException, IOException {
 		Map<String, InputStream> staticResourceFiles = new HtmlMessageSetRendererImpl().getStaticResourceFiles();
@@ -140,14 +196,14 @@ public class HtmlGenerator {
 		}
 	}
 
-	private void addNavBar(MessageSet messageSet, File resourcesFolder)
+	private void addNavBar(MessageSet messageSet, DatatypeSet datatypeSet, File resourcesFolder)
 			throws IOException {
 		this.logUI.log(LogLevel.DEBUG, "Now processing package location mainNavBar.js");
 		File htmlFile = new File(resourcesFolder, "/js/" + HtmlMessageSetRenderDefault.NAV_BAR_SCRIPT_NAME);
 		FileWriter writer = new FileWriter(htmlFile);
 		try {
 			writer.write(new HtmlMessageSetRendererImpl().writeSideNavBarScript(
-					messageSet, HtmlMessageSetRenderDefault.DOMAIN_DESCRIPTIONS));
+					messageSet, datatypeSet, HtmlMessageSetRenderDefault.DOMAIN_DESCRIPTIONS));
 		} finally {
 			IOUtils.closeQuietly(writer);
 		}
@@ -187,5 +243,9 @@ public class HtmlGenerator {
 	
 	private File createHtmlFile(Interaction interaction, File htmlFolder) {
 		return new File(htmlFolder, interaction.getName() + ".html");
+	}
+	
+	private File createHtmlFile(Datatype datatype, File htmlFolder) {
+		return new File(htmlFolder, datatype.getName() + ".html");
 	}
 }

@@ -35,8 +35,11 @@ public class MifDatatypeModelLibrary {
 	@Element
 	private MifHeader header;
 
+	@Element (required=false)
+	private MifIdentifier importDatatypeModelLibrary;
+	
 	@Element
-	private MifImportVocabularyModelPackage importedVocabularyModelPackage;
+	private MifIdentifier importedVocabularyModelPackage;
 	
 	@ElementList(entry="datatype",required=false,inline=true)
 	private List<MifDatatype> datatypes = new ArrayList<MifDatatype>();
@@ -57,12 +60,12 @@ public class MifDatatypeModelLibrary {
 		this.header = header;
 	}
 
-	public MifImportVocabularyModelPackage getImportedVocabularyModelPackage() {
+	public MifIdentifier getImportedVocabularyModelPackage() {
 		return importedVocabularyModelPackage;
 	}
 
 	public void setImportedVocabularyModelPackage(
-			MifImportVocabularyModelPackage impoartVocabularyModelPackage) {
+			MifIdentifier impoartVocabularyModelPackage) {
 		this.importedVocabularyModelPackage = impoartVocabularyModelPackage;
 	}
 
@@ -72,5 +75,13 @@ public class MifDatatypeModelLibrary {
 
 	public void setDatatypes(List<MifDatatype> datatypes) {
 		this.datatypes = datatypes;
+	}
+
+	public MifIdentifier getImportDatatypeModelLibrary() {
+		return importDatatypeModelLibrary;
+	}
+
+	public void setImportDatatypeModelLibrary(MifIdentifier importDatatypeModelLibrary) {
+		this.importDatatypeModelLibrary = importDatatypeModelLibrary;
 	}
 }

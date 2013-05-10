@@ -24,6 +24,11 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.MAIN_CONTENT_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PAGE_DIV_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
 import com.hp.gagawa.java.Document;
@@ -39,10 +44,17 @@ public class StartPageHtml extends BaseHtmlGenerator {
 	
 	@Override
 	public String write() {
-		return writeInnerStartFile();
+		return writeInnerStartFile().write();
 	}
 
-	public String writeInnerStartFile() {
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
+	}
+	
+	public Document writeInnerStartFile() {
 		Document doc = new Document(DocumentType.HTMLStrict);
 		
 		addHeadParamaters("indexPage", "Index", getMessageSet().getVersion(), doc);
@@ -78,7 +90,7 @@ public class StartPageHtml extends BaseHtmlGenerator {
 		
 		doc.body.appendChild(wrapperDiv);
 		
-		return doc.write();
+		return doc;
 	}
 
 	public MessageSet getMessageSet() {

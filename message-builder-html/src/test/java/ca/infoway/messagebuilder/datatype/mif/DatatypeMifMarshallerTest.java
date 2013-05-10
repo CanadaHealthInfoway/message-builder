@@ -94,12 +94,11 @@ public class DatatypeMifMarshallerTest {
 					adBasic = mifDatatype;
 				}
 			}
-			
 			assertEquals(1, adBasic.getAnnotations().getAppInfo().getStaticExamples().size());
 			assertTrue(adBasic.getAnnotations().getAppInfo().getStaticExamples().get(0).getData().getValue().length() > 0);
 			
 		} finally {
 			IOUtils.closeQuietly(input);
 		}
-	}
+	}	
 }

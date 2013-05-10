@@ -45,7 +45,8 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 public class MifSimpleTextConverter implements Converter<MifSimpleText> {
-
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	
 	@Override
 	public MifSimpleText read(InputNode node) throws Exception {
 		MifSimpleText mifText = new MifSimpleText();
@@ -61,19 +62,19 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 				text += "<" + childNode.getName();
 				for (String attributeName : attributes) {
 					InputNode attributeNode = attributes.get(attributeName);
-					text += " " + attributeName + "=" + attributeNode.getValue();
+					text += " " + attributeName + "='" + attributeNode.getValue() + "'";
 				}
 				
-				text += ">";
+				text += ">" + LINE_SEPARATOR;
 				String childValue = childNode.getValue();
 				if (childValue != null) {
-					String childText = parseInnerNodes(childNode, childValue);
-					text += childText;					
+					String childText = parseInnerNodes(childNode, childValue, 1);
+					text += "\t" + childText.trim();					
 				} else {
-					String childText = parseInnerNodes(childNode, "");
-					text += childText;
+					String childText = parseInnerNodes(childNode, "", 1);
+					text += "\t" + childText.trim();
 				}
-				text += "</" + childNode.getName() + ">";
+				text += LINE_SEPARATOR + "</" + childNode.getName() + ">" + LINE_SEPARATOR;
 				childNode = node.getNext();
 			}
 			mifText.setValue(StringEscapeUtils.escapeXml(text));
@@ -81,32 +82,54 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 		return mifText;
 	}
 	
-	private String parseInnerNodes(InputNode node, String currentInput) throws Exception {
+	private String parseInnerNodes(InputNode node, String currentInput, Integer indentLevel) throws Exception {
 		InputNode childNode = node.getNext();
 		String nodeText = new String(currentInput);
 		while(childNode != null) {
 			String childValue = childNode.getValue();
 			String childName = childNode.getName();
 			NodeMap<InputNode> attributes = childNode.getAttributes();
-			nodeText += "<" + childName;
+			nodeText += getIndent(indentLevel) + "<" + childName;
 			for (String attributeName : attributes) {
 				InputNode attributeNode = attributes.get(attributeName);
-				nodeText += " " + attributeName + "=" + attributeNode.getValue();
+				nodeText += " " + attributeName + "='" + attributeNode.getValue() + "'";
 			}
-			
-			nodeText += ">";
-			
+				
 			String childText = "";
-			if (childValue != null) {
-				childText = parseInnerNodes(childNode, childValue);
+			if (childValue != null && childValue.trim().length() > 0) {
+				childText = parseInnerNodes(childNode, childValue, indentLevel+1);
+				if (childText != null && childText.trim().length() > 0) {
+					nodeText += ">";
+					nodeText += childText.trim();
+					nodeText += "</" + childName + ">" + LINE_SEPARATOR;
+				} else {
+					nodeText += "/>" + LINE_SEPARATOR;
+					nodeText += childText.trim();
+				}
 			} else {
-				childText = parseInnerNodes(childNode, "");
+				childText = parseInnerNodes(childNode, "", indentLevel+1);
+				if (childText != null && childText.trim().length() > 0) {
+					nodeText += ">"  + LINE_SEPARATOR + getIndent(indentLevel+1);
+					nodeText += childText.trim() + LINE_SEPARATOR + getIndent(indentLevel);
+					nodeText += "</" + childName + ">" + LINE_SEPARATOR;
+				} else {
+					nodeText += "/>" + LINE_SEPARATOR;
+					nodeText += childText.trim();
+				}
 			}
-			nodeText += childText;
-			nodeText += "</" + childName + ">";
 			childNode = node.getNext();
 		}
 		return nodeText;
+	}
+	
+	private String getIndent(Integer indentLevel) {
+		String result = "";
+		if (indentLevel != null) {
+			for(int i = 0; i<indentLevel; i++) {
+				result += "\t";
+			}
+		}
+		return result;
 	}
 
 	@Override

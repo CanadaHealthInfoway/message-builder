@@ -19,9 +19,15 @@
  */
 package ca.infoway.messagebuilder.datatype.model;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Root;
+
 import ca.infoway.messagebuilder.xml.Annotation;
 
+@Root(strict=false)
 public class StaticExampleAnnotation extends Annotation {
+
+	@Attribute(required=false)
 	private String businessName;
 
 	public StaticExampleAnnotation() {}

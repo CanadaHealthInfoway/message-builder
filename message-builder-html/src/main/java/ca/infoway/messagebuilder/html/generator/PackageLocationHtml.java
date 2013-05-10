@@ -32,13 +32,17 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.demiftifier.Layout;
 import ca.infoway.demiftifier.layout.LayerOuter;
 import ca.infoway.demiftifier.svgifier.Svgifier;
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -62,10 +66,12 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 	private Svgifier svgifier;
 	private PackageLocation packageLocation;
 	private MessageSet messageSet;
+	private DatatypeSet datatypeSet;
 	private Boolean excludeStructuralAttributes;
 	
-	public PackageLocationHtml(PackageLocation packageLocation, MessageSet messageSet, Boolean excludeStructuralAttributes) {
+	public PackageLocationHtml(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes) {
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		this.packageLocation = packageLocation;
 		if (excludeStructuralAttributes == null) {
 			this.excludeStructuralAttributes = false;
@@ -74,10 +80,11 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		}
 	}
 	
-	public PackageLocationHtml(PackageLocation packageLocation, MessageSet messageSet, Boolean excludeStructuralAttributes,
-			String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, javascriptPath, resourcesPath);
+	public PackageLocationHtml(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes,
+			String interactionsPath, String packagesPath, String datatypesPath, String javascriptPath, String resourcesPath) {
+		super(interactionsPath, packagesPath, datatypesPath, javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
+		this.datatypeSet = datatypeSet;
 		this.packageLocation = packageLocation;
 		if (excludeStructuralAttributes == null) {
 			this.excludeStructuralAttributes = false;
@@ -91,6 +98,13 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		return writePackageLocation().write();
 	}
 
+	@Override
+	public Set<AnnotationType> getExcludeAnnotationFilter() {
+		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
+		filterTypes.add(AnnotationType.MAPPING);
+		return filterTypes;
+	}
+	
 	protected Document writePackageLocation() {
 		Document doc = new Document(DocumentType.HTMLStrict);
 	
@@ -129,7 +143,7 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		
 		for (String messagePartName : msgPartList) {
 			MessagePart messagePart = getPackageLocation().getMessageParts().get(messagePartName);
-			MessagePartHtml messagePartHtml = new MessagePartHtml(messagePart, getMessageSet(), getExcludeStructrualAttributes());
+			MessagePartHtml messagePartHtml = new MessagePartHtml(messagePart, getMessageSet(), getDatatypeSet(), getExcludeStructrualAttributes());
 			
 			Div messagePartDiv = new Div();
 			messagePartDiv.setId(getMessagePartName(messagePart.getName()) + "DetailsDiv");
@@ -183,7 +197,7 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		tBody.appendChild(createDataRow("Name:", createLink("#" + getMessagePartName(packageLocation.getName()) + "DetailsDiv", new Text(packageLocation.getName()), "", ""), ""));
 		tBody.appendChild(createDataRow("Descriptive Name:", new Text(packageLocation.getDescriptiveName()==null?"":packageLocation.getDescriptiveName()), ""));
 		
-		addAnnotationDetails(packageLocation.getDocumentation(), tBody);
+		addAnnotationDetails(packageLocation.getDocumentation(), "Note:", tBody);
 		
 		result.appendChild(tBody);
 		return result;
@@ -281,7 +295,7 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 					cycleCheckList.add(childPart.getName());
 					specializationChildTocList.appendChild(createDepthFirstTOCList(childPart, cycleCheckList));
 				} else if (childPart != null) {
-					MessagePartHtml html = new MessagePartHtml(childPart, getMessageSet(), getExcludeStructrualAttributes());
+					MessagePartHtml html = new MessagePartHtml(childPart, getMessageSet(), getDatatypeSet(), getExcludeStructrualAttributes());
 					specializationChildTocList.appendChild(html.createMessagePartTOCList());
 				} else {
 					Li specializationChildElement = new Li();
@@ -351,7 +365,7 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 					//relationshipTocListItem.appendChild(associationSection);
 					relationshipTocListItem.appendChild(createRelationshipTocList(associationPart, cycleCheckList));
 				} else if (associationPart != null) {
-					MessagePartHtml html = new MessagePartHtml(associationPart, getMessageSet(), getExcludeStructrualAttributes());
+					MessagePartHtml html = new MessagePartHtml(associationPart, getMessageSet(), getDatatypeSet(), getExcludeStructrualAttributes());
 					associationSection.appendChild(html.createMessagePartTOCList());
 					relationshipTocListItem.appendChild(associationSection);
 				} else {
@@ -415,6 +429,14 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 	}
 	public void setSvgifier(Svgifier svgifier) {
 		this.svgifier = svgifier;
+	}
+
+	public DatatypeSet getDatatypeSet() {
+		return datatypeSet;
+	}
+
+	public void setDatatypeSet(DatatypeSet datatypeSet) {
+		this.datatypeSet = datatypeSet;
 	}
 	
 }

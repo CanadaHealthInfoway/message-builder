@@ -30,8 +30,7 @@ public class MifStaticExample {
 	private String itsName;
 	
 	@Element(name="businessName", required=false)
-	@Convert(MifSimpleTextConverter.class)
-	private MifSimpleText businessName;
+	private MifName businessName;
 	
 	@Element(name="data")
 	@Convert(MifSimpleTextConverter.class)
@@ -59,11 +58,11 @@ public class MifStaticExample {
 		this.data = data;
 	}
 
-	public MifSimpleText getBusinessName() {
+	public MifName getBusinessName() {
 		return businessName;
 	}
 
-	public void setBusinessName(MifSimpleText businessName) {
+	public void setBusinessName(MifName businessName) {
 		this.businessName = businessName;
 	}
 

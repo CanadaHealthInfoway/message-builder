@@ -21,9 +21,21 @@ package ca.infoway.messagebuilder.html.generator;
 
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DEFAULT_RESOURCE_PATH;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
@@ -34,16 +46,16 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.ValueSet;
 
-public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{	
+public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{	 
 	private static final String[] STATIC_RESOURCE_FILES = {
 		"js/jquery-1.7.2.js", "js/jquery.jstree.js", "js/jquery-ui-1.8.21.custom.min.js",
 		"js/themes/default/d.gif", "js/themes/default/d.png", "js/themes/default/style.css", 
 		"css/jquery-ui-1.8.21.custom.css", "js/themes/default/throbber.gif", "mystyle.css", 
 		"images/top_banner.png", "images/top_banner_ext.png", "images/footer-global.png"}; 
 
-	
 	private String interactionsPath;
 	private String packagesPath;
+	private String datatypePath;
 	private String javascriptPath;
 	private String resourcesPath;
 	private Boolean excludeStructuralAttributes;
@@ -51,22 +63,25 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	public HtmlMessageSetRendererImpl() {
 		this.interactionsPath = "../interactions";
 		this.packagesPath = "../packages";
+		this.datatypePath = "../datatypes";
 		this.resourcesPath = "../resources";
 		this.javascriptPath = "../resources/js";
 		this.excludeStructuralAttributes = false;
 	}
 	
-	public HtmlMessageSetRendererImpl(String interactionsPath, String messagePartsPath, String resourcesPath, String javascriptPath) {
+	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath, String resourcesPath, String javascriptPath) {
 		this.interactionsPath = interactionsPath;
-		this.packagesPath = messagePartsPath;
+		this.packagesPath = packagesPath;
+		this.datatypePath = datatypesPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
 		this.excludeStructuralAttributes = false;
 	}
 	
-	public HtmlMessageSetRendererImpl(String interactionsPath, String messagePartsPath, String resourcesPath, String javascriptPath, Boolean excludeStructuralAttributes) {
+	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath, String resourcesPath, String javascriptPath, Boolean excludeStructuralAttributes) {
 		this.interactionsPath = interactionsPath;
-		this.packagesPath = messagePartsPath;
+		this.packagesPath = packagesPath;
+		this.datatypePath = datatypesPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
 		this.excludeStructuralAttributes = excludeStructuralAttributes;
@@ -82,15 +97,15 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 
 	/** PackageLocation Section **/
 	@Override
-	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet) {
-		PackageLocationHtml packageHtml = new PackageLocationHtml(packageLocation, messageSet, getExcludeStructuralAttributes());
+	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet) {
+		PackageLocationHtml packageHtml = new PackageLocationHtml(packageLocation, messageSet, datatypeSet, getExcludeStructuralAttributes());
 		
 		return packageHtml.write();
 	}
 	
 	@Override
-	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, Boolean excludeStructuralAttributes) {
-		PackageLocationHtml packageHtml = new PackageLocationHtml(packageLocation, messageSet, excludeStructuralAttributes);
+	public String writePackageLocation(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes) {
+		PackageLocationHtml packageHtml = new PackageLocationHtml(packageLocation, messageSet, datatypeSet, excludeStructuralAttributes);
 		
 		return packageHtml.write();
 	}
@@ -98,8 +113,8 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	
 	/** Message Part Section **/
 	@Override
-	public String writeMessagePart(MessagePart messagePart, MessageSet messageSet) {
-		MessagePartHtml messagePartHtml = new MessagePartHtml(messagePart, messageSet, getExcludeStructuralAttributes());
+	public String writeMessagePart(MessagePart messagePart, MessageSet messageSet, DatatypeSet datatypeSet) {
+		MessagePartHtml messagePartHtml = new MessagePartHtml(messagePart, messageSet, datatypeSet, getExcludeStructuralAttributes());
 		
 		return messagePartHtml.write();
 	}
@@ -130,8 +145,8 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	
 	/** Side Nav Bar **/
 	@Override
-	public String writeSideNavBarScript(MessageSet messageSet, Map<String, String> categoryNames) {
-		NavBarScriptJSGenerator navBar = new NavBarScriptJSGenerator(messageSet, categoryNames);
+	public String writeSideNavBarScript(MessageSet messageSet, DatatypeSet datatypeSet, Map<String, String> categoryNames) {
+		NavBarScriptJSGenerator navBar = new NavBarScriptJSGenerator(messageSet, datatypeSet, categoryNames);
 		
 		return navBar.write();
 	}
@@ -207,5 +222,62 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	@Override
 	public String getResourcesPath() {
 		return this.resourcesPath;
+	}
+
+	@Override
+	public void setDatatypesPath(String datatypesPath) {
+		this.datatypePath = datatypesPath;
+	}
+	@Override
+	public String getDatatypesPath() {
+		return this.datatypePath;
+	}
+
+	@Override
+	public Map<String, InputStream> getStaticDatatypeFiles(String datatypeVersion) {
+		Map<String, InputStream> staticDatatypeFiles = new HashMap<String, InputStream>();
+		URL urlResource = getClass().getResource(DEFAULT_RESOURCE_PATH + "/datatypes/" + datatypeVersion);
+		try {
+			String[] datatypeFiles = getFileList(urlResource);
+			for (String fileName : datatypeFiles) {
+				staticDatatypeFiles.put(fileName, getClass().getResourceAsStream(DEFAULT_RESOURCE_PATH + "/datatypes/" + datatypeVersion + "/" + fileName));
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return staticDatatypeFiles;
+	}
+	
+	private String[] getFileList(URL urlResource) throws URISyntaxException, UnsupportedEncodingException, IOException {
+		//Extract file names of a specified path from a directory
+		if (urlResource.getProtocol().equals("file")) {
+			URI fileUri = urlResource.toURI();
+			File datatypesFolder = new File(fileUri);
+			String[] datatypeFiles = datatypesFolder.list();
+			return datatypeFiles;
+		}
+		
+		//Extract file names of a specified path from a jar file
+		if (urlResource.getProtocol().equals("jar")) {
+			String jarPath = urlResource.getPath().substring(5, urlResource.getPath().indexOf("!"));
+			String path = urlResource.getPath().substring(urlResource.getPath().indexOf("!")+2, urlResource.getPath().length()) + "/";
+			JarFile jar = new JarFile(URLDecoder.decode(jarPath, "UTF-8"));
+			Enumeration<JarEntry> entries = jar.entries(); 
+			Set<String> result = new HashSet<String>(); 
+			while(entries.hasMoreElements()) {
+				String name = entries.nextElement().getName();
+				if (name.startsWith(path)) { 
+					String entry = name.substring(path.length());
+					int checkSubdir = entry.indexOf("/");
+					if (checkSubdir >= 0) {
+						entry = entry.substring(0, checkSubdir);
+					}
+					result.add(entry);
+				}
+			}
+			return result.toArray(new String[result.size()]);
+		}
+		
+		return null;
 	}
 }

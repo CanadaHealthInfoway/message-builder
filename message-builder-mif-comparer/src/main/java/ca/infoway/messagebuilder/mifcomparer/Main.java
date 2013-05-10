@@ -56,6 +56,9 @@ public class Main {
 
 	@Option(name = "-h", usage = "print help")
 	private boolean help = false;
+	
+	@Option(name = "-ignore-realms", usage = "ignore \"realm\" fields when choosing pairs of files to compare")
+	private boolean ignoreRealms = false;
 
 	@Argument
 	private static List<String> pathnames = new LinkedList<String>();
@@ -105,6 +108,8 @@ public class Main {
 			System.out.print(messages.asXML(severity));
 		else
 			System.err.println("Unsupported output format \"" + format + "\"");
+		
+		System.err.print(messages.getStatistics());
 	}
 
 	public void parseArguments(String[] args) {
@@ -132,6 +137,10 @@ public class Main {
 	public void compareDirectories(File fLeft, File fRight, MessageList messages) {
 		MifDirectory mdLeft = new MifDirectory(fLeft);
 		MifDirectory mdRight = new MifDirectory(fRight);
+		
+		mdLeft.setIgnoreRealms(ignoreRealms);
+		mdRight.setIgnoreRealms(ignoreRealms);
+		
 		MifDirectoryComparer comparer = new MifDirectoryComparer(mdLeft, mdRight);
 		comparer.setGlobalConfig(globalConfig);
 		comparer.compare(messages);

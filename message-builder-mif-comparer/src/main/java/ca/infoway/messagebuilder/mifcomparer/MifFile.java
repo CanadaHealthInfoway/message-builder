@@ -35,10 +35,10 @@ import org.xml.sax.SAXException;
 
 public class MifFile {
 	private static Pattern parser = Pattern
-			.compile("^([A-Z]{4}_[A-Z]{2}[0-9]{6}[A-Z][A-Z])( - (.*))?\\.mif$");
+			.compile("^([A-Z]{2})([A-Z]{2})_([A-Z]{2})([0-9]{6})([A-Z][A-Z])( - (.*))?\\.mif$");
 
 	private File file;
-	private String key;
+	private String subSection, domain, artifact, id, realm;		// Components of the "key"
 	private String description;
 
 	public MifFile(File f) {
@@ -58,16 +58,36 @@ public class MifFile {
 					+ ": Filename doesn't begin with a valid key");
 		}
 
-		this.key = m.group(1);
-		this.description = m.group(3);
+		this.subSection = m.group(1);
+		this.domain = m.group(2);
+		this.artifact = m.group(3);
+		this.id = m.group(4);
+		this.realm = m.group(5);
+		this.description = m.group(7) != null ? m.group(7) : "";
 	}
 
 	public File getFile() {
 		return this.file;
 	}
 
-	public String getKey() {
-		return key;
+	public String getSubSection() {
+		return subSection;
+	}
+
+	public String getDomain() {
+		return domain;
+	}
+
+	public String getArtifact() {
+		return artifact;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	public String getRealm() {
+		return realm;
 	}
 
 	public String getDescription() {

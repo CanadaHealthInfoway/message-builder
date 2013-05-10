@@ -19,6 +19,7 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
+import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DATATYPE_PATH;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DETAILS_TABLE_LABEL_COL_CLASS;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DETAILS_TABLE_VALUE_COL_CLASS;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.INTERACTION_PATH;
@@ -27,9 +28,11 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PACKAGE_PATH;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.RESOURCE_PATH;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
@@ -63,12 +66,14 @@ public abstract class BaseHtmlGenerator {
 
 	private String interactionsPath;
 	private String messagePartsPath;
+	private String datatypesPath;
 	private String javascriptPath;
 	private String resourcesPath;
 	
-	public BaseHtmlGenerator(String interactionsPath, String messagePartsPath, String javascriptPath, String resourcesPath){
+	public BaseHtmlGenerator(String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath){
 		this.interactionsPath = interactionsPath;
 		this.messagePartsPath = messagePartsPath;
+		this.datatypesPath = datatypesPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
 	}
@@ -76,11 +81,13 @@ public abstract class BaseHtmlGenerator {
 	public BaseHtmlGenerator() {
 		this.interactionsPath = INTERACTION_PATH;
 		this.messagePartsPath = PACKAGE_PATH;
+		this.datatypesPath = DATATYPE_PATH;
 		this.javascriptPath = JAVASCRIPT_PATH;
 		this.resourcesPath = RESOURCE_PATH;
 	}
 
 	public abstract String write();
+	public abstract Set<AnnotationType> getExcludeAnnotationFilter();
 	
 	/** Common Section **/
 	protected Div getHeaderDiv() {
@@ -163,6 +170,10 @@ public abstract class BaseHtmlGenerator {
 	
 	protected String getInteractionUrl(String interaction) {
 		return getInteractionsPath() + "/" + interaction + ".html";
+	}
+	
+	protected String getDatatypeUrl(String datatype) {
+		return getDatatypesPath() + "/" + datatype + ".html";
 	}
 	
 	protected Div getLeftSideColumn() {
@@ -249,7 +260,7 @@ public abstract class BaseHtmlGenerator {
 		return result;
 	}
 	
-	protected Integer addAnnotationDetails(Documentation documentation, Tbody tBody) {
+	protected Integer addAnnotationDetails(Documentation documentation, String definitionLabelText, Tbody tBody) {
 		Integer numRows = 0;
 //		boolean hasDescription = false;
 		if (documentation != null) {
@@ -261,13 +272,35 @@ public abstract class BaseHtmlGenerator {
 			}
 			
 			List<Annotation> annotations = documentation.getAnnotations();
-			for (Annotation annotation : annotations) {
+			List<Annotation> sortedAnnotations = new ArrayList<Annotation>(annotations);
+			Collections.sort(sortedAnnotations, new Comparator<Annotation>() {
+				@Override
+				public int compare(Annotation o1, Annotation o2) {
+					if (AnnotationType.DEFINITION.equals(o1.getAnnotationTypeAsEnum())
+							&& !AnnotationType.DEFINITION.equals(o2.getAnnotationTypeAsEnum())) {
+						return -1;
+					} else if (AnnotationType.DEFINITION.equals(o2.getAnnotationTypeAsEnum())
+							&& !AnnotationType.DEFINITION.equals(o1.getAnnotationTypeAsEnum())) {
+						return 1;
+					} else if (AnnotationType.DESCRIPTION.equals(o2.getAnnotationTypeAsEnum())
+							&& !AnnotationType.DESCRIPTION.equals(o1.getAnnotationTypeAsEnum())) {
+						return -1;
+					} else if (AnnotationType.DESCRIPTION.equals(o2.getAnnotationTypeAsEnum())
+							&& !AnnotationType.DESCRIPTION.equals(o1.getAnnotationTypeAsEnum())) {
+						return 1;
+					} else {
+						return o1.getAnnotationType().compareTo(o2.getAnnotationType());
+					}
+				}
+				
+			});
+			
+			for (Annotation annotation : sortedAnnotations) {
 				//FIXME: Filter out mapping annotations for now (not in requirements), will likely require different handling for subtype
 				if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum())) {
-					tBody.appendChild(createDataRow("Note:", new Text(annotation.getText()), ""));
+					tBody.appendChild(createDataRow(definitionLabelText, new Text(annotation.getText()), ""));
 					numRows++;
-				} else if (!AnnotationType.MAPPING.equals(annotation.getAnnotationTypeAsEnum())
-						&& !AnnotationType.STATIC_EXAMPLE.equals(annotation.getAnnotationTypeAsEnum())) {
+				} else if (!getExcludeAnnotationFilter().contains(annotation.getAnnotationTypeAsEnum())) {
 					tBody.appendChild(createDataRow(capitalizeTitle(annotation.getAnnotationType()) + ":", new Text(annotation.getText()), ""));
 					numRows++;
 				}
@@ -288,6 +321,7 @@ public abstract class BaseHtmlGenerator {
 		}
 			
 		String result = text.substring(0, 1).toUpperCase() + text.substring(1, text.length()).toLowerCase();
+		result = result.replace("_", " ");
 		
 		return result;
 	}
@@ -301,6 +335,14 @@ public abstract class BaseHtmlGenerator {
 		contentDiv.appendChild(metaDiv);
 	}
 
+	protected void addDatatypeDetailsMetaHeader(String datatypeName, Div contentDiv) {
+		Div metaDiv = new Div();
+		metaDiv.setId("metaDiv");
+		metaDiv.setAttribute("partname", datatypeName);
+		metaDiv.setAttribute("packagename", getMessagePartName(datatypeName));
+		contentDiv.appendChild(metaDiv);
+	}
+	
 	protected void addBreadcrumbHeader(MessageSet messageSet, Div contentDiv) {
 		Div breadcrumbDiv = new Div();
 		breadcrumbDiv.setId("breadcrumbDiv");
@@ -433,6 +475,14 @@ public abstract class BaseHtmlGenerator {
 	}
 	public void setResourcesPath(String resourcesPath) {
 		this.resourcesPath = resourcesPath;
+	}
+
+	public String getDatatypesPath() {
+		return datatypesPath;
+	}
+
+	public void setDatatypesPath(String datatypesPath) {
+		this.datatypesPath = datatypesPath;
 	}	
 
 }

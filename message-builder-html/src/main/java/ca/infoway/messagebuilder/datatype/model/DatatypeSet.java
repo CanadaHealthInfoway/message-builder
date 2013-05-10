@@ -24,33 +24,109 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementMap;
+import org.simpleframework.xml.Root;
+
 import ca.infoway.messagebuilder.datatype.mif.MifDatatype;
 import ca.infoway.messagebuilder.datatype.mif.MifDatatypeModelLibrary;
+import ca.infoway.messagebuilder.datatype.mif.MifIdentifier;
 
+@Root
 public class DatatypeSet {
+	@Attribute(required=false)
 	private String version;
+	
+	@Attribute(required=false)
 	private String realmCode;
+	
+	@Attribute(required=false)
+	private String combinedId;
+	
+	@ElementMap(name="datatype",key="name",required=false,inline=true,attribute=true,entry="datatypeEntry")
 	private Map<String, Datatype> datatypes = new HashMap<String, Datatype>();
+	
+	@Element(required=false)
+	private DatatypeSet parentDatatypeSet;
 	
 	public DatatypeSet() {}
 	
 	public DatatypeSet(MifDatatypeModelLibrary mifDatatypeModelLibrary) {
 		this.version = mifDatatypeModelLibrary.getPackageLocation().getVersion();
 		this.realmCode = mifDatatypeModelLibrary.getPackageLocation().getRealmNamespace();
+		this.combinedId = getCombinedId(mifDatatypeModelLibrary.getPackageLocation());
+		
+		String parentCombinedId = getImportedPackageCombinedId(mifDatatypeModelLibrary);
+		if (parentCombinedId != null && getParentDatatypeSet() == null) {
+			if (StringUtils.isNotBlank(mifDatatypeModelLibrary.getImportedVocabularyModelPackage().getVersion())) {
+				throw new RuntimeException("unable to complete processing of datatype coremif: " + getVersion() + ", missing parent coremif: " + parentCombinedId);
+			}
+		} else if (parentCombinedId != null && getParentDatatypeSet() != null && !parentCombinedId.equals(getParentDatatypeSet().getCombinedId())) {
+			throw new RuntimeException("unable to complete processing of datatype coremif: " + getVersion() + ", incorrect parent coremif expecting: " + parentCombinedId);
+		}
 		
 		for (MifDatatype mifDatatype : mifDatatypeModelLibrary.getDatatypes()) {
-			this.datatypes.put(mifDatatype.getName(), new Datatype(mifDatatype));
+			if (mifDatatype.getProperties().size() > 0 && mifDatatype.getDerivedFrom().size() > 0) {
+				this.datatypes.put(mifDatatype.getName(), new Datatype(mifDatatype, getParentDatatypeSet()));
+			}
 		}
 	}
 	
 	public DatatypeSet(DatatypeSet parentSet, MifDatatypeModelLibrary mifDatatypeModelLibrary) {
-		this(mifDatatypeModelLibrary);
-
-		for (Datatype datatype : parentSet.getAllDatatypes()) {
-			if (!this.datatypes.keySet().contains(datatype.getName())) {				
-				this.datatypes.put(datatype.getName(), datatype);
+		this.parentDatatypeSet = parentSet;
+		this.version = mifDatatypeModelLibrary.getPackageLocation().getVersion();
+		this.realmCode = mifDatatypeModelLibrary.getPackageLocation().getRealmNamespace();
+		this.combinedId = getCombinedId(mifDatatypeModelLibrary.getPackageLocation());
+		
+		String parentCombinedId = getImportedPackageCombinedId(mifDatatypeModelLibrary);
+		if (parentCombinedId != null && getParentDatatypeSet() == null) {
+			if (StringUtils.isNotBlank(mifDatatypeModelLibrary.getImportedVocabularyModelPackage().getVersion())) {
+				throw new RuntimeException("unable to complete processing of datatype coremif: " + getVersion() + ", missing parent coremif: " + parentCombinedId);
 			}
+		} else if (parentCombinedId != null && getParentDatatypeSet() != null && !parentCombinedId.equals(getParentDatatypeSet().getCombinedId())) {
+			throw new RuntimeException("unable to complete processing of datatype coremif: " + getVersion() + ", incorrect parent coremif expecting: " + parentCombinedId);
 		}
+		
+		for (MifDatatype mifDatatype : mifDatatypeModelLibrary.getDatatypes()) {
+			this.datatypes.put(mifDatatype.getName(), new Datatype(mifDatatype, getParentDatatypeSet()));
+		}
+	}
+	
+	private String getCombinedId(MifIdentifier packageLocation) {
+		if (packageLocation != null) {
+			return packageLocation.getRoot() + "="
+				+ packageLocation.getRealmNamespace() + "="
+				+ packageLocation.getArtifact() + "="
+				+ packageLocation.getVersion();
+		}	
+		return "";
+	}
+
+	private String getImportedPackageCombinedId(MifDatatypeModelLibrary mifDatatypeModelLibrary) {
+		if (mifDatatypeModelLibrary != null && mifDatatypeModelLibrary.getImportDatatypeModelLibrary() != null) {
+			String result = "";
+			MifIdentifier importedDatatypeModelPackage = mifDatatypeModelLibrary.getImportDatatypeModelLibrary();
+			if (importedDatatypeModelPackage.getRoot() != null) {
+				result += importedDatatypeModelPackage.getRoot() + "=";
+			}
+			if (importedDatatypeModelPackage.getRealmNamespace() != null) {
+				result += importedDatatypeModelPackage.getRealmNamespace() + "=";
+			}
+			if (importedDatatypeModelPackage.getArtifact() != null) {
+				result += importedDatatypeModelPackage.getArtifact() + "=";
+			}
+			if (importedDatatypeModelPackage.getVersion() != null) {
+				result += importedDatatypeModelPackage.getVersion();
+			}
+			return result;
+		}
+		return null;
+	}
+	
+	public Datatype getDatatype(String datatypeName) {
+		return this.datatypes.get(datatypeName);
 	}
 	
 	public List<Datatype> getAllDatatypes() {
@@ -79,5 +155,21 @@ public class DatatypeSet {
 
 	public void setRealmCode(String realmCode) {
 		this.realmCode = realmCode;
+	}
+
+	public DatatypeSet getParentDatatypeSet() {
+		return parentDatatypeSet;
+	}
+
+	public void setParentDatatypeSet(DatatypeSet parentDatatypeSet) {
+		this.parentDatatypeSet = parentDatatypeSet;
+	}
+
+	public String getCombinedId() {
+		return combinedId;
+	}
+
+	public void setCombinedId(String combinedId) {
+		this.combinedId = combinedId;
 	}
 }

@@ -25,6 +25,7 @@ import java.util.Map;
 public class HtmlMessageSetRenderDefault {
 	public static final String INTERACTION_PATH = "../interactions";
 	public static final String PACKAGE_PATH = "../packages";
+	public static final String DATATYPE_PATH = "../datatypes";
 	public static final String RESOURCE_PATH = "../resources";
 	public static final String JAVASCRIPT_PATH = "../resources/js";
 	
@@ -43,6 +44,8 @@ public class HtmlMessageSetRenderDefault {
 	public static final String TOC_LIST_ITEM_CLASS = "tocListItem";
 	public static final String DETAILS_TABLE_VALUE_COL_CLASS = "detailsTableValueCol";
 	public static final String DETAILS_TABLE_LABEL_COL_CLASS = "detailsTableLabelCol";
+	
+	public static final String DEFAULT_DATATYPE_FILE_PREFIX = "datatypeSet";
 	
 	public static final Map<String, String> DOMAIN_DESCRIPTIONS = new HashMap<String, String>();
 	static {	
