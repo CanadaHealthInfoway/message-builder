@@ -82,7 +82,11 @@ class DefinitionToResultConverter {
 
 	protected void reassessInlining(TypeAnalysisResult result) {
 		for (SimplifiableType parentType : this.definitions.getAllTypes()) {
-			if (parentType.isMerged()) {
+			// check anything with potential for merging
+			if (!parentType.getMergedWithTypes().isEmpty()) {
+
+				boolean isNewCase = !parentType.isMerged();
+				
 				for (SimplifiableRelationship relationship : parentType.getRelationships()) {
 					SimplifiableType childType = relationship.getType();
 					// can't check isMerged here, as it will always report false when inlined; need to check if it has merged with any other types
@@ -93,18 +97,18 @@ class DefinitionToResultConverter {
 						}
 						if (!allInlined) {
 							for (SimplifiableType simplifiableType : childType.getMergedWithTypes()) {
+								String logMessage = (isNewCase ? "[new case] " : "") + "Rejected inlining for ParentType: " +  parentType.getTypeName()
+										+ " inlining type:" + simplifiableType.getTypeName()
+										+ " relationship:" + relationship.getRelationship().getName()
+										+ " conformance:" + relationship.getRelationship().getConformance()
+										+ " cardinality:" + relationship.getRelationship().getCardinality();
 								if (simplifiableType.isInlined()) {
 									simplifiableType.setInlined(false);
-									this.outputUI.log(LogLevel.INFO, "Rejected inlining for ParentType: " +  parentType.getTypeName()
-											+ " inlining type:" + simplifiableType.getTypeName()
-											+ " relationship:" + relationship.getRelationship().getName()
-											+ " because of parent and child types are merged, and not all merged child types inline"
-									);
+									logMessage += " because parent and child types are merged, and not all merged child types inline";
 								} else {
-									this.outputUI.log(LogLevel.INFO, "Rejected inlining for ParentType: " +  parentType.getTypeName()
-											+ " relationship:" + relationship.getRelationship().getName()
-											+ " but this type wasn't inlined to begin with: " + simplifiableType.getTypeName());
+									logMessage += " but this type wasn't inlined to begin with";
 								}
+								this.outputUI.log(LogLevel.INFO, logMessage);
 							}
 						}
 					}
