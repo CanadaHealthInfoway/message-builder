@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 
 /**
@@ -98,4 +101,33 @@ public class EncapsulatedData {
 		return this.language;
 	}
 
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.mediaType)
+		        .append(this.reference)
+		        .append(this.language)
+		        .append(this.content)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((EncapsulatedData) obj);
+        }
+    }
+    
+	private boolean equals(EncapsulatedData that) {
+        return new EqualsBuilder()
+                .append(this.mediaType, that.mediaType)
+                .append(this.reference, that.reference)
+                .append(this.language, that.language)
+                .append(this.content, that.content)
+                .isEquals();
+    }
 }

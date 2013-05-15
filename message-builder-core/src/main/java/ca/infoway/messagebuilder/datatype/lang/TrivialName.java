@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * <p>Java datatype for TN Hl7 datatypes.
  * 
@@ -80,4 +83,30 @@ public class TrivialName extends EntityName {
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.name)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((TrivialName) obj);
+        }
+    }
+    
+    private boolean equals(TrivialName that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.name, that.name)
+                .isEquals();
+    }
+    
 }

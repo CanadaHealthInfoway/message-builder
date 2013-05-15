@@ -22,6 +22,9 @@ package ca.infoway.messagebuilder.datatype.lang;
 
 import java.math.BigDecimal;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 
 /**
@@ -64,4 +67,31 @@ public class Money {
     public Currency getCurrency() {
         return this.currency;
     }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+			    .append(this.amount)
+			    .append(this.currency)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((Money) obj);
+        }
+    }
+    
+    private boolean equals(Money that) {
+        return new EqualsBuilder()
+                .append(this.amount, that.amount)
+                .append(this.currency, that.currency)
+                .isEquals();
+    }
+    
 }

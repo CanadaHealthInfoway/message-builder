@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
@@ -90,4 +93,32 @@ public class Diff<T> implements BareDiff {
 	public Object getBareValue() {
 		return getValue();
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.value)
+		        .append(this.nullFlavor)
+                .toHashCode();
+    }
+
+    @SuppressWarnings("unchecked")
+	@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((Diff<T>) obj);
+        }
+    }
+    
+    private boolean equals(Diff<T> that) {
+        return new EqualsBuilder()
+                .append(this.value, that.value)
+                .append(this.nullFlavor, that.nullFlavor)
+                .isEquals();
+    }
+    
 }

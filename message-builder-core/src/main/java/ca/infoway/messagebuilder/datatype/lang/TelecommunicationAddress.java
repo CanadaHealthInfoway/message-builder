@@ -28,6 +28,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 
@@ -170,5 +173,33 @@ public class TelecommunicationAddress implements Serializable {
 			return address1.getCodeValue().compareTo(address2.getCodeValue());
 		}
 	}
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.address)
+		        .append(this.addressUses)
+		        .append(this.urlScheme)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((TelecommunicationAddress) obj);
+        }
+    }
+    
+    private boolean equals(TelecommunicationAddress that) {
+        return new EqualsBuilder()
+                .append(this.address, that.address)
+                .append(this.addressUses, that.addressUses)
+                .append(this.urlScheme, that.urlScheme)
+                .isEquals();
+    }
 	
 }

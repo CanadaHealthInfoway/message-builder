@@ -24,6 +24,9 @@ import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 
 import java.io.IOException;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 
@@ -105,4 +108,29 @@ public class CompressedData extends EncapsulatedData {
 	private boolean isGzip() {
 		return compression != null && GZIP.equals(compression);
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.compression)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((CompressedData) obj);
+        }
+    }
+    
+    private boolean equals(CompressedData that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.compression, that.compression)
+                .isEquals();
+    }
 }

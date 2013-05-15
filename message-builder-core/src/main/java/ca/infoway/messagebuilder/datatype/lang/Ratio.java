@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * <p>Java datatype for ratios.
  * 
@@ -99,4 +102,32 @@ public class Ratio<T,U> implements BareRatio {
 	public Object getBareNumerator() {
 		return getNumerator();
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.numerator)
+		        .append(this.denominator)
+                .toHashCode();
+    }
+
+    @SuppressWarnings("unchecked")
+	@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((Ratio<T,U>) obj);
+        }
+    }
+    
+    private boolean equals(Ratio<T,U> that) {
+        return new EqualsBuilder()
+                .append(this.numerator, that.numerator)
+                .append(this.denominator, that.denominator)
+                .isEquals();
+    }
+    
 }

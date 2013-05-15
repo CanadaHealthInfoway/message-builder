@@ -24,6 +24,9 @@ import static ca.infoway.messagebuilder.datatype.lang.util.Representation.FREQUE
 
 import java.util.Date;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 
@@ -78,5 +81,30 @@ public class PeriodicIntervalTimeSk extends PeriodicIntervalTime {
 	public Interval<PhysicalQuantity> getQuantitySk() {
 		return this.quantitySk;
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.quantitySk)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((PeriodicIntervalTimeSk) obj);
+        }
+    }
+    
+	private boolean equals(PeriodicIntervalTimeSk that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.quantitySk, that.quantitySk)
+                .isEquals();
+    }
 	
 }

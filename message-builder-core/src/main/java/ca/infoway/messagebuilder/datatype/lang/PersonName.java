@@ -25,6 +25,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
@@ -117,4 +119,29 @@ public class PersonName extends EntityName {
 		}
 		return name;
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.parts)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((PersonName) obj);
+        }
+    }
+    
+    private boolean equals(PersonName that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.parts, that.parts)
+                .isEquals();
+    }
 }

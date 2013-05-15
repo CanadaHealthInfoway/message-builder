@@ -21,12 +21,14 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
@@ -64,5 +66,31 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 			assertTrue("expected set contains address", expectedStrings.contains(address.getAddress()));
 			expectedStrings.remove(address.getAddress());
 		}
+	}
+	
+	@Test
+	public void testParseWithDuplicates() throws Exception {
+		Node node = createNode("<top>" +
+				"<telecom specializationType=\"TEL.EMAIL\"  value=\"mailto:doctorLocation@doctor.org\"/>" + 
+				"<telecom specializationType=\"TEL.EMAIL\"  value=\"mailto:doctorLocation@doctor.org\"/>" +
+				"</top>");
+		
+		BareANY result = new SetElementParser().parse(
+				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.MANDATORY), 
+				asList(node.getChildNodes()), 
+				this.xmlResult);
+		
+		Set<TelecommunicationAddress> set = ((SET<TEL,TelecommunicationAddress>) result).rawSet();
+		assertNotNull("null", set);
+		assertEquals("size", 1, set.size());
+		
+		for (TelecommunicationAddress address : set) {
+			assertEquals("urlscheme", CeRxDomainTestValues.MAILTO.getCodeValue(), address.getUrlScheme().getCodeValue());
+			assertEquals("address", "doctorLocation@doctor.org", address.getAddress());
+		}
+		
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("Duplicate value not allowed for SET", this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 }

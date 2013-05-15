@@ -132,7 +132,8 @@ public class PhysicalQuantity implements Serializable {
     }
     
     private boolean equals(PhysicalQuantity that) {
-        return new EqualsBuilder().append(this.quantity, that.quantity)
+        return new EqualsBuilder()
+        		.append(this.quantity, that.quantity)
                 .append(this.unit, that.unit)
                 .isEquals();
     }

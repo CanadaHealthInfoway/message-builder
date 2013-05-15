@@ -85,6 +85,11 @@ public class TsFullDatePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		DateWithPattern dateWithPattern = new DateWithPattern(calendar, "yyyyMM");
+		
+		// note that a Date and a DateWithPattern only work for equals() because the
+		// Java implementation we are using uses "instanceof" instead of "getClass()" for its preliminary comparison 
+		assertEquals("same dates should be equal", calendar, dateWithPattern);
+		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
 		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, false, SpecificationVersion.R02_04_02, null, null, null), dateWithPattern, null);
 		assertEquals("map size", 1, result.size());

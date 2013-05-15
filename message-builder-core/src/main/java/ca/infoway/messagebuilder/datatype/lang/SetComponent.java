@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 
 /**
@@ -88,4 +91,32 @@ public class SetComponent<T> {
 	public SetOperator getOperator() {
 		return this.operator;
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.value)
+		        .append(this.operator)
+                .toHashCode();
+    }
+
+    @SuppressWarnings("unchecked")
+	@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((SetComponent<T>) obj);
+        }
+    }
+    
+    private boolean equals(SetComponent<T> that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.value, that.value)
+                .append(this.operator, that.operator)
+                .isEquals();
+    }
+    
 }

@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
@@ -167,4 +170,44 @@ public class Interval<T> extends SetComponent<T> {
 		return this.centreNullFlavor;
 	}
 
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.low)
+                .append(this.high)
+                .append(this.centre)
+                .append(this.width)
+                .append(this.lowNullFlavor)
+                .append(this.highNullFlavor)
+                .append(this.centreNullFlavor)
+                .append(this.representation)
+                .toHashCode();
+    }
+
+	@SuppressWarnings("unchecked")
+	@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((Interval<T>) obj);
+        }
+    }
+    
+    private boolean equals(Interval<T> that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.low, that.low)
+                .append(this.high, that.high)
+                .append(this.centre, that.centre)
+                .append(this.width, that.width)
+                .append(this.lowNullFlavor, that.lowNullFlavor)
+                .append(this.highNullFlavor, that.highNullFlavor)
+                .append(this.centreNullFlavor, that.centreNullFlavor)
+                .append(this.representation, that.representation)
+                .isEquals();
+    }
+    
 }

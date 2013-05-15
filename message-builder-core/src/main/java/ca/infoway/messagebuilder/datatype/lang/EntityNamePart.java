@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 
 /**
@@ -94,4 +97,31 @@ public class EntityNamePart {
 		return this.qualifier;
 	}
 
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+			    .append(this.type)
+			    .append(this.value)
+			    .append(this.qualifier)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((EntityNamePart) obj);
+        }
+    }
+    
+    private boolean equals(EntityNamePart that) {
+        return new EqualsBuilder()
+                .append(this.type, that.type)
+                .append(this.value, that.value)
+                .append(this.qualifier, that.qualifier)
+                .isEquals();
+    }
 }

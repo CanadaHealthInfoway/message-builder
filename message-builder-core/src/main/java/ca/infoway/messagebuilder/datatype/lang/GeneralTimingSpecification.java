@@ -22,6 +22,9 @@ package ca.infoway.messagebuilder.datatype.lang;
 
 import java.util.Date;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * <p>The javav datatype that backs the Hl7 Datatype for GTS (GTS.BOUNDEDPIVL).
  * 
@@ -67,4 +70,30 @@ public class GeneralTimingSpecification {
 	public PeriodicIntervalTime getFrequency() {
 		return this.frequency;
 	}
+	
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+			    .append(this.duration)
+			    .append(this.frequency)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((GeneralTimingSpecification) obj);
+        }
+    }
+    
+    private boolean equals(GeneralTimingSpecification that) {
+        return new EqualsBuilder()
+                .append(this.duration, that.duration)
+                .append(this.frequency, that.frequency)
+                .isEquals();
+    }
 }

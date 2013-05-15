@@ -27,6 +27,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 
 /**
@@ -88,4 +91,31 @@ public class PostalAddress implements Serializable {
     public void addPostalAddressPart(PostalAddressPart postalAddressPart) {
         this.parts.add(postalAddressPart);
     }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.uses)
+		        .append(this.parts)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((PostalAddress) obj);
+        }
+    }
+    
+    private boolean equals(PostalAddress that) {
+        return new EqualsBuilder()
+                .append(this.uses, that.uses)
+                .append(this.parts, that.parts)
+                .isEquals();
+    }
+    
 }

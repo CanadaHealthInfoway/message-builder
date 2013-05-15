@@ -23,6 +23,9 @@ package ca.infoway.messagebuilder.datatype.lang;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.datatype.lang.util.DateConverter;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -156,4 +159,32 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
     public static DateDiff convertDiff(Diff<?> inValue) {
     	return inValue instanceof DateDiff ? (DateDiff) inValue : null;
     }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.value)
+                .append(this.quantity)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((DateDiff) obj);
+        }
+    }
+    
+    private boolean equals(DateDiff that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.value, that.value)
+                .append(this.quantity, that.quantity)
+                .isEquals();
+    }
+    
 }

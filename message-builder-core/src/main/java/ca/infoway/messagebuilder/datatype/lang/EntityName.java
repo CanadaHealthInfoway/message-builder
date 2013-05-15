@@ -25,6 +25,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 
 /**
@@ -71,4 +74,29 @@ public abstract class EntityName {
     public void addUse(EntityNameUse use) {
         this.uses.add(use);
     }
+    
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.uses)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((EntityName) obj);
+        }
+    }
+    
+    private boolean equals(EntityName that) {
+        return new EqualsBuilder()
+                .append(this.uses, that.uses)
+                .isEquals();
+    }
+    
 }

@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * <p>Java datatype that backs the HL7 datatype ON. 
  * 
@@ -52,5 +55,29 @@ public class OrganizationName extends EntityName {
      */
     public void addNamePart(EntityNamePart namePart) {
         this.parts.add(namePart);
+    }
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .appendSuper(super.hashCode())
+                .append(this.parts)
+                .toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((OrganizationName) obj);
+        }
+    }
+    
+    private boolean equals(OrganizationName that) {
+        return new EqualsBuilder().appendSuper(super.equals(that))
+                .append(this.parts, that.parts)
+                .isEquals();
     }
 }

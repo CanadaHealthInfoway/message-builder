@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import ca.infoway.messagebuilder.Code;
 
 /**
@@ -65,4 +68,30 @@ public class CodedString<T extends Code> {
         return this.value;
     }
 
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+		        .append(this.code)
+		        .append(this.value)
+                .toHashCode();
+    }
+
+    @SuppressWarnings("unchecked")
+	@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((CodedString<T>) obj);
+        }
+    }
+    
+    private boolean equals(CodedString<T> that) {
+        return new EqualsBuilder()
+                .append(this.code, that.code)
+                .append(this.value, that.value)
+                .isEquals();
+    }
 }
