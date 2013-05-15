@@ -57,7 +57,9 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {
-					list.add(result);
+					if (!list.add(result)) {
+						unableToAddResultToCollection(result, (Element) node, xmlToModelResult);
+					}
 				}
 			} else {
 				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR,
@@ -68,6 +70,11 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 		return wrapWithHl7DataType(context.getType(), subType, list);
 	}
 
+	protected void unableToAddResultToCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
+		xmlToModelResult.addHl7Error(new Hl7Error(
+				Hl7ErrorCode.INTERNAL_ERROR, "Could not add parsed value to collection", (Element) node));
+	}
+	
 	protected abstract BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection);
 
 	protected abstract Collection<BareANY> getCollectionType(ParseContext context);

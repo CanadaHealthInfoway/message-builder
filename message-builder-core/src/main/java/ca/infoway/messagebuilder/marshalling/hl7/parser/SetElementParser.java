@@ -23,10 +23,15 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
+import org.w3c.dom.Element;
+
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
 import ca.infoway.messagebuilder.marshalling.MarshallingException;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 @DataTypeHandler({"SET"})
 class SetElementParser extends SetOrListElementParser {
@@ -44,6 +49,12 @@ class SetElementParser extends SetOrListElementParser {
 		}
 	}
 
+	@Override
+	protected void unableToAddResultToCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
+		xmlToModelResult.addHl7Error(new Hl7Error(
+				Hl7ErrorCode.DATA_TYPE_ERROR, "Duplicate value not allowed for SET", (Element) node));
+	}
+	
 	@Override
 	protected Collection<BareANY> getCollectionType(ParseContext context) {
 		return new LinkedHashSet<BareANY>();
