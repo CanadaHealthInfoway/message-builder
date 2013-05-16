@@ -43,6 +43,9 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
  		String subType = getSubType(context);
 		Collection<BareANY> list = getCollectionType(context);
+		
+		validateCardinality(context, nodes, xmlToModelResult);
+		
 		for (Node node : nodes) {
 			ElementParser parser = ParserRegistry.getInstance().get(subType);
 			if (parser != null) {
@@ -69,6 +72,24 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 			}
 		}
 		return wrapWithHl7DataType(context.getType(), subType, list);
+	}
+
+	private void validateCardinality(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) {
+		int size = nodes.size();
+		int min = context.getCardinality().getMin();
+		int max = context.getCardinality().getMax();
+		if (size < min) {
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+					"Number of elements (" + size + ") is less than the specified minimum (" + min + ")", getFirst(nodes)));
+		}
+		if (size > max) {
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+					"Number of elements (" + size + ") is more than the specified maximum (" + max + ")", getFirst(nodes)));
+		}
+	}
+
+	private Element getFirst(List<Node> nodes) {
+		return (Element) (nodes == null || nodes.isEmpty() ? null : nodes.get(0));
 	}
 
 	protected void unableToAddResultToCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {

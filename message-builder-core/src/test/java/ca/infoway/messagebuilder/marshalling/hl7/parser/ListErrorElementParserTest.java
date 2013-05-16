@@ -28,6 +28,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class ListErrorElementParserTest extends ParserTestCase {
 
@@ -37,7 +38,7 @@ public class ListErrorElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><name>Fred</name>" + 
 				                    "<name>Flinstone</name></top>");
 		new ListElementParser().parse(
-				ParserContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null, null, null, null), 
+				ParserContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5")), 
 				asList(node.getChildNodes()), result);
 		
 		assertFalse("valid", result.isValid());

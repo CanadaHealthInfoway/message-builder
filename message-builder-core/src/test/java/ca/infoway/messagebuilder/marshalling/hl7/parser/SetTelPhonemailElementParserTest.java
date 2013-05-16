@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetTelPhonemailElementParserTest extends ParserTestCase {
@@ -50,7 +51,7 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<TelecommunicationAddress> set = ((SET<TEL,TelecommunicationAddress>) result).rawSet();
@@ -76,7 +77,7 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.MANDATORY, null), 
+				ParserContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		

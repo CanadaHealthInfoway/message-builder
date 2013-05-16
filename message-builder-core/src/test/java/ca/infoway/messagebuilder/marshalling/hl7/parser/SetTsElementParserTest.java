@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetTsElementParserTest extends ParserTestCase {
@@ -48,7 +49,7 @@ public class SetTsElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				ParserContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
 				asList(node.getChildNodes()), 
 				new XmlToModelResult());
 		Set<Date> set = ((SET<TS,Date>) result).rawSet();

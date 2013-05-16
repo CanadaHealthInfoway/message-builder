@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class ListTelPhonemailElementParserTest extends ParserTestCase {
 	
@@ -47,7 +48,7 @@ public class ListTelPhonemailElementParserTest extends ParserTestCase {
 				"<something specializationType=\"TEL.EMAIL\" value=\"mailto://Wilma\"/>" +
 				"</top>");
 		
-		BareANY result = new ListElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, null), 
+		BareANY result = new ListElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5")), 
 				asList(node.getChildNodes()), null);
 		@SuppressWarnings("unchecked")
 		List<TelecommunicationAddress> list = ((LIST<TEL,TelecommunicationAddress>) result).rawList();
