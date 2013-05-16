@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -52,7 +53,7 @@ class RtoMoPqElementParser extends AbstractRtoElementParser<Money, PhysicalQuant
     	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
+    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
     	return (Money) moParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
@@ -63,7 +64,7 @@ class RtoMoPqElementParser extends AbstractRtoElementParser<Money, PhysicalQuant
     	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
+    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
     	return (PhysicalQuantity) pqParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();

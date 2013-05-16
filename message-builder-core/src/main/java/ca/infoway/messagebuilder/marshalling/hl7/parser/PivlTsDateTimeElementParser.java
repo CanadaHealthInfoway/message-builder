@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 @DataTypeHandler("PIVL<TS.DATETIME>")
 class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIntervalTime> {
@@ -114,7 +115,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getVersion(),
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
-				MANDATORY);
+				MANDATORY, 
+				Cardinality.create("1"));
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -126,7 +128,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getVersion(),
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
-				MANDATORY);
+				MANDATORY, 
+				Cardinality.create("1"));
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -140,7 +143,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getVersion(),
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
-				MANDATORY);
+				MANDATORY, 
+				Cardinality.create("1"));
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 

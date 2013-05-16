@@ -53,7 +53,8 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 								context.getVersion(),
 								context.getDateTimeZone(),
 								context.getDateTimeTimeZone(),
-								context.getConformance()),
+								context.getConformance(),
+								context.getCardinality()),
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {

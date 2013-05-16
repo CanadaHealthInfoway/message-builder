@@ -24,6 +24,7 @@ import java.lang.reflect.Type;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -37,15 +38,17 @@ class ParserContextImpl implements ParseContext {
 	private final Integer length;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
+	private final Cardinality cardinality;
 
 	private ParserContextImpl(String type, Type returnType, VersionNumber version,
-			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
+			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, CodingStrength strength, Integer length) {
 		this.type = type;
 		this.expectedReturnType = returnType;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.conformance = conformance;
+		this.cardinality = cardinality;
 		this.strength = strength;
 		this.length = length;
 	}
@@ -74,8 +77,8 @@ class ParserContextImpl implements ParseContext {
 		return this.conformance;
 	}
 
-	static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance) {
-		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, null, null);
+	public Cardinality getCardinality() {
+		return this.cardinality;
 	}
 
 	public CodingStrength getCodingStrength() {
@@ -86,16 +89,21 @@ class ParserContextImpl implements ParseContext {
 		return this.length;
 	}
 
+	static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality) {
+		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null);
+	}
+
 	public static ParseContext create(String type, Type returnType, VersionNumber version,
-			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, CodingStrength strength, Integer length) {
-		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, strength, length);
+			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, CodingStrength strength, Integer length) {
+		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, strength, length);
 	}
 	
 	public static ParseContext create(String newType, ParseContext oldContext) {
-		return ParserContextImpl.create(newType, oldContext.getConformance(), oldContext);
+		return ParserContextImpl.create(newType, oldContext.getConformance(), oldContext.getCardinality(), oldContext);
 	}
 	
-	public static ParseContext create(String newType, ConformanceLevel newConformance, ParseContext oldContext) {
-		return new ParserContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, oldContext.getCodingStrength(), oldContext.getLength());
+	public static ParseContext create(String newType, ConformanceLevel newConformance, Cardinality newCardinality, ParseContext oldContext) {
+		return new ParserContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength());
 	}
+
 }

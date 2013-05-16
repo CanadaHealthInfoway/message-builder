@@ -51,7 +51,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
 				asList(node.getChildNodes()), new XmlToModelResult());
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -70,7 +70,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
 				asList(node.getChildNodes()), null);
 		@SuppressWarnings({ "unchecked"})
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -90,7 +90,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY), 
+				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		@SuppressWarnings({ "unchecked"})

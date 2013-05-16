@@ -25,6 +25,7 @@ import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -36,4 +37,5 @@ public interface ParseContext extends Typed {
 	public Integer getLength();
 	public CodingStrength getCodingStrength();
 	public ConformanceLevel getConformance();
+	public Cardinality getCardinality();
 }

@@ -53,6 +53,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * IVL - Interval
@@ -227,7 +228,8 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 					context.getVersion(),
 					context.getDateTimeZone(),
 					context.getDateTimeTimeZone(),
-					POPULATED),
+					POPULATED, 
+					Cardinality.create("1")),
 					Arrays.asList((Node) element), parseResult);
 		} else {
 			parseResult.addHl7Error(new Hl7Error(
@@ -274,7 +276,8 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 							context.getVersion(),
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
-							POPULATED);
+							POPULATED, 
+							Cardinality.create("1"));
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

@@ -26,6 +26,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -59,7 +60,7 @@ class RtoPqPqElementParser extends AbstractRtoElementParser<PhysicalQuantity, Ph
     	// inner types (numerator and denominator) are guaranteed to be of type PQ.x due to the DataTypeHandler annotation; no need to validate this is a PQ
     	
     	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, context);
+    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
     	return (PhysicalQuantity) this.parser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();

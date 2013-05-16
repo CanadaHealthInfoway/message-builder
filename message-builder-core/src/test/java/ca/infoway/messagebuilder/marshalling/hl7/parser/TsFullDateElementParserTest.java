@@ -51,7 +51,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
 	}
 	private ParseContext createContext() {
-		return ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null);
 	}
 
 	@Test
@@ -112,6 +112,6 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
-		return ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, timeZone, null, ConformanceLevel.POPULATED, null, null);
+		return ParserContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, timeZone, null, ConformanceLevel.POPULATED, null, null, null);
 	}
 }

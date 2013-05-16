@@ -26,6 +26,7 @@ import java.util.TimeZone;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -76,5 +77,9 @@ class ParseContextImpl implements ParseContext {
 	}
 	public ConformanceLevel getConformance() {
 		return this.relationship.getConformance();
+	}
+
+	public Cardinality getCardinality() {
+		return this.relationship.getCardinality();
 	}
 }

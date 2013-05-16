@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 @DataTypeHandler("PIVL<TS>")
@@ -51,7 +52,8 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getVersion(),
     					context.getDateTimeZone(),
     					context.getDateTimeTimeZone(),
-    					ConformanceLevel.OPTIONAL),
+    					ConformanceLevel.OPTIONAL,
+    					Cardinality.create("0-1")),
     			element, xmlToModelResult);
 	}
 
@@ -65,7 +67,8 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getVersion(),
     					context.getDateTimeZone(),
     					context.getDateTimeTimeZone(),
-    					ConformanceLevel.OPTIONAL),
+    					ConformanceLevel.OPTIONAL,
+    					Cardinality.create("0-1")),
     			Arrays.asList((Node) element), xmlToModelResult).getBareValue();
 	}
 

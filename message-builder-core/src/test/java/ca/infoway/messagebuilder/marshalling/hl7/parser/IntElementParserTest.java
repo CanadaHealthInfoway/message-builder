@@ -50,7 +50,7 @@ public class IntElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext(String hl7Type) {
-		return ParserContextImpl.create(hl7Type, Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED);
+		return ParserContextImpl.create(hl7Type, Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null);
 	}
 	
 	@Test

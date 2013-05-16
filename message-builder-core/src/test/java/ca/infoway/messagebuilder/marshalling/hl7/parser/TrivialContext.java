@@ -24,6 +24,7 @@ import java.lang.reflect.Type;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -65,6 +66,10 @@ class TrivialContext implements ParseContext {
 	
 	public String getType() {
 		return this.type;
+	}
+
+	public Cardinality getCardinality() {
+		return null;
 	}
 
 }

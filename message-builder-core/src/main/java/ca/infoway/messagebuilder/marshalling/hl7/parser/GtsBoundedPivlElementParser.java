@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 @DataTypeHandler("GTS.BOUNDEDPIVL")
 class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTimingSpecification> {
@@ -96,7 +97,8 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getVersion(),
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
-				MANDATORY);
+				MANDATORY,
+				Cardinality.create("1"));
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlResult)
 						.getBareValue();
@@ -109,7 +111,8 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getVersion(),
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
-				MANDATORY);
+				MANDATORY,
+				Cardinality.create("1"));
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlToModelResult)
 						.getBareValue();
