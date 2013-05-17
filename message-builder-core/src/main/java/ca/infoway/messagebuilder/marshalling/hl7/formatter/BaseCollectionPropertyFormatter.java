@@ -27,6 +27,8 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareCollection;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
 public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Collection<BareANY>> {
@@ -54,6 +56,8 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 	protected String formatAllElements(FormatContext subContext, Collection<BareANY> collection, int indentLevel) {
     	StringBuilder builder = new StringBuilder();
 
+    	validateCardinality(subContext, collection);
+    	
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(subContext.getType());
     	if (collection.isEmpty()) {
     		builder.append(formatter.format(subContext, null, indentLevel));
@@ -64,6 +68,20 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 	        }
     	}
         return builder.toString();
+	}
+
+	private void validateCardinality(FormatContext context, Collection<BareANY> collection) {
+		int size = collection.size();
+		int min = context.getCardinality().getMin();
+		int max = context.getCardinality().getMax();
+		if (size < min) {
+			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+					"Number of elements (" + size + ") is less than the specified minimum (" + min + ")", context.getPropertyPath()));
+		}
+		if (size > max) {
+			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+					"Number of elements (" + size + ") is more than the specified maximum (" + max + ")", context.getPropertyPath()));
+		}
 	}
 
     /** 

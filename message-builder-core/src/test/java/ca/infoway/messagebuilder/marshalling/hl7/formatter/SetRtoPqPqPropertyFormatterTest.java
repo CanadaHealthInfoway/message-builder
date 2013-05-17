@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * @sharpen.ignore
@@ -67,7 +68,7 @@ public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
         set.rawSet().addAll(makeSet(ratio1, ratio2));
 
 		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, null),
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, null),
 				set);
 
         assertXml("non null", "<blah><numerator unit=\"cm\" value=\"1\"/><denominator unit=\"cm3\" value=\"2\"/></blah><blah><numerator unit=\"mm\" value=\"10\"/><denominator unit=\"mm3\" value=\"11\"/></blah>", result);

@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -70,7 +71,7 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = this.formatter.format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", "x_BasicUnitsOfMeasure", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", "x_BasicUnitsOfMeasure", ConformanceLevel.MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
 				SETImpl.<CD, Code>create(CDImpl.class, 
 						makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());

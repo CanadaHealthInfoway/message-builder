@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * @author administrator
@@ -60,7 +61,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
         set.rawSet().addAll(makeSet(calendar1, calendar2));
         
 		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, Cardinality.create("1-4")), 
 				set);
 		
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");

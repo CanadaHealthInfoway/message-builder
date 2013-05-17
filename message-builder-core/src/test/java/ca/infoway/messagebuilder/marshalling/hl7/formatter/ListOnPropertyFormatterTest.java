@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class ListOnPropertyFormatterTest extends FormatterTestCase {
@@ -61,7 +62,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY, null),
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY, Cardinality.create("1-4")),
 				LISTImpl.<ON, OrganizationName>create(ONImpl.class, createOrganizationNameList()));
 		
 		assertEquals("non null", 
