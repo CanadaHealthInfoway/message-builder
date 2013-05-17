@@ -358,7 +358,7 @@ class XmlRenderingVisitor implements Visitor {
 				// FIXME - VALIDATION - TM - SPECIALIZATION_TYPE - need to allow for specialization type to be set here???
 				
 				xmlFragment += formatter.format(
-						FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, relationship.getCodingStrength()), 
+						FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), 
 						any, 
 						getIndent());
 			} catch (ModelToXmlTransformationException e) {

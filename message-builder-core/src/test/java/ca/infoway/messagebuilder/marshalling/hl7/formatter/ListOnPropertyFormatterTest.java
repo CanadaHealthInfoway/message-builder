@@ -45,7 +45,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", OPTIONAL), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", OPTIONAL, null), 
 				new LISTImpl<ON, OrganizationName>(ONImpl.class));
 		assertXml("null", "", result);
 	}
@@ -53,7 +53,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNullMandatory() throws Exception {
         String result = new ListPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<ON>", ConformanceLevel.MANDATORY), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<ON>", ConformanceLevel.MANDATORY, null), 
 				(BareANY) new LISTImpl<ON, OrganizationName>(ONImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -61,7 +61,7 @@ public class ListOnPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY),
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY, null),
 				LISTImpl.<ON, OrganizationName>create(ONImpl.class, createOrganizationNameList()));
 		
 		assertEquals("non null", 

@@ -25,6 +25,7 @@ import java.util.TimeZone;
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -38,6 +39,7 @@ public interface FormatContext extends Typed {
 	public boolean isSpecializationType();
 	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();
+	public Cardinality getCardinality();
 	public VersionNumber getVersion();
 	public TimeZone getDateTimeZone();
 	public TimeZone getDateTimeTimeZone();

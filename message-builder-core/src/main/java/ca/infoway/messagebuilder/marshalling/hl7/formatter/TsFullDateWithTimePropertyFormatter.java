@@ -68,6 +68,7 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 						context.getElementName(), 
 						formatterSpecializationType, 
 						context.getConformanceLevel(), 
+						context.getCardinality(), 
 						true, 
 						context.getVersion(), 
 						context.getDateTimeZone(), 

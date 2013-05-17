@@ -61,7 +61,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		UncertainRange<PhysicalQuantity> urg = UncertainRangeFactory.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER));
 		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>(urg);
 		urgImpl.setDataType(StandardDataType.URG_PQ_BASIC);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, false, SpecificationVersion.R02_04_02, null, null, null), urgImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null, false, SpecificationVersion.R02_04_02, null, null, null), urgImpl, 0);
 		assertXml("result", "<name specializationType=\"URG_PQ.BASIC\" xsi:type=\"URG_PQ\"><low specializationType=\"PQ.BASIC\" unit=\"mm\" value=\"55\" xsi:type=\"PQ\"/><high specializationType=\"PQ.BASIC\" unit=\"mm\" value=\"60\" xsi:type=\"PQ\"/></name>", result);
 		
 	}
@@ -71,7 +71,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		String myString = "some value";
 		ANYImpl<Object> stImpl = new ANYImpl<Object>(myString, null, StandardDataType.ST_LANG);
 		stImpl.setLanguage("en-CA");
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
 		assertXml("result", "<name language=\"en-CA\" specializationType=\"ST.LANG\" xsi:type=\"ST\">some value</name>", result);
 	}
 
@@ -83,7 +83,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
 		assertXml("result", "<name code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" displayName=\"disp name\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -95,7 +95,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
 		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -104,7 +104,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testNullCase() throws Exception {
 		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>();
 		urgImpl.setDataType(StandardDataType.URG_PQ_BASIC);		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null), 
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null), 
 				urgImpl, 0);
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}

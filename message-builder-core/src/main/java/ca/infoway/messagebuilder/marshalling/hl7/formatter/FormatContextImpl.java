@@ -24,6 +24,7 @@ import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -39,25 +40,26 @@ class FormatContextImpl implements FormatContext {
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
 	private final String propertyPath;
-	private CodingStrength codingStrength;
-	private final String domainType; 
+	private final CodingStrength codingStrength;
+	private final Cardinality cardinality; 
+	private final String domainType;
 
-
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, false, null, null, null, true, null);
+	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality) {
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, false, null, null, null, true, null);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true, codingStrength);
+	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true, codingStrength);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType, CodingStrength codingStrength) {
+	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType, CodingStrength codingStrength) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.elementName = elementName;
 		this.type = type;
 		this.domainType = domainType;
 		this.conformanceLevel = conformanceLevel;
+		this.cardinality = cardinality;
 		this.isSpecializationType = isSpecializationType;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
@@ -67,30 +69,30 @@ class FormatContextImpl implements FormatContext {
 	}
 	
 	FormatContextImpl(String newType, FormatContext context) {
-		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getElementName(), context);
+		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getCardinality(), context.getElementName(), context);
 	}
 	
-	FormatContextImpl(String newType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
-		this(newType, context.isSpecializationType(), newConformanceLevel, elementName, context);
+	FormatContextImpl(String newType, ConformanceLevel newConformanceLevel, Cardinality newCardinality, String elementName, FormatContext context) {
+		this(newType, context.isSpecializationType(), newConformanceLevel, newCardinality, elementName, context);
 	}
 	
 	FormatContextImpl(String newType, boolean isSpecializationType, FormatContext context) {
-		this(newType, isSpecializationType, context.getConformanceLevel(), context.getElementName(), context);
+		this(newType, isSpecializationType, context.getConformanceLevel(), context.getCardinality(), context.getElementName(), context);
 	}
 
-	FormatContextImpl(String newType, boolean isSpecializationType, ConformanceLevel newConformanceLevel, String elementName, FormatContext context) {
+	FormatContextImpl(String newType, boolean isSpecializationType, ConformanceLevel newConformanceLevel, Cardinality newCardinality, String elementName, FormatContext context) {
 		this(context.getModelToXmlResult(), 
 			 context.getPropertyPath(), 
 			 elementName, 
 			 newType,
 			 context.getDomainType(),
 			 newConformanceLevel, 
+			 newCardinality, 
 			 isSpecializationType, 
 			 context.getVersion(), 
 			 context.getDateTimeZone(), 
-			 context.getDateTimeTimeZone(), 
-			 context.isPassOnSpecializationType(),
-			 context.getCodingStrength());
+			 context.getDateTimeTimeZone(),
+			 context.isPassOnSpecializationType(), context.getCodingStrength());
 	}
 
 	public ModelToXmlResult getModelToXmlResult() {
@@ -103,6 +105,10 @@ class FormatContextImpl implements FormatContext {
 
 	public ConformanceLevel getConformanceLevel() {
 		return this.conformanceLevel;
+	}
+
+	public Cardinality getCardinality() {
+		return this.cardinality;
 	}
 
 	public String getElementName() {

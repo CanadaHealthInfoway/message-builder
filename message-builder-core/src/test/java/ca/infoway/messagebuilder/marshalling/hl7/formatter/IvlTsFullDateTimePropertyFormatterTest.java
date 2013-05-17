@@ -95,7 +95,7 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.IVL_FULL_DATE_TIME);
 		
-		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATETIME\" value=\"20061225111213.0000-0500\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATETIME\" value=\"20070102101112.0000-0500\" xsi:type=\"TS\"/></name>", result);
@@ -114,7 +114,7 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.TS_FULLDATETIME);
 		
-		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size()); // incorrect ST (IVL<TS.FULLDATETIME> will be used)
@@ -123,6 +123,6 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 
 	@Override
     protected FormatContext getContext(String name) {
-    	return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS.FULLDATETIME>", null);
+    	return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS.FULLDATETIME>", null, null);
     }
 }

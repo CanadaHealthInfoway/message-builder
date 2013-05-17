@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 @DataTypeHandler("GTS.BOUNDEDPIVL")
@@ -75,11 +76,12 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 						"IVL<TS.FULLDATE>",
 						context == null ? null : context.getDomainType(), 
 						ConformanceLevel.MANDATORY, 
+						Cardinality.create("1"), 
 						requiresSpecializationType(context), 
 						context == null ? null : context.getVersion(), 
 						context == null ? null : context.getDateTimeZone(), 
-						null, 
-						false,
+						null,
+						false, 
 						null), 
 				ivlDuration, 
 				indentLevel + 1)
@@ -91,6 +93,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 						"comp", 
 						"PIVL<TS.DATETIME>", 
 						ConformanceLevel.MANDATORY, 
+						Cardinality.create("1"), 
 						requiresSpecializationType(context), 
 						context == null ? null : context.getVersion(), 
 						null, 

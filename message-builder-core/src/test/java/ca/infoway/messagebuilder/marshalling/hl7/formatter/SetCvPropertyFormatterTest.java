@@ -41,7 +41,7 @@ public class SetCvPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CV, Code>(CVImpl.class, NullFlavor.NO_INFORMATION));
         assertFalse(this.result.isValid()); // blah is mandatory
         assertEquals(1, this.result.getHl7Errors().size());
@@ -51,7 +51,7 @@ public class SetCvPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
 				SETImpl.<CV, Code>create(CVImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());

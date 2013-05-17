@@ -35,7 +35,7 @@ public class EdSignaturePropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNullWithConformanceOptional() throws Exception {
 		String expectedResult = "";
 			
-		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.OPTIONAL);
+		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", null, ConformanceLevel.OPTIONAL, null);
 		String result = new EdSignaturePropertyFormatter().format(context, null);
 		assertEquals("named null format", expectedResult, result);
 	}

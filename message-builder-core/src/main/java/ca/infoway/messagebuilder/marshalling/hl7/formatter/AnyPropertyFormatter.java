@@ -57,6 +57,7 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 							specializationType,
 							type.isCoded() ? "Code" : formatContext.getDomainType(),
 							formatContext.getConformanceLevel(), 
+							formatContext.getCardinality(), 
 							true, 
 							formatContext.getVersion(), 
 							formatContext.getDateTimeZone(), 

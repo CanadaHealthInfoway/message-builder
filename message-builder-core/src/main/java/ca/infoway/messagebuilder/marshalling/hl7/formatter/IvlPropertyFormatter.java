@@ -46,6 +46,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IvlValidationUtils;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -258,7 +259,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	    	if (formatter != null) {
 	    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
 				return formatter.format(
-	    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null),
+	    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.MANDATORY, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null),
 	    				wrapWithHl7DataType(type, diff),
 	    				indentLevel);
 	    	} else {
@@ -293,7 +294,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
     	if (formatter != null) {
     		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
     		return formatter.format(
-    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
+    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

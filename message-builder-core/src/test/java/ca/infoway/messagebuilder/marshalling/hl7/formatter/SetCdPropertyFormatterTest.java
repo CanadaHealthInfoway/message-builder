@@ -51,7 +51,7 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNull() throws Exception {
         String result = this.formatter.format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				new SETImpl<CD, Code>(CDImpl.class, NullFlavor.NO_INFORMATION));
         assertFalse(this.result.isValid()); // blah is mandatory
         assertEquals(1, this.result.getHl7Errors().size());
@@ -61,7 +61,7 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNullNotMandatory() throws Exception {
     	String result = this.formatter.format(
-    			new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.OPTIONAL, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
+    			new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
     			null);
         assertTrue(this.result.isValid());
     	assertXml("null", "", result);
@@ -70,7 +70,7 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = this.formatter.format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", "x_BasicUnitsOfMeasure", ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CD>", "x_BasicUnitsOfMeasure", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
 				SETImpl.<CD, Code>create(CDImpl.class, 
 						makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());
@@ -80,7 +80,7 @@ public class SetCdPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueEmptySet() throws Exception {
     	String result = this.formatter.format(
-    			new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.POPULATED, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
+    			new FormatContextImpl(this.result, null, "blah", "SET<CD>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				SETImpl.<CD, Code>create(CDImpl.class, new HashSet<Code>()));
         assertTrue(this.result.isValid());
     	assertXml("non null", "<blah nullFlavor=\"NI\"/>", result);

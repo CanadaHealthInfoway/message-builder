@@ -26,6 +26,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -48,14 +49,14 @@ public class RtoMoPqPropertyFormatter extends AbstractRtoPropertyFormatter<Money
 	@Override
 	protected String formatNumerator(FormatContext context, Money numerator, int indentLevel) {
 		String numeratorType = Hl7DataTypeName.create(context.getType()).getInnerTypes().get(0).toString();
-		FormatContext newContext = new FormatContextImpl(numeratorType, ConformanceLevel.MANDATORY, "numerator", context);
+		FormatContext newContext = new FormatContextImpl(numeratorType, ConformanceLevel.MANDATORY, Cardinality.create("1"), "numerator", context);
 		return this.moFormatter.format(newContext, new MOImpl(numerator), indentLevel);
 	}
 
 	@Override
 	protected String formatDenominator(FormatContext context, PhysicalQuantity denominator, int indentLevel) {
 		String denominatorType = Hl7DataTypeName.create(context.getType()).getInnerTypes().get(1).toString();
-		FormatContext newContext = new FormatContextImpl(denominatorType, ConformanceLevel.MANDATORY, "denominator", context);
+		FormatContext newContext = new FormatContextImpl(denominatorType, ConformanceLevel.MANDATORY, Cardinality.create("1"), "denominator", context);
 		return this.pqFormatter.format(newContext, new PQImpl(denominator), indentLevel);
 	}
 	

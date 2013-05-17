@@ -70,7 +70,7 @@ public class PivlTsPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	protected FormatContext getContextSk(String name, String type) {
-		return new FormatContextImpl(this.result, null, name, type, null, false, SpecificationVersion.V01R04_2_SK, null, null, null);
+		return new FormatContextImpl(this.result, null, name, type, null, null, false, SpecificationVersion.V01R04_2_SK, null, null, null);
 	}
 
 	@Test

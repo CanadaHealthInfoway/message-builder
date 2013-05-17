@@ -39,7 +39,7 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, null, false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
@@ -47,7 +47,7 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, null, false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet( "Fred"))));

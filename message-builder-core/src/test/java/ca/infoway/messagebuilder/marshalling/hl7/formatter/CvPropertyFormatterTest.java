@@ -44,14 +44,14 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), null, null);
+		Map<String,String>  result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), null, null);
 		assertEquals("map size", 0, result.size());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairs() throws Exception {
 		// used as expected: an enumerated object is passed in
-		Map<String, String> result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), CeRxDomainTestValues.CENTIMETRE, null);
+		Map<String, String> result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), CeRxDomainTestValues.CENTIMETRE, null);
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("key as expected", result.containsKey("code"));
@@ -92,7 +92,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalText() throws Exception {
 		CVImpl cv = new CVImpl(null);
 		cv.setOriginalText("some original text");
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "CV", null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CWE), cv);
+		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "CV", null, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CWE), cv);
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name><originalText>some original text</originalText></name>", StringUtils.trim(result));
 	}
@@ -100,7 +100,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndOptional() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), cv);
+		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), cv);
 		assertTrue(this.result.isValid());
 		assertEquals("result", "", StringUtils.trim(result));
 	}
@@ -108,7 +108,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndMandatory() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), cv);
+		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), cv);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals("result", "<name/>", StringUtils.trim(result));

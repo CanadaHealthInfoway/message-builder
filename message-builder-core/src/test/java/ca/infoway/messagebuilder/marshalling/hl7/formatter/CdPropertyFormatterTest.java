@@ -46,14 +46,14 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null), null, null);
+		Map<String,String>  result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null), null, null);
 		assertEquals("map size", 0, result.size());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairs() throws Exception {
 		// used as expected: an enumerated object is passed in
-		Map<String, String> result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null), CeRxDomainTestValues.CENTIMETRE, new CDImpl());
+		Map<String, String> result = new CdPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null), CeRxDomainTestValues.CENTIMETRE, new CDImpl());
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("key as expected", result.containsKey("code"));
@@ -104,7 +104,7 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndOptional() throws Exception {
 		CDImpl cd = new CDImpl(null);
-		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "", StringUtils.trim(result));
@@ -113,7 +113,7 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndMandatory() throws Exception {
 		CDImpl cd = new CDImpl(null);
-		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
 		
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size()); // "name" mandatory
@@ -127,7 +127,7 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 			public String getCodeValue() {return null;}
 			public String getCodeSystem() {return null;}
 		});
-		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
+		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE), cd);
 		
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());

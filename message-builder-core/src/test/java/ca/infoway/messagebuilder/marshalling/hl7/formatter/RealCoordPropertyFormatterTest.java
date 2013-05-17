@@ -43,7 +43,7 @@ public class RealCoordPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), null, new REALImpl());
+		Map<String,String>  result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), null, new REALImpl());
 
 		// a null value for REAL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -57,7 +57,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testFormatCorrectly() throws Exception {
 		String realValue = "0.2564";
 
-		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new BigDecimal(realValue), null);
+		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", realValue, result.get("value"));
@@ -68,7 +68,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testValueHasTooManyDigitsToRightOfDecimal() throws Exception{
 		String realValue = "-0.56899";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new REALImpl(bigDecimal));
+		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"-0.5690\"/>", result.trim());
 		assertEquals("1 error", 1, this.modelToXmlResult.getHl7Errors().size());
 	}
@@ -76,7 +76,7 @@ public class RealCoordPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToZero() throws Exception{
 		String realValue = "0.0";
-		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new BigDecimal(realValue), null);
+		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.0", result.get("value"));		
@@ -87,7 +87,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testValueHasTooManyDigitsToLeftOfDecimal() throws Exception{
 		String realValue = "12345.0001";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new REALImpl(bigDecimal));
+		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"2345.0001\"/>", result.trim());
 		assertEquals("1 error", 1, this.modelToXmlResult.getHl7Errors().size());
 	}
@@ -96,7 +96,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testValueHasTooManyDigitsOnBothSidesOfDecimal() throws Exception{
 		String realValue = "123456.123456";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new REALImpl(bigDecimal));
+		String result = new RealCoordPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"3456.1235\"/>", result.trim());
 		assertEquals("2 errors", 2, this.modelToXmlResult.getHl7Errors().size());
 	}
@@ -105,7 +105,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testRoundedToFourDecimalPlacesFloor() throws Exception{
 		String realValue = "0.256444444";
 
-		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new BigDecimal(realValue), null);
+		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.2564", result.get("value"));
@@ -116,7 +116,7 @@ public class RealCoordPropertyFormatterTest {
 	public void testRoundedToFourDecimalPlacesCeiling() throws Exception{
 		String realValue = "0.256455555";
 
-		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new BigDecimal(realValue), null);
+		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.2565", result.get("value"));
@@ -126,7 +126,7 @@ public class RealCoordPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToOne() throws Exception{
 		String realValue = "1.0";
-		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null), new BigDecimal(realValue), null);
+		Map<String, String> result = new RealCoordPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "1.0", result.get("value"));

@@ -45,7 +45,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
     public void testFormatValueNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY), 
+		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, null), 
         		new SETImpl<TS, Date>(TSImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -60,7 +60,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
         set.rawSet().addAll(makeSet(calendar1, calendar2));
         
 		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, null), 
 				set);
 		
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
