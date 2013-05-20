@@ -37,6 +37,10 @@ public class Case1Simplifier extends InlineableSimplifier {
 	protected boolean isInlineable(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
 		boolean result = true;
 		
+		// inlines types with only 1 non-fixed relationship
+		// cardinality of the 1 non-fixed relationship must be "1", OR *all* relationships referencing the type to be inlined must have a cardinality of "1"; 
+		// relationships referencing the type to be inlined cannot be POPULATED
+		// rejects types that are root, abstract or have a template variable for their 1 non-fixed relationship
 		if (inlineableType.isRootType()) {
 			result = false;
 		} else if (getNonFixedRelationships(inlineableType).size() != 1) {

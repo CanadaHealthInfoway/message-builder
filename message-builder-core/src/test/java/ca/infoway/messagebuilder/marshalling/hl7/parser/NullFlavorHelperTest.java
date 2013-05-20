@@ -37,7 +37,7 @@ public class NullFlavorHelperTest {
 	
 	public static final Object[] POPULATED = {ConformanceLevel.POPULATED, true}; 
 	public static final Object[] MANDATORY = {ConformanceLevel.MANDATORY, false}; 
-	public static final Object[] REQUIRED = {ConformanceLevel.REQUIRED, false}; 
+	public static final Object[] REQUIRED = {ConformanceLevel.REQUIRED, true}; 
 
 	@Test
 	public void testConformanceHandlingForNullFlavorIsErrorFree() throws Exception {

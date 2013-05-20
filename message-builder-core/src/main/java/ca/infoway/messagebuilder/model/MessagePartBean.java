@@ -157,6 +157,8 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 		Object field = getField(propertyName);
 		if (field instanceof BareANY) {
 			return ((BareANY) field).getNullFlavor();
+		} else if (field instanceof MessagePartBean) {
+			return ((MessagePartBean) field).getNullFlavor();
 		} else {
 			throw new IllegalStateException("Could not find property " + propertyName + " in order to get nullFlavor");
 		}
@@ -170,6 +172,8 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 		Object field = getField(propertyName);
 		if (field instanceof BareANY) {
 			((BareANY) field).setNullFlavor(nullFlavor);
+		} else if (field instanceof MessagePartBean) {
+			((MessagePartBean) field).setNullFlavor(nullFlavor);
 		} else {
 			throw new IllegalStateException("Could not find property " + propertyName + " in order to set nullFlavor");
 		}
@@ -233,6 +237,7 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 		return setMetadataInCollection(propertyName, -1, valueInSet, specializationType, true);
 	}
 
+	// TODO - TM - modify get/set to accommodate NFs on collections of associations? (users can set NF directly on MessagePart beans, not really necessary to do this here)
 	private Object getMetadataInCollection(String propertyName, int indexInList, Object valueInSet, boolean isSpecializationType) {
 		ANY<?> field = (ANY<?>) getField(propertyName);
 		@SuppressWarnings("unchecked")

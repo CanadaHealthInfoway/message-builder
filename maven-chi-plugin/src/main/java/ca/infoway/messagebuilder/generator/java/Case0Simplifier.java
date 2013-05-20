@@ -32,6 +32,8 @@ public class Case0Simplifier extends InlineableSimplifier {
 	protected boolean isInlineable(SimplifiablePackage simplifiablePackage,	SimplifiableType inlineableType) {
 		boolean result = true;
 		
+		// "inlines" types if all relationships are fixed ("inlines"=converts type into an "indicator", replacing it with a boolean: 'include or suppress')
+		// (type is rejected if it is root, abstract, or an interface)
 		if (inlineableType.isRootType()) {
 			result = false;
 		} else if (!getNonFixedRelationships(inlineableType).isEmpty()) {

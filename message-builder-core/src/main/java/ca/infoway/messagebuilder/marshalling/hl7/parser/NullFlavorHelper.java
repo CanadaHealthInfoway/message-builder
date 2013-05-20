@@ -60,11 +60,13 @@ public class NullFlavorHelper {
 					NodeUtil.getLocalOrTagName((Element) node), 
 					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
 					(Element) node));
-		} else if (this.conformanceLevel != null && this.conformanceLevel == ConformanceLevel.REQUIRED) {
-			xmlToModelResult.addHl7Error(Hl7Error.createRequiredAttributeIsNullError(
-					NodeUtil.getLocalOrTagName((Element) node), 
-					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
-					(Element) node));
+//      RM #15431 - strictly speaking, nullFlavors are not allowed for REQUIRED fields. However, jurisdictions often ignore this restriction.
+//			      - once MB has error levels implemented, this can be reinstated as a warning
+//		} else if (this.conformanceLevel != null && this.conformanceLevel == ConformanceLevel.REQUIRED) {
+//			xmlToModelResult.addHl7Error(Hl7Error.createRequiredAttributeIsNullError(
+//					NodeUtil.getLocalOrTagName((Element) node), 
+//					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
+//					(Element) node));
 		} else if (this.isAssociation && !StringUtils.equals(getAttributeValue(node, NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME), "true")) {
 			xmlToModelResult.addHl7Error(Hl7Error.createNullFlavorMissingXsiNilError(
 					NodeUtil.getLocalOrTagName((Element) node), 

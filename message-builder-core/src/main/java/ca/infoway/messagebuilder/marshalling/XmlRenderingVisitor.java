@@ -155,7 +155,8 @@ class XmlRenderingVisitor implements Visitor {
 	private boolean isSomethingToRender(PartBridge tealBean, Relationship relationship) {
 		return !tealBean.isEmpty() 
 				|| relationship.getConformance() == ConformanceLevel.MANDATORY 
-				|| relationship.getConformance() == ConformanceLevel.POPULATED;
+				|| relationship.getConformance() == ConformanceLevel.POPULATED
+				|| tealBean.hasNullFlavor();
 	}
 
 	public void visitAssociationStart(PartBridge part, Relationship relationship) {
@@ -167,7 +168,7 @@ class XmlRenderingVisitor implements Visitor {
 			String propertyPath = buildPropertyPath();
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			
-			if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.POPULATED) {
+			if (part.isEmpty() && (relationship.getConformance() == ConformanceLevel.POPULATED || part.hasNullFlavor())) {
 				currentBuffer().getStructuralBuilder().append(
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
