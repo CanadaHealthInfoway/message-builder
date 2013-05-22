@@ -60,7 +60,7 @@ public class MessagePartLayoutItem implements LayoutItem {
 
 	private MessagePartLayoutItem original;
 	private boolean cyclic;
-	private Layout layout;
+	private PackageLocationLayout layout;
 	MessagePartLayoutItem parentItem;
 
 	private int encroachmentLevel;
@@ -85,12 +85,12 @@ public class MessagePartLayoutItem implements LayoutItem {
 	 * @param rootPackageLocationName - the root type's package location name - used to identify CMET references
 	 * 
 	 */
-	public MessagePartLayoutItem(MessagePart messagePart, Layout layout) {
+	public MessagePartLayoutItem(MessagePart messagePart, PackageLocationLayout layout) {
 		this.messagePart = messagePart;
 		this.layout = layout;
 	}
 	
-	MessagePartLayoutItem(MessagePartLayoutItem parent, MessagePart messagePart, Layout layout) {
+	MessagePartLayoutItem(MessagePartLayoutItem parent, MessagePart messagePart, PackageLocationLayout layout) {
 		this.parentItem = parent;
 		this.messagePart = messagePart;
 		this.layout = layout;
@@ -193,7 +193,7 @@ public class MessagePartLayoutItem implements LayoutItem {
 		return this.layout.getMessageSet();
 	}
 
-	public Layout getLayout() {
+	public PackageLocationLayout getLayout() {
 		return this.layout;
 	}
 
@@ -284,7 +284,7 @@ public class MessagePartLayoutItem implements LayoutItem {
 		}
 	}
 
-	public InboundAssociation getInboundAssociation() {
+	public InboundAssociation getInboundElement() {
 		return this.inboundAssociation;
 	}
 	
@@ -318,8 +318,8 @@ public class MessagePartLayoutItem implements LayoutItem {
 	public CmetBinding getCmetBinding() {
 		if (this.getPackageLocation() != null) {
 			String cmetBindingName = null;
-			if (this.getInboundAssociation() != null) {
-				cmetBindingName = this.getInboundAssociation().getCmetBindingName();
+			if (this.getInboundElement() != null) {
+				cmetBindingName = this.getInboundElement().getCmetBindingName();
 			} else if (this.getPackageLocation() != null && this.isSpecialization()) {
 				for (SpecializationChild specializationChild : this.parentItem.messagePart.getSpecializationChilds()) {
 					if (specializationChild.getName().equals(this.messagePart.getName())) {

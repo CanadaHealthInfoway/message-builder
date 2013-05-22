@@ -1063,6 +1063,9 @@ public class XmlunitDifferenceTypesTest {
 			
 			Document dom1 = xml2DOM(xml1);
 			Document dom2 = xml2DOM(xml2);
+			
+			System.out.println(String.format("xml1 (text):%n%s%n     (DOM):%n%s%n", xml1, dom2XML(dom1)));
+			System.out.println(String.format("xml2 (text):%n%s%n     (DOM):%n%s%n", xml2, dom2XML(dom2)));
 
 			XmlunitAdapter obj = new XmlunitAdapter();
 			XmlunitResult result = obj.compare(dom1, dom2);

@@ -38,7 +38,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.demiftifier.Layout;
+import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.layout.LayerOuter;
 import ca.infoway.demiftifier.svgifier.Svgifier;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
@@ -81,8 +81,12 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 	}
 	
 	public PackageLocationHtml(PackageLocation packageLocation, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes,
-			String interactionsPath, String packagesPath, String datatypesPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, packagesPath, datatypesPath, javascriptPath, resourcesPath);
+			String interactionsPath, String packagesPath, String datatypesPath,
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String javascriptPath, String resourcesPath) {
+		super(interactionsPath, packagesPath, datatypesPath, 
+				codeSystemsPath, valueSetsPath, conceptDomainsPath, 
+				javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
 		this.datatypeSet = datatypeSet;
 		this.packageLocation = packageLocation;
@@ -209,8 +213,11 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		MessagePart rootPart = getPackageLocation().getMessageParts().get(rootType);
 		if (rootPart != null) {
 			List<Relationship> relationships = rootPart.getRelationships();
-			sortRelationships(relationships);
-			for (Relationship relationship : relationships) {
+			List<Relationship> sortedRelationships = new ArrayList<Relationship>();
+			sortedRelationships.addAll(relationships);
+			sortRelationships(sortedRelationships);
+			
+			for (Relationship relationship : sortedRelationships) {
 				if (relationship.isAssociation() 
 						&& !relationship.isTemplateRelationship() 
 						&& getPackageLocation().getMessageParts().get(relationship.getType()) != null
@@ -316,9 +323,11 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		relationshipTocList.setCSSClass(TOC_LIST_CLASS);
 		
 		List<Relationship> relationships = messagePart.getRelationships();
-		sortRelationships(relationships);
+		List<Relationship> sortedRelationships = new ArrayList<Relationship>();
+		sortedRelationships.addAll(relationships);
+		sortRelationships(sortedRelationships);
 		
-		for (Relationship relationship : relationships) {
+		for (Relationship relationship : sortedRelationships) {
 			if (relationship.isStructural() && getExcludeStructrualAttributes()) {
 				continue;
 			}
@@ -384,7 +393,7 @@ public class PackageLocationHtml extends BaseHtmlGenerator {
 		result.setId(DIAGRAM_DIV_ID);
 		result.setCSSClass(DIAGRAM_DIV_ID);
 		
-		Layout layout = new LayerOuter().layout(messageSet, packageLocation.getName());
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, packageLocation.getName());
 		StringWriter writer = new StringWriter();
 		try {
 			if (getSvgifier() == null) {

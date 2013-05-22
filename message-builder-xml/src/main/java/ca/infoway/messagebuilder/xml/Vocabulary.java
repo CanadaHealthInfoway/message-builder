@@ -34,6 +34,9 @@ public class Vocabulary {
 	@ElementList(inline=true,required=false,entry="conceptDomain")
 	private List<ConceptDomain> conceptDomains = new ArrayList<ConceptDomain>();
 
+	@ElementList(inline=true,required=false,entry="codeSystem")
+	private List<CodeSystem> codeSystems = new ArrayList<CodeSystem>();
+	
 	public List<ValueSet> getValueSets() {
 		return this.valueSets;
 	}
@@ -48,6 +51,14 @@ public class Vocabulary {
 
 	public void setConceptDomains(List<ConceptDomain> conceptDomains) {
 		this.conceptDomains = conceptDomains;
+	}
+
+	public List<CodeSystem> getCodeSystems() {
+		return codeSystems;
+	}
+
+	public void setCodeSystems(List<CodeSystem> codeSystems) {
+		this.codeSystems = codeSystems;
 	}
 	
 }

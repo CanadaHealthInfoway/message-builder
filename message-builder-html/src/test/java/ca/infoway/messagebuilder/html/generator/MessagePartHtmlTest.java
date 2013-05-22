@@ -156,7 +156,7 @@ public class MessagePartHtmlTest {
 							"<tbody>" +
 								"<tr>" +
 									"<td class=\"detailsTableLabelCol\">Data Type:</td>" +
-									"<td class=\"detailsTableValueCol\" colspan=\"3\">CV</td>" +
+									"<td class=\"detailsTableValueCol\" colspan=\"3\"><span>CV</span></td>" +
 								"</tr>" +
 								"<tr>" +
 									"<td class=\"detailsTableLabelCol\">Conformance:</td>" +
@@ -258,8 +258,7 @@ public class MessagePartHtmlTest {
 		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Table result = html.createRelationshipTable(relationship);
-		
-		Assert.assertTrue(result.write().contains("<td class=\"detailsTableValueCol\" colspan=\"3\">SET&lt;II.PUBLIC&gt;</td>"));
+		Assert.assertTrue(result.write().contains("<td class=\"detailsTableValueCol\" colspan=\"3\"><span>SET&lt;II.PUBLIC&gt;</span></td>"));
 	}
 	
 	@Test
@@ -286,7 +285,7 @@ public class MessagePartHtmlTest {
 		MessagePartHtml html = new MessagePartHtml(messagePart, testMessageSet, testDatatypeSet, false);
 		
 		Table result = html.createRelationshipTable(relationship);
-		Assert.assertTrue("Coded Data Type Details Row", result.write().contains("<tr><td class=\"detailsTableLabelCol\">Coding Strength:</td><td class=\"detailsTableValueCol\">CNE</td><td class=\"detailsTableLabelCol\">Concept Domain</td><td class=\"detailsTableValueCol\">ActInvoiceDetailCode</td></tr>"));
+		Assert.assertTrue("Coded Data Type Details Row", result.write().contains("<tr><td class=\"detailsTableLabelCol\">Coding Strength:</td><td class=\"detailsTableValueCol\">CNE</td><td class=\"detailsTableLabelCol\">Concept Domain</td><td class=\"detailsTableValueCol\"><a href=\"../conceptDomains/ActInvoiceDetailCode.html\">ActInvoiceDetailCode</a></td></tr>"));
 		Assert.assertTrue("Cardinality Conformance Row", result.write().contains("<tr><td class=\"detailsTableLabelCol\">Conformance:</td><td class=\"detailsTableValueCol\">Mandatory</td><td class=\"detailsTableLabelCol\">Cardinality:</td><td class=\"detailsTableValueCol\">1-1</td></tr>"));
 	}
 		

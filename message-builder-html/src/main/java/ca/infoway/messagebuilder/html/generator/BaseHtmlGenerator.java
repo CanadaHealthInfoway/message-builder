@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
+import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.CODESYSTEM_PATH;
+import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.CONCEPTDOMAIN_PATH;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DATATYPE_PATH;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DETAILS_TABLE_LABEL_COL_CLASS;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.DETAILS_TABLE_VALUE_COL_CLASS;
@@ -27,19 +29,26 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.LEFT_NAV_BAR_ID;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.PACKAGE_PATH;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.RESOURCE_PATH;
+import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.VALUESET_PATH;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.CodeSystem;
+import ca.infoway.messagebuilder.xml.Concept;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.DomainSource;
@@ -47,6 +56,8 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
+import ca.infoway.messagebuilder.xml.ValueSet;
+import ca.infoway.messagebuilder.xml.Vocabulary;
 
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.Node;
@@ -54,26 +65,39 @@ import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
 import com.hp.gagawa.java.elements.H2;
 import com.hp.gagawa.java.elements.H3;
+import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Link;
 import com.hp.gagawa.java.elements.Script;
+import com.hp.gagawa.java.elements.Span;
 import com.hp.gagawa.java.elements.Tbody;
 import com.hp.gagawa.java.elements.Td;
 import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Title;
 import com.hp.gagawa.java.elements.Tr;
+import com.hp.gagawa.java.elements.Ul;
 
 public abstract class BaseHtmlGenerator {
 
+	private Set<String> duplicateCodeSystemNameSet;
+	
 	private String interactionsPath;
 	private String messagePartsPath;
 	private String datatypesPath;
+	private String codeSystemsPath;
+	private String valueSetsPath;
+	private String conceptDomainsPath;
 	private String javascriptPath;
 	private String resourcesPath;
 	
-	public BaseHtmlGenerator(String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath){
+	public BaseHtmlGenerator(String interactionsPath, String messagePartsPath, String datatypesPath, 
+			String codeSystemPath, String valueSetsPath, String conceptDomainsPath, 
+			String javascriptPath, String resourcesPath){
 		this.interactionsPath = interactionsPath;
 		this.messagePartsPath = messagePartsPath;
 		this.datatypesPath = datatypesPath;
+		this.codeSystemsPath = codeSystemPath;
+		this.valueSetsPath = valueSetsPath;
+		this.conceptDomainsPath = conceptDomainsPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
 	}
@@ -82,12 +106,16 @@ public abstract class BaseHtmlGenerator {
 		this.interactionsPath = INTERACTION_PATH;
 		this.messagePartsPath = PACKAGE_PATH;
 		this.datatypesPath = DATATYPE_PATH;
+		this.codeSystemsPath = CODESYSTEM_PATH;
+		this.valueSetsPath = VALUESET_PATH;
+		this.conceptDomainsPath = CONCEPTDOMAIN_PATH;
 		this.javascriptPath = JAVASCRIPT_PATH;
 		this.resourcesPath = RESOURCE_PATH;
 	}
 
 	public abstract String write();
 	public abstract Set<AnnotationType> getExcludeAnnotationFilter();
+	public abstract MessageSet getMessageSet();
 	
 	/** Common Section **/
 	protected Div getHeaderDiv() {
@@ -159,23 +187,92 @@ public abstract class BaseHtmlGenerator {
 		String packageName = new TypeName(messagePart).getParent().getName();
 		String messagePartAnchor = getMessagePartName(messagePart);
 		if (StringUtils.isNotBlank(messagePart) && !StringUtils.equals(packageName, messagePartAnchor)) {
-			return getMessagePartsPath() + "/" + packageName + ".html#" + messagePartAnchor + "DetailsDiv";
+			return getMessagePartsPath() + "/" + getPackageFileName(packageName) + "#" + messagePartAnchor + "DetailsDiv";
 		}
-		return getMessagePartsPath() + "/" + packageName + ".html";
+		return getMessagePartsPath() + "/" + getPackageFileName(packageName);
+	}
+	
+	protected String getRelationshipUrl(MessagePart messagePart, Relationship relationship) {
+		String packageName = new TypeName(messagePart.getName()).getParent().getName();
+		if (relationship != null) {
+			return getMessagePartsPath() + "/" + getPackageFileName(packageName) + "#" + getRelationshipId(messagePart, relationship);
+		}
+		return getMessagePartsPath() + "/" + getPackageFileName(packageName);
 	}
 	
 	protected String getPackageUrl(String packageName) {
-		return getMessagePartsPath() + "/" + packageName + ".html";
+		return getMessagePartsPath() + "/" + getPackageFileName(packageName);
+	}
+	
+	protected String getPackageFileName(String packageName) {
+		return packageName + ".html";
 	}
 	
 	protected String getInteractionUrl(String interaction) {
-		return getInteractionsPath() + "/" + interaction + ".html";
+		return getInteractionsPath() + "/" + getInteractionFileName(interaction);
+	}
+	
+	protected String getInteractionFileName(String interaction) {
+		return interaction + ".html";
 	}
 	
 	protected String getDatatypeUrl(String datatype) {
-		return getDatatypesPath() + "/" + datatype + ".html";
+		return getDatatypesPath() + "/" + getDatatypeFileName(datatype);
 	}
 	
+	protected String getDatatypeFileName(String datatype) {
+		return datatype + ".html";
+	}
+	
+	protected String getCodeSystemUrl(String codeSystem) {
+		return getCodeSystemsPath() + "/" + getCodeSystemFileName(codeSystem);
+	}
+
+	protected String getCodeSystemFileName(String codeSystem) {
+		if (getDuplicateCodeSystemNameSet()==null) {
+			initDuplicateNameList();
+		}
+		Integer fileSuffix = 0;
+		String fileName = new String(codeSystem);
+		
+		while (getDuplicateCodeSystemNameSet().contains(fileName)) {
+			fileName = fileName + "_" + fileSuffix;
+			fileSuffix++;
+		}
+		
+		return fileName + ".html";
+	}
+
+	protected String getValueSetUrl(String valueSet) {
+		return getValueSetsPath() + "/" + getValueSetFileName(valueSet);
+	}
+	
+	protected String getValueSetFileName(String valueSet) {
+		return valueSet + ".html";
+	}
+	
+	protected String getConceptDomainUrl(String conceptDomain) {
+		return getConceptDomainsPath() + "/" + getConceptDomainFileName(conceptDomain);
+	}
+	
+	protected String getConceptDomainFileName(String conceptDomain) { 
+		return conceptDomain + ".html";
+	}
+	
+	private void initDuplicateNameList() {
+		Set<String> nameSet = new HashSet<String>();
+		Set<String> dupNameSet = new HashSet<String>();
+		//Only concerned about concept domain for now as no other components seem to have same name with different case
+		for (CodeSystem codeSystem : getMessageSet().getVocabulary().getCodeSystems()) {
+			if (!nameSet.contains(codeSystem.getName().toUpperCase())) {				
+				nameSet.add(codeSystem.getName());
+			} else {
+				dupNameSet.add(codeSystem.getName());
+			}
+		}
+		setDuplicateCodeSystemNameSet(dupNameSet);
+	}
+
 	protected Div getLeftSideColumn() {
 		Div result = new Div();
 		result.setId("leftSideColumn");
@@ -297,10 +394,10 @@ public abstract class BaseHtmlGenerator {
 			
 			for (Annotation annotation : sortedAnnotations) {
 				//FIXME: Filter out mapping annotations for now (not in requirements), will likely require different handling for subtype
-				if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum())) {
+				if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum()) && annotation.getText() != null) {
 					tBody.appendChild(createDataRow(definitionLabelText, new Text(annotation.getText()), ""));
 					numRows++;
-				} else if (!getExcludeAnnotationFilter().contains(annotation.getAnnotationTypeAsEnum())) {
+				} else if (!getExcludeAnnotationFilter().contains(annotation.getAnnotationTypeAsEnum()) && annotation.getText() != null) {
 					tBody.appendChild(createDataRow(capitalizeTitle(annotation.getAnnotationType()) + ":", new Text(annotation.getText()), ""));
 					numRows++;
 				}
@@ -313,6 +410,63 @@ public abstract class BaseHtmlGenerator {
 //			tBody.appendChild(createDataRow("Description:", new Text(""), ""));
 //		}
 		return numRows;
+	}
+	
+	protected Node createDatatypeLinks(String typeName, DatatypeSet datatypeSet) {
+		Span result = new Span();
+		
+		//Split the super type into pieces 
+		String[] angleParts = typeName.split("<");
+		List<Node> linkList = new ArrayList<Node>();
+		List<String> partSuffix = new ArrayList<String>();
+		for (String anglePart : angleParts) {
+			String datatypeName = new String(anglePart);
+
+			String closingBracket = "";
+			while(datatypeName.endsWith(">")) {
+				closingBracket+=">";
+				datatypeName = datatypeName.substring(0, datatypeName.length()-1);
+			}
+			
+			if (datatypeSet != null && datatypeSet.getDatatype(datatypeName) != null) {
+				linkList.add(createLink(getDatatypeUrl(datatypeName), new Text(datatypeName), "detailsRows", ""));
+			} else if (datatypeName.contains(",")) {
+				String[] commaParts = datatypeName.split(",");
+				int commaIndex = 0;
+				for (String commaPart : commaParts) {
+					String subDatatypeName = new String(commaPart.trim());
+					if (datatypeSet != null && datatypeSet.getDatatype(subDatatypeName) != null) {
+						linkList.add(createLink(getDatatypeUrl(subDatatypeName), new Text(subDatatypeName), "detailsRows", ""));
+					} else {
+						linkList.add(new Text(commaPart));
+					}
+					if (commaIndex > 0) {
+						partSuffix.add(", ");						
+					}
+					commaIndex++;
+				}
+			} else {
+				linkList.add(new Text(datatypeName));
+			}
+			partSuffix.add(closingBracket);
+		}
+		
+		//Reconstruct various pieces into links
+		int index = 0;
+		for (Node link : linkList) {
+			if (index > 0) {
+				if (partSuffix.get(index-1)!=", ") {
+					result.appendText(StringEscapeUtils.escapeHtml("<"));
+				}
+				result.appendChild(link);
+				result.appendText(StringEscapeUtils.escapeHtml(partSuffix.get(index)));
+			} else {
+				result.appendChild(link);
+			}
+			index++;
+		}
+		
+		return result;
 	}
 	
 	protected String capitalizeTitle(String text) {
@@ -340,6 +494,14 @@ public abstract class BaseHtmlGenerator {
 		metaDiv.setId("metaDiv");
 		metaDiv.setAttribute("partname", datatypeName);
 		metaDiv.setAttribute("packagename", getMessagePartName(datatypeName));
+		contentDiv.appendChild(metaDiv);
+	}
+	
+	protected void addVocabDetailsMetaHeader(String name, DomainSource domainSource, Div contentDiv) {
+		Div metaDiv = new Div();
+		metaDiv.setId("metaDiv");
+		metaDiv.setAttribute("partname", name);
+		metaDiv.setAttribute("packagename", domainSource.name() + "_" + getMessagePartName(name));
 		contentDiv.appendChild(metaDiv);
 	}
 	
@@ -433,8 +595,14 @@ public abstract class BaseHtmlGenerator {
 				} else if (o1.isAssociation() && o2.isAttribute()) {
 					return 1;
 				} else if (o1.isAttribute() && o2.isAttribute()) {
-					if (getSortName(o1).compareTo(getSortName(o2)) != 0) {
-						return getSortName(o1).compareTo(getSortName(o2));
+					if (o1.isStructural() && !o2.isStructural()) {
+						return -1;
+					} else if (!o1.isStructural() && o2.isStructural()) {
+						return 1;
+					} else {
+						if (getSortName(o1).compareTo(getSortName(o2)) != 0) {
+							return getSortName(o1).compareTo(getSortName(o2));
+						}
 					}
 				} 
 				return o1.compareTo(o2);				
@@ -447,6 +615,72 @@ public abstract class BaseHtmlGenerator {
 				return relationship.getName();
 			}
 		});
+	}
+	
+	protected Ul createModelClassAttributeList(String name, DomainSource domainSource, MessageSet messageSet) {
+		Ul result = new Ul();
+		int modelClassAttrCount = 0;
+		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
+			for (Relationship relationship : messagePart.getRelationships()) {
+				if (relationship.isAttribute() && relationship.isCodedType() 
+						&& domainSource.equals(relationship.getDomainSource())
+						&& name.equals(relationship.getDomainType())) {
+					Li modelClassAttributeRefererListItem = new Li();
+					modelClassAttributeRefererListItem.appendChild(
+							createLink(getRelationshipUrl(messagePart, relationship), 
+									new Text(messagePart.getName()+"."+relationship.getName()), "", ""));
+					//modelClassAttributeRefererListItem.appendText(messagePart.getName()+"."+relationship.getName());
+					result.appendChild(modelClassAttributeRefererListItem);
+					modelClassAttrCount++;
+				}
+			}
+		}
+		
+		if(modelClassAttrCount == 0) {
+			result.appendText("None");
+		}
+		
+		return result;
+	}
+	
+	protected Concept getConcept(CodeSystem codeSystem, String conceptName) {
+		if (conceptName == null) { return null; }
+		for (Concept concept : codeSystem.getConcepts()) {
+			if (concept.getCode() != null && concept.getCode().equals(conceptName)) {
+				return concept;
+			}
+		}
+		return null;
+	}
+
+	protected CodeSystem getCodeSystemByName(String codeSystemName, Vocabulary vocabulary) {
+		if (codeSystemName == null) { return null; }
+		for (CodeSystem codeSystem : vocabulary.getCodeSystems()) {
+			if (codeSystem.getName().equals(codeSystemName)) {
+				return codeSystem;
+			}
+		}
+		return null;
+	}
+	
+	protected ValueSet getValueSetByName(String valueSetName, Vocabulary vocabulary) {
+		if (valueSetName == null) { return null; }
+		for (ValueSet valueSet : vocabulary.getValueSets()) {
+			if (valueSet.getName().equals(valueSetName)) {
+				return valueSet;
+			}
+		}
+		return null;
+	}
+	
+	protected ConceptDomain getConceptDomainByName(String conceptDomainName, Vocabulary vocabulary) {
+		if (conceptDomainName == null) { return null; }
+		for (ConceptDomain conceptDomain : vocabulary.getConceptDomains()) {
+			if (conceptDomain.getName().equals(conceptDomainName)) {
+				return conceptDomain;
+			}
+		}
+		return null;
 	}
 	
 	public String getInteractionsPath() {
@@ -483,6 +717,38 @@ public abstract class BaseHtmlGenerator {
 
 	public void setDatatypesPath(String datatypesPath) {
 		this.datatypesPath = datatypesPath;
+	}
+
+	public String getCodeSystemsPath() {
+		return codeSystemsPath;
+	}
+
+	public void setCodeSystemsPath(String codeSystemPath) {
+		this.codeSystemsPath = codeSystemPath;
+	}
+
+	public String getValueSetsPath() {
+		return valueSetsPath;
+	}
+
+	public void setValueSetsPath(String valueSetsPath) {
+		this.valueSetsPath = valueSetsPath;
+	}
+
+	public String getConceptDomainsPath() {
+		return conceptDomainsPath;
+	}
+
+	public void setConceptDomainsPath(String conceptDomainsPath) {
+		this.conceptDomainsPath = conceptDomainsPath;
+	}
+
+	public Set<String> getDuplicateCodeSystemNameSet() {
+		return duplicateCodeSystemNameSet;
+	}
+
+	public void setDuplicateCodeSystemNameSet(Set<String> duplicateNameList) {
+		this.duplicateCodeSystemNameSet = duplicateNameList;
 	}	
 
 }

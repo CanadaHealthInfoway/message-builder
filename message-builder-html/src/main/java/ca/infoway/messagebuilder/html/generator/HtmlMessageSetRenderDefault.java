@@ -26,6 +26,9 @@ public class HtmlMessageSetRenderDefault {
 	public static final String INTERACTION_PATH = "../interactions";
 	public static final String PACKAGE_PATH = "../packages";
 	public static final String DATATYPE_PATH = "../datatypes";
+	public static final String CODESYSTEM_PATH = "../codeSystems";
+	public static final String VALUESET_PATH = "../valueSets";
+	public static final String CONCEPTDOMAIN_PATH = "../conceptDomains";
 	public static final String RESOURCE_PATH = "../resources";
 	public static final String JAVASCRIPT_PATH = "../resources/js";
 	

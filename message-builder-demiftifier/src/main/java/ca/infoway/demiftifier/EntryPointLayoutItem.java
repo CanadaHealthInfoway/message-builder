@@ -100,7 +100,7 @@ public class EntryPointLayoutItem implements LayoutItem {
 		return false;
 	}
 
-	public InboundAssociation getInboundAssociation() {
+	public InboundElement getInboundElement() {
 		return null;
 	}
 

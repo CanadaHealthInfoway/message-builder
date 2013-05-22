@@ -25,15 +25,15 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class LayoutItemBuilder {
 	
-	public static final LayoutItemBuilder basicBuilder(MessagePart messagePart, Layout layout){
+	public static final LayoutItemBuilder basicBuilder(MessagePart messagePart, PackageLocationLayout layout){
 		return new LayoutItemBuilder(messagePart, layout);
 	}
 
-	public static final LayoutItemBuilder basicBuilder(MessagePartLayoutItem parent, MessagePart messagePart, Layout layout){
+	public static final LayoutItemBuilder basicBuilder(MessagePartLayoutItem parent, MessagePart messagePart, PackageLocationLayout layout){
 		return new LayoutItemBuilder(parent, messagePart, layout);
 	}
 	
-	public static final LayoutItemBuilder basicBuilder(String messagePartName, Layout layout){
+	public static final LayoutItemBuilder basicBuilder(String messagePartName, PackageLocationLayout layout){
 		MessagePart messagePart = MessagePartBuilder.basicBuilder(messagePartName).build();
 		return new LayoutItemBuilder(messagePart, layout);
 	}
@@ -44,11 +44,11 @@ public class LayoutItemBuilder {
 		this.layoutItem = new MessagePartLayoutItem(null, null);
 	}
 
-	private LayoutItemBuilder(MessagePart messagePart, Layout layout) {
+	private LayoutItemBuilder(MessagePart messagePart, PackageLocationLayout layout) {
 		this.layoutItem = new MessagePartLayoutItem(messagePart, layout);
 	}
 	
-	private LayoutItemBuilder(MessagePartLayoutItem parent, MessagePart messagePart, Layout layout) {
+	private LayoutItemBuilder(MessagePartLayoutItem parent, MessagePart messagePart, PackageLocationLayout layout) {
 		this.layoutItem = new MessagePartLayoutItem(parent, messagePart, layout);
 	}
 	

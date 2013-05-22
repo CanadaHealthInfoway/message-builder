@@ -31,7 +31,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
@@ -41,11 +40,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
-import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifConceptDomain;
-import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifContextBinding;
-import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifSpecializedByDomain;
-import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifValueSet;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.VocabularyMifMarshaller;
 import ca.infoway.messagebuilder.lang.EnumPattern;
@@ -54,8 +48,6 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.CmetBinding;
 import ca.infoway.messagebuilder.xml.CodingStrength;
-import ca.infoway.messagebuilder.xml.ConceptDomain;
-import ca.infoway.messagebuilder.xml.ContextBinding;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.ImportedPackage;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -63,9 +55,9 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.RimClass;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
-import ca.infoway.messagebuilder.xml.ValueSet;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -77,8 +69,8 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	private static final AssociationComparator ASSOCIATION_COMPARATOR = new AssociationComparator(true);
 	
 	private DocumentFactory factory = new DocumentFactory();
-	
-	private Map<String, String> conceptDomainToStrength = new HashMap<String, String>(); 
+	private Mif2VocabularyProcessor vocabularyProcessor = new Mif2VocabularyProcessor();
+	private Map<String,String> rimTypeMap = new HashMap<String,String>();
 	
 	public Mif2Processor(File mifTransform, OutputUI outputUI) throws GeneratorException {
 		this(new MifRegistry(mifTransform, outputUI), outputUI);
@@ -99,7 +91,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		for (MifReference reference : coreMifs) {
 			processCoreMif(reference, vocabularyModels);
 		}
-		createVocabularyInformation(messageSet, vocabularyModels);
+		vocabularyProcessor.createVocabularyInformation(messageSet, vocabularyModels);
 		this.outputUI.log(INFO, "MIF pre-processing - completed (" + renderTime(watch) + ")");
 		
 		super.addMessagePartsFromMifs(messageSet, mifs, watch);
@@ -152,11 +144,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		Document document = mif.asDocument();
 		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(document);
 		String qualifier = createPackageLocation(messageSet, ownedEntryPoint);
-		HashMap<String, String> rimClassMap = new HashMap<String, String>();
 		
 		updatePackageLocation(messageSet, qualifier, document);
-		processGraphicRepresentation(rimClassMap, mif);
-		processContainedClasses(messageSet, result, qualifier, rimClassMap, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
+		processContainedClasses(messageSet, result, qualifier, Mif2XPathHelper.getContainedClasses(ownedEntryPoint.getOwnerDocument()));
 		
 		for (MessagePart messagePart : result) {
 			this.outputUI.log(LogLevel.DEBUG, "Entry point " + qualifier + " contains complex type " + messagePart.getName());
@@ -164,52 +154,6 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		}
 		
 		return result;
-	}
-
-	private void createVocabularyInformation(MessageSet messageSet,
-			List<MifVocabularyModel> vocabularyModels) {
-
-		Map<String,List<String>> conceptDomains = new TreeMap<String,List<String>>();
-		Map<String,ValueSet> valueSets = new TreeMap<String,ValueSet>();
-		Map<String,List<ContextBinding>> bindings = new HashMap<String,List<ContextBinding>>();
-		for (MifVocabularyModel mifVocabularyModel : vocabularyModels) {
-			for (MifConceptDomain conceptDomain : mifVocabularyModel.getConceptDomains()) {
-				if (!conceptDomains.containsKey(conceptDomain.getName())) {
-					conceptDomains.put(conceptDomain.getName(), new ArrayList<String>());
-				}
-				for (MifSpecializedByDomain specializedByDomain : conceptDomain.getSpecializedByDomains()) {
-					if (!conceptDomains.containsKey(specializedByDomain.getName())) {
-						conceptDomains.put(specializedByDomain.getName(), new ArrayList<String>());
-					}
-					conceptDomains.get(specializedByDomain.getName()).add(conceptDomain.getName());
-				}
-			}
-			
-			for (MifValueSet valueSet : mifVocabularyModel.getValueSets()) {
-				valueSets.put(valueSet.getId(), new ValueSet(valueSet.getName(), valueSet.getId()));
-			}
-			for (MifContextBinding binding : mifVocabularyModel.getContextBindings()) {
-				if (!bindings.containsKey(binding.getValueSet())) {
-					bindings.put(binding.getValueSet(), new ArrayList<ContextBinding>());
-				}
-				bindings.get(binding.getValueSet()).add(
-						new ContextBinding(binding.getConceptDomain(), binding.getBindingRealmName(), binding.getCodingStrength()));
-				conceptDomainToStrength.put(binding.getConceptDomain(), binding.getCodingStrength());
-			}
-		}
-		
-		for (Map.Entry<String, List<String>> entry : conceptDomains.entrySet()) {
-			messageSet.getVocabulary().getConceptDomains().add(new ConceptDomain(entry.getKey(), entry.getValue()));
-		}
-		for (Map.Entry<String, List<ContextBinding>> entry : bindings.entrySet()) {
-			ValueSet valueSet = valueSets.get(entry.getKey());
-			if (valueSet != null) {
-				valueSet.getContextBindings().addAll(entry.getValue());
-			}
-		}
-		
-		
-		messageSet.getVocabulary().getValueSets().addAll(valueSets.values());
 	}
 
 	private void processCoreMif(MifReference reference, List<MifVocabularyModel> vocabularyModels) throws GeneratorException, IOException {
@@ -221,6 +165,9 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			} else if ("vocabularyModel".equals(getLocalOrTagName(document.getDocumentElement()))) {
 				this.outputUI.log(LogLevel.INFO, "Processing vocabulary information in " + reference.asFile().getName());
 				processVocabularyModel(reference.asFile(), vocabularyModels);
+			} else if ("staticModel".equals(getLocalOrTagName(document.getDocumentElement()))) {
+				this.outputUI.log(LogLevel.INFO, "Processing RIM information in " + reference.asFile().getName());
+				processRimModel(document);
 			}
 		} catch (SAXException e) {
 			throw new GeneratorException(e);
@@ -258,6 +205,26 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			this.outputUI.log(LogLevel.DEBUG, "Alias " + cmetDefinition.getCmetName() + " is associated with " + cmetDefinition.getBoundClass());
 			
 			this.mifRegistry.registerCmet(cmetDefinition);
+		}
+	}
+	
+	private void processRimModel(Document document) {
+		registerRimTypes(document, "Act");
+		registerRimTypes(document, "Entity");
+		registerRimTypes(document, "Role");
+	}
+
+	private void registerRimTypes(Document document, String rootType) {
+		registerRimTypes(document, rootType, rootType);
+	}
+	
+	private void registerRimTypes(Document document, String rootType, String type) {
+		NodeList types = BaseMifXPathHelper.getNodes(document.getDocumentElement(),
+				"/mif2:staticModel/mif2:containedClass/mif2:class[@name=\"" + type + "\"]/mif2:childClass");
+		for (Element element : NodeListIterator.elementIterable(types)) {
+			String childClassName = element.getAttribute("name");
+			rimTypeMap.put(childClassName, rootType);
+			registerRimTypes(document, rootType, childClassName);
 		}
 	}
 
@@ -347,27 +314,17 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return result;
 	}
 
-	private void processGraphicRepresentation(HashMap<String, String> rimClassMap, Mif mif) {
-		List<Element> graphicRepresentationClasses = Mif2XPathHelper.getGraphicRepresentationClasses(mif.asDocument());		
-		for (Element classElement : graphicRepresentationClasses) {
-			String id = classElement.getAttribute("semanticLinkId");
-			Element graphElement = Mif2XPathHelper.getSingleElement(classElement, "mif2:graphElement");
-			String value = graphElement.getAttribute("shapeTemplate");
-			rimClassMap.put(id, value);
-		}
-	}
-
 	private void processContainedClasses(MessageSet messageSet, List<MessagePart> result,
-			String qualifier, HashMap<String, String> rimClassMap, List<Element> containedClasses) throws GeneratorException {
+			String qualifier, List<Element> containedClasses) throws GeneratorException {
 		
 		for (Element element : containedClasses) {
 			if (Mif2XPathHelper.isMifClassPresent(element)) {
-				MessagePart part = createPart(result, qualifier, element, rimClassMap);
+				MessagePart part = createPart(result, qualifier, element);
 				addDocumentation(Mif2XPathHelper.getClassElement(element), part);
 				processChilds(messageSet, element, part);
 				result.add(part);
 			} else if (Mif2XPathHelper.isTemplateParameterPresent(element)) {
-				result.add(createTemplateParameter(qualifier, element, rimClassMap));
+				result.add(createTemplateParameter(qualifier, element));
 			}
 		}
 	}
@@ -561,7 +518,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		if (DomainSource.VALUE_SET == domainSource) {
 			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
 		} else if (DomainSource.CONCEPT_DOMAIN == domainSource) {
-			String codingStrength = conceptDomainToStrength.get(domainType);
+			String codingStrength = this.vocabularyProcessor.getCodingStrengthForDomain(domainType);
 			relationship.setCodingStrength(StringUtils.isBlank(codingStrength) ? null : EnumPattern.valueOf(CodingStrength.class, codingStrength));
 		} else if (DomainSource.CODE_SYSTEM == domainSource && !relationship.hasFixedValue()) {
 			relationship.setNonFixedVocabularyBinding(Mif2XPathHelper.getAttribute(element, "./mif2:vocabulary/mif2:code/@code"));
@@ -662,7 +619,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private MessagePart createPart(List<MessagePart> result, String qualifier,
-			Element element, HashMap<String, String> rimClassMap) {
+			Element element) {
 		Element classElement = Mif2XPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
 		
@@ -675,15 +632,16 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		Element derivationMetadata = Mif2XPathHelper.getDerivationMetadata(classElement);
 		if (derivationMetadata != null) {
-			msgPart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+			String derivedClassName = derivationMetadata.getAttribute("className");
+			msgPart.setDerivedFromClass(derivedClassName);
+			addRimClass(derivedClassName, msgPart);
 		}
 		
-		addRimClass(classElement, msgPart, rimClassMap);
 		return msgPart;
 	}
 
 	private MessagePart createTemplateParameter(String qualifier,
-			Element element, HashMap<String, String> rimClassMap) {
+			Element element) {
 		Element templateParameterElement = Mif2XPathHelper.getTemplateParameterElement(element);
 		String name = NameHelper.createName(qualifier, templateParameterElement.getAttribute("name"));
 		
@@ -691,17 +649,25 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		Element derivationMetadata = Mif2XPathHelper.getDerivationMetadata(templateParameterElement);
 		if (derivationMetadata != null) {
-			msgPart.setDerivedFromClass(derivationMetadata.getAttribute("className"));
+			String derivedClassName = derivationMetadata.getAttribute("className");
+			msgPart.setDerivedFromClass(derivedClassName);
+			addRimClass(derivedClassName, msgPart);
 		}
 
 		addDocumentation(templateParameterElement, msgPart);
-		addRimClass(templateParameterElement, msgPart, rimClassMap);
 		return msgPart;
 	}
 	
-	private void addRimClass(Element classElement, MessagePart msgPart, HashMap<String, String> rimClassMap) {
-		String rimClassName = rimClassMap.get(classElement.getAttribute("graphicLinkId"));
-		msgPart.setRimClass(determineRimClass(classElement,	rimClassName));
+	private void addRimClass(String derivedClassName, MessagePart msgPart) {
+		try {
+			msgPart.setRimClass(getRimClassFromCode(derivedClassName));
+		} catch (IllegalArgumentException e) {
+			if (this.rimTypeMap.containsKey(derivedClassName)) {
+				msgPart.setRimClass(getRimClassFromCode(this.rimTypeMap.get(derivedClassName)));
+			} else {
+				msgPart.setRimClass(RimClass.OTHER_CLASS);
+			}
+		}
 	}
 
 	private boolean isAbstract(Element classElement) {

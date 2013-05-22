@@ -131,7 +131,7 @@ class StyleProvider {
 	public TextFont getDefaultNonProportionalTextFont() {
 		return TEXT_FONT_NON_PROPORTIONAL;
 	}
-
+	
 	public TextFont getCardinalityTextFont() {
 		return TEXT_FONT_CARDINALITY;
 	}

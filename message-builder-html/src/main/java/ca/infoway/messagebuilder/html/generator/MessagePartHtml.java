@@ -29,11 +29,11 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.TOC_LIST_ITEM_CLASS;
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
@@ -78,8 +78,12 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 	}
 	
 	public MessagePartHtml(MessagePart messagePart, MessageSet messageSet, DatatypeSet datatypeSet, Boolean excludeStructuralAttributes,
-			String interactionsPath, String packagesPath, String datatypesPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, packagesPath, datatypesPath, javascriptPath, resourcesPath);
+			String interactionsPath, String packagesPath, String datatypesPath,
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String javascriptPath, String resourcesPath) {
+		super(interactionsPath, packagesPath, datatypesPath, 
+				codeSystemsPath, valueSetsPath, conceptDomainsPath, 
+				javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
 		this.datatypeSet = datatypeSet;
 		this.messagePart = messagePart;
@@ -154,9 +158,11 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 
 	protected void addRelationshipsSection(Div mainContentDiv) {
 		List<Relationship> relationships = getMessagePart().getRelationships();
-		sortRelationships(relationships);
+		List<Relationship> sortedRelationships = new ArrayList<Relationship>();
+		sortedRelationships.addAll(relationships);
+		sortRelationships(sortedRelationships);
 		
-		for (Relationship relationship : relationships) {
+		for (Relationship relationship : sortedRelationships) {
 			if (this.getExcludeStructuralAttributes() && relationship.isStructural()) {
 				continue;
 			}
@@ -308,14 +314,8 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 //		tBody.appendChild(createDataRow("Business Name:", new Text(getBusinessName(relationship.getDocumentation())), ""));			
 		
 		if (relationship.isAttribute()) {
-			if (getDatatypeSet() != null && getDatatypeSet().getDatatype(relationship.getType()) != null) {
-				tBody.appendChild(createDataRow("Data Type:", 
-						createLink(getDatatypeUrl(relationship.getType()), 
-								new Text(StringEscapeUtils.escapeHtml(relationship.getType())), "detailsRow", 
-								"detailsRow_"+relationship.getType()), ""));
-			} else {
-				tBody.appendChild(createDataRow("Data Type:", new Text(StringEscapeUtils.escapeHtml(relationship.getType())), ""));
-			}
+			tBody.appendChild(createDataRow("Data Type:", createDatatypeLinks(relationship.getType(), getDatatypeSet()), ""));
+			
 			if (relationship.isFixed()) {
 				tBody.appendChild(createDataRow("Fixed Value:", new Text(relationship.getFixedValue()), 
 						"This member is fixed to " + relationship.getFixedValue()));
@@ -387,11 +387,28 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 			//According to JR, code systems all have the same coding strength (Hardcoded to CNE for now)
 			codeDetailsRow.appendChild(createDataColumn(new Text(CodingStrength.CNE.name()), DETAILS_TABLE_VALUE_COL_CLASS));
 		} else if (relationship.getDomainSource().equals(DomainSource.CONCEPT_DOMAIN)) {
-			//FIXME: Enhance when vocabulary section added to messageSet (currently this value comes from vocab coremif which is not handled)
+			//GN: Value currently obtained from new msg set but not handled in older versions
 			codeDetailsRow.appendChild(createDataColumn(new Text("-"), DETAILS_TABLE_VALUE_COL_CLASS));
 		}
 		codeDetailsRow.appendChild(createDataColumn(new Text(getDomainSource(relationship.getDomainSource())), DETAILS_TABLE_LABEL_COL_CLASS));
-		codeDetailsRow.appendChild(createDataColumn(new Text(relationship.getDomainType()), DETAILS_TABLE_VALUE_COL_CLASS));
+		if (DomainSource.CONCEPT_DOMAIN.equals(relationship.getDomainSource())
+				&& getConceptDomainByName(relationship.getDomainType(), getMessageSet().getVocabulary()) != null) {	
+			codeDetailsRow.appendChild(createDataColumn(
+					createLink(getConceptDomainUrl(relationship.getDomainType()), new Text(relationship.getDomainType()), "", ""), 
+					DETAILS_TABLE_VALUE_COL_CLASS));
+		} else if (DomainSource.VALUE_SET.equals(relationship.getDomainSource())
+				&& getValueSetByName(relationship.getDomainType(), getMessageSet().getVocabulary()) != null) {	
+			codeDetailsRow.appendChild(createDataColumn(
+					createLink(getValueSetUrl(relationship.getDomainType()), new Text(relationship.getDomainType()), "", ""), 
+					DETAILS_TABLE_VALUE_COL_CLASS));
+		} else if (DomainSource.CODE_SYSTEM.equals(relationship.getDomainSource())
+				&& getCodeSystemByName(relationship.getDomainType(), getMessageSet().getVocabulary()) != null) {	
+			codeDetailsRow.appendChild(createDataColumn(
+					createLink(getCodeSystemUrl(relationship.getDomainType()), new Text(relationship.getDomainType()), "", ""), 
+					DETAILS_TABLE_VALUE_COL_CLASS));
+		} else {
+			codeDetailsRow.appendChild(createDataColumn(new Text(relationship.getDomainType()), DETAILS_TABLE_VALUE_COL_CLASS));
+		}
 		return codeDetailsRow;
 	}
 	

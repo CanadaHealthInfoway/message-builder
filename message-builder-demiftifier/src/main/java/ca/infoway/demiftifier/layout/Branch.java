@@ -24,30 +24,30 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.demiftifier.MessagePartLayoutItem;
+import ca.infoway.demiftifier.LayoutItem;
 
 class Branch {
 
 	class Node {
 		
-		private MessagePartLayoutItem item;
-		private MessagePartLayoutItem ancestor;
+		private LayoutItem item;
+		private LayoutItem ancestor;
 		
-		private Node(MessagePartLayoutItem item, MessagePartLayoutItem ancestor) {
+		private Node(LayoutItem item, LayoutItem ancestor) {
 			this.item = item;
 			this.ancestor = ancestor;
 		}
-		private Node(MessagePartLayoutItem item) {
+		private Node(LayoutItem item) {
 			this.item = item;
 		}
 		
 		boolean isChoice() {
 			return this.ancestor != null;
 		}
-		MessagePartLayoutItem getItem() {
+		LayoutItem getItem() {
 			return this.item;
 		}
-		MessagePartLayoutItem getAncestor() {
+		LayoutItem getAncestor() {
 			return this.ancestor;
 		}
 	}
@@ -56,15 +56,15 @@ class Branch {
 	
 	private Branch() {
 	}
-	private Branch(MessagePartLayoutItem root) {
+	private Branch(LayoutItem root) {
 		this.nodes.add(new Node(root));
 	}
 
-	static Branch createWithRoot(MessagePartLayoutItem root) {
+	static Branch createWithRoot(LayoutItem root) {
 		return new Branch(root);
 	}
 	
-	MessagePartLayoutItem getCurrentEndpoint() {
+	LayoutItem getCurrentEndpoint() {
 		return this.nodes.isEmpty() ? null : this.nodes.get(this.nodes.size()-1).item;
 	}
 
@@ -72,13 +72,13 @@ class Branch {
 		return this.nodes.isEmpty() ? null : this.nodes.get(this.nodes.size()-1);
 	}
 	
-	Branch withNewEndpoint(MessagePartLayoutItem endpoint) {
+	Branch withNewEndpoint(LayoutItem endpoint) {
 		Branch result = new Branch();
 		result.nodes.addAll(this.nodes);
 		result.nodes.add(new Node(endpoint));
 		return result;
 	}
-	Branch createChoiceBranch(MessagePartLayoutItem childItem) {
+	Branch createChoiceBranch(LayoutItem childItem) {
 		Branch result = new Branch();
 		if (!this.nodes.isEmpty()) {
 			if (this.nodes.size() > 1) {
@@ -92,7 +92,7 @@ class Branch {
 	boolean isEndingInCycle() {
 		return getCycleConnectionPoint() != null;
 	}
-	private MessagePartLayoutItem touches(Node endpoint, Node node) {
+	private LayoutItem touches(Node endpoint, Node node) {
 		if (StringUtils.equals(endpoint.item.getName(), node.item.getName())) {
 			return node.item;
 		} else if (node.isChoice() && StringUtils.equals(endpoint.item.getName(), node.ancestor.getName())) {
@@ -105,8 +105,8 @@ class Branch {
 			return null;
 		}
 	}
-	MessagePartLayoutItem getCycleConnectionPoint() {
-		MessagePartLayoutItem result = null;
+	LayoutItem getCycleConnectionPoint() {
+		LayoutItem result = null;
 		Node endpoint = getCurrentEndpointNode();
 		for (int i = this.nodes.size()-2; i >= 0; i--) {
 			Node node = this.nodes.get(i);

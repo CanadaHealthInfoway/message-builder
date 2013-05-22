@@ -6,11 +6,9 @@
 		<version>1.4.7-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>maven-chi-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>maven-chi-plugin</name>
-	<version>1.4.7-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -98,7 +96,6 @@
 			<!-- suport for xml -->
 		    <groupId>org.simpleframework</groupId>
 		    <artifactId>simple-xml</artifactId>
-		    <version>2.3.6</version>
 			<exclusions>
 				<exclusion>
 					<groupId>stax</groupId>
@@ -109,6 +106,13 @@
 	</dependencies>
 	<build>
 		<plugins>
+ 			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>

@@ -22,11 +22,13 @@ package ca.infoway.demiftifier.svgifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.infoway.demiftifier.ConceptDomainLayoutItem;
 import ca.infoway.demiftifier.EntryPointLayoutItem;
-import ca.infoway.demiftifier.InboundAssociation;
+import ca.infoway.demiftifier.InboundElement;
 import ca.infoway.demiftifier.Layout;
 import ca.infoway.demiftifier.LayoutItem;
 import ca.infoway.demiftifier.MessagePartLayoutItem;
+import ca.infoway.demiftifier.VocabularyLayoutItem;
 import ca.infoway.messagebuilder.xml.RimClass;
 
 class Diagram implements ShapeFactory {
@@ -51,9 +53,13 @@ class Diagram implements ShapeFactory {
 			result = new CmetShape((MessagePartLayoutItem) item, this.styleProvider);
 		} else if ((item instanceof MessagePartLayoutItem) && item.isAbstract()) {
 			result = new ChoiceShape((MessagePartLayoutItem) item, this.styleProvider, this);
+		} else if (item instanceof VocabularyLayoutItem) {
+			result = new VocabBoxShape((VocabularyLayoutItem)item, this.styleProvider);
+		} else if (item instanceof ConceptDomainLayoutItem) {
+			result = new VocabBoxShape((ConceptDomainLayoutItem)item, this.styleProvider);
 		} else {
 			result = new BoxShape((MessagePartLayoutItem) item, this.styleProvider);
-		}
+		} 
 		addInboundArrowShapeAsRequired(item, result);
 		return result;
 	}
@@ -69,9 +75,15 @@ class Diagram implements ShapeFactory {
 	private void addInboundArrowShapeAsRequired(LayoutItem layoutItem, Shape shape){
 		if (layoutItem instanceof MessagePartLayoutItem ) {
 			MessagePartLayoutItem messagePartLayoutItem = (MessagePartLayoutItem) layoutItem;
-			InboundAssociation inboundAssociation = messagePartLayoutItem.getInboundAssociation();
+			InboundElement inboundAssociation = messagePartLayoutItem.getInboundElement();
 			if (inboundAssociation != null && inboundAssociation.isWithArrow()) {
-				shape.setInboundArrowShape(new InboundArrowShape(messagePartLayoutItem, styleProvider));
+				shape.setInboundArrowShape(new MessagePartInboundArrowShape(messagePartLayoutItem, styleProvider));
+			}
+		} else if (layoutItem instanceof VocabularyLayoutItem) {
+			VocabularyLayoutItem vocabularyLayoutItem = (VocabularyLayoutItem) layoutItem;
+			InboundElement inboundAssociation = vocabularyLayoutItem.getInboundElement();
+			if (inboundAssociation != null && inboundAssociation.isWithArrow()) {
+				shape.setInboundArrowShape(new VocabInboundArrowShape(vocabularyLayoutItem, styleProvider));
 			}
 		}
 

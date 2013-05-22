@@ -45,7 +45,7 @@ public class MessagePartLayoutItemTest {
 	private static final String CMET_BINDING_NAME = "cmetBindingName";
 
 	@Mock
-	Layout layout;
+	PackageLocationLayout layout;
 	@Mock 
 	PackageLocation packageLocation;
 	@Mock

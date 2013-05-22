@@ -38,9 +38,13 @@ import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault;
 import ca.infoway.messagebuilder.html.generator.HtmlMessageSetRendererImpl;
+import ca.infoway.messagebuilder.xml.CodeSystem;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.ValueSet;
+import ca.infoway.messagebuilder.xml.Vocabulary;
 
 public class HtmlGenerator {
 	private final LogUI logUI;
@@ -59,71 +63,171 @@ public class HtmlGenerator {
 		
 		DatatypeSet datatypeSet = null;
 		if (inputDatatypeSet == null) {
+			this.logUI.log(LogLevel.DEBUG, "Unable to determine datatypeSet");
 			datatypeSet = getDefaultDatatypeSet(messageSet);
+		} else {
+			datatypeSet = inputDatatypeSet;
 		}
 		
 		File resourcesFolder = createResourceFolderStructure(htmlFolder);
 		
-		addStaticResources(resourcesFolder);
+		count += writeStaticResources(resourcesFolder);
 		
-		addNavBar(messageSet, datatypeSet, resourcesFolder);
-		count++;
+		count += writeNavBar(messageSet, datatypeSet, resourcesFolder);
 		
 		if (datatypeSet != null) {
-			File datatypeFolder = new File(htmlFolder, "datatypes");
-			if (!datatypeFolder.exists() || !datatypeFolder.isDirectory()) {
-				new File(htmlFolder, "datatypes").mkdir();
-			}
-			
-			for (Datatype datatype : datatypeSet.getAllDatatypes()) {
-				this.logUI.log(LogLevel.DEBUG, "Now processing datatype " + datatype.getName());
-				File htmlFile = createHtmlFile(datatype, datatypeFolder);
-				FileWriter writer = new FileWriter(htmlFile);
-				try {
-					writer.write(new HtmlMessageSetRendererImpl().writeDatatype(datatype, datatypeSet, messageSet));
-				} finally {
-					IOUtils.closeQuietly(writer);
-				}
-				count++;
-			}
+			count += writeDatatypeFiles(messageSet, htmlFolder, datatypeSet);
+		} else {
+			this.logUI.log(LogLevel.DEBUG, "No DatatypeSet Detected: skipping step");
 		}
 		
-		File packageFolder = new File(htmlFolder, "packages");
-		if (!packageFolder.exists() || !packageFolder.isDirectory()) {
-			new File(htmlFolder, "packages").mkdir();
+		count += writePackageLocationFiles(messageSet, htmlFolder, excludeStrucAttrFlag, datatypeSet);
+		
+		count += writeInteractionFiles(messageSet, htmlFolder);
+		
+		count += writeStartPages(messageSet, htmlFolder);
+		
+		Vocabulary vocabulary = messageSet.getVocabulary();
+		if (vocabulary != null) {
+			count += writeConceptDomains(messageSet, htmlFolder, vocabulary);
+			
+			count += writeValueSets(messageSet, htmlFolder, vocabulary);
+			
+			count += writeCodeSystem(messageSet, htmlFolder, vocabulary);
+		} else {
+			this.logUI.log(LogLevel.DEBUG, "No Vocabulary Detected: skipping step");
 		}
-		for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
-			this.logUI.log(LogLevel.DEBUG, "Now processing package location " + packageLocation.getName());
-			File htmlFile = createHtmlFile(packageLocation, packageFolder);
+		
+		this.logUI.log(LogLevel.INFO, "" + count + " Html files generated for message set " + messageSet.getVersion());
+		
+	}
+
+	protected int writeCodeSystem(MessageSet messageSet, File htmlFolder, Vocabulary vocabulary) throws IOException {
+		int count = 0;
+		File codeSystemFolder = new File(htmlFolder, "codeSystems");
+		if (!codeSystemFolder.exists() || !codeSystemFolder.isDirectory()) {
+			new File(htmlFolder, "codeSystems").mkdir();
+		}
+		for (CodeSystem codeSystem : vocabulary.getCodeSystems()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing code system " + codeSystem.getName());
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(codeSystemFolder, htmlRenderer.getFileName(codeSystem, messageSet));
 			FileWriter writer = new FileWriter(htmlFile);
 			try {
-				writer.write(new HtmlMessageSetRendererImpl().writePackageLocation(packageLocation, messageSet, datatypeSet, excludeStrucAttrFlag));
+				writer.write(htmlRenderer.writeCodeSystem(codeSystem, messageSet));
+				count++;
 			} finally {
 				IOUtils.closeQuietly(writer);
 			}
-			count++;
 		}
-		
+		return count;
+	}
+
+	protected int writeValueSets(MessageSet messageSet, File htmlFolder, Vocabulary vocabulary) throws IOException {
+		int count = 0;
+		File valueSetFolder = new File(htmlFolder, "valueSets");
+		if (!valueSetFolder.exists() || !valueSetFolder.isDirectory()) {
+			new File(htmlFolder, "valueSets").mkdir();
+		}
+		for (ValueSet valueSet : vocabulary.getValueSets()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing value set " + valueSet.getName());
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(valueSetFolder, htmlRenderer.getFileName(valueSet, messageSet));
+			FileWriter writer = new FileWriter(htmlFile);
+			try {
+				writer.write(htmlRenderer.writeValueSet(valueSet, messageSet));
+				count++;
+			} finally {
+				IOUtils.closeQuietly(writer);
+			}
+		}
+		return count;
+	}
+
+	protected int writeConceptDomains(MessageSet messageSet, File htmlFolder, Vocabulary vocabulary) throws IOException {
+		int count = 0;
+		File conceptDomainFolder = new File(htmlFolder, "conceptDomains");
+		if (!conceptDomainFolder.exists() || !conceptDomainFolder.isDirectory()) {
+			new File(htmlFolder, "conceptDomains").mkdir();
+		}
+		for (ConceptDomain conceptDomain : vocabulary.getConceptDomains()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing concept domain " + conceptDomain.getName());
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(conceptDomainFolder, htmlRenderer.getFileName(conceptDomain, messageSet));
+			FileWriter writer = new FileWriter(htmlFile);
+			try {
+				writer.write(htmlRenderer.writeConceptDomain(conceptDomain, messageSet));
+				count++;
+			} finally {
+				IOUtils.closeQuietly(writer);
+			}
+		}
+		return count;
+	}
+
+	protected int writeInteractionFiles(MessageSet messageSet, File htmlFolder) throws IOException {
+		int count = 0;
 		File interactionFolder = new File(htmlFolder, "interactions");
 		if (!interactionFolder.exists() || !interactionFolder.isDirectory()) {
 			new File(htmlFolder, "interactions").mkdir();
 		}
 		for (Interaction interaction : messageSet.getInteractions().values()) {
 			this.logUI.log(LogLevel.DEBUG, "Now processing interaction " + interaction.getName());
-			File htmlFile = createHtmlFile(interaction, interactionFolder);
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(interactionFolder, htmlRenderer.getFileName(interaction, messageSet));
 			FileWriter writer = new FileWriter(htmlFile);
 			try {
-				writer.write(new HtmlMessageSetRendererImpl().writeInteraction(interaction, messageSet));
+				writer.write(htmlRenderer.writeInteraction(interaction, messageSet));
+				count++;			
 			} finally {
 				IOUtils.closeQuietly(writer);
 			}
-			count++;			
 		}
-		addStartPages(messageSet, htmlFolder);
-		count+=2;
+		return count;
+	}
+
+	protected int writePackageLocationFiles(MessageSet messageSet, File htmlFolder, Boolean excludeStrucAttrFlag, DatatypeSet datatypeSet)
+			throws IOException {
+		int count = 0;
+		File packageFolder = new File(htmlFolder, "packages");
+		if (!packageFolder.exists() || !packageFolder.isDirectory()) {
+			new File(htmlFolder, "packages").mkdir();
+		}
+		for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing package location " + packageLocation.getName());
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(packageFolder, htmlRenderer.getFileName(packageLocation, messageSet));
+			FileWriter writer = new FileWriter(htmlFile);
+			try {
+				writer.write(htmlRenderer.writePackageLocation(packageLocation, messageSet, datatypeSet, excludeStrucAttrFlag));
+				count++;
+			} finally {
+				IOUtils.closeQuietly(writer);
+			}
+		}
+		return count;
+	}
+
+	protected int writeDatatypeFiles(MessageSet messageSet, File htmlFolder, DatatypeSet datatypeSet) throws IOException {
+		int count = 0;
+		File datatypeFolder = new File(htmlFolder, "datatypes");
+		if (!datatypeFolder.exists() || !datatypeFolder.isDirectory()) {
+			new File(htmlFolder, "datatypes").mkdir();
+		}
 		
-		this.logUI.log(LogLevel.INFO, "" + count + " Html files generated for message set " + messageSet.getVersion());
-		
+		for (Datatype datatype : datatypeSet.getAllDatatypes()) {
+			this.logUI.log(LogLevel.DEBUG, "Now processing datatype " + datatype.getName());
+			HtmlMessageSetRendererImpl htmlRenderer = new HtmlMessageSetRendererImpl();
+			File htmlFile = new File(datatypeFolder, htmlRenderer.getFileName(datatype, messageSet));
+			FileWriter writer = new FileWriter(htmlFile);
+			try {
+				writer.write(htmlRenderer.writeDatatype(datatype, datatypeSet, messageSet));
+				count++;
+			} finally {
+				IOUtils.closeQuietly(writer);
+			}
+		}
+		return count;
 	}
 
 	private DatatypeSet getDefaultDatatypeSet(MessageSet messageSet) throws IOException {
@@ -154,8 +258,9 @@ public class HtmlGenerator {
 		return null;
 	}
 	
-	private void addStaticResources(File resourcesFolder)
+	protected int writeStaticResources(File resourcesFolder)
 			throws FileNotFoundException, IOException {
+		int count = 0;
 		Map<String, InputStream> staticResourceFiles = new HtmlMessageSetRendererImpl().getStaticResourceFiles();
 		for (String filePath : staticResourceFiles.keySet()) {
 			InputStream inputStream = staticResourceFiles.get(filePath);
@@ -167,21 +272,24 @@ public class HtmlGenerator {
 				while( (c= inputStream.read()) != -1 ) {
 					outputStream.write(c);
 				}
+				count++;
 			} finally {
 				IOUtils.closeQuietly(outputStream);
 				IOUtils.closeQuietly(inputStream);
 			}
 		}
+		return count;
 	}
 
-	private void addStartPages(MessageSet messageSet, File htmlFolder)
+	protected int writeStartPages(MessageSet messageSet, File htmlFolder)
 			throws IOException {
-		
+		int count = 0;
 		this.logUI.log(LogLevel.DEBUG, "Now processing index page");
 		File indexPage = new File(htmlFolder, "/packages/index.html");
 		FileWriter writer = new FileWriter(indexPage);
 		try {
 			writer.write(new HtmlMessageSetRendererImpl().writeInnerStartFile(messageSet));
+			count++;
 		} finally {
 			IOUtils.closeQuietly(writer);
 		}
@@ -191,22 +299,28 @@ public class HtmlGenerator {
 		writer = new FileWriter(startFile);
 		try {
 			writer.write(new HtmlMessageSetRendererImpl().writeOuterStartFile("./packages", "index.html"));
+			count++;
 		} finally {
 			IOUtils.closeQuietly(writer);
 		}
+		
+		return count;
 	}
 
-	private void addNavBar(MessageSet messageSet, DatatypeSet datatypeSet, File resourcesFolder)
+	protected int writeNavBar(MessageSet messageSet, DatatypeSet datatypeSet, File resourcesFolder)
 			throws IOException {
+		int count = 0;
 		this.logUI.log(LogLevel.DEBUG, "Now processing package location mainNavBar.js");
 		File htmlFile = new File(resourcesFolder, "/js/" + HtmlMessageSetRenderDefault.NAV_BAR_SCRIPT_NAME);
 		FileWriter writer = new FileWriter(htmlFile);
 		try {
 			writer.write(new HtmlMessageSetRendererImpl().writeSideNavBarScript(
 					messageSet, datatypeSet, HtmlMessageSetRenderDefault.DOMAIN_DESCRIPTIONS));
+			count++;
 		} finally {
 			IOUtils.closeQuietly(writer);
 		}
+		return count;
 	}
 
 	private File createResourceFolderStructure(File htmlFolder) {
@@ -235,17 +349,5 @@ public class HtmlGenerator {
 			new File(themesFolder, "default").mkdir();
 		}
 		return resourcesFolder;
-	}
-
-	private File createHtmlFile(PackageLocation packageLocation, File htmlFolder) {
-		return new File(htmlFolder, packageLocation.getName() + ".html");
-	}
-	
-	private File createHtmlFile(Interaction interaction, File htmlFolder) {
-		return new File(htmlFolder, interaction.getName() + ".html");
-	}
-	
-	private File createHtmlFile(Datatype datatype, File htmlFolder) {
-		return new File(htmlFolder, datatype.getName() + ".html");
 	}
 }

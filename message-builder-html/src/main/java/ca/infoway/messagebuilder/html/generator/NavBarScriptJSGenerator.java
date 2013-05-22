@@ -25,6 +25,7 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -36,11 +37,15 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.CodeSystem;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.ReceiverResponsibility;
 import ca.infoway.messagebuilder.xml.TypeName;
+import ca.infoway.messagebuilder.xml.ValueSet;
 
 import com.hp.gagawa.java.elements.Li;
 import com.hp.gagawa.java.elements.Text;
@@ -61,8 +66,12 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 	}
 
 	public NavBarScriptJSGenerator(MessageSet messageSet, DatatypeSet datatypeSet, Map<String, String> categoryNames,
-			String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, datatypesPath, javascriptPath, resourcesPath);
+			String interactionsPath, String messagePartsPath, String datatypesPath, 
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String javascriptPath, String resourcesPath) {
+		super(interactionsPath, messagePartsPath, datatypesPath, 
+				codeSystemsPath, valueSetsPath, conceptDomainsPath, 
+				javascriptPath, resourcesPath);
 		this.messageSet = messageSet;
 		this.datatypeSet = datatypeSet;
 		this.categoryNames = categoryNames;
@@ -173,7 +182,6 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 		Ul interactionList = new Ul();
 		interactionHeaderListItem.appendChild(interactionList);
 		interactionHeaderList.appendChild(interactionHeaderListItem);
-		
 		messageSetListItem.appendChild(interactionHeaderList);
 
 		Ul messagePartHeaderList = new Ul();
@@ -184,7 +192,6 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 		Ul messagePartList = new Ul();
 		messagePartHeaderListItem.appendChild(messagePartList);
 		messagePartHeaderList.appendChild(messagePartHeaderListItem);
-
 		messageSetListItem.appendChild(messagePartHeaderList);
 		
 		Ul datatypeHeaderList = new Ul();
@@ -195,9 +202,183 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 		Ul datatypeList = new Ul();
 		datatypeHeaderListItem.appendChild(datatypeList);
 		datatypeHeaderList.appendChild(datatypeHeaderListItem);
-
 		messageSetListItem.appendChild(datatypeHeaderList);
 		
+		Ul vocabularyHeaderList = new Ul();
+		Li vocabularyHeaderListItem = new Li();
+		vocabularyHeaderListItem.setId("vocabularyHeaderNode");
+		vocabularyHeaderListItem.appendChild(createLink("#", new Text("Vocabulary"), 
+				"vocabularyTreeNode", "vocabularyTreeNode"));
+		Ul vocabularyList = new Ul();
+		vocabularyHeaderListItem.appendChild(vocabularyList);
+		vocabularyHeaderList.appendChild(vocabularyHeaderListItem);
+		messageSetListItem.appendChild(vocabularyHeaderList);
+		
+		Li codeSystemHeaderListItem = new Li();
+		codeSystemHeaderListItem.setId("codeSystemHeaderNode");
+		codeSystemHeaderListItem.appendChild(createLink("#", new Text("Code Systems"), 
+				"codeSystemTreeNode", "codeSystemTreeNode"));
+		Ul codeSystemList = new Ul();
+		codeSystemHeaderListItem.appendChild(codeSystemList);
+		vocabularyList.appendChild(codeSystemHeaderListItem);
+
+		Li valueSetHeaderListItem = new Li();
+		valueSetHeaderListItem.setId("valueSetHeaderNode");
+		valueSetHeaderListItem.appendChild(createLink("#", new Text("Value Sets"), 
+				"valueSetTreeNode", "valueSetTreeNode"));
+		Ul valueSetList = new Ul();
+		valueSetHeaderListItem.appendChild(valueSetList);
+		vocabularyList.appendChild(valueSetHeaderListItem);
+		
+		Li conceptDomainHeaderListItem = new Li();
+		conceptDomainHeaderListItem.setId("conceptDomainHeaderNode");
+		conceptDomainHeaderListItem.appendChild(createLink("#", new Text("Concept Domains"), 
+				"conceptDomainTreeNode", "conceptDomainTreeNode"));
+		Ul conceptDomainList = new Ul();
+		conceptDomainHeaderListItem.appendChild(conceptDomainList);
+		vocabularyList.appendChild(conceptDomainHeaderListItem);
+		
+		addPackageLeafs(messagePartList);
+		addInteractionLeafs(interactionList);		
+		addDatatypeLeafs(datatypeList);
+		
+		addCodeSystemLeafs(codeSystemList);		
+		addValueSetLeafs(valueSetList);		
+		addConceptDomainLeafs(conceptDomainList);
+		
+		return messageSetListItem.write();
+	}
+
+	private void addConceptDomainLeafs(Ul conceptDomainList) {
+		if(getMessageSet().getVocabulary() != null && getMessageSet().getVocabulary().getConceptDomains().size() > 0) {
+			List<ConceptDomain> conceptDomains = getMessageSet().getVocabulary().getConceptDomains();
+			List<ConceptDomain> sortedConceptDomains = new ArrayList<ConceptDomain>();
+			sortedConceptDomains.addAll(conceptDomains);
+			Collections.sort(sortedConceptDomains, new Comparator<ConceptDomain>() {
+				@Override
+				public int compare(ConceptDomain o1, ConceptDomain o2) {
+					return o1.getName().compareTo(o2.getName());
+				}
+				
+			});
+			
+			for (ConceptDomain conceptDomain : sortedConceptDomains) {
+				Li conceptDomainListItem = new Li();
+				conceptDomainListItem.setId(DomainSource.CONCEPT_DOMAIN.name() + "_" + getMessagePartName(conceptDomain.getName()) + "_li");
+				conceptDomainListItem.appendChild(createLink(getConceptDomainUrl(conceptDomain.getName()), new Text(conceptDomain.getName()), "leafNode", conceptDomain.getName()));
+				conceptDomainList.appendChild(conceptDomainListItem);
+			}
+		}
+	}
+
+	private void addValueSetLeafs(Ul valueSetList) {
+		if(getMessageSet().getVocabulary() != null && getMessageSet().getVocabulary().getValueSets().size() > 0) {
+			List<ValueSet> valueSets = getMessageSet().getVocabulary().getValueSets();
+			List<ValueSet> sortedValueSets = new ArrayList<ValueSet>();
+			sortedValueSets.addAll(valueSets);
+			Collections.sort(sortedValueSets, new Comparator<ValueSet>() {
+				@Override
+				public int compare(ValueSet o1, ValueSet o2) {
+					return o1.getName().compareTo(o2.getName());
+				}
+				
+			});
+			
+			for (ValueSet valueSet : sortedValueSets) {
+				Li valueSetListItem = new Li();
+				valueSetListItem.setId(DomainSource.VALUE_SET.name() + "_" + getMessagePartName(valueSet.getName()) + "_li");
+				valueSetListItem.appendChild(createLink(getValueSetUrl(valueSet.getName()), new Text(valueSet.getName()), "leafNode", valueSet.getName()));
+				valueSetList.appendChild(valueSetListItem);
+			}
+		}
+	}
+
+	private void addCodeSystemLeafs(Ul codeSystemList) {
+		if(getMessageSet().getVocabulary() != null && getMessageSet().getVocabulary().getCodeSystems().size() > 0) {
+			List<CodeSystem> codeSystems = getMessageSet().getVocabulary().getCodeSystems();
+			List<CodeSystem> sortedCodeSystems = new ArrayList<CodeSystem>();
+			sortedCodeSystems.addAll(codeSystems);
+			Collections.sort(sortedCodeSystems, new Comparator<CodeSystem>() {
+				@Override
+				public int compare(CodeSystem o1, CodeSystem o2) {
+					return o1.getName().toUpperCase().compareTo(o2.getName().toUpperCase());
+				}
+				
+			});
+					
+			for (CodeSystem codeSystem : sortedCodeSystems) {
+				Li codeSystemListItem = new Li();
+				codeSystemListItem.setId(DomainSource.CODE_SYSTEM.name() + "_" + getMessagePartName(codeSystem.getName()) + "_li");
+				codeSystemListItem.appendChild(createLink(getCodeSystemUrl(codeSystem.getName()), new Text(codeSystem.getName()), "leafNode", codeSystem.getName()));
+				codeSystemList.appendChild(codeSystemListItem);
+			}
+		}
+	}
+
+	private void addDatatypeLeafs(Ul datatypeList) {
+		if(getDatatypeSet() != null) {
+			Map<String, Datatype> datatypes = getDatatypeSet().getDatatypes();
+			ArrayList<String> sortedDatatypeNames = new ArrayList<String>();
+			sortedDatatypeNames.addAll(datatypes.keySet());
+			Collections.sort(sortedDatatypeNames);
+			
+			for (String datatypeName : sortedDatatypeNames) {
+				Li datatypeListItem = new Li();
+				datatypeListItem.setId(getMessagePartName(datatypeName) + "_li");
+				datatypeListItem.appendChild(createLink(getDatatypeUrl(datatypeName), new Text(datatypeName), "leafNode", datatypeName));
+				datatypeList.appendChild(datatypeListItem);
+			}
+		}
+	}
+
+	private void addInteractionLeafs(Ul interactionList) {
+		Map<String, Set<String>> interactionPackagePrefixMap = new HashMap<String, Set<String>>(); 
+		for (String interactionName : getMessageSet().getInteractions().keySet()) {
+			String interactionPackagePrefix = interactionName.split("_")[0];
+			
+			if (interactionPackagePrefixMap.containsKey(interactionPackagePrefix)) {
+				Set<String> interactionPackageList = interactionPackagePrefixMap.get(interactionPackagePrefix);
+				interactionPackageList.add(interactionName);
+				interactionPackagePrefixMap.put(interactionPackagePrefix, interactionPackageList);
+			} else {
+				interactionPackagePrefixMap.put(interactionPackagePrefix, new HashSet<String>(Arrays.asList(interactionName)));
+			}				
+		}
+		
+		ArrayList<String> sortedInteractionPackagePrefixes = new ArrayList<String>();
+		sortedInteractionPackagePrefixes.addAll(interactionPackagePrefixMap.keySet());
+		Collections.sort(sortedInteractionPackagePrefixes);
+		
+		for (String interactionPackagePrefix : sortedInteractionPackagePrefixes) {	
+			
+			Li interactionPackagePrefixList = new Li();
+			interactionPackagePrefixList.setId(interactionPackagePrefix + "_li_interaction");
+			String packagePrefixDescription = getCategoryNames().get(interactionPackagePrefix)==null?"":getCategoryNames().get(interactionPackagePrefix);
+			interactionPackagePrefixList.appendChild(createLink("#", new Text(interactionPackagePrefix + " : " + packagePrefixDescription), 
+					"packagePrefixNode", interactionPackagePrefix + "_interaction"));
+			Ul interactionPackagePerPrefixList = new Ul();
+
+			ArrayList<String> sortedInteractionNames = new ArrayList<String>();
+			sortedInteractionNames.addAll(interactionPackagePrefixMap.get(interactionPackagePrefix));
+			Collections.sort(sortedInteractionNames);
+			
+			List<String> sortedInteractionsGroupByRequestResponse = groupInteractionsByRequestResponse(sortedInteractionNames);
+			
+			for (String interactionName : sortedInteractionsGroupByRequestResponse) {
+				Interaction interaction = getMessageSet().getInteractions().get(interactionName);
+				Li interactionListItem = new Li();
+				interactionListItem.setId(interactionName+"_li");
+				interactionListItem.appendChild(createLink(getInteractionUrl(interaction.getName()), 
+						new Text(interaction.getName() + ":" + interaction.getBusinessName()), "leafNode", interaction.getName()));
+				interactionPackagePerPrefixList.appendChild(interactionListItem);
+			}
+			
+			interactionPackagePrefixList.appendChild(interactionPackagePerPrefixList);
+			interactionList.appendChild(interactionPackagePrefixList);
+		}
+	}
+
+	private void addPackageLeafs(Ul messagePartList) {
 		Map<String, Set<String>> msgPartPackageLocationMap = new HashMap<String, Set<String>>();
 		Map<String, Set<String>> msgPartPackagePrefixMap = new HashMap<String, Set<String>>(); 
 		for (MessagePart messagePart : getMessageSet().getAllMessageParts()) {
@@ -255,67 +436,6 @@ public class NavBarScriptJSGenerator extends BaseHtmlGenerator {
 			packagePrefixList.appendChild(packagePerPrefixList);
 			messagePartList.appendChild(packagePrefixList);
 		}
-		
-		Map<String, Set<String>> interactionPackagePrefixMap = new HashMap<String, Set<String>>(); 
-		for (String interactionName : getMessageSet().getInteractions().keySet()) {
-			String interactionPackagePrefix = interactionName.split("_")[0];
-			
-			if (interactionPackagePrefixMap.containsKey(interactionPackagePrefix)) {
-				Set<String> interactionPackageList = interactionPackagePrefixMap.get(interactionPackagePrefix);
-				interactionPackageList.add(interactionName);
-				interactionPackagePrefixMap.put(interactionPackagePrefix, interactionPackageList);
-			} else {
-				interactionPackagePrefixMap.put(interactionPackagePrefix, new HashSet<String>(Arrays.asList(interactionName)));
-			}				
-		}
-		
-		ArrayList<String> sortedInteractionPackagePrefixes = new ArrayList<String>();
-		sortedInteractionPackagePrefixes.addAll(interactionPackagePrefixMap.keySet());
-		Collections.sort(sortedInteractionPackagePrefixes);
-		
-		for (String interactionPackagePrefix : sortedInteractionPackagePrefixes) {	
-			
-			Li interactionPackagePrefixList = new Li();
-			interactionPackagePrefixList.setId(interactionPackagePrefix + "_li_interaction");
-			String packagePrefixDescription = getCategoryNames().get(interactionPackagePrefix)==null?"":getCategoryNames().get(interactionPackagePrefix);
-			interactionPackagePrefixList.appendChild(createLink("#", new Text(interactionPackagePrefix + " : " + packagePrefixDescription), 
-					"packagePrefixNode", interactionPackagePrefix + "_interaction"));
-			Ul interactionPackagePerPrefixList = new Ul();
-
-			ArrayList<String> sortedInteractionNames = new ArrayList<String>();
-			sortedInteractionNames.addAll(interactionPackagePrefixMap.get(interactionPackagePrefix));
-			Collections.sort(sortedInteractionNames);
-			
-			List<String> sortedInteractionsGroupByRequestResponse = groupInteractionsByRequestResponse(sortedInteractionNames);
-			
-			for (String interactionName : sortedInteractionsGroupByRequestResponse) {
-				Interaction interaction = getMessageSet().getInteractions().get(interactionName);
-				Li interactionListItem = new Li();
-				interactionListItem.setId(interactionName+"_li");
-				interactionListItem.appendChild(createLink(getInteractionUrl(interaction.getName()), 
-						new Text(interaction.getName() + ":" + interaction.getBusinessName()), "leafNode", interaction.getName()));
-				interactionPackagePerPrefixList.appendChild(interactionListItem);
-			}
-			
-			interactionPackagePrefixList.appendChild(interactionPackagePerPrefixList);
-			interactionList.appendChild(interactionPackagePrefixList);
-		}		
-		
-		if(getDatatypeSet() != null) {
-			Map<String, Datatype> datatypes = getDatatypeSet().getDatatypes();
-			ArrayList<String> sortedDatatypeNames = new ArrayList<String>();
-			sortedDatatypeNames.addAll(datatypes.keySet());
-			Collections.sort(sortedDatatypeNames);
-			
-			for (String datatypeName : sortedDatatypeNames) {
-				Li datatypeListItem = new Li();
-				datatypeListItem.setId(getMessagePartName(datatypeName) + "_li");
-				datatypeListItem.appendChild(createLink(getDatatypeUrl(datatypeName), new Text(datatypeName), "leafNode", datatypeName));
-				datatypeList.appendChild(datatypeListItem);
-			}
-		}
-		
-		return messageSetListItem.write();
 	}
 
 	/** Message Part per Package Tree Items **/

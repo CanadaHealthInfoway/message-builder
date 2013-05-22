@@ -30,7 +30,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.infoway.demiftifier.Layout;
+import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.LayoutItemBuilder;
 import ca.infoway.demiftifier.MessagePartLayoutItem;
 
@@ -41,7 +41,7 @@ public class TrivialCoordinateSpaceTest {
 	Diagram diagram;
 	
 	@Mock
-	Layout layout;
+	PackageLocationLayout layout;
 	
 	@Mock
 	Shape shape_0_0;

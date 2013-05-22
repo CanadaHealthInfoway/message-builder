@@ -19,9 +19,11 @@
  */
 package ca.infoway.messagebuilder.html.generator;
 
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
-import static junit.framework.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +40,8 @@ import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
+
+import com.hp.gagawa.java.Node;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DatatypeHtmlTest {
@@ -96,7 +100,7 @@ public class DatatypeHtmlTest {
 					"<thead></thead>" +
 					"<tbody>" +
 						"<tr>" +
-							"<td class=\"detailsTableLabelCol\">Super Type:</td><td class=\"detailsTableValueCol\" colspan=\"3\">CD.UV</td>" +
+							"<td class=\"detailsTableLabelCol\">Super Type:</td><td class=\"detailsTableValueCol\" colspan=\"3\"><span>CD.UV</span></td>" +
 						"</tr>" +
 						"<tr>" +
 							"<td class=\"detailsTableLabelCol\">Usage notes:</td>" +
@@ -164,6 +168,115 @@ public class DatatypeHtmlTest {
 						"</div>" +
 					"</body>" +
 				"</html>";
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testShouldGenerateSingleLinksCorrectly() {
+		Datatype mockDatatype = mock(Datatype.class);
+		DatatypeSet mockDatatypeSet = mock(DatatypeSet.class);
+		MessageSet mockMessageSet = mock(MessageSet.class);
+		
+		DatatypeHtml fixture = new DatatypeHtml(mockDatatype, mockDatatypeSet, mockMessageSet);
+		
+		String compoundName = "CD";
+		when(mockDatatypeSet.getDatatype("CD")).thenReturn(new Datatype());
+		
+		Node typeLinks = fixture.createDatatypeLinks(compoundName, mockDatatypeSet);
+		
+		String result = typeLinks.write();
+		
+		String expected = 
+				"<span>" +
+					"<a href=\"../datatypes/CD.html\" class=\"detailsRows\">CD</a>" +
+				"</span>";
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void testShouldGenerateSingleArgCollectionLinksCorrectly() {
+		Datatype mockDatatype = mock(Datatype.class);
+		DatatypeSet mockDatatypeSet = mock(DatatypeSet.class);
+		MessageSet mockMessageSet = mock(MessageSet.class);
+		
+		DatatypeHtml fixture = new DatatypeHtml(mockDatatype, mockDatatypeSet, mockMessageSet);
+		
+		String compoundName = "LIST<LIST<LIST<CD>>>";
+		when(mockDatatypeSet.getDatatype("LIST")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("CD")).thenReturn(new Datatype());
+		
+		Node typeLinks = fixture.createDatatypeLinks(compoundName, mockDatatypeSet);
+		
+		String result = typeLinks.write();
+		
+		String expected = 
+				"<span>" +
+					"<a href=\"../datatypes/LIST.html\" class=\"detailsRows\">LIST</a>&lt;" +
+					"<a href=\"../datatypes/LIST.html\" class=\"detailsRows\">LIST</a>&lt;" +
+					"<a href=\"../datatypes/LIST.html\" class=\"detailsRows\">LIST</a>&lt;" +
+					"<a href=\"../datatypes/CD.html\" class=\"detailsRows\">CD</a>&gt;&gt;&gt;" +
+				"</span>";
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void testShouldGenerateMultiArgCollectionLinksCorrectly() {
+		Datatype mockDatatype = mock(Datatype.class);
+		DatatypeSet mockDatatypeSet = mock(DatatypeSet.class);
+		MessageSet mockMessageSet = mock(MessageSet.class);
+		
+		DatatypeHtml fixture = new DatatypeHtml(mockDatatype, mockDatatypeSet, mockMessageSet);
+		
+		String compoundName = "RTO<ID, RTO<ID, CD>>";
+		when(mockDatatypeSet.getDatatype("RTO")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("ID")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("CD")).thenReturn(new Datatype());
+		
+		Node typeLinks = fixture.createDatatypeLinks(compoundName, mockDatatypeSet);
+		
+		String result = typeLinks.write();
+		
+		String expected = 
+				"<span>" +
+					"<a href=\"../datatypes/RTO.html\" class=\"detailsRows\">RTO</a>&lt;" +
+					"<a href=\"../datatypes/ID.html\" class=\"detailsRows\">ID</a>, " +
+					"<a href=\"../datatypes/RTO.html\" class=\"detailsRows\">RTO</a>&lt;" +
+					"<a href=\"../datatypes/ID.html\" class=\"detailsRows\">ID</a>, " +
+					"<a href=\"../datatypes/CD.html\" class=\"detailsRows\">CD</a>&gt;&gt;" +
+				"</span>";
+		
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void testShouldGenerateMultiArgWithUnknownTypeCollectionLinksCorrectly() {
+		Datatype mockDatatype = mock(Datatype.class);
+		DatatypeSet mockDatatypeSet = mock(DatatypeSet.class);
+		MessageSet mockMessageSet = mock(MessageSet.class);
+		
+		DatatypeHtml fixture = new DatatypeHtml(mockDatatype, mockDatatypeSet, mockMessageSet);
+		
+		String compoundName = "RTO<ID, LIST<RTO<CD, HIGHFIVE>>>";
+		when(mockDatatypeSet.getDatatype("RTO")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("ID")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("CD")).thenReturn(new Datatype());
+		when(mockDatatypeSet.getDatatype("LIST")).thenReturn(new Datatype());
+		
+		Node typeLinks = fixture.createDatatypeLinks(compoundName, mockDatatypeSet);
+		
+		String result = typeLinks.write();
+		
+		String expected = 
+				"<span>" +
+					"<a href=\"../datatypes/RTO.html\" class=\"detailsRows\">RTO</a>&lt;" +
+					"<a href=\"../datatypes/ID.html\" class=\"detailsRows\">ID</a>, " +
+					"<a href=\"../datatypes/LIST.html\" class=\"detailsRows\">LIST</a>&lt;" +
+					"<a href=\"../datatypes/RTO.html\" class=\"detailsRows\">RTO</a>&lt;" +
+					"<a href=\"../datatypes/CD.html\" class=\"detailsRows\">CD</a>,  HIGHFIVE&gt;&gt;&gt;" +
+				"</span>";
+		
 		assertEquals(expected, result);
 	}
 	

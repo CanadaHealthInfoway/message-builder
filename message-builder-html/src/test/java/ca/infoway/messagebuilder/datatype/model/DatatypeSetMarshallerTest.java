@@ -19,6 +19,9 @@
  */
 package ca.infoway.messagebuilder.datatype.model;
 
+import static junit.framework.Assert.assertNotNull;
+import static org.mockito.Mockito.atLeastOnce;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -40,6 +43,7 @@ import ca.infoway.messagebuilder.datatype.mif.MifDatatypeModelLibrary;
 public class DatatypeSetMarshallerTest {
 	private DatatypeSetMarshaller fixture;
 	private DatatypeSet testSet;
+	private DatatypeSet parentSet;
 	@Mock private OutputStream mockOutputStream;
 	@Mock private Serializer mockSerializer;
 	
@@ -50,7 +54,7 @@ public class DatatypeSetMarshallerTest {
 		MifDatatypeModelLibrary uvLib = dtMifMarshaller.unmarshallDatatypeModel(input1);
 		InputStream input2 = getClass().getResourceAsStream("/DEFN=CA=DT=R02.04.xx.coremif");
 		MifDatatypeModelLibrary caLib = dtMifMarshaller.unmarshallDatatypeModel(input2);
-		DatatypeSet parentSet = new DatatypeSet(uvLib);
+		parentSet = new DatatypeSet(uvLib);
 		testSet = new DatatypeSet(parentSet, caLib);
 		
 		fixture = new DatatypeSetMarshaller();
@@ -61,18 +65,26 @@ public class DatatypeSetMarshallerTest {
 		fixture.serializer = mockSerializer;
 		fixture.marshall(testSet, mockOutputStream);
 		
-		Mockito.verify(mockSerializer, Mockito.atLeastOnce()).write(testSet, mockOutputStream);
+		Mockito.verify(mockSerializer, atLeastOnce()).write(testSet, mockOutputStream);
+	}
+
+	@Test
+	public void testMashallWithParentDatatypeSet() throws Exception {
+		Datatype datatype = parentSet.getDatatype("IVL");
+		Datatype derivedSet = testSet.getDatatype("IVL");
+		
+		assertNotNull(datatype);
+		assertNotNull(derivedSet);
 	}
 	
 	@Test
-	public void testUnMashallDatatypeSet() throws IOException {
+	public void testUnMashallDatatypeSet() throws Exception {
 		InputStream inputStream = getClass().getResourceAsStream("/datatypeSet.xml");
 		
 		DatatypeSet datatypeSet = fixture.unmarshallDatatypeModel(inputStream);
 		
 		Assert.assertNotNull(datatypeSet);
 		
-		Assert.assertEquals(85, datatypeSet.getAllDatatypes().size());
+		Assert.assertEquals(120, datatypeSet.getAllDatatypes().size());
 	}
-	
 }

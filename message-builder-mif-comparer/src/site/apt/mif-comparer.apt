@@ -23,7 +23,7 @@ mif-comparer - compare MIF files
 
 	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] old-mif-file new-mif-file
 
-	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] [-ignore-realms] old-mif-dir  new-mif-dir
+	java -jar message-builder-mif-comparer.jar [-c config-file] [-f output-format] [-s severity-level] [-ignore-realms] old-mif-dir new-mif-dir
 
 * Options
 ~~~~~~~~~
@@ -44,23 +44,26 @@ mif-comparer - compare MIF files
 	[arguments]
 		The comparer can be given either two XML files, or two directories.
 
+
 * {Description}
 ~~~~~~~~~~~~~~~
 
 	<<mif-comparer requires Java 1.6 or above.>>
 
 	<mif-comparer> compares either two MIF files, or two directories full of MIFs.
-	It reports in detail on all differences found.
 
 	The files to be compared can be preprocessed, to eliminate insignificant
 	differences.  This is done using {{Filters}}, which are configured by the
 	user via the optional {{Config file}}.
 
-	Output can be generated in several formats: XML, CSV, or plain text.
+	The main output is a detailed description of all differences found.  This
+	is written to standard output, and can be generated in several formats:
+	XML, CSV, or plain text.  In addition, statistics are written (in
+	plain-text format) to standard error.
 
 	<mif-comparer> is namespace-aware, and indeed, if the XML to be compared uses
 	namespaces (as MIFs do), namespaces must be taken into account for correct
-	operation.  See {{XML Namespaces}}.
+	operation.  See {{XML namespaces}}.
 
 	If two directories are named on the command line, they are expected to contain
 	<<<.mif>>> and <<<.coremif>>> files, using the standard naming scheme.  Subdirectory
@@ -74,6 +77,7 @@ mif-comparer - compare MIF files
 	Once <mif-comparer> has determined that two XML files are to be compared, it no
 	longer matters how that happened.  Comparison proceeds in the same way,
 	regardless.  See {{Comparing two XML files}}.
+
 
 * {Overall process flow}
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -156,40 +160,105 @@ mif-comparer - compare MIF files
 
 	By "almost all differences" is meant that minor things are ignored, such as:
 
-	  * sequence of attributes within an element tag
+		* sequence of attributes within an element tag
 
-	  * XML comments
+		* XML comments
 
-	  * whitespace -- these three elements are considered identical:
+		* whitespace -- these three elements are considered identical:
 
----
++--
 <foo>   </foo>
 
 <foo>
 </foo>
 
 <foo/>
----
++--
 
 		as are these:
 
----
++--
 <foo> text </foo>
 
 <foo>text</foo>
----
++--
 
 		But internal whitespace is <not> normalized -- there's a filter for that.
 		These two elements are considered to differ:
 
----
++--
 <foo>hello world</foo>
 
 <foo>hello
 world</foo>
----
++--
 
-* {XML Namespaces}
+
+** Minor differences; "similar" files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	<Mif-comparer> attempts to distinguish between major and minor differences,
+	the latter being those that are assumed not to be important in practice.
+
+	For each pair of files compared, <mif-comparer> emits a summary, reporting how
+	different the files are:
+
+		[Files are identical]	There are no differences between the two files
+
+		[Files are similar]		There are only minor differences
+
+		[Files differ]			There is at least one major difference
+
+	In fact these distinctions are made, not by <mif-comparer> itelf, but by
+	<XMLUnit> (http://xmlunit.sourceforge.net/), which <mif-comparer> uses under
+	the hood.  In <XMLUnit> terminology, major differences are called
+	<unrecoverable>, and minor ones <recoverable>.
+
+	Here are the types of differences that <XMLUnit> considers to be recoverable
+	(i.e. minor), and which one might potentially encounter in the context of
+	<mif-comparer> (these are quoted directly from the <XMLUnit> documentation):
+
+
+		* Two nodes use different prefixes for the same XML Namespace URI in the two [files]
+
+		* Two nodes have different values for the <<<noNamespaceSchemaLocation>>>
+		  attribute of the XMLSchema-Instance namespace. The attribute could be present
+		  on only one of the two nodes
+
+		* Two nodes have different values for the <<<schemaLocation>>> attribute of the
+		  XMLSchema-Instance namespace. The attribute could be present on only one of
+		  the two nodes
+
+	<XMLUnit> can report other types of recoverable (i.e. minor) differences, but these are not
+	expected to occur in the context of <mif-comparer>.  For completeness, these
+	are listed below (the reasons they are not expected to occur are given in <italics>):
+
+		* <Node-order differences -- eliminated because the nodes get sorted before >XMLUnit< sees them:>
+
+			* Two elements in the two [files] contain the same child nodes but in a different order
+			  <(>mif-comparer< doesn't use the relevant feature of >XMLUnit<;
+			  it solves the element-order problem using the >resequence< filter)>
+
+			* The attributes on an element appear in different order in the two [files]
+			  <(An element's attributes are automatically sorted by the XML parser)>
+
+		* <Only applicable if one is validating against an XML Schema, which >mif-comparer< doesn't do:>
+
+			* An attribute that has a default value according to the content model of the
+			  element in question has been specified explicitly in one [file] but not
+			  in the other 
+
+		* <Not believed to be applicable, based on the observation that MIFs
+		  don't appear to contain DOCTYPE declarations:>
+
+			* One [file] has a DOCTYPE declaration while the other one has not <(likewise)>
+
+			* Both [files] contain a DOCTYPE declaration but the declarations specify different
+			  SYSTEM identifiers <(based on the observation that MIFs don't appear
+			  to use doctype declarations)>
+
+
+* {XML namespaces}
 ~~~~~~~~~~~~~~~~~~
 
 	<mif-comparer> is namespace-aware.
@@ -228,24 +297,32 @@ world</foo>
 			  namespace prefixes won't work
 
 
-	Example: Given:
+	Example: Given the following:
 
----
     XML:
+
++--
         <foo:elem xmlns:foo="http://example.com/my-namespace"
                   xmlns:x="http://example.com/other-namespace"/>
++--
 
     Mappings in the <Namespaces> config-file section:
+
++--
         foo = http://example.com/my-other-namespace
         bar = http://example.com/my-namespace
         ; (note: no mapping for "x")
++--
 
     XPath expressions:
+
++--
+
         //bar:elem        (1)
         //foo:elem        (2)
         //elem            (3)
         //x:elem          (4)
----
++--
 
 	XPath expression (1) will match.  (2) and (3) won't match.  (4) will
 	produce an error, because, as far as the XPath expression is concerned,
@@ -344,7 +421,6 @@ mif  = urn:hl7-org:v3/mif2
 
 	The available filters are:
 
-		Deletes every item matching <<<xpath-expr>>>, and, recursively,
 	<<filter = change-namespace new-namespace-URI xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -361,8 +437,8 @@ mif  = urn:hl7-org:v3/mif2
 
 	<<filter = normalize-whitespace xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		For each matching item, normalize the item's whitespace -- or, if the
-		item is an element, normalize the whitespace of its direct children:
+		For each matching item, normalize the item's whitespace:
+			
 			* for <attributes>, normalizes the attribute's value
 
 			* for <elements>, normalizes the text that is <directly>
@@ -374,11 +450,11 @@ mif  = urn:hl7-org:v3/mif2
 
 			* leading and trailing whitespace is stripped
 
-	For elements:
+		For elements:
 
-		* whitespace is stripped from the beginning and end of the list of N's
-		  children taken as a whole, not from the ends of each individual
-		  child.  Thus:
+			* whitespace is stripped from the beginning and end of the list of N's
+			  children taken as a whole, not from the ends of each individual
+			  child.  Thus:
 
 			  <<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>bold\</b\>\ \ \ text\ \ \</p\>>>>
 
@@ -393,15 +469,15 @@ mif  = urn:hl7-org:v3/mif2
 			* normalization is not recursive -- descendents beyond direct children
 			  are not modified.  Thus:
 
-			<<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ \ \ text\ \ \</p\>>>>
+			  <<<\<p\>\ \ \ \ this\ \ \ is\ \ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ \ \ text\ \ \</p\>>>>
 
 			  gets normalized to:
 
-			<<<\<p\>this\ is\ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ text\</p\>>>>
+			  <<<\<p\>this\ is\ \<b\>\ bold\ \ \ \ \ face\ \</b\>\ text\</p\>>>>
 
 			  not to:
 
-				<<<\<p\>this\ is\ \<b\>bold\ face\</b\>\ text\</p\>>>>
+			  <<<\<p\>this\ is\ \<b\>bold\ face\</b\>\ text\</p\>>>>
 
 	<<filter = replace-text pattern replacement xpath-expr>>
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -495,6 +571,142 @@ mif  = urn:hl7-org:v3/mif2
 		<<<\<outer\>\<target\>\<W\>a\</W\>\<W\>\<sub/\>\</W\>\</target\>\</outer\>>>> likewise.
 
 		<<<\<outer\>\<target\>\<W\>a\</W\> some text \<W\>\<sub/\>\</W\>\</target\>\</outer\>>>> makes no change, and produces a warning
+
+
+* XML output format
+~~~~~~~~~~~~~~~~~~~
+
+** \<difference\>
+
+    The main XML element is <<<\<difference/\>>>>, which describes a single point of
+    difference between two files.
+
+    It looks like:
+
+---
+    <difference severity="SSS" type="TTT" [name="NNN"] difference="DDD">
+        <expected-file>pathname</expected-file>
+        <actual-file>pathname</actual-file>
+        <expected-xpath>XPath expr</expected-xpath> <!-- optional -->
+        <actual-xpath>XPath expr</actual-xpath>     <!-- optional -->
+        <expected-value>text</expected-value>       <!-- optional -->
+        <actual-value>text</actual-value>           <!-- optional -->
+        <message-text>message</message-text>
+    </difference>
+---
+
+    Where:
+
+        [SSS]   Severity level.  In increasing order of severity, these are: <debug>,
+                <info>, <trivial>, <warning>, <error>, or <fatal>.  <<Trivial>>
+                is for differences that are judged not to matter in practice, but
+                are reported for completeness.  The other values have their usual
+                meanings.
+
+        [TTT]   The type of item that differs.  This can be an XML node
+                type (<element>, <attribute>, etc.) or an attribute of the file
+				itself (e.g. <descriptive-text>; see below)
+
+        [NNN]   The name of the item, if it has one (e.g. an element's tag or
+                an attribute's name).  For items that have no name (e.g. text
+                nodes), the <<<name="NNN">>> attribute is omitted
+
+        [DDD]   Type of difference:
+
+                  * <missing> if an XML node appears only in the "old" file
+
+                  * <extra> if an XML node appears only in the "new" file
+
+                  * <value> if the values differ between the two files
+
+                  * <descriptive-text> (if the "arbitrary text" parts of the filenames
+				    differ (see {{Directory comparison}})
+
+        [\<expected-file\>, \<actual-file\>]
+                The pathnames of the files in question
+
+        [\<expected-xpath\>, \<actual-xpath\>]
+				The XPath expressions describing the items' respective
+				locations within the two files.  Only present for differences
+				in the XML, not for file-level differences.
+                
+				These XPath expressions never contain namespace prefixes (see {{Bugs}}).
+
+        [\<expected-value\>, \<actual-value\>]
+                The values that the two files have for the item in question.
+                These are omitted when not applicable.
+
+        [message]
+                A description of the difference -- a human-readable equivalent of
+                the same information as is presented in more computer-friendly form in
+                the rest of the element
+
+
+** \<file-pair-message/\>
+
+    When a message relates to a pair of files that were compared, but does not
+    report a specific point of difference between them, a
+    <<<\<file-pair-message\>>>> element is used.
+
+    It looks like:
+
+---
+    <file-pair-message message-type="MMM" severity="SSS">
+        <expected-file>pathname</expected-file>
+        <actual-file>pathname</actual-file>
+        <message-text>message</message-text>
+    </file-pair-message>
+---
+
+    Where:
+
+        [MMM]   The only type currently produced (other than <debug>-level messages), is:
+
+            [file-summary]
+                One of these is produced for every pair of files that is compared.
+                It reports whether the files are <identical>, <similar>,
+                or <different>.  For the meanings of those terms, see
+				{{Minor differences; "similar" files}}
+
+        [other fields]
+                As for <<<\<difference/\>>>>
+
+
+** \<file-message/\>
+
+    This is for messages that pertain only to a single file, not to a pair of them:
+
+---
+    <file-message message-type="MMM" severity="SSS">
+        <file>pathname</file>
+        <xpath>XPath expr</xpath>   <!-- optional -->
+        <value>text</value>         <!-- optional -->
+        <message-text>message</message-text>
+    </file-message>
+---
+
+    Where:
+
+        [MMM]       Message type:
+
+            [ignored-file]  A <<<.coremif>>> file (other than DEFN=CA=IFC=*.coremif) has been skipped
+
+            [internal-error] Something serious has gone wrong
+
+            [unpaired-file] A file in one directory has no corresponding file in the other
+
+            [xml-error]     Error parsing a file's XML
+
+            [filter]        Catchall for messages reported by filters (all of which operate on
+                            one file at a time, not on a pair of them)
+
+        [\<file\>, \<xpath\>, \<value\>]
+            As for <<<\<difference/\>>>>, except that in this case there's only one of each,
+			not an <expected>/<actual> pair.
+
+        [SSS, message]
+            As for <<<\<difference/\>>>>
+
 
 * {Bugs}
 ~~~~~~~~

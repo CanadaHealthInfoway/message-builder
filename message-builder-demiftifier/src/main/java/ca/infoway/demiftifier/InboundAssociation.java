@@ -22,22 +22,12 @@ package ca.infoway.demiftifier;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public class InboundAssociation {
-
+public class InboundAssociation extends InboundElement {
 	private final Relationship relationship;
-	private int inboundArrowDepth;
-	
+		
 	public InboundAssociation(Relationship relationship, int inboundArrowDepth){
+		super(inboundArrowDepth);
 		this.relationship = relationship;
-		this.inboundArrowDepth = inboundArrowDepth;
-	}
-
-	public int getInboundArrowDepth() {
-		return this.inboundArrowDepth;
-	}
-
-	public boolean isWithArrow() {
-		return this.inboundArrowDepth > 0;
 	}
 
 	public String getName() {
@@ -51,5 +41,4 @@ public class InboundAssociation {
 	public String getCmetBindingName() {
 		return this.relationship == null ? null : this.relationship.getCmetBindingName();
 	}
-	
 }

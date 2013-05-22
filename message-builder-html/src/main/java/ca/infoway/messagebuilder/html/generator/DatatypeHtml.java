@@ -44,7 +44,6 @@ import com.hp.gagawa.java.elements.H3;
 import com.hp.gagawa.java.elements.Pre;
 import com.hp.gagawa.java.elements.Table;
 import com.hp.gagawa.java.elements.Tbody;
-import com.hp.gagawa.java.elements.Text;
 import com.hp.gagawa.java.elements.Thead;
 
 public class DatatypeHtml extends BaseHtmlGenerator {
@@ -171,14 +170,9 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		Thead tHead = new Thead();
 		Tbody tBody = new Tbody();
 		
-		if (getDatatypeSet() != null && 
-				getDatatypeSet().getDatatype(getDatatype().getSuperType()) != null) {
-			tBody.appendChild(createDataRow("Super Type:", 
-				createLink(getDatatypeUrl(getDatatype().getSuperType()), 
-				new Text(getDatatype().getSuperType()), "detailsRow", ""), ""));
-		} else {
-			tBody.appendChild(createDataRow("Super Type:", 
-					new Text(getDatatype().getSuperType()), ""));
+		String superType = getDatatype().getSuperType();
+		if (superType != null) {
+			tBody.appendChild(createDataRow("Super Type:", createDatatypeLinks(superType, getDatatypeSet()), ""));
 		}
 		
 		addAnnotationDetails(getDatatype().getDocumentation(), "Description:", tBody);

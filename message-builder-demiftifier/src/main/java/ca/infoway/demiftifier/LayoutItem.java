@@ -39,7 +39,6 @@ public interface LayoutItem extends LogicalDimensions, Named {
 	public boolean isAbstract();
 	public boolean isSpecialization();
 	public boolean isRootType();
-	public InboundAssociation getInboundAssociation();
+	public InboundElement getInboundElement();
 	public CmetBinding getCmetBinding();
-
 }

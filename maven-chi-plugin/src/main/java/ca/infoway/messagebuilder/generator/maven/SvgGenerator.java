@@ -25,7 +25,7 @@ import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 
-import ca.infoway.demiftifier.Layout;
+import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.layout.LayerOuter;
 import ca.infoway.demiftifier.svgifier.Svgifier;
 import ca.infoway.messagebuilder.generator.LogLevel;
@@ -48,7 +48,7 @@ public class SvgGenerator {
 			File svgFile = createSvgFile(packageLocation, svgFolder);
 			FileWriter writer = new FileWriter(svgFile);
 			try {
-				Layout layout = new LayerOuter().layout(messageSet, packageLocation.getName());
+				PackageLocationLayout layout = new LayerOuter().layout(messageSet, packageLocation.getName());
 				new Svgifier().render(layout, writer);
 			} finally {
 				IOUtils.closeQuietly(writer);

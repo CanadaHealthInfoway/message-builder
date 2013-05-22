@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
@@ -47,8 +48,12 @@ public class StartPageRedirectHtml extends BaseHtmlGenerator {
 	@Override
 	public Set<AnnotationType> getExcludeAnnotationFilter() {
 		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
-		filterTypes.add(AnnotationType.MAPPING);
 		return filterTypes;
+	}
+	
+	@Override
+	public MessageSet getMessageSet() {
+		return null;
 	}
 	
 	public Document writeOuterStartFile() {

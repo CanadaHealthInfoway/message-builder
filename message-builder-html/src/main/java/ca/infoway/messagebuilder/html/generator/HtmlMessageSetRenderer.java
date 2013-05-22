@@ -24,6 +24,7 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -42,6 +43,8 @@ public interface HtmlMessageSetRenderer {
 	public String writeValueSet(ValueSet valueSet, MessageSet messageSet);
 	
 	public String writeConceptDomain(ConceptDomain conceptDomain, MessageSet messageSet);
+	
+	public String writeCodeSystem(CodeSystem codeSystem, MessageSet messageSet);
 	
 	public String writeDatatype(Datatype datatype, DatatypeSet datatypeSet, MessageSet messageSet);
 	
@@ -71,5 +74,12 @@ public interface HtmlMessageSetRenderer {
 	
 	public Boolean getExcludeStructuralAttributes();
 	public void setExcludeStructuralAttributes(Boolean includeStructuralAttributes);
+
+	public String getFileName(Datatype datatype, MessageSet messageSet);
+	public String getFileName(CodeSystem codeSystem, MessageSet messageSet);
+	public String getFileName(ConceptDomain conceptDomain, MessageSet messageSet);
+	public String getFileName(ValueSet valueSet, MessageSet messageSet);
+	public String getFileName(Interaction interaction, MessageSet messageSet);
+	public String getFileName(PackageLocation packageLocation, MessageSet messageSet);
 
 }

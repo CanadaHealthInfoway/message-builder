@@ -23,19 +23,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
 public class ConceptDomain {
 
 	@Attribute
 	private String name;
+	@Attribute(required=false)
+	private String owningSCWG;
+	@Attribute(required=false)
+	private String riskOfChange;
+	@Element(required=false)
+	private Documentation documentation = new Documentation();
 	@ElementList(required=false,inline=true,entry="specializes")
 	private List<String> parentConceptDomains = new ArrayList<String>();
 	
 	public ConceptDomain() {
 	}
+	public ConceptDomain(String name) {
+		this.name = name;
+	}
 	public ConceptDomain(String name, List<String> parentConceptDomains) {
-		this.setName(name);
+		this(name);
 		if (parentConceptDomains != null) {
 			this.getParentConceptDomains().addAll(parentConceptDomains);
 		}
@@ -54,5 +64,26 @@ public class ConceptDomain {
 	}
 	public void setParentConceptDomains(List<String> parentConceptDomains) {
 		this.parentConceptDomains = parentConceptDomains;
+	}
+	public void addParent(String parentConceptDomain) {
+		this.parentConceptDomains.add(parentConceptDomain);
+	}
+	public String getOwningSCWG() {
+		return owningSCWG;
+	}
+	public void setOwningSCWG(String owningSCWG) {
+		this.owningSCWG = owningSCWG;
+	}
+	public String getRiskOfChange() {
+		return riskOfChange;
+	}
+	public void setRiskOfChange(String riskOfChange) {
+		this.riskOfChange = riskOfChange;
+	}
+	public Documentation getDocumentation() {
+		return documentation;
+	}
+	public void setDocumentation(Documentation documentation) {
+		this.documentation = documentation;
 	}
 }

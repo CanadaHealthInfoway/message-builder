@@ -66,8 +66,12 @@ public class InteractionHtml extends BaseHtmlGenerator{
 	}
 	
 	public InteractionHtml(Interaction interaction, MessageSet messageSet, 
-			String interactionsPath, String messagePartsPath, String datatypesPath, String javascriptPath, String resourcesPath) {
-		super(interactionsPath, messagePartsPath, datatypesPath, javascriptPath, resourcesPath);
+			String interactionsPath, String messagePartsPath, String datatypesPath, 
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String javascriptPath, String resourcesPath) {
+		super(interactionsPath, messagePartsPath, datatypesPath,
+				codeSystemsPath, valueSetsPath, conceptDomainsPath,
+				javascriptPath, resourcesPath);
 		this.interaction = interaction;
 		this.messageSet = messageSet;
 	}

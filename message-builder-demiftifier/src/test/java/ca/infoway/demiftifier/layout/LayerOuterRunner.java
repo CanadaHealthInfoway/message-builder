@@ -26,7 +26,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
-import ca.infoway.demiftifier.Layout;
+import ca.infoway.demiftifier.PackageLocationLayout;
 import ca.infoway.demiftifier.svgifier.Svgifier;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
@@ -66,7 +66,7 @@ public class LayerOuterRunner {
 			if (messageSet.getPackageLocation(packageLocationName) == null){
 				System.out.println("MessageSet does not contain packageLocation " + packageLocationName);
 			} else {
-				Layout layout = layerOuter.layout(messageSet, packageLocationName);
+				PackageLocationLayout layout = layerOuter.layout(messageSet, packageLocationName);
 				
 				new Svgifier().render(layout, new File(packageLocationName + ".svg"));
 				long endDemiftify = System.currentTimeMillis();

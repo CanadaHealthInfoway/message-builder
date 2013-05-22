@@ -34,22 +34,39 @@ public class MifVocabularyModel {
 
 	@Element(required=false)
 	private MifIdentifier packageLocation;
+	
+	@Element(required=false)
+	private MifDependsOnVocabModel dependsOnVocabModel;
 
 	@ElementList(entry="conceptDomain",required=false,inline=true)
 	private List<MifConceptDomain> conceptDomains = new ArrayList<MifConceptDomain>();
+	
+	@ElementList(entry="codeSystem",required=false,inline=true)
+	private List<MifCodeSystem> codeSystems = new ArrayList<MifCodeSystem>();
 
 	@ElementList(entry="valueSet",required=false,inline=true)
 	private List<MifValueSet> valueSets = new ArrayList<MifValueSet>();
 		
 	@ElementList(entry="contextBinding",required=false,inline=true)
 	private List<MifContextBinding> contextBindings = new ArrayList<MifContextBinding>();
+	
+	@ElementList(entry="codeSystemSupplement",required=false,inline=true)
+	private List<MifCodeSystemSupplement> codeSystemSupplements = new ArrayList<MifCodeSystemSupplement>();
 
 	public MifIdentifier getPackageLocation() {
 		return this.packageLocation;
 	}
 
+	public MifDependsOnVocabModel getDependsOnVocabModel() {
+		return dependsOnVocabModel;
+	}
+
 	public List<MifConceptDomain> getConceptDomains() {
 		return this.conceptDomains;
+	}
+
+	public List<MifCodeSystem> getCodeSystems() {
+		return codeSystems;
 	}
 
 	public List<MifValueSet> getValueSets() {
@@ -58,5 +75,9 @@ public class MifVocabularyModel {
 
 	public List<MifContextBinding> getContextBindings() {
 		return this.contextBindings;
+	}
+
+	public List<MifCodeSystemSupplement> getCodeSystemSupplements() {
+		return codeSystemSupplements;
 	}
 }

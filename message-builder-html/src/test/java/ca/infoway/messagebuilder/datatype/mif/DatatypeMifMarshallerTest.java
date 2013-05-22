@@ -83,6 +83,26 @@ public class DatatypeMifMarshallerTest {
 	}
 	
 	@Test
+	public void testMarshallIVLDatatype() throws Exception {
+		InputStream input = getClass().getResourceAsStream("/DEFN=UV=DT=1.1.coremif");
+		try {
+			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
+			List<MifDatatype> datatypes = model.getDatatypes();
+			MifDatatype ivl = null;
+			for (MifDatatype mifDatatype : datatypes) {
+				if ("IVL".equals(mifDatatype.getName())) {
+					ivl = mifDatatype;
+				}
+			}
+			assertEquals("\nA set of consecutive values of an ordered base data type.\n    ", 
+					ivl.getAnnotations().getDocumentation().getDefinition().getText().getValue());
+						
+		} finally {
+			IOUtils.closeQuietly(input);
+		}
+	}	
+	
+	@Test
 	public void testMarshallStaticExamples() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=CA=DT=R02.04.xx.coremif");
 		try {

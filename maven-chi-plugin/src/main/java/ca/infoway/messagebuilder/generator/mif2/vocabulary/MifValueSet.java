@@ -20,6 +20,7 @@
 package ca.infoway.messagebuilder.generator.mif2.vocabulary;
 
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
@@ -33,11 +34,25 @@ public class MifValueSet {
 	@Attribute
 	private String name;
 	
+	@Element(required=false)
+	private MifAnnotations annotations;
+	
+	@Element
+	private MifValueSetVersion version;
+	
 	public String getId() {
 		return id;
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	public MifAnnotations getAnnotations() {
+		return annotations;
+	}
+
+	public MifValueSetVersion getVersion() {
+		return version;
 	}
 }

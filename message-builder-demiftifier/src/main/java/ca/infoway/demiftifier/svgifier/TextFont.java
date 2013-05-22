@@ -25,6 +25,7 @@ public class TextFont {
 
 	private final Font font;
 
+	
 	public TextFont(Font font){
 		this.font = font;
 	}
@@ -38,6 +39,5 @@ public class TextFont {
 
 	public Font getFont() {
 		return this.font;
-	}
-	
+	}	
 }

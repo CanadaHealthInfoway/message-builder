@@ -39,6 +39,7 @@ import java.util.jar.JarFile;
 
 import ca.infoway.messagebuilder.datatype.model.Datatype;
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -58,6 +59,9 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	private String datatypePath;
 	private String javascriptPath;
 	private String resourcesPath;
+	private String codeSystemsPath;
+	private String valueSetsPath;
+	private String conceptDomainsPath;
 	private Boolean excludeStructuralAttributes;
 	
 	public HtmlMessageSetRendererImpl() {
@@ -66,24 +70,38 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 		this.datatypePath = "../datatypes";
 		this.resourcesPath = "../resources";
 		this.javascriptPath = "../resources/js";
+		this.codeSystemsPath = "../codeSystems";
+		this.valueSetsPath = "../valueSets";
+		this.conceptDomainsPath = "../conceptDomains";
 		this.excludeStructuralAttributes = false;
 	}
 	
-	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath, String resourcesPath, String javascriptPath) {
+	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath,
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String resourcesPath, String javascriptPath) {
 		this.interactionsPath = interactionsPath;
 		this.packagesPath = packagesPath;
 		this.datatypePath = datatypesPath;
+		this.codeSystemsPath = codeSystemsPath;
+		this.valueSetsPath = valueSetsPath;
+		this.conceptDomainsPath = conceptDomainsPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
 		this.excludeStructuralAttributes = false;
 	}
 	
-	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath, String resourcesPath, String javascriptPath, Boolean excludeStructuralAttributes) {
+	public HtmlMessageSetRendererImpl(String interactionsPath, String packagesPath, String datatypesPath, 
+			String codeSystemsPath, String valueSetsPath, String conceptDomainsPath,
+			String resourcesPath, String javascriptPath, 
+			Boolean excludeStructuralAttributes) {
 		this.interactionsPath = interactionsPath;
 		this.packagesPath = packagesPath;
 		this.datatypePath = datatypesPath;
 		this.javascriptPath = javascriptPath;
 		this.resourcesPath = resourcesPath;
+		this.codeSystemsPath = codeSystemsPath;
+		this.valueSetsPath = valueSetsPath;
+		this.conceptDomainsPath = conceptDomainsPath;
 		this.excludeStructuralAttributes = excludeStructuralAttributes;
 	}
 		
@@ -131,6 +149,14 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 	@Override
 	public String writeConceptDomain(ConceptDomain conceptDomain, MessageSet messageSet) {
 		ConceptDomainHtml conceptDomainHtml = new ConceptDomainHtml(conceptDomain, messageSet);
+		
+		return conceptDomainHtml.write();
+	}
+	
+	/** Concept Domain Section **/
+	@Override
+	public String writeCodeSystem(CodeSystem codeSystem, MessageSet messageSet) {
+		CodeSystemHtml conceptDomainHtml = new CodeSystemHtml(codeSystem, messageSet);
 		
 		return conceptDomainHtml.write();
 	}
@@ -243,12 +269,15 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 				staticDatatypeFiles.put(fileName, getClass().getResourceAsStream(DEFAULT_RESOURCE_PATH + "/datatypes/" + datatypeVersion + "/" + fileName));
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
 		}
 		return staticDatatypeFiles;
 	}
 	
 	private String[] getFileList(URL urlResource) throws URISyntaxException, UnsupportedEncodingException, IOException {
+		if (urlResource == null) {
+			return null;
+		}
 		//Extract file names of a specified path from a directory
 		if (urlResource.getProtocol().equals("file")) {
 			URI fileUri = urlResource.toURI();
@@ -279,5 +308,59 @@ public class HtmlMessageSetRendererImpl implements HtmlMessageSetRenderer{
 		}
 		
 		return null;
+	}
+
+	public String getCodeSystemsPath() {
+		return codeSystemsPath;
+	}
+
+	public void setCodeSystemsPath(String codeSystemsPath) {
+		this.codeSystemsPath = codeSystemsPath;
+	}
+
+	public String getValueSetsPath() {
+		return valueSetsPath;
+	}
+
+	public void setValueSetsPath(String valueSetsPath) {
+		this.valueSetsPath = valueSetsPath;
+	}
+
+	public String getConceptDomainsPath() {
+		return conceptDomainsPath;
+	}
+
+	public void setConceptDomainsPath(String conceptDomainsPath) {
+		this.conceptDomainsPath = conceptDomainsPath;
+	}
+	
+	@Override
+	public String getFileName(PackageLocation packageLocation, MessageSet messageSet) {
+		return new PackageLocationHtml(packageLocation, messageSet, null, false).getPackageFileName(packageLocation.getName());
+	}
+	
+	@Override
+	public String getFileName(Interaction interaction, MessageSet messageSet) {
+		return new InteractionHtml(interaction, messageSet).getInteractionFileName(interaction.getName());
+	}
+	
+	@Override
+	public String getFileName(ValueSet valueSet, MessageSet messageSet) {
+		return new ValueSetHtml(valueSet, messageSet).getValueSetFileName(valueSet.getName());
+	}
+
+	@Override
+	public String getFileName(ConceptDomain conceptDomain, MessageSet messageSet) {
+		return new ConceptDomainHtml(conceptDomain, messageSet).getConceptDomainFileName(conceptDomain.getName());
+	}
+	
+	@Override
+	public String getFileName(CodeSystem codeSystem, MessageSet messageSet) {
+		return new CodeSystemHtml(codeSystem, messageSet).getCodeSystemFileName(codeSystem.getName());
+	}
+	
+	@Override
+	public String getFileName(Datatype datatype, MessageSet messageSet) {
+		return new DatatypeHtml(datatype, null, messageSet).getDatatypeFileName(datatype.getName());
 	}
 }

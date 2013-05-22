@@ -36,6 +36,9 @@ public class MifConceptDomain {
 	private String name;
 	
 	@Element(required=false)
+	private MifAnnotations annotations;
+	
+	@Element(required=false)
 	private MifSpecializesDomain specializesDomain;
 	
 	@ElementList(entry="specializedByDomain", inline=true, required=false)
@@ -63,5 +66,13 @@ public class MifConceptDomain {
 
 	public void setSpecializedByDomains(List<MifSpecializedByDomain> specializedByDomains) {
 		this.specializedByDomains = specializedByDomains;
+	}
+
+	public MifAnnotations getAnnotations() {
+		return annotations;
+	}
+
+	public void setAnnotations(MifAnnotations annotations) {
+		this.annotations = annotations;
 	}
 }

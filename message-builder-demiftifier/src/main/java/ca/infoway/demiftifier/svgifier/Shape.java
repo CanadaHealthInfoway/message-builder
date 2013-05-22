@@ -157,12 +157,13 @@ public abstract class Shape extends BasicShape {
 		if (this.labels.isEmpty()) {
 			FormattedString header = new FormattedString();
 			header.addSegment(this.item.getLabel(), this.styleProvider.getItemLabelTextFont());
+
 			this.styleProvider.assignTextBounds(header, 
 					new Padding(0, 0, PADDING_BETWEEN_LABEL_AND_ATTRIBUTES, 0));
 			this.labels.add(header);
-			
+						
 			int alphabetWidth = this.styleProvider.getTextWidth("abcdefghijklmnopqrstuvwxyz", this.styleProvider.getDefaultAttributeTextFont());
-
+			
 			for (Relationship attribute : this.item.getAttributes()) {
 				FormattedString formattedAttribute = getFormattedAttributeText(attribute);
 				this.styleProvider.assignTextBounds(formattedAttribute, alphabetWidth * 2, null, 10);

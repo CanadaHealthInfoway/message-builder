@@ -24,13 +24,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
 import ca.infoway.messagebuilder.generator.MifProcessingException;
 
 public class VocabularyMifMarshaller {
 	
-	private Serializer serializer = new Persister();
+	private Serializer serializer = new Persister(new AnnotationStrategy());
 	
 	public MifVocabularyModel unmarshallVocabularyModel(InputStream input) throws IOException, MifProcessingException {
 		try {

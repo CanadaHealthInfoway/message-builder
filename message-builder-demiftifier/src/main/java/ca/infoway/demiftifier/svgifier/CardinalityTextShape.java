@@ -58,8 +58,8 @@ class CardinalityTextShape extends BasicShape {
 	protected void initializeLabels() {
 		if (this.labels.isEmpty()) {
 			FormattedString cardinalityString = new FormattedString();
-			if (this.messagePartItem.getInboundAssociation() != null){
-				cardinalityString.addSegment(this.formatterUtil.format(this.messagePartItem.getInboundAssociation().getCardinality()) + " " +
+			if (this.messagePartItem.getInboundElement() != null){
+				cardinalityString.addSegment(this.formatterUtil.format(this.messagePartItem.getInboundElement().getCardinality()) + " " +
 						getOutgoingAssociationString(), this.styleProvider.getCardinalityTextFont());
 			}
 			this.styleProvider.assignTextBounds(cardinalityString, new Padding(0, TEXT_PADDING_RIGHT, TEXT_PADDING_BOTTOM, 0));
@@ -74,8 +74,8 @@ class CardinalityTextShape extends BasicShape {
 				this.messagePartItem.getRimClass() == RimClass.ROLE_LINK ){
 			Relationship outgoingAssociation = this.messagePartItem.getFirstOutgoingAssociation();
 			result = outgoingAssociation == null ? "" : outgoingAssociation.getName();
-		} else if (this.messagePartItem.getInboundAssociation() != null) {
-			result = this.messagePartItem.getInboundAssociation().getName();
+		} else if (this.messagePartItem.getInboundElement() != null) {
+			result = this.messagePartItem.getInboundElement().getName();
 		} else {
 			result = "";
 		}

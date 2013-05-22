@@ -89,6 +89,11 @@ public class DatatypeSet {
 			throw new RuntimeException("unable to complete processing of datatype coremif: " + getVersion() + ", incorrect parent coremif expecting: " + parentCombinedId);
 		}
 		
+		List<Datatype> allDatatypes = parentSet.getAllDatatypes();
+		for (Datatype datatype : allDatatypes) {
+			this.datatypes.put(datatype.getName(), datatype);
+		}
+		
 		for (MifDatatype mifDatatype : mifDatatypeModelLibrary.getDatatypes()) {
 			this.datatypes.put(mifDatatype.getName(), new Datatype(mifDatatype, getParentDatatypeSet()));
 		}

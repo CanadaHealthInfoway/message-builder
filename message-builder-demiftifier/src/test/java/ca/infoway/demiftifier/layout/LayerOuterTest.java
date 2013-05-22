@@ -25,22 +25,27 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.infoway.demiftifier.Layout;
 import ca.infoway.demiftifier.LayoutItem;
 import ca.infoway.demiftifier.MessagePartBuilder;
 import ca.infoway.demiftifier.MessagePartLayoutItem;
 import ca.infoway.demiftifier.MessageSetBuilder;
 import ca.infoway.demiftifier.PackageLocationBuilder;
+import ca.infoway.demiftifier.PackageLocationLayout;
+import ca.infoway.demiftifier.VocabularyLayout;
+import ca.infoway.messagebuilder.xml.ConceptDomain;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.RimClass;
 
@@ -87,12 +92,12 @@ public class LayerOuterTest {
 	}
 
 	private void assertInboundAssociationNull(String name, Map<String, MessagePartLayoutItem> items) {
-		assertNull(name, getItemFailIfNotFound(name, items).getInboundAssociation());
+		assertNull(name, getItemFailIfNotFound(name, items).getInboundElement());
 	}
 
 
 	private void assertInboundArrowDepth(String name, int expectedDepth, Map<String, MessagePartLayoutItem> items) {
-		assertEquals(name, expectedDepth, getItemFailIfNotFound(name, items).getInboundAssociation().getInboundArrowDepth());
+		assertEquals(name, expectedDepth, getItemFailIfNotFound(name, items).getInboundElement().getInboundArrowDepth());
 	}
 	
 	private void assertIsCmet(String name, Map<String, MessagePartLayoutItem> items) {
@@ -140,7 +145,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 
 		//Check Entry Point
 		LayoutItem entryPoint = layout.getItems().iterator().next();
@@ -178,7 +183,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 3, items.size());
@@ -213,7 +218,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 4, items.size());
@@ -254,7 +259,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).withMessagePart(messagePart4).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 4, items.size());
@@ -297,7 +302,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).withMessagePart(messagePart4).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 4, items.size());
@@ -350,7 +355,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).withMessagePart(messagePart4).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 6, items.size());
@@ -417,7 +422,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart4).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).withPackageLocation(otherPackageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 3, items.size());
@@ -446,7 +451,7 @@ public class LayerOuterTest {
 				.build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		
 		//Check Message Part Layout Items
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
@@ -473,7 +478,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		
 		//Check Message Part Layout Items
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
@@ -501,7 +506,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		
 		//Check Message Part Layout Items
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
@@ -557,7 +562,7 @@ public class LayerOuterTest {
 				.withMessagePart(messagePart2).withMessagePart(messagePart3).withMessagePart(messagePart4).build();
 		MessageSet messageSet = MessageSetBuilder.basicBuilder(packageLocation).build();
 
-		Layout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
+		PackageLocationLayout layout = new LayerOuter().layout(messageSet, PACKAGE_LOCATION_NAME);
 		Map<String, MessagePartLayoutItem> items = buildMap(layout.getMessagePartLayoutItems());
 
 		assertEquals("item count", 6, items.size());
@@ -613,4 +618,58 @@ public class LayerOuterTest {
 
 	}
 
+	@Test
+	public void shouldLayoutBasicVocabSVG() throws Exception {
+		InputStream messageSetStream = getClass().getResourceAsStream("/messageSet_r02_04_03_vocab_svg.xml");
+		MessageSet messageSet = new MessageSetMarshaller().unmarshall(messageSetStream);
+		
+		
+		List<ConceptDomain> conceptDomains = messageSet.getVocabulary().getConceptDomains();
+		ConceptDomain ackConditionConceptDomain = null;
+		for (ConceptDomain conceptDomain : conceptDomains) {
+			if (conceptDomain.getName().equals("AcknowledgementCondition")) {
+				ackConditionConceptDomain = conceptDomain;
+			}
+		}
+		
+		
+		VocabularyLayout vocabLayout = new LayerOuter().vocabLayout(messageSet, ackConditionConceptDomain.getName());
+		
+		Collection<LayoutItem> items = vocabLayout.getItems();
+		
+		assertEquals(3, items.size());
+//		
+//		StringWriter writer = new StringWriter();
+//		new Svgifier().render(vocabLayout, writer);
+//		
+//		System.out.println(writer.toString());
+		
+	}
+	
+	@Test
+	public void shouldLayoutNonBasicVocabSVG() throws Exception {
+		InputStream messageSetStream = getClass().getResourceAsStream("/messageSet_r02_04_03_vocab_svg.xml");
+		MessageSet messageSet = new MessageSetMarshaller().unmarshall(messageSetStream);
+		
+		
+		List<ConceptDomain> conceptDomains = messageSet.getVocabulary().getConceptDomains();
+		ConceptDomain ackConditionConceptDomain = null;
+		for (ConceptDomain conceptDomain : conceptDomains) {
+			if (conceptDomain.getName().equals("DiagnosisValue")) {
+				ackConditionConceptDomain = conceptDomain;
+			}
+		}
+		
+		VocabularyLayout vocabLayout = new LayerOuter().vocabLayout(messageSet, ackConditionConceptDomain.getName());
+		
+		Collection<LayoutItem> items = vocabLayout.getItems();
+		
+		assertEquals(5, items.size());
+		
+//		StringWriter writer = new StringWriter();
+//		new Svgifier().render(vocabLayout, writer);
+//		
+//		System.out.println(writer.toString());
+		
+	}
 }
