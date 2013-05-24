@@ -211,11 +211,16 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * @param childName the name of the child to remove
 	 */
 	public void removeSpecializationChild(String childName) {
-		for (Iterator<SpecializationChild> iterator = this.specializationChilds.iterator(); iterator.hasNext();) {
-			SpecializationChild child = iterator.next();
-			if (child.getName().equals(childName)) {
-				iterator.remove();
+		// TM - modified to remove usage of iterator.remove() to facilitate translation
+		int index = -1;
+		for (int i = 0; i < this.specializationChilds.size(); i++) {
+			if (this.specializationChilds.get(i).getName().equals(childName)) {
+				index = i;
+				break;
 			}
+		}
+		if (index >= 0) {
+			this.specializationChilds.remove(index);
 		}
 	}
 	/**

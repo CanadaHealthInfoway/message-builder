@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.xml;
 
-import static org.junit.Assert.assertSame; 
+import static junit.framework.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,20 +40,20 @@ public class RelationshipTest {
 		Relationship relationship4 = createRelationship(false, "late association a", 9, "ZZ");
 		Relationship relationship5 = createRelationship(false, "late association b", 6, "ZZ");
 		
-		List<Relationship> list = new ArrayList<Relationship>();
+		ArrayList<Relationship> list = new ArrayList<Relationship>();
 		list.add(relationship5);
-		list.add(relationship4);
 		list.add(relationship3);
-		list.add(relationship2);
+		list.add(relationship4);
 		list.add(relationship1);
-		Collections.shuffle(list);	// just to make it interesting
+		list.add(relationship2);
+//		Collections.shuffle(list);	// just to make it interesting  // TM - removed for translation purposes
 		
 		Collections.sort(list);
-		assertSame(relationship1, list.get(0));
-		assertSame(relationship2, list.get(1));
-		assertSame(relationship3, list.get(2));
-		assertSame(relationship4, list.get(3));
-		assertSame(relationship5, list.get(4));
+		assertTrue(relationship1 == list.get(0));
+		assertTrue(relationship2 == list.get(1));
+		assertTrue(relationship3 == list.get(2));
+		assertTrue(relationship4 == list.get(3));
+		assertTrue(relationship5 == list.get(4));
 	}
 	
 	private Relationship createRelationship(boolean isAttribute, String name, int sortKey, String associationSortKey) {
