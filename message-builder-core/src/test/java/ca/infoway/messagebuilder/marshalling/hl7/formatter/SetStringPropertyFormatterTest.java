@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 

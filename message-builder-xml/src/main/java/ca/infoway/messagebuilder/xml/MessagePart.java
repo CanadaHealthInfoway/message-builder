@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.xml;
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
