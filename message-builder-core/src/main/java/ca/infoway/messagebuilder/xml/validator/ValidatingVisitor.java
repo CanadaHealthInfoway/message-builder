@@ -215,9 +215,9 @@ public class ValidatingVisitor implements MessageVisitor {
 					String valueAsString = ((INT) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType() && value instanceof CD) {
-					// explicit reference to Code so that .NET does not confuse it with the xml version
-					ca.infoway.messagebuilder.Code code = ((CD) value).getValue();
-					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
+					// removed/inlined reference to Code so that .NET does not confuse it with the xml version
+					valid = (((CD) value).getValue().getCodeValue() != null && 
+								StringUtils.equals(relationship.getFixedValue(), ((CD) value).getValue().getCodeValue()));
 				} else {
 					this.result.addHl7Error(
 						new Hl7Error(
