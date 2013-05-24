@@ -47,7 +47,7 @@ public class ConformanceLevel extends EnumPattern {
 	 */
 	public static final ConformanceLevel POPULATED = new ConformanceLevel("POPULATED", "Pop", 1); 
 	/**
-	 * <p>The requied conformance level.  This term is prone to misunderstanding, becase
+	 * <p>The required conformance level.  This term is prone to misunderstanding, becase
 	 * in terms of the data in the message, required elements are closest to optional
 	 * elements.  What distinguishes the required conformance level from the optional
 	 * conformance level is that a compliant system should save, persist or process any
