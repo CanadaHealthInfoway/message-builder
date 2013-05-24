@@ -72,8 +72,8 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 
 	private void validateCardinality(FormatContext context, Collection<BareANY> collection) {
 		int size = collection.size();
-		int min = context.getCardinality().getMin();
-		int max = context.getCardinality().getMax();
+		int min = (int) context.getCardinality().getMin();
+		int max = (int) context.getCardinality().getMax();
 		if (size < min) {
 			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 					"Number of elements (" + size + ") is less than the specified minimum (" + min + ")", context.getPropertyPath()));

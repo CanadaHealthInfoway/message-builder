@@ -49,8 +49,7 @@ class SetElementParser extends SetOrListElementParser {
 		}
 	}
 
-	@Override
-	protected void unableToAddResultToCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
+	protected void resultAlreadyExistsInCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
 		xmlToModelResult.addHl7Error(new Hl7Error(
 				Hl7ErrorCode.DATA_TYPE_ERROR, "Duplicate value not allowed for SET", (Element) node));
 	}

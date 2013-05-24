@@ -61,9 +61,10 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {
-					if (!list.add(result)) {
-						unableToAddResultToCollection(result, (Element) node, xmlToModelResult);
+					if (list.contains(result)) {
+						resultAlreadyExistsInCollection(result, (Element) node, xmlToModelResult);
 					}
+					list.add(result);
 				}
 			} else {
 				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR,
@@ -74,10 +75,14 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 		return wrapWithHl7DataType(context.getType(), subType, list);
 	}
 
+	protected void resultAlreadyExistsInCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
+		// do nothing; allow subclasses to override if necessary
+	}
+	
 	private void validateCardinality(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) {
 		int size = nodes.size();
-		int min = context.getCardinality().getMin();
-		int max = context.getCardinality().getMax();
+		int min = (int) context.getCardinality().getMin();
+		int max = (int) context.getCardinality().getMax();
 		if (size < min) {
 			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
 					"Number of elements (" + size + ") is less than the specified minimum (" + min + ")", getFirst(nodes)));

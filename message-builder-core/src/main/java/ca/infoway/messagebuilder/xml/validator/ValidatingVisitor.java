@@ -34,7 +34,6 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BL;
@@ -216,7 +215,8 @@ public class ValidatingVisitor implements MessageVisitor {
 					String valueAsString = ((INT) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType() && value instanceof CD) {
-					Code code = ((CD) value).getValue();
+					// explicit reference to Code so that .NET does not confuse it with the xml version
+					ca.infoway.messagebuilder.Code code = ((CD) value).getValue();
 					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
 				} else {
 					this.result.addHl7Error(
