@@ -245,11 +245,15 @@ public class Mif2VocabularyProcessor {
 	}
 	
 	private void populateExclusions(List<MifValueSetContent> exclusions, ValueSetFilter filter) {
-		for (MifValueSetContent content : exclusions) {
-			for (MifValueSetCodeBasedContent codeBasedContent : content.getCodeBasedContents()) {
-				filter.addExcludedCode(new ValueSetFilterCode(codeBasedContent.getCode(), codeBasedContent.isIncludeChildren()));
+		if (exclusions != null) { 
+			for (MifValueSetContent content : exclusions) {
+				if (content.getCodeBasedContents() != null) { 
+					for (MifValueSetCodeBasedContent codeBasedContent : content.getCodeBasedContents()) {
+						filter.addExcludedCode(new ValueSetFilterCode(codeBasedContent.getCode(), codeBasedContent.isIncludeChildren()));
+					}
+				}
 			}
-		}		
+		}
 	}
 
 	public ValueSetFilter getFilter(Map<String, ValueSetFilter> filters,
