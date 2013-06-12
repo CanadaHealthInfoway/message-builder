@@ -34,6 +34,8 @@ public class ValueSetFilter {
 	@Attribute(required=false)
 	private String propertyValue;
 	@Attribute(required=false)
+	private Boolean propertyIncluded;
+	@Attribute(required=false)
 	private String nonComputableContent;
 	@ElementList(required=false,inline=true,entry="includedCode")
 	private List<ValueSetFilterCode> includedCodes;
@@ -58,6 +60,12 @@ public class ValueSetFilter {
 	}
 	public void setPropertyValue(String propertyValue) {
 		this.propertyValue = propertyValue;
+	}
+	public Boolean isPropertyIncluded() {
+		return propertyIncluded;
+	}
+	public void setPropertyIncluded(Boolean propertyIncluded) {
+		this.propertyIncluded = propertyIncluded;
 	}
 	public String getNonComputableContent() {
 		return nonComputableContent;

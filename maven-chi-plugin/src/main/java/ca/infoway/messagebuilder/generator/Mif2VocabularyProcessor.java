@@ -33,6 +33,8 @@ import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifBasicAnnotation;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCode;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCodeSystem;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCodeSystemConcept;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCodeSystemConceptSupplement;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCodeSystemSupplement;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifConceptDomain;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifConceptPrintName;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifConceptRelationship;
@@ -87,6 +89,27 @@ public class Mif2VocabularyProcessor {
 		// Second pass - everything else
 		for (MifVocabularyModel mifVocabularyModel : vocabularyModels) {
 			
+			for (MifCodeSystemSupplement mifCodeSystemSupplement : mifVocabularyModel.getCodeSystemSupplements()) {
+				if (mifCodeSystemSupplement.getCodeSystemVersionSupplement() == null || mifCodeSystemSupplement.getCodeSystemVersionSupplement().getConcepts() == null) {
+					continue;
+				}
+				
+				CodeSystem targetCodeSystem = codeSystemsByOid.get(mifCodeSystemSupplement.getCodeSystemId());
+				if (targetCodeSystem != null && targetCodeSystem.getConcepts() != null && !targetCodeSystem.getConcepts().isEmpty()) {
+					for (MifCodeSystemConceptSupplement mifConceptSupplement : mifCodeSystemSupplement.getCodeSystemVersionSupplement().getConcepts()) {
+						Concept targetConcept = null;
+						for (Concept concept : targetCodeSystem.getConcepts()) {
+							if (concept.getCode().equals(mifConceptSupplement.getCode())) {
+								targetConcept = concept;
+							}
+						}
+						if (targetConcept != null) {
+							populateDocumentation(mifConceptSupplement.getAnnotations(), targetConcept.getDocumentation());
+						}
+					}
+				}
+			}
+			
 			for (MifValueSet mifValueSet : mifVocabularyModel.getValueSets()) {
 				ValueSet valueSet = valueSets.get(mifValueSet.getId());
 				if (valueSet == null) {
@@ -105,7 +128,13 @@ public class Mif2VocabularyProcessor {
 				
 				determineSourceCodeSystems(mifValueSet.getVersion().getContent(), valueSet, codeSystemsByOid);
 
-				Set<Code> targetCodes = populateValueSetByRule(mifValueSet, codeSystemsByOid);
+				Set<Code> targetCodes = null;
+				
+				if (mifValueSet.getVersion().hasEnumeratedCodes()) {
+					targetCodes = populateValueSetByEnumeration(mifValueSet.getVersion().getEnumeratedCodes(), codeSystemsByOid);
+				} else {
+					targetCodes = populateValueSetByRule(mifValueSet, codeSystemsByOid);
+				}
 				
 				if (targetCodes != null && !targetCodes.isEmpty()) {
 					for (Code code : targetCodes) {
@@ -201,6 +230,7 @@ public class Mif2VocabularyProcessor {
 					filter.setCodeSystemName(baseCodeSystem);
 					filter.setPropertyName(propertyContent.getConceptProperty().getName());
 					filter.setPropertyValue(propertyContent.getConceptProperty().getValue());
+					filter.setPropertyIncluded(true);
 					valueSet.addFilter(filter);
 				}
 			} else if (content.getValueSetReferences() != null && !content.getValueSetReferences().isEmpty()) {
@@ -251,6 +281,11 @@ public class Mif2VocabularyProcessor {
 					for (MifValueSetCodeBasedContent codeBasedContent : content.getCodeBasedContents()) {
 						filter.addExcludedCode(new ValueSetFilterCode(codeBasedContent.getCode(), codeBasedContent.isIncludeChildren()));
 					}
+				} else if (content.getPropertyBasedContents() != null && content.getPropertyBasedContents().size() > 0) {
+					MifValueSetPropertyBasedContent propertyBasedContent = content.getPropertyBasedContents().get(0);	// assume there's only one
+					filter.setPropertyName(propertyBasedContent.getConceptProperty().getName());
+					filter.setPropertyValue(propertyBasedContent.getConceptProperty().getValue());
+					filter.setPropertyIncluded(false);
 				}
 			}
 		}
@@ -268,6 +303,14 @@ public class Mif2VocabularyProcessor {
 			valueSet.addFilter(filter);
 		}
 		return filter;
+	}
+
+	private Set<Code> populateValueSetByEnumeration(List<MifCode> enumeratedCodes, Map<String, CodeSystem> codeSystemsByOid) {
+		Set<Code> result = new HashSet<Code>();
+		for (MifCode code : enumeratedCodes) {
+			result.add(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName()));
+		}
+		return result;
 	}
 
 	public Set<Code> populateValueSetByRule(MifValueSet mifValueSet, Map<String, CodeSystem> codeSystemsByOid) {
@@ -425,6 +468,13 @@ public class Mif2VocabularyProcessor {
 				codeSystems.put(mifCodeSystem.getName(), codeSystem);
 			}
 			
+			if (codeSystem.getReleaseDate() != null && codeSystem.getReleaseDate().after(mifCodeSystem.getReleasedVersion().getReleaseDate())) {
+				// we have already found and processed a newer version, so don't override it with stale data
+				continue;
+			}
+			
+			codeSystem.setReleaseDate(mifCodeSystem.getReleasedVersion().getReleaseDate());
+			
 			codeSystem.setBusinessName(mifCodeSystem.getTitle());
 			codeSystem.setOid(mifCodeSystem.getCodeSystemId());
 			codeSystemsByOid.put(mifCodeSystem.getCodeSystemId(), codeSystem);
@@ -439,7 +489,6 @@ public class Mif2VocabularyProcessor {
 			}
 			
 			codeSystem.setVersionId(mifCodeSystem.getReleasedVersion().getPublisherVersionId());
-			codeSystem.setReleaseDate(mifCodeSystem.getReleasedVersion().getReleaseDate());
 			
 			if (mifCodeSystem.getReleasedVersion().isHl7MaintainedIndicator() && mifCodeSystem.getReleasedVersion().isCompleteCodesIndicator()) {
 				codeSystem.setComplete(true);
@@ -447,14 +496,14 @@ public class Mif2VocabularyProcessor {
 					// adding this null check due to failure parsing an Infoway-provided file. This implies that there is at least one code system which is defined complete yet contains no codes. I'm not sure what to make of that.
 					for (MifCodeSystemConcept mifConcept : mifCodeSystem.getReleasedVersion().getConcepts()) {
 						
-						createConcepts(mifConcept, codeSystem.getConcepts(), true);
+						createConcepts(mifConcept, codeSystem.getConcepts());
 					}
 				}
 			} else if (isInfowayMaintained(mifCodeSystem)) {
 				codeSystem.setComplete(true);	// a lie
 				if (mifCodeSystem.getReleasedVersion() != null && mifCodeSystem.getReleasedVersion().getConcepts() != null) {	// these Infoway maintained ones are tricksy
 					for (MifCodeSystemConcept mifConcept : mifCodeSystem.getReleasedVersion().getConcepts()) {
-						createConcepts(mifConcept, codeSystem.getConcepts(), false);
+						createConcepts(mifConcept, codeSystem.getConcepts());
 					}
 				}
 			} else {
@@ -463,12 +512,8 @@ public class Mif2VocabularyProcessor {
 		}
 	}
 
-	private void createConcepts(MifCodeSystemConcept mifConcept, List<Concept> concepts, boolean filterInactiveConcepts) {
+	private void createConcepts(MifCodeSystemConcept mifConcept, List<Concept> concepts) {
 		for(MifCode mifCode : mifConcept.getCodes()) {
-			if (filterInactiveConcepts && !mifCode.isActive()) {
-				continue;
-			}
-			
 			Concept concept = new Concept();
 			
 			concept.setCode(mifCode.getCode());

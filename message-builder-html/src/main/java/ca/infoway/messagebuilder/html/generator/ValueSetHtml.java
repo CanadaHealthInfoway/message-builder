@@ -287,8 +287,12 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		
 		Tbody tableBody = new Tbody();
 		//tableBody.appendChild(createDataRow("Value Set Name:", new Text(getValueSet().getName()), ""));
-		tableBody.appendChild(createDataRow("Value Set OID:", new Text(getValueSet().getId()), ""));
-		tableBody.appendChild(createDataRow("Value Set Date:", new Text(new SimpleDateFormat("yyyy-MM-dd").format(getValueSet().getDate())), ""));
+		if (getValueSet().getId() != null) {
+			tableBody.appendChild(createDataRow("Value Set OID:", new Text(getValueSet().getId()), ""));
+		}
+		if (getValueSet().getDate() != null) {
+			tableBody.appendChild(createDataRow("Value Set Date:", new Text(new SimpleDateFormat("yyyy-MM-dd").format(getValueSet().getDate())), ""));
+		}
 		addAnnotationDetails(getValueSet().getDocumentation(), "Definition:", tableBody);
 		
 		if (getValueSet().getOwningSCWG() != null) {

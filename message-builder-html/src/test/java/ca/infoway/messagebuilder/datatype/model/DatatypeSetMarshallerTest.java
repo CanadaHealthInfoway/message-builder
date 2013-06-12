@@ -69,7 +69,7 @@ public class DatatypeSetMarshallerTest {
 	}
 
 	@Test
-	public void testMashallWithParentDatatypeSet() throws Exception {
+	public void testUnMashallWithParentDatatypeSet() throws Exception {
 		Datatype datatype = parentSet.getDatatype("IVL");
 		Datatype derivedSet = testSet.getDatatype("IVL");
 		

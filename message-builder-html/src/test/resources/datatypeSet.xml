@@ -68,18 +68,38 @@ farther from the equator during summer) and office hours.
 The GTS data type has the following aspects:
     </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;GTS as a general set of points in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). From this aspect GTS answers
+whether any given point in time falls in the schedule described by the
+GTS value.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
 aspect describes how both simple and complex repeat-patterns are
-specified with the GTS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as a generator of a sequence of intervals of point in time
-(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
-GTS literal form.&lt;/p&gt;&lt;/li&gt;</p>
+specified with the GTS.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;&gt;).
+From this aspect, GTS can generate all occurrence intervals of an event or
+action, or all validity periods for a fact.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
+GTS literal form.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
+In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). Using the set operations,
+union, intersection and difference, more complex sets of time can be
+constructed from simpler ones. Ultimately the building blocks from
+which all GTS values are constructed are interval, periodic interval,
+and event-related periodic interval. The construction of the GTS can
+be specified in the literal form. No special data type structure is
+defined that would generate a combination of simpler time-sets from a
+given GTS value. While any implementation would have to contain such a
+structured representation, it is not needed in order to exchange GTS
+values given the literal form.&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
 algebraically without giving any definition of a data structure that
 might implement the behavior of such a data type. The algebraic
 definition looks extremely simple, so that one might assume it is
 incomplete. Since at this point we are relying entirely on the literal
-form to represent GTS values, all the definition of data structur&lt;/object&gt;</p>
+form to represent GTS values, all the definition of data structur&lt;/object&gt;
+				              </p>
 <p>
 The GTS data type is defined as using intervals, periodic intervals,
 and event-related periodic intervals. Intervals of time have been
@@ -241,7 +261,7 @@ hull&apos;s occurrence intervals.
             <businessName>Coded Value (Lab)</businessName>
             <annotation annotationType="USAGE_NOTES">
                <text><![CDATA[
-<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>
+<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>
 <p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>
 <p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>
 <p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>
@@ -302,15 +322,20 @@ hull&apos;s occurrence intervals.
             <annotation annotationType="DEFINITION">
                <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
             </annotation>
             <annotation annotationType="DESIGN_COMMENTS">
@@ -331,15 +356,20 @@ located inline or remote.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -419,15 +449,20 @@ located inline or remote.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -548,10 +583,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -583,15 +625,20 @@ Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apo
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -645,12 +692,17 @@ fractional values are covered without necessarily implying the full
 set of the mathematical real numbers that would include irrational
 numbers such as &#961;, Euler&apos;s number, etc.&lt;object name=&apos;footnote&apos;&gt;The term &quot;Real&quot; for a fractional number data type originates and is
 well established in the Algol, Pascal tradition of programming
-languages.&lt;/object&gt;</p>
+languages.&lt;/object&gt;
+				              </p>
 <p>
 This specification offers two choices for a number data type. The
 choice is made as follows: Any number attribute is a real if it is not
 known for sure that it is an integer. A number is an integer if it is
-&lt;b&gt;always&lt;/b&gt;</p>
+&lt;b&gt;always&lt;/b&gt; counted, typically representing an ordinal
+number. If there are conceivable use cases where such a number would
+be estimated or averaged, it is not always an integer and thus should
+use the Real data type.
+    </p>
 <p>
 The algebraic operations are specified here as characterizing
 operations in the sense of ISO 11404, and because these operations are
@@ -785,12 +837,17 @@ fractional values are covered without necessarily implying the full
 set of the mathematical real numbers that would include irrational
 numbers such as &#961;, Euler&apos;s number, etc.&lt;object name=&apos;footnote&apos;&gt;The term &quot;Real&quot; for a fractional number data type originates and is
 well established in the Algol, Pascal tradition of programming
-languages.&lt;/object&gt;</p>
+languages.&lt;/object&gt;
+				              </p>
 <p>
 This specification offers two choices for a number data type. The
 choice is made as follows: Any number attribute is a real if it is not
 known for sure that it is an integer. A number is an integer if it is
-&lt;b&gt;always&lt;/b&gt;</p>
+&lt;b&gt;always&lt;/b&gt; counted, typically representing an ordinal
+number. If there are conceivable use cases where such a number would
+be estimated or averaged, it is not always an integer and thus should
+use the Real data type.
+    </p>
 <p>
 The algebraic operations are specified here as characterizing
 operations in the sense of ISO 11404, and because these operations are
@@ -964,7 +1021,9 @@ at the same point in time.
 <p>
 Three restrictions to Entity Name are defined in order to allow making
 specific constraints for certain kinds of entities, trivial name
-(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ON&apos;/&gt;&lt;/object&gt;</p>
+(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TN&apos;/&gt;&lt;/object&gt;), person name (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PN&apos;/&gt;&lt;/object&gt;), and
+organization name (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ON&apos;/&gt;&lt;/object&gt;).
+    </p>
 <p>
 A very simple encoding of  &quot;Adam A. Everyman&quot; would be:
       
@@ -1046,7 +1105,7 @@ ideographic (Kanji), syllabic (Hiragana), and alphabetic (Romaji).
             <businessName>Coded Value</businessName>
             <annotation annotationType="USAGE_NOTES">
                <text><![CDATA[
-<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>
+<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>
 <p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>
 <p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>
 <p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>
@@ -1232,15 +1291,20 @@ other representation than a calendar expression literal.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -1266,7 +1330,9 @@ located inline or remote.
                <text><![CDATA[
 <p>Use of ISO-3166-1 (alpha-3) is not permitted with this specification (alpha-2 is the only coding system suggested).  Using multiple methods (aplha-2, alpha-3 or numeric) would require implementors to support all methods.  The alpha-2 approach was used to be consistent with Canada Post.</p>
 <p>
-							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;&lt;li&gt;The complete listing of codes may be found here: &lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;&lt;/li&gt;</p>
+							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;.&lt;/li&gt;
+						</p>
 ]]></text>
             </annotation>
             <annotation annotationType="CONSTRAINT">
@@ -1405,7 +1471,14 @@ specified (low boundary and width implies the high boundary.)
     </p>
 <p>
 The periodic interval of time is a generic type extension whose type
-parameter T is restricted to the point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PIVL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;</p>
+parameter T is restricted to the point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;)
+data type and its extensions. The parametric probability distribution
+of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;) is
+an extension of point in time and therefore can be used to form
+periodic intervals of probability distributions of point in time
+(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PIVL&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;&gt;) values (uncertain periodic interval.)
+    </p>
 <p>
 Oftentimes repeating schedules are only approximately specified. For
 instance &quot;three times a day for ten minutes each&quot; does not usually
@@ -1528,15 +1601,20 @@ contiguous. Intersections of intervals are always intervals.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -1599,13 +1677,15 @@ specification, namely the semantics of the literal form.
     </p>
 <p>
 The traditional recursive definitions of addition and multiplication
-are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
+are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
 Grassman&apos;s original axioms to the Peano axioms, because Grassman&apos;s
 axioms work for all integers, not just for natural numbers. Also, &quot;it
 is rather well-known, through Peano&apos;s own acknowledgment, that Peano
 borrowed his axioms from Dedekind and made extensive use of
 Grassmann&apos;s work in his development of the axioms.&quot; (Hao Wang. The
-Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;</p>
+Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;
+				              </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -1638,10 +1718,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -1710,10 +1797,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -1749,19 +1843,39 @@ distribution.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-							&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+							&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is used where the actual value is unknown, but it is known that the 
+					value comes from a known range of possible values. 
+				</p>
 <p>
-							&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+							&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; differs from &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; in that &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; is used to report a 
+					particular value along with an associated distribution of uncertainty for the 
+					value, or to report the summary distribution of a set of data, whereas &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; indicates
+					that there is a single value that, although unknown, must come from a particular range
+					of values. No inference regarding distribution of values can be taken. &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; 
+					is often associated with an instruction to perform a particular operation at 
+					some point within a given time interval.  
+				</p>
 <p>
-					Any ordered type can be the basis of an &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					Any ordered type can be the basis of an &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;; it does not matter
+					whether the base type is discrete or continuous. If the base data type
+					is only partially ordered, all possible values for the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; are
+					elements of a totally ordered subset of the partially ordered data
+					type.
+				</p>
 <p>
-					For example, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					For example, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt; is considered ordered. However the
+					ordering of &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;s is only partial; a total order is only
+					defined among comparable quantities (quantities of the same physical
+					dimension).  While &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;s between 2 and 4 meter exists, there is no
+					&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; between 2 meters and 4 seconds.
+				</p>
 ]]></text>
             </annotation>
             <annotation annotationType="CONSTRAINT">
                <text><![CDATA[
 <p>
-							&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+							&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+						</p>
 ]]></text>
             </annotation>
          </documentation>
@@ -1824,16 +1938,16 @@ A sequence may contain NULL values as items.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-The Internet standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;</p>
+The Internet standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;] defines a URI as
+follows:
+    </p>
 <p>
-                     &lt;p&gt;Just as there are many different methods of access to resources, there
-are several schemes for describing the location of such resources.
-The generic syntax for &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;p&gt;URLs are used to &quot;locate&quot; resources, by providing an abstract
-identification of the resource location. Having located a resource, a
-system may perform a variety of operations on the resource, as might
-be characterized by such words as &quot;access&quot;, &quot;update&quot;, &quot;replace&quot;, &quot;find
-attributes&quot;. In general, only the &quot;access&quot; method needs to be
-specified for any &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;p/&gt;</p>
+                     &lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;s provides a framework for
+new schemes to be established using protocols other than those defined
+in this document.&lt;/p&gt;
+                     &lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; scheme.&lt;/p&gt;
+                     &lt;p/&gt;
+                  </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -1908,18 +2022,38 @@ distribution. In most cases, there is no need to specify all
 Note that the normal distribution is only one of several distributions
 defined for HL7.
     </p>
-<p>Since a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+<p>Since a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; specializes its parameter type T, a simple T value is
+the mean (expected value or first moment) of the probability
+distribution. Applications that cannot deal with distributions will
+take the simple T value neglecting the uncertainty. That simple value
+of type T is also used to standardize the data for computing the
+distribution.
+    </p>
 <p>
 Probability distributions are defined over integer or real numbers and
 normalized to a certain reference point (typically zero) and reference
 unit (e.g., standard deviation = 1). When other quantities defined in
 this specification are used as base types, the mean and the standard
 deviation are used to scale the probability distribution. For example,
-if a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;</p>
+if a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; of PQ for a length is given with mean 20 ft
+and a standard deviation of 2 in, the normalized distribution function
+&lt;var&gt;f&lt;/var&gt;(&lt;var&gt;x&lt;/var&gt;) that maps a real number &lt;var&gt;x&lt;/var&gt;
+to a probability density would be translated to
+&lt;var&gt;f&lt;/var&gt;&#8242;(&lt;var&gt;x&lt;/var&gt;&#8242;) that maps a length
+&lt;var&gt;x&lt;/var&gt;&#8242; to a probability density as
+&lt;var&gt;f&lt;/var&gt;&#8242;(&lt;var&gt;x&lt;/var&gt;&#8242;) =
+&lt;var&gt;f&lt;/var&gt;((&lt;var&gt;x&lt;/var&gt;&#8242; - &#956; ) / &#963;).
+    </p>
 <p>
-Where applicable, the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;b&gt;Guide to the Expression of Uncertainty in
-Measurement&lt;/b&gt;&lt;b&gt;Guidelines for Evaluating and Expressing the Uncertainty of NIST
-Measurement Results&lt;/b&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+Where applicable, the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; specification conforms to
+the ISO &lt;b&gt;Guide to the Expression of Uncertainty in
+Measurement&lt;/b&gt; (GUM) as reflected by NIST publication 1297
+&lt;b&gt;Guidelines for Evaluating and Expressing the Uncertainty of NIST
+Measurement Results&lt;/b&gt;. The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; specification does not
+describe how uncertainty is to be evaluated but only how it is
+expressed. The concept of &quot;standard uncertainty&quot; as set forth by the
+ISO GUM corresponds to the &quot;standard deviation&quot; property of the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -1945,12 +2079,17 @@ fractional values are covered without necessarily implying the full
 set of the mathematical real numbers that would include irrational
 numbers such as &#961;, Euler&apos;s number, etc.&lt;object name=&apos;footnote&apos;&gt;The term &quot;Real&quot; for a fractional number data type originates and is
 well established in the Algol, Pascal tradition of programming
-languages.&lt;/object&gt;</p>
+languages.&lt;/object&gt;
+				              </p>
 <p>
 This specification offers two choices for a number data type. The
 choice is made as follows: Any number attribute is a real if it is not
 known for sure that it is an integer. A number is an integer if it is
-&lt;b&gt;always&lt;/b&gt;</p>
+&lt;b&gt;always&lt;/b&gt; counted, typically representing an ordinal
+number. If there are conceivable use cases where such a number would
+be estimated or averaged, it is not always an integer and thus should
+use the Real data type.
+    </p>
 <p>
 The algebraic operations are specified here as characterizing
 operations in the sense of ISO 11404, and because these operations are
@@ -2178,7 +2317,14 @@ such as street or post office Box, city, postal code, country, etc.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is primarily used to communicate data that will allow
+printing mail labels, that will allow a person to physically visit
+that address. The postal address data type is not supposed to be a
+container for additional information that might be useful for finding
+geographic locations (e.g., GPS coordinates) or for performing
+epidemiological studies. Such additional information is captured by
+other, more appropriate HL7 elements.
+    </p>
 <p>
 Addresses are conceptualized as text with added logical mark-up. The
 mark-up may break the address into lines and may describe in detail
@@ -2237,18 +2383,38 @@ farther from the equator during summer) and office hours.
 The GTS data type has the following aspects:
     </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;GTS as a general set of points in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). From this aspect GTS answers
+whether any given point in time falls in the schedule described by the
+GTS value.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
 aspect describes how both simple and complex repeat-patterns are
-specified with the GTS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as a generator of a sequence of intervals of point in time
-(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
-GTS literal form.&lt;/p&gt;&lt;/li&gt;</p>
+specified with the GTS.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;&gt;).
+From this aspect, GTS can generate all occurrence intervals of an event or
+action, or all validity periods for a fact.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
+GTS literal form.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
+In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). Using the set operations,
+union, intersection and difference, more complex sets of time can be
+constructed from simpler ones. Ultimately the building blocks from
+which all GTS values are constructed are interval, periodic interval,
+and event-related periodic interval. The construction of the GTS can
+be specified in the literal form. No special data type structure is
+defined that would generate a combination of simpler time-sets from a
+given GTS value. While any implementation would have to contain such a
+structured representation, it is not needed in order to exchange GTS
+values given the literal form.&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
 algebraically without giving any definition of a data structure that
 might implement the behavior of such a data type. The algebraic
 definition looks extremely simple, so that one might assume it is
 incomplete. Since at this point we are relying entirely on the literal
-form to represent GTS values, all the definition of data structur&lt;/object&gt;</p>
+form to represent GTS values, all the definition of data structur&lt;/object&gt;
+				              </p>
 <p>
 The GTS data type is defined as using intervals, periodic intervals,
 and event-related periodic intervals. Intervals of time have been
@@ -2411,7 +2577,9 @@ hull&apos;s occurrence intervals.
                <text><![CDATA[
 <p>Use of ISO-3166-1 (alpha-3) is not permitted with this specification (alpha-2 is the only coding system suggested).  Using multiple methods (aplha-2, alpha-3 or numeric) would require implementors to support all methods.  The alpha-2 approach was used to be consistent with Canada Post.</p>
 <p>
-							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;&lt;li&gt;The complete listing of codes may be found here: &lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;&lt;/li&gt;</p>
+							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;.&lt;/li&gt;
+						</p>
 ]]></text>
             </annotation>
             <annotation annotationType="CONSTRAINT">
@@ -2537,10 +2705,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -2593,7 +2768,8 @@ the calendar periods year (blue), month (yellow), day (green), hour
 (red), etc. The cycles need not be aligned, for example, the week (not
 shown) is not aligned to the month.&lt;object name=&apos;footnote&apos;&gt;Imagine a special clock that measures those cycles, where the pointers
 are not all stacked on a common axis but each pointer is attached to
-the end of the pointer measuring the next larger cycle.&lt;/object&gt;</p>
+the end of the pointer measuring the next larger cycle.&lt;/object&gt;
+                  </p>
 <p>
 Calendar is defined as a set of calendar cycles, and has a name and a
 code. The head of the Calendar is the largest CalendarCycle appearing
@@ -2602,7 +2778,12 @@ that calendar, i.e., the point in time where all calendar cycles are
 zero.
       </p>
 <p>
-The calendar definition can be shown as in &lt;object name=&apos;conceptDomainRef&apos;&gt;&lt;param name=&apos;domain&apos; value=&apos;CalendarCycle&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;At present, the CalendarCycle properties sum and value are not
+The calendar definition can be shown as in &lt;object name=&apos;conceptDomainRef&apos;&gt;&lt;param name=&apos;domain&apos; value=&apos;CalendarCycle&apos;/&gt;&lt;/object&gt;
+for the modern Gregorian calendar. The calendar definition table lists a
+calendar cycle in each row. The calendar units are dependent on each other and
+defined in the value column. The sequence column shows the relationship through
+the next property. The other columns are as in the formal calendar cycle
+definition.&lt;object name=&apos;footnote&apos;&gt;At present, the CalendarCycle properties sum and value are not
 formally defined. The computation of calendar digits involves some
 complex computation which to specify here would be hard to understand
 and evaluate for correctness. Unfortunately, no standard exists that
@@ -2612,7 +2793,8 @@ specification and SQL92 all refer to ISO 8601, however, ISO 8601 does
 only specify the syntax of Gregorian calendar expressions, but not
 their semantics. In this standard, we define the syntax and semantics
 formally, however, we presume the semantics of the sum-, and
-value-properties to be defined elsewhere.&lt;/object&gt;</p>
+value-properties to be defined elsewhere.&lt;/object&gt;
+				              </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -2693,7 +2875,13 @@ policy for identifier assignment (in fact this piggy-backs on the
 organization of MAC address assignment.)
     </p>
 <p>
-UUIDs are &lt;b&gt;not&lt;/b&gt;</p>
+UUIDs are &lt;b&gt;not&lt;/b&gt; the preferred identifier
+scheme for use as HL7 UIDs. UUIDs may be used when identifiers are
+issued to objects representing individuals (e.g., entity instance
+identifiers, act event identifiers, etc.) For objects describing
+classes of things or events (e.g., catalog items), OIDs are the
+preferred identifier scheme.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -2742,10 +2930,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -2902,7 +3097,9 @@ identifiers.
                <text><![CDATA[
 <p>Use of ISO-3166-1 (alpha-3) is not permitted with this specification (alpha-2 is the only coding system suggested).  Using multiple methods (aplha-2, alpha-3 or numeric) would require implementors to support all methods.  The alpha-2 approach was used to be consistent with Canada Post.</p>
 <p>
-							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;&lt;li&gt;The complete listing of codes may be found here: &lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;&lt;/li&gt;</p>
+							&lt;li&gt;For example, Canada would be &quot;CA&quot; and British Columbia would be &quot;BC&quot;.  These are the same codes used by Canada Post.&lt;/li&gt;
+							&lt;li&gt;&lt;a href=&apos;http://en.wikipedia.org/wiki/ISO_3166-1&apos;/&gt;.&lt;/li&gt;
+						</p>
 ]]></text>
             </annotation>
             <annotation annotationType="CONSTRAINT">
@@ -2989,9 +3186,30 @@ integer values.  Used to specify sampled biosignals.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-The item at a certain index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;digits&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;d&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;scale&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;s&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;origin&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;</p>
+The item at a certain index (&lt;var&gt;i&lt;/var&gt;) in the list is calculated
+by multiplying the item at the same index in the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;digits&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt; sequence
+(&lt;var&gt;d&lt;/var&gt;
+					                &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;) with the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;scale&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;s&lt;/var&gt;)
+          and then add that value to the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;origin&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;
+(&lt;var&gt;x&lt;/var&gt;
+					                &lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt; ).
+    </p>
 <p>
-                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;s&lt;/var&gt;&lt;var&gt;d&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;
+=
+&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;
++
+&lt;var&gt;s&lt;/var&gt;
+&#215;
+&lt;var&gt;d&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/p&gt;
+                  </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -3057,7 +3275,14 @@ such as street or post office Box, city, postal code, country, etc.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is primarily used to communicate data that will allow
+printing mail labels, that will allow a person to physically visit
+that address. The postal address data type is not supposed to be a
+container for additional information that might be useful for finding
+geographic locations (e.g., GPS coordinates) or for performing
+epidemiological studies. Such additional information is captured by
+other, more appropriate HL7 elements.
+    </p>
 <p>
 Addresses are conceptualized as text with added logical mark-up. The
 mark-up may break the address into lines and may describe in detail
@@ -3271,7 +3496,9 @@ cost controlling and business process engineering.
 <p>
 Semantically, the information of a stated value exists in contrast to
 the complement set of unstated possible values. Thus, semantically, a
-non-parametric probability distribution contains &lt;b&gt;all&lt;/b&gt;</p>
+non-parametric probability distribution contains &lt;b&gt;all&lt;/b&gt;
+possible values and assigns probabilities to each of them.
+    </p>
 <p>
 The easiest way to visualize this is a bar chart as shown in
     </p>
@@ -3284,7 +3511,14 @@ the teams, the sum of the probabilities would equal 1 (i.e., it is
 certain that one of the teams will win).
     </p>
 <p>
-Just as with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;UVP&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;</p>
+Just as with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;UVP&apos;/&gt;&lt;/object&gt;, the type T is not formally
+constrained, even though there are reasonable and unreasonable
+uses. Typically one would use the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; for unordered types, if
+only a &quot;small&quot; set of possible values is assigned explicit
+probabilities, or if the probability distribution cannot (or should
+not) be approximated with parametric methods. For other cases, one may
+prefer &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -3305,7 +3539,10 @@ represented by the value is (was) valid.
                <text><![CDATA[
 <p>
 If the base type T does not possess a validTime property, the
-&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;Note that data types are specifications of abstract properties of
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt; adds that property to the base type. If, however,
+the base type T does have a valid time property (currently only EN),
+that property is mapped to the valid time property of the
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;Note that data types are specifications of abstract properties of
 values. This specification does not mandate how these values are
 represented in an ITS or implemented in an application. Specifically,
 it does not mandate how the represented components are named or
@@ -3315,7 +3552,8 @@ implementation technology has inheritance.)  Keep the distinction
 between a type (interface) and an implementation (concrete data
 structure, class) in mind. The ITS must contain a mapping of ITS
 defined features of any data type to the semantic properties defined
-here.&lt;/object&gt;</p>
+here.&lt;/object&gt;
+				              </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -3355,22 +3593,58 @@ schemes apply.
 ISO/IEC 8824:1990(E) clause 28 defines the Object Identifier as
     </p>
 <p>
-                     &lt;p&gt;&lt;b&gt;28.9&lt;/b&gt;&lt;b&gt;object identifier tree&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;28.10&lt;/b&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;b&gt;28.9&lt;/b&gt; The semantics of an
+object identifier value are defined by reference to an &lt;b&gt;object identifier tree&lt;/b&gt;. An object identifier tree is a tree whose root
+corresponds to [the ISO/IEC 8824 standard] and whose vertices [i.e. nodes]
+correspond to administrative authorities responsible for allocating arcs [i.e.
+branches] from that vertex. Each arc from that tree is labeled by an object
+identifier component, which is [an integer number]. Each information object to
+be identified is allocated precisely one vertex (normally a leaf) and no other
+information object (of the same or a different type) is allocated to
+that same vertex. Thus an information object is uniquely and
+unambiguously identified by the sequence of [integer numbers] (object
+identifier components) labeling the arcs in a path from the root to
+the vertex allocated to the information object.&lt;/p&gt;
+                     &lt;p&gt;&lt;b&gt;28.10&lt;/b&gt; An object identifier value is
+semantically an ordered list of object identifier component
+values. Starting with the root of the object identifier tree, each
+object identifier component value identifies an arc in the object
+identifier tree. The last object identifier component value identifies
+an arc leading to a vertex to which an information object has been
+assigned. It is this information object, which is identified by the
+object identifier value. [...]&lt;/p&gt;
+                  </p>
 <p>
 According to ISO/IEC 8824 an object identifier is a sequence of object
 identifier component values, which are integer numbers. These
 component values are ordered such that the root of the object
 identifier tree is the head of the list followed by all the arcs down
 to the leaf representing the information object identified by the
-OID. The fact that OID specializes &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;</p>
+OID. The fact that OID specializes &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&gt; represents this path of object identifier component
+values from the root to the leaf.
+    </p>
 <p>
-The &lt;b&gt;leaf&lt;/b&gt;&lt;b&gt;butLeaf&lt;/b&gt;&lt;b&gt;but&lt;/b&gt;&lt;b&gt;leaf&lt;/b&gt;</p>
+The &lt;b&gt;leaf&lt;/b&gt; and &quot;&lt;b&gt;butLeaf&lt;/b&gt;&quot;
+properties take the opposite view. The
+leaf is the last object identifier component value in the list, and
+the &quot;butLeaf&quot; property is all of the OID &lt;b&gt;but&lt;/b&gt; the
+&lt;b&gt;leaf&lt;/b&gt;. In a sense, the leaf is the identifier value and
+all of the OID but the leaf refers to the namespace in which the leaf
+is unique and meaningful.
+    </p>
 <p>
-However, what part of the OID is considered &lt;b&gt;value&lt;/b&gt;&lt;b&gt;namespace&lt;/b&gt;&lt;object name=&apos;footnote&apos;&gt;The value/namespace view on ISO object identifiers has important
+However, what part of the OID is considered &lt;b&gt;value&lt;/b&gt;
+and what is &lt;b&gt;namespace&lt;/b&gt; may be viewed differently. In
+general, any OID component sequence to the left can be considered the namespace
+in which the rest of the sequence to the right is defined as a
+meaningful and unique identifier value. The value-property with a
+namespace OID as its argument represents this point of view.&lt;object name=&apos;footnote&apos;&gt;The value/namespace view on ISO object identifiers has important
 semantic relevance. It represents the notion of identifier value
 versus identifier assigning authority (= namespace), which is common
 in healthcare information systems in general, and HL7 v2.x in
-particular.&lt;/object&gt;</p>
+particular.&lt;/object&gt;
+				              </p>
 <p>section-OID.procedures
 HL7 shall establish an OID registry and assign OIDs in its branch for
 HL7 users and vendors upon their request. HL7 shall also assign OIDs
@@ -3450,11 +3724,14 @@ values any given system has held for the item
             <annotation annotationType="DEFINITION">
                <text><![CDATA[
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 ]]></text>
             </annotation>
             <annotation annotationType="DESIGN_COMMENTS">
@@ -3487,10 +3764,16 @@ for a simple name for things and places.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;EN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is a &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;EN&apos;/&gt;&lt;/object&gt; that consists of only one name
+part without any name part type or qualifier. The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;, and its
+single name part are therefore equivalent to a simple character
+string. This equivalence is expressed by a defined demotion to
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt; and promotion from &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;.
+    </p>
 <p>
 Trivial names are typically used for places and things, such as
-&lt;b&gt;Lake Erie&lt;/b&gt;&lt;b&gt;Reagan National Airport&lt;/b&gt;</p>
+&lt;b&gt;Lake Erie&lt;/b&gt; or &lt;b&gt;Reagan National Airport&lt;/b&gt;:
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -3589,13 +3872,15 @@ specification, namely the semantics of the literal form.
     </p>
 <p>
 The traditional recursive definitions of addition and multiplication
-are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
+are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
 Grassman&apos;s original axioms to the Peano axioms, because Grassman&apos;s
 axioms work for all integers, not just for natural numbers. Also, &quot;it
 is rather well-known, through Peano&apos;s own acknowledgment, that Peano
 borrowed his axioms from Dedekind and made extensive use of
 Grassmann&apos;s work in his development of the axioms.&quot; (Hao Wang. The
-Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;</p>
+Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -3693,13 +3978,15 @@ specification, namely the semantics of the literal form.
     </p>
 <p>
 The traditional recursive definitions of addition and multiplication
-are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
+are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
 Grassman&apos;s original axioms to the Peano axioms, because Grassman&apos;s
 axioms work for all integers, not just for natural numbers. Also, &quot;it
 is rather well-known, through Peano&apos;s own acknowledgment, that Peano
 borrowed his axioms from Dedekind and made extensive use of
 Grassmann&apos;s work in his development of the axioms.&quot; (Hao Wang. The
-Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;</p>
+Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -3761,7 +4048,9 @@ the probability from past history, player statistics, injuries, etc.
 <p>
 The type T is not formally constrained. In theory, discrete
 probabilities can only be stated for discrete data values. Thus,
-generally &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;MO&apos;/&gt;&lt;/object&gt;</p>
+generally &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; should not be used with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;&lt;/object&gt;,
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;, or &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;MO&apos;/&gt;&lt;/object&gt; values. 
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -3915,11 +4204,56 @@ effectively extended to a three-valued logic as shown in the following
 truth tables:
     </p>
 <p>
-                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;&lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;
+                           &lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
 Where a boolean operation is performed upon 2 data types with different
 nullFlavors, the nullFlavor of the result is the first common ancestor
@@ -3952,11 +4286,56 @@ effectively extended to a three-valued logic as shown in the following
 truth tables:
     </p>
 <p>
-                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;&lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;
+                           &lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
 Where a boolean operation is performed upon 2 data types with different
 nullFlavors, the nullFlavor of the result is the first common ancestor
@@ -4092,15 +4471,20 @@ given without the text.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -4177,23 +4561,74 @@ sampling points for biosignals.
                <text><![CDATA[
 <p>
 The item at a certain index in the list is calculated by performing an
-integer division on the index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;denominator&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;d&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;period&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;p&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;increment&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;&#916;x&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;head&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;0&lt;/sub&gt;</p>
+integer division on the index (&lt;var&gt;i&lt;/var&gt;) with the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;denominator&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;d&lt;/var&gt;) and then take that
+value&apos;s remainder with the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;period&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;
+(&lt;var&gt;p&lt;/var&gt;). Multiply this value with the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;increment&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;&#916;x&lt;/var&gt;) and add to the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;head&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;x&lt;/var&gt;
+					                &lt;sub&gt;0&lt;/sub&gt;.)
+    </p>
 <p>
-                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;0&lt;/sub&gt;&lt;var&gt;&#916;x&lt;/var&gt;&lt;var&gt;i&lt;/var&gt;&lt;var&gt;d&lt;/var&gt;&lt;var&gt;p&lt;/var&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;
+=
+&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;0&lt;/sub&gt;
++
+&lt;var&gt;&#916;x&lt;/var&gt;
+&#215;
+(&lt;var&gt;i&lt;/var&gt;/&lt;var&gt;d&lt;/var&gt;)
+mod &lt;var&gt;p&lt;/var&gt;&lt;/p&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Examples for Generated Sequences&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;head&lt;/th&gt;&lt;th&gt;increment&lt;/th&gt;&lt;th&gt;denominator&lt;/th&gt;&lt;th&gt;period&lt;/th&gt;&lt;th&gt;meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;The identity-sequence where each item is equal to its index.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;198706052000&lt;/td&gt;&lt;td&gt;2 hour&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;Sequence starting on June 5, 1987 at 7 PM and
+                     &lt;caption&gt;Examples for Generated Sequences&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;head&lt;/th&gt;
+                           &lt;th&gt;increment&lt;/th&gt;
+                           &lt;th&gt;denominator&lt;/th&gt;
+                           &lt;th&gt;period&lt;/th&gt;
+                           &lt;th&gt;meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;The identity-sequence where each item is equal to its index.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;198706052000&lt;/td&gt;
+                           &lt;td&gt;2 hour&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;Sequence starting on June 5, 1987 at 7 PM and
           incrementing every two hours: 9 PM, 11 PM, 1 AM (June 6), 3
-          AM, 5 AM, and so on.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;&lt;td&gt;1 mV&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;The x-wave of a digital oscillograph scanning between
+          AM, 5 AM, and so on.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;
+                           &lt;td&gt;1 mV&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;The x-wave of a digital oscillograph scanning between
           0 and 100 mV in 100 steps of 1 mV. The frequency is unknown
           from these data as we do not know how much time elapses
-          between each step of the index.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2002072920300&lt;/td&gt;&lt;td&gt;100
-          us&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;A timebase from June 29,
+          between each step of the index.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;2002072920300&lt;/td&gt;
+                           &lt;td&gt;100
+          us&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;A timebase from June 29,
           2002 at 8:30 PM with 100 us between each steps of the
           index. If combined with the previous generator as a second
           sampling dimension this would now describe our digital
           oscilloscope&apos;s x-timebase as 1 mV per 100 us. At 100 steps
           per period, the period is 10 ms, which is equal to a
-          frequency of 100 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;&lt;td&gt;1 mV&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;Combining this generator to the previous two generators
+          frequency of 100 Hz.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;
+                           &lt;td&gt;1 mV&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;Combining this generator to the previous two generators
           could describe a three-dimensional sampling space with two
           voltages and time. This generator also steps at 1 mV and has
           100 steps per period, however, it only steps every 100 index
@@ -4202,7 +4637,8 @@ integer division on the index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;pro
           the two voltages as &quot;rows&quot; and &quot;columns&quot; of a &quot;sampling
           frame&quot;. With the previous generator as the timebase, this
           results in a scan of sampling frames of 100 mV &#215; 100
-          mV with a framerate of 1 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+          mV with a framerate of 1 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4261,7 +4697,7 @@ A dimensioned quantity expressing the result of measuring.
             <businessName>Coded Value</businessName>
             <annotation annotationType="USAGE_NOTES">
                <text><![CDATA[
-<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>
+<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>
 <p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>
 <p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>
 <p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>
@@ -4281,8 +4717,9 @@ This type is used when any reasonable use case will require only a
 single code value to be sent. Thus, it should not be used in
 circumstances where multiple alternative codes for a given value are
 desired. This type may be used with both the CNE (&lt;b&gt;coded,
-non-extensible&lt;/b&gt;&lt;b&gt;coded, with
-extensibility&lt;/b&gt;</p>
+non-extensible&lt;/b&gt;) and the CWE (&lt;b&gt;coded, with
+extensibility&lt;/b&gt;) domain qualifiers.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4309,8 +4746,9 @@ This type is used when any reasonable use case will require only a
 single code value to be sent. Thus, it should not be used in
 circumstances where multiple alternative codes for a given value are
 desired. This type may be used with both the CNE (&lt;b&gt;coded,
-non-extensible&lt;/b&gt;&lt;b&gt;coded, with
-extensibility&lt;/b&gt;</p>
+non-extensible&lt;/b&gt;) and the CWE (&lt;b&gt;coded, with
+extensibility&lt;/b&gt;) domain qualifiers.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4394,24 +4832,32 @@ HL7-defined value set.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;</p>
+					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; can only be used in either of the following
+          cases:
+    </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;for a coded attribute which has a single HL7-defined code system, and
-where code additions to that value set require formal HL7 action (such
-as harmonization.) Such coded attributes must be assigned the
-&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; restriction.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
 system defined either in this specification or defined outside HL7 by a body
-that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;</p>
+that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt; type subscribes to the MIME
+design, it trusts IETF to manage the media type. This includes that this
+specification subscribes to the extension mechanism built into the MIME media
+type code (e.g., &quot;application/x-myapp&quot;).
+    </p>
 <p>
-For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;b&gt;coded, non-extensible&lt;/b&gt;&lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
+For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; values, the designation of the domain qualifier
+will always be CNE (&lt;b&gt;coded, non-extensible&lt;/b&gt;) and the
+context will determine which HL7 values to use. &lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
 such as the IETF MIME media type may include an extension
 mechanism. These extended MIME type codes would not be considered
 &quot;extensions&quot; in the sense of violating the CNE provision. The CNE
 provision is only violated if an attempt is made in using a different
 code system (by means of the CD.codeSystem property), which is not
-possible with the  data type.&lt;/object&gt;</p>
+possible with the  data type.&lt;/object&gt;
+				              </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4432,24 +4878,32 @@ HL7-defined value set.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;</p>
+					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; can only be used in either of the following
+          cases:
+    </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;for a coded attribute which has a single HL7-defined code system, and
-where code additions to that value set require formal HL7 action (such
-as harmonization.) Such coded attributes must be assigned the
-&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; restriction.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
 system defined either in this specification or defined outside HL7 by a body
-that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;</p>
+that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt; type subscribes to the MIME
+design, it trusts IETF to manage the media type. This includes that this
+specification subscribes to the extension mechanism built into the MIME media
+type code (e.g., &quot;application/x-myapp&quot;).
+    </p>
 <p>
-For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;b&gt;coded, non-extensible&lt;/b&gt;&lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
+For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; values, the designation of the domain qualifier
+will always be CNE (&lt;b&gt;coded, non-extensible&lt;/b&gt;) and the
+context will determine which HL7 values to use. &lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
 such as the IETF MIME media type may include an extension
 mechanism. These extended MIME type codes would not be considered
 &quot;extensions&quot; in the sense of violating the CNE provision. The CNE
 provision is only violated if an attempt is made in using a different
 code system (by means of the CD.codeSystem property), which is not
-possible with the  data type.&lt;/object&gt;</p>
+possible with the  data type.&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4471,7 +4925,18 @@ minute, second, and week.
                <text><![CDATA[
 <p>
 A calendar cycle has a name and two codes, a one-letter code and a
-two-letter code. The property &lt;b&gt;ndigits&lt;/b&gt;&lt;b&gt;start&lt;/b&gt;&lt;b&gt;next&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;n&lt;/b&gt;&lt;b&gt;n&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;</p>
+two-letter code. The property &lt;b&gt;ndigits&lt;/b&gt; is the number of
+decimal digits occupied in the calendar expression. The property
+&lt;b&gt;start&lt;/b&gt; specifies where counting starts (i.e., at 0 or 1.)
+The &lt;b&gt;next&lt;/b&gt; property is the next lower cycle in the order of
+the calendar expression. The max(&lt;b&gt;t&lt;/b&gt;) property is the
+maximum number of cycles at time &lt;b&gt;t&lt;/b&gt; (max depends on the
+time &lt;b&gt;t&lt;/b&gt; to account for leap years and leap seconds.)  The
+property value(&lt;b&gt;t&lt;/b&gt;) is the integer number of cycles shown
+in the calendar expression of time &lt;b&gt;t&lt;/b&gt;. The property
+sum(&lt;b&gt;t&lt;/b&gt;, &lt;b&gt;n&lt;/b&gt;) is the sum of &lt;b&gt;n&lt;/b&gt;
+calendar cycles added to the time &lt;b&gt;t&lt;/b&gt;.
+      </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4517,7 +4982,14 @@ such as street or post office Box, city, postal code, country, etc.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is primarily used to communicate data that will allow
+printing mail labels, that will allow a person to physically visit
+that address. The postal address data type is not supposed to be a
+container for additional information that might be useful for finding
+geographic locations (e.g., GPS coordinates) or for performing
+epidemiological studies. Such additional information is captured by
+other, more appropriate HL7 elements.
+    </p>
 <p>
 Addresses are conceptualized as text with added logical mark-up. The
 mark-up may break the address into lines and may describe in detail
@@ -4543,7 +5015,7 @@ address can be used for a given purpose.
             <businessName>Coded With Equivalents</businessName>
             <annotation annotationType="USAGE_NOTES">
                <text><![CDATA[
-<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>
+<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>
 <p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>
 <p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>
 <p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>
@@ -4559,7 +5031,11 @@ concept. Used when alternative codes may exist.
             <annotation annotationType="DESIGN_COMMENTS">
                <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type is used when the use case indicates that alternative
+codes may exist and where it is useful to communicate these. The
+&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type provides for a primary code value, plus a set of
+alternative or equivalent representations.
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4583,7 +5059,11 @@ concept. Used when alternative codes may exist.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type is used when the use case indicates that alternative
+codes may exist and where it is useful to communicate these. The
+&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type provides for a primary code value, plus a set of
+alternative or equivalent representations.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4596,7 +5076,7 @@ The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; valu
             <businessName>Coded Value</businessName>
             <annotation annotationType="USAGE_NOTES">
                <text><![CDATA[
-<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>
+<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>
 <p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>
 <p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>
 <p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>
@@ -4692,7 +5172,14 @@ such as street or post office Box, city, postal code, country, etc.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is primarily used to communicate data that will allow
+printing mail labels, that will allow a person to physically visit
+that address. The postal address data type is not supposed to be a
+container for additional information that might be useful for finding
+geographic locations (e.g., GPS coordinates) or for performing
+epidemiological studies. Such additional information is captured by
+other, more appropriate HL7 elements.
+    </p>
 <p>
 Addresses are conceptualized as text with added logical mark-up. The
 mark-up may break the address into lines and may describe in detail
@@ -4736,7 +5223,10 @@ primary code "leg" to construct the meaning "left leg".
                <text><![CDATA[
 <p>
 The use of qualifiers is strictly governed by the code system
-used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;</p>
+used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt; data type does not permit using code
+qualifiers with code systems that do not provide for qualifiers
+(e.g. pre-coordinated systems, such as LOINC, ICD-10 PCS.)
+    </p>
 ]]></text>
             </annotation>
          </documentation>
@@ -4757,7 +5247,10 @@ primary code "leg" to construct the meaning "left leg".
                   <text><![CDATA[
 <p>
 The use of qualifiers is strictly governed by the code system
-used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;</p>
+used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt; data type does not permit using code
+qualifiers with code systems that do not provide for qualifiers
+(e.g. pre-coordinated systems, such as LOINC, ICD-10 PCS.)
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4807,10 +5300,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4858,7 +5358,10 @@ represented by the value is (was) valid.
                   <text><![CDATA[
 <p>
 If the base type T does not possess a validTime property, the
-&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;Note that data types are specifications of abstract properties of
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt; adds that property to the base type. If, however,
+the base type T does have a valid time property (currently only EN),
+that property is mapped to the valid time property of the
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;HXIT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;Note that data types are specifications of abstract properties of
 values. This specification does not mandate how these values are
 represented in an ITS or implemented in an application. Specifically,
 it does not mandate how the represented components are named or
@@ -4868,7 +5371,8 @@ implementation technology has inheritance.)  Keep the distinction
 between a type (interface) and an implementation (concrete data
 structure, class) in mind. The ITS must contain a mapping of ITS
 defined features of any data type to the semantic properties defined
-here.&lt;/object&gt;</p>
+here.&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -4908,22 +5412,58 @@ schemes apply.
 ISO/IEC 8824:1990(E) clause 28 defines the Object Identifier as
     </p>
 <p>
-                     &lt;p&gt;&lt;b&gt;28.9&lt;/b&gt;&lt;b&gt;object identifier tree&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;28.10&lt;/b&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;b&gt;28.9&lt;/b&gt; The semantics of an
+object identifier value are defined by reference to an &lt;b&gt;object identifier tree&lt;/b&gt;. An object identifier tree is a tree whose root
+corresponds to [the ISO/IEC 8824 standard] and whose vertices [i.e. nodes]
+correspond to administrative authorities responsible for allocating arcs [i.e.
+branches] from that vertex. Each arc from that tree is labeled by an object
+identifier component, which is [an integer number]. Each information object to
+be identified is allocated precisely one vertex (normally a leaf) and no other
+information object (of the same or a different type) is allocated to
+that same vertex. Thus an information object is uniquely and
+unambiguously identified by the sequence of [integer numbers] (object
+identifier components) labeling the arcs in a path from the root to
+the vertex allocated to the information object.&lt;/p&gt;
+                     &lt;p&gt;&lt;b&gt;28.10&lt;/b&gt; An object identifier value is
+semantically an ordered list of object identifier component
+values. Starting with the root of the object identifier tree, each
+object identifier component value identifies an arc in the object
+identifier tree. The last object identifier component value identifies
+an arc leading to a vertex to which an information object has been
+assigned. It is this information object, which is identified by the
+object identifier value. [...]&lt;/p&gt;
+                  </p>
 <p>
 According to ISO/IEC 8824 an object identifier is a sequence of object
 identifier component values, which are integer numbers. These
 component values are ordered such that the root of the object
 identifier tree is the head of the list followed by all the arcs down
 to the leaf representing the information object identified by the
-OID. The fact that OID specializes &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;</p>
+OID. The fact that OID specializes &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&gt; represents this path of object identifier component
+values from the root to the leaf.
+    </p>
 <p>
-The &lt;b&gt;leaf&lt;/b&gt;&lt;b&gt;butLeaf&lt;/b&gt;&lt;b&gt;but&lt;/b&gt;&lt;b&gt;leaf&lt;/b&gt;</p>
+The &lt;b&gt;leaf&lt;/b&gt; and &quot;&lt;b&gt;butLeaf&lt;/b&gt;&quot;
+properties take the opposite view. The
+leaf is the last object identifier component value in the list, and
+the &quot;butLeaf&quot; property is all of the OID &lt;b&gt;but&lt;/b&gt; the
+&lt;b&gt;leaf&lt;/b&gt;. In a sense, the leaf is the identifier value and
+all of the OID but the leaf refers to the namespace in which the leaf
+is unique and meaningful.
+    </p>
 <p>
-However, what part of the OID is considered &lt;b&gt;value&lt;/b&gt;&lt;b&gt;namespace&lt;/b&gt;&lt;object name=&apos;footnote&apos;&gt;The value/namespace view on ISO object identifiers has important
+However, what part of the OID is considered &lt;b&gt;value&lt;/b&gt;
+and what is &lt;b&gt;namespace&lt;/b&gt; may be viewed differently. In
+general, any OID component sequence to the left can be considered the namespace
+in which the rest of the sequence to the right is defined as a
+meaningful and unique identifier value. The value-property with a
+namespace OID as its argument represents this point of view.&lt;object name=&apos;footnote&apos;&gt;The value/namespace view on ISO object identifiers has important
 semantic relevance. It represents the notion of identifier value
 versus identifier assigning authority (= namespace), which is common
 in healthcare information systems in general, and HL7 v2.x in
-particular.&lt;/object&gt;</p>
+particular.&lt;/object&gt;
+				              </p>
 <p>section-OID.procedures
 HL7 shall establish an OID registry and assign OIDs in its branch for
 HL7 users and vendors upon their request. HL7 shall also assign OIDs
@@ -5001,7 +5541,8 @@ the calendar periods year (blue), month (yellow), day (green), hour
 (red), etc. The cycles need not be aligned, for example, the week (not
 shown) is not aligned to the month.&lt;object name=&apos;footnote&apos;&gt;Imagine a special clock that measures those cycles, where the pointers
 are not all stacked on a common axis but each pointer is attached to
-the end of the pointer measuring the next larger cycle.&lt;/object&gt;</p>
+the end of the pointer measuring the next larger cycle.&lt;/object&gt;
+                  </p>
 <p>
 Calendar is defined as a set of calendar cycles, and has a name and a
 code. The head of the Calendar is the largest CalendarCycle appearing
@@ -5010,7 +5551,12 @@ that calendar, i.e., the point in time where all calendar cycles are
 zero.
       </p>
 <p>
-The calendar definition can be shown as in &lt;object name=&apos;conceptDomainRef&apos;&gt;&lt;param name=&apos;domain&apos; value=&apos;CalendarCycle&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;At present, the CalendarCycle properties sum and value are not
+The calendar definition can be shown as in &lt;object name=&apos;conceptDomainRef&apos;&gt;&lt;param name=&apos;domain&apos; value=&apos;CalendarCycle&apos;/&gt;&lt;/object&gt;
+for the modern Gregorian calendar. The calendar definition table lists a
+calendar cycle in each row. The calendar units are dependent on each other and
+defined in the value column. The sequence column shows the relationship through
+the next property. The other columns are as in the formal calendar cycle
+definition.&lt;object name=&apos;footnote&apos;&gt;At present, the CalendarCycle properties sum and value are not
 formally defined. The computation of calendar digits involves some
 complex computation which to specify here would be hard to understand
 and evaluate for correctness. Unfortunately, no standard exists that
@@ -5020,7 +5566,8 @@ specification and SQL92 all refer to ISO 8601, however, ISO 8601 does
 only specify the syntax of Gregorian calendar expressions, but not
 their semantics. In this standard, we define the syntax and semantics
 formally, however, we presume the semantics of the sum-, and
-value-properties to be defined elsewhere.&lt;/object&gt;</p>
+value-properties to be defined elsewhere.&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5072,11 +5619,14 @@ values any given system has held for the item
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -5103,15 +5653,20 @@ number 1 (one.) The denominator may not be zero.
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;TEL&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -5154,7 +5709,13 @@ policy for identifier assignment (in fact this piggy-backs on the
 organization of MAC address assignment.)
     </p>
 <p>
-UUIDs are &lt;b&gt;not&lt;/b&gt;</p>
+UUIDs are &lt;b&gt;not&lt;/b&gt; the preferred identifier
+scheme for use as HL7 UIDs. UUIDs may be used when identifiers are
+issued to objects representing individuals (e.g., entity instance
+identifiers, act event identifiers, etc.) For objects describing
+classes of things or events (e.g., catalog items), OIDs are the
+preferred identifier scheme.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5200,7 +5761,14 @@ specified (low boundary and width implies the high boundary.)
     </p>
 <p>
 The periodic interval of time is a generic type extension whose type
-parameter T is restricted to the point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PIVL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;</p>
+parameter T is restricted to the point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;)
+data type and its extensions. The parametric probability distribution
+of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;) is
+an extension of point in time and therefore can be used to form
+periodic intervals of probability distributions of point in time
+(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PIVL&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;&gt;) values (uncertain periodic interval.)
+    </p>
 <p>
 Oftentimes repeating schedules are only approximately specified. For
 instance &quot;three times a day for ten minutes each&quot; does not usually
@@ -5256,10 +5824,16 @@ for a simple name for things and places.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;EN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is a &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;EN&apos;/&gt;&lt;/object&gt; that consists of only one name
+part without any name part type or qualifier. The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;, and its
+single name part are therefore equivalent to a simple character
+string. This equivalence is expressed by a defined demotion to
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt; and promotion from &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ST&apos;/&gt;&lt;/object&gt;.
+    </p>
 <p>
 Trivial names are typically used for places and things, such as
-&lt;b&gt;Lake Erie&lt;/b&gt;&lt;b&gt;Reagan National Airport&lt;/b&gt;</p>
+&lt;b&gt;Lake Erie&lt;/b&gt; or &lt;b&gt;Reagan National Airport&lt;/b&gt;:
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5340,13 +5914,24 @@ etc.) Used for names, symbols, and formal expressions.
                <annotation annotationType="REQUIREMENTS">
                   <text><![CDATA[
 <p>
-						               &lt;strong&gt;Requirement&lt;/strong&gt;&lt;br/&gt;</p>
+						               &lt;strong&gt;Requirement&lt;/strong&gt;:&lt;br/&gt;
+ST is a specialization of ED so that any RIM attribute which has the type
+ED can be constrained to a ST. The most important case is Act.text, which is
+an ED to cater for the use of references and multimedia data, but is often
+constrained to plain text.
+</p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The character string is a restricted encapsulated data type (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;&lt;b&gt;text/plain&lt;/b&gt;</p>
+The character string is a restricted encapsulated data type (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;),
+whose type property is fixed to &lt;b&gt;text/plain&lt;/b&gt;, and whose data must be
+inlined and not compressed. Thus, the properties compression, reference,
+integrity check, algorithm, and thumbnail are not applicable. The character
+string data type is used when the appearance of text does not bear meaning,
+which is true for formalized text and all kinds of names.
+    </p>
 <p>
 The character string (ST) data type interprets the encapsulated data
 as character data (as opposed to bits), depending on the charset
@@ -5376,7 +5961,9 @@ always understood in the context of a certain character set. This does
 not mean that the ITS should represent a character string as a
 sequence of full blown  values. What it means is that
 on the application layer the notion of character encoding is
-irrelevant when we deal with character strings.&lt;/object&gt;</p>
+irrelevant when we deal with character strings.&lt;/object&gt;
+The length of a character string is the number of characters in the string.
+    </p>
 <p>
 The head of a string is a string of only one character. A character
 string must at least have one character or else it is NULL. A
@@ -5392,9 +5979,12 @@ the application layer.
 The following rules apply to whitespace contained within character strings:
     </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;TAB, space and end-of-line are all considered whitespace characters.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Both preceding and trailing whitespace is significant.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Different whitespace characters are not interchangable.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Different representations of end-of-line are normalised according to the
-method described in the XML specification
-[&lt;a href=&apos;http://www.w3.org/TR/2000/REC-xml-20001006#sec-line-ends&apos;/&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Sequences of whitespace cannot be compressed to shorter sequences.&lt;/p&gt;&lt;/li&gt;</p>
+                     &lt;li&gt;&lt;p&gt;TAB, space and end-of-line are all considered whitespace characters.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;Both preceding and trailing whitespace is significant.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;Different whitespace characters are not interchangable.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;&lt;a href=&apos;http://www.w3.org/TR/2000/REC-xml-20001006#sec-line-ends&apos;/&gt;]&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;Sequences of whitespace cannot be compressed to shorter sequences.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5425,13 +6015,15 @@ specification, namely the semantics of the literal form.
     </p>
 <p>
 The traditional recursive definitions of addition and multiplication
-are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
+are due to Grassmann, and use the notion of &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;successor&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;INT&apos;/&gt;&lt;/object&gt;.&lt;object name=&apos;footnote&apos;&gt;H. Grassman. Lehrbuch der Arithmetik. 1861. We prefer
 Grassman&apos;s original axioms to the Peano axioms, because Grassman&apos;s
 axioms work for all integers, not just for natural numbers. Also, &quot;it
 is rather well-known, through Peano&apos;s own acknowledgment, that Peano
 borrowed his axioms from Dedekind and made extensive use of
 Grassmann&apos;s work in his development of the axioms.&quot; (Hao Wang. The
-Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;</p>
+Axiomatization of Arithmetic. J. Symb. Logic; 1957:22(2); p. 145.)&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5492,7 +6084,9 @@ the probability from past history, player statistics, injuries, etc.
 <p>
 The type T is not formally constrained. In theory, discrete
 probabilities can only be stated for discrete data values. Thus,
-generally &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;MO&apos;/&gt;&lt;/object&gt;</p>
+generally &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; should not be used with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;REAL&apos;/&gt;&lt;/object&gt;,
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;, or &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;MO&apos;/&gt;&lt;/object&gt; values. 
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5525,10 +6119,17 @@ service that can respond with information (e.g., FTP or HTTP
 services.)  In such case a telecommunication address is a reference to
 that information accessible through that address. A telecommunication
 address value can thus be resolved to some information (in the form of
-encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+encapsulated data, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;.)
+    </p>
 <p>
 The telecommunication address is an extension of the Universal
-Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;</p>
+Resource Locator (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;) specified according to Internet
+standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;].
+The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; specifies the protocol and the contact point
+defined by that protocol for the resource. Notable use cases for the
+telecommunication address data type are for telephone and fax numbers,
+e-mail addresses, Hypertext references, FTP references, etc.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5577,19 +6178,39 @@ distribution.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-					                &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					                &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is used where the actual value is unknown, but it is known that the 
+					value comes from a known range of possible values. 
+				</p>
 <p>
-					                &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					                &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; differs from &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; in that &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; is used to report a 
+					particular value along with an associated distribution of uncertainty for the 
+					value, or to report the summary distribution of a set of data, whereas &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; indicates
+					that there is a single value that, although unknown, must come from a particular range
+					of values. No inference regarding distribution of values can be taken. &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; 
+					is often associated with an instruction to perform a particular operation at 
+					some point within a given time interval.  
+				</p>
 <p>
-					Any ordered type can be the basis of an &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					Any ordered type can be the basis of an &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;; it does not matter
+					whether the base type is discrete or continuous. If the base data type
+					is only partially ordered, all possible values for the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; are
+					elements of a totally ordered subset of the partially ordered data
+					type.
+				</p>
 <p>
-					For example, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+					For example, &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt; is considered ordered. However the
+					ordering of &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;&lt;/object&gt;s is only partial; a total order is only
+					defined among comparable quantities (quantities of the same physical
+					dimension).  While &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;s between 2 and 4 meter exists, there is no
+					&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; between 2 meters and 4 seconds.
+				</p>
 ]]></text>
                </annotation>
                <annotation annotationType="CONSTRAINT">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5626,16 +6247,16 @@ A sequence may contain NULL values as items.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The Internet standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;</p>
+The Internet standard RFC 2396 [&lt;a href=&apos;http://www.ietf.org/rfc/rfc2396.txt&apos;/&gt;] defines a URI as
+follows:
+    </p>
 <p>
-                     &lt;p&gt;Just as there are many different methods of access to resources, there
-are several schemes for describing the location of such resources.
-The generic syntax for &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;p&gt;URLs are used to &quot;locate&quot; resources, by providing an abstract
-identification of the resource location. Having located a resource, a
-system may perform a variety of operations on the resource, as might
-be characterized by such words as &quot;access&quot;, &quot;update&quot;, &quot;replace&quot;, &quot;find
-attributes&quot;. In general, only the &quot;access&quot; method needs to be
-specified for any &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;p/&gt;</p>
+                     &lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt;s provides a framework for
+new schemes to be established using protocols other than those defined
+in this document.&lt;/p&gt;
+                     &lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;URL&apos;/&gt;&lt;/object&gt; scheme.&lt;/p&gt;
+                     &lt;p/&gt;
+                  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5710,18 +6331,38 @@ distribution. In most cases, there is no need to specify all
 Note that the normal distribution is only one of several distributions
 defined for HL7.
     </p>
-<p>Since a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+<p>Since a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; specializes its parameter type T, a simple T value is
+the mean (expected value or first moment) of the probability
+distribution. Applications that cannot deal with distributions will
+take the simple T value neglecting the uncertainty. That simple value
+of type T is also used to standardize the data for computing the
+distribution.
+    </p>
 <p>
 Probability distributions are defined over integer or real numbers and
 normalized to a certain reference point (typically zero) and reference
 unit (e.g., standard deviation = 1). When other quantities defined in
 this specification are used as base types, the mean and the standard
 deviation are used to scale the probability distribution. For example,
-if a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;&lt;var&gt;f&lt;/var&gt;&lt;var&gt;x&lt;/var&gt;</p>
+if a &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; of PQ for a length is given with mean 20 ft
+and a standard deviation of 2 in, the normalized distribution function
+&lt;var&gt;f&lt;/var&gt;(&lt;var&gt;x&lt;/var&gt;) that maps a real number &lt;var&gt;x&lt;/var&gt;
+to a probability density would be translated to
+&lt;var&gt;f&lt;/var&gt;&#8242;(&lt;var&gt;x&lt;/var&gt;&#8242;) that maps a length
+&lt;var&gt;x&lt;/var&gt;&#8242; to a probability density as
+&lt;var&gt;f&lt;/var&gt;&#8242;(&lt;var&gt;x&lt;/var&gt;&#8242;) =
+&lt;var&gt;f&lt;/var&gt;((&lt;var&gt;x&lt;/var&gt;&#8242; - &#956; ) / &#963;).
+    </p>
 <p>
-Where applicable, the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;&lt;b&gt;Guide to the Expression of Uncertainty in
-Measurement&lt;/b&gt;&lt;b&gt;Guidelines for Evaluating and Expressing the Uncertainty of NIST
-Measurement Results&lt;/b&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+Where applicable, the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt; specification conforms to
+the ISO &lt;b&gt;Guide to the Expression of Uncertainty in
+Measurement&lt;/b&gt; (GUM) as reflected by NIST publication 1297
+&lt;b&gt;Guidelines for Evaluating and Expressing the Uncertainty of NIST
+Measurement Results&lt;/b&gt;. The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; specification does not
+describe how uncertainty is to be evaluated but only how it is
+expressed. The concept of &quot;standard uncertainty&quot; as set forth by the
+ISO GUM corresponds to the &quot;standard deviation&quot; property of the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5745,11 +6386,56 @@ effectively extended to a three-valued logic as shown in the following
 truth tables:
     </p>
 <p>
-                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;&lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: NOT&lt;/caption&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;col width=&apos;10&apos; span=&apos;1&apos;/&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;NOT&lt;/th&gt;
+                           &lt;th&gt;&#160;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: AND&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;AND&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;&lt;th&gt;true&lt;/th&gt;&lt;th&gt;false&lt;/th&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;false&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;&lt;td&gt;true&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+                     &lt;caption&gt;Truth Table: OR&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;OR&lt;/th&gt;
+                           &lt;th&gt;true&lt;/th&gt;
+                           &lt;th&gt;false&lt;/th&gt;
+                           &lt;th&gt;NULL&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;th&gt;true&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;false&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;false&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;th&gt;NULL&lt;/th&gt;
+                           &lt;td&gt;true&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;
+                           &lt;td&gt;NULL&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 <p>
 Where a boolean operation is performed upon 2 data types with different
 nullFlavors, the nullFlavor of the result is the first common ancestor
@@ -5841,12 +6527,17 @@ fractional values are covered without necessarily implying the full
 set of the mathematical real numbers that would include irrational
 numbers such as &#961;, Euler&apos;s number, etc.&lt;object name=&apos;footnote&apos;&gt;The term &quot;Real&quot; for a fractional number data type originates and is
 well established in the Algol, Pascal tradition of programming
-languages.&lt;/object&gt;</p>
+languages.&lt;/object&gt;
+				              </p>
 <p>
 This specification offers two choices for a number data type. The
 choice is made as follows: Any number attribute is a real if it is not
 known for sure that it is an integer. A number is an integer if it is
-&lt;b&gt;always&lt;/b&gt;</p>
+&lt;b&gt;always&lt;/b&gt; counted, typically representing an ordinal
+number. If there are conceivable use cases where such a number would
+be estimated or averaged, it is not always an integer and thus should
+use the Real data type.
+    </p>
 <p>
 The algebraic operations are specified here as characterizing
 operations in the sense of ISO 11404, and because these operations are
@@ -5879,23 +6570,74 @@ sampling points for biosignals.
                   <text><![CDATA[
 <p>
 The item at a certain index in the list is calculated by performing an
-integer division on the index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;denominator&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;d&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;period&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;p&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;increment&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;&#916;x&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;head&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;0&lt;/sub&gt;</p>
+integer division on the index (&lt;var&gt;i&lt;/var&gt;) with the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;denominator&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;d&lt;/var&gt;) and then take that
+value&apos;s remainder with the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;period&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt;
+(&lt;var&gt;p&lt;/var&gt;). Multiply this value with the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;increment&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;&#916;x&lt;/var&gt;) and add to the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;head&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;GLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;x&lt;/var&gt;
+					                &lt;sub&gt;0&lt;/sub&gt;.)
+    </p>
 <p>
-                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;0&lt;/sub&gt;&lt;var&gt;&#916;x&lt;/var&gt;&lt;var&gt;i&lt;/var&gt;&lt;var&gt;d&lt;/var&gt;&lt;var&gt;p&lt;/var&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;
+=
+&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;0&lt;/sub&gt;
++
+&lt;var&gt;&#916;x&lt;/var&gt;
+&#215;
+(&lt;var&gt;i&lt;/var&gt;/&lt;var&gt;d&lt;/var&gt;)
+mod &lt;var&gt;p&lt;/var&gt;&lt;/p&gt;
+                  </p>
 <p>
-                     &lt;caption&gt;Examples for Generated Sequences&lt;/caption&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;head&lt;/th&gt;&lt;th&gt;increment&lt;/th&gt;&lt;th&gt;denominator&lt;/th&gt;&lt;th&gt;period&lt;/th&gt;&lt;th&gt;meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;The identity-sequence where each item is equal to its index.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;198706052000&lt;/td&gt;&lt;td&gt;2 hour&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;Sequence starting on June 5, 1987 at 7 PM and
+                     &lt;caption&gt;Examples for Generated Sequences&lt;/caption&gt;
+                     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;head&lt;/th&gt;
+                           &lt;th&gt;increment&lt;/th&gt;
+                           &lt;th&gt;denominator&lt;/th&gt;
+                           &lt;th&gt;period&lt;/th&gt;
+                           &lt;th&gt;meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                     &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;The identity-sequence where each item is equal to its index.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;198706052000&lt;/td&gt;
+                           &lt;td&gt;2 hour&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;Sequence starting on June 5, 1987 at 7 PM and
           incrementing every two hours: 9 PM, 11 PM, 1 AM (June 6), 3
-          AM, 5 AM, and so on.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;&lt;td&gt;1 mV&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;The x-wave of a digital oscillograph scanning between
+          AM, 5 AM, and so on.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;
+                           &lt;td&gt;1 mV&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;The x-wave of a digital oscillograph scanning between
           0 and 100 mV in 100 steps of 1 mV. The frequency is unknown
           from these data as we do not know how much time elapses
-          between each step of the index.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2002072920300&lt;/td&gt;&lt;td&gt;100
-          us&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;&#8734;&lt;/td&gt;&lt;td&gt;A timebase from June 29,
+          between each step of the index.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;2002072920300&lt;/td&gt;
+                           &lt;td&gt;100
+          us&lt;/td&gt;
+                           &lt;td&gt;1&lt;/td&gt;
+                           &lt;td&gt;&#8734;&lt;/td&gt;
+                           &lt;td&gt;A timebase from June 29,
           2002 at 8:30 PM with 100 us between each steps of the
           index. If combined with the previous generator as a second
           sampling dimension this would now describe our digital
           oscilloscope&apos;s x-timebase as 1 mV per 100 us. At 100 steps
           per period, the period is 10 ms, which is equal to a
-          frequency of 100 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;&lt;td&gt;1 mV&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;100&lt;/td&gt;&lt;td&gt;Combining this generator to the previous two generators
+          frequency of 100 Hz.&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;0 V&lt;/td&gt;
+                           &lt;td&gt;1 mV&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;100&lt;/td&gt;
+                           &lt;td&gt;Combining this generator to the previous two generators
           could describe a three-dimensional sampling space with two
           voltages and time. This generator also steps at 1 mV and has
           100 steps per period, however, it only steps every 100 index
@@ -5904,7 +6646,8 @@ integer division on the index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;pro
           the two voltages as &quot;rows&quot; and &quot;columns&quot; of a &quot;sampling
           frame&quot;. With the previous generator as the timebase, this
           results in a scan of sampling frames of 100 mV &#215; 100
-          mV with a framerate of 1 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;</p>
+          mV with a framerate of 1 Hz.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+                  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5928,8 +6671,9 @@ This type is used when any reasonable use case will require only a
 single code value to be sent. Thus, it should not be used in
 circumstances where multiple alternative codes for a given value are
 desired. This type may be used with both the CNE (&lt;b&gt;coded,
-non-extensible&lt;/b&gt;&lt;b&gt;coded, with
-extensibility&lt;/b&gt;</p>
+non-extensible&lt;/b&gt;) and the CWE (&lt;b&gt;coded, with
+extensibility&lt;/b&gt;) domain qualifiers.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -5942,9 +6686,11 @@ extensibility&lt;/b&gt;</p>
                <annotation annotationType="DEFINITION">
                   <text><![CDATA[
 <p>
-                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;</p>
+                     &lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;
+                  </p>
 <p>
-                     &lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;</p>
+                     &lt;param name=&apos;datatypeName&apos; value=&apos;PQ&apos;/&gt;
+                  </p>
 ]]></text>
                </annotation>
                <annotation annotationType="DESIGN_COMMENTS">
@@ -5989,7 +6735,18 @@ minute, second, and week.
                   <text><![CDATA[
 <p>
 A calendar cycle has a name and two codes, a one-letter code and a
-two-letter code. The property &lt;b&gt;ndigits&lt;/b&gt;&lt;b&gt;start&lt;/b&gt;&lt;b&gt;next&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;&lt;b&gt;n&lt;/b&gt;&lt;b&gt;n&lt;/b&gt;&lt;b&gt;t&lt;/b&gt;</p>
+two-letter code. The property &lt;b&gt;ndigits&lt;/b&gt; is the number of
+decimal digits occupied in the calendar expression. The property
+&lt;b&gt;start&lt;/b&gt; specifies where counting starts (i.e., at 0 or 1.)
+The &lt;b&gt;next&lt;/b&gt; property is the next lower cycle in the order of
+the calendar expression. The max(&lt;b&gt;t&lt;/b&gt;) property is the
+maximum number of cycles at time &lt;b&gt;t&lt;/b&gt; (max depends on the
+time &lt;b&gt;t&lt;/b&gt; to account for leap years and leap seconds.)  The
+property value(&lt;b&gt;t&lt;/b&gt;) is the integer number of cycles shown
+in the calendar expression of time &lt;b&gt;t&lt;/b&gt;. The property
+sum(&lt;b&gt;t&lt;/b&gt;, &lt;b&gt;n&lt;/b&gt;) is the sum of &lt;b&gt;n&lt;/b&gt;
+calendar cycles added to the time &lt;b&gt;t&lt;/b&gt;.
+      </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6010,24 +6767,32 @@ HL7-defined value set.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;</p>
+					                &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; can only be used in either of the following
+          cases:
+    </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;for a coded attribute which has a single HL7-defined code system, and
-where code additions to that value set require formal HL7 action (such
-as harmonization.) Such coded attributes must be assigned the
-&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; restriction.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;for a property in this specification that is assigned to a single code
 system defined either in this specification or defined outside HL7 by a body
-that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;</p>
+that has authority over the concept and the maintenance of that code system.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt;</p>
+For example, since the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ED&apos;/&gt;&lt;/object&gt; type subscribes to the MIME
+design, it trusts IETF to manage the media type. This includes that this
+specification subscribes to the extension mechanism built into the MIME media
+type code (e.g., &quot;application/x-myapp&quot;).
+    </p>
 <p>
-For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt;&lt;b&gt;coded, non-extensible&lt;/b&gt;&lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
+For &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CS&apos;/&gt;&lt;/object&gt; values, the designation of the domain qualifier
+will always be CNE (&lt;b&gt;coded, non-extensible&lt;/b&gt;) and the
+context will determine which HL7 values to use. &lt;object name=&apos;footnote&apos;&gt;This is not withstanding the fact that an external referenced domain,
 such as the IETF MIME media type may include an extension
 mechanism. These extended MIME type codes would not be considered
 &quot;extensions&quot; in the sense of violating the CNE provision. The CNE
 provision is only violated if an attempt is made in using a different
 code system (by means of the CD.codeSystem property), which is not
-possible with the  data type.&lt;/object&gt;</p>
+possible with the  data type.&lt;/object&gt;
+				              </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6157,18 +6922,38 @@ farther from the equator during summer) and office hours.
 The GTS data type has the following aspects:
     </p>
 <p>
-                     &lt;li&gt;&lt;p&gt;GTS as a general set of points in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). From this aspect GTS answers
+whether any given point in time falls in the schedule described by the
+GTS value.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as the combination of multiple periodic intervals of time. This
 aspect describes how both simple and complex repeat-patterns are
-specified with the GTS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as a generator of a sequence of intervals of point in time
-(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
-GTS literal form.&lt;/p&gt;&lt;/li&gt;</p>
+specified with the GTS.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;LIST&apos;/&gt;&lt;/object&gt;&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;IVL&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;&gt;).
+From this aspect, GTS can generate all occurrence intervals of an event or
+action, or all validity periods for a fact.&lt;/p&gt;&lt;/li&gt;
+                     &lt;li&gt;&lt;p&gt;GTS as an expression-syntax defined for a calendar. This aspect is the
+GTS literal form.&lt;/p&gt;&lt;/li&gt;
+                  </p>
 <p>
-In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
+In all cases the GTS is defined as a set of point in time (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SET&apos;/&gt;&lt;/object&gt;
+&lt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TS&apos;/&gt;&lt;/object&gt;&gt;). Using the set operations,
+union, intersection and difference, more complex sets of time can be
+constructed from simpler ones. Ultimately the building blocks from
+which all GTS values are constructed are interval, periodic interval,
+and event-related periodic interval. The construction of the GTS can
+be specified in the literal form. No special data type structure is
+defined that would generate a combination of simpler time-sets from a
+given GTS value. While any implementation would have to contain such a
+structured representation, it is not needed in order to exchange GTS
+values given the literal form.&lt;object name=&apos;footnote&apos;&gt;The GTS is an example of a data type that is only defined
 algebraically without giving any definition of a data structure that
 might implement the behavior of such a data type. The algebraic
 definition looks extremely simple, so that one might assume it is
 incomplete. Since at this point we are relying entirely on the literal
-form to represent GTS values, all the definition of data structur&lt;/object&gt;</p>
+form to represent GTS values, all the definition of data structur&lt;/object&gt;
+				              </p>
 <p>
 The GTS data type is defined as using intervals, periodic intervals,
 and event-related periodic intervals. Intervals of time have been
@@ -6336,9 +7121,30 @@ integer values.  Used to specify sampled biosignals.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The item at a certain index (&lt;var&gt;i&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;digits&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;d&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;scale&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;s&lt;/var&gt;&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;origin&apos;/&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;</p>
+The item at a certain index (&lt;var&gt;i&lt;/var&gt;) in the list is calculated
+by multiplying the item at the same index in the
+&lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;digits&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt; sequence
+(&lt;var&gt;d&lt;/var&gt;
+					                &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;) with the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;scale&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt; (&lt;var&gt;s&lt;/var&gt;)
+          and then add that value to the &lt;object name=&apos;propertyRef&apos;&gt;&lt;param name=&apos;propertyName&apos; value=&apos;origin&apos;/&gt;
+                        &lt;param name=&apos;datatypeName&apos; value=&apos;SLIST&apos;/&gt;&lt;/object&gt;
+(&lt;var&gt;x&lt;/var&gt;
+					                &lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt; ).
+    </p>
 <p>
-                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;x&lt;/var&gt;&lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;&lt;var&gt;s&lt;/var&gt;&lt;var&gt;d&lt;/var&gt;&lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/p&gt;</p>
+                     &lt;p&gt;&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;
+=
+&lt;var&gt;x&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;o&lt;/var&gt;&lt;/sub&gt;
++
+&lt;var&gt;s&lt;/var&gt;
+&#215;
+&lt;var&gt;d&lt;/var&gt;
+						                  &lt;sub&gt;&lt;var&gt;i&lt;/var&gt;&lt;/sub&gt;&lt;/p&gt;
+                  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6357,7 +7163,14 @@ such as street or post office Box, city, postal code, country, etc.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; is primarily used to communicate data that will allow
+printing mail labels, that will allow a person to physically visit
+that address. The postal address data type is not supposed to be a
+container for additional information that might be useful for finding
+geographic locations (e.g., GPS coordinates) or for performing
+epidemiological studies. Such additional information is captured by
+other, more appropriate HL7 elements.
+    </p>
 <p>
 Addresses are conceptualized as text with added logical mark-up. The
 mark-up may break the address into lines and may describe in detail
@@ -6412,7 +7225,9 @@ at the same point in time.
 <p>
 Three restrictions to Entity Name are defined in order to allow making
 specific constraints for certain kinds of entities, trivial name
-(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PN&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ON&apos;/&gt;&lt;/object&gt;</p>
+(&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;TN&apos;/&gt;&lt;/object&gt;), person name (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PN&apos;/&gt;&lt;/object&gt;), and
+organization name (&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;ON&apos;/&gt;&lt;/object&gt;).
+    </p>
 <p>
 A very simple encoding of  &quot;Adam A. Everyman&quot; would be:
       
@@ -6483,7 +7298,11 @@ concept. Used when alternative codes may exist.
                <annotation annotationType="DESIGN_COMMENTS">
                   <text><![CDATA[
 <p>
-The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;</p>
+The &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type is used when the use case indicates that alternative
+codes may exist and where it is useful to communicate these. The
+&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; type provides for a primary code value, plus a set of
+alternative or equivalent representations.
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6531,13 +7350,23 @@ The concept descriptor is mostly used in one of its restricted or
 <p>
 Use of the full concept descriptor data type is not common. It
 requires a conscious decision and documented rationale. In all other
-cases, one of the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;footnote&apos;&gt;The advantage of the concept descriptor data type is its expressiveness,
+cases, one of the &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt; restrictions shall be
+used.&lt;object name=&apos;footnote&apos;&gt;The advantage of the concept descriptor data type is its expressiveness,
 however, if all of its features, such as coding exceptions, text, translations 
 and qualifiers are used at all times, implementation and use become very 
 difficult and unsafe. Therefore, the  type is most often
-used in a restricted form with reduced features.&lt;/object&gt;</p>
+used in a restricted form with reduced features.&lt;/object&gt;
+				              </p>
 <p>
-All &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;</p>
+All &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt; restrictions constrain certain properties of the
+&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;. Properties may be constrained to the extent that
+only one value may be allowed for that property, in which case
+mentioning the property becomes redundant. Constraining a property to
+one value is referred to as suppressing that property. Although,
+conceptually a suppressed property is still semantically applicable,
+it is safe for an HL7 interface to assume the implicit default value
+without testing.
+  </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6561,7 +7390,10 @@ primary code "leg" to construct the meaning "left leg".
                   <text><![CDATA[
 <p>
 The use of qualifiers is strictly governed by the code system
-used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt;</p>
+used. The &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;CD&apos;/&gt;&lt;/object&gt; data type does not permit using code
+qualifiers with code systems that do not provide for qualifiers
+(e.g. pre-coordinated systems, such as LOINC, ICD-10 PCS.)
+    </p>
 ]]></text>
                </annotation>
             </documentation>
@@ -6616,7 +7448,9 @@ cost controlling and business process engineering.
 <p>
 Semantically, the information of a stated value exists in contrast to
 the complement set of unstated possible values. Thus, semantically, a
-non-parametric probability distribution contains &lt;b&gt;all&lt;/b&gt;</p>
+non-parametric probability distribution contains &lt;b&gt;all&lt;/b&gt;
+possible values and assigns probabilities to each of them.
+    </p>
 <p>
 The easiest way to visualize this is a bar chart as shown in
     </p>
@@ -6629,7 +7463,14 @@ the teams, the sum of the probabilities would equal 1 (i.e., it is
 certain that one of the teams will win).
     </p>
 <p>
-Just as with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;UVP&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt;&lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;</p>
+Just as with &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;UVP&apos;/&gt;&lt;/object&gt;, the type T is not formally
+constrained, even though there are reasonable and unreasonable
+uses. Typically one would use the &lt;object name=&apos;itemName&apos;&gt;&lt;param name=&apos;item&apos; value=&apos;datatype&apos;/&gt;&lt;/object&gt; for unordered types, if
+only a &quot;small&quot; set of possible values is assigned explicit
+probabilities, or if the probability distribution cannot (or should
+not) be approximated with parametric methods. For other cases, one may
+prefer &lt;object name=&apos;datatypeRef&apos;&gt;&lt;param name=&apos;datatypeName&apos; value=&apos;PPD&apos;/&gt;&lt;/object&gt;.
+    </p>
 ]]></text>
                </annotation>
             </documentation>

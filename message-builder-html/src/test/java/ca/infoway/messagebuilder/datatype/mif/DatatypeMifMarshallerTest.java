@@ -42,7 +42,7 @@ public class DatatypeMifMarshallerTest {
 	}
 	
 	@Test
-	public void testMarshallUVCoreMif() throws Exception {
+	public void testUnMarshallUVCoreMif() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=UV=DT=1.1.coremif");
 		try {
 			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
@@ -53,7 +53,7 @@ public class DatatypeMifMarshallerTest {
 	}
 	
 	@Test
-	public void testMarshallCACoreMif() throws Exception {
+	public void testUnMarshallCACoreMif() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=CA=DT=R02.04.xx.coremif");
 		try {
 			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
@@ -64,7 +64,7 @@ public class DatatypeMifMarshallerTest {
 	}
 
 	@Test
-	public void testMarshallMultiDerivedFromElements() throws Exception {
+	public void testUnMarshallMultiDerivedFromElements() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=UV=DT=1.1.coremif");
 		try {
 			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
@@ -83,7 +83,7 @@ public class DatatypeMifMarshallerTest {
 	}
 	
 	@Test
-	public void testMarshallIVLDatatype() throws Exception {
+	public void testUnMarshallIVLDatatype() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=UV=DT=1.1.coremif");
 		try {
 			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
@@ -103,7 +103,7 @@ public class DatatypeMifMarshallerTest {
 	}	
 	
 	@Test
-	public void testMarshallStaticExamples() throws Exception {
+	public void testUnMarshallStaticExamples() throws Exception {
 		InputStream input = getClass().getResourceAsStream("/DEFN=CA=DT=R02.04.xx.coremif");
 		try {
 			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
@@ -116,6 +116,31 @@ public class DatatypeMifMarshallerTest {
 			}
 			assertEquals(1, adBasic.getAnnotations().getAppInfo().getStaticExamples().size());
 			assertTrue(adBasic.getAnnotations().getAppInfo().getStaticExamples().get(0).getData().getValue().length() > 0);
+			
+		} finally {
+			IOUtils.closeQuietly(input);
+		}
+	}	
+	
+	@Test
+	public void testUnMarshallDesignComments() throws Exception {
+		InputStream input = getClass().getResourceAsStream("/DEFN=CA=DT=R02.04.xx.coremif");
+		try {
+			MifDatatypeModelLibrary model = this.fixture.unmarshallDatatypeModel(input);
+			List<MifDatatype> datatypes = model.getDatatypes();
+			MifDatatype usgDatatype = null;
+			for (MifDatatype mifDatatype : datatypes) {
+				if ("URG".equals(mifDatatype.getName())) {
+					usgDatatype = mifDatatype;
+				}
+			}
+			assertEquals(1, usgDatatype.getAnnotations().getDocumentation().getDesignComments().size());
+			List<MifHttpParagraph> paragraphs = usgDatatype.getAnnotations().getDocumentation().getDesignComments().get(0).getText().getParagraphs();
+			assertTrue(paragraphs.size() > 0);
+			
+//			for (MifHttpParagraph mifHttpParagraph : paragraphs) {
+//				System.out.println(mifHttpParagraph.getValue());
+//			}
 			
 		} finally {
 			IOUtils.closeQuietly(input);

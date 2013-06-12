@@ -19,45 +19,25 @@
  */
 package ca.infoway.messagebuilder.generator.mif2.vocabulary;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
+import java.util.List;
+
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 @Root(strict=false)
 @Namespace(prefix="mif",reference="urn:hl7-org:v3/mif2")
-public class MifCodeSystemSupplement {
+public class MifCodeSystemVersionSupplement {
 
-	@Attribute(required=false)
-	private String codeSystemId;
-	@Element(required=false)
-	private MifAnnotations annotations;
-	@Element(required=false)
-	private MifCodeSystemVersionSupplement codeSystemVersionSupplement;
+	@ElementList(required=false,inline=true,entry="conceptSupplement")
+	private List<MifCodeSystemConceptSupplement> concepts;
+
+	public List<MifCodeSystemConceptSupplement> getConcepts() {
+		return concepts;
+	}
+
+	public void setConcepts(List<MifCodeSystemConceptSupplement> concepts) {
+		this.concepts = concepts;
+	}
 	
-	public String getCodeSystemId() {
-		return codeSystemId;
-	}
-
-	public void setCodeSystemId(String codeSystemId) {
-		this.codeSystemId = codeSystemId;
-	}
-
-	public MifAnnotations getAnnotations() {
-		return annotations;
-	}
-
-	public void setAnnotations(MifAnnotations annotations) {
-		this.annotations = annotations;
-	}
-
-	public MifCodeSystemVersionSupplement getCodeSystemVersionSupplement() {
-		return codeSystemVersionSupplement;
-	}
-
-	public void setCodeSystemVersionSupplement(
-			MifCodeSystemVersionSupplement codeSystemVersionSupplement) {
-		this.codeSystemVersionSupplement = codeSystemVersionSupplement;
-	}
-
 }

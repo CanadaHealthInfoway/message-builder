@@ -265,7 +265,7 @@ public abstract class BaseHtmlGenerator {
 		//Only concerned about concept domain for now as no other components seem to have same name with different case
 		for (CodeSystem codeSystem : getMessageSet().getVocabulary().getCodeSystems()) {
 			if (!nameSet.contains(codeSystem.getName().toUpperCase())) {				
-				nameSet.add(codeSystem.getName());
+				nameSet.add(codeSystem.getName().toUpperCase());
 			} else {
 				dupNameSet.add(codeSystem.getName());
 			}

@@ -105,7 +105,7 @@ public class DatatypeHtmlTest {
 						"<tr>" +
 							"<td class=\"detailsTableLabelCol\">Usage notes:</td>" +
 							"<td class=\"detailsTableValueCol\" colspan=\"3\">" + LINE_SEPARATOR + 
-								"<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;</p>" + LINE_SEPARATOR + 
+								"<p>If the attribute or property is null, the codeSystem and originalTextproperties are still permitted but not &lt;i&gt;mandatory&lt;/i&gt;.</p>" + LINE_SEPARATOR + 
 								"<p>The rules for supporting the several properties vary depending on whether the element has a coding strength of CWE (Coded with extensibility) or CNE (Coded with no extensibility).</p>" + LINE_SEPARATOR + 
 								"<p>For CWE, &quot;code&quot;, &quot;codeSystem&quot; and &quot;originalText&quot; properties are required. A constraint exists that at least one of &quot;code&quot; and &quot;originalText&quot; must be present and non-null, and that if &quot;code&quot; is present, then &quot;codeSystem is mandatory.</p>" + LINE_SEPARATOR + 
 								"<p>For CNE, &quot;code&quot; and &quot;codeSystem&quot; are mandatory (meaning they must be non-null if the overall attribute or property is non-null). If the element is null with a flavor of OTH (Other), then the &quot;originalText&quot; property is mandatory (and no other properties may be specified).</p>" + LINE_SEPARATOR + 

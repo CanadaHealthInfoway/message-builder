@@ -159,7 +159,7 @@ public class Mif2InteractionDefinitionTest {
 		
 		assertEquals("responsibility 0 name", "PORX_IN010070CA", interaction.getReceiverResponsibilities().get(0).getInvokeInteraction());
 		assertTrue("responsibility 0 trigger event", interaction.getReceiverResponsibilities().get(0).isIncludeTriggerEvent());
-		assertEquals("responsibility 0 reason", "<text> <p>Refusal to fill is recorded</p> </text>", interaction.getReceiverResponsibilities().get(0).getReason());
+		assertEquals("responsibility 0 reason", "<p>Refusal to fill is recorded</p>", interaction.getReceiverResponsibilities().get(0).getReason());
 		
 		assertEquals("responsibility 1 name", "PORX_IN010080CA", interaction.getReceiverResponsibilities().get(1).getInvokeInteraction());
 		assertFalse("responsibility 1 trigger event", interaction.getReceiverResponsibilities().get(1).isIncludeTriggerEvent());
@@ -167,4 +167,28 @@ public class Mif2InteractionDefinitionTest {
 		
 	}
 
+	@Test
+	public void shouldExtractResponsibilitiesWithoutTextElement() throws Exception {
+		this.jmock.checking(new Expectations() {{
+			one(resolver).getPackageLocationRootType("MCCI_MT002100CA"); will(returnValue("MCCI_MT002100CA.Message"));
+			one(resolver).getPackageLocationRootType("MCAI_MT700211CA"); will(returnValue("MCAI_MT700211CA.ControlActEvent"));
+			one(resolver).getPackageLocationRootType("PORX_MT010140CA"); will(returnValue("PORX_MT010140CA.SupplyRequest"));
+			allowing(resolver).getMessagePart( with(any(String.class)) ); will(returnValue(new MessagePart()));
+		}});
+		
+		Document document = new DocumentFactory().createFromResource(new ClasspathResource(getClass(), "PORX_IN010100CA - Revise assigned dispense responsibility req..mif"));
+		Interaction interaction = new Mif2InteractionDefinition(document, "myCategory", null, null).extract(this.resolver);
+		assertEquals("name", "PORX_IN010100CA", interaction.getName());
+		assertEquals("responsibilities", 2, interaction.getReceiverResponsibilities().size());
+		
+		assertEquals("responsibility 0 name", "PORX_IN010110CA", interaction.getReceiverResponsibilities().get(0).getInvokeInteraction());
+		assertTrue("responsibility 0 trigger event", interaction.getReceiverResponsibilities().get(0).isIncludeTriggerEvent());
+		assertEquals("responsibility 0 reason", "<p>Prescription transferred</p>", interaction.getReceiverResponsibilities().get(0).getReason());
+		
+		assertEquals("responsibility 1 name", "PORX_IN010120CA", interaction.getReceiverResponsibilities().get(1).getInvokeInteraction());
+		assertFalse("responsibility 1 trigger event", interaction.getReceiverResponsibilities().get(1).isIncludeTriggerEvent());
+		assertNull("responsibility 1 reason", interaction.getReceiverResponsibilities().get(1).getReason());
+		
+	}
+	
 }

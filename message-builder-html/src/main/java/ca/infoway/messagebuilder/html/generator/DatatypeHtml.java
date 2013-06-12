@@ -69,8 +69,7 @@ public class DatatypeHtml extends BaseHtmlGenerator {
 		Set<AnnotationType> filterTypes = new HashSet<AnnotationType>();
 		filterTypes.add(AnnotationType.MAPPING);
 		filterTypes.add(AnnotationType.STATIC_EXAMPLE);
-		//FIXME: Filter out design comments for datatypes now.  Annotations have a weird mixture of nested tags which make marshalling difficult
-		filterTypes.add(AnnotationType.DESIGN_COMMENTS);
+		//filterTypes.add(AnnotationType.DESIGN_COMMENTS);
 		return filterTypes;
 	}
 	

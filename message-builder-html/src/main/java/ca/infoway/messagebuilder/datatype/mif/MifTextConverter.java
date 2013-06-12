@@ -60,10 +60,10 @@ public class MifTextConverter implements Converter<MifText> {
 			while(childNode != null) {
 				String childValue = childNode.getValue();
 				if (childValue != null) {
-					String childText = parseInnerNodes(childNode, childValue);
+					String childText = childValue + parseInnerNodes(childNode);
 					mifText.getParagraphs().add(new MifHttpParagraph(StringEscapeUtils.escapeXml(childText)));					
 				} else {
-					String childText = parseInnerNodes(childNode, "");
+					String childText = parseInnerNodes(childNode);
 					mifText.getParagraphs().add(new MifHttpParagraph(StringEscapeUtils.escapeXml(childText)));
 				}
 				
@@ -73,9 +73,11 @@ public class MifTextConverter implements Converter<MifText> {
 		return mifText;
 	}
 	
-	private String parseInnerNodes(InputNode node, String currentInput) throws Exception {
+	private String parseInnerNodes(InputNode node) throws Exception {
 		InputNode childNode = node.getNext();
-		String nodeText = new String(currentInput);
+		String nodeValue = node.getValue();
+		String nodeText = nodeValue!=null?nodeValue:"";
+		
 		while(childNode != null) {
 			String childValue = childNode.getValue();
 			String childName = childNode.getName();
@@ -87,27 +89,29 @@ public class MifTextConverter implements Converter<MifText> {
 			}
 				
 			String childText = "";
-			if (childValue != null && childValue.trim().length() > 0) {
-				childText = parseInnerNodes(childNode, childValue);
-				if (childText != null && childText.trim().length() > 0) {
-					nodeText += ">";
-					nodeText += childText.trim();
-					nodeText += "</" + childName + ">";
-				} else {
-					nodeText += "/>";
-					nodeText += childText.trim();
-				}
+			childText = parseInnerNodes(childNode);
+			if (childText != null && childText.trim().length() > 0){
+				//Case where there are inner nodes ie. <b><i>Some Text</i><b>
+				nodeText += ">";
+				nodeText += childText.trim();
+				nodeText += "</" + childName + ">";
+			} else if (childValue != null && childValue.trim().length() > 0) {
+				//Case where there is inner text but not inner nodes <b>Some Text</b>
+				nodeText += ">";
+				nodeText += childValue.trim();
+				nodeText += "</" + childName + ">";
 			} else {
-				childText = parseInnerNodes(childNode, "");
-				if (childText != null && childText.trim().length() > 0) {
-					nodeText += ">";
-					nodeText += childText.trim();
-					nodeText += "</" + childName + ">";
-				} else {
-					nodeText += "/>";
-					nodeText += childText.trim();
-				}
+				//Case where there is no inner node or inner text <img src='test' />
+				nodeText += "/>";
+				nodeText += childText.trim();
 			}
+			
+			nodeValue = node.getValue();
+			while(nodeValue != null) {				
+				nodeText += nodeValue;
+				nodeValue = node.getValue();
+			}
+			
 			childNode = node.getNext();
 		}
 		return nodeText;

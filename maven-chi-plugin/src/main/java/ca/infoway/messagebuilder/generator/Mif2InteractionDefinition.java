@@ -105,10 +105,27 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 				Element targetTriggerEvent = (Element) this.xPath.getSingleNode(responsibilityNode, "./mif2:invokeTriggerEvent", MIF2_NAMESPACE);
 				responsibility.setIncludeTriggerEvent(targetTriggerEvent != null);
 
+				String reasonValue = null;
 				Element reasonElement = (Element) this.xPath.getSingleNode(responsibilityNode, "./mif2:reason", MIF2_NAMESPACE);
 				Element reasonText = (Element) this.xPath.getSingleNode(reasonElement, "./html:text", HTML_NAMESPACE);
 				if (reasonText != null) {
-					responsibility.setReason(new Mif2XPathHelper().convertElementToText(reasonText));
+					reasonValue = new Mif2XPathHelper().convertElementToText(reasonText);
+				} else if (reasonElement != null) {
+					// according to the current schema, the content is a direct child of the reason element. 
+					// However, we still need to support the old style with a text element for parsing older published versions of the standard.
+					//  -- JR 20130522
+					reasonValue = new Mif2XPathHelper().convertElementToText(reasonElement);
+				}
+				if (reasonValue != null) {
+					// The outermost tag of the reason will either be <reason> or <text>. In either case, we should discard it and keep only the filling.
+					int headTag = reasonValue.indexOf('>');
+					int tailTag = reasonValue.lastIndexOf('<');
+					if (headTag < tailTag) {
+						reasonValue = reasonValue.substring(headTag+1, tailTag).trim();
+						if (reasonValue.length() > 0) {
+							responsibility.setReason(reasonValue);
+						}
+					}
 				}
 				interaction.addResponsibility(responsibility);
 			}

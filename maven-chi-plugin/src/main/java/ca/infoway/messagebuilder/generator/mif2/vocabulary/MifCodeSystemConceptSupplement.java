@@ -26,38 +26,22 @@ import org.simpleframework.xml.Root;
 
 @Root(strict=false)
 @Namespace(prefix="mif",reference="urn:hl7-org:v3/mif2")
-public class MifCodeSystemSupplement {
+public class MifCodeSystemConceptSupplement {
 
 	@Attribute(required=false)
-	private String codeSystemId;
+	private String code;
 	@Element(required=false)
 	private MifAnnotations annotations;
-	@Element(required=false)
-	private MifCodeSystemVersionSupplement codeSystemVersionSupplement;
-	
-	public String getCodeSystemId() {
-		return codeSystemId;
+	public String getCode() {
+		return code;
 	}
-
-	public void setCodeSystemId(String codeSystemId) {
-		this.codeSystemId = codeSystemId;
+	public void setCode(String code) {
+		this.code = code;
 	}
-
 	public MifAnnotations getAnnotations() {
 		return annotations;
 	}
-
 	public void setAnnotations(MifAnnotations annotations) {
 		this.annotations = annotations;
 	}
-
-	public MifCodeSystemVersionSupplement getCodeSystemVersionSupplement() {
-		return codeSystemVersionSupplement;
-	}
-
-	public void setCodeSystemVersionSupplement(
-			MifCodeSystemVersionSupplement codeSystemVersionSupplement) {
-		this.codeSystemVersionSupplement = codeSystemVersionSupplement;
-	}
-
 }

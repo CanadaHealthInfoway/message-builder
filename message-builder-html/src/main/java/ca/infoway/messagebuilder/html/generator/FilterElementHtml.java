@@ -158,6 +158,7 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 	private void populateFilterListForIncludes(Ul filterList, ValueSetFilter valueSetFilter,
 			CodeSystem codeSystem) {
 		Li filterListItem = null;
+		Ul excludeList = null;
 		for (ValueSetFilterCode valueSetFilterCode : valueSetFilter.getIncludedCodes()) {
 			String codeDesc = "";
 			codeDesc = "code of " + valueSetFilterCode.getCode();
@@ -170,8 +171,7 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 		}
 		if (valueSetFilter.getExcludedCodes() != null
 				&& filterListItem != null) {
-			Ul excludeList = new Ul();
-			excludeList.appendText("Except: ");
+			excludeList = initializeExcludeList();
 			for (ValueSetFilterCode valueSetFilterCode : valueSetFilter.getExcludedCodes()) {
 				String excludeCodeDesc = "code of " + valueSetFilterCode.getCode();
 				if (valueSetFilterCode.isIncludeChildren()) {
@@ -182,8 +182,31 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 				excludeList.appendChild(excludeListItem);							
 			}
 
-			filterListItem.appendChild(excludeList);
 		}
+		if (valueSetFilter.getPropertyName() != null && !valueSetFilter.isPropertyIncluded()) {
+			if (excludeList == null) {
+				excludeList = initializeExcludeList();
+			}
+			Li excludeListItem = new Li();
+			if (StringUtils.isNotBlank(valueSetFilter.getPropertyValue())) {
+				excludeListItem.appendText("codes having the property: " + valueSetFilter.getPropertyName() + " with value: " + valueSetFilter.getPropertyValue());
+			} else {
+				excludeListItem.appendText("codes having the property: " + valueSetFilter.getPropertyName());
+			}
+		
+			excludeList.appendChild(excludeListItem);							
+		}
+		if (excludeList != null) {
+			filterListItem.appendChild(excludeList);
+
+		}
+	}
+
+	public Ul initializeExcludeList() {
+		Ul excludeList;
+		excludeList = new Ul();
+		excludeList.appendText("Except: ");
+		return excludeList;
 	}
 
 	private void populateFilterForDefault(Ul filterList, ValueSetFilter valueSetFilter,
