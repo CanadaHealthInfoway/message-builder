@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,9 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 	}
 	public Map<String, MessagePart> getAllMessageParts(
 			Interaction interaction, VersionNumber version) {
+		return null;
+	}
+	public Collection<MessagePart> getAllMessageParts(VersionNumber version) {
 		return null;
 	}
 	public Interaction getInteraction(VersionNumber version, String type) {

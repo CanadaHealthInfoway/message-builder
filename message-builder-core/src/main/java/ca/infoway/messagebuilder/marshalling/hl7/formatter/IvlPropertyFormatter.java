@@ -257,7 +257,8 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	    	String type = Hl7DataTypeName.getParameterizedType(context.getType());
 	    	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 	    	if (formatter != null) {
-	    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
+//	    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
+	    		boolean isSpecializationType = false;
 				return formatter.format(
 	    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.MANDATORY, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null),
 	    				wrapWithHl7DataType(type, diff),
@@ -292,7 +293,8 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
     	String type = Hl7DataTypeName.getParameterizedType(context.getType());
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
-    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
+//    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
+    		boolean isSpecializationType = false;
     		return formatter.format(
     				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
     	} else {

@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 
 /**
- * @sharpen.ignore model - translated manually.
  */
 public class MessagePartBean implements ExtendedNullFlavorSupport, SpecializationTypeSupport, Serializable {
 

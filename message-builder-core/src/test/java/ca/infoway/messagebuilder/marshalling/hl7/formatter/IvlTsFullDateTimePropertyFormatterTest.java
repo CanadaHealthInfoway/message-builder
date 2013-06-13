@@ -98,7 +98,7 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
-		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATETIME\" value=\"20061225111213.0000-0500\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATETIME\" value=\"20070102101112.0000-0500\" xsi:type=\"TS\"/></name>", result);
+		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 				hl7DataType);
 		assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size()); // incorrect ST (IVL<TS.FULLDATETIME> will be used)
-		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low specializationType=\"TS.FULLDATETIME\" value=\"20061225111213.0000-0500\" xsi:type=\"TS\"/><high specializationType=\"TS.FULLDATETIME\" value=\"20070102101112.0000-0500\" xsi:type=\"TS\"/></name>", result);
+		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
 	}
 
 	@Override
