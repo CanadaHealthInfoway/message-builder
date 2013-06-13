@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -95,7 +95,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -340,7 +340,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
@@ -378,7 +378,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT040010CA.OtherMedication.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
@@ -406,11 +406,11 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Taboo allows the provider to request restricted access to 
-     * patient or their care giver.</p><p>Constraint: Cant have 
+     * patient or their care giver.</p><p>Constraint: Can'''t have 
      * both normal and one of the other codes simultaneously.</p>
      * 
      * <p>Taboo allows the provider to request restricted access to 
-     * patient or their care giver.</p><p>Constraint: Cant have 
+     * patient or their care giver.</p><p>Constraint: Can'''t have 
      * both normal and one of the other codes simultaneously.</p>
      * 
      * <p>Un-merged Business Name: OtherMedicationMaskingIndicators</p>
@@ -423,8 +423,8 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
@@ -536,7 +536,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT040010CA.Component.dosageInstruction</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
@@ -549,7 +549,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
@@ -561,7 +561,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT040010CA.Subject9.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;

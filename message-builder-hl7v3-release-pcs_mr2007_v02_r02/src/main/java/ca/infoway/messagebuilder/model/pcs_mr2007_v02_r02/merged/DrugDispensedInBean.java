@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.CompliancePackageEntityType;
+import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt300000ca.DrugFormBean;
 
 
 
@@ -97,10 +97,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt300000ca
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content"})
 public class DrugDispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
-    private DrugFormBean containedManufacturedMaterialKind;
+    private CV containedManufacturedMaterialKindFormCode = new CVImpl();
 
 
     /**
@@ -400,28 +400,40 @@ public class DrugDispensedInBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: DrugForm</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: 
-     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>required for compounds</p>
+     * 
+     * <p>code for drug form</p>
      */
-    @Hl7XmlMapping({"containedManufacturedMaterialKind"})
-    public DrugFormBean getContainedManufacturedMaterialKind() {
-        return this.containedManufacturedMaterialKind;
+    @Hl7XmlMapping({"containedManufacturedMaterialKind/formCode"})
+    public OrderableDrugForm getContainedManufacturedMaterialKindFormCode() {
+        return (OrderableDrugForm) this.containedManufacturedMaterialKindFormCode.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: DrugForm</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: 
-     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
+     * COCT_MT300000CA.ManufacturedMaterialKind.formCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>required for compounds</p>
+     * 
+     * <p>code for drug form</p>
      */
-    public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
-        this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
+    public void setContainedManufacturedMaterialKindFormCode(OrderableDrugForm containedManufacturedMaterialKindFormCode) {
+        this.containedManufacturedMaterialKindFormCode.setValue(containedManufacturedMaterialKindFormCode);
     }
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class InvoiceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private AdministrativeContactsSBean primaryPerformerContactParty;
@@ -131,7 +131,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT600201CA.PaymentRequestAttention.contactParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"primaryPerformer/contactParty"})
     public AdministrativeContactsSBean getPrimaryPerformerContactParty() {
@@ -142,7 +142,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT600201CA.PaymentRequestAttention.contactParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPrimaryPerformerContactParty(AdministrativeContactsSBean primaryPerformerContactParty) {
         this.primaryPerformerContactParty = primaryPerformerContactParty;
@@ -152,7 +152,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.PaymentRequestPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
@@ -162,7 +162,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.PaymentRequestPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
@@ -172,7 +172,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.PaymentRequestPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
@@ -182,7 +182,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.PaymentRequestPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
@@ -193,7 +193,7 @@ public class InvoiceIdentifierBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT600201CA.PertinentInformation.providerBillingTaxAccount</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
     public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {

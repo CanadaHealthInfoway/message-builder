@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,9 +51,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.StatusChangesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -71,7 +71,7 @@ import java.util.Set;
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p>
  * 
- * <p>Status can only be ACTIVE or COMPLETE</p>
+ * <p>Status can only be '''ACTIVE''' or '''COMPLETE'''</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present and vice versa</p>
@@ -96,7 +96,7 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -106,7 +106,7 @@ public class OtherMedicationBean extends MessagePartBean {
     private DrugProductBean consumableMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
@@ -256,7 +256,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.OtherMedication.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
@@ -276,7 +276,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.OtherMedication.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to help determine whether the medication is 
      * currently active. Because this information won't always be 
@@ -301,8 +301,8 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is optional because not all systems will support 
      * masking.</p>
      * 
@@ -385,7 +385,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -396,7 +396,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -424,29 +424,31 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060210CA.OtherMedication.location</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: PORX_MT060210CA.OtherMedication.location</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
     /**
      * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
@@ -457,7 +459,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT060210CA.Subject11.controlActEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
@@ -469,7 +471,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
@@ -480,7 +482,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.Subject9.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
         this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
@@ -490,7 +492,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT060210CA.Subject14.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/annotation"})
     public List<NotesBean> getSubjectOf3Annotation() {
@@ -502,7 +504,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.Subject15.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
     public Boolean getSubjectOf4AnnotationIndicator() {
@@ -513,7 +515,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.Subject15.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
         this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
@@ -523,7 +525,7 @@ public class OtherMedicationBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT060210CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
@@ -535,7 +537,7 @@ public class OtherMedicationBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060210CA.Component2.patientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {

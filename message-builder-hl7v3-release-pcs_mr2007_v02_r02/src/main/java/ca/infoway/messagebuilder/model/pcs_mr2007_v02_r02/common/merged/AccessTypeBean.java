@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ConsentGivenToBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Recipient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,44 +55,44 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
-    private ConsentGivenToBean receiver;
+    private static final long serialVersionUID = 20130613L;
+    private Recipient receiverRecipient;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver"})
-    public ConsentGivenToBean getReceiver() {
-        return this.receiver;
+    @Hl7XmlMapping({"receiver/recipient"})
+    public Recipient getReceiverRecipient() {
+        return this.receiverRecipient;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
+     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
+     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReceiver(ConsentGivenToBean receiver) {
-        this.receiver = receiver;
+    public void setReceiverRecipient(Recipient receiverRecipient) {
+        this.receiverRecipient = receiverRecipient;
     }
 
 

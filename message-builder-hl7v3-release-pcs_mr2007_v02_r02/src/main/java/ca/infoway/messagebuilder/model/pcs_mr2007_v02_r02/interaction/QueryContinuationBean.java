@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT000001CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT000001CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
 public class QueryContinuationBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

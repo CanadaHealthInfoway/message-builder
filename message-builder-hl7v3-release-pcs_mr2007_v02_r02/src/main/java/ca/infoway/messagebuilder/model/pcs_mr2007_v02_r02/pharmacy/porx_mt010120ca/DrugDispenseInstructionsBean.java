@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
@@ -161,7 +161,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
@@ -171,7 +171,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
@@ -204,7 +204,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010120CA.Component7.initialSupplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
@@ -215,7 +215,7 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010120CA.Component7.initialSupplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;

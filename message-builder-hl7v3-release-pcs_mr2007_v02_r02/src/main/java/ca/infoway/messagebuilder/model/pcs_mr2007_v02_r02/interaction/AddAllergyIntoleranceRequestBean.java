@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,13 +37,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.AllergyInt
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: REPC_MT000001CA.IntoleranceCondition</p>
+ * <p>--> Payload: REPC_MT000001CA.IntoleranceCondition</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000012CA"})
 public class AddAllergyIntoleranceRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<AllergyIntoleranceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private PlayingPrescribePersonBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
     private OriginalPrescriptionBean component2SupplyOrder;
@@ -38,7 +38,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Prescriber.presriberRole</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author/presriberRole"})
     public PlayingPrescribePersonBean getAuthorPresriberRole() {
@@ -48,7 +48,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Prescriber.presriberRole</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setAuthorPresriberRole(PlayingPrescribePersonBean authorPresriberRole) {
         this.authorPresriberRole = authorPresriberRole;
@@ -58,7 +58,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Component2.substitution</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component1/substitution"})
     public DispenseSubstitutionBean getComponent1Substitution() {
@@ -68,7 +68,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Component2.substitution</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
         this.component1Substitution = component1Substitution;
@@ -78,7 +78,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.ComponentOrder.supplyOrder</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyOrder"})
     public OriginalPrescriptionBean getComponent2SupplyOrder() {
@@ -88,7 +88,7 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.ComponentOrder.supplyOrder</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
         this.component2SupplyOrder = component2SupplyOrder;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,14 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
+import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.x_RoleClassPayeePolicyRelationship;
 
 
 
@@ -39,32 +42,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeOrganization"})
 public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private PayeeRelationshipRoleBean asPayeeRelationshipRole;
+    private static final long serialVersionUID = 20130613L;
     private ST name = new STImpl();
     private AD addr = new ADImpl();
-
-
-    /**
-     * <p>Relationship: 
-     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"asPayeeRelationshipRole"})
-    public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
-        return this.asPayeeRelationshipRole;
-    }
-
-    /**
-     * <p>Relationship: 
-     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
-        this.asPayeeRelationshipRole = asPayeeRelationshipRole;
-    }
+    private CS asPayeeRelationshipRoleClassCode = new CSImpl();
 
 
     /**
@@ -116,6 +97,28 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"asPayeeRelationshipRole/classCode"})
+    public x_RoleClassPayeePolicyRelationship getAsPayeeRelationshipRoleClassCode() {
+        return (x_RoleClassPayeePolicyRelationship) this.asPayeeRelationshipRoleClassCode.getValue();
+    }
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAsPayeeRelationshipRoleClassCode(x_RoleClassPayeePolicyRelationship asPayeeRelationshipRoleClassCode) {
+        this.asPayeeRelationshipRoleClassCode.setValue(asPayeeRelationshipRoleClassCode);
     }
 
 }

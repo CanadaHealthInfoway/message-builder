@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
+import ca.infoway.messagebuilder.domainvalue.MaskableMaterialEntityType;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DiagnosisBean;
@@ -52,11 +53,11 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private RoleBean directTargetRole;
+    private CV directTargetRolePlayingEntityKindCode = new CVImpl();
     private DiagnosisBean reasonDiagnosis;
 
 
@@ -169,29 +170,53 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * <p>Business Name: Maskable Material</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows masking a drug, avoiding the requirement to mask 
+     * each prescription and dispense individually.</p>
+     * 
+     * <p>Usually specified at the generic or 
+     * therapeutic-equivalent level to ensure related medications 
+     * are also covered.</p>
+     * 
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
      */
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
+    @Hl7XmlMapping({"directTarget/role/playingEntityKind/code"})
+    public MaskableMaterialEntityType getDirectTargetRolePlayingEntityKindCode() {
+        return (MaskableMaterialEntityType) this.directTargetRolePlayingEntityKindCode.getValue();
     }
 
     /**
-     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
+     * <p>Business Name: Maskable Material</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows masking a drug, avoiding the requirement to mask 
+     * each prescription and dispense individually.</p>
+     * 
+     * <p>Usually specified at the generic or 
+     * therapeutic-equivalent level to ensure related medications 
+     * are also covered.</p>
+     * 
+     * <p>Indicates the materia (e.g drug) whose associated records 
+     * should be masked.</p>
      */
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
+    public void setDirectTargetRolePlayingEntityKindCode(MaskableMaterialEntityType directTargetRolePlayingEntityKindCode) {
+        this.directTargetRolePlayingEntityKindCode.setValue(directTargetRolePlayingEntityKindCode);
     }
 
 
     /**
      * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reason/diagnosis"})
     public DiagnosisBean getReasonDiagnosis() {
@@ -201,7 +226,7 @@ public class MaskableRecordBean extends MessagePartBean {
     /**
      * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;

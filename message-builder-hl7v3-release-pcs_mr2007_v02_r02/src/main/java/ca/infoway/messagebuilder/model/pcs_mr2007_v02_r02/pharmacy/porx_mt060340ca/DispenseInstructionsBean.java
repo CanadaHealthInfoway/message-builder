@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +23,20 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt06034
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Component3Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.ExtendedDispenseInstructionsBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,13 +57,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private CreatedAtBean location;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
+    private IVL<TS, Interval<Date>> locationTime = new IVLImpl<TS, Interval<Date>>();
+    private CV locationSubstitutionConditionCode = new CVImpl();
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private List<ExtendedDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<ExtendedDispenseInstructionsBean>();
 
 
     /**
@@ -167,7 +172,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Receiver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public List<RelatedPersonBean> getReceiverPersonalRelationship() {
@@ -176,30 +181,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060340CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060340CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
@@ -210,7 +195,7 @@ public class DispenseInstructionsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
@@ -218,13 +203,116 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060340CA.SupplyRequest.component</p>
+     * <p>Business Name: To be picked up when</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Relationship: PORX_MT060340CA.Location4.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
      */
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"location/time"})
+    public Interval<Date> getLocationTime() {
+        return this.locationTime.getValue();
+    }
+
+    /**
+     * <p>Business Name: To be picked up when</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Location4.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
+     * when patient will be expecting to pick up the dispensed 
+     * medication.</p>
+     * 
+     * <p>The date and time on which the dispense is expected to be 
+     * picked up.</p>
+     */
+    public void setLocationTime(Interval<Date> locationTime) {
+        this.locationTime.setValue(locationTime);
+    }
+
+
+    /**
+     * <p>Business Name: Assigned Facility Not Reassignable 
+     * Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     */
+    @Hl7XmlMapping({"location/substitutionConditionCode"})
+    public x_SubstitutionConditionNoneOrUnconditional getLocationSubstitutionConditionCode() {
+        return (x_SubstitutionConditionNoneOrUnconditional) this.locationSubstitutionConditionCode.getValue();
+    }
+
+    /**
+     * <p>Business Name: Assigned Facility Not Reassignable 
+     * Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates whether a dispenser to whom the prescription is 
+     * targeted is a mandated or patient-preferred pharmacy.</p>
+     */
+    public void setLocationSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional locationSubstitutionConditionCode) {
+        this.locationSubstitutionConditionCode.setValue(locationSubstitutionConditionCode);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location4.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060340CA.Component3.supplyRequestItem</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"component/supplyRequestItem"})
+    public List<ExtendedDispenseInstructionsBean> getComponentSupplyRequestItem() {
+        return this.componentSupplyRequestItem;
     }
 
 }

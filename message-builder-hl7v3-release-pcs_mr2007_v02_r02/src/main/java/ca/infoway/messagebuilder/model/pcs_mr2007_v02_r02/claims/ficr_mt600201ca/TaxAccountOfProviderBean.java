@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,13 +37,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
  * 
  * <p>Can be used to specify the appropriate GST number and 
  * other tax numbers.</p>
- * 
- * <p>Tax Account No. of Provider eg. GST, PST</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.ProviderBillingTaxAccount"})
 public class TaxAccountOfProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

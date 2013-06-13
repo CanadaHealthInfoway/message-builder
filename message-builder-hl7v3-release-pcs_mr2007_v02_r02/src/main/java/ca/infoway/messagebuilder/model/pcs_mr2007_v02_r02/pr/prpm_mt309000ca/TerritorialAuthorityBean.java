@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CE code = new CEImpl();
     private CV territoryCode = new CVImpl();
     private CS partTypeCode = new CSImpl();
@@ -60,7 +60,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.TerritorialAuthority.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
@@ -78,7 +78,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.TerritorialAuthority.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
@@ -96,7 +96,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Jurisdiction.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>
@@ -118,7 +118,7 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Jurisdiction.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider</p>

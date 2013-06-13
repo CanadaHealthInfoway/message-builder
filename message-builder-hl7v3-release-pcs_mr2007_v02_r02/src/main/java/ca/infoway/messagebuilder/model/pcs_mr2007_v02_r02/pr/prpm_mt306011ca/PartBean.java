@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Part"})
 public class PartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS typeCode = new CSImpl();
     private TerritorialAuthorityBean territorialAuthority;
 
@@ -60,7 +60,7 @@ public class PartBean extends MessagePartBean {
     /**
      * <p>Relationship: PRPM_MT306011CA.Part.territorialAuthority</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
@@ -70,7 +70,7 @@ public class PartBean extends MessagePartBean {
     /**
      * <p>Relationship: PRPM_MT306011CA.Part.territorialAuthority</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
         this.territorialAuthority = territorialAuthority;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;
@@ -423,21 +423,21 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
     public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
@@ -450,21 +450,21 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT260020CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260030CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Component.substanceAdministrationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;

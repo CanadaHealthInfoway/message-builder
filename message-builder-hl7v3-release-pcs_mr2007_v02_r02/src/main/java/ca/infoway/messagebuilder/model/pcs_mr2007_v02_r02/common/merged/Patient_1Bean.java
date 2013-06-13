@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,9 +75,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
-public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
+public class Patient_1Bean extends MessagePartBean implements ActingPerson, Patient_2 {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -93,7 +93,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C39 (Extension)</p>
      * 
@@ -192,7 +192,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C39 (Extension)</p>
      * 
@@ -587,7 +587,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Patient.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>ZPA1.1 (Use and/or URL.scheme)</p>
      * 
@@ -626,7 +626,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050208CA.Patient.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>ZPA1.1 (Use and/or URL.scheme)</p>
      * 
@@ -675,7 +675,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -740,7 +740,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -815,7 +815,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -880,7 +880,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050208CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -956,7 +956,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C40 eScript:PTT.040</p>
      * 
@@ -1024,7 +1024,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * <p>Relationship: 
      * COCT_MT050207CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C40 eScript:PTT.040</p>
      * 
@@ -1091,7 +1091,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C34</p>
      * 
@@ -1121,7 +1121,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C34</p>
      * 
@@ -1160,7 +1160,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050207CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C34</p>
      * 
@@ -1190,7 +1190,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
      * 
      * <p>Relationship: COCT_MT050208CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>C34</p>
      * 

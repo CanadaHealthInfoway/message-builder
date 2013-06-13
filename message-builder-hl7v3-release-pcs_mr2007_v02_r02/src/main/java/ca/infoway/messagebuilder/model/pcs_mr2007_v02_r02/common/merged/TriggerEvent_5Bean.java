@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -86,7 +86,7 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     private ConsentBean subjectOf2ConsentEvent;
     private QueryAckBean queryAck;
     private QueryByParameterBean<PL> queryByParameter;
-    private Patient_2 recordTargetPatient1;
+    private StoredInBean recordTarget;
     private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
 
 
@@ -426,13 +426,13 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
      * 
      * <p>Relationship: QUQI_MT120008CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
@@ -445,13 +445,13 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
      * 
      * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/consentEvent"})
     public ConsentBean getSubjectOf2ConsentEvent() {
@@ -463,13 +463,13 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
      * 
      * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
         this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
@@ -555,24 +555,26 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient_2 getRecordTargetPatient1() {
-        return this.recordTargetPatient1;
+    @Hl7XmlMapping({"recordTarget"})
+    public StoredInBean getRecordTarget() {
+        return this.recordTarget;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient_2 recordTargetPatient1) {
-        this.recordTargetPatient1 = recordTargetPatient1;
+    public void setRecordTarget(StoredInBean recordTarget) {
+        this.recordTarget = recordTarget;
     }
 
 

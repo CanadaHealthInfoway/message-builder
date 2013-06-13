@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,10 +35,6 @@ import java.util.List;
  * 
  * <p>MFMI_MT700711CA.Subject2: f:refers to</p>
  * 
- * <p>On creation interactions (where the state transition is 
- * null-&gt;active), this must be true otherwise it must be 
- * false.</p>
- * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
@@ -52,9 +48,9 @@ import java.util.List;
  * 
  * <p>MFMI_MT700716CA.Subject2: f:refers to</p>
  * 
- * <p>On creation interactions (where the state transition is 
- * null-&gt;active), this must be true otherwise it must be 
- * false.</p>
+ * <p>On '''creation''' interactions (where the state 
+ * transition is null-&gt;active), this must be true otherwise 
+ * it must be false.</p>
  * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
@@ -70,7 +66,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
@@ -86,6 +82,10 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * MFMI_MT700711CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
@@ -144,6 +144,10 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
      * MFMI_MT700711CA.Subject2.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 

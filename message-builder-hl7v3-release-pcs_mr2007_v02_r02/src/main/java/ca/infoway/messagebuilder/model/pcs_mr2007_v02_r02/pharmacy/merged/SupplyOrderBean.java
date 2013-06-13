@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyRequest","PORX_MT060020CA.SupplyRequest"})
 public class SupplyOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
@@ -111,14 +111,14 @@ public class SupplyOrderBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -131,14 +131,14 @@ public class SupplyOrderBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT020050CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -156,7 +156,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author"})
     public PrescribedByBean getAuthor() {
@@ -174,7 +174,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.SupplyRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setAuthor(PrescribedByBean author) {
         this.author = author;

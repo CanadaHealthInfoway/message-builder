@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -120,7 +120,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private CV ingredientCode = new CVImpl();
@@ -164,7 +164,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -181,7 +181,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -198,7 +198,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -215,7 +215,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -270,7 +270,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220100CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -287,7 +287,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220200CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -304,7 +304,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -321,7 +321,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -726,7 +726,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
@@ -741,7 +741,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.Substance.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
@@ -900,7 +900,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
@@ -915,7 +915,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.Substance.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows un-ambiguous identification of the ingredients of 
      * a drug for performing various alert checking.</p><p>Also 
@@ -1072,7 +1072,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.Substance.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
@@ -1085,7 +1085,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.Substance.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
@@ -1156,7 +1156,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.Substance.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 
@@ -1169,7 +1169,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.Substance.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used for communication between and display to 
      * providers.</p><p>This attribute is marked as 

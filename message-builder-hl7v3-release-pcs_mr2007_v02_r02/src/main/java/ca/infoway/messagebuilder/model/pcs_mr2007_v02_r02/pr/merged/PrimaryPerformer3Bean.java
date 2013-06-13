@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.PrimaryPerformer3","PRPM_MT309000CA.PrimaryPerformer3"})
 public class PrimaryPerformer3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS typeCode = new CSImpl();
     private ActDefinitionOrEventName_2Bean actDefinitionOrEvent;
 
@@ -79,7 +79,7 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -99,7 +99,7 @@ public class PrimaryPerformer3Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT306011CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 

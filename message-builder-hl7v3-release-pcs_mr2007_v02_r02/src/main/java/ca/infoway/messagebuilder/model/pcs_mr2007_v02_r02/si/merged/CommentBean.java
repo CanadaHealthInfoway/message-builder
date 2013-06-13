@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt300003ca.AnnotatedByBean;
 import java.util.Set;
 
@@ -78,14 +78,14 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AnnotatedByBean author;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private CV languageCode = new CVImpl();
     private II subjectAnnotatedActId = new IIImpl();
 
@@ -277,7 +277,7 @@ public class CommentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-2)</p>
      * 
      * <p>Taboo allows the provider to request restricted access to 
-     * patient or their care giver.</p><p>Constraint: Cant have 
+     * patient or their care giver.</p><p>Constraint: Can'''t have 
      * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
      * all systems will support masking.</p>
@@ -296,7 +296,7 @@ public class CommentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-2)</p>
      * 
      * <p>Taboo allows the provider to request restricted access to 
-     * patient or their care giver.</p><p>Constraint: Cant have 
+     * patient or their care giver.</p><p>Constraint: Can'''t have 
      * both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is required because even 
      * if a jurisdiction doesn't support masking on the way in, it 
@@ -363,7 +363,7 @@ public class CommentBean extends MessagePartBean {
      * <p>Relationship: 
      * COMT_MT300003CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -376,7 +376,7 @@ public class CommentBean extends MessagePartBean {
      * <p>Relationship: 
      * COMT_MT300003CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -410,24 +410,26 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
+     * <p>Relationship: 
+     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
+     * <p>Relationship: 
+     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 

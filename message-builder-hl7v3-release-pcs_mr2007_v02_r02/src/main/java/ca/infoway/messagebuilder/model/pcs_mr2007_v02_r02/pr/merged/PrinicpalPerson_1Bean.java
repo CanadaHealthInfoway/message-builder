@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -170,7 +170,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Name Must Exist.</p>
      * 
-     * <p>The persons name independent of any role they may 
+     * <p>The person'''s name independent of any role they may 
      * play.</p>
      * 
      * <p>Un-merged Business Name: PrincipalPersonName</p>
@@ -187,7 +187,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Name Must Exist.</p>
      * 
-     * <p>The persons name independent of any role they may 
+     * <p>The person'''s name independent of any role they may 
      * play.</p>
      */
     @Hl7XmlMapping({"name"})
@@ -204,7 +204,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -212,7 +212,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      * 
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
@@ -229,7 +229,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
     public AdministrativeGender getAdministrativeGenderCode() {
@@ -244,7 +244,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT303010CA.PrincipalPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -252,7 +252,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      * 
      * <p>Un-merged Business Name: PrincipalPersonGender</p>
      * 
@@ -269,7 +269,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Person Gender is Expected to Exist.</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      */
     public void setAdministrativeGenderCode(AdministrativeGender administrativeGenderCode) {
         this.administrativeGenderCode.setValue(administrativeGenderCode);
@@ -283,7 +283,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -291,13 +291,13 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -305,7 +305,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      */
     @Hl7XmlMapping({"birthTime"})
     public Date getBirthTime() {
@@ -319,7 +319,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.PrincipalPerson.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -327,13 +327,13 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      * 
      * <p>Un-merged Business Name: PrincipalPersonDateOfBirth</p>
      * 
      * <p>Relationship: PRPM_MT301010CA.PrincipalPerson.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -341,7 +341,7 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
      * <p>If Principal Person is included in the message, then 
      * Prinicpal Person Date of Birth is Expected to Exist.</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      */
     public void setBirthTime(Date birthTime) {
         this.birthTime.setValue(birthTime);

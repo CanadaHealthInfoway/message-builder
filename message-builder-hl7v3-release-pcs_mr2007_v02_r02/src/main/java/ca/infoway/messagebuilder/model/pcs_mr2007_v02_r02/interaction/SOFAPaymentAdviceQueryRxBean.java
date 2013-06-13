@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,13 +38,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020002CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: QUCR_MT800201CA.ParameterList</p>
+ * <p>--> Payload: QUCR_MT800201CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"QUCR_IN800102CA"})
 public class SOFAPaymentAdviceQueryRxBean extends HL7Message_1Bean<TriggerEvent_4Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

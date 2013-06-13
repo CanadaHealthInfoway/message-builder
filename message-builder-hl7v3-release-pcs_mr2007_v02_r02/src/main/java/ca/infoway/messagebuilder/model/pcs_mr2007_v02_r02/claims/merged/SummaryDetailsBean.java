@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,9 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
  * 
  * <p>Used for SOFA queries only</p>
  * 
- * <p>Summary details of the adjudicated results for this 
- * group</p>
- * 
  * <p>FICR_MT630000CA.AdjudResultsGroupSummaryData: Summary 
  * Details</p>
  * 
@@ -61,7 +58,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroupSummaryData","FICR_MT630000CA.AdjudResultsGroupSummaryData","QUCR_MT810201CA.AdjudResultsGroupSummaryData"})
 public class SummaryDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private PQ value = new PQImpl();
 
@@ -72,14 +69,14 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: SummaryTypeCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identify the different types of summary information.</p>
      * 
@@ -88,7 +85,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>(defines the 'categorization'. Only really relevant for 
      * summaries.</p>
@@ -106,14 +103,14 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: SummaryTypeCode</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identify the different types of summary information.</p>
      * 
@@ -122,7 +119,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>(defines the 'categorization'. Only really relevant for 
      * summaries.</p>
@@ -140,7 +137,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
@@ -149,7 +146,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Data type can be PQ or MO only.</p>
      * 
@@ -160,7 +157,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>PQ or MO only - Value of summary</p>
      * 
@@ -177,7 +174,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>PQ or MO - Value of summary</p>
      * 
@@ -186,7 +183,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Data type can be PQ or MO only.</p>
      * 
@@ -197,7 +194,7 @@ public class SummaryDetailsBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroupSummaryData.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>PQ or MO only - Value of summary</p>
      * 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,25 +57,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
-
-
-    /**
-     * <p>Relationship: PRPM_MT303010CA.ResponsibleParty.privilege</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
     /**
@@ -109,17 +98,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -254,6 +232,28 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 }

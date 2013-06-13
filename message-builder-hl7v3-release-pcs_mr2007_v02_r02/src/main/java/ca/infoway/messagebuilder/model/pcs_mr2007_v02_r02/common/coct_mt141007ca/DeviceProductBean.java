@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV manufacturedClinicalDeviceCode = new CVImpl();
     private ST manufacturedClinicalDeviceName = new STImpl();
     private ST manufacturedClinicalDeviceDesc = new STImpl();
@@ -62,7 +62,7 @@ public class DeviceProductBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular device product when prescribing or 
@@ -82,7 +82,7 @@ public class DeviceProductBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT141007CA.ClinicalDevice.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to ensure clear communication by uniquely 
      * identifying a particular device product when prescribing or 

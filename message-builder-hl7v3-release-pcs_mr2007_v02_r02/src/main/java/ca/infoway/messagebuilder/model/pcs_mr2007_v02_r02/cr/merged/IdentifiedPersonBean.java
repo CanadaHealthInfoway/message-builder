@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -125,7 +125,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-100)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-100)</p>
      * 
      * <p>Mandatory attribute supports unique identification of the 
      * client.</p>
@@ -166,7 +166,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -177,7 +177,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -196,7 +196,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.IdentifiedEntity.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -207,7 +207,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.IdentifiedEntity.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -291,7 +291,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -354,7 +354,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101104CA.IdentifiedEntity.confidentialityCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the business requirement to 
      * provide restricted access where required</p>
@@ -416,7 +416,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-20)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -427,7 +427,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-20)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -447,7 +447,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -458,7 +458,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-20)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * client</p>
@@ -479,7 +479,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -494,7 +494,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -517,7 +517,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101104CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -532,7 +532,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -554,7 +554,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -565,7 +565,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -584,7 +584,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -595,7 +595,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -674,7 +674,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Required attribute supports verification of death from 
      * official source such as Vital Statistics.</p>
@@ -706,7 +706,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.deceasedTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Required attribute supports verification of death from 
      * official source such as Vital Statistics.</p>
@@ -870,7 +870,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Person.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -881,7 +881,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101002CA.Person.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -958,7 +958,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Subject.observationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/observationEvent"})
     public ConfidenceValueBean getSubjectOfObservationEvent() {
@@ -970,7 +970,7 @@ public class IdentifiedPersonBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101104CA.Subject.observationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;

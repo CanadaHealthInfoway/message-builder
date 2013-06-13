@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,10 +87,6 @@ import java.util.Date;
  * 
  * <p>MCAI_MT700220CA.Author: a:*created by</p>
  * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
@@ -104,10 +100,6 @@ import java.util.Date;
  * caused this message.</p>
  * 
  * <p>QUQI_MT020000CA.Author: a:*created by</p>
- * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p>
  * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
@@ -207,10 +199,6 @@ import java.util.Date;
  * 
  * <p>MCAI_MT700221CA.Author: a:*created by</p>
  * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise the R_ActingPerson CMET must be specified.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
@@ -226,7 +214,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700220CA.Author","MCAI_MT700221CA.Author","MCAI_MT700222CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedBy_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();

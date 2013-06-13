@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientAnimal"})
 public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private ST name = new STImpl();
 
 
@@ -48,7 +48,7 @@ public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAs
      * <p>Relationship: 
      * FICR_MT600201CA.CoveredPartyAsPatientAnimal.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Name of animal</p>
      */
@@ -63,7 +63,7 @@ public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAs
      * <p>Relationship: 
      * FICR_MT600201CA.CoveredPartyAsPatientAnimal.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Name of animal</p>
      */

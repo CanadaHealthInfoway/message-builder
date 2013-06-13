@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRole"})
 public class PayeeRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private PayeeChoice payeeChoice;
 

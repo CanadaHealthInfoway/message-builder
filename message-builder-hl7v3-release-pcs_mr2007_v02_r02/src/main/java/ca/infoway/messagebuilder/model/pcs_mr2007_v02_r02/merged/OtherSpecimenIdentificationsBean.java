@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningOrganizationId = new IIImpl();
@@ -155,7 +155,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Categorized the type of role identifier.</p>
      * 
@@ -174,7 +174,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT080100CA.IdentifiedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Categorized the type of role identifier.</p>
      * 
@@ -275,7 +275,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -296,7 +296,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101003CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -319,7 +319,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * <p>Relationship: 
      * PRPA_MT101003CA.Person.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -341,7 +341,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>
@@ -360,7 +360,7 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPA_MT101003CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * client</p>

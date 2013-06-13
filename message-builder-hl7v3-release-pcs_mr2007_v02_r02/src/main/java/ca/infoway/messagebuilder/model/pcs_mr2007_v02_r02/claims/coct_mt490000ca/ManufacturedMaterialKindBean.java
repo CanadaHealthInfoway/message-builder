@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST desc = new STImpl();
     private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -66,7 +66,7 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Code for manufactured material</p>
      */
@@ -81,7 +81,7 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT490000CA.ManufacturedMaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Code for manufactured material</p>
      */
@@ -208,7 +208,7 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>number of items in the package</p>
      */
@@ -223,7 +223,7 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT490000CA.ContentPackagedProduct.quantity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>number of items in the package</p>
      */

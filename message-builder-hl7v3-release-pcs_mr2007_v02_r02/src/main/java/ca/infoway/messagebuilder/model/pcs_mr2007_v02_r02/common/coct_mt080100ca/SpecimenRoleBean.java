@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CV specimenMaterialCode = new CVImpl();
@@ -227,7 +227,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
@@ -245,7 +245,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to document container risks to those who handle the 
      * container.</p>
@@ -262,7 +262,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT080100CA.Subject3.transportationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/transportationEvent"})
     public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
@@ -274,7 +274,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT080100CA.Subject4.specimenObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
     public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
@@ -286,7 +286,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
     public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
@@ -297,7 +297,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;

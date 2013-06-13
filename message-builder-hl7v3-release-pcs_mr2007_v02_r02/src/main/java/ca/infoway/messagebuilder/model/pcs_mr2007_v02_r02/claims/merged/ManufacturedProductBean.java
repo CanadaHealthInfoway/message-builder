@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt490000ca
  * 
  * <p>COCT_MT490000CA.ManufacturedProduct: Manufactured Product</p>
  * 
- * <p>Must have Organization if you dont have UPC/GTIN or 
+ * <p>Must have Organization if you don'''t have UPC/GTIN or 
  * pseudo UPC</p>
  * 
  * <p>Scoped by Manufacturer</p>
@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt490000ca
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;
@@ -128,8 +128,8 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
-     * number</p>
+     * <p>(UPC/GTIN/pseudo UPC number manufacturer'''s 
+     * item/catalogue number</p>
      */
     @Hl7XmlMapping({"code"})
     public RoleCode getCode() {
@@ -151,8 +151,8 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>(UPC/GTIN/pseudo UPC number manufacturers item/catalogue 
-     * number</p>
+     * <p>(UPC/GTIN/pseudo UPC number manufacturer'''s 
+     * item/catalogue number</p>
      */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
@@ -292,7 +292,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Code for manufactured material eg. DIN/PIN</p>
      */
@@ -308,7 +308,7 @@ public class ManufacturedProductBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT290000CA.ManufacturedMaterial.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Code for manufactured material eg. DIN/PIN</p>
      */

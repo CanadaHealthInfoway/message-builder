@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,15 +38,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.pome_mt010100
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120008CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: POME_MT010100CA.Medication</p>
+ * <p>--> Payload: POME_MT010100CA.Medication</p>
  * 
- * <p>--> Sub-Payload: POME_MT010090CA.ParameterList</p>
+ * <p>--> Payload: POME_MT010090CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010080CA"})
 public class DrugSearchQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

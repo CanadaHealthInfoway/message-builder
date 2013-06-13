@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,13 +39,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt400001ca.Mas
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: COMT_MT400001CA.MaskableActType</p>
+ * <p>--> Payload: COMT_MT400001CA.MaskableActType</p>
  */
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

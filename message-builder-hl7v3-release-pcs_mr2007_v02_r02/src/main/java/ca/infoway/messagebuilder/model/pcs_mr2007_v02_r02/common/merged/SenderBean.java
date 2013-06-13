@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -898,18 +898,6 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * sending device to agent is optional.</p>
-     * 
-     * <p>Sending organization unique identifier.</p>
-     * 
-     * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
-     * 
      * <p>Relationship: MCCI_MT102001CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -928,18 +916,6 @@ public class SenderBean extends MessagePartBean {
 
     /**
      * <p>Business Name: SendingOrganizationIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
-     * 
-     * <p>Relationship: MCCI_MT002200CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier is the only non-structural attribute in 
-     * this class and is therefore mandatory. The association from 
-     * sending device to agent is optional.</p>
-     * 
-     * <p>Sending organization unique identifier.</p>
      * 
      * <p>Un-merged Business Name: SendingOrganizationIdentifier</p>
      * 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,43 +21,55 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultOutcomeBean;
+import ca.infoway.messagebuilder.datatype.MO;
+import ca.infoway.messagebuilder.datatype.impl.MOImpl;
+import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicationCodeChoice;
 
 
 
+/**
+ * <p>Want sum of all adjudication details (info &amp; 
+ * non-info) to equal what was submitted. For example, the 
+ * reasons why you refused to pay part of the invoice</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementChoice"})
 public interface AdjudicatedInvoiceElementChoice {
 
 
     /**
-     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
      */
-    public AllowableAmountBean getReference1Allowable();
+    public Money getReference1AllowableNetAmt();
 
     /**
-     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setReference1Allowable(AllowableAmountBean reference1Allowable);
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
      */
-    public AdjudicatedResultOutcomeBean getOutcomeOf();
+    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt);
+
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
+    public AdjudicationCodeChoice getOutcomeOfAdjudicationCodeChoice();
+
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setOutcomeOfAdjudicationCodeChoice(AdjudicationCodeChoice outcomeOfAdjudicationCodeChoice);
 
 }

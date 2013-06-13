@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +23,20 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.Date;
 
 
@@ -54,10 +57,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyRequest","PORX_MT030040CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
-    private CreatedAtBean location;
+    private CV locationSubstitutionConditionCode = new CVImpl();
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -258,38 +262,138 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: DispenseFacilityNotAssignableIndicator</p>
      * 
-     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.substitutionConditionCode</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targeted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location2.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/substitutionConditionCode"})
+    public x_SubstitutionConditionNoneOrUnconditional getLocationSubstitutionConditionCode() {
+        return (x_SubstitutionConditionNoneOrUnconditional) this.locationSubstitutionConditionCode.getValue();
+    }
+
+    /**
+     * <p>Business Name: DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targeted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * DispenseFacilityNotAssignableIndicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location2.substitutionConditionCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Influences whether the prescription may be transferred to 
+     * a service delivery location other than the targeted 
+     * dispenser.</p>
+     * 
+     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p>
+     */
+    public void setLocationSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional locationSubstitutionConditionCode) {
+        this.locationSubstitutionConditionCode.setValue(locationSubstitutionConditionCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060190CA.SupplyRequest.location</p>
+     * <p>Relationship: 
+     * PORX_MT060190CA.Location3.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.SupplyRequest.location</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 

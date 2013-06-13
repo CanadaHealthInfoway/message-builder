@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,13 +39,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt306010ca.Par
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700751CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPM_MT306010CA.ParameterList</p>
+ * <p>--> Payload: PRPM_MT306010CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN306010CA"})
 public class ProviderDetailsQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

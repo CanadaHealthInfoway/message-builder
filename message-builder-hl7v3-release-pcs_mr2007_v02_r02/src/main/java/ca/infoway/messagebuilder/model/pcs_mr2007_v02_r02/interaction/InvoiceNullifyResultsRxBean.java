@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,13 +38,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700227CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700227CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: FICR_MT630000CA.InvoiceElementGroup</p>
+ * <p>--> Payload: FICR_MT630000CA.InvoiceElementGroup</p>
  */
 @Hl7PartTypeMapping({"FICR_IN630102CA"})
 public class InvoiceNullifyResultsRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<InvoiceElementGroupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

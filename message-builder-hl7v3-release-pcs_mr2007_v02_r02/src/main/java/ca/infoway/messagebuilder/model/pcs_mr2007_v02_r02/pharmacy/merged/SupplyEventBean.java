@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
@@ -450,7 +450,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -468,7 +468,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -482,7 +482,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -500,7 +500,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -524,7 +524,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -542,7 +542,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -556,7 +556,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -574,7 +574,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful in monitoring patient compliance. May also be 
      * useful in determining and managing certain contraindications 
@@ -659,21 +659,21 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
@@ -686,21 +686,21 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Receiver2.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
         this.receiverPersonalRelationship = receiverPersonalRelationship;
@@ -713,21 +713,21 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
@@ -740,21 +740,21 @@ public class SupplyEventBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;

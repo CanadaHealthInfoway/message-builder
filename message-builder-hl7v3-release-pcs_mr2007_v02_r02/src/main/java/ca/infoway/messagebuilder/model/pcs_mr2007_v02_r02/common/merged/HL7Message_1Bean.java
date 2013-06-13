@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -314,7 +314,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:Action (after the second underscore, if 
-     * any, D otherwise)</p>
+     * any, '''D''' otherwise)</p>
      * 
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
@@ -331,7 +331,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:Action (after the second underscore, if 
-     * any, D otherwise)</p>
+     * any, '''D''' otherwise)</p>
      * 
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
@@ -356,7 +356,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:Action (after the second underscore, if 
-     * any, D otherwise)</p>
+     * any, '''D''' otherwise)</p>
      * 
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
@@ -373,7 +373,7 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>soap:Header\wsa:Action (after the second underscore, if 
-     * any, D otherwise)</p>
+     * any, '''D''' otherwise)</p>
      * 
      * <p>Essential to determining receiver behavior and therefore 
      * mandatory.</p>
@@ -397,8 +397,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\ (portion between last \ and 
-     * second-last \)</p>
+     * <p>soap:Header\wsa:To\ (portion between last '''\''' and 
+     * second-last '''\''')</p>
      * 
      * <p>Needed to know how to validate message definition, CMET 
      * definition, vocabulary and other information and is 
@@ -413,8 +413,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\ (portion between last \ and 
-     * second-last \)</p>
+     * <p>soap:Header\wsa:To\ (portion between last '''\''' and 
+     * second-last '''\''')</p>
      * 
      * <p>Needed to know how to validate message definition, CMET 
      * definition, vocabulary and other information and is 
@@ -437,8 +437,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\ (portion between last \ and 
-     * second-last \)</p>
+     * <p>soap:Header\wsa:To\ (portion between last '''\''' and 
+     * second-last '''\''')</p>
      * 
      * <p>Needed to know how to validate message definition, CMET 
      * definition, vocabulary and other information and is 
@@ -453,8 +453,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\ (portion between last \ and 
-     * second-last \)</p>
+     * <p>soap:Header\wsa:To\ (portion between last '''\''' and 
+     * second-last '''\''')</p>
      * 
      * <p>Needed to know how to validate message definition, CMET 
      * definition, vocabulary and other information and is 
@@ -477,8 +477,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:Action (after urn:hl7-org:v3: and before 
-     * the second underscore, if any)</p>
+     * <p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' and 
+     * before the second underscore, if any)</p>
      * 
      * <p>Identifies what the receiving application should do, and 
      * how the message should be validated. The attribute is 
@@ -492,8 +492,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:Action (after urn:hl7-org:v3: and before 
-     * the second underscore, if any)</p>
+     * <p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' and 
+     * before the second underscore, if any)</p>
      * 
      * <p>Identifies what the receiving application should do, and 
      * how the message should be validated. The attribute is 
@@ -515,8 +515,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:Action (after urn:hl7-org:v3: and before 
-     * the second underscore, if any)</p>
+     * <p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' and 
+     * before the second underscore, if any)</p>
      * 
      * <p>Identifies what the receiving application should do, and 
      * how the message should be validated. The attribute is 
@@ -530,8 +530,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:Action (after urn:hl7-org:v3: and before 
-     * the second underscore, if any)</p>
+     * <p>soap:Header\wsa:Action (after '''urn:hl7-org:v3:''' and 
+     * before the second underscore, if any)</p>
      * 
      * <p>Identifies what the receiving application should do, and 
      * how the message should be validated. The attribute is 
@@ -588,8 +588,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\(portion between second-last \ and 
-     * third-last \)</p>
+     * <p>soap:Header\wsa:To\(portion between second-last '''\''' 
+     * and third-last '''\''')</p>
      * 
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
@@ -603,8 +603,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\(portion between second-last \ and 
-     * third-last \)</p>
+     * <p>soap:Header\wsa:To\(portion between second-last '''\''' 
+     * and third-last '''\''')</p>
      * 
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
@@ -626,8 +626,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\(portion between second-last \ and 
-     * third-last \)</p>
+     * <p>soap:Header\wsa:To\(portion between second-last '''\''' 
+     * and third-last '''\''')</p>
      * 
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>
@@ -641,8 +641,8 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>soap:Header\wsa:To\(portion between second-last \ and 
-     * third-last \)</p>
+     * <p>soap:Header\wsa:To\(portion between second-last '''\''' 
+     * and third-last '''\''')</p>
      * 
      * <p>Indicates how the message should be handled and is 
      * therefore mandatory.</p>

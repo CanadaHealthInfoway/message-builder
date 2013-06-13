@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private List<AD> addressValue = new ArrayList<AD>();
     private CV administrativeGenderValue = new CVImpl();
     private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
@@ -120,7 +120,7 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      */
     @Hl7XmlMapping({"administrativeGender/value"})
     public AdministrativeGender getAdministrativeGenderValue() {
@@ -137,7 +137,7 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The principal persons gender.</p>
+     * <p>The principal person'''s gender.</p>
      */
     public void setAdministrativeGenderValue(AdministrativeGender administrativeGenderValue) {
         this.administrativeGenderValue.setValue(administrativeGenderValue);
@@ -210,7 +210,7 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      */
     @Hl7XmlMapping({"dOB/value"})
     public Date getDOBValue() {
@@ -227,7 +227,7 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The principal persons date of birth.</p>
+     * <p>The principal person'''s date of birth.</p>
      */
     public void setDOBValue(Date dOBValue) {
         this.dOBValue.setValue(dOBValue);
@@ -300,8 +300,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p>
      */
     @Hl7XmlMapping({"name/value"})
     public PersonName getNameValue() {
@@ -318,8 +318,8 @@ public class ParameterListBean extends MessagePartBean {
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p>
      */
     public void setNameValue(PersonName nameValue) {
         this.nameValue.setValue(nameValue);

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,13 +37,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt300002ca.Gen
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: COMT_MT300002CA.ParameterList</p>
+ * <p>--> Payload: COMT_MT300002CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
 public class PatientNoteQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

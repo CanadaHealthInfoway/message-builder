@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,19 +24,17 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OwnerPersonBean;
 import java.util.Set;
 
 
@@ -55,11 +53,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private ST patientNonPersonLivingSubjectName = new STImpl();
     private AD patientNonPersonLivingSubjectContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientNonPersonLivingSubjectContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN patientNonPersonLivingSubjectContactPartyContactPersonName = new PNImpl();
+    private OwnerPersonBean patientNonPersonLivingSubjectContactPartyContactPerson;
 
 
     /**
@@ -255,38 +253,22 @@ public class AnimalPatientBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Owner Name</p>
-     * 
-     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
+     * <p>Relationship: COCT_MT050303CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used when contacting or addressing the owner person. 
-     * Because this will be the principle means of identifying the 
-     * owner person, it is mandatory.</p>
-     * 
-     * <p>The name by which the owner person is known</p>
      */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
-    public PersonName getPatientNonPersonLivingSubjectContactPartyContactPersonName() {
-        return this.patientNonPersonLivingSubjectContactPartyContactPersonName.getValue();
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson"})
+    public OwnerPersonBean getPatientNonPersonLivingSubjectContactPartyContactPerson() {
+        return this.patientNonPersonLivingSubjectContactPartyContactPerson;
     }
 
     /**
-     * <p>Business Name: Owner Name</p>
-     * 
-     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
+     * <p>Relationship: COCT_MT050303CA.ContactParty.contactPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used when contacting or addressing the owner person. 
-     * Because this will be the principle means of identifying the 
-     * owner person, it is mandatory.</p>
-     * 
-     * <p>The name by which the owner person is known</p>
      */
-    public void setPatientNonPersonLivingSubjectContactPartyContactPersonName(PersonName patientNonPersonLivingSubjectContactPartyContactPersonName) {
-        this.patientNonPersonLivingSubjectContactPartyContactPersonName.setValue(patientNonPersonLivingSubjectContactPartyContactPersonName);
+    public void setPatientNonPersonLivingSubjectContactPartyContactPerson(OwnerPersonBean patientNonPersonLivingSubjectContactPartyContactPerson) {
+        this.patientNonPersonLivingSubjectContactPartyContactPerson = patientNonPersonLivingSubjectContactPartyContactPerson;
     }
 
 }

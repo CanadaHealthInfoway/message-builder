@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,9 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200ca.PayeeAccountBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.qucr_mt810201ca.CarrierOrThirdPartyAdministratorBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.qucr_mt810201ca.DevicePlayingTheSendingApplicationRoleBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.qucr_mt810201ca.ProviderIDBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceAdjudicationPaymentCode;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -83,16 +80,16 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
-    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
-    private ProviderIDBean performerAdjudResultsProviderRole;
-    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
+    private II deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId = new IIImpl();
+    private II performerAdjudResultsProviderRoleId = new IIImpl();
+    private II authorAdjudResultsCarrierRoleId = new IIImpl();
     private ServiceLocationBean locationServiceDeliveryLocation;
-    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private II referenceAdjudResultsFinancialContractId = new IIImpl();
     private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
@@ -106,7 +103,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
@@ -122,7 +119,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice Summary: can be used to request 
      * additional detail with a Payment Advice Query message.</p>
@@ -144,7 +141,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Relationship: QUCR_MT810201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>If specified on a Payment Advice Summary, can be used to 
      * request additional detail with a Payment Advice Query 
@@ -160,7 +157,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.AdjudResultsGroup.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice Summary: can be used to request 
      * additional detail with a Payment Advice Query message.</p>
@@ -323,7 +320,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Time period for the payment or summary period.</p>
      * 
@@ -335,7 +332,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
@@ -349,7 +346,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
@@ -367,7 +364,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Time period for the payment or summary period.</p>
      * 
@@ -379,7 +376,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
@@ -393,7 +390,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>For Payment Advice: Can also indicate time period over 
      * which the clawback and/or retro adjustment applies.</p>
@@ -523,77 +520,85 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
+     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Sending application identifier</p>
      */
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
-    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
-        return this.deviceAdjudResultsSendingAppRole;
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole/playingAdjudResultsSendingAppDevice/id"})
+    public Identifier getDeviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId() {
+        return this.deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId.getValue();
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
+     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Sending application identifier</p>
      */
-    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
-        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
+    public void setDeviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId(Identifier deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId) {
+        this.deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId.setValue(deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId);
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identity of provider for summary breakdowns.</p>
      */
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
-    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
-        return this.performerAdjudResultsProviderRole;
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole/id"})
+    public Identifier getPerformerAdjudResultsProviderRoleId() {
+        return this.performerAdjudResultsProviderRoleId.getValue();
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Identity of provider for summary breakdowns.</p>
      */
-    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
-        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
+    public void setPerformerAdjudResultsProviderRoleId(Identifier performerAdjudResultsProviderRoleId) {
+        this.performerAdjudResultsProviderRoleId.setValue(performerAdjudResultsProviderRoleId);
     }
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: CarrierId</p>
      * 
-     * <p>Relationship: 
-     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
+     * <p>Un-merged Business Name: CarrierId</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
-    public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
-        return this.authorAdjudResultsCarrierRole;
+    @Hl7XmlMapping({"author/adjudResultsCarrierRole/id"})
+    public Identifier getAuthorAdjudResultsCarrierRoleId() {
+        return this.authorAdjudResultsCarrierRoleId.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: CarrierId</p>
      * 
-     * <p>Relationship: 
-     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
+     * <p>Un-merged Business Name: CarrierId</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
-        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
+    public void setAuthorAdjudResultsCarrierRoleId(Identifier authorAdjudResultsCarrierRoleId) {
+        this.authorAdjudResultsCarrierRoleId.setValue(authorAdjudResultsCarrierRoleId);
     }
 
 
@@ -603,7 +608,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
@@ -616,7 +621,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupLocation.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
@@ -624,28 +629,36 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: BusinessArrangementID</p>
+     * 
+     * <p>Un-merged Business Name: BusinessArrangementID</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Business arrangement identifier</p>
      */
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
-    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
-        return this.referenceAdjudResultsFinancialContract;
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract/id"})
+    public Identifier getReferenceAdjudResultsFinancialContractId() {
+        return this.referenceAdjudResultsFinancialContractId.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: BusinessArrangementID</p>
+     * 
+     * <p>Un-merged Business Name: BusinessArrangementID</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
+     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Business arrangement identifier</p>
      */
-    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
-        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    public void setReferenceAdjudResultsFinancialContractId(Identifier referenceAdjudResultsFinancialContractId) {
+        this.referenceAdjudResultsFinancialContractId.setValue(referenceAdjudResultsFinancialContractId);
     }
 
 
@@ -655,14 +668,14 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsGroupSummary.adjudResultsGroupSummaryData</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -683,7 +696,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
@@ -696,7 +709,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
@@ -709,7 +722,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
@@ -722,7 +735,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
@@ -735,7 +748,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT810201CA.AdjudResultsGroupComponent.adjudResultsGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/adjudResultsGroup"})
     public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {

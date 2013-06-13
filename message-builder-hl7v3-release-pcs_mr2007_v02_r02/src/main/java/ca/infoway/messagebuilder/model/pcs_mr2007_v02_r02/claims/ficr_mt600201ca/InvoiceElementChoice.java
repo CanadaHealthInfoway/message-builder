@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,13 @@ import java.util.List;
 
 
 
+/**
+ * <p>All Relationships to the InvoiceElementGroup can only be 
+ * associated with the root level instance</p>
+ * 
+ * <p>Data centre and sequence number must be the same for each 
+ * complete group and detail hierarchy</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementChoice"})
 public interface InvoiceElementChoice {
 
@@ -34,7 +41,7 @@ public interface InvoiceElementChoice {
      * <p>Relationship: 
      * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public List<A_BillableActChoice> getReasonOfBillableActChoice();
 

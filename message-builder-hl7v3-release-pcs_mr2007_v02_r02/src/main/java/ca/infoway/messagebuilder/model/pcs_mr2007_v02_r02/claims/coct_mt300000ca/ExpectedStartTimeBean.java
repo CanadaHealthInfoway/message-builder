@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();
@@ -165,7 +165,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT300000CA.FulfillsOrder.substanceAdministrationOrder</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
     public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
@@ -176,7 +176,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT300000CA.FulfillsOrder.substanceAdministrationOrder</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
         this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
@@ -186,7 +186,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Component.substitution</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/substitution"})
     public DispenseSubstitutionBean getComponentSubstitution() {
@@ -196,7 +196,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Component.substitution</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
         this.componentSubstitution = componentSubstitution;
@@ -206,7 +206,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT300000CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {

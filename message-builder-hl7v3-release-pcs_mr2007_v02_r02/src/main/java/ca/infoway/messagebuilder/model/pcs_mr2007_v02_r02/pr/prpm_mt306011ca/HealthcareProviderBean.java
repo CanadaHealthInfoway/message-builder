@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,10 +70,8 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private static final long serialVersionUID = 20130613L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -82,17 +80,8 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_2Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
-
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
-    }
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
     /**
@@ -100,7 +89,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * <p>Conformance/Cardinality: REQUIRED (*)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -111,17 +100,6 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
         return this.id.rawSet();
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -171,8 +149,8 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The providers name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -335,6 +313,28 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 }

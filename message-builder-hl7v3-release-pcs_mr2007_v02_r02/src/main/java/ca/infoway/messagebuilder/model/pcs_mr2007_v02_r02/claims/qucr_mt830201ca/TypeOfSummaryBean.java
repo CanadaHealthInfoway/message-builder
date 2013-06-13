@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
@@ -125,7 +125,7 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Time period for the payment or summary period. Can also 
      * indicate time period over which the clawback and/or retro 
@@ -148,7 +148,7 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudResultsGroup.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Time period for the payment or summary period. Can also 
      * indicate time period over which the clawback and/or retro 
@@ -215,7 +215,7 @@ public class TypeOfSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * QUCR_MT830201CA.AdjudResultsRef.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {

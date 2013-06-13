@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.Subject"})
 public class PatientConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 
@@ -80,7 +80,7 @@ public class PatientConsentBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"patientConsent"})
     public Boolean getPatientConsent() {
@@ -90,7 +90,7 @@ public class PatientConsentBean extends MessagePartBean {
     /**
      * <p>Relationship: FICR_MT600201CA.Subject.patientConsent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPatientConsent(Boolean patientConsent) {
         this.patientConsent.setValue(patientConsent);

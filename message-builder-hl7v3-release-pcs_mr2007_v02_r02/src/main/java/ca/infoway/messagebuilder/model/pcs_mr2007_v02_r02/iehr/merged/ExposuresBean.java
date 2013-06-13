@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ExposureAgentEntityType;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
@@ -113,10 +112,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.ExposureEvent","REPC_MT000002CA.ExposureEvent","REPC_MT000005CA.ExposureEvent","REPC_MT000006CA.ExposureEvent","REPC_MT000009CA.ExposureEvent","REPC_MT000012CA.ExposureEvent","REPC_MT000013CA.ExposureEvent"})
 public class ExposuresBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV routeCode = new CVImpl();
-    private CV consumableAdministrableMaterialAdministerableMaterialKindCode = new CVImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
 
 
@@ -489,181 +487,13 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ExposedMaterialType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * <p>Relationship: 
+     * REPC_MT000005CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
-     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be coded. 
-     * Also, the code may sometimes be masked, in which case a 
-     * &quot;null flavor&quot; must be specified.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     */
-    @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind/code","consumable/administrableMaterial/administerableMaterialKind/code"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000001CA.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000005CA.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000009CA.Consumable"),
-        @Hl7MapByPartType(name="consumable", type="REPC_MT000013CA.Consumable"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000009CA.AdministerableMaterial"),
-        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000009CA.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000001CA.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000005CA.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000013CA.AdministrableMaterial"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000001CA.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000005CA.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000013CA.MaterialKind")})
-    public ExposureAgentEntityType getConsumableAdministrableMaterialAdministerableMaterialKindCode() {
-        return (ExposureAgentEntityType) this.consumableAdministrableMaterialAdministerableMaterialKindCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be coded. 
-     * Also, the code may sometimes be masked, in which case a 
-     * &quot;null flavor&quot; must be specified.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     * 
-     * <p>Un-merged Business Name: ExposedMaterialType</p>
-     * 
-     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Allows different kinds of reaction agents to be 
-     * distinguished. Coding strength is set to CWE because the 
-     * exposure agent type may not always be codified. The 
-     * attribute is populated because there is little point in 
-     * communicating about the exposure to an agent if it is not 
-     * known what the agent is, however it may not always be 
-     * coded.</p>
-     * 
-     * <p>Indicates the type of agent that the patient was exposed 
-     * to which caused the adverse reaction. This includes Drug, 
-     * Food, Latex, Dust, etc.</p>
-     */
-    public void setConsumableAdministrableMaterialAdministerableMaterialKindCode(ExposureAgentEntityType consumableAdministrableMaterialAdministerableMaterialKindCode) {
-        this.consumableAdministrableMaterialAdministerableMaterialKindCode.setValue(consumableAdministrableMaterialAdministerableMaterialKindCode);
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -674,7 +504,28 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * REPC_MT000001CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -687,20 +538,39 @@ public class ExposuresBean extends MessagePartBean {
      */
     @Hl7XmlMapping({"consumable/administerableMaterial/administerableMaterialKind","consumable/administrableMaterial/administerableMaterialKind"})
     @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000001CA.Consumable"),
         @Hl7MapByPartType(name="consumable", type="REPC_MT000002CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000005CA.Consumable"),
         @Hl7MapByPartType(name="consumable", type="REPC_MT000006CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000009CA.Consumable"),
         @Hl7MapByPartType(name="consumable", type="REPC_MT000012CA.Consumable"),
+        @Hl7MapByPartType(name="consumable", type="REPC_MT000013CA.Consumable"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000009CA.AdministerableMaterial"),
         @Hl7MapByPartType(name="consumable/administerableMaterial", type="REPC_MT000012CA.AdministerableMaterial"),
+        @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000009CA.MaterialKind"),
         @Hl7MapByPartType(name="consumable/administerableMaterial/administerableMaterialKind", type="REPC_MT000012CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000001CA.AdministrableMaterial"),
         @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000002CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000005CA.AdministrableMaterial"),
         @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000006CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial", type="REPC_MT000013CA.AdministrableMaterial"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000001CA.MaterialKind"),
         @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000002CA.MaterialKind"),
-        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000006CA.MaterialKind")})
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000005CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000006CA.MaterialKind"),
+        @Hl7MapByPartType(name="consumable/administrableMaterial/administerableMaterialKind", type="REPC_MT000013CA.MaterialKind")})
     public AgentCategoryBean getConsumableAdministrableMaterialAdministerableMaterialKind() {
         return this.consumableAdministrableMaterialAdministerableMaterialKind;
     }
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -711,7 +581,28 @@ public class ExposuresBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * REPC_MT000001CA.AdministrableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000009CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * REPC_MT000012CA.AdministerableMaterial.administerableMaterialKind</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000013CA.AdministrableMaterial.administerableMaterialKind</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

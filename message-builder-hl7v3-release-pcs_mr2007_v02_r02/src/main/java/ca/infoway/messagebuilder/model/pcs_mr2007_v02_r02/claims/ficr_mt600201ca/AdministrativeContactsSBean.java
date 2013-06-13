@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,16 +29,17 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeContactRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OwnerPersonBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactParty"})
 public class AdministrativeContactsSBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private AdministrativeContactPersonBean contactPerson;
+    private OwnerPersonBean contactPerson;
 
 
     /**
@@ -103,7 +104,7 @@ public class AdministrativeContactsSBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"contactPerson"})
-    public AdministrativeContactPersonBean getContactPerson() {
+    public OwnerPersonBean getContactPerson() {
         return this.contactPerson;
     }
 
@@ -112,7 +113,7 @@ public class AdministrativeContactsSBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setContactPerson(AdministrativeContactPersonBean contactPerson) {
+    public void setContactPerson(OwnerPersonBean contactPerson) {
         this.contactPerson = contactPerson;
     }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,6 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 
 @Hl7PartTypeMapping({"COCT_MT911102CA.ActingPerson","COCT_MT911107CA.ActingPerson"})
 @Hl7RootType
-public interface ActingPerson extends AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.AssignedPerson, SubjectChoice {
+public interface ActingPerson extends SubjectChoice, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.AssignedPerson {
 
 }

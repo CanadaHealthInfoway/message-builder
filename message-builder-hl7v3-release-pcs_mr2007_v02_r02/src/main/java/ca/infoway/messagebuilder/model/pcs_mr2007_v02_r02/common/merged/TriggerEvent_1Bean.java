@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt470002ca.ConsentBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -197,19 +196,19 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private Patient_2 recordTargetPatient1;
+    private StoredInBean recordTarget;
     private RefersTo_1Bean<ACT> subject;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
     private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
@@ -1646,108 +1645,124 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700227CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700227CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700217CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700217CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700221CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700221CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700226CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700226CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700216CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700216CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700211CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700220CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient_2 getRecordTargetPatient1() {
-        return this.recordTargetPatient1;
+    @Hl7XmlMapping({"recordTarget"})
+    public StoredInBean getRecordTarget() {
+        return this.recordTarget;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700227CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700227CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700217CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700217CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700221CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700221CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700226CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700226CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700216CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700216CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700211CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220CA.RecordTarget.patient1</p>
+     * <p>Relationship: 
+     * MCAI_MT700220CA.ControlActEvent.recordTarget</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient_2 recordTargetPatient1) {
-        this.recordTargetPatient1 = recordTargetPatient1;
+    public void setRecordTarget(StoredInBean recordTarget) {
+        this.recordTarget = recordTarget;
     }
 
 
@@ -1900,67 +1915,67 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Relationship: MCAI_MT700227CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700218CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700222CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700217CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700226CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700216CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf1/detectedIssueEvent","subjectOf2/detectedIssueEvent"})
     @Hl7MapByPartTypes({
@@ -2350,84 +2365,96 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700222CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700222CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700221CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700221CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700220CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700212CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700212CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700222CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700210CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700222CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCAI_MT700221CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700211CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700210CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCAI_MT700220CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MCAI_MT700221CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700211CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700220CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -2532,19 +2559,19 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/consentEvent","subjectOf2/consentEvent"})
     @Hl7MapByPartTypes({
@@ -2562,19 +2589,19 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Relationship: MCAI_MT700212CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700210CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Subject3.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
         this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;

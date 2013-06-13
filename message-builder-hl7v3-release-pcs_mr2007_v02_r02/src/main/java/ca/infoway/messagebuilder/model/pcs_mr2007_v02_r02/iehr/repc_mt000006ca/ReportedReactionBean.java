@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,8 +51,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Healthca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -91,7 +91,7 @@ public class ReportedReactionBean extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private ReportedByBean informant;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
@@ -264,9 +264,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their adverse reaction data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Can'''t have both normal and 
+     * one of the other codes simultaneously.</p><p>The attribute 
+     * is required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p>
      * 
@@ -340,7 +340,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -351,7 +351,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -404,30 +404,30 @@ public class ReportedReactionBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * REPC_MT000006CA.ReactionObservationEvent.location</p>
+     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Relationship: 
-     * REPC_MT000006CA.ReactionObservationEvent.location</p>
+     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
     /**
      * <p>Relationship: REPC_MT000006CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public List<NotesBean> getSubjectOf1Annotation() {
@@ -439,7 +439,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.Subject4.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -450,7 +450,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.Subject4.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
@@ -461,7 +461,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.Subject6.causalityAssessment</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
@@ -495,7 +495,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000006CA.Component.patientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {

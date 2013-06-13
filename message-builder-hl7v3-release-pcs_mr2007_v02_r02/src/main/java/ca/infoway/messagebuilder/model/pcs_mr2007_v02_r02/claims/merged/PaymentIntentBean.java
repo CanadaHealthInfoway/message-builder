@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200ca.PayeeAccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.AdjudicatorBillingTaxAccountBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.PaymentReasonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,13 +68,13 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private List<PaymentReasonBean> reasonOf = new ArrayList<PaymentReasonBean>();
+    private List<AdjudicatedInvoiceElementChoice> reasonOfAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
 
 
     /**
@@ -238,13 +238,13 @@ public class PaymentIntentBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
@@ -256,13 +256,13 @@ public class PaymentIntentBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayee.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
@@ -274,13 +274,13 @@ public class PaymentIntentBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
@@ -292,13 +292,13 @@ public class PaymentIntentBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.PaymentIntentPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT630000CA.PaymentIntentPayor.account</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
@@ -311,7 +311,7 @@ public class PaymentIntentBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.PertinentInformation.adjudicatorBillingTaxAccount</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
     public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
@@ -322,13 +322,14 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT610201CA.PaymentIntent.reasonOf</p>
+     * <p>Relationship: 
+     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reasonOf"})
-    public List<PaymentReasonBean> getReasonOf() {
-        return this.reasonOf;
+    @Hl7XmlMapping({"reasonOf/adjudicatedInvoiceElementChoice"})
+    public List<AdjudicatedInvoiceElementChoice> getReasonOfAdjudicatedInvoiceElementChoice() {
+        return this.reasonOfAdjudicatedInvoiceElementChoice;
     }
 
 }

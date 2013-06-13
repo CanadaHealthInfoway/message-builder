@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,11 +52,6 @@ import java.util.Date;
  * 
  * <p>MFMI_MT700711CA.Author: a:*created by</p>
  * 
- * <p>If AuthorizationToken is specified and communicates 
- * author, the bare AuthorRole class must be specified, 
- * otherwise (R_AssignedPerson CMET or R_AssignedOrganization) 
- * must be specified.</p>
- * 
  * <p>Critical for auditing and for validating permissions and 
  * therefore mandatory.</p>
  * 
@@ -66,7 +61,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();

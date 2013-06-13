@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,9 +23,11 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt01012
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.ProtocolsBean;
 
 
 
@@ -33,8 +35,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Protoc
  * <p>Business Name: references</p>
  * 
  * <p>Provides support for non-traditional therapies. Needed 
- * when seeking to prescribe Special Access medications, for 
- * example, Ontario Limited Use.</p>
+ * when seeking to prescribe '''Special Access''' medications, 
+ * for example, Ontario Limited Use.</p>
  * 
  * <p>Enables the communication of a reference to a protocol, 
  * study or guideline id, specific to the jurisdiction;</p>
@@ -42,9 +44,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Protoc
 @Hl7PartTypeMapping({"PORX_MT010120CA.Definition"})
 public class ReferencesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private BL contextConductionInd = new BLImpl();
-    private ProtocolsBean substanceAdministrationDefinition;
+    private II substanceAdministrationDefinitionId = new IIImpl();
 
 
     /**
@@ -70,24 +72,60 @@ public class ReferencesBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * <p>Business Name: H:Protocol Identifiers</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Enables the communication of a reference to a protocol, 
+     * study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication;</p><p>This attribute is mandatory as the id 
+     * clearly identifies the protocol, study or guideline being 
+     * referenced</p>
+     * 
+     * <p>A unique identifier for a specific protocol or guideline 
+     * which the prescription has been written in accordance 
+     * with.</p>
      */
-    @Hl7XmlMapping({"substanceAdministrationDefinition"})
-    public ProtocolsBean getSubstanceAdministrationDefinition() {
-        return this.substanceAdministrationDefinition;
+    @Hl7XmlMapping({"substanceAdministrationDefinition/id"})
+    public Identifier getSubstanceAdministrationDefinitionId() {
+        return this.substanceAdministrationDefinitionId.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * <p>Business Name: H:Protocol Identifiers</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.SubstanceAdministrationDefinition.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Enables the communication of a reference to a protocol, 
+     * study or guideline id, specific to the 
+     * jurisdiction;</p><p>Allows providers to reference a 
+     * protocol/guideline for prescribing to specific situations. 
+     * This could also be used for justification for prescribing a 
+     * medication from a particular formulary. E.g., 'Limited Use' 
+     * medications in Ontario require physicians to use a code 
+     * indicating that a patient is eligible for this particular 
+     * medication;</p><p>This attribute is mandatory as the id 
+     * clearly identifies the protocol, study or guideline being 
+     * referenced</p>
+     * 
+     * <p>A unique identifier for a specific protocol or guideline 
+     * which the prescription has been written in accordance 
+     * with.</p>
      */
-    public void setSubstanceAdministrationDefinition(ProtocolsBean substanceAdministrationDefinition) {
-        this.substanceAdministrationDefinition = substanceAdministrationDefinition;
+    public void setSubstanceAdministrationDefinitionId(Identifier substanceAdministrationDefinitionId) {
+        this.substanceAdministrationDefinitionId.setValue(substanceAdministrationDefinitionId);
     }
 
 }

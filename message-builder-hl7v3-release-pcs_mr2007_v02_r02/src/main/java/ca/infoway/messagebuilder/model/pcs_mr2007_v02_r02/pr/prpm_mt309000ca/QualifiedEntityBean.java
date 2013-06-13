@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,25 +59,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private static final long serialVersionUID = 20130613L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPersonBean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
-
-
-    /**
-     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
-    }
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
     /**
@@ -95,17 +84,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
         return this.id.rawSet();
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT309000CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -234,6 +212,28 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 }

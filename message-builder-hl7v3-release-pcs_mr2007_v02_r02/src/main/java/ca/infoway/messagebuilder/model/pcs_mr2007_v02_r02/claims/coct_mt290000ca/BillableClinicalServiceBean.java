@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,15 +64,15 @@ import java.util.Set;
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> reasonCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
-    private HealthcareProviderBean performerHealthCareProvider;
     private HealthcareProviderBean secondaryPerformerHealthCareProvider;
+    private HealthcareProviderBean performerHealthCareProvider;
     private HealthcareProviderBean referrerHealthCareProvider;
     private HealthcareProviderBean consultantHealthCareProvider;
     private ServiceLocationBean locationServiceDeliveryLocation;
@@ -214,7 +214,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     /**
      * <p>Relationship: COCT_MT290000CA.Product.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/manufacturedProduct"})
     public List<ManufacturedProductBean> getProductManufacturedProduct() {
@@ -224,31 +224,9 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
     /**
      * <p>Relationship: 
-     * COCT_MT290000CA.ResponsibleProvider.healthCareProvider</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"performer/healthCareProvider"})
-    public HealthcareProviderBean getPerformerHealthCareProvider() {
-        return this.performerHealthCareProvider;
-    }
-
-    /**
-     * <p>Relationship: 
-     * COCT_MT290000CA.ResponsibleProvider.healthCareProvider</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setPerformerHealthCareProvider(HealthcareProviderBean performerHealthCareProvider) {
-        this.performerHealthCareProvider = performerHealthCareProvider;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * COCT_MT290000CA.ProviderSupervisor.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"secondaryPerformer/healthCareProvider"})
     public HealthcareProviderBean getSecondaryPerformerHealthCareProvider() {
@@ -259,7 +237,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.ProviderSupervisor.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSecondaryPerformerHealthCareProvider(HealthcareProviderBean secondaryPerformerHealthCareProvider) {
         this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
@@ -268,9 +246,31 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
 
     /**
      * <p>Relationship: 
+     * COCT_MT290000CA.ResponsibleProvider.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"performer/healthCareProvider"})
+    public HealthcareProviderBean getPerformerHealthCareProvider() {
+        return this.performerHealthCareProvider;
+    }
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT290000CA.ResponsibleProvider.healthCareProvider</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setPerformerHealthCareProvider(HealthcareProviderBean performerHealthCareProvider) {
+        this.performerHealthCareProvider = performerHealthCareProvider;
+    }
+
+
+    /**
+     * <p>Relationship: 
      * COCT_MT290000CA.ServiceReferrer.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"referrer/healthCareProvider"})
     public HealthcareProviderBean getReferrerHealthCareProvider() {
@@ -281,7 +281,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.ServiceReferrer.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReferrerHealthCareProvider(HealthcareProviderBean referrerHealthCareProvider) {
         this.referrerHealthCareProvider = referrerHealthCareProvider;
@@ -292,7 +292,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.Consultant.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"consultant/healthCareProvider"})
     public HealthcareProviderBean getConsultantHealthCareProvider() {
@@ -303,7 +303,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.Consultant.healthCareProvider</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setConsultantHealthCareProvider(HealthcareProviderBean consultantHealthCareProvider) {
         this.consultantHealthCareProvider = consultantHealthCareProvider;
@@ -314,7 +314,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.ServiceLocation.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
@@ -325,7 +325,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.ServiceLocation.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
@@ -348,7 +348,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.EncounterInformation.patientEncounter</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"pertinentInformation2/patientEncounter"})
     public PatientEncounterBean getPertinentInformation2PatientEncounter() {
@@ -359,7 +359,7 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
      * <p>Relationship: 
      * COCT_MT290000CA.EncounterInformation.patientEncounter</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPertinentInformation2PatientEncounter(PatientEncounterBean pertinentInformation2PatientEncounter) {
         this.pertinentInformation2PatientEncounter = pertinentInformation2PatientEncounter;

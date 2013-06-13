@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -122,7 +122,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.PersonalRelationship","PRPA_MT101002CA.PersonalRelationship","PRPA_MT101102CA.PersonalRelationship","PRPA_MT101104CA.PersonalRelationship"})
 public class PersonalRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private II relationshipHolderId = new IIImpl();
     private PN relationshipHolderName = new PNImpl();

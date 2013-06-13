@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -251,9 +251,10 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their adverse reaction data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Cant have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * care giver.</p><p>Constraint: Can'''t have both normal and 
+     * one of the other codes simultaneously.</p><p>The attribute 
+     * is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>Communicates the intent of the patient to restrict access 
      * to their adverse reactions.</p><p>Provides support for 
@@ -365,7 +366,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000012CA.Subject6.causalityAssessment</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {

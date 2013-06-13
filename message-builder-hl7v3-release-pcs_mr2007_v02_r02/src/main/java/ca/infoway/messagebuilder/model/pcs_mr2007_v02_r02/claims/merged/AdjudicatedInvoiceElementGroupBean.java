@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceAuthorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceCoverageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicationResultBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceGroupCode;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -65,10 +66,10 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     private PaymentIntentBean reasonPaymentIntent;
     private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
     private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
-    private AdjudicatedResultOutcomeBean outcomeOf;
     private AdjudicatedInvoiceAuthorBean author;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+    private AdjudicationResultBean outcomeOfAdjudicationResult;
 
 
     /**
@@ -343,7 +344,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reason/paymentIntent"})
     public PaymentIntentBean getReasonPaymentIntent() {
@@ -356,7 +357,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.PaymentIntentReason.paymentIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
         this.reasonPaymentIntent = reasonPaymentIntent;
@@ -369,7 +370,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
@@ -382,7 +383,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.Reference.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
         this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
@@ -395,7 +396,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
     public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
@@ -408,36 +409,10 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * FICR_MT630000CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
         this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
     }
 
 
@@ -473,7 +448,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementGroup.coverage</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
     @Hl7XmlMapping({"coverage"})
     public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
@@ -487,11 +462,37 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Relationship: 
      * COCT_MT680000CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
     public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
         return this.componentAdjudicatedInvoiceElementChoice;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
+    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
+        return this.outcomeOfAdjudicationResult;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
+        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
     }
 
 }

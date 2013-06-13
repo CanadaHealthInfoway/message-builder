@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,13 +40,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101102ca.Ide
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700726CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700726CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPA_MT101102CA.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101102CA.IdentifiedEntity</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101206CA"})
 public class PersonReviseEventRejectBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

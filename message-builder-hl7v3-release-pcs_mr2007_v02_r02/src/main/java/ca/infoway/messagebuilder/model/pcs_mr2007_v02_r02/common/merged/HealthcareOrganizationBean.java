@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,9 +65,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT090502CA.AssignedEntity","COCT_MT090508CA.AssignedEntity"})
 @Hl7RootType
-public class HealthcareOrganizationBean extends MessagePartBean implements AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson, EntererChoice, ActingPerson {
+public class HealthcareOrganizationBean extends MessagePartBean implements EntererChoice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();

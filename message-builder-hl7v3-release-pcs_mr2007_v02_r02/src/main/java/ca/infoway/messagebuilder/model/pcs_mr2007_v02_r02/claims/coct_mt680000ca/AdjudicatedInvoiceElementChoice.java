@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultOutcomeBean;
 
 
 
@@ -31,18 +30,18 @@ public interface AdjudicatedInvoiceElementChoice {
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public AdjudicatedResultOutcomeBean getOutcomeOf();
+    public AdjudicationResultBean getOutcomeOfAdjudicationResult();
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
+     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
+    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult);
 
 }

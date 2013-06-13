@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,18 +22,25 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt290000c
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.InjuryActSite;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.InjuryObservationValue;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ObservationInjuryType;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private INT sequenceNumber = new INTImpl();
-    private AccidentInjuryCodingBean accidentInjuryCoding;
+    private CV accidentInjuryCodingCode = new CVImpl();
+    private CV accidentInjuryCodingValue = new CVImpl();
+    private CV accidentInjuryCodingTargetSiteCode = new CVImpl();
 
 
     /**
@@ -65,24 +72,88 @@ public class AccidentInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
+     * <p>Business Name: Observation Injury type</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Injury Type</p>
      */
-    @Hl7XmlMapping({"accidentInjuryCoding"})
-    public AccidentInjuryCodingBean getAccidentInjuryCoding() {
-        return this.accidentInjuryCoding;
+    @Hl7XmlMapping({"accidentInjuryCoding/code"})
+    public ObservationInjuryType getAccidentInjuryCodingCode() {
+        return (ObservationInjuryType) this.accidentInjuryCodingCode.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
+     * <p>Business Name: Observation Injury type</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Injury Type</p>
      */
-    public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
-        this.accidentInjuryCoding = accidentInjuryCoding;
+    public void setAccidentInjuryCodingCode(ObservationInjuryType accidentInjuryCodingCode) {
+        this.accidentInjuryCodingCode.setValue(accidentInjuryCodingCode);
+    }
+
+
+    /**
+     * <p>Business Name: Injury code</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Nature of Injury</p>
+     */
+    @Hl7XmlMapping({"accidentInjuryCoding/value"})
+    public InjuryObservationValue getAccidentInjuryCodingValue() {
+        return (InjuryObservationValue) this.accidentInjuryCodingValue.getValue();
+    }
+
+    /**
+     * <p>Business Name: Injury code</p>
+     * 
+     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Nature of Injury</p>
+     */
+    public void setAccidentInjuryCodingValue(InjuryObservationValue accidentInjuryCodingValue) {
+        this.accidentInjuryCodingValue.setValue(accidentInjuryCodingValue);
+    }
+
+
+    /**
+     * <p>Business Name: Act Injury Site</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Body Part + modifier = Side of Body</p>
+     */
+    @Hl7XmlMapping({"accidentInjuryCoding/targetSiteCode"})
+    public InjuryActSite getAccidentInjuryCodingTargetSiteCode() {
+        return (InjuryActSite) this.accidentInjuryCodingTargetSiteCode.getValue();
+    }
+
+    /**
+     * <p>Business Name: Act Injury Site</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Body Part + modifier = Side of Body</p>
+     */
+    public void setAccidentInjuryCodingTargetSiteCode(InjuryActSite accidentInjuryCodingTargetSiteCode) {
+        this.accidentInjuryCodingTargetSiteCode.setValue(accidentInjuryCodingTargetSiteCode);
     }
 
 }

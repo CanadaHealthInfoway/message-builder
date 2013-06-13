@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToL
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Location","PRPM_MT303010CA.Location"})
 public class Location_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private INT sequenceNumber = new INTImpl();
     private DispenseShipToLocationBean serviceDeliveryLocation;
 
@@ -79,14 +79,14 @@ public class Location_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public DispenseShipToLocationBean getServiceDeliveryLocation() {
@@ -99,14 +99,14 @@ public class Location_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setServiceDeliveryLocation(DispenseShipToLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;

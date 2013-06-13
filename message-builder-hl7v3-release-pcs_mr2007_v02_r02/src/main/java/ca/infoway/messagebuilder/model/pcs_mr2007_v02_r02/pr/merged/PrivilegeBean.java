@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -93,7 +93,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -110,7 +110,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -122,7 +122,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -134,7 +134,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -166,7 +166,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -178,7 +178,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT301010CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -190,7 +190,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -509,7 +509,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -540,7 +540,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -578,7 +578,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT303010CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Mandatory attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
@@ -609,7 +609,7 @@ public class PrivilegeBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT309000CA.Privilege.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the validation and 
      * identification of the healthcare provider and his/her given 

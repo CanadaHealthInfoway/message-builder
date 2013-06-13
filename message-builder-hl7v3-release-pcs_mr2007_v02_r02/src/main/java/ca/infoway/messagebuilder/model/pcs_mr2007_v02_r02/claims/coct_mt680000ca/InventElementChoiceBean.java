@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,12 +35,12 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
-public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.InvoiceElementChoice {
+public class InventElementChoiceBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
-    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
+    private List<InvoiceElementChoice> componentInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
 
 
     /**
@@ -105,13 +105,13 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.InvoiceElementIntent.component</p>
+     * COCT_MT680000CA.InvoiceElementComponent.invoiceElementChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceElementComponentBean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"component/invoiceElementChoice"})
+    public List<InvoiceElementChoice> getComponentInvoiceElementChoice() {
+        return this.componentInvoiceElementChoice;
     }
 
 }

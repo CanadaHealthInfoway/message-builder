@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,6 +67,15 @@ import java.util.Set;
  * road&quot;. This CMET is intended for circumstances that the 
  * desired service delivery location is not in the registry</p>
  * 
+ * <p>PORX_MT020050CA.ServiceDeliveryLocation: (no business 
+ * name)</p>
+ * 
+ * <p>Allows tracking what drugs are dispensed to a 
+ * facility.</p>
+ * 
+ * <p>The location where the supply is expected to be 
+ * delivered.</p>
+ * 
  * <p>COCT_MT240003CA.ServiceDeliveryLocation: Service Location</p>
  * 
  * <p>Used for tracking service delivery responsibility, to 
@@ -103,11 +112,11 @@ import java.util.Set;
  * that can be found in the service delivery location. E.g. 
  * Pharmacy, Medical Clinic, Hospital</p>
  */
-@Hl7PartTypeMapping({"COCT_MT240002CA.ServiceDeliveryLocation","COCT_MT240003CA.ServiceDeliveryLocation","COCT_MT240007CA.ServiceDeliveryLocation","COCT_MT240012CA.ServiceDeliveryLocation"})
+@Hl7PartTypeMapping({"COCT_MT240002CA.ServiceDeliveryLocation","COCT_MT240003CA.ServiceDeliveryLocation","COCT_MT240007CA.ServiceDeliveryLocation","COCT_MT240012CA.ServiceDeliveryLocation","PORX_MT020050CA.ServiceDeliveryLocation"})
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -117,8 +126,6 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>Business Name: ServiceLocationIdentifier</p>
-     * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
@@ -142,6 +149,19 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * found in a registry, the attribute is only 'required'.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToFacilityId</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking what drugs are dispensed to a facility. 
+     * The attribute is mandatory because identification of the 
+     * facility must be known.</p>
+     * 
+     * <p>Identifier of the facility where the dispensed medication 
+     * was shipped.</p>
      * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
@@ -230,8 +250,6 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
     }
 
     /**
-     * <p>Business Name: ServiceLocationIdentifier</p>
-     * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
      * <p>Relationship: COCT_MT240007CA.ServiceDeliveryLocation.id</p>
@@ -255,6 +273,19 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * found in a registry, the attribute is only 'required'.</p>
      * 
      * <p>Unique identifier for a healthcare service location.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToFacilityId</p>
+     * 
+     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows tracking what drugs are dispensed to a facility. 
+     * The attribute is mandatory because identification of the 
+     * facility must be known.</p>
+     * 
+     * <p>Identifier of the facility where the dispensed medication 
+     * was shipped.</p>
      * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
@@ -422,7 +453,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -438,7 +469,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -462,7 +493,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -478,7 +509,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -502,7 +533,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240007CA.ServiceDeliveryLocation.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>Allows a service location to be communicated with and is 
      * therefore important. Because a contact number won't always 
@@ -516,7 +547,7 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>Allows a service location to be communicated with and is 
      * therefore important. Because a contact number won't always 

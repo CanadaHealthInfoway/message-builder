@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
@@ -159,7 +159,7 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT080100CA.Performer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareWorkerBean getPerformerAssignedEntity() {
@@ -169,7 +169,7 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT080100CA.Performer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
@@ -179,7 +179,7 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     /**
      * <p>Relationship: COCT_MT080100CA.Subject2.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public List<NotesBean> getSubjectOfAnnotation() {

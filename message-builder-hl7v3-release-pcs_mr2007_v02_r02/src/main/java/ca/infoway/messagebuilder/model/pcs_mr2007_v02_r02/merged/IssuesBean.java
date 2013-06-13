@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
-import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.CausalActs;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.IssueDescriptionBean;
@@ -152,14 +151,14 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV subjectOf2SeverityObservationValue = new CVImpl();
+    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
     private BL triggerForActRequest = new BLImpl(false);
     private BL subjectOf1StorageIntent = new BLImpl(false);
 
@@ -462,7 +461,15 @@ public class IssuesBean extends MessagePartBean {
      * issue type can be distinguished from another.</p>
      * 
      * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issu
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.code</p>
+     
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -768,7 +775,15 @@ public class IssuesBean extends MessagePartBean {
      * issue type can be distinguished from another.</p>
      * 
      * <p>A coded value that is used to distinguish between 
-     * different kinds of issues. Types of issu
+     * different kinds of issues. Types of issue include: 
+     * unrecognized identifiers, permission issues, drug-drug 
+     * contraindications, drug-allergy alerts, duplicate therapies, 
+     * etc.</p>
+     * 
+     * <p>Un-merged Business Name: IssueType</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.DetectedIssueEvent.code</p>
+     
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {
@@ -1345,19 +1360,19 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT260030CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260010CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
@@ -1371,21 +1386,21 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
     public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
@@ -1398,21 +1413,21 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
         this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
@@ -1425,35 +1440,35 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * COCT_MT260030CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260022CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260012CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260010CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * COCT_MT260020CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
     public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
@@ -1462,93 +1477,25 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260030CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260010CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260020CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
      */
-    @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="COCT_MT260010CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="COCT_MT260030CA.Subject"),
@@ -1556,99 +1503,31 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="COCT_MT260030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2", type="COCT_MT260020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="COCT_MT260020CA.SeverityObservation")})
-    public SeverityObservation getSubjectOf2SeverityObservationValue() {
-        return (SeverityObservation) this.subjectOf2SeverityObservationValue.getValue();
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
+        return this.subjectOf2SeverityObservation;
     }
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260030CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260010CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260020CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;mandatory&quot; 
-     * because the code denoting level of severity must be 
-     * specified.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
      */
-    public void setSubjectOf2SeverityObservationValue(SeverityObservation subjectOf2SeverityObservationValue) {
-        this.subjectOf2SeverityObservationValue.setValue(subjectOf2SeverityObservationValue);
+    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
+        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
     }
 
 
@@ -1657,13 +1536,13 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"triggerFor/actRequest"})
     public Boolean getTriggerForActRequest() {
@@ -1675,13 +1554,13 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT260022CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COCT_MT260020CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setTriggerForActRequest(Boolean triggerForActRequest) {
         this.triggerForActRequest.setValue(triggerForActRequest);
@@ -1693,7 +1572,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/storageIntent"})
     public Boolean getSubjectOf1StorageIntent() {
@@ -1705,7 +1584,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT260020CA.Subject3.storageIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
         this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);

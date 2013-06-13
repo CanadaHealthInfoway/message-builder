@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,20 +39,19 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pr.prpm_mt303010ca.Rol
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700716CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700716CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPM_MT303010CA.RoleChoice</p>
+ * <p>--> Payload: PRPM_MT303010CA.RoleChoice</p>
  * 
- * <p>----> Sub-Payload Choice: PRPM_MT303010CA.AssignedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.AssignedEntity</p>
  * 
- * <p>----> Sub-Payload Choice: PRPM_MT303010CA.QualifiedEntity</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.QualifiedEntity</p>
  * 
- * <p>----> Sub-Payload Choice: 
- * PRPM_MT303010CA.HealthCareProvider</p>
+ * <p>----> Payload Choice: PRPM_MT303010CA.HealthCareProvider</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN303030CA"})
 public class UpdateProviderNotificationBean extends HL7Message_1Bean<TriggerEvent_3Bean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

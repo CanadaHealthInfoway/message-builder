@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -113,11 +113,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
     private RefusedByBean author;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
@@ -128,7 +128,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -142,7 +142,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -156,7 +156,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occured.</p><p>Is marked as populated as it may 
@@ -170,7 +170,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -184,7 +184,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -198,7 +198,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -220,7 +220,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060060CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -234,7 +234,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -248,7 +248,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT030040CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occured.</p><p>Is marked as populated as it may 
@@ -262,7 +262,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -276,7 +276,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060190CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -290,7 +290,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.RefusalToFill.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>May be important to down stream providers to know when 
      * the refusal occurred.</p><p>Is marked as populated as it may 
@@ -562,60 +562,68 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location4.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.RefusalToFill.location</p>
+     * <p>Relationship: 
+     * PORX_MT060160CA.Location4.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -624,37 +632,37 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060060CA.Reason2.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060340CA.Reason.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Reason2.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060040CA.Reason.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Reason2.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Reason.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reason/detectedIssueEvent"})
     public List<IssuesBean> getReasonDetectedIssueEvent() {

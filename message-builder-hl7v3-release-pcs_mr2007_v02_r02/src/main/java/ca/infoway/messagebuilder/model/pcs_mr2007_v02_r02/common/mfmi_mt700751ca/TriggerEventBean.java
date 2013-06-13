@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Healthca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ConsentBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -69,7 +68,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -78,7 +77,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
     private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -356,22 +355,24 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -400,7 +401,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     /**
      * <p>Relationship: MFMI_MT700751CA.Subject1.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/consentEvent"})
     public ConsentBean getSubjectOf1ConsentEvent() {
@@ -410,7 +411,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     /**
      * <p>Relationship: MFMI_MT700751CA.Subject1.consentEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
         this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;
@@ -420,7 +421,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     /**
      * <p>Relationship: MFMI_MT700751CA.Subject2.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {

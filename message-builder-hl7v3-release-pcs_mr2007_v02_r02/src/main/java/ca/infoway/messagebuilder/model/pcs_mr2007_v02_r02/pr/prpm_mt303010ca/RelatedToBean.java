@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
@@ -62,7 +62,7 @@ public class RelatedToBean extends MessagePartBean {
     /**
      * <p>Relationship: PRPM_MT303010CA.RelatedTo.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"roleChoice"})
     public RoleChoice getRoleChoice() {
@@ -72,7 +72,7 @@ public class RelatedToBean extends MessagePartBean {
     /**
      * <p>Relationship: PRPM_MT303010CA.RelatedTo.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;

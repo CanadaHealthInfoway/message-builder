@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306010CA.ResponseObject"})
 public class ResponseObjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private SET<CV, Code> value = new SETImpl<CV, Code>(CVImpl.class);
 
 
@@ -70,7 +70,7 @@ public class ResponseObjectBean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT306010CA.ResponseObject.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-20)</p>
      * 
      * <p>Populated attribute provides tremendous value in giving 
      * the organization issuing the query the flexibility to 

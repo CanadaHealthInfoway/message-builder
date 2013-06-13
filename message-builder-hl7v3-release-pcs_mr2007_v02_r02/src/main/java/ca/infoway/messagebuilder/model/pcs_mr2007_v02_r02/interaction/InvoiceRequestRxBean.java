@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,13 +36,13 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700211CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700211CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: FICR_MT600201CA.PaymentRequest</p>
+ * <p>--> Payload: FICR_MT600201CA.PaymentRequest</p>
  */
 @Hl7PartTypeMapping({"FICR_IN600102CA"})
 public class InvoiceRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<InvoiceIdentifierBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

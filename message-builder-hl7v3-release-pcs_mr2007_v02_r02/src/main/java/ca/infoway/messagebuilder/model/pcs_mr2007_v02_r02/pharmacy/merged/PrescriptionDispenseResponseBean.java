@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220200ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.Date;
 
 
@@ -72,15 +73,15 @@ import java.util.Date;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
-    private II inFulfillmentOfActRequestId = new IIImpl();
+    private ActRequestBean inFulfillmentOfActRequest;
     private RelatedPersonBean receiverPersonalRelationship;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
-    private II destinationServiceDeliveryLocationId = new IIImpl();
+    private ServiceLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
     private NotesBean subjectOfAnnotation;
 
@@ -174,52 +175,26 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * <p>Relationship: PORX_MT020030CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>This is an identifier assigned to a specific medication 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
      */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Identifier getInFulfillmentOfActRequestId() {
-        return this.inFulfillmentOfActRequestId.getValue();
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public ActRequestBean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
     }
 
     /**
-     * <p>Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * <p>Relationship: PORX_MT020030CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>This is an identifier assigned to a specific medication 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
      */
-    public void setInFulfillmentOfActRequestId(Identifier inFulfillmentOfActRequestId) {
-        this.inFulfillmentOfActRequestId.setValue(inFulfillmentOfActRequestId);
+    public void setInFulfillmentOfActRequest(ActRequestBean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
@@ -229,7 +204,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020020CA.Receiver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
@@ -242,7 +217,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020020CA.Receiver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
         this.receiverPersonalRelationship = receiverPersonalRelationship;
@@ -404,44 +379,28 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ShipToFacilityId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ShipToFacilityId</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: 
+     * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getDestinationServiceDeliveryLocationId() {
-        return this.destinationServiceDeliveryLocationId.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Business Name: ShipToFacilityId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ShipToFacilityId</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: 
+     * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
      */
-    public void setDestinationServiceDeliveryLocationId(Identifier destinationServiceDeliveryLocationId) {
-        this.destinationServiceDeliveryLocationId.setValue(destinationServiceDeliveryLocationId);
+    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -451,7 +410,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
     public SupplyOrderBean getFulfillmentSupplyRequest() {
@@ -464,7 +423,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020050CA.InFulfillmentOf.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
@@ -476,7 +435,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
@@ -488,7 +447,7 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;

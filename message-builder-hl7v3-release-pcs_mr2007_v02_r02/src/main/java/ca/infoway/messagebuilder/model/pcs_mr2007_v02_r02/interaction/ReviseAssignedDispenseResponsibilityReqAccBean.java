@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,18 +38,18 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060350CA.Prescription</p>
+ * <p>--> Payload: PORX_MT060350CA.Prescription</p>
  * 
- * <p>----> Sub-Payload Choice: 
+ * <p>----> Payload Choice: 
  * PORX_MT060340CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Sub-Payload Choice: PORX_MT060040CA.DeviceRequest</p>
+ * <p>----> Payload Choice: PORX_MT060040CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010110CA"})
 public class ReviseAssignedDispenseResponsibilityReqAccBean extends HL7Message_1Bean<TriggerEvent_1Bean<Prescription>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

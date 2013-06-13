@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,15 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201c
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatorRoleBean;
 import java.util.Date;
 
 
@@ -44,9 +49,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
-    private AdjudicatorRoleBean adjudicatorRole;
+    private II adjudicatorRoleId = new IIImpl();
+    private PN adjudicatorRolePlayingAdjudicatorPersonName = new PNImpl();
+    private II adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId = new IIImpl();
 
 
     /**
@@ -90,24 +97,92 @@ public class AdjudicatorBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * <p>Business Name: Adjudicator ID</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Adjudicator Id -Set of identifiers that uniquely identify 
+     * the adjudicator of the invoice.</p>
      */
-    @Hl7XmlMapping({"adjudicatorRole"})
-    public AdjudicatorRoleBean getAdjudicatorRole() {
-        return this.adjudicatorRole;
+    @Hl7XmlMapping({"adjudicatorRole/id"})
+    public Identifier getAdjudicatorRoleId() {
+        return this.adjudicatorRoleId.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
+     * <p>Business Name: Adjudicator ID</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Adjudicator Id -Set of identifiers that uniquely identify 
+     * the adjudicator of the invoice.</p>
      */
-    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
-        this.adjudicatorRole = adjudicatorRole;
+    public void setAdjudicatorRoleId(Identifier adjudicatorRoleId) {
+        this.adjudicatorRoleId.setValue(adjudicatorRoleId);
+    }
+
+
+    /**
+     * <p>Business Name: Adjudicator Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Name of person adjudicating the invoice.</p>
+     */
+    @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorPerson/name"})
+    public PersonName getAdjudicatorRolePlayingAdjudicatorPersonName() {
+        return this.adjudicatorRolePlayingAdjudicatorPersonName.getValue();
+    }
+
+    /**
+     * <p>Business Name: Adjudicator Person Name</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.AdjudicatorPerson.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Name of person adjudicating the invoice.</p>
+     */
+    public void setAdjudicatorRolePlayingAdjudicatorPersonName(PersonName adjudicatorRolePlayingAdjudicatorPersonName) {
+        this.adjudicatorRolePlayingAdjudicatorPersonName.setValue(adjudicatorRolePlayingAdjudicatorPersonName);
+    }
+
+
+    /**
+     * <p>Business Name: Adjudicator Insurance Carrier ID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>As identified by the Adjudicator</p>
+     * 
+     * <p>Adjudicator Insurance Carrier ID</p>
+     */
+    @Hl7XmlMapping({"adjudicatorRole/directAuthority/insuranceCarrierRole/id"})
+    public Identifier getAdjudicatorRoleDirectAuthorityInsuranceCarrierRoleId() {
+        return this.adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId.getValue();
+    }
+
+    /**
+     * <p>Business Name: Adjudicator Insurance Carrier ID</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.InsuranceCarrierRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>As identified by the Adjudicator</p>
+     * 
+     * <p>Adjudicator Insurance Carrier ID</p>
+     */
+    public void setAdjudicatorRoleDirectAuthorityInsuranceCarrierRoleId(Identifier adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId) {
+        this.adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId.setValue(adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId);
     }
 
 }

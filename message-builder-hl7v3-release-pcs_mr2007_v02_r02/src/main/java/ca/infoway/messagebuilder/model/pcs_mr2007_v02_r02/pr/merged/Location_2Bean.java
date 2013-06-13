@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class Location_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS typeCode = new CSImpl();
     private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
@@ -87,7 +87,7 @@ public class Location_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -105,7 +105,7 @@ public class Location_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
@@ -125,7 +125,7 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
@@ -145,7 +145,7 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Relationship: 
      * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;

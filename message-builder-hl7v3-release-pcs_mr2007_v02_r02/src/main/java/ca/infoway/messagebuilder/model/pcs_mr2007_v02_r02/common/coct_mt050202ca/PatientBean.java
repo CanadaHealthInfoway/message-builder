@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,9 +55,9 @@ import java.util.Date;
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Patient_2 {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Patient_2, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private PN patientPersonName = new PNImpl();
     private CV patientPersonAdministrativeGenderCode = new CVImpl();
@@ -177,7 +177,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -250,7 +250,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Relationship: COCT_MT050202CA.Person.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPA.1 (partType=Given)</p>
      * 
@@ -367,7 +367,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to confirm patient identity.</p><p>This element is 
      * 'populated' because the patient's birth date is necessary 
@@ -389,7 +389,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Used to confirm patient identity.</p><p>This element is 
      * 'populated' because the patient's birth date is necessary 

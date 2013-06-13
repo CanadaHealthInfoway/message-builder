@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceElementGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
@@ -216,7 +216,7 @@ public class InvoiceElementGroupBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT630000CA.PreviousAdjudicationResultReference.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {

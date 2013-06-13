@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt300000c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdminSubstitutionCode;
 import ca.infoway.messagebuilder.domainvalue.SubstanceAdminSubstitutionReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -33,10 +36,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
-    private SubstitutionRoleBean performerSubstitutionRole;
+    private II performerSubstitutionRoleId = new IIImpl();
 
 
     /**
@@ -72,7 +75,7 @@ public class DispenseSubstitutionBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT300000CA.Substitution.reasonCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Reason for substituting or not substituting, e.g. because 
      * prescriber requested</p>
@@ -89,7 +92,7 @@ public class DispenseSubstitutionBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT300000CA.Substitution.reasonCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Reason for substituting or not substituting, e.g. because 
      * prescriber requested</p>
@@ -102,22 +105,22 @@ public class DispenseSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
+     * <p>Relationship: COCT_MT300000CA.SubstitutionRole.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"performer/substitutionRole"})
-    public SubstitutionRoleBean getPerformerSubstitutionRole() {
-        return this.performerSubstitutionRole;
+    @Hl7XmlMapping({"performer/substitutionRole/id"})
+    public Identifier getPerformerSubstitutionRoleId() {
+        return this.performerSubstitutionRoleId.getValue();
     }
 
     /**
-     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
+     * <p>Relationship: COCT_MT300000CA.SubstitutionRole.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
-        this.performerSubstitutionRole = performerSubstitutionRole;
+    public void setPerformerSubstitutionRoleId(Identifier performerSubstitutionRoleId) {
+        this.performerSubstitutionRoleId.setValue(performerSubstitutionRoleId);
     }
 
 }

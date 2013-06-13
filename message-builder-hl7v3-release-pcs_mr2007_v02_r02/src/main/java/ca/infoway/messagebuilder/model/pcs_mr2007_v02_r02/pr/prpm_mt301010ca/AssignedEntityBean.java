@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,10 +76,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -88,18 +86,9 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_1Bean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
     /**
@@ -107,7 +96,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Relationship: PRPM_MT301010CA.AssignedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -125,7 +114,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Relationship: PRPM_MT301010CA.AssignedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
@@ -135,17 +124,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -188,13 +166,13 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Relationship: PRPM_MT301010CA.AssignedEntity.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>Populated attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The providers name pertaining to the specific functional 
-     * role.</p>
+     * <p>The provider'''s name pertaining to the specific 
+     * functional role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -359,14 +337,36 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
+     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT301010CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
     public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
         return this.performanceActDefinitionOrEvent;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 }

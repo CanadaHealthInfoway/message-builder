@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,8 +51,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Healthca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.Records;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -88,7 +88,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private ReportedByBean informant;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AllergyIntoleranceBean replacementOfIntoleranceCondition;
     private List<Records> supportRecords = new ArrayList<Records>();
     private List<AllergyIntoleranceStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<AllergyIntoleranceStatusChangesBean>();
@@ -316,8 +316,8 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Cant have both normal 
-     * and one of the other codes simultaneously.</p><p>The 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
      * communicate masked data returned from other 
@@ -456,7 +456,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -467,7 +467,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -518,23 +518,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * REPC_MT000009CA.IntoleranceCondition.location</p>
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Relationship: 
-     * REPC_MT000009CA.IntoleranceCondition.location</p>
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -542,7 +542,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ReplacementOf.intoleranceCondition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"replacementOf/intoleranceCondition"})
     public AllergyIntoleranceBean getReplacementOfIntoleranceCondition() {
@@ -553,7 +553,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ReplacementOf.intoleranceCondition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReplacementOfIntoleranceCondition(AllergyIntoleranceBean replacementOfIntoleranceCondition) {
         this.replacementOfIntoleranceCondition = replacementOfIntoleranceCondition;
@@ -563,7 +563,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Support.records</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"support/records"})
     public List<Records> getSupportRecords() {
@@ -574,7 +574,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Subject4.controlActEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<AllergyIntoleranceStatusChangesBean> getSubjectOf1ControlActEvent() {
@@ -585,7 +585,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<NotesBean> getSubjectOf2Annotation() {
@@ -619,7 +619,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.Component.patientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -201,7 +201,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Author2","COCT_MT260020CA.Author2","COCT_MT260030CA.Author2","COCT_MT470002CA.Author2","COCT_MT470012CA.Author2","PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -230,7 +230,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -246,7 +246,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -263,7 +263,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -280,7 +280,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -326,7 +326,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -359,7 +359,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -375,7 +375,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
@@ -428,7 +428,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -444,7 +444,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT030040CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -461,7 +461,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -478,7 +478,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060020CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -524,7 +524,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -557,7 +557,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -573,7 +573,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060190CA.Author2.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential information for a prescription to be 
      * legal.</p><p>This information may not always be known for an 
@@ -815,13 +815,13 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -851,7 +851,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -863,7 +863,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -911,13 +911,13 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT470012CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -947,7 +947,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -959,7 +959,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020050CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 

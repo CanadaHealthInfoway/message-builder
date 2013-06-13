@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
@@ -116,7 +116,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * discrete control over access to their prescription 
      * data.</p><p>Taboo allows the provider to request restricted 
      * access to patient or their care giver.</p><p>Constraint: 
-     * Cant have both normal and one of the other codes 
+     * Can'''t have both normal and one of the other codes 
      * simultaneously.</p><p>The attribute is optional because not 
      * all systems will support masking.</p>
      * 
@@ -181,7 +181,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020070CA.Component13.substitutionMade</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component1/substitutionMade"})
     public SubstitutionBean getComponent1SubstitutionMade() {
@@ -192,7 +192,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020070CA.Component13.substitutionMade</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
@@ -234,7 +234,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public NotesBean getSubjectOfAnnotation() {
@@ -244,7 +244,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT020070CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT290000CA.PatientEncounter","COCT_MT300000CA.PatientEncounter"})
 public class PatientEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private TS effectiveTime = new TSImpl();
 
@@ -61,7 +61,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>encounter id</p>
      * 
@@ -69,7 +69,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Encounter id</p>
      */
@@ -85,7 +85,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT300000CA.PatientEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>encounter id</p>
      * 
@@ -93,7 +93,7 @@ public class PatientEncounterBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT290000CA.PatientEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Encounter id</p>
      */

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.QueryAckBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.QueryByParameterBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RegistrationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -248,7 +249,7 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     /**
      * <p>Relationship: MFMI_MT700746CA.Subject2.registrationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subject/registrationEvent"})
     public List<RegistrationEventBean<RR>> getSubjectRegistrationEvent() {
@@ -259,7 +260,7 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     /**
      * <p>Relationship: MFMI_MT700746CA.Subject.detectedIssueEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.SubstanceAdministrationRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.ActRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.SupplyEventBean;
 import java.util.Set;
 
@@ -62,16 +62,16 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
-    private CreatedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private SupplyEventBean component1SupplyEvent;
     private ST component2AdministrationInstructionsText = new STImpl();
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private ActRequestBean fulfillmentSubstanceAdministrationRequest;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -169,7 +169,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>Taboo allows the provider to 
      * request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Cant have both normal and one of 
+     * giver.</p><p>Constraint: Can'''t have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
@@ -195,7 +195,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -206,7 +206,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
@@ -234,22 +234,24 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
+     * <p>Relationship: 
+     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -343,10 +345,10 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+    public ActRequestBean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
 
@@ -354,9 +356,9 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.InFulfillmentOf.substanceAdministrationRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+    public void setFulfillmentSubstanceAdministrationRequest(ActRequestBean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
 
@@ -365,7 +367,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.Subject4.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
@@ -376,7 +378,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.Subject4.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
@@ -387,7 +389,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.Subject3.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -398,7 +400,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060100CA.Subject3.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);

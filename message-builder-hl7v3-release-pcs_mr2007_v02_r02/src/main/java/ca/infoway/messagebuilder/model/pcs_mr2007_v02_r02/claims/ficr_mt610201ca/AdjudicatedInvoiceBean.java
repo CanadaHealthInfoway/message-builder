@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedInvoiceElementGroupBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultOutcomeBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultsGroupBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicationCodeChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceGroupCode;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,9 +58,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private AllowableAmountBean reference1Allowable;
-    private AdjudicatedResultOutcomeBean outcomeOf;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -68,51 +66,11 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
     private AdjudicatorBean author;
     private AdjudicatedInvoiceBean predecessorAdjudicatedInvoiceElementGroup;
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private MO reference1AllowableNetAmt = new MOImpl();
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-    private List<ComponentInvoiceElementBean> component = new ArrayList<ComponentInvoiceElementBean>();
+    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+    private AdjudicationCodeChoice outcomeOfAdjudicationCodeChoice;
     private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
-
-
-    /**
-     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"reference1/allowable"})
-    public AllowableAmountBean getReference1Allowable() {
-        return this.reference1Allowable;
-    }
-
-    /**
-     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setReference1Allowable(AllowableAmountBean reference1Allowable) {
-        this.reference1Allowable = reference1Allowable;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
-    }
 
 
     /**
@@ -373,7 +331,7 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"predecessor/adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceBean getPredecessorAdjudicatedInvoiceElementGroup() {
@@ -384,7 +342,7 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudicatedInvoicePredecessor.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPredecessorAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceBean predecessorAdjudicatedInvoiceElementGroup) {
         this.predecessorAdjudicatedInvoiceElementGroup = predecessorAdjudicatedInvoiceElementGroup;
@@ -395,11 +353,35 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
      * <p>Relationship: 
      * FICR_MT610201CA.Reference2.adjudicatedInvoiceElementGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    /**
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
+     */
+    @Hl7XmlMapping({"reference1/allowable/netAmt"})
+    public Money getReference1AllowableNetAmt() {
+        return this.reference1AllowableNetAmt.getValue();
+    }
+
+    /**
+     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allowable or eligibile amount, as per fee schedule</p>
+     */
+    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt) {
+        this.reference1AllowableNetAmt.setValue(reference1AllowableNetAmt);
     }
 
 
@@ -417,13 +399,49 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.component</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component"})
-    public List<ComponentInvoiceElementBean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
+    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
+        return this.componentAdjudicatedInvoiceElementChoice;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"outcomeOf/adjudicationCodeChoice"})
+    public AdjudicationCodeChoice getOutcomeOfAdjudicationCodeChoice() {
+        return this.outcomeOfAdjudicationCodeChoice;
+    }
+
+    /**
+     * <p>Relationship: 
+     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setOutcomeOfAdjudicationCodeChoice(AdjudicationCodeChoice outcomeOfAdjudicationCodeChoice) {
+        this.outcomeOfAdjudicationCodeChoice = outcomeOfAdjudicationCodeChoice;
+    }
+
+    public AdjudicationResultReasonBean getOutcomeOfAdjudicationCodeChoiceAsAdjudicationResultReason() {
+        return this.outcomeOfAdjudicationCodeChoice instanceof AdjudicationResultReasonBean ? (AdjudicationResultReasonBean) this.outcomeOfAdjudicationCodeChoice : null;
+    }
+    public boolean hasOutcomeOfAdjudicationCodeChoiceAsAdjudicationResultReason() {
+        return (this.outcomeOfAdjudicationCodeChoice instanceof AdjudicationResultReasonBean);
+    }
+
+    public AdjudicationResultsInformationBean getOutcomeOfAdjudicationCodeChoiceAsAdjudicationResultInformation() {
+        return this.outcomeOfAdjudicationCodeChoice instanceof AdjudicationResultsInformationBean ? (AdjudicationResultsInformationBean) this.outcomeOfAdjudicationCodeChoice : null;
+    }
+    public boolean hasOutcomeOfAdjudicationCodeChoiceAsAdjudicationResultInformation() {
+        return (this.outcomeOfAdjudicationCodeChoice instanceof AdjudicationResultsInformationBean);
     }
 
 
@@ -431,7 +449,7 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
     public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
@@ -442,7 +460,7 @@ public class AdjudicatedInvoiceBean extends MessagePartBean implements Adjudicat
      * <p>Relationship: 
      * FICR_MT610201CA.AdjudResultsRef.adjudResultsGroup</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
         this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;

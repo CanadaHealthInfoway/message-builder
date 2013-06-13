@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
@@ -96,7 +96,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -128,7 +128,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -168,7 +168,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT610201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -200,7 +200,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>In the absence of a Covered Party identifier, additional 
      * information to identify the individual may be required (e.g. 
@@ -249,8 +249,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>Un-merged Business Name: 
-     * CoveredPartyRelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: CoveredPartyRelPToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 
@@ -285,8 +284,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>Un-merged Business Name: 
-     * CoveredPartyRelationshipToPolicyHolder</p>
+     * <p>Un-merged Business Name: CoveredPartyRelPToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 
@@ -311,14 +309,14 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
     public RelatedPersonBean getIndirectAuthorityPersonalRelationship() {
@@ -331,14 +329,14 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship: 
      * FICR_MT610201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.IndirectAuthorithyOver.personalRelationship</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
