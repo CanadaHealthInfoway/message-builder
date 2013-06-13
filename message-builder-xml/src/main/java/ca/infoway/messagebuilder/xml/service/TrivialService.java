@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.xml.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -70,6 +71,10 @@ class TrivialService implements MessageDefinitionService {
 	}
 
 	public Set<String> getSupportedVersionsForInteraction(String type) {
+		return null;
+	}
+
+	public Collection<MessagePart> getAllMessageParts(VersionNumber version) {
 		return null;
 	}
 

@@ -184,6 +184,20 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	}
 
 	/**
+	 * <p>Get all message parts for a particular version of the specification.
+	 * @param version - the version
+	 * @return the message parts
+	 */
+	public Collection<MessagePart> getAllMessageParts(VersionNumber version) {
+		for (MessageSet messageSet : getMessageSets()) {
+			if (messageSet.getVersion().equals(version.getVersionLiteral())) {
+				return messageSet.getAllMessageParts();
+			}
+		}
+		return Collections.emptyList();
+	}
+
+	/**
 	 * <p>Get all interactions for a particular version of the specification.
 	 * @param version - the version
 	 * @return the interactions

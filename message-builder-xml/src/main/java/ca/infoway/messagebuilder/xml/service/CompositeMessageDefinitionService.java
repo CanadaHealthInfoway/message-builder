@@ -21,6 +21,8 @@
 package ca.infoway.messagebuilder.xml.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -167,6 +169,17 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 		}
 		return new HashMap<String, MessagePart>();
 	}
+	
+	public Collection<MessagePart> getAllMessageParts(VersionNumber version) {
+		for (MessageDefinitionService service : this.services) {
+			Collection<MessagePart> allMessageParts = service.getAllMessageParts(version);
+			if (allMessageParts != null && !allMessageParts.isEmpty()) {
+				return allMessageParts;
+			}
+		}
+		return Collections.emptyList();
+	}
+
 	/**
 	 * <p>Get all the message parts that a particular root message part references.  Currently this method is unimplemented.
 	 * @param messagePart - the messagePart
@@ -187,4 +200,5 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
+
 }

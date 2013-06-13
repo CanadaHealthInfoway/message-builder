@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.xml.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -101,4 +102,5 @@ public interface MessageDefinitionService {
 	 */
 	List<MessagePart> getAllRootMessageParts(VersionNumber version);
 	
+	public Collection<MessagePart> getAllMessageParts(VersionNumber version);
 }
