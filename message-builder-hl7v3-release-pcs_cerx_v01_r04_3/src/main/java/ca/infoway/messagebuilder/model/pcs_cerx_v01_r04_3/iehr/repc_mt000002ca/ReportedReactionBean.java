@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -365,7 +365,7 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000002CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public CommentBean getSubjectOf1Annotation() {
@@ -375,7 +375,7 @@ public class ReportedReactionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000002CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
         this.subjectOf1Annotation = subjectOf1Annotation;
@@ -408,7 +408,7 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000002CA.Subject6.causalityAssessment</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {

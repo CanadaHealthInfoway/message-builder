@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -120,7 +120,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
      * 
@@ -151,7 +151,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Relationship: PORX_MT980030CA.SubstanceAdministration.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>DDI/DuplicateTherapy.InteractingPrescriptionNumber</p>
      * 
@@ -183,7 +183,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Relationship: 
      * PORX_MT980030CA.SubstanceAdministration.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Needed to determine what to do about the issue. Because 
      * the medication can be masked, this element is only marked as 
@@ -205,7 +205,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
      * <p>Relationship: 
      * PORX_MT980030CA.SubstanceAdministration.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Needed to determine what to do about the issue. Because 
      * the medication can be masked, this element is only marked as 
@@ -406,7 +406,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
@@ -416,7 +416,7 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Relationship: PORX_MT980030CA.Consumable.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;

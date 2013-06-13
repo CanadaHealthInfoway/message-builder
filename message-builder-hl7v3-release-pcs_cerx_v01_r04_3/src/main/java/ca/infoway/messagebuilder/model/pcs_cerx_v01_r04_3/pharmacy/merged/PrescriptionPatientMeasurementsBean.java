@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.QuantityObservationEvent","PORX_MT060160CA.QuantityObservationEvent","PORX_MT060340CA.QuantityObservationEvent"})
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ value = new PQImpl();
@@ -216,7 +216,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04</p>
      * 
@@ -237,7 +237,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -255,7 +255,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04</p>
      * 
@@ -282,7 +282,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060340CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04</p>
      * 
@@ -303,7 +303,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010120CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -321,7 +321,7 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060160CA.QuantityObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04</p>
      * 

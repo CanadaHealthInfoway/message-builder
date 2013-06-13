@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.ConsentGivenToBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Recipient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,28 +47,42 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
-    private ConsentGivenToBean receiver;
+    private static final long serialVersionUID = 20130613L;
+    private Recipient receiverRecipient;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     /**
-     * <p>Relationship: RCMR_MT010001CA.PermissionToInform.receiver</p>
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver"})
-    public ConsentGivenToBean getReceiver() {
-        return this.receiver;
+    @Hl7XmlMapping({"receiver/recipient"})
+    public Recipient getReceiverRecipient() {
+        return this.receiverRecipient;
     }
 
     /**
-     * <p>Relationship: RCMR_MT010001CA.PermissionToInform.receiver</p>
+     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReceiver(ConsentGivenToBean receiver) {
-        this.receiver = receiver;
+    public void setReceiverRecipient(Recipient receiverRecipient) {
+        this.receiverRecipient = receiverRecipient;
+    }
+
+    public ProviderBean getReceiverRecipientAsAssignedPerson() {
+        return this.receiverRecipient instanceof ProviderBean ? (ProviderBean) this.receiverRecipient : null;
+    }
+    public boolean hasReceiverRecipientAsAssignedPerson() {
+        return (this.receiverRecipient instanceof ProviderBean);
+    }
+
+    public ServiceLocationBean getReceiverRecipientAsServiceDeliveryLocation() {
+        return this.receiverRecipient instanceof ServiceLocationBean ? (ServiceLocationBean) this.receiverRecipient : null;
+    }
+    public boolean hasReceiverRecipientAsServiceDeliveryLocation() {
+        return (this.receiverRecipient instanceof ServiceLocationBean);
     }
 
 

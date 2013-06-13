@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,11 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.pome_mt01004
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
+import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980050ca.Indications;
@@ -45,8 +48,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
-    private PatientBean subjectPatient;
+    private static final long serialVersionUID = 20130613L;
+    private CV subjectPatientPatientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<Indications> reasonIndications = new ArrayList<Indications>();
@@ -54,22 +57,38 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Some dosage specifications are gender-specific.</p>
+     * 
+     * <p>Indicates the gender of patient to whom the dosage 
+     * specification applies.</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"subject/patient/patientLivingSubjectKind/administrativeGenderCode"})
+    public AdministrativeGender getSubjectPatientPatientLivingSubjectKindAdministrativeGenderCode() {
+        return (AdministrativeGender) this.subjectPatientPatientLivingSubjectKindAdministrativeGenderCode.getValue();
     }
 
     /**
-     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * <p>Business Name: Patient Gender</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Some dosage specifications are gender-specific.</p>
+     * 
+     * <p>Indicates the gender of patient to whom the dosage 
+     * specification applies.</p>
      */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setSubjectPatientPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender subjectPatientPatientLivingSubjectKindAdministrativeGenderCode) {
+        this.subjectPatientPatientLivingSubjectKindAdministrativeGenderCode.setValue(subjectPatientPatientLivingSubjectKindAdministrativeGenderCode);
     }
 
 
@@ -114,7 +133,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Relationship: POME_MT010040CA.Option.dosageInstruction</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"option/dosageInstruction"})
     public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
@@ -125,7 +144,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Relationship: POME_MT010040CA.Reason.indications</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reason/indications"})
     public List<Indications> getReasonIndications() {
@@ -137,7 +156,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
      * <p>Relationship: 
      * POME_MT010040CA.Precondition.observationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"precondition/observationEventCriterion"})
     public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {

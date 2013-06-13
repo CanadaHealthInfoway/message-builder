@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,9 +43,9 @@ import ca.infoway.messagebuilder.domainvalue.CommonClinicalObservationType;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,9 +57,9 @@ import java.util.List;
  * <p>REPC_MT100002CA.CommonObservationEvent: Patient 
  * Measurement</p>
  * 
- * <p>Measurement Type with a nullFlavor value must have 
- * SubObservations Measurement Type without a nullFlavor value 
- * must not have SubObservations.</p>
+ * <p>Measurement Type with a '''nullFlavor''' value must have 
+ * SubObservations Measurement Type without a '''nullFlavor''' 
+ * value must not have SubObservations.</p>
  * 
  * <p>Annotation is only permitted if Annotation Indicator is 
  * not present and vice versa</p>
@@ -73,9 +73,9 @@ import java.util.List;
  * <p>REPC_MT000018CA.CommonObservationEvent: Patient 
  * Measurements</p>
  * 
- * <p>Measurement Type with a nullFlavorvalue must have 
- * SubObservations Measurement Type without a nullFlavor value 
- * must not have SubObservations.</p>
+ * <p>Measurement Type with a '''nullFlavor'''value must have 
+ * SubObservations Measurement Type without a '''nullFlavor''' 
+ * value must not have SubObservations.</p>
  * 
  * <p>Allows pertinent patient measurements to be recorded for 
  * clinical purposes.</p>
@@ -87,7 +87,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
@@ -96,7 +96,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
     private PatientBean subjectPatient;
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private RecordedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private List<ComponentMeasurementsBean> componentSubObservationEvent = new ArrayList<ComponentMeasurementsBean>();
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private CommentBean subjectOfAnnotation;
@@ -165,7 +165,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Distinguishes what kind of information is being 
      * specified.</p><p>The attribute is CD to support SNOMED</p>
@@ -200,7 +200,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000018CA.CommonObservationEvent.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Distinguishes what kind of information is being 
      * specified.</p><p>The attribute is CD to support SNOMED</p>
@@ -220,7 +220,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows providers to evaluate currency of the information. 
      * Because the date of observation/measurement determines the 
@@ -238,7 +238,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -265,7 +265,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.CommonObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows providers to evaluate currency of the information. 
      * Because the date of observation/measurement determines the 
@@ -283,7 +283,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000018CA.CommonObservationEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>OBS.010-04 NCPDP:Clinical.494-ZE 
      * NCPDP:Clinical.495-H1</p>
@@ -526,7 +526,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -539,7 +539,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -576,25 +576,25 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * REPC_MT100002CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * REPC_MT100002CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -604,14 +604,14 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.Component.subObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000018CA.Component.subObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/subObservationEvent"})
     public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
@@ -625,7 +625,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.Subject2.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
@@ -638,7 +638,7 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100002CA.Subject2.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
@@ -650,13 +650,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
@@ -673,13 +673,13 @@ public class PatientMeasurementsBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT100002CA.Subject.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000018CA.Subject.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;

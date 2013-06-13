@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();
@@ -86,7 +86,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc.) for 
@@ -101,7 +101,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc.) for 
@@ -116,7 +116,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc) for 
@@ -139,7 +139,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980030CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc.) for 
@@ -154,7 +154,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980010CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc.) for 
@@ -169,7 +169,7 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * 
      * <p>Relationship: PORX_MT980020CA.ObservationCodedEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific coded observation (e.g. 
      * allergy, medical condition, pregnancy status, etc) for 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.AcknowledgementDetail","MCCI_MT000300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS typeCode = new CSImpl();
     private CV code = new CVImpl();
     private ST text = new STImpl();
@@ -141,7 +141,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Relationship: MCCI_MT000200CA.AcknowledgementDetail.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 
@@ -156,7 +156,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 
@@ -179,7 +179,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Relationship: MCCI_MT000200CA.AcknowledgementDetail.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 
@@ -194,7 +194,7 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
      * 
      * <p>Relationship: MCCI_MT000300CA.AcknowledgementDetail.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>By providing coded identification of issues and errors, 
      * allows applications to have logic that manages particular 

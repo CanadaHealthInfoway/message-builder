@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -80,7 +80,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.Author4","PORX_MT060160CA.Author4","PORX_MT060340CA.Author4"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -94,7 +94,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -123,7 +123,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -153,7 +153,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -190,7 +190,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -219,7 +219,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 
@@ -249,7 +249,7 @@ public class PrescribedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.Author4.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescribedDate</p>
      * 

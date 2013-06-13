@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,18 +29,20 @@ import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 
 
 
@@ -65,19 +67,19 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
     private PatientBean recordTargetPatient;
     private DeviceRequest_1Bean inFulfillmentOfDeviceRequest;
-    private ProcedureRequestBean component1ProcedureRequest;
+    private ST component1ProcedureRequestText = new STImpl();
     private DispenseDetailsBean componentSupplyEvent;
     private CommentBean subjectOfAnnotation;
     private CS statusCode = new CSImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
-    private RecordedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
@@ -282,7 +284,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient"})
     public PatientBean getRecordTargetPatient() {
@@ -294,7 +296,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
@@ -328,28 +330,42 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.Component11.procedureRequest</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates to other providers how the patient is 
+     * expected to use the dispensed device</p>
+     * 
+     * <p>Indicates how the patient is expected to use the 
+     * device.</p>
      */
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
+    @Hl7XmlMapping({"component1/procedureRequest/text"})
+    public String getComponent1ProcedureRequestText() {
+        return this.component1ProcedureRequestText.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.Component11.procedureRequest</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Communicates to other providers how the patient is 
+     * expected to use the dispensed device</p>
+     * 
+     * <p>Indicates how the patient is expected to use the 
+     * device.</p>
      */
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
+    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
+        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
     }
 
 
@@ -399,7 +415,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
@@ -411,7 +427,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.Subject7.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
@@ -474,7 +490,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -487,7 +503,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -521,24 +537,26 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
+     * <p>Relationship: 
+     * PORX_MT060020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060020CA.DeviceDispense.location</p>
+     * <p>Relationship: 
+     * PORX_MT060020CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -548,7 +566,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
     public SupplyOrderBean getFulfillmentSupplyRequest() {
@@ -561,7 +579,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.InFulfillmentOf.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
@@ -574,7 +592,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
     public Boolean getSubjectOf1DetectedIssueIndicator() {
@@ -587,7 +605,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.Subject4.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
@@ -600,7 +618,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.Subject3.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -613,7 +631,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT060020CA.Subject3.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);

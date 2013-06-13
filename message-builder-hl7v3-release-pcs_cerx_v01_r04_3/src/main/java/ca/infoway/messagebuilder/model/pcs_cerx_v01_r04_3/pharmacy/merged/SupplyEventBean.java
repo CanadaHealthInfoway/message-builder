@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,15 +22,18 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca.ResponsiblePersonBean;
@@ -42,14 +45,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060090CA.SupplyEvent","PORX_MT060100CA.SupplyEvent","PORX_MT060160CA.SupplyEvent","PORX_MT060340CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean productMedication;
     private ResponsiblePersonBean receiverResponsibleParty;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private AD destinationServiceDeliveryLocationAddr = new ADImpl();
 
 
     /**
@@ -921,7 +924,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -953,7 +956,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -981,7 +984,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1013,7 +1016,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1051,7 +1054,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1083,7 +1086,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060160CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1111,7 +1114,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1143,7 +1146,7 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060100CA.SupplyEvent.expectedUseTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D59(width)</p>
      * 
@@ -1241,19 +1244,19 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public ResponsiblePersonBean getReceiverResponsibleParty() {
@@ -1265,19 +1268,19 @@ public class SupplyEventBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060340CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060160CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060090CA.Receiver2.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
@@ -1285,56 +1288,90 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: ShipToAddress</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/addr"})
+    public PostalAddress getDestinationServiceDeliveryLocationAddr() {
+        return this.destinationServiceDeliveryLocationAddr.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: ShipToAddress</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340CA.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060340CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060160CA.Destination2.serviceDeliveryLocation</p>
+     * <p>Indicates where the dispensed product was sent.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: ShipToAddress</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060090CA.Destination2.serviceDeliveryLocation</p>
+     * PORX_MT060160CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
+     * 
+     * <p>Un-merged Business Name: ShipToAddress</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060090CA.ServiceDeliveryLocation.addr</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Important as part of a claim for justifying shipping 
+     * charges.</p>
+     * 
+     * <p>Indicates where the dispensed product was sent.</p>
      */
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setDestinationServiceDeliveryLocationAddr(PostalAddress destinationServiceDeliveryLocationAddr) {
+        this.destinationServiceDeliveryLocationAddr.setValue(destinationServiceDeliveryLocationAddr);
     }
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -94,7 +94,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","QUQI_MT120000CA.Subject2"})
 public class RefersToBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
@@ -109,9 +109,9 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On creation interactions (where the state transition is 
-     * null-&gt;active), this must be true otherwise it must be 
-     * false.</p>
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
@@ -136,9 +136,9 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On creation interactions (where the state transition is 
-     * null-&gt;active), this must be true otherwise it must be 
-     * false.</p>
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
@@ -170,19 +170,19 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"act"})
     public ACT getAct() {
@@ -206,19 +206,19 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Relationship: MCAI_MT700221CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: QUQI_MT120000CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCAI_MT700220CA.Subject2.act</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setAct(ACT act) {
         this.act = act;

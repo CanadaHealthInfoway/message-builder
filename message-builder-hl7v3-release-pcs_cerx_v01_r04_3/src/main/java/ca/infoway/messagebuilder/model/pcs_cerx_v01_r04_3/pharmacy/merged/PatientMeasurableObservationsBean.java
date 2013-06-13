@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationMeasurableEvent","PORX_MT980020CA.ObservationMeasurableEvent","PORX_MT980030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
@@ -87,7 +87,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -104,7 +104,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -121,7 +121,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -146,7 +146,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980010CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -163,7 +163,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980020CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -180,7 +180,7 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * <p>Relationship: 
      * PORX_MT980030CA.ObservationMeasurableEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows lookup of the specific observation (e.g. height, 
      * weight, or lab record) for additional details when 
@@ -380,9 +380,10 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p>
      * 
-     * <p>Conveys the patients wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 
@@ -446,9 +447,10 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p>
      * 
-     * <p>Conveys the patients wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 

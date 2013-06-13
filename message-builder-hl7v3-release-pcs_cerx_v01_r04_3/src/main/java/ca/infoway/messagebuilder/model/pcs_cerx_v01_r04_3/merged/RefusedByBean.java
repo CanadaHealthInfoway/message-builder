@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -342,7 +342,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT120600CA.Author","COCT_MT130001CA.Author3","COMT_MT300003CA.Author","MCAI_MT700210CA.Author","MCAI_MT700221CA.Author","MCAI_MT700223CA.Author","POIZ_MT060150CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","QUQI_MT020000CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000007CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3","REPC_MT000010CA.Author","REPC_MT000010CA.Author3","REPC_MT000017CA.Author","REPC_MT100001CA.Author","REPC_MT100002CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private TS time = new TSImpl();
     private ProviderBean assignedPerson;
     private CV modeCode = new CVImpl();
@@ -384,7 +384,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -448,7 +448,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -464,7 +464,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT100002CA.Author3.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPB3.20</p>
      * 
@@ -486,7 +486,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000010CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of the medical condition for sorting 
      * and for audit purposes. Attribute is populated because the 
@@ -500,7 +500,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -542,7 +542,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000007CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of medical condition for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -556,7 +556,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000005CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -583,7 +583,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -592,7 +592,14 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
-     * e
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Un-merged Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.time</p>
+     * 
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -635,7 +642,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -699,7 +706,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060090CA.Author5.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -715,7 +722,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT100002CA.Author3.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZPB3.20</p>
      * 
@@ -737,7 +744,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000010CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of the medical condition for sorting 
      * and for audit purposes. Attribute is populated because the 
@@ -751,7 +758,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000009CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -793,7 +800,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000007CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of medical condition for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -807,7 +814,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000005CA.Author.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies timing of allergy/intolerance for sorting and 
      * for audit purposes. Attribute is populated because the 
@@ -834,7 +841,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060010CA.Author5.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Indicates when the action was performed, and may 
      * influence expiry dates for the order.</p><p>The attribute is 
@@ -843,7 +850,14 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>The date at which the device was prescribed. This may 
      * differ from the date on which the prescription becomes 
-     * e
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p>
+     * 
+     * <p>Un-merged Business Name: CreateTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000006CA.Author.time</p>
+     * 
+    
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {
@@ -934,7 +948,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020070CA.Author.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -1024,7 +1038,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.Author.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -1126,7 +1140,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020070CA.Author.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -1216,7 +1230,7 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.Author.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 

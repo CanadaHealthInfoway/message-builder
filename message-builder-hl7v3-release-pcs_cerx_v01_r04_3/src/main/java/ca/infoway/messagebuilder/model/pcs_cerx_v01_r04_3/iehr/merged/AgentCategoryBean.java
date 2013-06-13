@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  * 
+ * <p>REPC_MT000005CA.MaterialKind: Agent Category</p>
+ * 
+ * <p>Allows exposed materials or agents to be collectively 
+ * referenced.</p>
+ * 
+ * <p>Category of material or agent to which the patient was 
+ * exposed.</p>
+ * 
+ * <p>REPC_MT000009CA.MaterialKind: Agent Category</p>
+ * 
+ * <p>Allows exposed materials or agents to be collectively 
+ * referenced.</p>
+ * 
+ * <p>Category of material or agent to which the patient was 
+ * exposed.</p>
+ * 
+ * <p>REPC_MT000013CA.MaterialKind: Agent Category</p>
+ * 
+ * <p>Allows exposed materials or agents to be collectively 
+ * referenced.</p>
+ * 
+ * <p>Category of material or agent to which the patient was 
+ * exposed.</p>
+ * 
+ * <p>REPC_MT000001CA.MaterialKind: Agent Category</p>
+ * 
+ * <p>Allows exposed materials or agents to be collectively 
+ * referenced.</p>
+ * 
+ * <p>Category of material or agent to which the patient was 
+ * exposed.</p>
+ * 
  * <p>REPC_MT000012CA.MaterialKind: Agent Category</p>
  * 
  * <p>Allows exposed materials or agents to be collectively 
@@ -58,10 +90,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Category of material or agent to which the patient was 
  * exposed.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000002CA.MaterialKind","REPC_MT000006CA.MaterialKind","REPC_MT000012CA.MaterialKind"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.MaterialKind","REPC_MT000002CA.MaterialKind","REPC_MT000005CA.MaterialKind","REPC_MT000006CA.MaterialKind","REPC_MT000009CA.MaterialKind","REPC_MT000012CA.MaterialKind","REPC_MT000013CA.MaterialKind"})
 public class AgentCategoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
@@ -73,7 +105,80 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be coded. 
+     * Also, the code may sometimes be masked, in which case a 
+     * &quot;null flavor&quot; must be specified.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -91,7 +196,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -109,7 +214,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -136,7 +241,80 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000006CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be 
+     * coded.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows different kinds of reaction agents to be 
+     * distinguished. Coding strength is set to CWE because the 
+     * exposure agent type may not always be codified. The 
+     * attribute is populated because there is little point in 
+     * communicating about the exposure to an agent if it is not 
+     * known what the agent is, however it may not always be coded. 
+     * Also, the code may sometimes be masked, in which case a 
+     * &quot;null flavor&quot; must be specified.</p>
+     * 
+     * <p>Indicates the type of agent that the patient was exposed 
+     * to which caused the adverse reaction. This includes Drug, 
+     * Food, Latex, Dust, etc.</p>
+     * 
+     * <p>Un-merged Business Name: ExposedMaterialType</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.MaterialKind.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -154,7 +332,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000012CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 
@@ -172,7 +350,7 @@ public class AgentCategoryBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000002CA.MaterialKind.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows different kinds of reaction agents to be 
      * distinguished. Coding strength is set to CWE because the 

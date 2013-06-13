@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,10 +44,10 @@ import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -84,7 +84,7 @@ public class MedicalConditionBean extends MessagePartBean {
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private ReportedByBean informant;
-    private RecordedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
     private BL subjectOf3ChronicIndicator = new BLImpl(false);
@@ -177,7 +177,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -199,7 +199,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000007CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -374,7 +374,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -385,7 +385,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000007CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -433,29 +433,31 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: REPC_MT000007CA.MedicalCondition.location</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: REPC_MT000007CA.MedicalCondition.location</p>
+     * <p>Relationship: 
+     * REPC_MT000007CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
     /**
      * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
@@ -465,7 +467,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000007CA.Subject.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
@@ -475,7 +477,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000007CA.Subject5.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<CommentBean> getSubjectOf2Annotation() {
@@ -486,7 +488,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/chronicIndicator"})
     public Boolean getSubjectOf3ChronicIndicator() {
@@ -496,7 +498,7 @@ public class MedicalConditionBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000007CA.Subject6.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf3ChronicIndicator(Boolean subjectOf3ChronicIndicator) {
         this.subjectOf3ChronicIndicator.setValue(subjectOf3ChronicIndicator);

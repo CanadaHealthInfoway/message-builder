@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,7 +76,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private CV generalizedMedicineClassCode = new CVImpl();
     private ST generalizedMedicineClassName = new STImpl();
@@ -153,7 +153,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>HICL</p>
      * 
@@ -182,7 +182,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>HICL</p>
      * 
@@ -219,7 +219,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>HICL</p>
      * 
@@ -248,7 +248,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>HICL</p>
      * 
@@ -285,7 +285,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Generic Name</p>
      * 
@@ -301,7 +301,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Generic Name</p>
      * 
@@ -325,7 +325,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010040CA.MedicineClass.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Generic Name</p>
      * 
@@ -341,7 +341,7 @@ public class GroupedWithinBean extends MessagePartBean {
      * 
      * <p>Relationship: POME_MT010100CA.MedicineClass.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Generic Name</p>
      * 

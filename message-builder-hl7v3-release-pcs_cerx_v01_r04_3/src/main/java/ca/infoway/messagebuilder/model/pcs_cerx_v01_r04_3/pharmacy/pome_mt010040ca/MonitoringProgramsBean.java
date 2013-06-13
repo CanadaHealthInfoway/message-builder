@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActMonitoringProtocolCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.AssignedEntity3Bean;
 
 
 
@@ -53,10 +52,10 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Assign
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
-    private AssignedEntity3Bean custodianAssignedEntity;
+    private ST custodianAssignedEntityAssignedOrganizationName = new STImpl();
 
 
     /**
@@ -140,22 +139,38 @@ public class MonitoringProgramsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
+     * <p>Business Name: Monitoring Organization Name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
+     * 
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
      */
-    @Hl7XmlMapping({"custodian/assignedEntity"})
-    public AssignedEntity3Bean getCustodianAssignedEntity() {
-        return this.custodianAssignedEntity;
+    @Hl7XmlMapping({"custodian/assignedEntity/assignedOrganization/name"})
+    public String getCustodianAssignedEntityAssignedOrganizationName() {
+        return this.custodianAssignedEntityAssignedOrganizationName.getValue();
     }
 
     /**
-     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
+     * <p>Business Name: Monitoring Organization Name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Helps identify the program and understand its context. 
+     * May also indicate who to send reports to.</p>
+     * 
+     * <p>The name of the organization responsible for the 
+     * monitoring program</p>
      */
-    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
-        this.custodianAssignedEntity = custodianAssignedEntity;
+    public void setCustodianAssignedEntityAssignedOrganizationName(String custodianAssignedEntityAssignedOrganizationName) {
+        this.custodianAssignedEntityAssignedOrganizationName.setValue(custodianAssignedEntityAssignedOrganizationName);
     }
 
 }

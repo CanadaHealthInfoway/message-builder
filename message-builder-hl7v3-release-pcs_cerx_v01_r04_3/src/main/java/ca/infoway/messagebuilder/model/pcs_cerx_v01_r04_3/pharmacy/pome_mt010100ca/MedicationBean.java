@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,14 +25,17 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TNImpl;
+import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
@@ -42,7 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.DispensedInBean
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.DrugContainsBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.ManufacturerBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.AppearanceCharacteristicsBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.DrugCostBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.GroupedWithinBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +65,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV playerCode = new CVImpl();
     private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST playerDesc = new STImpl();
@@ -73,7 +75,7 @@ public class MedicationBean extends MessagePartBean {
     private DispensedInBean playerAsContent;
     private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private DrugCostBean subjectOf1PotentialCharge;
+    private MO subjectOf1PotentialChargeUnitPriceAmt = new MOImpl();
     private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
 
@@ -329,29 +331,49 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * <p>Business Name: I:Drug Cost</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPJ2.2</p>
+     * 
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
+     * 
+     * <p>The average unit dose cost of the drug.</p>
      */
-    @Hl7XmlMapping({"subjectOf1/potentialCharge"})
-    public DrugCostBean getSubjectOf1PotentialCharge() {
-        return this.subjectOf1PotentialCharge;
+    @Hl7XmlMapping({"subjectOf1/potentialCharge/unitPriceAmt"})
+    public Money getSubjectOf1PotentialChargeUnitPriceAmt() {
+        return this.subjectOf1PotentialChargeUnitPriceAmt.getValue();
     }
 
     /**
-     * <p>Relationship: POME_MT010100CA.Subject7.potentialCharge</p>
+     * <p>Business Name: I:Drug Cost</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POME_MT010100CA.PotentialCharge.unitPriceAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPJ2.2</p>
+     * 
+     * <p>May influence prescriber and pharmacists decisions as 
+     * cost can impact compliance.</p>
+     * 
+     * <p>The average unit dose cost of the drug.</p>
      */
-    public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
-        this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
+    public void setSubjectOf1PotentialChargeUnitPriceAmt(Money subjectOf1PotentialChargeUnitPriceAmt) {
+        this.subjectOf1PotentialChargeUnitPriceAmt.setValue(subjectOf1PotentialChargeUnitPriceAmt);
     }
 
 
     /**
      * <p>Relationship: POME_MT010100CA.Subject10.characteristic</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/characteristic"})
     public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {

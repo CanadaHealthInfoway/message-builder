@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -755,13 +755,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000001CA.Support.records</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000013CA.Support.records</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"support/records"})
     public List<Records> getSupportRecords() {
@@ -774,7 +774,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public CommentBean getSubjectOf1Annotation() {
@@ -786,7 +786,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
         this.subjectOf1Annotation = subjectOf1Annotation;

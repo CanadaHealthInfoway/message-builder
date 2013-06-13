@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -193,7 +193,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -302,8 +302,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * only include those which have been amended in some way (had 
      * status changed, been annotated, prescription was dispensed, 
      * etc.) within the indicated time-period. This will commonly 
-     * be used to retrieve everything that has been amended since 
-     * xxx.</p>
+     * be used to '''retrieve everything that has been amended 
+     * since xxx'''.</p>
      * 
      * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
@@ -429,8 +429,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * only include those which have been amended in some way (had 
      * status changed, been annotated, prescription was dispensed, 
      * etc.) within the indicated time-period. This will commonly 
-     * be used to retrieve everything that has been amended since 
-     * xxx.</p>
+     * be used to '''retrieve everything that has been amended 
+     * since xxx'''.</p>
      * 
      * <p>Un-merged Business Name: AmendedInTimeRange</p>
      * 
@@ -1860,8 +1860,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
-     * only those records pertaining
-     * ... [rest of documentation truncated due to excessive length]
+     * only those records pertaining to the patient with this 
+     * Id.</p>
      */
     @Hl7XmlMapping({"patientID/value"})
     public Identifier getPatientIDValue() {
@@ -2122,8 +2122,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Identifier of the patient who is the subject of the 
      * patient medication query. Filter the result set to include 
-     * only those records pertaining
-     * ... [rest of documentation truncated due to excessive length]
+     * only those records pertaining to the patient with this 
+     * Id.</p>
      */
     public void setPatientIDValue(Identifier patientIDValue) {
         this.patientIDValue.setValue(patientIDValue);

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import java.util.Date;
 
 
@@ -65,13 +66,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SupplyEvent","PORX_MT980020CA.SupplyEvent"})
 public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private DispensedBean product;
-    private RecordedAtBean location;
+    private DrugProductBean productMedication;
+    private ServiceLocationBean locationServiceDeliveryLocation;
 
 
     /**
@@ -81,7 +82,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980020CA.SupplyEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
@@ -95,7 +96,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980010CA.SupplyEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
@@ -117,7 +118,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980020CA.SupplyEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
@@ -131,7 +132,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980010CA.SupplyEvent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows provider to drill down and retrieve additional 
      * information about the dispense event for consideration in 
@@ -237,7 +238,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980020CA.SupplyEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
@@ -257,7 +258,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980010CA.SupplyEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
@@ -284,7 +285,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980020CA.SupplyEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
@@ -304,7 +305,7 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
      * 
      * <p>Relationship: PORX_MT980010CA.SupplyEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZDU.4.5</p>
      * 
@@ -399,72 +400,76 @@ public class SupplyEvent_1Bean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980020CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
+     * <p>Relationship: PORX_MT980010CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProduct(DispensedBean product) {
-        this.product = product;
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.location</p>
+     * <p>Relationship: 
+     * PORX_MT980020CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.location</p>
+     * <p>Relationship: 
+     * PORX_MT980010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.location</p>
+     * <p>Relationship: 
+     * PORX_MT980020CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.location</p>
+     * <p>Relationship: 
+     * PORX_MT980010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,12 +25,14 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
@@ -41,11 +43,11 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActNoImmunizationReason;
 import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
+import ca.infoway.messagebuilder.domainvalue.x_InformationSource;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.InformationSourceRoleBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.PartOfBean;
 import java.util.Date;
 
@@ -68,7 +70,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -80,7 +82,7 @@ public class ImmunizationsBean extends MessagePartBean {
     private PQ doseQuantity = new PQImpl();
     private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
-    private InformationSourceRoleBean informantInformationSourceRole;
+    private CS informantInformationSourceRoleClassCode = new CSImpl();
     private PartOfBean inFulfillmentOf;
     private BL causeAdverseReactionObservationEvent = new BLImpl(false);
 
@@ -414,7 +416,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for evaluating reaction and for checking 
      * contraindication.</p>
@@ -432,7 +434,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Relationship: POIZ_MT030060CA.Immunization.doseQuantity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for evaluating reaction and for checking 
      * contraindication.</p>
@@ -468,7 +470,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Relationship: POIZ_MT030060CA.Consumable.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
@@ -478,7 +480,7 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Relationship: POIZ_MT030060CA.Consumable.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
@@ -486,24 +488,42 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * POIZ_MT030060CA.Informant.informationSourceRole</p>
+     * <p>Business Name: Information Source</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
+     * 
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
      */
-    @Hl7XmlMapping({"informant/informationSourceRole"})
-    public InformationSourceRoleBean getInformantInformationSourceRole() {
-        return this.informantInformationSourceRole;
+    @Hl7XmlMapping({"informant/informationSourceRole/classCode"})
+    public x_InformationSource getInformantInformationSourceRoleClassCode() {
+        return (x_InformationSource) this.informantInformationSourceRoleClassCode.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * POIZ_MT030060CA.Informant.informationSourceRole</p>
+     * <p>Business Name: Information Source</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.InformationSourceRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for the explicit identification of the source of 
+     * the recorded information.</p>
+     * 
+     * <p>A coded value denoting a patient, patient's agent, or a 
+     * provider as the source of the recorded immunization 
+     * information.</p>
      */
-    public void setInformantInformationSourceRole(InformationSourceRoleBean informantInformationSourceRole) {
-        this.informantInformationSourceRole = informantInformationSourceRole;
+    public void setInformantInformationSourceRoleClassCode(x_InformationSource informantInformationSourceRoleClassCode) {
+        this.informantInformationSourceRoleClassCode.setValue(informantInformationSourceRoleClassCode);
     }
 
 
@@ -533,7 +553,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Relationship: 
      * POIZ_MT030060CA.CauseOf.adverseReactionObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
     public Boolean getCauseAdverseReactionObservationEvent() {
@@ -544,7 +564,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Relationship: 
      * POIZ_MT030060CA.CauseOf.adverseReactionObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
         this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);

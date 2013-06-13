@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ import java.util.Date;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -188,7 +188,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -204,7 +204,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -228,7 +228,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -244,7 +244,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000014CA.MedicalCondition.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Essential to evaluating the relevance of the condition 
      * record. In some cases, it may not be known whether the 
@@ -578,13 +578,13 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.Subject.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/chronicIndicator","subjectOf1/chronicIndicator"})
     @Hl7MapByPartTypes({
@@ -601,13 +601,13 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.Subject.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000014CA.Subject.chronicIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfChronicIndicator(Boolean subjectOfChronicIndicator) {
         this.subjectOfChronicIndicator.setValue(subjectOfChronicIndicator);
@@ -619,7 +619,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public CommentBean getSubjectOf2Annotation() {
@@ -631,7 +631,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000003CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
         this.subjectOf2Annotation = subjectOf2Annotation;

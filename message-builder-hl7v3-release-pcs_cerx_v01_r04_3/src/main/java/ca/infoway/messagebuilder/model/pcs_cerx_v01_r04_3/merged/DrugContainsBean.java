@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,15 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.domainvalue.ActiveIngredientDrugEntityType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
@@ -115,10 +120,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
-    private DrugIngredientsBean ingredient;
+    private CV ingredientCode = new CVImpl();
+    private ST ingredientName = new STImpl();
 
 
     /**
@@ -190,7 +196,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -207,7 +213,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -294,7 +300,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220210CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -311,7 +317,7 @@ public class DrugContainsBean extends MessagePartBean {
      * 
      * <p>Relationship: COCT_MT220110CA.Ingredient.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Useful for filtering searches. Allows providers to search 
      * for drugs not containing a specific active ingredients or 
@@ -810,86 +816,610 @@ public class DrugContainsBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
      * 
-     * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>ZPB3.6(mnemonic)</p>
      * 
-     * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
+     * <p>ZPB3.7(print name)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>ZPJ1.1(mnemonic)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>ZPJ1.2(print name)</p>
      * 
-     * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
+     * <p>ZCP.2</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p><p>This attribute is marked 
+     * as &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: POME_MT010100CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in vaccines.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
      */
-    @Hl7XmlMapping({"ingredient"})
-    public DrugIngredientsBean getIngredient() {
-        return this.ingredient;
+    @Hl7XmlMapping({"ingredient/code"})
+    public ActiveIngredientDrugEntityType getIngredientCode() {
+        return (ActiveIngredientDrugEntityType) this.ingredientCode.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Ingredient.ingredient</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: POME_MT010040CA.Substance.code</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Relationship: POME_MT010100CA.Ingredient.ingredient</p>
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
      * 
-     * <p>Relationship: COCT_MT220100CA.Ingredient.ingredient</p>
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>ZPB3.6(mnemonic)</p>
      * 
-     * <p>Relationship: COCT_MT220200CA.Ingredient.ingredient</p>
+     * <p>ZPB3.7(print name)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>ZPJ1.1(mnemonic)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>ZPJ1.2(print name)</p>
      * 
-     * <p>Relationship: COCT_MT220210CA.Ingredient.ingredient</p>
+     * <p>ZCP.2</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p><p>This attribute is marked 
+     * as &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>The unique identifier for the drug or chemical.</p>
      * 
-     * <p>Relationship: COCT_MT220110CA.Ingredient.ingredient</p>
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: POME_MT010100CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in vaccines.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient code should be 
+     * available in most cases.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as specific class 
+     * of ingredients in vaccines.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientIdentifier</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.activeIngredientCode</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.DIN</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.hcAigNumber</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.standardProductIdType(code 
+     * system)</p>
+     * 
+     * <p>ZPB3.6(mnemonic)</p>
+     * 
+     * <p>ZPB3.7(print name)</p>
+     * 
+     * <p>ZPJ1.1(mnemonic)</p>
+     * 
+     * <p>ZPJ1.2(print name)</p>
+     * 
+     * <p>ZCP.2</p>
+     * 
+     * <p>Allows un-ambiguous identification of the ingredients of 
+     * a drug for performing various alert checking.</p><p>Also 
+     * allows for the identification of antigens as class of 
+     * ingredients in a vaccine.</p>
+     * 
+     * <p>The unique identifier for the drug or chemical.</p>
      */
-    public void setIngredient(DrugIngredientsBean ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredientCode(ActiveIngredientDrugEntityType ingredientCode) {
+        this.ingredientCode.setValue(ingredientCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     */
+    @Hl7XmlMapping({"ingredient/name"})
+    public String getIngredientName() {
+        return this.ingredientName.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: IngredientName</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as an ingredient name should be 
+     * available in most cases.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220100CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220200CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220210CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     * 
+     * <p>Un-merged Business Name: DrugIngredientName</p>
+     * 
+     * <p>Relationship: COCT_MT220110CA.Substance.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>CompoundIngredient.IngredientDrug.drugProductName</p>
+     * 
+     * <p>Used for communication between and display to 
+     * providers.</p>
+     * 
+     * <p>The name of the contained drug or chemical.</p>
+     */
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName.setValue(ingredientName);
     }
 
 }

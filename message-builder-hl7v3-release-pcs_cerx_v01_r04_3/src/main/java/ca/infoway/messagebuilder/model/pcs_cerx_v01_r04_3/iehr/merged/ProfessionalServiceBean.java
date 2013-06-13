@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,9 +40,10 @@ import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,17 +84,17 @@ import java.util.List;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
     private PatientBean subjectPatient;
-    private OrderForServiceBean inFulfillmentOfActRequest;
+    private RefusedByBean inFulfillmentOfActRequestAuthor;
     private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
     private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean performerAssignedPerson;
-    private RecordedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
 
 
@@ -261,7 +262,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -291,7 +292,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -329,7 +330,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000017CA.ProcedureEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -359,7 +360,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100001CA.ProcedureEvent.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Center date cannot be null But duration can be left 
      * unspecified if not known.</p>
@@ -524,36 +525,36 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public OrderForServiceBean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest/author"})
+    public RefusedByBean getInFulfillmentOfActRequestAuthor() {
+        return this.inFulfillmentOfActRequestAuthor;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000017CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT000017CA.ActRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001CA.InFulfillmentOf.actRequest</p>
+     * <p>Relationship: REPC_MT100001CA.ActRequest.author</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setInFulfillmentOfActRequest(OrderForServiceBean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    public void setInFulfillmentOfActRequestAuthor(RefusedByBean inFulfillmentOfActRequestAuthor) {
+        this.inFulfillmentOfActRequestAuthor = inFulfillmentOfActRequestAuthor;
     }
 
 
@@ -562,13 +563,13 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * 
      * <p>Relationship: REPC_MT000017CA.Subject2.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT100001CA.Subject2.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation","subjectOf2/annotation"})
     @Hl7MapByPartTypes({
@@ -659,7 +660,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -672,7 +673,7 @@ public class ProfessionalServiceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT100001CA.ResponsibleParty2.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -706,24 +707,26 @@ public class ProfessionalServiceBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
+     * <p>Relationship: 
+     * REPC_MT100001CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100001CA.ProcedureEvent.location</p>
+     * <p>Relationship: 
+     * REPC_MT100001CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 

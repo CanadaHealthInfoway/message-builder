@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private PatientBean subject1Patient;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
@@ -84,7 +84,7 @@ public class KeywordBean extends MessagePartBean {
      * 
      * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZKW.5</p>
      * 
@@ -120,7 +120,7 @@ public class KeywordBean extends MessagePartBean {
      * 
      * <p>Relationship: RCMR_MT010002CA.Author.signatureText</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ZKW.5</p>
      * 

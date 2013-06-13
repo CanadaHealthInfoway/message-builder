@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,10 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdminSubstitutionCode;
 import ca.infoway.messagebuilder.domainvalue.SubstanceAdminSubstitutionReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -76,10 +79,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
-    private AgentBean responsiblePartyAgent;
+    private II responsiblePartyAgentId = new IIImpl();
 
 
     /**
@@ -423,62 +426,120 @@ public class SubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the 
+     * substitution.</p>
+     * 
+     * <p>Identity of the person who ultimately made the 
+     * substitution decision.</p>
      */
-    @Hl7XmlMapping({"responsibleParty/agent"})
-    public AgentBean getResponsiblePartyAgent() {
-        return this.responsiblePartyAgent;
+    @Hl7XmlMapping({"responsibleParty/agent/id"})
+    public Identifier getResponsiblePartyAgentId() {
+        return this.responsiblePartyAgentId.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060090CA.ResponsibleParty.agent</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT060090CA.Agent.id</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.ResponsibleParty.agent</p>
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.ResponsibleParty.agent</p>
+     * <p>Relationship: PORX_MT060160CA.Agent.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.ResponsibleParty.agent</p>
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the dispensed 
+     * drug.</p>
+     * 
+     * <p>The identity of the person who was ultimately responsible 
+     * for the drug substitution.</p><p>This is either the patient, 
+     * the prescriber of the dispenser.</p>
+     * 
+     * <p>Un-merged Business Name: SubstitutingPersonIdentifier</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Agent.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Provides a trace of responsibility for the 
+     * substitution.</p>
+     * 
+     * <p>Identity of the person who ultimately made the 
+     * substitution decision.</p>
      */
-    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
-        this.responsiblePartyAgent = responsiblePartyAgent;
+    public void setResponsiblePartyAgentId(Identifier responsiblePartyAgentId) {
+        this.responsiblePartyAgentId.setValue(responsiblePartyAgentId);
     }
 
 }

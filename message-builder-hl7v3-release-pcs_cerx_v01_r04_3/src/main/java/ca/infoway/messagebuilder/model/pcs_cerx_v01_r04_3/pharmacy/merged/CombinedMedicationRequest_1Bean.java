@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
@@ -74,20 +75,20 @@ import java.util.List;
 @Hl7RootType
 public class CombinedMedicationRequest_1Bean extends MessagePartBean implements Prescription_1 {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
-    private DrugProductBean directTargetMedication;
     private PatientBean subjectPatient;
+    private DrugProductBean directTargetMedication;
     private ProviderBean responsiblePartyAssignedPerson;
     private PrescribedByBean author;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private ST component1AdministrationInstructionsText = new STImpl();
-    private Component2_2Bean component2;
+    private DispenseInstructions_2Bean component2SupplyRequest;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
@@ -95,7 +96,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
-    private ClassifiesBean componentOf;
+    private CV componentOfWorkingListEventCode = new CVImpl();
 
 
     /**
@@ -479,30 +480,6 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -527,17 +504,41 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -550,14 +551,14 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -610,7 +611,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.reason</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
@@ -624,7 +625,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
@@ -637,7 +638,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
@@ -649,7 +650,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * 
      * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"derivedFrom/sourceDispense"})
     public Boolean getDerivedFromSourceDispense() {
@@ -661,7 +662,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * 
      * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
         this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
@@ -731,26 +732,24 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2"})
-    public Component2_2Bean getComponent2() {
-        return this.component2;
+    @Hl7XmlMapping({"component2/supplyRequest"})
+    public DispenseInstructions_2Bean getComponent2SupplyRequest() {
+        return this.component2SupplyRequest;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
+     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2(Component2_2Bean component2) {
-        this.component2 = component2;
+    public void setComponent2SupplyRequest(DispenseInstructions_2Bean component2SupplyRequest) {
+        this.component2SupplyRequest = component2SupplyRequest;
     }
 
 
@@ -760,7 +759,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment1/supplyEventFutureSummary"})
     public RemainingDispenseInformation_1Bean getFulfillment1SupplyEventFutureSummary() {
@@ -773,7 +772,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillment1SupplyEventFutureSummary(RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary) {
         this.fulfillment1SupplyEventFutureSummary = fulfillment1SupplyEventFutureSummary;
@@ -786,7 +785,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment2/supplyEventFirstSummary"})
     public FirstDispenseInformation_1Bean getFulfillment2SupplyEventFirstSummary() {
@@ -799,7 +798,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf5.supplyEventFirstSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillment2SupplyEventFirstSummary(FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary) {
         this.fulfillment2SupplyEventFirstSummary = fulfillment2SupplyEventFirstSummary;
@@ -812,7 +811,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment3/supplyEventLastSummary"})
     public LastDispenseInformation_1Bean getFulfillment3SupplyEventLastSummary() {
@@ -825,7 +824,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf6.supplyEventLastSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillment3SupplyEventLastSummary(LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary) {
         this.fulfillment3SupplyEventLastSummary = fulfillment3SupplyEventLastSummary;
@@ -838,7 +837,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment4/supplyEventPastSummary"})
     public PreviousDispenseInformation_1Bean getFulfillment4SupplyEventPastSummary() {
@@ -851,7 +850,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf2.supplyEventPastSummary</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setFulfillment4SupplyEventPastSummary(PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary) {
         this.fulfillment4SupplyEventPastSummary = fulfillment4SupplyEventPastSummary;
@@ -863,7 +862,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * 
      * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
     public Boolean getSubjectOf1AnnotationIndicator() {
@@ -875,7 +874,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * 
      * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
         this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
@@ -888,7 +887,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
     public Boolean getSubjectOf2DetectedIssueIndicator() {
@@ -901,7 +900,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * <p>Relationship: 
      * PORX_MT030040CA.Subject2.detectedIssueIndicator</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
         this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
@@ -913,7 +912,7 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
      * 
      * <p>Relationship: PORX_MT030040CA.Subject3.refusalToFill</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
@@ -922,28 +921,62 @@ public class CombinedMedicationRequest_1Bean extends MessagePartBean implements 
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      */
-    @Hl7XmlMapping({"componentOf"})
-    public ClassifiesBean getComponentOf() {
-        return this.componentOf;
+    @Hl7XmlMapping({"componentOf/workingListEvent/code"})
+    public ActTherapyDurationWorkingListCode getComponentOfWorkingListEventCode() {
+        return (ActTherapyDurationWorkingListCode) this.componentOfWorkingListEventCode.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * <p>Un-merged Business Name: PrescriptionTreatmentType</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Prescription type</p>
+     * 
+     * <p>Prescription.drugUseIndicator</p>
+     * 
+     * <p>Allows categorizing prescription for presentation. May 
+     * influence detection of duplicate therapy. May also be used 
+     * to affect how DUR processing is completed. The field is 
+     * marked as &quot;populated&quot; because the intended 
+     * duration of the therapy should generally be known at 
+     * prescribe time. However in some circumstances, it may not be 
+     * known whether a therapy will be short-term or long-term.</p>
+     * 
+     * <p>Describes the categorization of the therapy envisioned by 
+     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
+     * and &quot;As-Needed).</p>
      */
-    public void setComponentOf(ClassifiesBean componentOf) {
-        this.componentOf = componentOf;
+    public void setComponentOfWorkingListEventCode(ActTherapyDurationWorkingListCode componentOfWorkingListEventCode) {
+        this.componentOfWorkingListEventCode.setValue(componentOfWorkingListEventCode);
     }
 
 }

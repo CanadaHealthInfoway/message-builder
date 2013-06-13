@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
-import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,14 +132,14 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV subjectOfSeverityObservationValue = new CVImpl();
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
     private BL triggerForActRequest = new BLImpl(false);
     private BL subjectOf1StorageIntent = new BLImpl(false);
 
@@ -1097,19 +1097,19 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
@@ -1123,21 +1123,21 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT980020CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
     public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
@@ -1150,21 +1150,21 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT980020CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.Definition.detectedIssueDefinition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
         this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
@@ -1177,21 +1177,21 @@ public class IssuesBean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT980020CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980030CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * PORX_MT980010CA.Mitigates.detectedIssueManagement</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
     public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
@@ -1200,90 +1200,25 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
      * 
-     * <p>ZPE.3</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>MB.05.03A</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Severity</p>
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
      * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980010CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980030CA.Subject"),
@@ -1291,96 +1226,31 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="PORX_MT980030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT980020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="PORX_MT980020CA.SeverityObservation")})
-    public SeverityObservation getSubjectOfSeverityObservationValue() {
-        return (SeverityObservation) this.subjectOfSeverityObservationValue.getValue();
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
     }
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p>
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
      * 
-     * <p>ZPE.3</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>MB.05.03A</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Severity</p>
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
      * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Contraindication.severity</p>
-     * 
-     * <p>ZPE.3</p>
-     * 
-     * <p>MB.05.03A</p>
-     * 
-     * <p>Severity</p>
-     * 
-     * <p>ZDU.6.3</p>
-     * 
-     * <p>ZDU.8.4</p>
-     * 
-     * <p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
-        this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 
@@ -1389,7 +1259,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"triggerFor/actRequest"})
     public Boolean getTriggerForActRequest() {
@@ -1401,7 +1271,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setTriggerForActRequest(Boolean triggerForActRequest) {
         this.triggerForActRequest.setValue(triggerForActRequest);
@@ -1413,7 +1283,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Subject3.storageIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/storageIntent"})
     public Boolean getSubjectOf1StorageIntent() {
@@ -1425,7 +1295,7 @@ public class IssuesBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Subject3.storageIntent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
         this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);

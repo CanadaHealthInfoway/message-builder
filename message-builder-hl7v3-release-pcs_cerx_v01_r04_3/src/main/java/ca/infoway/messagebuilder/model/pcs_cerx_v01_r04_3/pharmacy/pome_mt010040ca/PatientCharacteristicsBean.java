@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private IVL<PQ, Interval<PhysicalQuantity>> value = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
@@ -148,7 +148,7 @@ public class PatientCharacteristicsBean extends MessagePartBean {
      * <p>Relationship: 
      * POME_MT010040CA.ObservationEventCriterion.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows comparison to actual patient characteristics to 
      * see if the dosage is applicable. In some circumstances, the 
@@ -171,7 +171,7 @@ public class PatientCharacteristicsBean extends MessagePartBean {
      * <p>Relationship: 
      * POME_MT010040CA.ObservationEventCriterion.value</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Allows comparison to actual patient characteristics to 
      * see if the dosage is applicable. In some circumstances, the 

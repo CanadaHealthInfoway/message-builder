@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Recipient {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -136,7 +136,7 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -158,7 +158,7 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.addr</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Identifies the physical location of a service location 
      * and also allows for the location to be contacted.</p><p>The 
@@ -180,7 +180,7 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
      * <p>Relationship: 
      * COCT_MT240003CA.ServiceDeliveryLocation.telecom</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      * 
      * <p>Allows a service location to be communicated with and is 
      * therefore important. Because a contact number won't always 

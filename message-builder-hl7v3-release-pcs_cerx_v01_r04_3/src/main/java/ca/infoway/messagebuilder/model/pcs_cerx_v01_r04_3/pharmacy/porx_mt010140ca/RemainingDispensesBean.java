@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220100ca
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private PQ quantity = new PQImpl();
     private DrugProductBean productMedication;
 
@@ -98,7 +98,7 @@ public class RemainingDispensesBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT010140CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
@@ -108,7 +108,7 @@ public class RemainingDispensesBean extends MessagePartBean {
     /**
      * <p>Relationship: PORX_MT010140CA.Product.medication</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;

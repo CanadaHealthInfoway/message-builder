@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,21 +39,20 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt060240
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060300CA.Prescription</p>
+ * <p>--> Payload: PORX_MT060300CA.Prescription</p>
  * 
- * <p>----> Sub-Payload Choice: 
+ * <p>----> Payload Choice: 
  * PORX_MT030040CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Sub-Payload Choice: 
- * PORX_MT060060CA.DevicePrescription</p>
+ * <p>----> Payload Choice: PORX_MT060060CA.DevicePrescription</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060240CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT060240CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060500CA"})
 public class UnfilledPrescriptionsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<Prescription_1,UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
 
 }

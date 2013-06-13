@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +29,12 @@ import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
@@ -42,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt141007ca
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt010110ca.PriorDeviceRequestBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,18 +76,18 @@ import java.util.List;
 @Hl7RootType
 public class DeviceRequest_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
-    private DeviceProductBean directTargetManufacturedProduct;
     private PatientBean subjectPatient;
-    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private DeviceProductBean directTargetManufacturedProduct;
+    private II predecessorPriorDeviceRequestId = new IIImpl();
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private ProcedureRequestBean component1ProcedureRequest;
-    private Component2_1Bean component;
+    private ST component1ProcedureRequestText = new STImpl();
+    private DispenseInstructions_1Bean componentSupplyRequest;
     private CommentBean subjectOfAnnotation;
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
@@ -115,7 +116,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescriptionNumber</p>
      * 
@@ -186,7 +187,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT020060CA.DeviceRequest.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Prescription.prescriptionNumber</p>
      * 
@@ -343,32 +344,6 @@ public class DeviceRequest_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: PORX_MT010110CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -394,25 +369,73 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
+     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
+     * PORX_MT010110CA.DirectTarget.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
+    }
+
+
+    /**
+     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     */
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest/id"})
+    public Identifier getPredecessorPriorDeviceRequestId() {
+        return this.predecessorPriorDeviceRequestId.getValue();
+    }
+
+    /**
+     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>New or Repeat (if present, then Repeat)</p>
+     * 
+     * <p>Allows a prescription renewal (this prescription) to note 
+     * the previous prescription id that was renewed;</p><p>Allows 
+     * tracking a therapy across multiple renewal 
+     * prescriptions.</p>
+     * 
+     * <p>A reference to a previous prescription which the current 
+     * prescription replaces.</p>
+     */
+    public void setPredecessorPriorDeviceRequestId(Identifier predecessorPriorDeviceRequestId) {
+        this.predecessorPriorDeviceRequestId.setValue(predecessorPriorDeviceRequestId);
     }
 
 
@@ -421,7 +444,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.DeviceRequest.reason</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      */
     @Hl7XmlMapping({"reason"})
     public List<PrescribedBecauseOfBean> getReason() {
@@ -435,7 +458,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"precondition/verificationEventCriterion"})
     public Boolean getPreconditionVerificationEventCriterion() {
@@ -448,7 +471,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT010110CA.Precondition.verificationEventCriterion</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
@@ -460,7 +483,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage2.coverage</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
     public List<CoverageExtensions_1Bean> getCoverageCoverage() {
@@ -469,65 +492,81 @@ public class DeviceRequest_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: UsageInstructions</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
+     * <p>Un-merged Business Name: UsageInstructions</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Instructions are a key part of the prescription.</p>
+     * 
+     * <p>Indicates how the device should be used by the 
+     * patient.</p>
      */
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
+    @Hl7XmlMapping({"component1/procedureRequest/text"})
+    public String getComponent1ProcedureRequestText() {
+        return this.component1ProcedureRequestText.getValue();
     }
+
+    /**
+     * <p>Business Name: UsageInstructions</p>
+     * 
+     * <p>Un-merged Business Name: UsageInstructions</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Instructions are a key part of the prescription.</p>
+     * 
+     * <p>Indicates how the device should be used by the 
+     * patient.</p>
+     */
+    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
+        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
+    }
+
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010110CA.DeviceRequest.component2</p>
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component","component2"})
+    @Hl7XmlMapping({"component/supplyRequest","component2/supplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT010110CA.Component6")})
-    public Component2_1Bean getComponent() {
-        return this.component;
+        @Hl7MapByPartType(name="component/supplyRequest", type="PORX_MT020060CA.SupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT010110CA.Component6"),
+        @Hl7MapByPartType(name="component2/supplyRequest", type="PORX_MT010110CA.SupplyRequest")})
+    public DispenseInstructions_1Bean getComponentSupplyRequest() {
+        return this.componentSupplyRequest;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.DeviceRequest.component2</p>
+     * <p>Relationship: PORX_MT010110CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
+     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent(Component2_1Bean component) {
-        this.component = component;
+    public void setComponentSupplyRequest(DispenseInstructions_1Bean componentSupplyRequest) {
+        this.componentSupplyRequest = componentSupplyRequest;
     }
 
 
@@ -536,7 +575,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
     public CommentBean getSubjectOfAnnotation() {
@@ -548,7 +587,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.Subject4.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
@@ -561,7 +600,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -574,7 +613,7 @@ public class DeviceRequest_1Bean extends MessagePartBean {
      * <p>Relationship: 
      * PORX_MT020060CA.ResponsibleParty3.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;

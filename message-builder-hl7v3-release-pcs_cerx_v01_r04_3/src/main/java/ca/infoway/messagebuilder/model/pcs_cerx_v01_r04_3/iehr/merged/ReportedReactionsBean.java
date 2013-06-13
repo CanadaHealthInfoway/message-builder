@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ import java.util.Date;
  * <p>REPC_MT000012CA.CausalityAssessment: Reaction Assessments</p>
  * 
  * <p>If code is SNOMED, value is not permitted. Otherise code 
- * must be RXNASSESS and value must be RELATED</p>
+ * must be '''RXNASSESS''' and value must be '''RELATED'''</p>
  * 
  * <p>Indicates both the product and how related they are 
  * determined to be to the reaction.</p>
@@ -72,7 +72,7 @@ import java.util.Date;
  * <p>REPC_MT000013CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>If code is SNOMED, value is not permitted otherwise code 
- * must be RXNASSESS and value must be RELATED</p>
+ * must be '''RXNASSESS''' and value must be '''RELATED'''</p>
  * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
@@ -135,7 +135,7 @@ import java.util.Date;
  * <p>REPC_MT000009CA.CausalityAssessment: Reported Reactions</p>
  * 
  * <p>Value is required if not using SNOME code must be 
- * RXNASSESS if not SNOMED</p>
+ * '''RXNASSESS if not SNOMED</p>
  * 
  * <p>Helps providers to distinguish between proper allergies 
  * and intolerances. Allows the provider recording the allergy 
@@ -181,12 +181,12 @@ import java.util.Date;
  * <p>REPC_MT000013CA.ObservationEvent: (no business name)</p>
  * 
  * <p>If code is SNOMED, value is not permitted, otherwise it 
- * is mandatory and code must be DX</p>
+ * is mandatory and code must be '''DX'''</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000001CA.ObservationEvent","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000005CA.ObservationEvent","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000009CA.ObservationEvent","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment","REPC_MT000013CA.ObservationEvent"})
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
@@ -982,7 +982,7 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>Relationship: 
      * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -996,21 +996,21 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>Relationship: 
      * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
     public ExposuresBean getStartsAfterStartOfExposureEvent() {
@@ -1037,7 +1037,7 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>Relationship: 
      * REPC_MT000013CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -1051,21 +1051,21 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
      * <p>Relationship: 
      * REPC_MT000001CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000009CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * REPC_MT000005CA.StartsAfterStartOf.exposureEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
         this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Business Name: AllergyIntoleranceSeverityLevel</p>
- * 
  * <p>REPC_MT000002CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
@@ -40,6 +38,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>This is a ranking/ an assertion of the seriouness of the 
  * diagnosed/reported medical condition.</p>
+ * 
+ * <p>PORX_MT980020CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
  * 
  * <p>REPC_MT000009CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
@@ -58,6 +63,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>This is a ranking/ an assertion of the seriouness of the 
  * diagnosed/reported medical condition.</p>
+ * 
+ * <p>PORX_MT980030CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
  * 
  * <p>REPC_MT000006CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
@@ -89,6 +101,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is a ranking/ an assertion of the seriouness of the 
  * diagnosed/reported medical condition.</p>
  * 
+ * <p>PORX_MT980010CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
+ * 
  * <p>REPC_MT000005CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
@@ -98,16 +117,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>This is a ranking/ an assertion of the seriouness of the 
  * diagnosed/reported medical condition.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.SeverityObservation","PORX_MT980020CA.SeverityObservation","PORX_MT980030CA.SeverityObservation","REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
 public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Business Name: SeverityLevel</p>
-     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
@@ -125,6 +142,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
@@ -141,6 +185,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -209,6 +280,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -233,8 +331,6 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     }
 
     /**
-     * <p>Business Name: SeverityLevel</p>
-     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
@@ -252,6 +348,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
      * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000009CA.SeverityObservation.value</p>
@@ -268,6 +391,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -336,6 +486,33 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
      * patient.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Contraindication.severity</p>
+     * 
+     * <p>ZPE.3</p>
+     * 
+     * <p>MB.05.03A</p>
+     * 
+     * <p>Severity</p>
+     * 
+     * <p>ZDU.6.3</p>
+     * 
+     * <p>ZDU.8.4</p>
+     * 
+     * <p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 

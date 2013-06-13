@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private UnderwriterBean authorUnderwriter;
@@ -167,7 +167,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 
@@ -190,7 +190,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 
@@ -213,7 +213,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 
@@ -244,7 +244,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010120CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 
@@ -267,7 +267,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT010110CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 
@@ -290,7 +290,7 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT060040CA.Coverage.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>D64</p>
      * 

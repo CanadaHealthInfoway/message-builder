@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueManagement","PORX_MT980020CA.DetectedIssueManagement","PORX_MT980030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
@@ -460,7 +460,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -474,7 +474,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -488,7 +488,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -510,7 +510,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980030CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -524,7 +524,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980010CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -538,7 +538,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.time</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>ManagedContraindication.CreationDate</p>
      * 
@@ -570,7 +570,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author/assignedPerson"})
     public ProviderBean getAuthorAssignedPerson() {
@@ -594,7 +594,7 @@ public class IssueManagementsBean extends MessagePartBean {
      * 
      * <p>Relationship: PORX_MT980020CA.Author1.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
         this.authorAssignedPerson = authorAssignedPerson;

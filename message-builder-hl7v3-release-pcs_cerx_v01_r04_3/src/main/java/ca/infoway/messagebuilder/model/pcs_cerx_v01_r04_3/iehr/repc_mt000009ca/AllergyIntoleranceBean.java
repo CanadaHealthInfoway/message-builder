@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Canada Health Infoway, Inc.
+ * Copyright 2012 Canada Health Infoway, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,12 +43,12 @@ import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Records;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.VersionInformationBean;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20130613L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -86,7 +86,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private ReportedByBean informant;
-    private RecordedAtBean location;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AllergyIntoleranceBean replacementOfIntoleranceCondition;
     private List<Records> supportRecords = new ArrayList<Records>();
     private List<VersionInformationBean> subjectOf1ControlActEvent = new ArrayList<VersionInformationBean>();
@@ -484,7 +484,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -495,7 +495,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
@@ -546,23 +546,23 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * REPC_MT000009CA.IntoleranceCondition.location</p>
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
      * <p>Relationship: 
-     * REPC_MT000009CA.IntoleranceCondition.location</p>
+     * REPC_MT000009CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -570,7 +570,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ReplacementOf.intoleranceCondition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"replacementOf/intoleranceCondition"})
     public AllergyIntoleranceBean getReplacementOfIntoleranceCondition() {
@@ -581,7 +581,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Relationship: 
      * REPC_MT000009CA.ReplacementOf.intoleranceCondition</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     public void setReplacementOfIntoleranceCondition(AllergyIntoleranceBean replacementOfIntoleranceCondition) {
         this.replacementOfIntoleranceCondition = replacementOfIntoleranceCondition;
@@ -591,7 +591,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Support.records</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"support/records"})
     public List<Records> getSupportRecords() {
@@ -602,7 +602,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Subject4.controlActEvent</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
     public List<VersionInformationBean> getSubjectOf1ControlActEvent() {
@@ -613,7 +613,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Relationship: REPC_MT000009CA.Subject3.annotation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<CommentBean> getSubjectOf2Annotation() {
