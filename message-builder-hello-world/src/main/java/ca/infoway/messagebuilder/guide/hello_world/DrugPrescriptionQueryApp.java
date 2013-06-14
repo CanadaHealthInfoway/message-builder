@@ -89,8 +89,8 @@ public class DrugPrescriptionQueryApp extends HelloWorldApp {
 				RefersTo_1Bean<PrescriptionBean> subject = records.get(index);
 				PrescriptionBean script = subject.getAct();
 				HealthcareWorkerBean provider = script.getAuthor().getAssignedEntity();
-				String family = provider.getAssignedPerson().getName().getFamilyName();
-				String given = provider.getAssignedPerson().getName().getGivenName();
+				String family = provider.getAssignedPersonName().getFamilyName();
+				String given = provider.getAssignedPersonName().getGivenName();
 				System.out.printf("Prescriber:= %s %s\n", given, family);
 				System.out.printf("prescribed date:= %s\n", script.getAuthor().getTime().toString());
 			}

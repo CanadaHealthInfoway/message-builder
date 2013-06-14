@@ -62,7 +62,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Refers
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.AddPatientNoteRequestBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CommentBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.transport.Credentials;
@@ -170,12 +169,6 @@ public class AddPatientNoteExample {
 		return result;
 	}
 
-	private static ActingPersonBean createAssignedPersonBean() {
-		ActingPersonBean assignedPersonBean = new ActingPersonBean();
-		assignedPersonBean.setName(createFirstNameLastName("John", "Doe"));
-		return assignedPersonBean;
-	}
-
 	private static CreatedBy_1Bean createAuthorBean() {
 		CreatedBy_1Bean authorBean = new CreatedBy_1Bean();
 		authorBean.setTime(new Date(0));
@@ -186,7 +179,7 @@ public class AddPatientNoteExample {
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean healthcareWorkerBean = new HealthcareWorkerBean();
 		healthcareWorkerBean.getId().add(new Identifier("1.1.1", "1"));
-		healthcareWorkerBean.setAssignedPerson(createAssignedPersonBean());
+		healthcareWorkerBean.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return healthcareWorkerBean;
 	}
 
@@ -196,12 +189,12 @@ public class AddPatientNoteExample {
 		identifiedPersonBean.setAddr(createPostalAddress());
 		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
-		ActingPersonBean patientPerson = new ActingPersonBean();
-		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		patientPerson.setAdministrativeGenderCode(
+		
+		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		identifiedPersonBean.setPatientPerson(patientPerson);
+		
 		return identifiedPersonBean;
 	}
 

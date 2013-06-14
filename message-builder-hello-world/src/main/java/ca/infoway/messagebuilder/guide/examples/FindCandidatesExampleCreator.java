@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryB
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 
 /**
@@ -110,9 +109,7 @@ public class FindCandidatesExampleCreator {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
 		person.getId().add(new Identifier("1.1.1", "1"));
 		authorBean.setTime(new Date());
-		ActingPersonBean assignedPerson = new ActingPersonBean();
-		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
-		person.setAssignedPerson(assignedPerson);
+		person.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return person;
 	}
 	
