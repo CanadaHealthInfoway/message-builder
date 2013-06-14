@@ -19,7 +19,6 @@
  */
 package ca.infoway.messagebuilder;
 
-
 import org.junit.Test;
 
 public class MessageSetVersionTest {
