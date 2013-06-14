@@ -78,6 +78,11 @@
                      <artifactId>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</artifactId>
                      <version>${messageBuilder.version}</version>
               </dependency>
+              <dependency>
+                     <groupId>ca.infoway.messagebuilder</groupId>
+                     <artifactId>message-builder-hl7v3-release-on_cerx_v01_r04_3</artifactId>
+                     <version>${messageBuilder.version}</version>
+              </dependency>
 
               <dependency>
                      <groupId>ca.infoway.messagebuilder</groupId>
