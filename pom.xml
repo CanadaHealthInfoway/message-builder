@@ -54,11 +54,12 @@
 		<module>message-builder-release-newfoundland</module>
 		<module>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</module>
     		<module>message-builder-simple-xml-process-web</module>
-    <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
-    <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
-    <module>message-builder-mif-comparer</module>
-    <module>message-builder-html</module>
-  </modules>
+                <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
+                <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
+                <module>message-builder-hl7v3-release-on_cerx_v01_r04_3</module>
+                <module>message-builder-mif-comparer</module>
+                <module>message-builder-html</module>
+        </modules>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
