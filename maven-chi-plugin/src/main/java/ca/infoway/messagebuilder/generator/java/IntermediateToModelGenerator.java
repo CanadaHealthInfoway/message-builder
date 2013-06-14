@@ -115,16 +115,20 @@ public abstract class IntermediateToModelGenerator {
 
 
 	private void registerDomainInterfaces(MessageSet messageSet) {
+		// TM - modified this code so that domains from message parts are added in addition to those from the vocab
+		//    - this avoids having any missing domain interfaces
+		
 		if (messageSet.isVocabularyDataPresent()) {
 			registerDomainInterfaces(messageSet.getVocabulary());
-		} else {
-			// BCH: Consider whether or not we should support this case
-			for (MessagePart messagePart : messageSet.getAllMessageParts()) {
-				for (Relationship relationship : messagePart.getRelationships()) {
-					if (relationship.isAttribute() && relationship.isCodedType() 
-							&& StringUtils.isNotBlank(relationship.getDomainType())) {
-						registerDomainInterface(relationship.getDomainType(), Collections.<String>emptyList());
-					}
+		}
+		
+		// BCH: Consider whether or not we should support this case
+		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
+			for (Relationship relationship : messagePart.getRelationships()) {
+				if (relationship.isAttribute() && relationship.isCodedType() 
+						&& StringUtils.isNotBlank(relationship.getDomainType())) {
+					// TM - a duplicate registration attempt will be ignored
+					registerDomainInterface(relationship.getDomainType(), Collections.<String>emptyList());
 				}
 			}
 		}
