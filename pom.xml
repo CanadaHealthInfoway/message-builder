@@ -437,6 +437,7 @@
 			            <exclude>**/*.java1</exclude>
 			            <exclude>**/*.mif</exclude>
 			            <exclude>**/*.coremif</exclude>
+			            <exclude>**/*.xml.template</exclude>
 			            <exclude>**/etc/sample-config.txt</exclude>
 			            <exclude>**/html/js/jquery-1.7.2.js</exclude>
 			            <exclude>**/html/js/jquery.jstree.js</exclude>
@@ -570,14 +571,14 @@
 		</pluginManagement>
 
 	<resources>
-		  <resource>
+		  <!-- resource>
 		    <directory>${basedir}/../etc</directory>
 		    <filtering>false</filtering>
 		    <includes>
 		      <include>LICENSE.txt</include>
 		      <include>RELEASE-NOTES.txt</include>
 		    </includes>
-		  </resource>
+		  </resource -->
 
 		  <resource>
 		    <directory>${basedir}/src/main/resources</directory>
