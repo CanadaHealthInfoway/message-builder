@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.4.6
+                               Version 1.5.0
                                Release Notes
 
 INTRODUCTION:
@@ -59,6 +59,33 @@ messagebuilder.simplexml.resturl
 messagebuilder.simplexml.transportclass
  - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+CHANGES for 1.5.0:
+=======================
+
+- all MB message sets and APIs have been re-generated to accomodate Message Remixer v3 changes
+- some minor coding changes may be required for clients using a MB API as a result of the re-gens
+- 14377 - FW: Infoway message builder API 1.4.6 problem [IVL<TS.FULLDATETIME> could not be properly specified for an ANY type]
+- 14452 - Create a Message Builder Java API for ON Drug Message Set
+- 14453 - Create a Message Builder .NET API for ON Drug Message Set
+- 14561 - Create a helper method for setting specialization type on a collection
+- 14562 - CodedString datatype (SC) does not generate properly (not a pan-Canadian standard datatype)
+- 14581 - Create helper methods for setting null flavor on a collection
+- 14612 - Unexpected console output from MessageBeanTransformerImpl
+- 14620 - DRUG_DOCUMENT_QUERY and DRUG_DOCUMENT_QUERY_RESPONSE missing from Ca.Infoway.Messagebuilder.Domainvalue.Transport.HL7TriggerEventCode
+- 14626 - Drop support for MR2007 V02R01 in Message Builder
+- 14644 - Unable to read a message (Can't find a relationship named : component1 on messa gePart named POLB_MT004200BC.ObservationReport) [a Remixer had affected the sort of message elements in rendered xml]
+- 14740 - Some formatters and parsers will break when dealing with values provided though the ANY datatype
+- 15236 - argument type mismatch [the ActMood enum implemented the ActCode interface instead of the ActMood interface]
+- 15390 - Could not find coded value for domain type x_ActMoodDefEvnRqo [the Terminology component had a bug with fixed or CS codes]
+- 15393 - Errors validating combinedMedicationRequest.subjectOf3.rxOrderType.moodCode [same as 15390]
+- 15395 - Cardinality for telecom fields not validated. [Cardinality now validated for all attribute collections]
+- 15419 - no exception if duplicates were specified for the SET<> datatype
+- 15431 - MANDATORY_FIELD_NOT_PROVIDED: Attribute "id" is required, but is specified as nullFlavor="NI". [MB now allows NF for all conformances except MANDATORY]
+- 15446 - java.lang.ClassCastException [this was caused by a complex generator bug]
+- 15915 - Crash in MessageBuilder while generating a Message Set when a vocabulary MIF contains <excludeContent> filters based on <propertyBasedContent>
+- 15929 - MB-generated message does not pass XSD validation [IVL and URG inner elements did not have the correct xsi:type]
 
 
 CHANGES for 1.4.6:
