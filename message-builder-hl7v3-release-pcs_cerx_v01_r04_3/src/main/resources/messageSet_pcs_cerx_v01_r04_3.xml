@@ -19,7 +19,7 @@
     Revision:      $LastChangedRevision: 2623 $
 
 -->
-<messageSet version="V01R04_3" schemaVersion="2.0" generatedBy="1.4.7-SNAPSHOT">
+<messageSet version="V01R04_3" schemaVersion="2.0" generatedBy="1.5.0">
    <packageEntry name="COCT_MT040205CA">
       <packageLocation name="COCT_MT040205CA" desc="Responsible Party contact" rootType="COCT_MT040205CA.ResponsibleParty" category="common">
          <derivedFromStaticModel root="DEFN" artifact="RIM" version="00"/>
