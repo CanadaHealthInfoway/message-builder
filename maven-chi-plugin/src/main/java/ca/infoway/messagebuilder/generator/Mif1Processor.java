@@ -113,6 +113,8 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 
 	@Override
 	protected List<MessagePart> extractMessageParts(MessageSet messageSet, Mif mif) throws GeneratorException, IOException {
+		this.outputUI.log(LogLevel.DEBUG, "Extracting message parts for MIF: " + mif.getCategory() + "." + mif.getPackageLocation() + "." + mif.getName());
+
 		List<MessagePart> result = new ArrayList<MessagePart>();
 		Document document = mif.asDocument();
 		Element ownedEntryPoint = this.helper.getOwnedEntryPointElement(document);
@@ -502,7 +504,10 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 	
 	private void addRimClass(Element classElement, MessagePart messagePart) {
 		String rimClassName = BaseMifXPathHelper.getAttribute(classElement, "mif:graphicRepresentation/mif:graphElement/@shapeTemplate");
-		messagePart.setRimClass(determineRimClass(classElement,	rimClassName));
+		// TM - working with NL MIFs; these do not have the attribute being searched for
+		if (rimClassName != null) {
+			messagePart.setRimClass(determineRimClass(classElement,	rimClassName));
+		}
 	}
 
 	private boolean isAbstract(Element classElement) {
