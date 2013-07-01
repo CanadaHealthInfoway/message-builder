@@ -125,7 +125,11 @@ class Hl7SourceMapper {
 	    		if (mappingNotYetSupported(traversalName)){
 	    			this.log.info(message);
 	    		} else {
-	    			throw new MarshallingException(message);
+	    			if (nodes == null || nodes.isEmpty()) { 
+	    				throw new MarshallingException(message);
+	    			} else {
+	    				source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, message, (Element) nodes.get(0)));
+	    			}
 	    		}
 	    	} else if (relationship.isAttribute()) {
 	    		writeAttribute(bean, source, nodes, relationship, traversalName);
