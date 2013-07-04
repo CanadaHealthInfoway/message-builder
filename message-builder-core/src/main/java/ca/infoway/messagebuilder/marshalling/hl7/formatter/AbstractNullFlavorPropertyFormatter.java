@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +28,9 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
  * If an object is null, value is replaced by a nullFlavor. So the element would look
@@ -53,14 +53,17 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
     		
     		V value = extractBareValue(hl7Value);
     		
-    		if (hl7Value.hasNullFlavor()) {
+    		ConformanceLevel conformanceLevel = context.getConformanceLevel();
+    		Cardinality cardinality = context.getCardinality();
+    		
+			if (hl7Value.hasNullFlavor()) {
     			result = createElement(context, createNullFlavorAttributes(hl7Value.getNullFlavor()), indentLevel, true, true);
-    			if (context.getConformanceLevel() == MANDATORY) {
+				if (ConformanceLevelUtil.isMandatory(conformanceLevel, cardinality)) {
     				createMissingMandatoryWarning(context);
     			}
     		} else if (value == null || isEmptyCollection(value)) {
-    			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
-        			if (context.getConformanceLevel() == MANDATORY) {
+    			if (conformanceLevel == null || isMandatoryOrPopulated(context)) {
+        			if (ConformanceLevelUtil.isMandatory(conformanceLevel, cardinality)) {
         				result = createElement(context, EMPTY_ATTRIBUTE_MAP, indentLevel, true, true);
         				createMissingMandatoryWarning(context);
         			} else {
@@ -105,8 +108,9 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 	}
 
     protected boolean isMandatoryOrPopulated(FormatContext context) {
-    	ConformanceLevel level = context.getConformanceLevel();
-		return level == ConformanceLevel.MANDATORY || level == ConformanceLevel.POPULATED;
+    	ConformanceLevel conformance = context.getConformanceLevel();
+    	Cardinality cardinality = context.getCardinality();
+		return ConformanceLevelUtil.isMandatory(conformance, cardinality) || ConformanceLevelUtil.isPopulated(conformance, cardinality);
 	}
 
 	protected Map<String, String> toStringMap(String... string) {

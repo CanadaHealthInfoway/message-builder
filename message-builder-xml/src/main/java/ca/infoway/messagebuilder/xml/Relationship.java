@@ -33,6 +33,7 @@ import org.simpleframework.xml.Root;
 
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
  * <p>A message part relationship (either an attribute or an association).
@@ -209,7 +210,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public ConformanceLevel getConformance() {
 		if (this.conformance != null) {
 			return EnumPattern.valueOf(ConformanceLevel.class, this.conformance);
-		} else if (hasFixedValue()) {
+		} else if (hasFixedValue()) { // TODO: TM - should this also return MANDATORY if min cardinality > 0?
 			return ConformanceLevel.MANDATORY;
 		} else {
 			return ConformanceLevel.OPTIONAL;
@@ -232,6 +233,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		Cardinality temp = Cardinality.create(this.cardinality);
 		if (temp != null) {
 			return temp;
+		// specifically using direct check of conformance value instead of using isMandatory or isPopulated to avoid logic errors
 		} else if (getConformance() == ConformanceLevel.MANDATORY || 
 				getConformance() == ConformanceLevel.POPULATED) {
 			return Cardinality.create("1");
@@ -373,7 +375,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @return true if the relationship is mandatory; false otherwise.
 	 */
 	public boolean isMandatory() {
-		return ConformanceLevel.MANDATORY.equals(getConformance());
+		return ConformanceLevelUtil.isMandatory(this);
 	}
 
 	/**
@@ -381,7 +383,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @return true if the relationship is populated; false otherwise.
 	 */
 	public boolean isPopulated() {
-		return ConformanceLevel.POPULATED.equals(getConformance());
+		return ConformanceLevelUtil.isPopulated(this);
 	}
 	
 	/**
@@ -389,7 +391,31 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @return true if the relationship is required; false otherwise.
 	 */
 	public boolean isRequired() {
-		return ConformanceLevel.REQUIRED.equals(getConformance());
+		return ConformanceLevelUtil.isRequired(this);
+	}
+	
+	/**
+	 * <p>Get a flag indicating whether or not the relationship is optional.
+	 * @return true if the relationship is optional; false otherwise.
+	 */
+	public boolean isOptional() {
+		return ConformanceLevelUtil.isOptional(this);
+	}
+	
+	/**
+	 * <p>Get a flag indicating whether or not the relationship is ignored.
+	 * @return true if the relationship is ignored; false otherwise.
+	 */
+	public boolean isIgnored() {
+		return ConformanceLevelUtil.isIgnored(this);
+	}
+	
+	/**
+	 * <p>Get a flag indicating whether or not the relationship is not allowed.
+	 * @return true if the relationship is not allowed; false otherwise.
+	 */
+	public boolean isNotAllowed() {
+		return ConformanceLevelUtil.isNotAllowed(this);
 	}
 	
 	/**

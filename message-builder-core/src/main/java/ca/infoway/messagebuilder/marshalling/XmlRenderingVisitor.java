@@ -22,14 +22,14 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.marshalling.BeanBridgeChoiceRelationshipResolver.resolveChoice;
 import static ca.infoway.messagebuilder.marshalling.FixedValueAttributeBeanBridge.FIXED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredNotAllowed;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -154,8 +154,8 @@ class XmlRenderingVisitor implements Visitor {
 
 	private boolean isSomethingToRender(PartBridge tealBean, Relationship relationship) {
 		return !tealBean.isEmpty() 
-				|| relationship.getConformance() == ConformanceLevel.MANDATORY 
-				|| relationship.getConformance() == ConformanceLevel.POPULATED
+				|| relationship.isMandatory() 
+				|| relationship.isPopulated()
 				|| tealBean.hasNullFlavor();
 	}
 
@@ -168,22 +168,22 @@ class XmlRenderingVisitor implements Visitor {
 			String propertyPath = buildPropertyPath();
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			
-			if (part.isEmpty() && (relationship.getConformance() == ConformanceLevel.POPULATED || part.hasNullFlavor())) {
+			if (part.isEmpty() && (relationship.isPopulated() || part.hasNullFlavor())) {
 				currentBuffer().getStructuralBuilder().append(
 						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
-			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
+			} else if (part.isEmpty() && relationship.isMandatory() && !isTrivial(part)) {
 				// some errors are due to "null" parts MB has inserted to create structural XML; don't log errors on these
 				validationWarning = !part.isNullPart() && !part.isCollapsed();
 				warningMessage = "Mandatory association has no data.";
 				if (!validationWarning) {
 					currentBuffer().addWarning(warningMessage + " (" + propertyPath + ")");
 				}
-			} else if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+			} else if (relationship.isIgnored()) {
 				validationWarning = true;
 				warningMessage = MessageFormat.format(isIgnoredNotAllowed() ? 
 						ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED :
 						ASSOCIATION_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
-			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+			} else if (relationship.isNotAllowed()) {
 				validationWarning = true;
 				warningMessage = MessageFormat.format(ASSOCIATION_IS_NOT_ALLOWED, relationship.getName());
 			}
@@ -270,11 +270,11 @@ class XmlRenderingVisitor implements Visitor {
 			String propertyPath = buildPropertyPath();
 			
 			String warningForIncorrectUseOfIgnore = null;
-			if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+			if (relationship.isIgnored()) {
 				warningForIncorrectUseOfIgnore = MessageFormat.format(isIgnoredNotAllowed() ? 
 						ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
 						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
-			}  else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+			}  else if (relationship.isNotAllowed()) {
 				warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
 			}
 			if (warningForIncorrectUseOfIgnore != null) {
@@ -341,13 +341,13 @@ class XmlRenderingVisitor implements Visitor {
 				}
 				
 				String warningForIncorrectUseOfIgnore = null;
-				if (relationship.getConformance() == ConformanceLevel.IGNORED) {
+				if (relationship.isIgnored()) {
 					if (isIgnoredNotAllowed()){
 						warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, relationship.getName());
 					} else {
 						warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
 					}
-				} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+				} else if (relationship.isNotAllowed()) {
 					warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
 				}
 				if (warningForIncorrectUseOfIgnore != null) {

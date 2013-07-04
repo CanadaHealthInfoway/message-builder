@@ -106,7 +106,7 @@ public class Case1Simplifier extends InlineableSimplifier {
 	}
 	
 	private boolean isConformanceCapableOfSupportingInlining(SimplifiableType inlineableType, SimplifiableRelationship relationship) {
-		return !ConformanceLevel.POPULATED.equals(relationship.getRelationship().getConformance());
+		return !relationship.getRelationship().isPopulated();
 	}
 
 	private boolean isCardinalityCapableOfSupportingInlining(SimplifiableType inlineableType,

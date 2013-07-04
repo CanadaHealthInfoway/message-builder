@@ -147,11 +147,7 @@ class Hl7SourceMapper {
 		if (relationship.isTemplateRelationship() || relationship.isChoice() || relationship.isStructural()) {
 			return false;
 		}
-		return isFullyFixedType(relationship, source) && isNotMandatory(relationship.getConformance());
-	}
-
-	private boolean isNotMandatory(ConformanceLevel conformance) {
-		return conformance != null && conformance != ConformanceLevel.MANDATORY;
+		return isFullyFixedType(relationship, source) && !relationship.isMandatory();
 	}
 
 	private void writeIndicator(BeanWrapper bean, Hl7Source source, List<Node> nodes, Relationship relationship, String traversalName)
@@ -240,7 +236,7 @@ class Hl7SourceMapper {
  			} else {
  	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
  			}
- 		} else if (isNotOptional(relationship.getConformance()) && !isFullyFixedType(relationship, source)) {
+ 		} else if (!relationship.isOptional() && !isFullyFixedType(relationship, source)) {
  			this.log.info("IGNORING: HL7 type " + relationship.getType() + " with traversalName=" + traversalName + "(" 
  					+ Describer.describe(source.getMessagePartName(), relationship) 
  					+ ") cannot be mapped to any teal bean");
@@ -283,12 +279,6 @@ class Hl7SourceMapper {
 	private void writeAssociation(BeanWrapper childBeanWrapper, Hl7Source source, Element element, Relationship relationship) {
 		Hl7PartSource childSource = source.createPartSource(relationship, element);
 		mapToTeal(childSource, childBeanWrapper, relationship);
-	}
-
-
-
-	private boolean isNotOptional(ConformanceLevel conformance) {
-		return conformance != null && conformance != ConformanceLevel.OPTIONAL;
 	}
 
 	private void writeAttribute(BeanWrapper bean, Hl7Source source, List<Node> nodes, Relationship relationship, String traversalName)
@@ -376,7 +366,7 @@ class Hl7SourceMapper {
 		Element currentElement = source.getCurrentElement();
 		
     	NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(
-    			relationship!=null ? relationship.getConformance() : ConformanceLevel.OPTIONAL, 
+    			relationship != null ? relationship.getConformance() : ConformanceLevel.OPTIONAL, 
     			currentElement,
     			source.getResult(),
     			true);

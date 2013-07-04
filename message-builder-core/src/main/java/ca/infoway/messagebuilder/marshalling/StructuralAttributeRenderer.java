@@ -43,7 +43,7 @@ abstract class StructuralAttributeRenderer {
 			Object value = getValue();
 			if (value != null) {
 				formatValue(builder, relationship, value);
-			} else if (this.relationship.getConformance() == ConformanceLevel.MANDATORY) {
+			} else if (this.relationship.isMandatory()) {
 				String errorMessage = "Relationship " + this.relationship.getName()	+ " is mandatory (and not a fixed value), but no value is specified";
 				Hl7Error error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, propertyPath);
 				errors.addHl7Error(error);

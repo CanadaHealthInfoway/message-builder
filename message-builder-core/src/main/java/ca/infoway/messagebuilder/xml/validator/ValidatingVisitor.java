@@ -50,11 +50,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.CvElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
-import ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.xml.visitor.MessageVisitor;
 
 public class ValidatingVisitor implements MessageVisitor {
@@ -80,13 +80,13 @@ public class ValidatingVisitor implements MessageVisitor {
 			// shouldn't happen
 		} else if (CollectionUtils.isEmpty(elements) && relationship.isMandatory()) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAssociationError(xmlName, base));
-		} else if (CollectionUtils.isEmpty(elements) && relationship.getConformance() == ConformanceLevel.POPULATED) {
+		} else if (CollectionUtils.isEmpty(elements) && relationship.isPopulated()) {
 			this.result.addHl7Error(Hl7Error.createMissingPopulatedAssociationError(xmlName, base));
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
-		} else if (relationship.getConformance() == ConformanceLevel.IGNORED && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+		} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(xmlName, base));
-		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+		} else if (relationship.isNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(xmlName, base));
 		}
 		if (relationship.getCardinality().isSingle() && elements.size() == 1) {
@@ -142,9 +142,9 @@ public class ValidatingVisitor implements MessageVisitor {
 			// various people suggest that fixed values can be left out
 		} else if (relationship.isMandatory()) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
-		} else if (relationship.getConformance() == ConformanceLevel.IGNORED && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+		} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
-		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+		} else if (relationship.isNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 		}
 	}
@@ -173,9 +173,9 @@ public class ValidatingVisitor implements MessageVisitor {
 				this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
 			} else if (CollectionUtils.isEmpty(elements) && relationship.isPopulated()) {
 				this.result.addHl7Error(Hl7Error.createMissingPopulatedAttributeError(relationship.getName(), base));
-			} else if (relationship.getConformance() == ConformanceLevel.IGNORED && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+			} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 				this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
-			} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED) {
+			} else if (relationship.isNotAllowed()) {
 				this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 			} else {
 				try {

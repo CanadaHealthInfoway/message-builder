@@ -139,7 +139,7 @@ public class Matcher {
 			return MatchType.MAJOR_DIFFERENCE;
 		} else if (base.getConformance() == other.getConformance()) {
 			return MatchType.EXACT;
-		} else if (base.getConformance() == ConformanceLevel.MANDATORY || other.getConformance() == ConformanceLevel.MANDATORY) {
+		} else if (base.isMandatory() || other.isMandatory()) {
 			return MatchType.MAJOR_DIFFERENCE;
 		} else {
 			return MatchType.MINOR_DIFFERENCE;

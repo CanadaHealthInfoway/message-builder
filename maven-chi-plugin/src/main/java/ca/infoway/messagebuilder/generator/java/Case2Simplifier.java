@@ -150,7 +150,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 			result = hasAtLeastOneMandatoryProperty(inlineableType);
 		}
 		
-		return result && !relationship.getRelationship().getConformance().equals(ConformanceLevel.POPULATED);
+		return result && !relationship.getRelationship().isPopulated();
 	}
 	
 	private boolean hasAtLeastOneMandatoryProperty(SimplifiableType inlineableType) {

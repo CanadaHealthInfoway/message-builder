@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.xml.validator;
 
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.POPULATED;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -43,9 +45,6 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class ValidatingVisitorTest {
-
-	public static final ConformanceLevel MANDATORY = ConformanceLevel.MANDATORY;
-	public static final ConformanceLevel POPULATED = ConformanceLevel.POPULATED;
 
 	@After
 	public void tearDown() {

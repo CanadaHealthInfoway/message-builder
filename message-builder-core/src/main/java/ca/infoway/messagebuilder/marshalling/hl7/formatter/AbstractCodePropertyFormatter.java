@@ -44,7 +44,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
  * CS - Coded Simple
@@ -103,15 +106,18 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
         	
     		Map<String, String> attributes = new HashMap<String, String>();
     		
-    		if (cd.hasNullFlavor()) {
-    			if (context.getConformanceLevel() == MANDATORY) {
+    		ConformanceLevel conformanceLevel = context.getConformanceLevel();
+    		Cardinality cardinality = context.getCardinality();
+    		
+			if (cd.hasNullFlavor()) {
+    			if (ConformanceLevelUtil.isMandatory(conformanceLevel, cardinality)) {
     				logMandatoryError(context);
     			} else {
     				attributes.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
     			}
     		} else if (!hasValue(cd, context)) {
-    			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
-        			if (context.getConformanceLevel() == MANDATORY) {
+    			if (conformanceLevel == null || isMandatoryOrPopulated(context)) {
+        			if (ConformanceLevelUtil.isMandatory(conformanceLevel, cardinality)) {
         				logMandatoryError(context);
         			} else {
         				attributes.putAll(NULL_FLAVOR_ATTRIBUTES);
@@ -123,7 +129,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     		attributes.putAll(getAttributeNameValuePairs(context, cd.getValue(), hl7Value));
     		
     		boolean hasChildContent = hasChildContent(cd, context);
-    		if (hasChildContent || (!attributes.isEmpty() || context.getConformanceLevel() == MANDATORY)) {
+    		if (hasChildContent || (!attributes.isEmpty() || ConformanceLevelUtil.isMandatory(conformanceLevel, cardinality))) {
     			result.append(createElement(context, attributes, indentLevel, !hasChildContent, !hasChildContent));
     			if (hasChildContent) {
     				createChildContent(cd, result);

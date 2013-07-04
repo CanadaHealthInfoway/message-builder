@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
  * ST - String
@@ -84,7 +85,7 @@ class StElementParser extends AbstractSingleElementParser<String> {
         int childNodeCount = node.getChildNodes().getLength();
 
         if (childNodeCount == 0) {
-        	if (context.getConformance() == ConformanceLevel.MANDATORY) {
+        	if (ConformanceLevelUtil.isMandatory(context.getConformance(), context.getCardinality())) {
         		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
         				MessageFormat.format("The string value should not be empty ({0})", XmlDescriber.describeSingleElement(element)), 
         				element));

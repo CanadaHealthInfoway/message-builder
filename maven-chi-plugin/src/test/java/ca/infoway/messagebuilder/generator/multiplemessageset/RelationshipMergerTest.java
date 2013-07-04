@@ -70,13 +70,13 @@ public class RelationshipMergerTest {
 	}
 
 	@Test
-	public void shoudlHandleNullRelationships() {
+	public void shouldHandleNullRelationships() {
 		Relationship result = this.merger.merge(null, null);
 		Assert.assertNull(result);
 	}
 	
 	@Test
-	public void shoudlHandleOneNullRelationship() {
+	public void shouldHandleOneNullRelationship() {
 		Relationship primary = new Relationship();
 		Relationship result = this.merger.merge(primary, null);
 		Assert.assertSame(primary, result);
@@ -88,7 +88,7 @@ public class RelationshipMergerTest {
 	}
 	
 	@Test
-	public void shoudlHandleEmptyRelationships() {
+	public void shouldHandleEmptyRelationships() {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, null); will(returnValue(null));
 			one(relationshipsMerger).merge(Collections.<Relationship>emptyList(), Collections.<Relationship>emptyList()); will(returnValue(Collections.EMPTY_LIST));
@@ -100,7 +100,7 @@ public class RelationshipMergerTest {
 	}
 	
 	@Test
-	public void shoudlMergeRelationships() {
+	public void shouldMergeRelationships() {
 		final Documentation primaryDoc = new Documentation();
 		
 		final Relationship primary = new Relationship();
@@ -161,7 +161,7 @@ public class RelationshipMergerTest {
 	}
 	
 	@Test
-	public void shoudlMergeSetAndListRelationships() {
+	public void shouldMergeSetAndListRelationships() {
 		final Relationship primary = new Relationship();
 		primary.setCardinality(new Cardinality(1,5));
 		primary.setConformance(ConformanceLevel.MANDATORY);
@@ -190,7 +190,7 @@ public class RelationshipMergerTest {
 	}
 
 	@Test
-	public void shoudlDetectAbstractMismatchInRelationshipTypes() {
+	public void shouldDetectAbstractMismatchInRelationshipTypes() {
 		final Relationship primary = new Relationship();
 		primary.setCardinality(new Cardinality(1,1));
 		primary.setConformance(ConformanceLevel.MANDATORY);
@@ -221,7 +221,7 @@ public class RelationshipMergerTest {
 	}
 
 	@Test
-	public void shoudlMergeDifferentCodedTypes() {
+	public void shouldMergeDifferentCodedTypes() {
 		final Documentation primaryDoc = new Documentation();
 		
 		final Relationship primary = new Relationship();
@@ -282,7 +282,7 @@ public class RelationshipMergerTest {
 	}
 	
 	@Test
-	public void shoudlMergeIntervalTypeWithNonIntervalType() {
+	public void shouldMergeIntervalTypeWithNonIntervalType() {
 		final Documentation primaryDoc = new Documentation();
 		
 		final Relationship primary = new Relationship();

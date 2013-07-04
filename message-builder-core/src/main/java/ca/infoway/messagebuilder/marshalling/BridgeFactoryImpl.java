@@ -20,12 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
-import static ca.infoway.messagebuilder.util.xml.ConformanceLevelUtil.isIgnoredNotAllowed;
 import static ca.infoway.messagebuilder.xml.ChoiceSupport.choiceOptionTypePredicate;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ASSOCIATION_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.ATTRIBUTE_IS_NOT_ALLOWED;
+import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredNotAllowed;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -114,7 +114,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			} else { 
 				if (o == null) {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
-					if (relationship.getConformance() == ConformanceLevel.MANDATORY || relationship.getConformance() == ConformanceLevel.POPULATED) {
+					if (relationship.isMandatory() || relationship.isPopulated()) {
 						relationships.add(
 								new AssociationBridgeImpl(relationship, createNullPartBridge(relationship, interaction)));
 					}
@@ -135,13 +135,13 @@ class BridgeFactoryImpl implements BridgeFactory {
 
 	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
 		// FIXME - TM - IGNORED/NOT_ALLOWED - these should log a warning in the Hl7Errors bean, not just as a log message
-		if(isIgnoredNotAllowed() && relationship.getConformance() == ConformanceLevel.IGNORED) {
+		if(isIgnoredNotAllowed() && relationship.isIgnored()) {
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?
 							ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED:
 							ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, 
 					relationship.getName()));							
-		} else if (relationship.getConformance() == ConformanceLevel.NOT_ALLOWED){
+		} else if (relationship.isNotAllowed()){
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?
 							ASSOCIATION_IS_NOT_ALLOWED:
@@ -263,7 +263,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					getMessagePart(interaction, relationship, null), new BridgeContext(true, i), false));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
-		if (list.isEmpty() && (relationship.getConformance() == ConformanceLevel.POPULATED || relationship.getConformance() == ConformanceLevel.MANDATORY)) {
+		if (list.isEmpty() && (relationship.isPopulated() || relationship.isMandatory())) {
 			list.add(createPartBridgeFromBean("", null, interaction, getMessagePart(interaction, relationship, null)));
 		}
 		return new AssociationBridgeImpl(relationship, list);
@@ -285,7 +285,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
-		if (list.isEmpty() && (relationship.getConformance() == ConformanceLevel.POPULATED || relationship.getConformance() == ConformanceLevel.MANDATORY)) {
+		if (list.isEmpty() && (relationship.isPopulated() || relationship.isMandatory())) {
 			list.add(createPartBridgeFromBean(propertyName, null, interaction, getMessagePart(interaction, relationship, value)));
 		}
 		return new AssociationBridgeImpl(relationship, list);

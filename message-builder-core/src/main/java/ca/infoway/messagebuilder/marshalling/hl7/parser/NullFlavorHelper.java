@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public class NullFlavorHelper {
 	
@@ -55,13 +56,13 @@ public class NullFlavorHelper {
 		String attributeValue = getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME);
 		NullFlavor nullFlavor = ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.lookup(attributeValue);
 		
-		if (this.conformanceLevel != null && this.conformanceLevel == ConformanceLevel.MANDATORY) {
+		if (ConformanceLevelUtil.isMandatory(this.conformanceLevel, null)) {
 			xmlToModelResult.addHl7Error(Hl7Error.createMandatoryAttributeIsNullError(
 					NodeUtil.getLocalOrTagName((Element) node), 
 					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
 					(Element) node));
 //      RM #15431 - strictly speaking, nullFlavors are not allowed for REQUIRED fields. However, jurisdictions often ignore this restriction.
-//			      - once MB has error levels implemented, this can be reinstated as a warning
+//      TODO:  TM - once MB has error levels implemented, this can be reinstated as a warning
 //		} else if (this.conformanceLevel != null && this.conformanceLevel == ConformanceLevel.REQUIRED) {
 //			xmlToModelResult.addHl7Error(Hl7Error.createRequiredAttributeIsNullError(
 //					NodeUtil.getLocalOrTagName((Element) node), 
