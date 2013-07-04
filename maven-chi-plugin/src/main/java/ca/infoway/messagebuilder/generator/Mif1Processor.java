@@ -365,7 +365,10 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 			
 			choice.getChoices().add(relationship);
 		}
-		choice.setSortOrder(part.getRelationships().size());
+
+		choice.setAssociationSortKey(StringUtils.replaceChars(targetConnection.getAttribute("sortKey"), '#', '_'));
+		choice.setSortOrder(Integer.valueOf(element.getAttribute("sortKey")));
+		
 		part.getRelationships().add(choice);
 	}
 
