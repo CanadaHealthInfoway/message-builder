@@ -67,7 +67,11 @@ public class ConformanceLevelUtil {
 	 * @return true if the relationship is populated; false otherwise.
 	 */
 	public static boolean isPopulated(ConformanceLevel conformanceLevel, Cardinality cardinality) {
-		return ConformanceLevel.POPULATED.equals(conformanceLevel);
+		// - this *almost* matches what MB was doing prior to a Remixer change to BaseMifProcessorImpl
+		// - IGNORED and NOT_ALLOWED with a min cardinality > 0 (a very strange state!) will behave differently than before the Remixer change 
+		// - populated should eventually be removed as a conformance altogether
+		return ConformanceLevel.POPULATED.equals(conformanceLevel) ||
+				(ConformanceLevel.REQUIRED.equals(conformanceLevel) && cardinality.isMandatory());
 	}
 	
 	/**
@@ -83,7 +87,7 @@ public class ConformanceLevelUtil {
 	 * @return true if the relationship is required; false otherwise.
 	 */
 	public static boolean isRequired(ConformanceLevel conformanceLevel, Cardinality cardinality) {
-		return ConformanceLevel.REQUIRED.equals(conformanceLevel);
+		return ConformanceLevel.REQUIRED.equals(conformanceLevel) && !cardinality.isMandatory();
 	}
 	
 	/**
