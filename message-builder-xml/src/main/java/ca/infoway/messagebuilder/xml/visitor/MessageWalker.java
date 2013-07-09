@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.xml.visitor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -66,17 +67,20 @@ public class MessageWalker {
 		visitor.visitRoot(documentElement, interaction);
 		
 		MessagePart messagePart = getMessagePart(interaction.getSuperTypeName());
-		processAllRelationships(documentElement, interaction, messagePart, visitor);
+		processAllRelationships(documentElement, interaction, Arrays.asList(messagePart), visitor);
 	}
 
 	private void processAllRelationships(Element element, Interaction interaction,
-			MessagePart messagePart, MessageVisitor visitor) {
+			List<MessagePart> messagePartAndChoiceExtensionParts, MessageVisitor visitor) {
 		Set<String> knownItems = new HashSet<String>();
 		
-		ElementBridge helper = new ElementBridge(element, messagePart, getInteraction(element.getOwnerDocument()));
-		for (RelationshipBridge relationship : helper.getRelationships()) {
-			knownItems.addAll(relationship.getNames());
-			processRelationship(interaction, messagePart, relationship, visitor);
+		for (MessagePart messagePart : messagePartAndChoiceExtensionParts) {
+			ElementBridge helper = new ElementBridge(element, messagePart, getInteraction(element.getOwnerDocument()));
+			
+			for (RelationshipBridge relationship : helper.getRelationships()) {
+				knownItems.addAll(relationship.getNames());
+				processRelationship(interaction, messagePart, relationship, visitor);
+			}
 		}
 		
 		processUnknownStructuralAttributes(new HashSet<String>(knownItems), element, visitor);
@@ -145,12 +149,9 @@ public class MessageWalker {
 		RelationshipBridge relationshipBridge, MessageVisitor visitor) {
 		for (Element child : relationshipBridge.getElements()) {
 			Relationship relationship = relationshipBridge.getRelationship();
-			if (relationship.isChoice()) {
-				relationship = findSpecificChoice(child, relationship);
-			}
-			MessagePart subPart = getMessagePart(relationship, interaction, NodeUtil.getLocalOrTagName(child));
-			if (subPart != null && !isNull(child)) {
-				processAllRelationships(child, interaction, subPart, visitor);
+			List<MessagePart> messageParts = getMessageParts(relationship, interaction, NodeUtil.getLocalOrTagName(child));
+			if (!messageParts.isEmpty() && !isNull(child)) {
+				processAllRelationships(child, interaction, messageParts, visitor);
 			}
 		}
 	}
@@ -159,28 +160,53 @@ public class MessageWalker {
 		return child.hasAttribute("nullFlavor");
 	}
 
-	private Relationship findSpecificChoice(Element child, Relationship relationship) {
-		return relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(NodeUtil.getLocalOrTagName(child)));
-	}
-
-	private MessagePart getMessagePart(Relationship relationship, Interaction interaction, String elementName) {
+	private List<MessagePart> getMessageParts(Relationship relationship, Interaction interaction, String elementName) {
+		
+		// error if template and choice
+		if (relationship.isTemplateRelationship() && relationship.isChoice()) {
+			throw new RuntimeException("Do not know how to handle relationship " + relationship.getName() + ": it is both a choice and a template");
+		}
+		
+		List<MessagePart> parts = new ArrayList<MessagePart>();
+		
 		if (relationship.isTemplateRelationship()) {
 			Argument argument = interaction
 					.getArgumentByTemplateParameterName(relationship
 							.getTemplateParameterName());
-			if (argument == null) {
-				// HACK: IW/RC: bug 11067: the data in the messageSets is
-				// incomplete. Don't NPE, just carry on.
-				return null;
-			} else if (argument.isChoice()) {
-				Relationship choice = argument.findChoiceOption(Argument.choiceOptionNamePredicate(elementName));
-				return choice == null ? null : getMessagePart(choice.getType());
-			} else {
-				return getMessagePart(argument.getName());
+			// HACK: IW/RC: bug 11067: the data in the messageSets is
+			// incomplete. Don't NPE, just carry on.
+			if (argument != null) {
+				addChoiceParts(parts, argument.getChoices(), elementName);
+				MessagePart messagePart = getMessagePart(argument.getName());
+				if (messagePart != null) {
+					parts.add(messagePart);
+				}
 			}
 		} else {
-			return getMessagePart(relationship.getType());
+			addChoiceParts(parts, relationship.getChoices(), elementName);
+			MessagePart messagePart = getMessagePart(relationship.getType());
+			if (messagePart != null) {
+				parts.add(messagePart);
+			}
 		}
+		
+		return parts;
+	}
+
+	// TM: RM #16042 - need to also check supertype of choices, as these can also have relationships (and so on, up the chain)
+	private boolean addChoiceParts(List<MessagePart> results, List<Relationship> choices, String elementName) {
+		for (Relationship relationship : choices) {
+			if (relationship.isChoice()) {
+				if (addChoiceParts(results, relationship.getChoices(), elementName)) {
+					results.add(getMessagePart(relationship.getType()));
+					return true;
+				}
+			} else if (relationship.getName().equals(elementName)) {
+				results.add(getMessagePart(relationship.getType()));
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private Interaction getInteraction(Document message) {
