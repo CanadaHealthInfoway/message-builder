@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 /**
  * <p>The Enum ParticipationMode. Created manually. 
  */
-public class ParticipationMode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ProcessingMode, Describable {
+public class ParticipationMode extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.ParticipationMode, Describable {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
 	
