@@ -123,33 +123,20 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		}
 		
 		boolean lowProvided = 
-				(value.getRepresentation() == Representation.LOW ||
-				value.getRepresentation() == Representation.LOW_CENTER ||
-				value.getRepresentation() == Representation.LOW_HIGH ||
-				value.getRepresentation() == Representation.LOW_WIDTH) &&
+				value.getRepresentation().hasLow() &&
 				(value.getLow() != null || value.getLowNullFlavor() != null);
 		
 		boolean highProvided = 
-				(value.getRepresentation() == Representation.HIGH ||
-				value.getRepresentation() == Representation.CENTRE_HIGH ||
-				value.getRepresentation() == Representation.LOW_HIGH ||
-				value.getRepresentation() == Representation.WIDTH_HIGH) &&
+				value.getRepresentation().hasHigh() &&
 				(value.getHigh() != null || value.getHighNullFlavor() != null);
 		
 		boolean centerProvided = 
-				(value.getRepresentation() == Representation.CENTRE ||
-				value.getRepresentation() == Representation.CENTRE_HIGH ||
-				value.getRepresentation() == Representation.CENTRE_WIDTH ||
-				value.getRepresentation() == Representation.LOW_CENTER) &&
+				value.getRepresentation().hasCentre() &&
 				(value.getCentre() != null || value.getCentreNullFlavor() != null);
 		
 		boolean widthProvided = 
-				(value.getRepresentation() == Representation.WIDTH ||
-				value.getRepresentation() == Representation.CENTRE_WIDTH ||
-				value.getRepresentation() == Representation.LOW_WIDTH ||
-				value.getRepresentation() == Representation.WIDTH_HIGH) &&
+				value.getRepresentation().hasWidth() &&
 				(value.getWidth() != null && (value.getWidth().getValue() != null || value.getWidth().getNullFlavor() != null));
-		
 		
 		errors = this.ivlValidationUtils.validateCorrectElementsProvided(type, context.getVersion(), lowProvided, highProvided, centerProvided, widthProvided);
 		recordAnyErrors(errors, context);
@@ -173,13 +160,14 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	}
 
 	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) {
+		Representation rep = value.getRepresentation();
 		
-		String low = createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel);
-		String high = createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel);
-		String centre = createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), indentLevel);
-		String width = createWidthElement(context, WIDTH, value.getWidth(), indentLevel);
+		String low = rep.hasLow() ? createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel) : null;
+		String high = rep.hasHigh() ? createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel) : null;
+		String centre = rep.hasCentre() ? createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), indentLevel) : null;
+		String width = rep.hasWidth() ? createWidthElement(context, WIDTH, value.getWidth(), indentLevel) : null;
 
-		switch (value.getRepresentation()) {
+		switch (rep) {
 		case LOW_HIGH:
 			buffer.append(low);
 			buffer.append(high);
@@ -200,6 +188,10 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 			buffer.append(low);
 			buffer.append(width);
 			break;
+		case LOW_CENTER:
+			buffer.append(low);
+			buffer.append(centre);
+			break;
 		case WIDTH_HIGH:
 			buffer.append(width);
 			buffer.append(high);
@@ -207,6 +199,10 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		case CENTRE_WIDTH:
 			buffer.append(centre);
 			buffer.append(width);
+			break;
+		case CENTRE_HIGH:
+			buffer.append(centre);
+			buffer.append(high);
 			break;
 		default:
 		}
