@@ -55,7 +55,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformat
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
