@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ChoiceSupport;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Predicate;
