@@ -155,10 +155,10 @@ class BeanWrapper {
             		} else if ("CS".equals(relationship.getType())) {
             			property.set(resolveCodeValue(relationship, attributeValue, version));
             		} else {
-            			this.log.info("UNSUPPORTED RimType: IGNORING relationhsipName=" + relationship.getName() + ", property=" + property.getName());
+            			this.log.info("UNSUPPORTED RimType: IGNORING relationshipName=" + relationship.getName() + ", property=" + property.getName());
             		}
 				} else {
-        			this.log.info("PROPERTY NOT WRITABLE: IGNORING relationhsipName=" + relationship.getName() + ", property=" + property.getName());
+        			this.log.info("PROPERTY NOT WRITABLE: IGNORING relationshipName=" + relationship.getName() + ", property=" + property.getName());
 				}
             }
 		} else if (relationship.isFixed()){
