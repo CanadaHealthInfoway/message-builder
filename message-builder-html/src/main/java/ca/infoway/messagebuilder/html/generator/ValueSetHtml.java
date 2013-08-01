@@ -27,9 +27,11 @@ import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefau
 import static ca.infoway.messagebuilder.html.generator.HtmlMessageSetRenderDefault.WRAPPER_DIV_ID;
 
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -57,6 +59,33 @@ import com.hp.gagawa.java.elements.Tr;
 import com.hp.gagawa.java.elements.Ul;
 
 public class ValueSetHtml extends BaseHtmlGenerator {
+	
+	private static class ValueSetTreeNode implements Comparable<ValueSetTreeNode> {
+		private final String name;
+		private final Code code;
+		private final Set<ValueSetTreeNode> children = new TreeSet<ValueSetTreeNode>();
+		public ValueSetTreeNode(Code code) {
+			this.name = code.getCode();
+			this.code = code;
+		}
+		public String getName() {
+			return name;
+		}
+		public Code getCode() {
+			return code;
+		}
+		public Set<ValueSetTreeNode> getChildren() {
+			return children;
+		}
+		public void addCode(ValueSetTreeNode child) {
+			this.children.add(child);
+		}
+		@Override
+		public int compareTo(ValueSetTreeNode o) {
+			return this.getName().compareTo(o.getName());
+		}
+	}
+	
 	private MessageSet messageSet;
 	private ValueSet valueSet;
 	
@@ -217,15 +246,10 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		titleRow.appendChild(createDataColumn(new Text("Code System Name"), DETAILS_TABLE_LABEL_COL_CLASS));
 		tBody.appendChild(titleRow);
 		
-		int numRowsInserted = 0;
-		if (getValueSet().getCodes() != null) {
-			for (Code code : getValueSet().getCodes()) {			
-				tBody.appendChild(createCodeRow(code, getMessageSet()));
-				numRowsInserted ++;
-			}
-		}
-		
-		if (numRowsInserted == 0) {
+		if (getValueSet().getCodes() != null && !getValueSet().getCodes().isEmpty()) {
+			TreeSet<ValueSetTreeNode> codeStructure = buildCodeStructure(getValueSet().getCodes());
+			appendCodes(tBody, codeStructure, 0);
+		} else {
 			Tr blankRow = new Tr();
 			blankRow.appendChild(createDataColumn(new Text("-"), ""));
 			blankRow.appendChild(createDataColumn(new Text("-"), ""));
@@ -242,15 +266,57 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		return result;
 	}
 
-	private Tr createCodeRow(Code code, MessageSet messageSet) {
+	public void appendCodes(Tbody tableBody, Set<ValueSetTreeNode> codes, int indentationLevel) {
+		for (ValueSetTreeNode node : codes) {			
+			tableBody.appendChild(createCodeRow(node.getCode(), getMessageSet(), indentationLevel));
+			appendCodes(tableBody, node.getChildren(), indentationLevel + 1);
+		}
+	}
+
+	private TreeSet<ValueSetTreeNode> buildCodeStructure(List<Code> codes) {
+		HashMap<String,ValueSetTreeNode> codeMap = new HashMap<String, ValueSetTreeNode>();
+		TreeSet<ValueSetTreeNode> structure = new TreeSet<ValueSetTreeNode>();
+		for (Code code : getValueSet().getCodes()) {
+			codeMap.put(code.getCode(), new ValueSetTreeNode(code));
+		}
+		for (Code code : getValueSet().getCodes()) {
+			Concept concept = findConcept(code);
+			if (concept == null || concept.getParentConcepts() == null || concept.getParentConcepts().isEmpty()) {
+				structure.add(codeMap.get(code.getCode()));
+			} else {
+				boolean inserted = false;
+				for (String parent : concept.getParentConcepts()) {
+					if (codeMap.get(parent) != null) {
+						codeMap.get(parent).addCode(codeMap.get(code.getCode()));
+						inserted = true;
+					}
+				}
+				if (!inserted) {	// none of the parents are included in the value set, so treat it as a root
+					structure.add(codeMap.get(code.getCode()));
+				}
+			}
+		}
+		return structure;
+	}
+	
+	private Concept findConcept(Code code) {
+		CodeSystem codeSystem = getCodeSystemByName(code.getCodeSystem(), messageSet.getVocabulary());
+		if (codeSystem != null) {
+			return getConcept(codeSystem, code.getCode());
+		}
+		return null;
+	}
+
+	private Tr createCodeRow(Code code, MessageSet messageSet, int indentationLevel) {
 		Tr result = new Tr();
 		result.setCSSClass("codeDataRow");
+		String indentClass = "indent" + String.valueOf(indentationLevel);
 		CodeSystem codeSystem = getCodeSystemByName(code.getCodeSystem(), messageSet.getVocabulary());
 		if (codeSystem != null) {
 			Concept concept = getConcept(codeSystem, code.getCode());
 			if (concept != null) {
 				result.appendChild(createDataColumn(
-						createLink("#"+ getCodeId(concept.getCode()), new Text(concept.getCode()), "", ""), ""));
+						createLink("#"+ getCodeId(concept.getCode()), new Text(concept.getCode()), "", ""), indentClass));
 				if (StringUtils.isNotBlank(concept.getDisplayName())) {
 					result.appendChild(createDataColumn(new Text(concept.getDisplayName()), ""));
 				} else {
@@ -261,15 +327,16 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 				return result;
 			} else {
 				result.appendChild(createDataColumn(
-						createLink("#"+ getCodeId(code.getCode()), new Text(code.getCode()), "", ""), ""));
-				result.appendChild(createDataColumn(new Text("-"), ""));
+						createLink("#"+ getCodeId(code.getCode()), new Text(code.getCode()), "", ""), indentClass));
+				String printName = code.getPrintName() == null ? "-" : code.getPrintName();
+				result.appendChild(createDataColumn(new Text(printName), ""));
 				result.appendChild(createDataColumn(new Text(codeSystem.getOid()), ""));
 				result.appendChild(createDataColumn(new Text(codeSystem.getName()), ""));
 				return result;
 			}
 		}
 		
-		result.appendChild(createDataColumn(new Text(code.getCode()), ""));
+		result.appendChild(createDataColumn(new Text(code.getCode()), indentClass));
 		result.appendChild(createDataColumn(new Text("-"), ""));
 		result.appendChild(createDataColumn(new Text(code.getCodeSystem()), ""));
 		result.appendChild(createDataColumn(new Text("-"), ""));
@@ -306,9 +373,9 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		
 		tableBody.appendChild(createDataRow("Used In Model Class Attributes:", 
 				createModelClassAttributeList(getValueSet().getName(), DomainSource.VALUE_SET, getMessageSet()), ""));
-		tableBody.appendChild(createDataRow("Draws From Code Systems:", createDrawsFromCodeSystemList(getValueSet(), getMessageSet()), ""));
 		tableBody.appendChild(createDataRow("Bound Concept Domains:", 
 				createContextBindingList(getValueSet(), getMessageSet()), ""));
+		tableBody.appendChild(createDataRow("Draws From Code Systems:", createDrawsFromCodeSystemList(getValueSet(), getMessageSet()), ""));
 		tableBody.appendChild(createDataRow("Filter:", createFilterElement(getValueSet(), getMessageSet()), ""));
 		tableBody.appendChild(createDataRow("Codes listed below are:", createCodeStatusElement(getValueSet(), getMessageSet()), ""));
 

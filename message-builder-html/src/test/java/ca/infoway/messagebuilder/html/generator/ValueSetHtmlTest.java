@@ -106,15 +106,15 @@ public class ValueSetHtmlTest {
 								"<td class=\"detailsTableValueCol\" colspan=\"3\"><ul>None</ul></td>" +
 							"</tr>" +
 							"<tr>" +
-								"<td class=\"detailsTableLabelCol\">Draws From Code Systems:</td>" +
-								"<td class=\"detailsTableValueCol\" colspan=\"3\">" +
-									"<ul><li><a href=\"../codeSystems/SCTEMP.html\">SCTEMP</a></li></ul>" +
-								"</td>" +
-							"</tr>" +
-							"<tr>" +
 								"<td class=\"detailsTableLabelCol\">Bound Concept Domains:</td>" +
 								"<td class=\"detailsTableValueCol\" colspan=\"3\">" +
 									"<ul><li><a href=\"../conceptDomains/RoutedDocumentType.html\">RoutedDocumentType</a></li></ul>" +
+								"</td>" +
+							"</tr>" +
+							"<tr>" +
+								"<td class=\"detailsTableLabelCol\">Draws From Code Systems:</td>" +
+								"<td class=\"detailsTableValueCol\" colspan=\"3\">" +
+									"<ul><li><a href=\"../codeSystems/SCTEMP.html\">SCTEMP</a></li></ul>" +
 								"</td>" +
 							"</tr>" +
 							"<tr>" +
@@ -192,7 +192,7 @@ public class ValueSetHtmlTest {
 								"<td class=\"detailsTableLabelCol\">Code System Name</td>" +
 							"</tr>" +
 								"<tr class=\"codeDataRow\">" +
-								"<td class=\"\"><a href=\"#codeDiv-?\">?</a></td>" +
+								"<td class=\"indent0\"><a href=\"#codeDiv-?\">?</a></td>" +
 								"<td class=\"\">-</td>" +
 								"<td class=\"\">2.16.840.1.113883.2.20.5.2</td>" +
 								"<td class=\"\">SCTEMP</td>" +
@@ -259,7 +259,7 @@ public class ValueSetHtmlTest {
 								"<td class=\"detailsTableLabelCol\">Code System Name</td>" +
 							"</tr>" +
 							"<tr class=\"codeDataRow\">" +
-								"<td class=\"\"><a href=\"#codeDiv-GREG\">GREG</a></td>" +
+								"<td class=\"indent0\"><a href=\"#codeDiv-GREG\">GREG</a></td>" +
 								"<td class=\"\">Gregorian</td>" +
 								"<td class=\"\">2.16.840.1.113883.5.1055</td>" +
 								"<td class=\"\">Calendar</td>" +

@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 public class DetectSpecialCharactersTest {
 	
 	private final List<String> directoryExclusions = Arrays.asList();
-	private final List<String> fileExclusions = Arrays.asList("BusinessNameUtilTest.java");
+	private final List<String> fileExclusions = Arrays.asList("BusinessNameUtilTest.java", "UrlLinkifier.java");
 	
 	@Test
 	public void shouldAvoidSpecialCharacters() throws Exception {

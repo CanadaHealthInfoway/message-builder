@@ -62,7 +62,7 @@ public class FilterElementHtmlTest {
 		
 		FilterElementHtml html = new FilterElementHtml(valueSet, testMessageSet);
 		
-		String expected = "<ul><li>From Code System: LN (2.16.840.1.113883.6.1)<ul><li>Under condition that code has property: B/R/O with value: B or property: B/R/O with value: R</li></ul></li><li>From Code System: pclocd (2.16.840.1.113883.2.20.5.1)<ul><li>Under condition that code has property: B/R/O with value: B or property: B/R/O with value: R</li></ul></li></ul>";
+		String expected = "<ul><li>From Code System: LN (2.16.840.1.113883.6.1)<ul><li>Under condition that code has:<ul><li>property: B/R/O with value: B OR property: B/R/O with value: R</li></ul></li></ul></li><li>From Code System: pclocd (2.16.840.1.113883.2.20.5.1)<ul><li>Under condition that code has:<ul><li>property: B/R/O with value: B OR property: B/R/O with value: R</li></ul></li></ul></li></ul>";
 		
 		assertEquals(expected, html.write());
 	}
@@ -95,7 +95,7 @@ public class FilterElementHtmlTest {
 		
 		FilterElementHtml html = new FilterElementHtml(valueSet, testMessageSet);
 		
-		String expected = "<ul><li>From Code System: CCI (2.16.840.1.113883.6.95)<ul><li>Include code and specializations of 3.^^.^^.^^<ul>Except: <li>code and specializations of 4.^^.^^.^^</li></ul></li></ul></li></ul>";
+		String expected = "<ul><li>From Code System: CCI (2.16.840.1.113883.6.95)<ul><li>Include code and specializations of 3.^^.^^.^^</li><li>Except:<ul><li>code and specializations of 4.^^.^^.^^</li></ul></li></ul></li></ul>";
 		
 		assertEquals(expected, html.write());
 	}
@@ -106,7 +106,7 @@ public class FilterElementHtmlTest {
 		
 		FilterElementHtml html = new FilterElementHtml(valueSet, testMessageSet);
 		
-		String expected = "<ul><li>From Code System: snomed-CT (2.16.840.1.113883.6.96)<ul><li>Include code and specializations of 118956008</li><li>Include code and specializations of 272379006</li><li>Include code and specializations of 413350009</li><li>Include code and specializations of 57177007</li><li>Include code and specializations of 4908009</li><li>Include code and specializations of 404684003<ul>Except: <li>code and specializations of 307824009</li><li>code and specializations of 405533003</li><li>code and specializations of 217020008</li><li>code and specializations of 420134006</li><li>code and specializations of 365858006</li><li>code and specializations of 285153007</li></ul></li><li>Under condition that code has property: Human and property: Status with value: Current</li></ul></li></ul>";
+		String expected = "<ul><li>From Code System: snomed-CT (2.16.840.1.113883.6.96)<ul><li>Include code and specializations of 118956008</li><li>Include code and specializations of 272379006</li><li>Include code and specializations of 413350009</li><li>Include code and specializations of 57177007</li><li>Include code and specializations of 4908009</li><li>Include code and specializations of 404684003</li><li>Except:<ul><li>code and specializations of 307824009</li><li>code and specializations of 405533003</li><li>code and specializations of 217020008</li><li>code and specializations of 420134006</li><li>code and specializations of 365858006</li><li>code and specializations of 285153007</li></ul></li><li>Under condition that code has:<ul><li>property: Human</li><li class=\"no-bullet\">AND</li><li>property: Status with value: Current</li></ul></li></ul></li></ul>";
 		
 		assertEquals(expected, html.write());
 	}

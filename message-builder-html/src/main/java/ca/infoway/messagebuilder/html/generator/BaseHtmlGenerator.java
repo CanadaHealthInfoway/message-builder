@@ -43,6 +43,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.model.DatatypeSet;
+import ca.infoway.messagebuilder.html.generator.util.UrlLinkifier;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -394,12 +395,15 @@ public abstract class BaseHtmlGenerator {
 			
 			for (Annotation annotation : sortedAnnotations) {
 				//FIXME: Filter out mapping annotations for now (not in requirements), will likely require different handling for subtype
-				if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum()) && annotation.getText() != null) {
-					tBody.appendChild(createDataRow(definitionLabelText, new Text(annotation.getText()), ""));
-					numRows++;
-				} else if (!getExcludeAnnotationFilter().contains(annotation.getAnnotationTypeAsEnum()) && annotation.getText() != null) {
-					tBody.appendChild(createDataRow(capitalizeTitle(annotation.getAnnotationType()) + ":", new Text(annotation.getText()), ""));
-					numRows++;
+				String text = annotation.getText();
+				if (text != null) {
+					if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum())) {
+						tBody.appendChild(createDataRow(definitionLabelText, new Text(UrlLinkifier.linkify(text)), ""));
+						numRows++;
+					} else if (!getExcludeAnnotationFilter().contains(annotation.getAnnotationTypeAsEnum())) {
+						tBody.appendChild(createDataRow(capitalizeTitle(annotation.getAnnotationType()) + ":", new Text(UrlLinkifier.linkify(text)), ""));
+						numRows++;
+					}
 				}
 //				if (AnnotationType.DESCRIPTION.equals(annotation.getAnnotationTypeAsEnum())) {
 //					hasDescription = true;

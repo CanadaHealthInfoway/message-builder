@@ -28,6 +28,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.html.generator.util.UrlLinkifier;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -115,30 +116,42 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 			Ul codeSystemFilterList) {
 		if (conditionalFilter.size() > 0) {
 			Li conditionalFilterListItem = new Li();
+			conditionalFilterListItem.appendText("Under condition that code has:");
 			int filterCount = 0;
 			Set<String> propertyNameSet = new HashSet<String>();
+			
+			Ul conditionSublist = new Ul();
+			conditionalFilterListItem.appendChild(conditionSublist);
+			Li conditionSublistItem = new Li();
+			conditionSublist.appendChild(conditionSublistItem);
 			for (ValueSetFilter valueSetFilter : conditionalFilter) {
-				if (filterCount == 0) {
-					if (StringUtils.isNotBlank(valueSetFilter.getPropertyValue())) {
-						conditionalFilterListItem.appendText("Under condition that code has property: " + valueSetFilter.getPropertyName() + " with value: " + valueSetFilter.getPropertyValue());
-					} else {
-						conditionalFilterListItem.appendText("Under condition that code has property: " + valueSetFilter.getPropertyName());
-					}
-				} else {
-					String conjunction = " and ";
+				if (filterCount > 0) {
 					if (propertyNameSet.contains(valueSetFilter.getPropertyName())) {
-						conjunction = " or ";				
-					}
-					if (StringUtils.isNotBlank(valueSetFilter.getPropertyValue())) {
-						conditionalFilterListItem.appendText(conjunction + "property: " + valueSetFilter.getPropertyName() + " with value: " + valueSetFilter.getPropertyValue());
+						conditionSublistItem.appendText(" OR ");				
 					} else {
-						conditionalFilterListItem.appendText(conjunction + "property: " + valueSetFilter.getPropertyName());
+						Li conditionSublistConjunctionItem = new Li();
+						conditionSublistConjunctionItem.appendText("AND");
+						conditionSublistConjunctionItem.setCSSClass("no-bullet");
+						conditionSublist.appendChild(conditionSublistConjunctionItem);
+						
+						conditionSublistItem = new Li();
+						conditionSublist.appendChild(conditionSublistItem);
 					}
 				}
+				addPropertyToCondition(conditionSublistItem, valueSetFilter);
 				propertyNameSet.add(valueSetFilter.getPropertyName());
 				filterCount++;
 			}
 			codeSystemFilterList.appendChild(conditionalFilterListItem);
+		}
+	}
+
+	public void addPropertyToCondition(Li conditionSublistItem,
+			ValueSetFilter valueSetFilter) {
+		if (StringUtils.isNotBlank(valueSetFilter.getPropertyValue())) {
+			conditionSublistItem.appendText("property: " + valueSetFilter.getPropertyName() + " with value: " + UrlLinkifier.linkify(valueSetFilter.getPropertyValue()));
+		} else {
+			conditionSublistItem.appendText("property: " + valueSetFilter.getPropertyName());
 		}
 	}
 
@@ -171,7 +184,7 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 		}
 		if (valueSetFilter.getExcludedCodes() != null
 				&& filterListItem != null) {
-			excludeList = initializeExcludeList();
+			excludeList = initializeExcludeList(filterList);
 			for (ValueSetFilterCode valueSetFilterCode : valueSetFilter.getExcludedCodes()) {
 				String excludeCodeDesc = "code of " + valueSetFilterCode.getCode();
 				if (valueSetFilterCode.isIncludeChildren()) {
@@ -185,11 +198,11 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 		}
 		if (valueSetFilter.getPropertyName() != null && !valueSetFilter.isPropertyIncluded()) {
 			if (excludeList == null) {
-				excludeList = initializeExcludeList();
+				excludeList = initializeExcludeList(filterList);
 			}
 			Li excludeListItem = new Li();
 			if (StringUtils.isNotBlank(valueSetFilter.getPropertyValue())) {
-				excludeListItem.appendText("codes having the property: " + valueSetFilter.getPropertyName() + " with value: " + valueSetFilter.getPropertyValue());
+				excludeListItem.appendText("codes having the property: " + valueSetFilter.getPropertyName() + " with value: " + UrlLinkifier.linkify(valueSetFilter.getPropertyValue()));
 			} else {
 				excludeListItem.appendText("codes having the property: " + valueSetFilter.getPropertyName());
 			}
@@ -197,15 +210,19 @@ public class FilterElementHtml extends BaseHtmlGenerator {
 			excludeList.appendChild(excludeListItem);							
 		}
 		if (excludeList != null) {
-			filterListItem.appendChild(excludeList);
-
+			Li excludeListWrapperItem = new Li();
+			excludeListWrapperItem.appendText("Except:");
+			
+			excludeListWrapperItem.appendChild(excludeList);
+			filterList.appendChild(excludeListWrapperItem);
 		}
 	}
 
-	public Ul initializeExcludeList() {
+	public Ul initializeExcludeList(Ul filterList) {
+		
 		Ul excludeList;
 		excludeList = new Ul();
-		excludeList.appendText("Except: ");
+		
 		return excludeList;
 	}
 

@@ -142,10 +142,10 @@ public class Mif2VocabularyProcessor {
 					}
 					valueSet.setComplete(true);
 				} else {
-					populateFilters(valueSet, mifValueSet.getVersion().getContent(), codeSystemsByOid, new HashMap<String,ValueSetFilter>(), null);
 					populateExampleCodes(valueSet, mifValueSet.getVersion().getExampleCodes());
 					valueSet.setComplete(false);
 				}
+				populateFilters(valueSet, mifValueSet.getVersion().getContent(), codeSystemsByOid, new HashMap<String,ValueSetFilter>(), null);
 				
 			}
 
