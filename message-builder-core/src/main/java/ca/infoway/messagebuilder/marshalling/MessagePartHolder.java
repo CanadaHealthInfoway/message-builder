@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -37,14 +38,17 @@ class MessagePartHolder {
 
 	private class RelationshipComparator implements Comparator<Relationship> {
 		public int compare(Relationship o1, Relationship o2) {
-			// apply sort: attributes/choices/associations/templates (?? confirm with Mario), then alphabetically within each section
-			return new CompareToBuilder()
-						.append(o1.isAttribute(), o2.isAttribute())
-						.append(o1.isChoice(), o2.isChoice())
-						.append(!o1.isTemplateRelationship(), !o2.isTemplateRelationship())
-						.append(o1.getName(), o2.getName())
-						.toComparison()
-						;
+			// taken from IntermediateToModelGenerator.sortRelationships
+			CompareToBuilder builder = new CompareToBuilder();
+			builder.append(o1.isAssociation(), o2.isAssociation());
+			if (o1.isAttribute()) {
+				builder.append(o1.getSortOrder(), o2.getSortOrder());
+			}
+			if (o1.isAssociation()) {
+				builder.append(o1.getAssociationSortKey(), o2.getAssociationSortKey())
+				.append(o1.getName(), o2.getName());
+			}
+			return builder.toComparison();
 		}
 	}
 
@@ -59,9 +63,10 @@ class MessagePartHolder {
 	MessagePartHolder(MessageDefinitionService service, VersionNumber version, String typeName, List<TypeName> typeHierarchy) {
 		this.messagePart = service.getMessagePart(version, typeName);
 		this.allRelationships = mergeRelationships(service, version, typeHierarchy);
-		// FIXME - TM - relationships should be sorted in a particular order; hold off on this until discuss with Mario
-		//            - also, numerous transformation tests will fail once this change is made 
-		//Collections.sort(this.allRelationships, this.relationshipComparator);
+		if (typeHierarchy.size() > 1) {
+			// FIXME - TM - numerous transformation tests will fail once this change is made 
+			Collections.sort(this.allRelationships, this.relationshipComparator);
+		}
 	}
 	
 	// tests only
