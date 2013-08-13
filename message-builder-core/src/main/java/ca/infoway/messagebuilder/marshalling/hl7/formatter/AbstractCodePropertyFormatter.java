@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 
 import java.util.HashMap;

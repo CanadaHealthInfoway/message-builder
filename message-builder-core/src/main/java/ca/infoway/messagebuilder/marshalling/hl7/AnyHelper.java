@@ -93,8 +93,11 @@ public class AnyHelper {
 	}
 	
 	public static boolean isValidTypeForAny(String type, String specializationType) {
+		// this method expects collection type info (LIST, SET, COLLECTION) to be already removed from speciaizationType
 		if ("ANY".equals(type)) {
-			return true;
+			// any valid type other than ANY (and its variants) are allowed
+			StandardDataType specializationTypeAsEnum = StandardDataType.getByTypeName(specializationType);
+			return specializationType != null && !specializationType.startsWith("ANY") && specializationTypeAsEnum != null;
 		} else if (AnyHelper.validTypesForAnyType.containsKey(type)) {
 			return AnyHelper.validTypesForAnyType.get(type).contains(specializationType);
 		}
