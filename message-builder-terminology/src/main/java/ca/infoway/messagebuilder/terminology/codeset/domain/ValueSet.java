@@ -35,6 +35,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * <p>The Class ValueSet.
@@ -42,11 +43,12 @@ import javax.persistence.Table;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Entity
-@Table
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "name", "version" }) })
 public class ValueSet {
 
 	private Long id;
 	private String name;
+	private String version;
 	private Set<VocabularyDomain> vocabularyDomains = Collections.synchronizedSet(new HashSet<VocabularyDomain>());
 
 	/**
@@ -73,7 +75,7 @@ public class ValueSet {
 	 *
 	 * @return the name
 	 */
-	@Column(unique=true)
+	@Column (nullable=false)
 	public String getName() {
 		return this.name;
 	}
@@ -86,7 +88,26 @@ public class ValueSet {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	/**
+	 * <p>The version of the value set.
+	 *
+	 * @return the version
+	 */
+	@Column (nullable=false)
+	public String getVersion() {
+		return version;
+	}
+
+	/**
+	 * <p>Sets the version.
+	 *
+	 * @param version the new version
+	 */
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
 	/**
 	 * <p>Gets the vocabulary domains.
 	 *
@@ -108,4 +129,5 @@ public class ValueSet {
 	public void setVocabularyDomains(Set<VocabularyDomain> vocabularyDomains) {
 		this.vocabularyDomains = vocabularyDomains;
 	}
+
 }
