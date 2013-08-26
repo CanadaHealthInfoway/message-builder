@@ -100,16 +100,16 @@ class HibernateDatabase implements Database {
 		this.dao.saveAllCodedValues(values);
 	}
 
-	public ValueSetEntry findValueSetEntry(String valueSetName, Code code) {
-		return this.dao.findValueSetEntry(valueSetName, code);
+	public ValueSetEntry findValueSetEntry(String valueSetName, Code code, String version) {
+		return this.dao.findValueSetEntry(valueSetName, code, version);
 	}
 
 	public void saveValueSetEntry(ValueSetEntry valueSet) {
 		this.dao.save(valueSet);
 	}
 
-	public ValueSet findValueSet(String name) {
-		return this.dao.findValueSet(name);
+	public ValueSet findValueSet(String name, String version) {
+		return this.dao.findValueSet(name, version);
 	}
 
 	public void saveValueSet(ValueSet valueSet) {

@@ -81,6 +81,11 @@ public class TerminologyLoaderMojo extends AbstractMojo {
     private String terminologyDatabaseDialect;
     
     /**
+     * @parameter
+     */
+    private String terminologyDatabaseVersion;
+    
+    /**
      * <p>Read in the spreadsheet, and try to load each entry into the database.
      * 
      * @throws MojoExecutionException 
@@ -99,7 +104,7 @@ public class TerminologyLoaderMojo extends AbstractMojo {
 			HSSFWorkbook workbook = createWorkBook();
 			HibernateDatabase database = new HibernateDatabase(createProperties());
 			database.startTransaction();
-			new TerminologyProcessor(new OutputUIImpl(this), workbook, database).process();
+			new TerminologyProcessor(new OutputUIImpl(this), workbook, database, this.terminologyDatabaseVersion).process();
 			database.commitTransaction();
 		} catch (IOException e) {
 			throw new MojoExecutionException("Problem reading spreadsheet: " 

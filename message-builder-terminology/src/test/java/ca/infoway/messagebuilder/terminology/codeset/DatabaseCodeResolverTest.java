@@ -66,6 +66,7 @@ public class DatabaseCodeResolverTest {
 	private static final String CODE_VALUE = "TEST";
 	private static final String CODE_SYSTEM_OID = "TEST OID";
 	private static final Code CODE = createDummyCode();
+	private static final String VERSION = "TEST_VERSION";
 	
 	private CodeSetDao codeSetDao;
 	private TypedCodeFactory codeFactory;
@@ -75,14 +76,14 @@ public class DatabaseCodeResolverTest {
 	public void setUp() throws Exception {
 		codeSetDao = this.jmock.mock(CodeSetDao.class);
 		codeFactory = this.jmock.mock(TypedCodeFactory.class);
-		resolver = new DatabaseCodeResolver(this.codeSetDao, this.codeFactory);
+		resolver = new DatabaseCodeResolver(this.codeSetDao, this.codeFactory, VERSION);
 	}
 
 	@SuppressWarnings("deprecation")
 	@Test
 	public void testShouldHandleLookupByCode() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createValueSetsCollection(new String[] {CODE_VALUE})));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -101,7 +102,7 @@ public class DatabaseCodeResolverTest {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private Matcher<Collection<Class<?>>> hasSameContents(final List types) {
+	private Matcher<Collection<Class<?>>> hasSameContents(final List<?> types) {
 		return new TypeSafeMatcher<Collection<Class<?>>>() {
 			@Override
 			public boolean matchesSafely(Collection<Class<?>> o) {
@@ -122,7 +123,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeFindsNoMatch() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createEmptyCollection()));
 		}});
 		
@@ -133,7 +134,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeFindsMultipleMatches() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createValueSetsCollection(new String[] {CODE_VALUE, "another_code"})));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -154,7 +155,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldHandleLookupByCodeSystem() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createValueSet(CODE_VALUE)));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -178,7 +179,7 @@ public class DatabaseCodeResolverTest {
 		list.add(x_NormalRestrictedTabooConfidentialityKind.class);
 		list.add(x_VeryBasicConfidentialityKind.class);
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createValueSet(CODE_VALUE, list)));
 			one(codeFactory).create(
 					with(same(Confidentiality.class)), 
@@ -228,7 +229,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeSystemFindsNoMatch() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(null));
 		}});		
 		
@@ -239,7 +240,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldGenerateDisplayTextMapCorrectly() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)));
 				will(returnValue(createValueSetWithDisplayText(CODE_VALUE)));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 

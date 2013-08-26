@@ -40,53 +40,59 @@ public interface CodeSetDao {
 	 * @param vocabularyDomainType the vocabulary domain type
 	 * @param code the code
 	 * @param codeSystemOid the code system oid
+	 * @param version the value set version to match against 
 	 * @return the value set entry
 	 */
-	public ValueSetEntry findValueByCodeSystem(Class<?> vocabularyDomainType, String code, String codeSystemOid);
+	public ValueSetEntry findValueByCodeSystem(Class<?> vocabularyDomainType, String code, String codeSystemOid, String version);
 	
 	/**
 	 * <p>Select value sets by code.
 	 *
 	 * @param vocabularyDomainType the vocabulary domain type
 	 * @param code the code
+	 * @param version the value set version to match against 
 	 * @return the list
 	 */
-	public List<ValueSetEntry> selectValueSetsByCode(Class<?> vocabularyDomainType, String code);
+	public List<ValueSetEntry> selectValueSetsByCode(Class<?> vocabularyDomainType, String code, String version);
 	
 	/**
 	 * <p>Select value sets by vocabulary domain.
 	 *
 	 * @param vocabularyDomainType the vocabulary domain type
+	 * @param version the value set version to match against 
 	 * @return the list
 	 */
 	@Deprecated
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(Class<?> vocabularyDomainType);
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(Class<?> vocabularyDomainType, String version);
 	
 	/**
 	 * <p>Select value sets by vocabulary domain.
 	 *
 	 * @param vocabularyDomainType the vocabulary domain type
+	 * @param version the value set version to match against 
 	 * @return the list
 	 */
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String vocabularyDomainType);
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String vocabularyDomainType, String version);
 	
 	/**
 	 * <p>Select value sets by vocabulary domain.
 	 *
 	 * @param jurisdictionCode the jurisdiction code
 	 * @param vocabularyDomainType the vocabulary domain type
+	 * @param version the value set version to match against 
 	 * @return the list
 	 */
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String jurisdictionCode, VocabularyDomain vocabularyDomainType);
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String jurisdictionCode, VocabularyDomain vocabularyDomainType, String version);
 	
 	/**
 	 * <p>Select coded values by vocabulary domain.
 	 *
 	 * @param vocabularyDomainType the vocabulary domain type
+	 * @param version the value set version to match against 
 	 * @return the list
 	 */
 	@Deprecated
-	public List<CodedValue> selectCodedValuesByVocabularyDomain(Class<?> vocabularyDomainType);
+	public List<CodedValue> selectCodedValuesByVocabularyDomain(Class<?> vocabularyDomainType, String version);
 	
 	/**
 	 * <p>Select all vocabulary domains.

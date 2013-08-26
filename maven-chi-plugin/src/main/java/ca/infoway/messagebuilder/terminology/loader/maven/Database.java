@@ -36,8 +36,8 @@ interface Database {
 	public CodeSystem getCodeSystem(String oid);
 	public CodedValue findCodedValue(Code code);
 	public void saveCodedValues(Collection<CodedValue> values);
-	public ValueSetEntry findValueSetEntry(String valueSetName, Code code);
-	public ValueSet findValueSet(String name);
+	public ValueSetEntry findValueSetEntry(String valueSetName, Code code, String version);
+	public ValueSet findValueSet(String name, String version);
 	public void saveValueSetEntry(ValueSetEntry valueSet);
 	public void saveValueSet(ValueSet valueSet);
 	

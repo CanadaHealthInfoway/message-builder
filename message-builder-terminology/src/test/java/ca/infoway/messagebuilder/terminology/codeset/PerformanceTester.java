@@ -56,10 +56,11 @@ public class PerformanceTester {
 	private SessionFactory factory;
 	private CodeSetDao dao;
 	private DatabaseCodeResolver resolver;
+	private static final String VERSION = "VERSION";
 	
 	public PerformanceTester(boolean useSecondLevelCache) {
 		createDao(useSecondLevelCache);
-		this.resolver = new DatabaseCodeResolver(this.dao, new TypedCodeFactory());
+		this.resolver = new DatabaseCodeResolver(this.dao, new TypedCodeFactory(), VERSION);
 	}
 
 	public static void main(String[] args) throws Exception {

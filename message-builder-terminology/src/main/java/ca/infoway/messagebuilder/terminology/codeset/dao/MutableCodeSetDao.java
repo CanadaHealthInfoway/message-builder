@@ -100,17 +100,19 @@ public interface MutableCodeSetDao extends CodeSetDao {
 	 *
 	 * @param valueSetName the value set name
 	 * @param code the code
+	 * @param version the value set version to match against 
 	 * @return the value set entry
 	 */
-	public ValueSetEntry findValueSetEntry(String valueSetName, Code code);
+	public ValueSetEntry findValueSetEntry(String valueSetName, Code code, String version);
 	
 	/**
 	 * <p>Find value set.
 	 *
 	 * @param name the name
+	 * @param version the value set version to match against 
 	 * @return the value set
 	 */
-	public ValueSet findValueSet(String name);
+	public ValueSet findValueSet(String name, String version);
 	
 	/**
 	 * <p>Save.

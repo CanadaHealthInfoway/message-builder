@@ -47,23 +47,26 @@ public class DatabaseCodeResolver implements CodeResolver {
 
 	private final CodeSetDao dao;
 	private final TypedCodeFactory codeFactory;
+	private final String version;
 
 	/**
 	 * <p>Instantiates a new database code resolver.
 	 *
 	 * @param dao the dao
 	 * @param codeFactory the code factory
+	 * @param version the valueset version to match against in the database
 	 */
-	public DatabaseCodeResolver(CodeSetDao dao, TypedCodeFactory codeFactory) {
+	public DatabaseCodeResolver(CodeSetDao dao, TypedCodeFactory codeFactory, String version) {
 		this.dao = dao;
 		this.codeFactory = codeFactory;
+		this.version = version;
 	}
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<? extends T> type, String code) {
-		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code);
+		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code, this.version);
 		return (codedValues.isEmpty()) ? null : createCode(type, codedValues.get(0));
 	}
 
@@ -77,7 +80,7 @@ public class DatabaseCodeResolver implements CodeResolver {
 		if (StringUtils.isBlank(codeSystemOid)) {
 			return lookup(type, code);
 		} else {
-			ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid);
+			ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid, this.version);
 			return valueSet == null ? null : createCode(type, valueSet);
 		}
 	}
@@ -85,8 +88,9 @@ public class DatabaseCodeResolver implements CodeResolver {
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("deprecation")
 	public <T extends Code> Collection<T> lookup(Class<? extends T> type) {
-		List<ValueSetEntry> values = dao.selectValueSetsByVocabularyDomain(type);
+		List<ValueSetEntry> values = dao.selectValueSetsByVocabularyDomain(type, this.version);
 		return convertValuesToCodes(type, values);
 	}
 

@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.terminology.codeset.domain.VocabularyDomain;
 
 public class CodeTestFactory extends HibernateDaoSupport {
 	
-	private static int valueSetVersion = 1;
+	public static int uniqueNameSuffix = 1;
 	
 	private final List<Object> createdObjects = new ArrayList<Object>();
 	private final DaoTestSupport testSupport;
@@ -47,11 +47,11 @@ public class CodeTestFactory extends HibernateDaoSupport {
 		setSessionFactory(testSupport.getSessionFactory());
 	}
 
-	public ValueSetEntry createValueSet(CodedValue codedValue, VocabularyDomain... vocabularyDomain) {
+	public ValueSetEntry createValueSet(CodedValue codedValue, String version, VocabularyDomain... vocabularyDomain) {
 		ValueSet valueSet = new ValueSet();
-		valueSet.setName("testValueSetName" + valueSetVersion);
-		valueSet.setVersion("testValueSetVersion" + valueSetVersion);
-		valueSetVersion++;
+		valueSet.setName("testValueSetName" + uniqueNameSuffix);
+		valueSet.setVersion(version);
+		uniqueNameSuffix++;
 		
 		ValueSetEntry result = new ValueSetEntry();
 		result.setCodedValue(codedValue);

@@ -70,11 +70,13 @@ class TerminologyProcessor {
 	private final Database database;
 	private Map<String,CodeSystem> codeSystems = new HashMap<String,CodeSystem>();
 	private Date createDate;
+	private final String version;
 
-	public TerminologyProcessor(LogUI log, HSSFWorkbook workbook, Database database) {
+	public TerminologyProcessor(LogUI log, HSSFWorkbook workbook, Database database, String version) {
 		this.log = log;
 		this.workbook = workbook;
 		this.database = database;
+		this.version = version;
 		this.createDate = new Date();
 	}
 
@@ -119,7 +121,7 @@ class TerminologyProcessor {
 				processDescription(value, "fr", getCellValue(sheet, i, 5));
 				
 				String valueSetName = getCellValue(sheet, i, 1);
-				ValueSetEntry valueSetEntry = this.database.findValueSetEntry(valueSetName, new CodeImpl(code, oid));
+				ValueSetEntry valueSetEntry = this.database.findValueSetEntry(valueSetName, new CodeImpl(code, oid), this.version);
 				if (valueSetEntry == null) {
 					valueSetEntry = new ValueSetEntry();
 					metrics.valueSetEntryCount++;
@@ -159,7 +161,7 @@ class TerminologyProcessor {
 	}
 
 	private ValueSet findOrCreateValueSet(String valueSetName, Metrics metrics) {
-		ValueSet valueSet = this.database.findValueSet(valueSetName);
+		ValueSet valueSet = this.database.findValueSet(valueSetName, this.version);
 		if (valueSet == null) {
 			valueSet = new ValueSet();
 			metrics.valueSetCount++;

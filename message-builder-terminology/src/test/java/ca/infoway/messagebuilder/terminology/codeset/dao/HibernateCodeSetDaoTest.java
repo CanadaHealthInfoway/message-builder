@@ -73,6 +73,8 @@ public class HibernateCodeSetDaoTest {
 	private static String OID;
 	private static final String OTHER_OID_BASE = "9.7.6.5.4";
 	private static String OTHER_OID;
+	private static String VERSION = "version1";
+	private static String OTHER_VERSION = "version2";
 	
 	private MutableCodeSetDao dao;
 	
@@ -116,10 +118,10 @@ public class HibernateCodeSetDaoTest {
 
 	@Test
 	public void testSelectCodedValuesByVocabularyDomain_ShouldFindTwoMatchingCodes() throws Exception {
-		createCodedValue(CODE, VOCABULARY_DOMAIN);
-		createCodedValue(OTHER_CODE, VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
+		createCodedValue(OTHER_CODE, VERSION, VOCABULARY_DOMAIN);
 
-		List<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN);
+		List<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN, VERSION);
 		
 		assertEquals(2, codedValues.size());
 		assertTrue(codedValueFound(codedValues, CODE));
@@ -128,17 +130,17 @@ public class HibernateCodeSetDaoTest {
 
 	@Test	
 	public void testSelectCodedValuesByVocabularyDomain_ShouldReturnEmptyListWhenThereIsNoData() throws Exception {
-		Collection<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN);
+		Collection<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN, VERSION);
 		
 		assertTrue(codedValues.isEmpty());
 	}
 
 	@Test
 	public void testSelectCodedValuesByVocabularyDomain_ShouldNotSelectCodesInOtherVocabularyDomains() throws Exception {
-		createCodedValue(CODE, VOCABULARY_DOMAIN);
-		createCodedValue(CODE, OTHER_VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, OTHER_VOCABULARY_DOMAIN);
 		
-		List<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN);
+		List<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN, VERSION);
 		
 		assertEquals(1, codedValues.size());
 		assertTrue(codedValueFound(codedValues, CODE));
@@ -160,9 +162,9 @@ public class HibernateCodeSetDaoTest {
 	public void testFindCodedValueByCodeSystem_ShouldFindMatchingCodedValue() throws Exception {
 		VocabularyDomain vocabularyDomain = this.factory.createVocabularyDomain(Confidentiality.class);
 		
-		createCodedValue(vocabularyDomain, OID, "N");
+		createCodedValue(vocabularyDomain, OID, "N", VERSION);
 		
-		ValueSetEntry value = this.dao.findValueByCodeSystem(Confidentiality.class, "N", OID);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(Confidentiality.class, "N", OID, VERSION);
 		
 		assertNotNull("coded value", value);
 		assertEquals("N", value.getCodedValue().getCode());
@@ -173,23 +175,23 @@ public class HibernateCodeSetDaoTest {
 	public void testFindCodedValueByCodeSystem_ShouldNotFindValuesInOtherCodeSystems() throws Exception {
 		VocabularyDomain vocabularyDomain = this.factory.createVocabularyDomain(VOCABULARY_DOMAIN);
 		
-		createCodedValue(vocabularyDomain, OTHER_OID, CODE);
+		createCodedValue(vocabularyDomain, OTHER_OID, CODE, VERSION);
 		
-		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION);
 		assertNull(value);
 	}
 
 	@Test
 	public void testFindCodedValueByCodeSystem_ShouldNotFindValueWhenThereIsNoData() throws Exception {
-		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION);
 		assertNull(value);
 	}
 	
 	@Test
 	public void testSelectCodedValuesByCode_ShouldFindMatchingCodedValue() throws Exception {
-		createCodedValue(CODE, VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
 
-		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE);
+		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
 		
 		assertEquals(1, codedValues.size());
 		
@@ -199,9 +201,9 @@ public class HibernateCodeSetDaoTest {
 
 	@Test
 	public void testSelectCodedValuesByCode_ShouldFindMatchingCodedValueInSubVocabularyDomains() throws Exception {
-		createCodedValue(CODE, SUB_VOCABULARY_DOMAIN, PARENT_VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, SUB_VOCABULARY_DOMAIN, PARENT_VOCABULARY_DOMAIN);
 		
-		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(PARENT_VOCABULARY_DOMAIN, CODE);
+		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(PARENT_VOCABULARY_DOMAIN, CODE, VERSION);
 		
 		assertEquals(1, codedValues.size());
 		
@@ -211,16 +213,16 @@ public class HibernateCodeSetDaoTest {
 	
 	@Test
 	public void testSelectCodedValuesByCode_ShouldNotFindValuesInOtherVocabularyDomains() throws Exception {
-		createCodedValue(CODE, OTHER_VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, OTHER_VOCABULARY_DOMAIN);
 		
-		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE);
+		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
 		
 		assertTrue(values.isEmpty());
 	}
 
 	@Test
 	public void testSelectCodedValuesByCode_ShouldNotSelectValuesWhenThereIsNoData() throws Exception {
-		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE);
+		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
 		
 		assertTrue(values.isEmpty());
 	}
@@ -287,37 +289,37 @@ public class HibernateCodeSetDaoTest {
 		assertEquals(2, vocabularyDomains.size());
 	}	
 	
-	private void createCodedValue(VocabularyDomain vocabularyDomain, String oid, String code, String parentCode, List<String> childCodes) {
+	private void createCodedValue(VocabularyDomain vocabularyDomain, String oid, String code, String parentCode, List<String> childCodes, String version) {
 		CodeSystem codeSystem = this.factory.createCodeSystem(oid);
-		CodedValue codeCodedValue = createCodedValue(vocabularyDomain, codeSystem, code);
+		CodedValue codeCodedValue = createCodedValue(vocabularyDomain, codeSystem, code, version);
 		CodedValue parentCodeCodedValue = null;
 		if (parentCode != null) {
-			parentCodeCodedValue = createCodedValue(vocabularyDomain, codeSystem, parentCode);
+			parentCodeCodedValue = createCodedValue(vocabularyDomain, codeSystem, parentCode, version);
 		}
 		List<CodedValue> childCodesCodedValues = new ArrayList<CodedValue>();
 		if (childCodes != null) {
 			for (String childCode : childCodes) {
-				CodedValue childCodedValue = createCodedValue(vocabularyDomain, codeSystem, childCode);
+				CodedValue childCodedValue = createCodedValue(vocabularyDomain, codeSystem, childCode, version);
 				childCodesCodedValues.add(childCodedValue);
 			}
 		}
 		this.factory.createCodedValue(codeCodedValue, parentCodeCodedValue, childCodesCodedValues);
 	}
 	
-	private CodedValue createCodedValue(VocabularyDomain vocabularyDomain, CodeSystem codeSystem, String code) {
+	private CodedValue createCodedValue(VocabularyDomain vocabularyDomain, CodeSystem codeSystem, String code, String version) {
 		CodedValue codedValue = this.factory.createCodedValue(codeSystem, code);
-		this.factory.createValueSet(codedValue, vocabularyDomain);
+		this.factory.createValueSet(codedValue, version, vocabularyDomain);
 		return codedValue;
 	}
 	
-	private CodedValue createCodedValue(VocabularyDomain vocabularyDomain, String oid, String code) {
+	private CodedValue createCodedValue(VocabularyDomain vocabularyDomain, String oid, String code, String version) {
 		CodeSystem codeSystem = this.factory.createCodeSystem(oid);
 		CodedValue codedValue = this.factory.createCodedValue(codeSystem, code);
-		this.factory.createValueSet(codedValue, vocabularyDomain);
+		this.factory.createValueSet(codedValue, version, vocabularyDomain);
 		return codedValue;
 	}
 
-	private void createCodedValue(String code, Class<?>... vocabularyDomainType) {
+	private void createCodedValue(String code, String version, Class<?>... vocabularyDomainType) {
 		if (this.codeSystem == null) {
 			this.codeSystem = this.factory.createCodeSystem(OID);
 		}
@@ -332,7 +334,7 @@ public class HibernateCodeSetDaoTest {
 			}
 			domains.add(vocabularyDomain);
 		}
-		this.factory.createValueSet(codedValue, domains.toArray(new VocabularyDomain[domains.size()]));
+		this.factory.createValueSet(codedValue, version, domains.toArray(new VocabularyDomain[domains.size()]));
 	}
 
 	private boolean codedValueFound(List<CodedValue> codedValues, String code) {
@@ -347,7 +349,7 @@ public class HibernateCodeSetDaoTest {
 
 	@Test
 	public void testFindCodedValueWithNoChildrenNoParent() {
-		createCodedValue(CODE, SUB_VOCABULARY_DOMAIN, PARENT_VOCABULARY_DOMAIN);
+		createCodedValue(CODE, VERSION, SUB_VOCABULARY_DOMAIN, PARENT_VOCABULARY_DOMAIN);
 		
 		x_DrugUnitsOfMeasure code = (x_DrugUnitsOfMeasure) CodeResolverRegistry.lookup(SUB_VOCABULARY_DOMAIN, CODE, OID);
 		
@@ -363,7 +365,7 @@ public class HibernateCodeSetDaoTest {
 	public void testFindCodedValueWithChildrenAndParent() {
 		VocabularyDomain vocabularyDomain = this.factory.createVocabularyDomain(Confidentiality.class);
 		
-		createCodedValue(vocabularyDomain, OID, CODE, "parent", Arrays.asList("child1", "child2", "child3"));
+		createCodedValue(vocabularyDomain, OID, CODE, "parent", Arrays.asList("child1", "child2", "child3"), VERSION);
 		
 		Confidentiality code = (Confidentiality) CodeResolverRegistry.lookup(Confidentiality.class, CODE, OID);
 		

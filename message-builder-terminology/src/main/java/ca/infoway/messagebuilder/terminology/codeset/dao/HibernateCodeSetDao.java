@@ -67,28 +67,30 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<CodedValue> selectCodedValuesByVocabularyDomain(final Class<?> vocabularyDomainType) {
-		return convertValueSetsToCodedValues(selectValueSetsByVocabularyDomain(vocabularyDomainType));
+	public List<CodedValue> selectCodedValuesByVocabularyDomain(Class<?> vocabularyDomainType, String version) {
+		return convertValueSetsToCodedValues(selectValueSetsByVocabularyDomain(vocabularyDomainType, version));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public List<ValueSetEntry> selectValueSetsByCode(final Class<?> vocabularyDomainType, 
-			final String code) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<ValueSetEntry> selectValueSetsByCode(final Class<?> vocabularyDomainType, final String code, final String version) {
 		List<ValueSetEntry> valueSets = getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
-				Criteria criteriaValueSet = session.createCriteria(ValueSetEntry.class);
+				Criteria criteriaValueSetEntry = session.createCriteria(ValueSetEntry.class);
 				
-				Criteria criteriaCodedValue = criteriaValueSet.createCriteria("codedValue");
+				Criteria criteriaCodedValue = criteriaValueSetEntry.createCriteria("codedValue");
 				criteriaCodedValue.add(Restrictions.eq("code", code));
 		
-				Criteria criteriaVocabularyDomain = criteriaValueSet.createCriteria("valueSet").createCriteria("vocabularyDomains");
+				Criteria criteriaValueSet = criteriaValueSetEntry.createCriteria("valueSet");
+				criteriaValueSet.add(Restrictions.eq("version", version));
+				
+				Criteria criteriaVocabularyDomain = criteriaValueSet.createCriteria("vocabularyDomains");
 				criteriaVocabularyDomain.add(Restrictions.eq("type", ClassUtils.getShortClassName(vocabularyDomainType)));
 		
-				return criteriaValueSet.list();
+				return criteriaValueSetEntry.list();
 			}
 		});
 		return valueSets;
@@ -98,8 +100,8 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public ValueSetEntry findValueByCodeSystem(final Class<?> vocabularyDomainType, final String code, final String codeSystemOid) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ValueSetEntry findValueByCodeSystem(final Class<?> vocabularyDomainType, final String code, final String codeSystemOid, final String version) {
 		return (ValueSetEntry) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
@@ -112,7 +114,10 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 			
 				criteriaCodeSystem.add(Restrictions.eq("oid", codeSystemOid));
 			
-				Criteria criteriaVocabularyDomain = criteriaValueSetEntry.createCriteria("valueSet").createCriteria("vocabularyDomains");
+				Criteria criteriaValueSet = criteriaValueSetEntry.createCriteria("valueSet");
+				criteriaValueSet.add(Restrictions.eq("version", version));
+
+				Criteria criteriaVocabularyDomain = criteriaValueSet.createCriteria("vocabularyDomains");
 				criteriaVocabularyDomain.add(Restrictions.eq("type", ClassUtils.getShortClassName(vocabularyDomainType)));
 
 				List list = criteriaValueSetEntry.list();
@@ -135,7 +140,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<VocabularyDomain> selectAllVocabularyDomains() {
 		return getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
@@ -148,7 +153,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public VocabularyDomain selectVocabularyDomain(final String type) {
 		return (VocabularyDomain) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
@@ -161,24 +166,24 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(
-			final Class<?> vocabularyDomainType) {
-		return selectValueSetsByVocabularyDomain(ClassUtils.getShortClassName(vocabularyDomainType));
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(final Class<?> vocabularyDomainType, final String version) {
+		return selectValueSetsByVocabularyDomain(ClassUtils.getShortClassName(vocabularyDomainType), version);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(
-			final String domainName) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(final String domainName, final String version) {
 		return getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
 				Criteria criteriaValueSetEntry = session.createCriteria(ValueSetEntry.class);
 				
-				Criteria criteriaValue = criteriaValueSetEntry.createCriteria("valueSet");
-				Criteria criteriaVocabularyDomain = criteriaValue.createCriteria("vocabularyDomains");
+				Criteria criteriaValueSet = criteriaValueSetEntry.createCriteria("valueSet");
+				criteriaValueSet.add(Restrictions.eq("version", version));
+
+				Criteria criteriaVocabularyDomain = criteriaValueSet.createCriteria("vocabularyDomains");
 				criteriaVocabularyDomain.add(Restrictions.eq("type", domainName));
 
 				return criteriaValueSetEntry.list();
@@ -189,9 +194,8 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public List<VocabularyDomain> selectVocabularyDomains(
-			final CodeSearchCriteria searchCriteria) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<VocabularyDomain> selectVocabularyDomains(final CodeSearchCriteria searchCriteria) {
 		return (List<VocabularyDomain>) getHibernateTemplate().execute(
 				new HibernateCallback() {
 					public Object doInHibernate(Session session) throws SQLException {
@@ -227,7 +231,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<CodeSystem> getAllCodeSystems() {
 		return getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
@@ -246,7 +250,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<CodeSystem> findCodeSystems(final CodeSystemSearchCriteria searchCriteria, final int startRow, final int endRow) {
 		return getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
@@ -293,7 +297,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public int countCodeSystems(final CodeSystemSearchCriteria searchCriteria) {
 		return (Integer) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
@@ -325,16 +329,18 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String jurisdiction,
-			VocabularyDomain vocabularyDomain) {
-		return selectValueSetsByVocabularyDomain(vocabularyDomain.getType());
+	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String jurisdiction, VocabularyDomain vocabularyDomain, String version) {
+		return selectValueSetsByVocabularyDomain(vocabularyDomain.getType(), version);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public CodedValue findCodedValue(final Code code) {
+		
+		// TM - *not* modifying this method to use version, as it does not reference the valueset table, even though it does deal with codes
+		
 		CodedValue result = null;
 		
 		if (code != null) {
@@ -369,13 +375,17 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public ValueSetEntry findValueSetEntry(final String valueSetName, final Code code) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ValueSetEntry findValueSetEntry(final String valueSetName, final Code code, final String version) {
 		return (ValueSetEntry) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
+
 				Criteria criteria = session.createCriteria(ValueSetEntry.class);
-				criteria.createCriteria("valueSet").add(Restrictions.eq("name", valueSetName));
+				
+				Criteria criteriaValueSet = criteria.createCriteria("valueSet");
+				criteriaValueSet.add(Restrictions.eq("name", valueSetName));
+				criteriaValueSet.add(Restrictions.eq("version", version));
 				
 				Criteria codedValueCriteria = criteria.createCriteria("codedValue");
 				codedValueCriteria.add(Restrictions.eq("code", code.getCodeValue()));
@@ -396,12 +406,13 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
-	public ValueSet findValueSet(final String name) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ValueSet findValueSet(final String name, final String version) {
 		return (ValueSet) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				Criteria criteria = session.createCriteria(ValueSet.class);
 				criteria.add(Restrictions.eq("name", name));
+				criteria.add(Restrictions.eq("version", version));
 				return criteria.uniqueResult();
 			}
 		});
@@ -417,7 +428,7 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public CodeSystem findCodeSystem(final String oid) {
 		return (CodeSystem) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
