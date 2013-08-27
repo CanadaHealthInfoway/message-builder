@@ -39,7 +39,7 @@ class EnumPatternCodeResolver extends CodeResolverImpl {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<? extends T> type, String code) {
+	public <T extends Code> T lookup(Class<T> type, String code) {
         if (code == null) {
             return null;
         } else if (!type.isInterface()) {
@@ -54,7 +54,7 @@ class EnumPatternCodeResolver extends CodeResolverImpl {
      * 
      * enum pattern code resolver doesn't understand code system
      */
-    public <T extends Code> T lookup(Class<? extends T> type, String code, String codeSystemOid) {
+    public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
 		return lookup(type, code);
 	}
     

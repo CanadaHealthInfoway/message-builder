@@ -108,7 +108,7 @@ public class TrivialCodeResolver extends CodeResolverImpl {
      */
     @Override
 	@SuppressWarnings("unchecked")
-    public <T extends Code> T lookup(Class<? extends T> interfaceType, String code, String codeSystemOid) {
+    public <T extends Code> T lookup(Class<T> interfaceType, String code, String codeSystemOid) {
         if (code == null || this.emptyDomains.contains(interfaceType)) {
             return null;
         } else if (this.map.containsKey(interfaceType, code)) {
@@ -124,7 +124,7 @@ public class TrivialCodeResolver extends CodeResolverImpl {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public <T extends Code> T lookup(Class<? extends T> interfaceType, String code) {
+	public <T extends Code> T lookup(Class<T> interfaceType, String code) {
     	return lookup(interfaceType, code, null);
 	}
 

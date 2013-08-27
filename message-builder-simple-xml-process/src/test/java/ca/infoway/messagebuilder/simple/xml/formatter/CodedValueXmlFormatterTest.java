@@ -106,7 +106,7 @@ public class CodedValueXmlFormatterTest {
 		
 		CodeResolverRegistry.register(new TrivialCodeResolver() {
 			@Override
-			public <T extends Code> T lookup(Class<? extends T> interfaceType, String codeValue, String codeSystemOid) {
+			public <T extends Code> T lookup(Class<T> interfaceType, String codeValue, String codeSystemOid) {
 				return null;
 			}
 		});
@@ -121,7 +121,7 @@ public class CodedValueXmlFormatterTest {
 		
 		CodeResolverRegistry.register(new TrivialCodeResolver() {
 			@Override
-			public <T extends Code> T lookup(Class<? extends T> interfaceType, String codeValue, String codeSystemOid) {
+			public <T extends Code> T lookup(Class<T> interfaceType, String codeValue, String codeSystemOid) {
 				return null;
 			}
 		});

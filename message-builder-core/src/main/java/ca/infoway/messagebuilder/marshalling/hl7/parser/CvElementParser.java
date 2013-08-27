@@ -157,7 +157,7 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
 
 	private Code getCode(Type expectedReturnType, String codeValue, String codeSystem) {
 		CodeResolver resolver = null;
-		Class<? extends Code> returnType = null;
+		Class<Code> returnType = null;
 		if (ANY.class.equals(expectedReturnType)) {
 			// if the underlying datatype is an ANY, then we don't have enough information to figure out the domaintype; have to assume generic Code
 			returnType = Code.class;

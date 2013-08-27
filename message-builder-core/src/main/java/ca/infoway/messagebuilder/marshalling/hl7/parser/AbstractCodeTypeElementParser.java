@@ -125,12 +125,12 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 	}
 
 	@SuppressWarnings("unchecked")
-	protected Class<? extends Code> getReturnTypeAsCodeType(Type type) {
+	protected Class<Code> getReturnTypeAsCodeType(Type type) {
 		if (type instanceof Class) {
-			return (Class<? extends Code>) type;
+			return (Class<Code>) type;
 		} else if (Generics.isCollectionParameterizedType(type)) {
 			// this case should only happen if the original property was inlined
-			return (Class<? extends Code>) Generics.getParameterType(type);
+			return (Class<Code>) Generics.getParameterType(type);
 		} else {
 			throw new IllegalArgumentException("Can't determine the domain type of " + type);
 		}

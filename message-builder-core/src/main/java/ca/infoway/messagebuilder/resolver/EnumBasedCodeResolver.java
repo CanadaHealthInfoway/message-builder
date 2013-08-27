@@ -55,14 +55,14 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public <T extends Code> Collection<T> lookup(Class<? extends T> type) {
+	public <T extends Code> Collection<T> lookup(Class<T> type) {
 		return new ArrayList(Arrays.asList(EnumPattern.getEnumConstants(this.e)));
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<? extends T> interfaceType, String code) {
+	public <T extends Code> T lookup(Class<T> interfaceType, String code) {
 		return lookup(interfaceType, code, null, null);
 	}
 
@@ -81,7 +81,7 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<? extends T> type, String code, String codeSystemOid) {
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
 		return lookup(type, code, codeSystemOid, null);
 	}
 

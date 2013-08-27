@@ -13,16 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2013-01-02 18:05:34 -0400 (Wed, 02 Jan 2013) $
+ * Revision:      $LastChangedRevision: 6471 $
  */
 
 package ca.infoway.messagebuilder.resolver;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>This class functions is generally used in one of two ways.  Either:
@@ -53,9 +57,10 @@ import ca.infoway.messagebuilder.Code;
  * 
  * @sharpen.ignore - terminology - translated manually
  */
-public abstract class CodeResolverRegistry {
-	
-	private static GenericCodeResolverRegistryImpl registry = new GenericCodeResolverRegistryImpl();
+public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegistry, CodeResolver {
+
+    private Map<Class<?>, CodeResolver> resolvers = Collections.synchronizedMap(new HashMap<Class<?>, CodeResolver>());
+    private CodeResolver instance;
 
     /**
      * <p>Lookup.
@@ -64,8 +69,8 @@ public abstract class CodeResolverRegistry {
      * @param type the type
      * @return the collection
      */
-    public static <T extends Code> Collection<T> lookup(Class<T> type) {
-    	return registry.lookup(type);
+    public <T extends Code> Collection<T> lookup(Class<T> type) {
+    	return getResolver(type).lookup(type);
     }
     
     /**
@@ -76,8 +81,8 @@ public abstract class CodeResolverRegistry {
      * @param code the code
      * @return the t
      */
-    public static <T extends Code> T lookup(Class<T> type, String code) {
-        return registry.lookup(type, code);
+    public <T extends Code> T lookup(Class<T> type, String code) {
+        return getResolver(type).lookup(type, code);
     }
     
     /**
@@ -89,8 +94,8 @@ public abstract class CodeResolverRegistry {
      * @param codeSystemOid the code system oid
      * @return the t
      */
-    public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-    	return registry.lookup(type, code, codeSystemOid);
+    public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
+    	return getResolver(type).lookup(type, code, codeSystemOid);
     }
     
     /**
@@ -100,8 +105,19 @@ public abstract class CodeResolverRegistry {
      * @param type the type
      * @return the resolver
      */
-	public static <T extends Code> CodeResolver getResolver(Class<T> type) {
-		return registry.getResolver(type);
+	public <T extends Code> CodeResolver getResolver(Class<T> type) {
+        if (this.resolvers.containsKey(type)) {
+            return this.resolvers.get(type);
+        } else if (EnumPattern.isEnum(type)) {
+            return new EnumBasedCodeResolver((Class<?>) type);
+        } else if (!type.isInterface()) {
+        	return new EnumPatternCodeResolver();
+        } else if (this.instance == null) {
+            throw new IllegalStateException("No code resolver established for " 
+                    + type.getName() + ".");
+        } else {
+            return this.instance;
+        }
     }
 
     /**
@@ -109,8 +125,8 @@ public abstract class CodeResolverRegistry {
      *
      * @return true, if is initialized
      */
-    public static boolean isInitialized() {
-    	return registry.isInitialized();
+    public boolean isInitialized() {
+    	return instance != null;
     }
     
     /**
@@ -118,8 +134,8 @@ public abstract class CodeResolverRegistry {
      *
      * @param codeResolver the code resolver
      */
-    public static void register(CodeResolver codeResolver) {
-    	registry.register(codeResolver);
+    public void register(CodeResolver codeResolver) {
+    	instance = codeResolver;
     }
     
     /**
@@ -128,15 +144,15 @@ public abstract class CodeResolverRegistry {
      * @param type the type
      * @param codeResolver the code resolver
      */
-    public static void registerResolver(Class<? extends Code> type, CodeResolver codeResolver) {
-    	registry.registerResolver(type, codeResolver);
+    public void registerResolver(Class<? extends Code> type, CodeResolver codeResolver) {
+        this.resolvers.put(type, codeResolver);
     }
     
     /**
      * <p>Unregister all.
      */
-    public static void unregisterAll() {
-    	registry.unregisterAll();
+    public void unregisterAll() {
+        this.instance = null;
+        this.resolvers.clear();
     }
-    
 }

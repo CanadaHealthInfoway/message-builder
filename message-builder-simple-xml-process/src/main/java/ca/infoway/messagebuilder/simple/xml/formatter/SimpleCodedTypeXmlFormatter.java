@@ -48,7 +48,7 @@ public class SimpleCodedTypeXmlFormatter extends AbstractCodedTypeXmlFormatter {
 	}
 
 	@Override
-	protected Code parseCode(FormatContext formatContext, Class<? extends Code> codeType, Element element) throws FormatterException {
+	protected Code parseCode(FormatContext formatContext, Class<Code> codeType, Element element) throws FormatterException {
 		Code code = null;
 		if (StringUtils.isBlank(getCodeValue(element))) {
 			processError(formatContext, "No code provided", element);

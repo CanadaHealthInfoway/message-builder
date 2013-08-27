@@ -77,7 +77,7 @@ public abstract class AbstractCodedTypeXmlFormatter extends AbstractSimpleXmlFor
 		return cd;
 	}
 	
-    protected Code parseCode(FormatContext formatContext, Class<? extends Code> codeType, Element value) throws FormatterException {
+    protected Code parseCode(FormatContext formatContext, Class<Code> codeType, Element value) throws FormatterException {
 		String code = getCodeValue(value);
 		String codeSystem = value.getAttribute("codeSystem");
         		
@@ -100,7 +100,7 @@ public abstract class AbstractCodedTypeXmlFormatter extends AbstractSimpleXmlFor
 		return value.getAttribute("code");
 	}
 
-	private Code getCode(FormatContext formatContext, Class<? extends Code> returnType, String codeValue, String codeSystem) {
+	private Code getCode(FormatContext formatContext, Class<Code> returnType, String codeValue, String codeSystem) {
 		Code result = null;
 		if (StringUtils.isNotBlank(codeValue)) {
 			CodeResolver resolver = CodeResolverRegistry.getResolver(returnType);

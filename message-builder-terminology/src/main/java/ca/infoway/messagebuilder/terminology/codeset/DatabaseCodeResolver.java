@@ -65,7 +65,7 @@ public class DatabaseCodeResolver implements CodeResolver {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<? extends T> type, String code) {
+	public <T extends Code> T lookup(Class<T> type, String code) {
 		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code, this.version);
 		return (codedValues.isEmpty()) ? null : createCode(type, codedValues.get(0));
 	}
@@ -73,7 +73,7 @@ public class DatabaseCodeResolver implements CodeResolver {
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<? extends T> type, String code, String codeSystemOid) {
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
 		// RM 15390 (and others) - TM: The lookup won't work if no code system is provided.
 		// An argument could be made that if this method is called then we should expect the code system to be valid,
 		// but let's err on the side of caution and do our best to find a matching code.
@@ -89,12 +89,12 @@ public class DatabaseCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("deprecation")
-	public <T extends Code> Collection<T> lookup(Class<? extends T> type) {
+	public <T extends Code> Collection<T> lookup(Class<T> type) {
 		List<ValueSetEntry> values = dao.selectValueSetsByVocabularyDomain(type, this.version);
 		return convertValuesToCodes(type, values);
 	}
 
-	private <T extends Code> Collection<T> convertValuesToCodes(Class<? extends T> type, List<ValueSetEntry> values) {
+	private <T extends Code> Collection<T> convertValuesToCodes(Class<T> type, List<ValueSetEntry> values) {
 		List<T> result = new ArrayList<T>();
 		for (ValueSetEntry valueSet : values) {
 			result.add(createCode(type, valueSet));
