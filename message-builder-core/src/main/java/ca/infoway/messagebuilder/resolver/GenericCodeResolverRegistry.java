@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.resolver;
 
 import ca.infoway.messagebuilder.Code;
 
-public interface GenericCodeResolverRegistry {
+public interface GenericCodeResolverRegistry extends CodeResolver {
 
     /**
      * <p>Gets the resolver.

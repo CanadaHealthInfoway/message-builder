@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.xml.validator;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
@@ -39,6 +40,9 @@ public class MessageValidatorImpl implements MessageValidator {
 	}
 
 	public MessageValidatorResult validate(Document message, VersionNumber version) {
-		return new Validator(service, message, version).validate();
+		CodeResolverRegistry.setThreadLocalVersion(version);
+		MessageValidatorResult results = new Validator(this.service, message, version).validate();
+		CodeResolverRegistry.clearThreadLocalVersion();
+		return results;
 	}
 }

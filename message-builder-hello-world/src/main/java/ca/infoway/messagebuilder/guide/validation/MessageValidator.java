@@ -31,10 +31,8 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.guide.hello_world.HelloWorldApp;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
-import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
-import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
+import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
-import ca.infoway.messagebuilder.xml.validator.Validator;
 
 /**
  * <p>
@@ -58,8 +56,8 @@ public class MessageValidator {
 			configureCodeResolversWithTrivialDefault(); // Relaxes code
 														// vocabulary code
 														// checks.
-			Validator validator = this.createNewValidator("PRPA_EX101104CA.xml", HelloWorldApp.MBSpecificationVersion);
-			MessageValidatorResult result = validator.validate();
+			MessageValidatorImpl validator = this.createNewValidator();
+			MessageValidatorResult result = validator.validate(createDocument("PRPA_EX101104CA.xml"), HelloWorldApp.MBSpecificationVersion);
 
 			System.out.printf("There are %d errors\n", result.getHl7Errors().size());
 			Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
@@ -81,9 +79,8 @@ public class MessageValidator {
 			
 			System.out.println("\nValidation Errors:");
 			Document document = new DocumentFactory().createFromString(xmlString);
-			MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
-			Validator validator = new Validator(messageDefinitionService, document, versionNumber);
-			MessageValidatorResult result = validator.validate();
+			MessageValidatorImpl validator = new MessageValidatorImpl();
+			MessageValidatorResult result = validator.validate(document, versionNumber);
 				
 			System.out.printf("There are %d errors\n", result.getHl7Errors().size());
 			Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
@@ -97,19 +94,14 @@ public class MessageValidator {
 		}
 	}
 
-	private Validator createNewValidator(String resourceName, VersionNumber versionNumber) throws IOException, SAXException {
-
+	private Document createDocument(String resourceName) throws IOException, SAXException {
 		// For our example, we'll use the resource XML document that are in the
 		// jar.
-		Document document = new DocumentFactory().createFromStream(getClass().getResourceAsStream(resourceName));
-		// Document document = new
-		// DocumentFactory().createFromString(xmlString);
-		// Document document = new
-		// DocumentFactory().createFromResource(inputStreamResource);
-		// Document document = new DocumentFactory().createFromFile(file);
-
-		MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
-		return new Validator(messageDefinitionService, document, versionNumber);
+		return new DocumentFactory().createFromStream(getClass().getResourceAsStream(resourceName));
+	}
+	
+	private MessageValidatorImpl createNewValidator() {
+		return new MessageValidatorImpl();
 	}
 
 }

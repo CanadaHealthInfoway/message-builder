@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
@@ -57,14 +58,19 @@ public class MessageBeanTransformerImpl {
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
 		return transformFromHl7(version, hl7Message, this.dateTimeZone, this.dateTimeTimeZone);
 	}
+	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
+		CodeResolverRegistry.setThreadLocalVersion(version);
+		XmlToModelResult results = new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
+		CodeResolverRegistry.clearThreadLocalVersion();
+		return results;
 	}
 
 	// FIXME - TM - should return ModelToXmlResult (every transformation test will require changing)
 	public String transformToHl7(VersionNumber version, InteractionBean messageBean) {
 		return transformToHl7AndReturnResult(version, messageBean).getXmlMessage();
 	}
+	
 	public String transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		return transformToHl7AndReturnResult(version, messageBean, dateTimeZone, dateTimeTimeZone).getXmlMessage();
 	}
@@ -72,15 +78,20 @@ public class MessageBeanTransformerImpl {
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
 		return transformToHl7AndReturnResult(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone);
 	}
+	
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		CodeResolverRegistry.setThreadLocalVersion(version);
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
 		new TealBeanRenderWalker(messageBean, version, dateTimeZone, dateTimeTimeZone, this.service).accept(visitor);
+		CodeResolverRegistry.clearThreadLocalVersion();
+		
 		ModelToXmlResult result = visitor.toXml();
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());
 		}
 		return result;
 	}
+	
 	private boolean isStrict() {
 		return this.renderMode == RenderMode.STRICT;
 	}

@@ -21,8 +21,11 @@
 package ca.infoway.messagebuilder.resolver;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.VersionNumber;
 
 /**
  * <p>This class functions is generally used in one of two ways.  Either:
@@ -54,9 +57,73 @@ import ca.infoway.messagebuilder.Code;
  * @sharpen.ignore - terminology - translated manually
  */
 public abstract class CodeResolverRegistry {
-	
-	private static GenericCodeResolverRegistryImpl registry = new GenericCodeResolverRegistryImpl();
 
+	private static final ThreadLocal<VersionNumber> threadLocalVersion = new ThreadLocal<VersionNumber>();
+
+	private static final Map<VersionNumber, GenericCodeResolverRegistry> registryMap = new HashMap<VersionNumber, GenericCodeResolverRegistry>(); 
+	
+	// the "default" registry that will be used if no other registry can be found 
+	private static final GenericCodeResolverRegistry _defaultRegistry = new GenericCodeResolverRegistryImpl();
+
+	// all transform/validator calls should set version in TLS
+	
+	public static void setThreadLocalVersion(VersionNumber version) {
+		threadLocalVersion.set(version);
+	}
+	
+	public static void clearThreadLocalVersion() {
+		threadLocalVersion.remove();
+	}
+
+	/**
+	 * Store a CodeResolverRegistry to be used for a specific HL7v3 release version. Passing in a null value for the registry will 
+	 * remove any existing registry for the supplied version.
+	 * 
+	 * @param version the version for which the supplied code resolver registry should be used
+	 * @param registry the code resolver registry to use for this version
+	 * @return returns true if there was a code resolver registry already registered for this version
+	 */
+	public static boolean registerCodeResolverRegistryForVersion(VersionNumber version, GenericCodeResolverRegistry registry) {
+		if (registry == null) {
+			return registryMap.remove(version) != null;
+		}
+		return registryMap.put(version, registry) != null;
+	}
+	
+	/**
+	 * Retrieves the CodeResolverRegistry used for a specific HL7v3 release version, if one has been stored for that version. Otherwise, returns null.
+	 * 
+	 * @param version the version for which the supplied code resolver registry should be used
+	 * @return registry the code resolver registry to use for this version
+	 */
+	public static GenericCodeResolverRegistry getCodeResolverRegistryForVersion(VersionNumber version) {
+		return registryMap.get(version);
+	}
+	
+	// for testing purposes only
+    static GenericCodeResolverRegistry getDefaultRegistry() {
+    	return _defaultRegistry;
+    }
+
+    /**
+	 * Removes all code resolver registries stored by HL7v3 release version.
+	 * 
+	 */
+	public static void removeAllRegistries() {
+		registryMap.clear();
+	}
+	
+	/**
+	 * @return the registry for the version being used in the current thread. If none found, returns the default registry.
+	 */
+	static GenericCodeResolverRegistry getRegistry() {
+		// return the code resolver registry stored under the HL7v3 version being used by the current thread
+		// if none found, return the default code resolver registry
+		VersionNumber currentlySpecifiedVersion = threadLocalVersion.get();
+		GenericCodeResolverRegistry versionRegistry = registryMap.get(currentlySpecifiedVersion);
+		return versionRegistry == null ? _defaultRegistry : versionRegistry;
+	}
+	
     /**
      * <p>Lookup.
      *
@@ -65,7 +132,7 @@ public abstract class CodeResolverRegistry {
      * @return the collection
      */
     public static <T extends Code> Collection<T> lookup(Class<T> type) {
-    	return registry.lookup(type);
+    	return getRegistry().lookup(type);
     }
     
     /**
@@ -77,7 +144,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code) {
-        return registry.lookup(type, code);
+        return getRegistry().lookup(type, code);
     }
     
     /**
@@ -90,7 +157,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-    	return registry.lookup(type, code, codeSystemOid);
+    	return getRegistry().lookup(type, code, codeSystemOid);
     }
     
     /**
@@ -101,42 +168,42 @@ public abstract class CodeResolverRegistry {
      * @return the resolver
      */
 	public static <T extends Code> CodeResolver getResolver(Class<T> type) {
-		return registry.getResolver(type);
+		return getRegistry().getResolver(type);
     }
 
     /**
-     * <p>Checks if is initialized.
+     * <p>Checks if the DEFAULT code resolver registry is initialized.
      *
      * @return true, if is initialized
      */
     public static boolean isInitialized() {
-    	return registry.isInitialized();
+    	return _defaultRegistry.isInitialized();
     }
     
     /**
-     * <p>Register.
+     * <p>Register a code resolver in the DEFAULT code resolver registry.
      *
      * @param codeResolver the code resolver
      */
     public static void register(CodeResolver codeResolver) {
-    	registry.register(codeResolver);
+    	_defaultRegistry.register(codeResolver);
     }
     
     /**
-     * <p>Register resolver.
+     * <p>Register a code resolver in the DEFAULT code resolver registry.
      *
      * @param type the type
      * @param codeResolver the code resolver
      */
     public static void registerResolver(Class<? extends Code> type, CodeResolver codeResolver) {
-    	registry.registerResolver(type, codeResolver);
+    	_defaultRegistry.registerResolver(type, codeResolver);
     }
     
     /**
-     * <p>Unregister all.
+     * <p>Unregister all code resolvers in the DEFAULT code resolver registry.
      */
     public static void unregisterAll() {
-    	registry.unregisterAll();
+    	_defaultRegistry.unregisterAll();
     }
     
 }

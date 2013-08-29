@@ -26,7 +26,13 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.visitor.MessageWalker;
 
-public class Validator {
+/**
+ * For MB testing/internal use only.
+ * 
+ * For general message validation, please use ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl.
+ * 
+ */
+class Validator {
 
 	private final MessageWalker messageWalker;
 	private final VersionNumber version;
