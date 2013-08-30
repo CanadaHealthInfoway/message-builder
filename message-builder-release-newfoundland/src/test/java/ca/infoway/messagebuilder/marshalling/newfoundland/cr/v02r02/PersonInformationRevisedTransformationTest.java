@@ -56,14 +56,14 @@ public class PersonInformationRevisedTransformationTest extends BaseTransformerT
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
 		PersonInformationRevisedMessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(

@@ -85,7 +85,7 @@ public class AddPersonXmlTransformationTest {
 		
 		MessagePartBean messageBean = processor.process(loadSchema("PRPA_IN101201CA"), this.factory.createFromString(simpleXmlMessage));
 		
-		String hl7Message = transformer.transformToHl7(VERSION, (InteractionBean) messageBean);
+		String hl7Message = transformer.transformToHl7(VERSION, (InteractionBean) messageBean).getXmlMessage();
 		
 		return factory.createFromString(hl7Message);
 	}

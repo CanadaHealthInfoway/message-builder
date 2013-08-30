@@ -82,13 +82,13 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getRequestMessageFile())), actual);
@@ -115,12 +115,13 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 		Document message = this.factory.createFromResource(new ClasspathResource(getRequestMessageFile()));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
 
+		@SuppressWarnings("unchecked")
 		RecordRequestMessageBean<ImmunizationBean> msgObj = (RecordRequestMessageBean<ImmunizationBean>) xmlToJavaResult.getMessageObject();
 		if (msgObj instanceof RecordImmunizationMessageBean) {
 			assertNotNull("informant", msgObj.getRecord().getInformantRole());
 		}
 
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) msgObj);
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) msgObj).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -149,7 +150,7 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> acceptedBean = createAcceptedBean();
 		populateAcceptedBean(acceptedBean);
-		String xml = this.transformer.transformToHl7(VERSION, acceptedBean);
+		String xml = this.transformer.transformToHl7(VERSION, acceptedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getAcceptedMessageFile())), actual);
@@ -169,7 +170,7 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		NewBaseMessageBean refusedBean = createRefusedBean();
 		populateRefusedBean(refusedBean);
-		String xml = this.transformer.transformToHl7(VERSION, refusedBean);	
+		String xml = this.transformer.transformToHl7(VERSION, refusedBean).getXmlMessage();	
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getRefusedMessageFile())), actual);

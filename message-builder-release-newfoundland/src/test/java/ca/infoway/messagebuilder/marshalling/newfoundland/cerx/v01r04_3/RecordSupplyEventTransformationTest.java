@@ -71,7 +71,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	public void shouldProduceSomeResult() throws Exception {
 		RecordSupplyEventMessageBean bean = createRequest();
 		bean.getMessageAttributes().getReceiver().setTelecommunicationAddress(new TelecommunicationAddress(CodeResolverRegistry.lookup(URLScheme.class, "http"), "123.456.789.0"));
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, bean);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, bean).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -79,7 +79,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE)), actual);
 	}
@@ -121,7 +121,7 @@ public class RecordSupplyEventTransformationTest extends BaseTransformerTestCase
 	@Test
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		RecordSupplyEventAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Assert.assertNotNull(xml);
 	}
 

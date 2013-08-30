@@ -62,13 +62,13 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBean()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean(), TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"), null);
+		ModelToXmlResult result = this.transformer.transformToHl7(VERSION, createRequestBean(), TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"), null);
 		String xmlMessage = result.getXmlMessage();
 		System.out.println(xmlMessage);
 		Document actual = this.factory.createFromString(xmlMessage);
@@ -94,7 +94,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(RETRACT_MESSAGE_FILE));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -102,7 +102,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> acceptedBean = new RetractImmunizationAcceptedMessageBean();
 		populateAcceptedBean(acceptedBean);
-		String xml = this.transformer.transformToHl7(VERSION, acceptedBean);
+		String xml = this.transformer.transformToHl7(VERSION, acceptedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(ACCEPTED_MESSAGE_FILE)), actual);
 	}
@@ -121,7 +121,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> refusedBean = new RetractImmunizationRefusedMessageBean();
 		populateRefusedBean(refusedBean);
-		String xml = this.transformer.transformToHl7(VERSION, refusedBean);
+		String xml = this.transformer.transformToHl7(VERSION, refusedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REFUSED_MESSAGE_FILE)), actual);
 	}

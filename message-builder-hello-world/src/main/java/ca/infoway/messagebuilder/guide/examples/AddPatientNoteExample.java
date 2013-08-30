@@ -84,7 +84,7 @@ public class AddPatientNoteExample {
 			System.out.println("Please enter userid and password as command-line arguments.");
 		} else {
 			DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-			ModelToXmlResult xmlRequest = createTransformer().transformToHl7AndReturnResult(
+			ModelToXmlResult xmlRequest = createTransformer().transformToHl7(
 					R02_04_02, 
 					createAddPatientNoteRequest());
 

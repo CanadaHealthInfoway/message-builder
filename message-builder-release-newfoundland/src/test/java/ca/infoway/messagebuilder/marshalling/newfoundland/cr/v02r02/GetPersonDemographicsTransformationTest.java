@@ -95,7 +95,7 @@ public class GetPersonDemographicsTransformationTest extends BaseTransformerTest
 //		assertValidHl7Message(xml);
 		
 		GetPersonDemographicsQueryResponseMessageBean model = createResponseBean();
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, model);
+		ModelToXmlResult result = this.transformer.transformToHl7(VERSION, model);
 		System.out.println(result.getXmlMessage());
 		assertValidHl7Message(result.getXmlMessage());
 		Assert.assertTrue("Response should not have warnings", result.getHl7Errors().isEmpty());

@@ -50,7 +50,7 @@ public class RecordDeviceDispenseProcessingTransformationTest extends BaseTransf
 
 	@Test @Ignore
 	public void shouldProduceSomeResult() throws Exception {
-		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
+		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean()).getXmlMessage();
 		assertNotNull("result", xmlString);
 	}
 
@@ -58,7 +58,7 @@ public class RecordDeviceDispenseProcessingTransformationTest extends BaseTransf
 	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
 		RecordDeviceDispenseProcessingRequestMessageBean model = createRequestBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		
 		InputStream inputStream = new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE).getInputStream();
@@ -71,18 +71,18 @@ public class RecordDeviceDispenseProcessingTransformationTest extends BaseTransf
 	
 	@Test @Ignore
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean()).getXmlMessage();
 		Document message = this.factory.createFromString(xml);
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject).getXmlMessage();
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 
 	@Test
 	public void shouldFormatAcceptedResponse() throws Exception {
 		RecordDeviceDispenseProcessingRequestAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 	}
 
 	private RecordDeviceDispenseProcessingRequestMessageBean createRequestBean() {

@@ -58,14 +58,14 @@ public class ResolveDuplicatePersonRegistrationTransformationTest extends BaseTr
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
 		ResolveDuplicatePersonRegistrationsMessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		
 		assertTreeEquals(

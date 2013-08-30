@@ -70,7 +70,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownConsentRequest() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createConsentRequestBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE)), actual);
 	}
@@ -78,7 +78,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownOverrideRequest() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createOverrideRequestBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(OVERRIDE_MESSAGE_FILE)), actual);
 	}
@@ -86,7 +86,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordConsentOrOverrideRequestAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RESPONSE_ACCEPTED_MESSAGE_FILE)), actual);
 	}
@@ -94,7 +94,7 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 	@Test
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		RecordConsentOrOverrideRequestRefusedMessageBean model = createRefusedResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RESPONSE_REFUSED_MESSAGE_FILE)), actual);
 	}
@@ -122,13 +122,13 @@ public class RecordConsentOrOverrideTransformationTest extends BaseTransformerTe
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();
 		assertTreeEquals(
 				this.factory.createFromResource(new ClasspathResource(CONSENT_MESSAGE_FILE)), 
-				this.factory.createFromString(this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject)));
+				this.factory.createFromString(this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject).getXmlMessage()));
 	}
 	
 	@Test @Ignore
 	public void overrideShouldTransformBackAndForthWithoutLosingData() throws Exception {
 		RecordConsentOrOverrideRequestMessageBean model = createOverrideRequestBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document message = this.factory.createFromString(xml);
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (NewBaseMessageBean) xmlToJavaResult.getMessageObject();

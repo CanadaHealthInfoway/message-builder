@@ -94,7 +94,7 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -102,7 +102,7 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		ClasspathResource classpathResource = new ClasspathResource(getClass(), QUERY_MESSAGE_FILE);
 		Document createFromResource = this.factory.createFromResource(classpathResource);
@@ -121,11 +121,11 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery()).getXmlMessage();
 		Document message = this.factory.createFromString(xml);
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject).getXmlMessage();
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 	
@@ -167,7 +167,7 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	@Test
 	public void shouldMatchKnownResponse() throws Exception {
 		MedicationProfileSummaryQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE)), actual);
 	}
@@ -191,10 +191,10 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	@Test
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		MedicationProfileSummaryQueryResponseMessageBean model = createResponseBean();
-		String xml1 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml1 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, this.factory.createFromString(xml1));
-		String xml2 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xml2 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertValidHl7Message(xml2);
 		Assert.assertFalse("Response should not have warnings", xml2.contains("<!-- WARNING:"));
 		Assert.assertEquals(xml1, xml2);

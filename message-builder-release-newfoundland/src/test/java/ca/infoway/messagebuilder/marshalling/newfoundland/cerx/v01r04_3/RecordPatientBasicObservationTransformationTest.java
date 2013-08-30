@@ -65,20 +65,20 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithOneValue());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithOneValue()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequestWithOneValue() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithOneValue());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithOneValue()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RECORD_ONE_VALUE_MESSAGE_FILE)), actual);
 	}
 
 	@Test
 	public void shouldMatchKnownRequestWithTwoValues() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithTwoValues());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBeanWithTwoValues()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(RECORD_TWO_VALUES_MESSAGE_FILE)), actual);
 	}
@@ -102,7 +102,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(RECORD_ONE_VALUE_MESSAGE_FILE));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -110,7 +110,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> acceptedBean = new RecordPatientBasicObservationAcceptedMessageBean();
 		populateAcceptedBean(acceptedBean);
-		String xml = this.transformer.transformToHl7(VERSION, acceptedBean);
+		String xml = this.transformer.transformToHl7(VERSION, acceptedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(ACCEPTED_MESSAGE_FILE)), actual);
 	}
@@ -129,7 +129,7 @@ public class RecordPatientBasicObservationTransformationTest extends BaseTransfo
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> refusedBean = new RecordPatientBasicObservationRefusedMessageBean();
 		populateRefusedBean(refusedBean);
-		String xml = this.transformer.transformToHl7(VERSION, refusedBean);
+		String xml = this.transformer.transformToHl7(VERSION, refusedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REFUSED_MESSAGE_FILE)), actual);
 	}

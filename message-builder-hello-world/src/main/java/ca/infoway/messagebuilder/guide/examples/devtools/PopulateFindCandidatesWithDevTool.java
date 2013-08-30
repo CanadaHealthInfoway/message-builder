@@ -34,7 +34,7 @@ public class PopulateFindCandidatesWithDevTool {
 		MessageBeanFactory beanFactory = new MessageBeanFactory(new DefaultValueHolder());
 		FindCandidatesQueryBean bean = beanFactory.populate(new FindCandidatesQueryBean());
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-		ModelToXmlResult xmlQuery = createTransformer().transformToHl7AndReturnResult(
+		ModelToXmlResult xmlQuery = createTransformer().transformToHl7(
 				SpecificationVersion.R02_04_02, 
 				bean);
 		

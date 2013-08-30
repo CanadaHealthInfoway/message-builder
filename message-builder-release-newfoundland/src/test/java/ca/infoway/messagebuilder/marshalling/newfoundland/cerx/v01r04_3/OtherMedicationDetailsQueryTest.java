@@ -67,7 +67,7 @@ public class OtherMedicationDetailsQueryTest extends BaseTransformerTestCase {
 	
 	@Test
 	public void shouldProduceValidResponse() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createResponse());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createResponse()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}

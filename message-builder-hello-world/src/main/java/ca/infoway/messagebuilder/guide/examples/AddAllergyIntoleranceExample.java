@@ -127,7 +127,7 @@ public class AddAllergyIntoleranceExample {
 		} else {
 			registerResolvers();
 			ModelToXmlResult xmlRequest = createTransformer()
-					.transformToHl7AndReturnResult(R02_04_02,
+					.transformToHl7(R02_04_02,
 							createAddAllergyIntoleranceRequest());
 
 			System.out.println("Here's the request:");

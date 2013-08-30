@@ -61,7 +61,7 @@ public class MedicationPrescriptionFillsQueryResponseTransformationTest extends 
 	@Test
 	public void shouldMatchKnownQuery() throws Exception {
 		MedicationPrescriptionFillsQueryResponseMessageBean model = createQueryResponseBean();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(MESSAGE_FILE)), actual);

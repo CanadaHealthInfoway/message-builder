@@ -51,7 +51,7 @@ public class ProviderDetailsQueryTransformationTest extends BaseTransformerTestC
 	@Test
 	public void testShouldMatchKnownMessage() throws Exception {
 		ProviderDetailsQueryMessageBean model = createProviderDetails();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getClass(), "/ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQuery.xml")), actual);

@@ -53,14 +53,14 @@ public class SuspendPrescriptionRequestTransformationTest extends BaseTransforme
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String transformToXml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		String transformToXml = this.transformer.transformToHl7(VERSION, createRequestBean()).getXmlMessage();
 		assertNotNull("result", transformToXml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
 		SuspendPrescriptionRequestMessageBean model = createRequestBean();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), actual);
 	}
@@ -69,7 +69,7 @@ public class SuspendPrescriptionRequestTransformationTest extends BaseTransforme
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
 		XmlToModelResult result = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) result.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) result.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 	

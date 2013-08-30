@@ -88,7 +88,7 @@ public class MedicationDispenseSummaryQueryTransformationTest extends BaseTransf
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQuery()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -96,7 +96,7 @@ public class MedicationDispenseSummaryQueryTransformationTest extends BaseTransf
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE)), actual);
 	}
@@ -144,7 +144,7 @@ public class MedicationDispenseSummaryQueryTransformationTest extends BaseTransf
 	@Test
 	public void shouldMatchKnownResponse() throws Exception {
 		NewMedicationDispenseSummaryQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE)), actual);
 	}
@@ -152,9 +152,9 @@ public class MedicationDispenseSummaryQueryTransformationTest extends BaseTransf
 	@Test @Ignore
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		NewMedicationDispenseSummaryQueryResponseMessageBean model = createResponseBean();
-		String xml1 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml1 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, this.factory.createFromString(xml1));
-		String xml2 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xml2 = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertValidHl7Message(xml2);
 		Assert.assertFalse("Response should not have warnings", xml2.contains("<!-- WARNING:"));
 		Assert.assertEquals(xml1, xml2);

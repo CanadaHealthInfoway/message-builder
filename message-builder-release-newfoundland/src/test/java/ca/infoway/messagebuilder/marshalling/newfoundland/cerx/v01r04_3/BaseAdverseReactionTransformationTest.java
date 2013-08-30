@@ -102,14 +102,14 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	@Test
 	@Ignore // BCH: looks like a bad mapping
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getRequestMessageFile())), actual);
@@ -136,7 +136,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getRequestMessageFile()));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -225,7 +225,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> acceptedBean = createAcceptedBean();
 		populateAcceptedBean(acceptedBean);
-		String xml = this.transformer.transformToHl7(VERSION, acceptedBean);
+		String xml = this.transformer.transformToHl7(VERSION, acceptedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getAcceptedMessageFile())), actual);
@@ -245,7 +245,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		RecordResponseMessageBean<ActEventBean> refusedBean = createRefusedBean();
 		populateRefusedBean(refusedBean);
-		String xml = this.transformer.transformToHl7(VERSION, refusedBean);	
+		String xml = this.transformer.transformToHl7(VERSION, refusedBean).getXmlMessage();	
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getRefusedMessageFile())), actual);

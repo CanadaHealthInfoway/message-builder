@@ -40,7 +40,7 @@ public class FindAssociatedPersonIdentifiersTransformationTest extends BaseTrans
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequest());
+		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -48,7 +48,7 @@ public class FindAssociatedPersonIdentifiersTransformationTest extends BaseTrans
 	@Test
 	public void shouldMatchKnownResponse() throws Exception {
 		FindAssociatedPersonIdentifiersQueryMessageBean model = createRequest();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		
 		XmlAssert.assertTreeEquals(this.factory.createFromResource(new ClasspathResource(

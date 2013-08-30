@@ -84,7 +84,7 @@ public class MarshallingAcceptanceTestRunner implements AcceptanceTestRunner {
 			
 			XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 			
-			String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+			String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 			XmlAssert.assertTreeEquals(message, this.factory.createFromString(xmlString));
 			
 			resultCallback.done(resource.getFilename(),	1, 1, Collections.<String>emptyList());

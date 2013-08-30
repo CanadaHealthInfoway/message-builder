@@ -148,6 +148,6 @@ public abstract class BaseTransformerTestCase {
 	}
 	
 	protected String toHl7UsingNewRenderer(MessageBean messageBean, VersionNumber version) {
-		return this.transformer.transformToHl7(version, messageBean);
+		return this.transformer.transformToHl7(version, messageBean).getXmlMessage();
 	}
 }

@@ -54,7 +54,7 @@ public class FindCandidatesExampleRunner {
 			
 			FindCandidatesQueryBean messageBean = new FindCandidatesExampleCreator().createFindCandidatesQuery();
 			
-			ModelToXmlResult xmlQuery = createTransformer().transformToHl7AndReturnResult(
+			ModelToXmlResult xmlQuery = createTransformer().transformToHl7(
 					R02_04_02, 
 					messageBean);
 			

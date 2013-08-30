@@ -48,32 +48,32 @@ public class ActivatePrescriptionTransformationTest extends BaseTransformerTestC
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
+		String xmlString = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean()).getXmlMessage();
 		assertNotNull("result", xmlString);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
 		ActivatePrescriptionRequestMessageBean model = createRequestBean();
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		ModelToXmlResult result = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
 		Document actual = this.factory.createFromString(result.getXmlMessage());
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), REQUEST_MESSAGE_FILE)), actual);
 	}
 	 
 	@Test
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createRequestBean()).getXmlMessage();
 		Document message = this.factory.createFromString(xml);
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject);
+		String transformedBackToHl7Xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, messageObject).getXmlMessage();
 		assertEquals(xml, transformedBackToHl7Xml);
 	}
 
 	@Test
 	public void shouldFormatAcceptedResponse() throws Exception {
 		ActivatePrescriptionRequestAcceptedMessageBean model = createAcceptedResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		// Document actual = 
 		this.factory.createFromString(xml);
 	}

@@ -61,7 +61,7 @@ public class MedicationDispenseDetailQueryResponseTransformationTest extends Bas
 	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownQuery() throws Exception {
 		MedicationDispenseDetailQueryResponseMessageBean model = createQueryResponseBean();
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model);
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), actual);
 	}

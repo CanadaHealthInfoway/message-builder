@@ -162,7 +162,7 @@ public class PerformanceAcceptanceTestRunner implements AcceptanceTestRunner {
 	private void doRun(Document message) {
 		// would be ideal to ensure the initial xml and final xml were the same, but this acceptance test isn't worried about correctness
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, message);
-		String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(NEWFOUNDLAND_LEGACY_VERSION_HACK, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 	}
 	
 }

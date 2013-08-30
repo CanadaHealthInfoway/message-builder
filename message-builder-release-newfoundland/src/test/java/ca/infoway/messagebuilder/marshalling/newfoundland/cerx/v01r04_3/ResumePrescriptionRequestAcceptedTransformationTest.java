@@ -47,13 +47,13 @@ public class ResumePrescriptionRequestAcceptedTransformationTest extends BaseTra
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String transformToXml = this.transformer.transformToHl7(VERSION, createResponseBean());
+		String transformToXml = this.transformer.transformToHl7(VERSION, createResponseBean()).getXmlMessage();
 		assertNotNull("result", transformToXml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createResponseBean());
+		String xml = this.transformer.transformToHl7(VERSION, createResponseBean()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE)), actual);
 	}
@@ -62,11 +62,12 @@ public class ResumePrescriptionRequestAcceptedTransformationTest extends BaseTra
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getClass(), MESSAGE_FILE));
 		XmlToModelResult result = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) result.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) result.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
 	
+	@SuppressWarnings("deprecation")
 	private ResumePrescriptionRequestAcceptedMessageBean createResponseBean() {
 		ResumePrescriptionRequestAcceptedMessageBean acceptedBean = new ResumePrescriptionRequestAcceptedMessageBean();
 		MessageBeanBuilderSupport.populateBetterStandardValuesV02(acceptedBean.getMessageAttributes());

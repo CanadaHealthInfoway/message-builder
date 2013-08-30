@@ -70,7 +70,7 @@ public class PatientMedicalConditionsWithConsentOverridenTransformationTest
 
 	@Test
 	public void shouldProduceSomeResultWithConsentEvent() throws Exception {
-		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQueryWithConsentOverriden());
+		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, createQueryWithConsentOverriden()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}

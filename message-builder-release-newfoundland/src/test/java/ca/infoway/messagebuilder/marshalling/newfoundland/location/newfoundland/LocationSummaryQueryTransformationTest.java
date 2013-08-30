@@ -116,7 +116,7 @@ public class LocationSummaryQueryTransformationTest extends BaseTransformerTestC
 //		assertValidHl7Message(xml);
 		
 		LocationSummaryQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		assertValidHl7Message(xml);
 		
 		// TE/SPD: MANDATORY_FIELD_NOT_PROVIDED > Expected populated association "detectedIssueEvent" for element (<subjectOf/>)

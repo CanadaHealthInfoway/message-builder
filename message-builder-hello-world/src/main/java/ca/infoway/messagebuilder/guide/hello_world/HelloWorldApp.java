@@ -222,7 +222,7 @@ public abstract class HelloWorldApp {
 	}
 	
 	protected String convertBeanToXML(InteractionBean msgBean) {
-		 ModelToXmlResult xmlQuery = this.createTransformer().transformToHl7AndReturnResult(
+		 ModelToXmlResult xmlQuery = this.createTransformer().transformToHl7(
 				 MBSpecificationVersion, msgBean);
 		return xmlQuery.getXmlMessage();
 	}

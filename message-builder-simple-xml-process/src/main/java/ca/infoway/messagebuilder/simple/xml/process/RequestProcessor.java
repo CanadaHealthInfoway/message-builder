@@ -61,7 +61,7 @@ public class RequestProcessor implements SimpleXmlProcessor {
 		SimpleXmlFormatProcessor processor = new SimpleXmlFormatProcessor(this.versionNumber);
 		MessagePartBean bean = processor.process(loadSchema(getMessageId(document)), document);
 		
-		ModelToXmlResult result = createTransformer().transformToHl7AndReturnResult(
+		ModelToXmlResult result = createTransformer().transformToHl7(
 				this.versionNumber, (InteractionBean) bean);
 		
 		if (!result.isValid()) {

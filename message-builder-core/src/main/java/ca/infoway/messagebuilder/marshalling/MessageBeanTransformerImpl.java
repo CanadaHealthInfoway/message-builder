@@ -76,24 +76,30 @@ public class MessageBeanTransformerImpl {
 		return results;
 	}
 
-	// FIXME - TM - should return ModelToXmlResult (every transformation test will require changing)
-	public String transformToHl7(VersionNumber version, InteractionBean messageBean) {
-		return transformToHl7AndReturnResult(version, messageBean).getXmlMessage();
-	}
-	
-	public String transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return transformToHl7AndReturnResult(version, messageBean, dateTimeZone, dateTimeTimeZone, null).getXmlMessage();
-	}
-
+	@Deprecated
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean) {
-		return transformToHl7AndReturnResult(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, null);
+		return transformToHl7(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, null);
 	}
 	
+	@Deprecated
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, GenericCodeResolverRegistry codeResolverRegistryOverride) {
-		return transformToHl7AndReturnResult(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, codeResolverRegistryOverride);
+		return transformToHl7(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, codeResolverRegistryOverride);
 	}
 	
+	@Deprecated
 	public ModelToXmlResult transformToHl7AndReturnResult(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, GenericCodeResolverRegistry codeResolverRegistryOverride) {
+		return transformToHl7(version, messageBean, dateTimeZone, dateTimeTimeZone, codeResolverRegistryOverride);
+	}
+	
+	public ModelToXmlResult transformToHl7(VersionNumber version, InteractionBean messageBean) {
+		return transformToHl7(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, null);
+	}
+	
+	public ModelToXmlResult transformToHl7(VersionNumber version, InteractionBean messageBean, GenericCodeResolverRegistry codeResolverRegistryOverride) {
+		return transformToHl7(version, messageBean, this.dateTimeZone, this.dateTimeTimeZone, codeResolverRegistryOverride);
+	}
+	
+	public ModelToXmlResult transformToHl7(VersionNumber version, InteractionBean messageBean, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, GenericCodeResolverRegistry codeResolverRegistryOverride) {
 		CodeResolverRegistry.setThreadLocalVersion(version);
 		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
 

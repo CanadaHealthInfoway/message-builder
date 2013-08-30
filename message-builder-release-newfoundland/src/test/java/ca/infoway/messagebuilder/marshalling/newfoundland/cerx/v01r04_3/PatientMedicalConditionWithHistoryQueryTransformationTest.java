@@ -75,7 +75,7 @@ public class PatientMedicalConditionWithHistoryQueryTransformationTest extends B
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createQuery());
+		String xml = this.transformer.transformToHl7(VERSION, createQuery()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -83,7 +83,7 @@ public class PatientMedicalConditionWithHistoryQueryTransformationTest extends B
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE)), actual);
 	}
@@ -121,7 +121,7 @@ public class PatientMedicalConditionWithHistoryQueryTransformationTest extends B
 	@Ignore // BCH: looks like a bad mapping
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		PatientMedicalConditionWithHistoryQueryResponseMessageBean model = createResponseBean();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		assertValidHl7Message(xml);
 	}
 

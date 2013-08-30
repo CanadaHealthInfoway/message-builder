@@ -82,7 +82,7 @@ public class QueryLabTestResultsExample {
 			System.out.println("Please enter userid and password as command-line arguments.");
 		} else {
 			DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
-			ModelToXmlResult xmlQuery = createTransformer().transformToHl7AndReturnResult(
+			ModelToXmlResult xmlQuery = createTransformer().transformToHl7(
 					R02_04_02, 
 					createLabQuery());
 			

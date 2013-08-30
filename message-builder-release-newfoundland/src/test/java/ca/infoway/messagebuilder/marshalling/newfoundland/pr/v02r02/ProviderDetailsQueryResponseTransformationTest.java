@@ -51,7 +51,7 @@ public class ProviderDetailsQueryResponseTransformationTest extends BaseTransfor
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createProviderDetails());
+		String xml = this.transformer.transformToHl7(VERSION, createProviderDetails()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml, VERSION);
 	}
@@ -59,7 +59,7 @@ public class ProviderDetailsQueryResponseTransformationTest extends BaseTransfor
 	@Test
 	public void shouldMatchKnownResponse() throws Exception {
 		ProviderDetailsResponseMessageBean model = createProviderDetails();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(
 				getClass(), "/ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQueryResponse.xml")), actual);

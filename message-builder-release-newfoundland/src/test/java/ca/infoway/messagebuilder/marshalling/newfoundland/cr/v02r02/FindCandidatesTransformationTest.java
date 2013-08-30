@@ -45,7 +45,7 @@ public class FindCandidatesTransformationTest extends BaseTransformerTestCase {
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createFindCandidates());
+		String xml = this.transformer.transformToHl7(VERSION, createFindCandidates()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertPassesMessageValidation(xml, VERSION);
 	}

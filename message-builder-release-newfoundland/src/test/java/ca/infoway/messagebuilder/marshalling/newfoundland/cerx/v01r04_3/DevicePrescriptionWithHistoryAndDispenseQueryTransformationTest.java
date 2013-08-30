@@ -85,7 +85,7 @@ public class DevicePrescriptionWithHistoryAndDispenseQueryTransformationTest ext
 	
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createQuery());
+		String xml = this.transformer.transformToHl7(VERSION, createQuery()).getXmlMessage();
 		assertNotNull("result", xml);
 		assertValidHl7Message(xml);
 	}
@@ -93,7 +93,7 @@ public class DevicePrescriptionWithHistoryAndDispenseQueryTransformationTest ext
 	@Test
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
-		String xml = this.transformer.transformToHl7(VERSION, model);
+		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_MESSAGE_FILE)), actual);
 	}
@@ -139,7 +139,7 @@ public class DevicePrescriptionWithHistoryAndDispenseQueryTransformationTest ext
 	@Test @Ignore
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		DevicePrescriptionWithHistoryAndDispenseQueryResponseMessageBean model = createResponseBean();
-		String xml1 = this.transformer.transformToHl7(VERSION, model);
+		String xml1 = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, new DocumentFactory().createFromString(xml1));
 		String xml2 = toHl7((NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 		assertValidHl7Message(xml2);

@@ -60,13 +60,13 @@ public class AddNoteToRecordTransformationTest extends BaseTransformerTestCase {
 
 	@Test
 	public void shouldProduceSomeResult() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBean()).getXmlMessage();
 		assertNotNull("result", xml);
 	}
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		String xml = this.transformer.transformToHl7(VERSION, createRequestBean());
+		String xml = this.transformer.transformToHl7(VERSION, createRequestBean()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE)), actual);
 	}
@@ -90,7 +90,7 @@ public class AddNoteToRecordTransformationTest extends BaseTransformerTestCase {
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject()).getXmlMessage();
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 
@@ -98,7 +98,7 @@ public class AddNoteToRecordTransformationTest extends BaseTransformerTestCase {
 	public void shouldMatchKnownAcceptedResponse() throws Exception {
 		AddNoteToRecordAcceptedMessageBean acceptedBean = new AddNoteToRecordAcceptedMessageBean();
 		populateAcceptedBean(acceptedBean);
-		String xml = this.transformer.transformToHl7(VERSION, acceptedBean);
+		String xml = this.transformer.transformToHl7(VERSION, acceptedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(ACCEPTED_MESSAGE_FILE)), actual);
 	}
@@ -115,7 +115,7 @@ public class AddNoteToRecordTransformationTest extends BaseTransformerTestCase {
 	public void shouldMatchKnownRefusedResponse() throws Exception {
 		AddNoteToRecordRefusedMessageBean refusedBean = new AddNoteToRecordRefusedMessageBean();
 		populateRefusedBean(refusedBean);
-		String xml = this.transformer.transformToHl7(VERSION, refusedBean);
+		String xml = this.transformer.transformToHl7(VERSION, refusedBean).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
 		assertTreeEquals(this.factory.createFromResource(new ClasspathResource(REFUSED_MESSAGE_FILE)), actual);
 	}

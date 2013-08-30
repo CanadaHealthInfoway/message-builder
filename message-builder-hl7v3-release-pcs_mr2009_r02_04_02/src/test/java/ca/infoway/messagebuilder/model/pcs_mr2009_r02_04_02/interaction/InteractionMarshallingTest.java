@@ -71,7 +71,7 @@ public class InteractionMarshallingTest {
 				SpecificationVersion.R02_04_02, 
 				new DocumentFactory().createFromResource(
 						new ClasspathResource("PRPA_EX101104CA.xml")));
-		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, (InteractionBean) result.getMessageObject());
+		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, (InteractionBean) result.getMessageObject()).getXmlMessage();
 		assertTrue("interaction id", xml.contains(" root=\"2.16.840.1.113883.1.18\""));
 	}
 	
@@ -89,7 +89,7 @@ public class InteractionMarshallingTest {
 		assertNotNull("human language", query.getControlActEvent().getLanguageCode());
 		assertEquals("language", "en", query.getControlActEvent().getLanguageCode().getCodeValue());
 		
-		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, query);
+		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, query).getXmlMessage();
 		System.out.println(xml);
 		assertTrue("langaugeCode", xml.contains("<languageCode code=\"en\""));
 	}
