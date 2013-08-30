@@ -24,6 +24,7 @@ import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
@@ -40,9 +41,18 @@ public class MessageValidatorImpl implements MessageValidator {
 	}
 
 	public MessageValidatorResult validate(Document message, VersionNumber version) {
+		return this.validate(message, version, null);
+	}
+	
+	public MessageValidatorResult validate(Document message, VersionNumber version, GenericCodeResolverRegistry codeResolverRegistryOverride) {
 		CodeResolverRegistry.setThreadLocalVersion(version);
+		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
+		
 		MessageValidatorResult results = new Validator(this.service, message, version).validate();
+		
 		CodeResolverRegistry.clearThreadLocalVersion();
+		CodeResolverRegistry.clearThreadLocalCodeResolverRegistryOverride();
+		
 		return results;
 	}
 }

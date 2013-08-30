@@ -68,7 +68,7 @@ public class RetractImmunizationTransformationTest extends BaseTransformerTestCa
 
 	@Test
 	public void shouldMatchKnownRequest() throws Exception {
-		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean(), TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"));
+		ModelToXmlResult result = this.transformer.transformToHl7AndReturnResult(VERSION, createRequestBean(), TimeZone.getTimeZone("America/Toronto"), TimeZone.getTimeZone("America/Toronto"), null);
 		String xmlMessage = result.getXmlMessage();
 		System.out.println(xmlMessage);
 		Document actual = this.factory.createFromString(xmlMessage);

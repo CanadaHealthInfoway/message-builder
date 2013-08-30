@@ -59,6 +59,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 public abstract class CodeResolverRegistry {
 
 	private static final ThreadLocal<VersionNumber> threadLocalVersion = new ThreadLocal<VersionNumber>();
+	private static final ThreadLocal<GenericCodeResolverRegistry> threadLocalCodeResolverRegistryOverride = new ThreadLocal<GenericCodeResolverRegistry>();
 
 	private static final Map<VersionNumber, GenericCodeResolverRegistry> registryMap = new HashMap<VersionNumber, GenericCodeResolverRegistry>(); 
 	
@@ -66,13 +67,19 @@ public abstract class CodeResolverRegistry {
 	private static final GenericCodeResolverRegistry _defaultRegistry = new GenericCodeResolverRegistryImpl();
 
 	// all transform/validator calls should set version in TLS
-	
 	public static void setThreadLocalVersion(VersionNumber version) {
 		threadLocalVersion.set(version);
 	}
-	
 	public static void clearThreadLocalVersion() {
 		threadLocalVersion.remove();
+	}
+
+	// transform/validator calls *may* provide a code resolver registry override in TLS
+	public static void setThreadLocalCodeResolverRegistryOverride(GenericCodeResolverRegistry registryOverride) {
+		threadLocalCodeResolverRegistryOverride.set(registryOverride);
+	}
+	public static void clearThreadLocalCodeResolverRegistryOverride() {
+		threadLocalCodeResolverRegistryOverride.remove();
 	}
 
 	/**
@@ -117,8 +124,12 @@ public abstract class CodeResolverRegistry {
 	 * @return the registry for the version being used in the current thread. If none found, returns the default registry.
 	 */
 	static GenericCodeResolverRegistry getRegistry() {
-		// return the code resolver registry stored under the HL7v3 version being used by the current thread
-		// if none found, return the default code resolver registry
+		// if an override code resolver registry has been specified it will be returned regardless of other settings 
+		if (threadLocalCodeResolverRegistryOverride.get() != null) {
+			return threadLocalCodeResolverRegistryOverride.get();
+		}
+		// otherwise, returns the code resolver registry stored under the HL7v3 version being used by the current thread
+		// if no registries found, return the default code resolver registry
 		VersionNumber currentlySpecifiedVersion = threadLocalVersion.get();
 		GenericCodeResolverRegistry versionRegistry = registryMap.get(currentlySpecifiedVersion);
 		return versionRegistry == null ? _defaultRegistry : versionRegistry;

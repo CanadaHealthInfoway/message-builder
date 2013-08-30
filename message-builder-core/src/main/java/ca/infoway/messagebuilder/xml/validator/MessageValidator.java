@@ -23,9 +23,11 @@ package ca.infoway.messagebuilder.xml.validator;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
 
 public interface MessageValidator {
 
 	public MessageValidatorResult validate(Document document, VersionNumber version);
+	public MessageValidatorResult validate(Document document, VersionNumber version, GenericCodeResolverRegistry codeResolverRegistryOverride);
 
 }
