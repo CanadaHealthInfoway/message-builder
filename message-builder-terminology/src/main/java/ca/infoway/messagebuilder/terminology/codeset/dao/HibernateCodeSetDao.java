@@ -195,14 +195,30 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<ValueSet> selectValueSetsByVersion(final String version) {
+		return getHibernateTemplate().executeFind(new HibernateCallback() {
+			public Object doInHibernate(Session session) throws SQLException {
+				
+				Criteria criteriaValueSet = session.createCriteria(ValueSet.class);
+				criteriaValueSet.add(Restrictions.eq("version", version));
+
+				return criteriaValueSet.list();
+			}
+		});
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<VocabularyDomain> selectVocabularyDomains(final CodeSearchCriteria searchCriteria) {
 		return (List<VocabularyDomain>) getHibernateTemplate().execute(
 				new HibernateCallback() {
 					public Object doInHibernate(Session session) throws SQLException {
 						Criteria criteria = session.createCriteria(VocabularyDomain.class);
-						contrainOnTypeIfRequired(criteria, searchCriteria);
-						contrainOnBusinessNameIfRequired(criteria, searchCriteria);
-						contrainOnDescriptionIfRequired(criteria, searchCriteria);
+						constrainOnTypeIfRequired(criteria, searchCriteria);
+						constrainOnBusinessNameIfRequired(criteria, searchCriteria);
+						constrainOnDescriptionIfRequired(criteria, searchCriteria);
 						criteria.addOrder(Order.asc("type"));
 						return criteria.list();
 					}
@@ -210,19 +226,19 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 
 	}
 	
-	private void contrainOnTypeIfRequired(Criteria criteria, final CodeSearchCriteria searchCriteria) {
+	private void constrainOnTypeIfRequired(Criteria criteria, final CodeSearchCriteria searchCriteria) {
 		if (!StringUtils.isEmpty(searchCriteria.getType())) {
 			criteria.add(Restrictions.ilike("type", searchCriteria.getType().trim(), MatchMode.ANYWHERE));	
 		}
 	}
 
-	private void contrainOnBusinessNameIfRequired(Criteria criteria, CodeSearchCriteria searchCriteria) {
+	private void constrainOnBusinessNameIfRequired(Criteria criteria, CodeSearchCriteria searchCriteria) {
 		if (!StringUtils.isEmpty(searchCriteria.getBusinessName())) {
 			criteria.add(Restrictions.ilike("businessName", searchCriteria.getBusinessName().trim(), MatchMode.ANYWHERE));	
 		}
 	}
 	
-	private void contrainOnDescriptionIfRequired(Criteria criteria, CodeSearchCriteria searchCriteria) {
+	private void constrainOnDescriptionIfRequired(Criteria criteria, CodeSearchCriteria searchCriteria) {
 		if (!StringUtils.isEmpty(searchCriteria.getDescription())) {
 			criteria.add(Restrictions.ilike("description", searchCriteria.getDescription().trim(), MatchMode.ANYWHERE));	
 		}

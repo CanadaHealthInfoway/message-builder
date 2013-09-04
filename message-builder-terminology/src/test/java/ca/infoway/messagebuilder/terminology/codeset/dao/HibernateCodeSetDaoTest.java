@@ -45,7 +45,9 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementCondition;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementType;
+import ca.infoway.messagebuilder.domainvalue.ActClass;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
+import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
@@ -55,6 +57,7 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.terminology.codeset.domain.CodeSystem;
 import ca.infoway.messagebuilder.terminology.codeset.domain.CodedValue;
+import ca.infoway.messagebuilder.terminology.codeset.domain.ValueSet;
 import ca.infoway.messagebuilder.terminology.codeset.domain.ValueSetEntry;
 import ca.infoway.messagebuilder.terminology.codeset.domain.VocabularyDomain;
 
@@ -95,7 +98,7 @@ public class HibernateCodeSetDaoTest {
 		this.dao = new HibernateCodeSetDao(this.support.getSessionFactory());
 		this.factory = new CodeTestFactory(this.support);
 		OID = OID_BASE + "." + (++oidDistinguisher);
-		OTHER_OID = OTHER_OID_BASE + "." + oidDistinguisher;
+		OTHER_OID = OTHER_OID_BASE + "." + (++oidDistinguisher);
 	}
 	
 	@After
@@ -158,6 +161,34 @@ public class HibernateCodeSetDaoTest {
 		assertEquals("oid", OID, codeSystem.getOid());
 	}
 	
+	@Test	
+	public void testFindValueSetsByVersion() throws Exception {
+		VocabularyDomain vocabularyDomain1 = this.factory.createVocabularyDomain(Confidentiality.class);
+		VocabularyDomain vocabularyDomain2 = this.factory.createVocabularyDomain(ActStatus.class);
+		VocabularyDomain vocabularyDomain3 = this.factory.createVocabularyDomain(ActClass.class);
+		
+		createCodedValue(vocabularyDomain1, OID, "N", VERSION);
+		createCodedValue(vocabularyDomain2, OID + ".01", "normal", VERSION);
+		createCodedValue(vocabularyDomain3, OID + ".02", "ACT", OTHER_VERSION);
+		
+		List<ValueSet> valueSets = this.dao.selectValueSetsByVersion(VERSION);
+		
+		assertEquals(2, valueSets.size());
+		
+		boolean foundConf = false;
+		boolean foundStatus = false;
+		
+		for (ValueSet valueSet : valueSets) {
+			assertEquals(1, valueSet.getVocabularyDomains().size());
+			String type = valueSet.getVocabularyDomains().iterator().next().getType();
+			foundConf |= "Confidentiality".equals(type);
+			foundStatus |= "ActStatus".equals(type);
+		}
+		
+		assertTrue(foundConf);
+		assertTrue(foundStatus);
+	}
+
 	@Test	
 	public void testFindCodedValueByCodeSystem_ShouldFindMatchingCodedValue() throws Exception {
 		VocabularyDomain vocabularyDomain = this.factory.createVocabularyDomain(Confidentiality.class);

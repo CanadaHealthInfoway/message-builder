@@ -24,6 +24,7 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.terminology.codeset.domain.CodedValue;
+import ca.infoway.messagebuilder.terminology.codeset.domain.ValueSet;
 import ca.infoway.messagebuilder.terminology.codeset.domain.ValueSetEntry;
 import ca.infoway.messagebuilder.terminology.codeset.domain.VocabularyDomain;
 
@@ -74,6 +75,14 @@ public interface CodeSetDao {
 	 */
 	public List<ValueSetEntry> selectValueSetsByVocabularyDomain(String vocabularyDomainType, String version);
 	
+	/**
+	 * <p>Select value sets by version.
+	 * 
+	 * @param version the value set version to search against
+	 * @return the list of value sets for the given version
+	 */
+	public List<ValueSet> selectValueSetsByVersion(final String version);
+
 	/**
 	 * <p>Select value sets by vocabulary domain.
 	 *
