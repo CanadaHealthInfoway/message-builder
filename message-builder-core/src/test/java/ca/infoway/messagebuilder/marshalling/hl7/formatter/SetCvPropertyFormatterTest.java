@@ -52,7 +52,7 @@ public class SetCvPropertyFormatterTest extends FormatterTestCase {
 	@Test
     public void testFormatValueNonNull() throws Exception {
         String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, true, CodingStrength.CNE), 
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
 				SETImpl.<CV, Code>create(CVImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());

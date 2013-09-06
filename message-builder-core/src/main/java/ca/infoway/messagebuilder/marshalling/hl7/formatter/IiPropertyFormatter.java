@@ -95,10 +95,10 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
     		// only override type if new type is valid
     		if (validSpecializationType) {
     			typeFromContext = typeFromField;
-    			result.put(SPECIALIZATION_TYPE, typeFromContext);
+    			addSpecializationType(result, typeFromContext);
     		} else {
     			if (iiValidationUtils.isIiBusAndVer(typeFromContext)) {
-        			result.put(SPECIALIZATION_TYPE, IiValidationUtils.II_BUS);
+        			addSpecializationType(result, IiValidationUtils.II_BUS);
         			typeFromContext = IiValidationUtils.II_BUS;
         			recordError(iiValidationUtils.getInvalidSpecializationTypeForBusAndVerErrorMessage(typeFromField, typeFromContext), context);
     			} else {

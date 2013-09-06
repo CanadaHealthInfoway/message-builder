@@ -44,7 +44,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 				context.getCardinality(), 
 				context.isSpecializationType(),
 				context.getVersion(), 
-				context.getDateTimeZone(), context.getDateTimeTimeZone(), true, null);
+				context.getDateTimeZone(), context.getDateTimeTimeZone(), null);
 	}
 	
 	@Override

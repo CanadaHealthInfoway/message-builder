@@ -103,10 +103,14 @@ public class TelPhonemailPropertyFormatterTest {
 		
 		assertTrue(this.xmlResult.isValid());
 		
-		assertEquals("map size", 1, result.size());
+		assertEquals("map size", 3, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "tel:value", result.get("value"));
+		assertTrue("key as expected", result.containsKey("specializationType"));
+		assertEquals("value as expected", "TEL.PHONE", result.get("specializationType"));
+		assertTrue("key as expected", result.containsKey("xsi:type"));
+		assertEquals("value as expected", "TEL", result.get("xsi:type"));
 	}
 
 	@Test
@@ -119,10 +123,14 @@ public class TelPhonemailPropertyFormatterTest {
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		
-		assertEquals("map size", 1, result.size());
+		assertEquals("map size", 3, result.size()); // ST and xsi:type are provided after detecting invalid/missing ST
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "tel:value", result.get("value"));
+		assertTrue("key as expected", result.containsKey("specializationType"));
+		assertEquals("value as expected", "TEL.PHONE", result.get("specializationType"));
+		assertTrue("key as expected", result.containsKey("xsi:type"));
+		assertEquals("value as expected", "TEL", result.get("xsi:type"));
 	}
 
 	@Test
@@ -135,10 +143,14 @@ public class TelPhonemailPropertyFormatterTest {
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		
-		assertEquals("map size", 1, result.size());
+		assertEquals("map size", 3, result.size()); // ST and xsi:type are provided after detecting invalid/missing ST
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "tel:value", result.get("value"));
+		assertTrue("key as expected", result.containsKey("specializationType"));
+		assertEquals("value as expected", "TEL.PHONE", result.get("specializationType"));
+		assertTrue("key as expected", result.containsKey("xsi:type"));
+		assertEquals("value as expected", "TEL", result.get("xsi:type"));
 	}
 
 	@Test
@@ -153,10 +165,14 @@ public class TelPhonemailPropertyFormatterTest {
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		
-		assertEquals("map size", 1, result.size());
+		assertEquals("map size", 3, result.size()); // ST and xsi:type are provided after detecting invalid/missing ST
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "tel:value", result.get("value"));
+		assertTrue("key as expected", result.containsKey("specializationType"));
+		assertEquals("value as expected", "TEL.PHONE", result.get("specializationType"));
+		assertTrue("key as expected", result.containsKey("xsi:type"));
+		assertEquals("value as expected", "TEL", result.get("xsi:type"));
 	}
 
 	@Test

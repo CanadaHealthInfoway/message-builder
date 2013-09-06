@@ -53,9 +53,11 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 
 	private Map<String, String> createTypeAttributes(FormatContext context) {
 		Map<String, String> attributes = new HashMap<String, String>();
+		// add specializationType manually; do not use AbstractPropertyFormatter.addSpecializationType() here, as the xsi:type is non-standard
 		if (requiresSpecializationType(context)) {
 			attributes.put(SPECIALIZATION_TYPE, GTS_BOUNDED_PIVL);
 		}
+		// the datatype specifications show that xsi:type is always present, but specializationType is not included for CeRx (which may be incorrect, but we'll follow the specs until we hear otherwise)
 		attributes.put(XSI_TYPE, "SXPR_TS");
 		return attributes;
 	}
@@ -81,7 +83,6 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 						context == null ? null : context.getVersion(), 
 						context == null ? null : context.getDateTimeZone(), 
 						null,
-						false, 
 						null), 
 				ivlDuration, 
 				indentLevel + 1)

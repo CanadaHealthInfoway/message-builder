@@ -50,13 +50,14 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
-        assertEquals("map size", 4, result.size());
+        assertEquals("map size", 5, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");
         assertKeyValuePairInMap(result, "extension", "extensionString");
         assertKeyValuePairInMap(result, "use", "BUS");
         assertKeyValuePairInMap(result, "specializationType", "II.BUS");
+        assertKeyValuePairInMap(result, "xsi:type", "II");
     }
 
 	@Test
@@ -289,13 +290,14 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II.BUS_AND_VER", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
-        assertEquals("map size", 4, result.size());
+        assertEquals("map size", 5, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");
         assertKeyValuePairInMap(result, "extension", "extensionString");
         assertKeyValuePairInMap(result, "use", "BUS");
         assertKeyValuePairInMap(result, "specializationType", "II.BUS");
+        assertKeyValuePairInMap(result, "xsi:type", "II");
 	}
 
 	@Test
@@ -309,7 +311,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II.BUS_AND_VER", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
-        assertEquals("map size", 4, result.size());
+        assertEquals("map size", 5, result.size());
         assertFalse("errors", modelToXmlResult.getHl7Errors().isEmpty());
         assertEquals(1, modelToXmlResult.getHl7Errors().size());
         assertEquals("Specialization type must be II.BUS or II.VER; II.BUS will be assumed. Invalid specialization type II.OID", modelToXmlResult.getHl7Errors().get(0).getMessage());
@@ -318,6 +320,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         assertKeyValuePairInMap(result, "extension", "extensionString");
         assertKeyValuePairInMap(result, "use", "BUS");
         assertKeyValuePairInMap(result, "specializationType", "II.BUS");
+        assertKeyValuePairInMap(result, "xsi:type", "II");
 	}
 
 	@Test
@@ -457,12 +460,13 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
         FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "II.BUS_AND_VER", null, null, true, SpecificationVersion.R02_04_02, null, null, null);
         
 		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
-        assertEquals("map size", 4, result.size());
+        assertEquals("map size", 5, result.size());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");
         assertKeyValuePairInMap(result, "extension", "extensionString");
         assertKeyValuePairInMap(result, "specializationType", "II.BUS");
         assertKeyValuePairInMap(result, "use", "BUS");
+        assertKeyValuePairInMap(result, "xsi:type", "II");
     }
 
 	@Test

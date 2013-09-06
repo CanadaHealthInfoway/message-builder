@@ -37,7 +37,6 @@ public interface FormatContext extends Typed {
 	public String getDomainType();
 	public CodingStrength getCodingStrength();
 	public boolean isSpecializationType();
-	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();
 	public Cardinality getCardinality();
 	public VersionNumber getVersion();

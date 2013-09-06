@@ -35,7 +35,6 @@ class FormatContextImpl implements FormatContext {
 	private final String elementName;
 	private final String type;
 	private final boolean isSpecializationType;
-	private final boolean isPassOnSpecializationType;
 	private final VersionNumber version;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
@@ -45,14 +44,14 @@ class FormatContextImpl implements FormatContext {
 	private final String domainType;
 
 	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, false, null, null, null, true, null);
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, false, null, null, null, null);
 	}
 	
 	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, true, codingStrength);
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, codingStrength);
 	}
 	
-	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean isPassOnSpecializationType, CodingStrength codingStrength) {
+	FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.elementName = elementName;
@@ -64,7 +63,6 @@ class FormatContextImpl implements FormatContext {
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
-		this.isPassOnSpecializationType = isPassOnSpecializationType;
 		this.codingStrength = codingStrength;
 	}
 	
@@ -92,7 +90,7 @@ class FormatContextImpl implements FormatContext {
 			 context.getVersion(), 
 			 context.getDateTimeZone(), 
 			 context.getDateTimeTimeZone(),
-			 context.isPassOnSpecializationType(), context.getCodingStrength());
+			 context.getCodingStrength());
 	}
 
 	public ModelToXmlResult getModelToXmlResult() {
@@ -135,10 +133,6 @@ class FormatContextImpl implements FormatContext {
 		return this.dateTimeTimeZone;
 	}
 	
-	public boolean isPassOnSpecializationType() {
-		return this.isPassOnSpecializationType;
-	}
-
 	public CodingStrength getCodingStrength() {
 		return this.codingStrength;
 	}

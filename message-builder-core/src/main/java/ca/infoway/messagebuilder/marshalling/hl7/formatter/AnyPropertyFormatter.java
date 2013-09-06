@@ -54,7 +54,7 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 				String errorText = "Cannot support properties of type " + specializationType + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
 				throw new ModelToXmlTransformationException(errorText);
 			} else {
-				// pass processing off to the ST formatter
+				// pass processing off to the formatter applicable for the given specializationType
 				StandardDataType type = hl7Value.getDataType();
 				return formatter.format(
 						new FormatContextImpl(
@@ -68,7 +68,7 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 								true, 
 								formatContext.getVersion(), 
 								formatContext.getDateTimeZone(), 
-								formatContext.getDateTimeTimeZone(), true, null), 
+								formatContext.getDateTimeTimeZone(), null), 
 						hl7Value, 
 						indentLevel);
 			}

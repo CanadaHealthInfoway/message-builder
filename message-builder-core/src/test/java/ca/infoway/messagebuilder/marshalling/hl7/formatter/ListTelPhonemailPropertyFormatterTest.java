@@ -47,12 +47,24 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
+		ModelToXmlResult results = new ModelToXmlResult();
+		String result = new ListPropertyFormatter().format(
+				new FormatContextImpl(results, null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
+				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
+						TELImpl.class, 
+						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet("Fred"))));
+		assertXml("non null", "<blah specializationType=\"TEL.PHONE\" value=\"mailto:Fred\" xsi:type=\"TEL\"/>", result);
+	}
+
+	@Test
+	public void testFormatValueNonNullMultiple() throws Exception {
 		String result = new ListPropertyFormatter().format(
 				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
-						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet( "Fred"))));
-		assertXml("non null", "<blah value=\"mailto:Fred\"/>", result);
+						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressSet("Fred", "Jack"))));
+		assertXml("non null", "<blah specializationType=\"TEL.PHONE\" value=\"mailto:Jack\" xsi:type=\"TEL\"/>"+
+				              "<blah specializationType=\"TEL.PHONE\" value=\"mailto:Fred\" xsi:type=\"TEL\"/>", result);
 	}
 
 }
