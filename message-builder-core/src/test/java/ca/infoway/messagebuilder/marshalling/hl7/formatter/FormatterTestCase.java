@@ -25,9 +25,11 @@ import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -91,6 +93,17 @@ public abstract class FormatterTestCase {
 
 	protected final Set<String> makeSet(String... strings) {
 		return new TreeSet<String>(Arrays.asList(strings));
+	}
+
+	protected final List<TelecommunicationAddress> makeTelecommunicationAddressList(String... strings) {
+		List<TelecommunicationAddress> result = new ArrayList<TelecommunicationAddress>();
+		for (String s : strings) {
+			TelecommunicationAddress address = new TelecommunicationAddress();
+			address.setAddress(s);
+			address.setUrlScheme(CeRxDomainTestValues.MAILTO);
+			result.add(address);
+		}
+		return result;
 	}
 
 	protected final Set<TelecommunicationAddress> makeTelecommunicationAddressSet(String... strings) {

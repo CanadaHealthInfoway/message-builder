@@ -238,12 +238,10 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 
 	// TODO - TM - modify get/set to accommodate NFs on collections of associations? (users can set NF directly on MessagePart beans, not really necessary to do this here)
 	private Object getMetadataInCollection(String propertyName, int indexInList, Object valueInSet, boolean isSpecializationType) {
-		ANY<?> field = (ANY<?>) getField(propertyName);
-		@SuppressWarnings("unchecked")
-		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
-
-		if (indexInList >= value.size()) {
-			throw new IndexOutOfBoundsException("Property " + propertyName + " only has " + value.size() + " elements, but trying to access element " + indexInList);
+		
+		Collection<ANY<?>> value = obtainFieldInCollection(propertyName, indexInList);
+		if (value == null) {
+			return null;
 		}
 		
 		Object result = null;
@@ -262,12 +260,11 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 	}
 	
 	private boolean setMetadataInCollection(String propertyName, int indexInList, Object valueInSet, Object valueToApply, boolean isSpecializationType) {
-		ANY<?> field = (ANY<?>) getField(propertyName);
-		@SuppressWarnings("unchecked")
-		Collection<ANY<?>> value = (Collection<ANY<?>>) field.getValue();
-
-		if (indexInList >= value.size()) {
-			throw new IndexOutOfBoundsException("Property " + propertyName + " only has " + value.size() + " elements, but trying to access element " + indexInList);
+		// the field specified by propertyName MUST be a LIST/SET/COLLECTION datatype or a Collection, otherwise this method will fail
+		
+		Collection<ANY<?>> value = obtainFieldInCollection(propertyName, indexInList);
+		if (value == null) {
+			return false;
 		}
 		
 		boolean result = false;
@@ -287,7 +284,45 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 			}
 		}
         
+        if (!result) {
+			this.log.error(String.format("Could not find the specified entry in the field/collection %s.%s. Value not set.", this.getClass().getSimpleName(), propertyName));
+        }
+        
         return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	private Collection<ANY<?>> obtainFieldInCollection(String propertyName,	int indexInList) {
+		Collection<ANY<?>> value = null;
+		
+		Object rawField = getField(propertyName);
+		if (rawField == null) {
+			this.log.error(String.format("The field %s.%s was not found", this.getClass().getSimpleName(), propertyName));
+			return null;
+		}
+		
+		// the rawField will either be an ANY type or a List
+		if (rawField instanceof ANY<?>) {
+			ANY<?> field = (ANY<?>) rawField;
+			if (field.getValue() instanceof Collection<?>) {
+				value = (Collection<ANY<?>>) field.getValue();
+			} else {
+				this.log.error(String.format("The field %s.%s was expected to be of type LIST/SET/COLLECTION. Cannot process.", this.getClass().getSimpleName(), propertyName));
+				return null;
+			}
+		} else if (rawField instanceof Collection<?>) {
+			value = (Collection<ANY<?>>) rawField;
+		} else {
+			this.log.error(String.format("The field %s.%s was expected to be a Collection type (typically List). Cannot process.", this.getClass().getSimpleName(), propertyName));
+			return null;
+		}
+
+		if (indexInList >= value.size()) {
+			this.log.error("Property " + propertyName + " has " + value.size() + " elements, but trying to access element " + indexInList + ". Cannot process.");
+			return null;
+		}
+		
+		return value;
 	}
 	
 }
