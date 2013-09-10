@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.terminology.codeset.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -107,12 +110,28 @@ public class VocabularyDomain implements Describable {
 	 * @return the type as class
 	 */
 	@Transient
-	public Class<?> getTypeAsClass() {
+	public List<Class<?>> getTypeAsClasses() {
+		List<Class<?>> classList = new ArrayList<Class<?>>();
 		try {
-			return Class.forName("ca.infoway.messagebuilder.domainvalue." + getType());
+			Class<?> class1 = Class.forName("ca.infoway.messagebuilder.domainvalue." + getType());
+			classList.add(class1);
 		} catch (ClassNotFoundException e) {
-			return null;
+			// try to locate interfaces within MB generated API domainvalue packages
+			// (this likely will have translation issues; also, this requires the given domainvalue package to already be in the classloader)
+			Package[] packages = Package.getPackages();
+			for (Package package1 : packages) {
+				if (package1.getName().startsWith("ca.infoway.messagebuilder.") 
+						&& package1.getName().endsWith(".domainvalue")) {
+					try {
+						Class<?> class2 = Class.forName(package1.getName() + "." + getType());
+						classList.add(class2);
+					} catch (ClassNotFoundException e1) {
+						// do nothing
+					}
+				}
+			}
 		}
+		return classList;
 	}
 	
 	/**
