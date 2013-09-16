@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.xml.MessagePart;
  * services.
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
- * @sharpen.ignore - xml.service - translated manually
  */
 public class CompositeMessageDefinitionService implements MessageDefinitionService {
 
