@@ -51,20 +51,4 @@ public enum Representation {
 	FREQUENCY,
 	PERIOD_PHASE;
 	
-	public boolean hasLow() {
-		return this == LOW || this == LOW_CENTER || this == LOW_WIDTH || this == LOW_HIGH;
-	}
-	
-	public boolean hasHigh() {
-		return this == HIGH || this == LOW_HIGH || this == WIDTH_HIGH || this == CENTRE_HIGH;
-	}
-	
-	public boolean hasCentre() {
-		return this == CENTRE || this == LOW_CENTER || this == CENTRE_HIGH || this == CENTRE_WIDTH;
-	}
-	
-	public boolean hasWidth() {
-		return this == WIDTH || this == CENTRE_WIDTH || this == LOW_WIDTH || this == WIDTH_HIGH;
-	}
-	
 }

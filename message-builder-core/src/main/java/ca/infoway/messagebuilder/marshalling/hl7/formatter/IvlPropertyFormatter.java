@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.datatype.lang.util.RepresentationUtil;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -123,19 +124,19 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 		}
 		
 		boolean lowProvided = 
-				value.getRepresentation().hasLow() &&
+				RepresentationUtil.hasLow(value.getRepresentation()) &&
 				(value.getLow() != null || value.getLowNullFlavor() != null);
 		
 		boolean highProvided = 
-				value.getRepresentation().hasHigh() &&
+				RepresentationUtil.hasHigh(value.getRepresentation()) &&
 				(value.getHigh() != null || value.getHighNullFlavor() != null);
 		
 		boolean centerProvided = 
-				value.getRepresentation().hasCentre() &&
+				RepresentationUtil.hasCentre(value.getRepresentation()) &&
 				(value.getCentre() != null || value.getCentreNullFlavor() != null);
 		
 		boolean widthProvided = 
-				value.getRepresentation().hasWidth() &&
+				RepresentationUtil.hasWidth(value.getRepresentation()) &&
 				(value.getWidth() != null && (value.getWidth().getValue() != null || value.getWidth().getNullFlavor() != null));
 		
 		errors = this.ivlValidationUtils.validateCorrectElementsProvided(type, context.getVersion(), lowProvided, highProvided, centerProvided, widthProvided);
@@ -162,10 +163,10 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) {
 		Representation rep = value.getRepresentation();
 		
-		String low = rep.hasLow() ? createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel) : null;
-		String high = rep.hasHigh() ? createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel) : null;
-		String centre = rep.hasCentre() ? createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), indentLevel) : null;
-		String width = rep.hasWidth() ? createWidthElement(context, WIDTH, value.getWidth(), indentLevel) : null;
+		String low = RepresentationUtil.hasLow(rep) ? createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), indentLevel) : null;
+		String high = RepresentationUtil.hasHigh(rep) ? createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), indentLevel) : null;
+		String centre = RepresentationUtil.hasCentre(rep) ? createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), indentLevel) : null;
+		String width = RepresentationUtil.hasWidth(rep) ? createWidthElement(context, WIDTH, value.getWidth(), indentLevel) : null;
 
 		switch (rep) {
 		case LOW_HIGH:
