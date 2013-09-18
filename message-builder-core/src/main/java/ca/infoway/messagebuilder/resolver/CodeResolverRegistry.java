@@ -54,7 +54,6 @@ import ca.infoway.messagebuilder.VersionNumber;
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
- * @sharpen.ignore - terminology - translated manually
  */
 public abstract class CodeResolverRegistry {
 
