@@ -34,6 +34,11 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 
+/**
+ *
+ * @sharpen.ignore - threading approach implemented differently in .NET
+ *  
+ */
 public class CodeResolverRegistryTest {
 
 	private final GenericCodeResolverRegistry registry1 = new GenericCodeResolverRegistryImpl(); 
