@@ -22,13 +22,13 @@ package ca.infoway.messagebuilder.marshalling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.j5goodies.CollectionSorter;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -64,8 +64,8 @@ class MessagePartHolder {
 		this.messagePart = service.getMessagePart(version, typeName);
 		this.allRelationships = mergeRelationships(service, version, typeHierarchy);
 		if (typeHierarchy.size() > 1) {
-			// FIXME - TM - numerous transformation tests will fail once this change is made 
-			Collections.sort(this.allRelationships, this.relationshipComparator);
+			// should be Collections.sort, but this does not translate correctly
+			CollectionSorter.sort(this.allRelationships, this.relationshipComparator);
 		}
 	}
 	

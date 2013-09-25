@@ -55,6 +55,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
+ * @sharpen.ignore - terminology - translated manually
  */
 public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegistry, CodeResolver {
 

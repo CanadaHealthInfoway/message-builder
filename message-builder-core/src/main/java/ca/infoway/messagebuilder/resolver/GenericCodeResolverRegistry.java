@@ -22,6 +22,11 @@ package ca.infoway.messagebuilder.resolver;
 
 import ca.infoway.messagebuilder.Code;
 
+/**
+ * @author Tom
+ *
+ * @sharpen.ignore - terminology - translated manually
+ */
 public interface GenericCodeResolverRegistry extends CodeResolver {
 
     /**
