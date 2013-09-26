@@ -28,7 +28,6 @@ import java.util.List;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.j5goodies.CollectionSorter;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;

@@ -17,7 +17,7 @@
  * Last modified: $LastChangedDate: 2013-08-13 19:55:44 -0300 (Tue, 13 Aug 2013) $
  * Revision:      $LastChangedRevision: 7826 $
  */
-package ca.infoway.messagebuilder.j5goodies;
+package ca.infoway.messagebuilder.marshalling;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,7 +29,7 @@ import java.util.List;
  * 
  * @sharpen.ignore j5goodies - Translated manually
  */
-public class CollectionSorter {
+class CollectionSorter {
 
 	public static <T> void sort(List<T> list, Comparator<? super T> c) {
 		Collections.sort(list, c);
