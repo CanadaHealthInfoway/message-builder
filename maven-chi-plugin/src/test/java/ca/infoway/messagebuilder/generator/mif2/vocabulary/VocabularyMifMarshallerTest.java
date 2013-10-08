@@ -32,7 +32,7 @@ public class VocabularyMifMarshallerTest {
 		
 		for (MifCodeSystem codeSystem : mifVocabularyModel.getCodeSystems()) {
 			if (codeSystem.getName().equals("AcknowledgementDetailCode")) {
-				assertEquals("&lt;i&gt;OpenIssue:&lt;/i&gt;Missing description.", codeSystem.getAnnotations().getDocumentation().getDescription().getText().getParagraphs().get(0).getValue());
+				assertEquals("<i>OpenIssue:</i>Missing description.", codeSystem.getAnnotations().getDocumentation().getDescription().getText().getParagraphs().get(0).getValue());
 			}
 		}
 		
