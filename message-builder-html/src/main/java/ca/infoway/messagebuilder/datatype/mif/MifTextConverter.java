@@ -30,7 +30,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.xerces.dom.CoreDocumentImpl;
 import org.apache.xerces.dom.DocumentFragmentImpl;
@@ -54,17 +53,16 @@ public class MifTextConverter implements Converter<MifText> {
 		String nodeValue = node.getValue();		
 		InputNode childNode = node.getNext();
 		if (childNode == null) {
-			//mifText.setValue(StringEscapeUtils.escapeXml(nodeValue));
 			mifText.setValue(nodeValue);
 		} else {
 			while(childNode != null) {
 				String childValue = childNode.getValue();
 				if (childValue != null) {
 					String childText = childValue + parseInnerNodes(childNode);
-					mifText.getParagraphs().add(new MifHttpParagraph(StringEscapeUtils.escapeXml(childText)));					
+					mifText.getParagraphs().add(new MifHttpParagraph(childText));					
 				} else {
 					String childText = parseInnerNodes(childNode);
-					mifText.getParagraphs().add(new MifHttpParagraph(StringEscapeUtils.escapeXml(childText)));
+					mifText.getParagraphs().add(new MifHttpParagraph(childText));
 				}
 				
 				childNode = node.getNext();
@@ -131,14 +129,12 @@ public class MifTextConverter implements Converter<MifText> {
 					child = node.getChild("p");
 				}
 				child.setData(true);
-				//String html = StringEscapeUtils.unescapeXml(mifHttpParagraph.getValue());
 				String html =mifHttpParagraph.getValue();
 				String xml = purifyHtmlToXmlFormat(html);
 				child.setValue(xml);
 			}
 		} else {
 			if(!StringUtils.isBlank(value.getValue())){
-				//String html = StringEscapeUtils.unescapeXml(value.getValue());
 				String html = value.getValue();
 				String xml = purifyHtmlToXmlFormat(html);
 				node.setValue(xml);
