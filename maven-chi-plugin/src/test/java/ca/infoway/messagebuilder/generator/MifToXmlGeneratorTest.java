@@ -47,7 +47,7 @@ public class MifToXmlGeneratorTest {
 	
 	@Test
 	public void shouldFindFirstMif() throws Exception {
-		MifToXmlGenerator generator = new MifToXmlGenerator(null, "someVersion", null, null);
+		MifToXmlGenerator generator = new MifToXmlGenerator(null, "someVersion", null, null, null, null);
 		List<MifReference> list = new ArrayList<MifReference>();
 		list.add(new MifReferenceImpl(new File("sldjf.dmif")));
 		list.add(new MifReferenceImpl(new File("sldjf2.dmif")));

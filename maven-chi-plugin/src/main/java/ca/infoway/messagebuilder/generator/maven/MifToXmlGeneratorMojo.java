@@ -50,6 +50,20 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
     private String version;
     
     /**
+     * <p>The realmCode of the output.
+     * 
+     * @parameter 
+     */
+    private String realmCode;
+    
+    /**
+     * <p>The descriptive name of the output.
+     * 
+     * @parameter 
+     */
+    private String descriptiveName;
+    
+    /**
      * <p>The output message set file.
      * 
      * @parameter default-value="${project.build.directory}/messageSet.xml"
@@ -122,7 +136,7 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
 			}
 			this.generatedReportsDirectory.mkdirs();
 
-			MessageSetGenerator generator = this.factory.create(this, this.version, this.mifTransformer, this.generatedReportsDirectory);
+			MessageSetGenerator generator = this.factory.create(this, this.version, this.realmCode, this.descriptiveName, this.mifTransformer, this.generatedReportsDirectory);
 			generator.processAllMifs(new MifSourceImpl(this.fileSets));
 			generator.writeToMessageSet(this.messageSet);
 		} catch (GeneratorException e) {
@@ -143,16 +157,33 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
 	void setOutputFile(File outputFile) {
 		this.messageSet = outputFile;
 	}
+
 	String getVersion() {
 		return this.version;
 	}
 	void setVersion(String version) {
 		this.version = version;
 	}
+
+	String getRealmCode() {
+		return realmCode;
+	}
+	void setRealmCode(String realmCode) {
+		this.realmCode = realmCode;
+	}
+
+	String getDescriptiveName() {
+		return descriptiveName;
+	}
+	void setDescriptiveName(String descriptiveName) {
+		this.descriptiveName = descriptiveName;
+	}
+
 	List<FileSet> getFileSets() {
 		return this.fileSets;
 	}
 	void setFileSets(List<FileSet> fileSets) {
 		this.fileSets = fileSets;
 	}
+
 }

@@ -52,6 +52,20 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
     private String version;
     
     /**
+     * <p>The realmCode of the output.
+     * 
+     * @parameter 
+     */
+    private String realmCode;
+    
+    /**
+     * <p>The descriptive name of the output.
+     * 
+     * @parameter 
+     */
+    private String descriptiveName;
+    
+    /**
      * <p>The output message set file.
      * 
      * @parameter default-value="${project.build.directory}/messageSet.xml"
@@ -119,7 +133,7 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 			}
 			this.generatedReportsDirectory.mkdirs();
 
-			MessageSetGenerator generator = this.factory.create(this, this.version, this.generatedReportsDirectory);
+			MessageSetGenerator generator = this.factory.create(this, this.version, this.realmCode, this.descriptiveName, this.generatedReportsDirectory);
 			generator.processAllMessageSets(this.inputMessageSets);
 			generator.writeToMessageSet(this.outputMessageSet);
 		} catch (GeneratorException e) {
@@ -140,11 +154,26 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 	void setOutputFile(File outputFile) {
 		this.outputMessageSet = outputFile;
 	}
+
 	String getVersion() {
 		return this.version;
 	}
 	void setVersion(String version) {
 		this.version = version;
+	}
+
+	String getRealmCode() {
+		return realmCode;
+	}
+	void setRealmCode(String realmCode) {
+		this.realmCode = realmCode;
+	}
+
+	String getDescriptiveName() {
+		return descriptiveName;
+	}
+	void setDescriptiveName(String descriptiveName) {
+		this.descriptiveName = descriptiveName;
 	}
 
 	List<FileSet> getInputMessageSets() {

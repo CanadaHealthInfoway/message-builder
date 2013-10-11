@@ -45,6 +45,12 @@ public class MessageSet implements MessagePartResolver {
 	private String version;
 	
 	@Attribute(required=false)
+	private String descriptiveName;
+	
+	@Attribute(required=false)
+	private String realmCode;
+	
+	@Attribute(required=false)
 	private String component;
 	
 	@Attribute(required=false)
@@ -266,5 +272,21 @@ public class MessageSet implements MessagePartResolver {
 
 	public void setGeneratedBy(String generatedBy) {
 		this.generatedBy = generatedBy;
+	}
+
+	public String getDescriptiveName() {
+		return descriptiveName;
+	}
+
+	public void setDescriptiveName(String descriptiveName) {
+		this.descriptiveName = descriptiveName;
+	}
+
+	public String getRealmCode() {
+		return realmCode;
+	}
+
+	public void setRealmCode(String realmCode) {
+		this.realmCode = realmCode;
 	}
 }

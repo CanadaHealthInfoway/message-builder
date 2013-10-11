@@ -37,11 +37,11 @@ import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
  */
 class MessageSetGeneratorFactoryImpl implements MessageSetGeneratorFactory {
 	
-	public MessageSetGenerator create(Mojo mojo, String version, File mifTransform, File reportDir) throws GeneratorException {
-		return new MifToXmlGenerator(new OutputUIImpl(mojo), version, mifTransform, reportDir);
+	public MessageSetGenerator create(Mojo mojo, String version, String realmCode, String descriptiveName, File mifTransform, File reportDir) throws GeneratorException {
+		return new MifToXmlGenerator(new OutputUIImpl(mojo), version, realmCode, descriptiveName, mifTransform, reportDir);
 	}
 
-	public MessageSetGenerator create(Mojo mojo, String version, File reportDir) throws GeneratorException {
+	public MessageSetGenerator create(Mojo mojo, String version, String realmCode, String descriptiveName, File reportDir) throws GeneratorException {
 		return new MultipleXmlToXmlGenerator(new OutputUIImpl(mojo), version, reportDir);
 	}
 
