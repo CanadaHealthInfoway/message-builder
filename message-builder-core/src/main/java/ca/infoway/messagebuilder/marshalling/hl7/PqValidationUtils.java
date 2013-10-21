@@ -162,6 +162,14 @@ public class PqValidationUtils {
 		return units;
 	}
 
+	public void validateOriginalText(String typeAsString, String originalText, Element element, String propertyPath, Hl7Errors errors) {
+		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
+		if (StringUtils.isNotBlank(originalText) && !PQ_LAB.equals(type)) {
+			// only PQ.LAB is allowed to have originalText
+			createError(MessageFormat.format("Type {0} not allowed to have originalText. For physical quantity types, originalText is only allowed for PQ.LAB.", typeAsString), element, propertyPath, errors);
+		}
+	}
+	
 	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
 		Hl7Error error = null;
 		if (element != null) {
@@ -178,5 +186,5 @@ public class PqValidationUtils {
 		
 		errors.addHl7Error(error);
 	}
-	
+
 }

@@ -23,10 +23,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.lang.reflect.Type;
 
 import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -93,24 +91,6 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 		if (hasOriginalText(element)) {
         	((CD) dataType).setOriginalText(getOriginalText(element));
         }
-    }
-
-	private String getOriginalText(Element element) {
-        NodeList children = element.getChildNodes();
-        String result = null;
-        int length = children == null ? 0 : children.getLength();
-        for (int i = 0; i < length; i++) {
-            Node node = children.item(i);
-            if (node.getNodeType() != Node.ELEMENT_NODE) {
-            } else if ("originalText".equals(NodeUtil.getLocalOrTagName(node))) {
-                result = NodeUtil.getTextValue(node);
-            }
-        }
-        return result;
-    }
-
-    protected final boolean hasOriginalText(Element element) {
-    	return StringUtils.isNotBlank(getOriginalText(element));
     }
 
 	protected Hl7Error createInvalidCodeError(Node node, Class<? extends Code> type, String code) {

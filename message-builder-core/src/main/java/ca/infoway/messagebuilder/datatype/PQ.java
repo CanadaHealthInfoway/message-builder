@@ -45,4 +45,18 @@ public interface PQ extends QTY<PhysicalQuantity> {
 //    INT precision();
 //    PQ withLimitedPrecision(INT precisionLimit);
 	
+	/**
+	 * Returns the original text.
+	 * 
+	 * @return the original text
+	 */
+	public String getOriginalText();
+	
+	/**
+	 * Sets the original text.
+	 * 
+	 * @param originalText the original text
+	 */
+	public void setOriginalText(String originalText);
+	
 }

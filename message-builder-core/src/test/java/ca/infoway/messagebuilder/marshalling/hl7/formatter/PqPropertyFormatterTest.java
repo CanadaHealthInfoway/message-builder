@@ -26,10 +26,14 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import org.apache.commons.lang.SystemUtils;
 import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -97,6 +101,27 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         
         assertTrue("unit key as expected", result.containsKey("unit"));
         assertEquals("unit", unit.getCodeValue(), result.get("unit"));
+    }
+    
+    @Test
+    public void testFormatPhysicalQuantityValidWithOriginalText() throws Exception {
+        String quantity = "33.45";
+        UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+        
+        PhysicalQuantity physicalQuantity = new PhysicalQuantity();
+        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        physicalQuantity.setUnit(unit);
+        
+        PQ rawPq = new PQImpl();
+        rawPq.setOriginalText("some original text");
+        rawPq.setValue(physicalQuantity);
+        
+		String result = new PqPropertyFormatter().format(createContext(), rawPq, 0);
+		
+		String expectedResult = "<name unit=\"U/l\" value=\"33.45\">" + SystemUtils.LINE_SEPARATOR +
+								"  <originalText>some original text</originalText>" + SystemUtils.LINE_SEPARATOR +
+								"</name>" + SystemUtils.LINE_SEPARATOR;
+        assertEquals("output", expectedResult, result);
     }
     
     @Test

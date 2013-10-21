@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -120,8 +121,12 @@ class BeanWrapper {
 			if (value.hasNullFlavor()) {
 				new DataTypeFieldHelper(property.getBean(), property.getName()).setNullFlavor(value.getNullFlavor());
 			}
-			if (value instanceof CD) {
-				((CD)field).setOriginalText(((CD)value).getOriginalText());
+			if (value instanceof ANYImpl) {
+				// preserve any meta data (yes, this is not ideal)
+				((ANYImpl<?>) field).setLanguage(((ANYImpl<?>) value).getLanguage());
+				((ANYImpl<?>) field).setDisplayName(((ANYImpl<?>) value).getDisplayName());
+				((ANYImpl<?>) field).setOriginalText(((ANYImpl<?>) value).getOriginalText());
+				((ANYImpl<?>) field).getTranslations().addAll(((ANYImpl<?>) value).getTranslations());
 			}
 			((BareANYImpl) field).setBareValue(value.getBareValue());
 			field.setDataType(value.getDataType());

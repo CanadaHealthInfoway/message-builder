@@ -24,11 +24,18 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
+import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 /**
  * PQ - Physical Quantity
@@ -49,12 +56,12 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
     @Override
     Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
     	
-        validatePhysicalQuantity(context, physicalQuantity);
+        validatePhysicalQuantity(context, physicalQuantity, bareANY);
 		
-        return createPhysicalQuantityAttributes(physicalQuantity);
+        return createPhysicalQuantityAttributes(physicalQuantity, bareANY);
     }
 
-	private void validatePhysicalQuantity(FormatContext context, PhysicalQuantity physicalQuantity) {
+	private void validatePhysicalQuantity(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
 		String type = context.getType();
         ModelToXmlResult errors = context.getModelToXmlResult();
         
@@ -63,9 +70,14 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
         
 		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
 		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors);
+		
+		if (bareANY != null) { 
+			String originalText = ((ANYImpl<?>) bareANY).getOriginalText();
+			this.pqValidationUtils.validateOriginalText(type, originalText, null, context.getPropertyPath(), errors);
+		}
 	}
 
-	private Map<String, String> createPhysicalQuantityAttributes(PhysicalQuantity physicalQuantity) {
+	private Map<String, String> createPhysicalQuantityAttributes(PhysicalQuantity physicalQuantity, BareANY bareANY) {
 		Map<String, String> result = new HashMap<String, String>();
         if (physicalQuantity.getQuantity() == null) {
             result.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
@@ -78,7 +90,27 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
             result.put(ATTRIBUTE_UNIT, physicalQuantity.getUnit().getCodeValue());
         }
 
-        return result;
+		return result;
+	}
+	
+	@Override
+	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
+		String result = super.format(context, hl7Value, indentLevel);
+		
+		if (hl7Value != null) {
+			String originalText = ((ANYImpl<?>) hl7Value).getOriginalText();
+			if (StringUtils.isNotBlank(originalText)) {
+				String otElement = createElement("originalText", null, indentLevel + 1, false, false);
+				otElement += XmlStringEscape.escape(originalText);
+				otElement += XmlRenderingUtils.createEndElement("originalText", 0, true);
+				// pulling off the end "/>" is not the most elegant solution, but superclass would need significant refactoring otherwise
+				result = result.substring(0, result.indexOf("/>")) + ">" + LINE_SEPARATOR 
+						+ otElement 
+						+ XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, true);
+			}
+		}
+
+		return result;
 	}
 
     private String formatQuantity(BigDecimal quantity) {

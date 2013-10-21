@@ -27,6 +27,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -67,8 +69,18 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
 		
 		// TODO: TM - PQ.LAB in MR2009 allows for an originalText attribute. Since no current pan-Canadian standard uses PQ.LAB, this requirement has not been implemented.
+		if (hasOriginalText(element)) {
+			String originalText = getOriginalText(element);
+			this.pqValidationUtils.validateOriginalText(context.getType(), originalText, element, null, xmlToModelResult);
+			((PQ) result).setOriginalText(originalText);
+		}
 		
-		return (value != null) ? new PhysicalQuantity(value, unit) : null;
+		PhysicalQuantity physicalQuantity = (value != null) ? new PhysicalQuantity(value, unit) : null;
+		
+        // this is not the usual way of doing things; this is to make validation easier
+        ((BareANYImpl) result).setBareValue(physicalQuantity);
+		
+		return physicalQuantity;
 	}
 	
 	@Override
