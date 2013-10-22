@@ -57,6 +57,16 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, pq.getNullFlavor());
 	}
 
+	@Test
+	public void testParseNullNodeForPqLab() throws Exception {
+		Node node = createNode("<something nullFlavor=\"NI\" />");
+		PQ pq = (PQ) new PqElementParser().parse(createContext("PQ.LAB", V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertNull("PhysicalQuantity", pq.getValue());
+		assertEquals("null flavor", NullFlavor.NO_INFORMATION, pq.getNullFlavor());
+	}
+
 	private ParseContext createContext(String type, VersionNumber version) {
 		return ParserContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null);
 	}

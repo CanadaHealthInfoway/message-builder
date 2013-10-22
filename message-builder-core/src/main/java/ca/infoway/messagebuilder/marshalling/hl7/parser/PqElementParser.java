@@ -67,11 +67,10 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), element, null, xmlToModelResult);
 		
 		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
-		
-		// TODO: TM - PQ.LAB in MR2009 allows for an originalText attribute. Since no current pan-Canadian standard uses PQ.LAB, this requirement has not been implemented.
+
+		// validation of OT done in overridden parse() method
 		if (hasOriginalText(element)) {
 			String originalText = getOriginalText(element);
-			this.pqValidationUtils.validateOriginalText(context.getType(), originalText, element, null, xmlToModelResult);
 			((PQ) result).setOriginalText(originalText);
 		}
 		
@@ -83,6 +82,24 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		return physicalQuantity;
 	}
 	
+	@Override
+	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		BareANY results = super.parse(context, node, xmlToModelResult);
+		
+		Element element = (Element) node;
+		
+		String originalText = getOriginalText(element);
+		boolean hasValues = hasAnyValues(element);
+		boolean hasNullFlavor = hasValidNullFlavorAttribute(context, node, xmlToModelResult);
+		this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasValues, hasNullFlavor, element, null, xmlToModelResult);
+		
+		return results;
+	}
+	
+	private boolean hasAnyValues(Element element) {
+		return (element.hasAttribute("value") || element.hasAttribute("unit"));
+	}
+
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new PQImpl();

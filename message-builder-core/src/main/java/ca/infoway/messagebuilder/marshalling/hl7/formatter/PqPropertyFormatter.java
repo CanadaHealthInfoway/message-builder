@@ -62,6 +62,9 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
     }
 
 	private void validatePhysicalQuantity(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
+		
+		// does not validate originalText here as this section is bypassed when value is a NullFlavor
+		
 		String type = context.getType();
         ModelToXmlResult errors = context.getModelToXmlResult();
         
@@ -71,10 +74,6 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
 		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors);
 		
-		if (bareANY != null) { 
-			String originalText = ((ANYImpl<?>) bareANY).getOriginalText();
-			this.pqValidationUtils.validateOriginalText(type, originalText, null, context.getPropertyPath(), errors);
-		}
 	}
 
 	private Map<String, String> createPhysicalQuantityAttributes(PhysicalQuantity physicalQuantity, BareANY bareANY) {
@@ -99,6 +98,11 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		
 		if (hl7Value != null) {
 			String originalText = ((ANYImpl<?>) hl7Value).getOriginalText();
+			
+			boolean hasNullFlavor = hl7Value.hasNullFlavor();
+			boolean hasAnyValues = hasAnyValues(hl7Value);
+			this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasAnyValues, hasNullFlavor, null, context.getPropertyPath(), context.getModelToXmlResult());
+			
 			if (StringUtils.isNotBlank(originalText)) {
 				String otElement = createElement("originalText", null, indentLevel + 1, false, false);
 				otElement += XmlStringEscape.escape(originalText);
@@ -113,7 +117,16 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		return result;
 	}
 
-    private String formatQuantity(BigDecimal quantity) {
+    private boolean hasAnyValues(BareANY hl7Value) {
+    	boolean result = false;
+    	if (hl7Value != null && hl7Value.getBareValue() != null && hl7Value.getBareValue() instanceof PhysicalQuantity) {
+    		PhysicalQuantity pq = (PhysicalQuantity) hl7Value.getBareValue();
+    		result = (pq.getQuantity() != null || pq.getUnit() != null);
+    	}
+		return result;
+	}
+
+	private String formatQuantity(BigDecimal quantity) {
     	// Redmine 1570 - don't change value even if incorrect; just call toString on it
         return quantity.toPlainString(); 
     }

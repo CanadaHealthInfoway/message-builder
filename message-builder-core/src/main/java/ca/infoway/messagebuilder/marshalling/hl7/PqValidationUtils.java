@@ -53,6 +53,7 @@ public class PqValidationUtils {
 	public static final int MAXIMUM_INTEGER_DIGITS = 11;
 	public static final int MAXIMUM_FRACTION_DIGITS = 2;
 	public static final int MAXIMUM_FRACTION_DIGITS_DRUG_LAB = 4;
+	private static final int MAX_ORIGINAL_TEXT_LENGTH = 150;
 	
 	public static final Map<String, Integer> maximum_fraction_digits_exceptions = new HashMap<String, Integer>();
 	public static final Map<String, Integer> maximum_integer_digits_exceptions = new HashMap<String, Integer>();
@@ -162,11 +163,28 @@ public class PqValidationUtils {
 		return units;
 	}
 
-	public void validateOriginalText(String typeAsString, String originalText, Element element, String propertyPath, Hl7Errors errors) {
+	public void validateOriginalText(String typeAsString, String originalText, boolean hasAnyValues, boolean hasNullFlavor, Element element, String propertyPath, Hl7Errors errors) {
 		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
-		if (StringUtils.isNotBlank(originalText) && !PQ_LAB.equals(type)) {
+		boolean hasOriginalText = StringUtils.isNotBlank(originalText);
+		if (hasOriginalText) {
 			// only PQ.LAB is allowed to have originalText
-			createError(MessageFormat.format("Type {0} not allowed to have originalText. For physical quantity types, originalText is only allowed for PQ.LAB.", typeAsString), element, propertyPath, errors);
+			if (!PQ_LAB.equals(type)) {
+				createError(MessageFormat.format("Type {0} not allowed to have originalText. For physical quantity types, originalText is only allowed for PQ.LAB.", typeAsString), element, propertyPath, errors);
+			} else {
+				// no more than 150 characters
+				int length = originalText.length();
+				if (length > MAX_ORIGINAL_TEXT_LENGTH) {
+					createError(MessageFormat.format("PQ.LAB originalText has {0} characters, but only {1} are allowed.", length, MAX_ORIGINAL_TEXT_LENGTH), element, propertyPath, errors);
+				}
+			}
+		}
+		if (PQ_LAB.equals(type) && hasNullFlavor) {
+			if (!hasOriginalText) {
+				createError("For PQ.LAB values, originalText is mandatory when set to a NullFlavor.", element, propertyPath, errors);
+			}
+			if (hasAnyValues) {
+				createError("PQ.LAB can not have quantity or units specified when set to a NullFlavor.", element, propertyPath, errors);
+			}
 		}
 	}
 	
