@@ -37,9 +37,9 @@ public class MifValueSetVersion {
 	@ElementList(required=false,inline=true,entry="content")
 	private List<MifValueSetContent> content = new ArrayList<MifValueSetContent>();
 	@ElementList(required=false,inline=false,name="enumeratedContent",entry="code")
-	private List<MifCode> enumeratedCodes = new ArrayList<MifCode>();
+	private ArrayList<MifCode> enumeratedCodes = new ArrayList<MifCode>(); // RM 17524: TM - changed to ArrayList to prevent simpleframework from outputting java class reference
 	@ElementList(required=false,inline=false,name="exampleContent",entry="code")
-	private List<MifCode> exampleCodes = new ArrayList<MifCode>();
+	private ArrayList<MifCode> exampleCodes = new ArrayList<MifCode>(); // RM 17524: TM - changed to ArrayList to prevent simpleframework from outputting java class reference
 
 	public Date getDate() {
 		return date;
@@ -49,11 +49,11 @@ public class MifValueSetVersion {
 		this.date = date;
 	}
 
-	public List<MifCode> getEnumeratedCodes() {
+	public ArrayList<MifCode> getEnumeratedCodes() {
 		return enumeratedCodes;
 	}
 
-	public void setEnumeratedCodes(List<MifCode> enumeratedCodes) {
+	public void setEnumeratedCodes(ArrayList<MifCode> enumeratedCodes) {
 		this.enumeratedCodes = enumeratedCodes;
 	}
 
@@ -69,11 +69,11 @@ public class MifValueSetVersion {
 		this.content = content;
 	}
 
-	public List<MifCode> getExampleCodes() {
+	public ArrayList<MifCode> getExampleCodes() {
 		return exampleCodes;
 	}
 
-	public void setExampleCodes(List<MifCode> exampleCodes) {
+	public void setExampleCodes(ArrayList<MifCode> exampleCodes) {
 		this.exampleCodes = exampleCodes;
 	}
 	

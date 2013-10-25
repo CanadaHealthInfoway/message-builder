@@ -21,7 +21,6 @@ package ca.infoway.messagebuilder.xml;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -46,7 +45,7 @@ public class CodeSystem {
 	@Element(required=false)
 	private Documentation documentation = new Documentation();
 	@ElementList(required=false,inline=false,name="concepts",entry="concept")
-	private List<Concept> concepts = new ArrayList<Concept>();
+	private ArrayList<Concept> concepts = new ArrayList<Concept>(); // RM 17524: TM - changed to ArrayList to prevent simpleframework from outputting java class reference
 	
 	public CodeSystem() {
 	}
@@ -104,10 +103,10 @@ public class CodeSystem {
 	public void setDocumentation(Documentation documentation) {
 		this.documentation = documentation;
 	}
-	public List<Concept> getConcepts() {
+	public ArrayList<Concept> getConcepts() {
 		return concepts;
 	}
-	public void setConcepts(List<Concept> concepts) {
+	public void setConcepts(ArrayList<Concept> concepts) {
 		this.concepts = concepts;
 	}
 }

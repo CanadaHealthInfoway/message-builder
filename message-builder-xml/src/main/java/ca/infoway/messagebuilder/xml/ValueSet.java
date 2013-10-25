@@ -48,7 +48,7 @@ public class ValueSet {
 	@ElementList(required=false,inline=true,entry="drawsFrom")
 	private List<String> sourceCodeSystems = new ArrayList<String>();
 	@ElementList(required=false,inline=false,name="content",entry="code")
-	private List<Code> codes;
+	private ArrayList<Code> codes; // RM 17524: TM - changed to ArrayList to prevent simpleframework from outputting java class reference
 	@ElementList(required=false,inline=true,entry="filter")
 	private List<ValueSetFilter> filters;
 
@@ -106,10 +106,10 @@ public class ValueSet {
 	public void setOwningSCWG(String owningSCWG) {
 		this.owningSCWG = owningSCWG;
 	}
-	public List<Code> getCodes() {
+	public ArrayList<Code> getCodes() {
 		return codes;
 	}
-	public void setCodes(List<Code> codes) {
+	public void setCodes(ArrayList<Code> codes) {
 		this.codes = codes;
 	}
 	public void addCode(Code code) {
