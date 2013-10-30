@@ -26,6 +26,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
 import ca.infoway.demiftifier.LayoutItem;
+import ca.infoway.demiftifier.VocabularyLayoutItem;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
 
@@ -46,7 +48,7 @@ class StyleProvider {
 		if (layoutItem == null) {
 			return new ColorFill(Color.WHITE);
 		} else {
-			Color color = Color.WHITE;
+			Color color = Color.CYAN;
 			
 			if (layoutItem.getRimClass() == RimClass.ENTITY) { 
 				color = new Color(0x66, 0xff, 0x66);
@@ -62,10 +64,19 @@ class StyleProvider {
 				color = new Color(0xfc, 0xbb, 0xbd);
 			} else if (layoutItem.getRimClass() == RimClass.OTHER_CLASS) {
 				color = new Color(0x80, 0x7F, 0xfe);
+			} else if (layoutItem instanceof VocabularyLayoutItem) {
+				// TM - RM 17477 - further define fill colour by vocab type (when applicable) 
+				VocabularyLayoutItem vocabLayoutItem = (VocabularyLayoutItem) layoutItem;
+				DomainSource vocabType = vocabLayoutItem.getVocabType();
+				if (DomainSource.CODE_SYSTEM.equals(vocabType)) {
+					color = new Color(0x60, 0x98, 0xfc);
+				} else if (DomainSource.VALUE_SET.equals(vocabType)) {
+					color = new Color(0xec, 0x96, 0x28);
+				} else if (DomainSource.CONCEPT_DOMAIN.equals(vocabType)) {
+					color = new Color(0x69, 0xbb, 0x70);
+				}
 			// CHOICE
 			//	return new ColorFill(new Color(1.0F, 1.0F, 1.0F, 0.0F));
-			} else {
-				color = Color.CYAN;
 			}
 			return new ColorFill(color);
 		}

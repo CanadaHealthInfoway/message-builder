@@ -24,6 +24,7 @@ import java.io.Writer;
 
 import ca.infoway.demiftifier.ConceptDomainLayoutItem;
 import ca.infoway.demiftifier.VocabularyLayoutItem;
+import ca.infoway.messagebuilder.xml.DomainSource;
 
 abstract class VocabularyShape extends Shape {
 	
@@ -43,6 +44,20 @@ abstract class VocabularyShape extends Shape {
 			writer.write(" chi:name=\"");
 			writer.write(this.item.getName());
 			writer.write("\" class=\"demiftifier-vocab-part ");
+
+			// TM - RM 17477 - further define css class by vocab type (when applicable) 
+			if (getItem() instanceof VocabularyLayoutItem) {			
+				VocabularyLayoutItem vocabLayoutItem = (VocabularyLayoutItem) getItem();
+				DomainSource vocabType = vocabLayoutItem.getVocabType();
+				if (DomainSource.CODE_SYSTEM.equals(vocabType)) {
+					writer.write(" demiftifier-vocab-type-code-system ");
+				} else if (DomainSource.VALUE_SET.equals(vocabType)) {
+					writer.write(" demiftifier-vocab-type-value-set ");
+				} else if (DomainSource.CONCEPT_DOMAIN.equals(vocabType)) {
+					writer.write(" demiftifier-vocab-type-concept-domain ");
+				}
+			}
+			
 			writer.write("\" ");
 		}
 		writer.write(">");
