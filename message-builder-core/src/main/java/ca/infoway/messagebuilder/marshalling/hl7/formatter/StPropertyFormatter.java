@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -76,9 +75,10 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
         return buffer.toString();
 	}
 
+	@SuppressWarnings("unchecked")
 	private String getLanguage(BareANY dataType) {
 		 // could be an ANY; need to be careful extracting metadata
-		return ((ANYImpl<?>) dataType).getLanguage();
+		return ((ANYImpl<String>) dataType).getLanguage();
 	}
 
 	private void validate(StringBuffer buffer, int indentLevel, FormatContext context, boolean isStLang, BareANY dataType) {
