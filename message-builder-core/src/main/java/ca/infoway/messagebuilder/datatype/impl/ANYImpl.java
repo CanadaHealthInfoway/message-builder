@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.ANY;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -47,7 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * @param <V> the underlying java datatype
  * @sharpen.ignore - datatype - translated manually 
  */
-public class ANYImpl<V> extends BareANYImpl implements ANY<V> {
+public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 5073666472702745793L;
@@ -243,7 +244,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V> {
 	 * @param obj the object to compare
 	 * @return whether the objects are equal
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
