@@ -155,7 +155,7 @@ public class Mif2VocabularyProcessor {
 				}
 				for (MifSpecializedByDomain specializedByDomain : conceptDomain.getSpecializedByDomains()) {
 					if (!conceptDomains.containsKey(specializedByDomain.getName())) {
-						conceptDomains.put(specializedByDomain.getName(), new ConceptDomain(conceptDomain.getName()));
+						conceptDomains.put(specializedByDomain.getName(), new ConceptDomain(specializedByDomain.getName()));
 					}
 					conceptDomains.get(specializedByDomain.getName()).addParent(conceptDomain.getName());
 				}
