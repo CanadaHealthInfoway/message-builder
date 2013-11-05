@@ -28,6 +28,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifAnnotations;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifBasicAnnotation;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCode;
@@ -474,8 +476,11 @@ public class Mif2VocabularyProcessor {
 			}
 			
 			codeSystem.setReleaseDate(mifCodeSystem.getReleasedVersion().getReleaseDate());
-			
-			codeSystem.setBusinessName(mifCodeSystem.getTitle());
+
+			codeSystem.setBusinessName(
+					StringUtils.isBlank(mifCodeSystem.getTitle()) 
+						? "No business name (title) provided in original MIF" 
+						: mifCodeSystem.getTitle());
 			codeSystem.setOid(mifCodeSystem.getCodeSystemId());
 			codeSystemsByOid.put(mifCodeSystem.getCodeSystemId(), codeSystem);
 

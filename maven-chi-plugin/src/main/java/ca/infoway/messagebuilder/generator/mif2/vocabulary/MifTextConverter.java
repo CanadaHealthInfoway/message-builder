@@ -53,9 +53,13 @@ public class MifTextConverter implements Converter<MifText> {
 		String nodeValue = node.getValue();		
 		InputNode childNode = node.getNext();
 		if (childNode == null) {
-			if (nodeValue.trim().length() > 0) {
-				// TM: RM 16787 - removed escaping of xml
-				mifText.getParagraphs().add(new MifHttpParagraph(nodeValue.trim()));
+			if (nodeValue != null) {
+				if (nodeValue.trim().length() > 0) {
+					// TM: RM 16787 - removed escaping of xml
+					mifText.getParagraphs().add(new MifHttpParagraph(nodeValue.trim()));
+				}
+			} else {
+				mifText.getParagraphs().add(new MifHttpParagraph("No annotation text provided in original MIF"));
 			}
 		} else {
 			while(childNode != null) {
