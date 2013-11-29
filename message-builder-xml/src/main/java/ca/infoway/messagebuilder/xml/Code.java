@@ -30,19 +30,22 @@ public class Code {
 	@Attribute
 	private String code;
 	@Attribute(required=false)
+	private String status;
+	@Attribute(required=false)
 	private String printName;
 	
 	public Code() {
 	}
 	
 	public Code(String codeSystem, String code) {
-		this(codeSystem, code, null);
+		this(codeSystem, code, null, null);
 	}
 	
-	public Code(String codeSystem, String code, String printName) {
+	public Code(String codeSystem, String code, String printName, String status) {
 		this.codeSystem = codeSystem;
 		this.code = code;
 		this.printName = printName;
+		this.status = status;
 	}
 
 	public String getCodeSystem() {
@@ -61,6 +64,14 @@ public class Code {
 		this.code = code;
 	}
 	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public String getPrintName() {
 		return printName;
 	}

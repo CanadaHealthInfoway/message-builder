@@ -34,6 +34,9 @@ public class Concept {
 	private String displayName;
 	@Attribute(required=false)
 	private boolean selectable;
+	@Attribute(required=false)
+	private String status;
+
 	@Element(required=false)
 	private Documentation documentation = new Documentation();
 	@ElementList(required=false,inline=true,entry="parentConcept")
@@ -64,6 +67,14 @@ public class Concept {
 
 	public void setSelectable(boolean selectable) {
 		this.selectable = selectable;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Documentation getDocumentation() {

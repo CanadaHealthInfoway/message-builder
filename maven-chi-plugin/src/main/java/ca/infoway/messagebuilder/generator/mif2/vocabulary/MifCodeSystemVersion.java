@@ -41,6 +41,7 @@ public class MifCodeSystemVersion {
 	private boolean completeCodesIndicator;
 	@ElementList(required=false,inline=true,entry="concept")
 	private List<MifCodeSystemConcept> concepts;
+	
 	public Date getReleaseDate() {
 		return releaseDate;
 	}

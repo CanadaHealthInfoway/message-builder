@@ -31,6 +31,7 @@ import java.util.TreeMap;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifAnnotations;
+import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifAppInfo;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifBasicAnnotation;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCode;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifCodeSystem;
@@ -68,6 +69,7 @@ import ca.infoway.messagebuilder.xml.ValueSetFilterReference;
 
 public class Mif2VocabularyProcessor {
 
+	private static final String MIF_CONCEPT_DEPRECATED_STATUS = "deprecated";
 	private Map<String, String> conceptDomainToStrength = new HashMap<String, String>(); 
 	
 	public String getCodingStrengthForDomain(String conceptDomainName) {
@@ -271,7 +273,7 @@ public class Mif2VocabularyProcessor {
 	private void populateExampleCodes(ValueSet valueSet, List<MifCode> exampleCodes) {
 		if (exampleCodes != null) {
 			for (MifCode code : exampleCodes) {
-				valueSet.addCode(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName()));
+				valueSet.addCode(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), code.getStatus()));
 			}
 		}
 	}
@@ -310,7 +312,7 @@ public class Mif2VocabularyProcessor {
 	private Set<Code> populateValueSetByEnumeration(List<MifCode> enumeratedCodes, Map<String, CodeSystem> codeSystemsByOid) {
 		Set<Code> result = new HashSet<Code>();
 		for (MifCode code : enumeratedCodes) {
-			result.add(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName()));
+			result.add(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), code.getStatus()));
 		}
 		return result;
 	}
@@ -418,7 +420,7 @@ public class Mif2VocabularyProcessor {
 	public void grabConcept(Set<Code> targetCodes, Concept concept,
 			String codeSystemName) {
 		if (concept.isSelectable()) {
-			targetCodes.add(new Code(codeSystemName, concept.getCode()));
+			targetCodes.add(new Code(codeSystemName, concept.getCode(), null, concept.getStatus()));
 		}
 	}
 
@@ -500,7 +502,6 @@ public class Mif2VocabularyProcessor {
 				if (mifCodeSystem.getReleasedVersion().getConcepts() != null) {
 					// adding this null check due to failure parsing an Infoway-provided file. This implies that there is at least one code system which is defined complete yet contains no codes. I'm not sure what to make of that.
 					for (MifCodeSystemConcept mifConcept : mifCodeSystem.getReleasedVersion().getConcepts()) {
-						
 						createConcepts(mifConcept, codeSystem.getConcepts());
 					}
 				}
@@ -518,11 +519,19 @@ public class Mif2VocabularyProcessor {
 	}
 
 	private void createConcepts(MifCodeSystemConcept mifConcept, List<Concept> concepts) {
+
+		MifAnnotations annotations = mifConcept.getAnnotations();
+		
+		// Redmine 18049 - detect special annotation to determine if concept is deprecated  
+		boolean isDeprecated = checkForDeprecatedConcept(annotations);
+		
 		for(MifCode mifCode : mifConcept.getCodes()) {
 			Concept concept = new Concept();
 			
 			concept.setCode(mifCode.getCode());
 			concept.setSelectable(mifConcept.isSelectable());
+			// Redmine 18049 - also store status in message set, but mark as deprecated if applicable  
+			concept.setStatus(isDeprecated ? MIF_CONCEPT_DEPRECATED_STATUS : mifCode.getStatus());
 			
 			if (mifCode.getPrintNames() != null) {
 				for(MifConceptPrintName printName : mifCode.getPrintNames()) {
@@ -545,10 +554,21 @@ public class Mif2VocabularyProcessor {
 				}
 			}
 			
-			populateDocumentation(mifConcept.getAnnotations(), concept.getDocumentation());
+			populateDocumentation(annotations, concept.getDocumentation());
 	
 			concepts.add(concept);
 		}
+	}
+
+	private boolean checkForDeprecatedConcept(MifAnnotations annotations) {
+		boolean isDeprecated = false;
+		if (annotations != null) {
+			MifAppInfo appInfo = annotations.getAppInfo();
+			if (appInfo != null) {
+				isDeprecated = !appInfo.getDeprecationInfos().isEmpty();
+			}
+		}
+		return isDeprecated;
 	}
 	
 	private boolean isInfowayMaintained(MifCodeSystem mifCodeSystem) {

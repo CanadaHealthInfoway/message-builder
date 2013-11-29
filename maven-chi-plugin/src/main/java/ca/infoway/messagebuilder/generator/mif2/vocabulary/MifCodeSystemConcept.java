@@ -41,6 +41,7 @@ public class MifCodeSystemConcept {
 	private List<MifConceptPrintName> printNames;
 	@ElementList(required=false,inline=true,entry="code")
 	private List<MifCode> codes;
+	
 	public boolean isSelectable() {
 		return selectable;
 	}

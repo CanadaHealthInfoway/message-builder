@@ -14,30 +14,31 @@
  * limitations under the License.
  *
  * Author:        $LastChangedBy: tmcgrady $
- * Last modified: $LastChangedDate: 2012-03-06 13:41:31 -0500 (Tue, 06 Mar 2012) $
- * Revision:      $LastChangedRevision: 5770 $
+ * Last modified: $LastChangedDate: 2013-01-02 17:05:34 -0500 (Wed, 02 Jan 2013) $
+ * Revision:      $LastChangedRevision: 6471 $
  */
 package ca.infoway.messagebuilder.generator.mif2.vocabulary;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
+import org.simpleframework.xml.Text;
 
-@Root(strict=false)
-@Namespace(prefix="mif",reference="urn:hl7-org:v3/mif2")
-public class MifAnnotations {
-
-	@Element(required=false)
-	private MifDocumentation documentation;
-	@Element(required=false)
-	private MifAppInfo appInfo;
-
-	public MifAnnotations() {}
+@Root(strict = false)
+public class MifSimpleText {
 	
-	public MifDocumentation getDocumentation() {
-		return documentation;
+	@Text
+	private String value;
+	
+	public MifSimpleText() {}
+
+	public MifSimpleText(String text) {
+		this.value = text;
 	}
-	public MifAppInfo getAppInfo() {
-		return appInfo;
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 }
