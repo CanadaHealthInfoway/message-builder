@@ -69,6 +69,7 @@ import ca.infoway.messagebuilder.xml.ValueSetFilterReference;
 
 public class Mif2VocabularyProcessor {
 
+	private static final String STATUS_UNDETERMINED = "[undetermined]";
 	private static final String MIF_CONCEPT_DEPRECATED_STATUS = "deprecated";
 	private Map<String, String> conceptDomainToStrength = new HashMap<String, String>(); 
 	
@@ -146,7 +147,7 @@ public class Mif2VocabularyProcessor {
 					}
 					valueSet.setComplete(true);
 				} else {
-					populateExampleCodes(valueSet, mifValueSet.getVersion().getExampleCodes());
+					populateExampleCodes(valueSet, mifValueSet.getVersion().getExampleCodes(), codeSystemsByOid);
 					valueSet.setComplete(false);
 				}
 				populateFilters(valueSet, mifValueSet.getVersion().getContent(), codeSystemsByOid, new HashMap<String,ValueSetFilter>(), null);
@@ -270,10 +271,11 @@ public class Mif2VocabularyProcessor {
 		}
 	}
 
-	private void populateExampleCodes(ValueSet valueSet, List<MifCode> exampleCodes) {
+	private void populateExampleCodes(ValueSet valueSet, List<MifCode> exampleCodes, Map<String, CodeSystem> codeSystemsByOid) {
 		if (exampleCodes != null) {
 			for (MifCode code : exampleCodes) {
-				valueSet.addCode(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), code.getStatus()));
+				String status = determineStatus(code, codeSystemsByOid);
+				valueSet.addCode(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), status));
 			}
 		}
 	}
@@ -312,9 +314,36 @@ public class Mif2VocabularyProcessor {
 	private Set<Code> populateValueSetByEnumeration(List<MifCode> enumeratedCodes, Map<String, CodeSystem> codeSystemsByOid) {
 		Set<Code> result = new HashSet<Code>();
 		for (MifCode code : enumeratedCodes) {
-			result.add(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), code.getStatus()));
+			String status = determineStatus(code, codeSystemsByOid);
+			result.add(new Code(code.getCodeSystemName(), code.getCode(), code.getCodePrintName(), status));
 		}
 		return result;
+	}
+
+	/**
+	 * For a code that does not have a status, use its codeSystem to map back to a matching concept to find the status on the concept
+	 * 
+	 * @param code
+	 * @param codeSystemsByOid
+	 */
+	private String determineStatus(MifCode code, Map<String, CodeSystem> codeSystemsByOid) {
+		// Redmine #18049 - need to capture status for codes; by the time this code is executed, Concepts will have already been processed and deprecation info should have been captured
+		String statusResult = code.getStatus();
+		if (StringUtils.isBlank(statusResult)) {
+			statusResult = STATUS_UNDETERMINED;
+			String codeSystemAsString = code.getCodeSystem();
+			CodeSystem codeSystem = codeSystemsByOid.get(codeSystemAsString);
+			if (codeSystem != null) {
+				ArrayList<Concept> concepts = codeSystem.getConcepts();
+				for (Concept concept : concepts) {
+					if (concept.getCode().equals(code.getCode())) {
+						statusResult = concept.getStatus();
+						break;
+					}
+				}
+			}
+		}
+		return statusResult;
 	}
 
 	public Set<Code> populateValueSetByRule(MifValueSet mifValueSet, Map<String, CodeSystem> codeSystemsByOid) {
