@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import java.util.Date;
 import java.util.Set;
@@ -61,12 +61,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private DrugProductBean productMedication;
+    private DispensedBean product;
     private OccurredAtBean location;
     private SET<II, Identifier> inFulfillmentOfSubstanceAdministrationEventId = new SETImpl<II, Identifier>(IIImpl.class);
 
@@ -285,36 +285,36 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 

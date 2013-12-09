@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -52,14 +51,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementGroup","FICR_MT510201CA.InvoiceElementGroup"})
 public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
     private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
     private FinancialContractBean inFulfillmentOfFinancialContract;
-    private List<II> predecessorInvoiceElementCrossReferenceId = new ArrayList<II>();
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
     private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
     private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
@@ -266,18 +265,16 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Business Name: CrossReferenceIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT500201CA.InvoiceElementCrossReference.id</p>
+     * FICR_MT500201CA.Predecessor.invoiceElementCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference/id"})
-    public List<Identifier> getPredecessorInvoiceElementCrossReferenceId() {
-        return new RawListWrapper<II, Identifier>(predecessorInvoiceElementCrossReferenceId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
     }
 
 

@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210001ca
 @Hl7PartTypeMapping({"REPC_IN000096CA"})
 public class RecordPatientReferralRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<DocumentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

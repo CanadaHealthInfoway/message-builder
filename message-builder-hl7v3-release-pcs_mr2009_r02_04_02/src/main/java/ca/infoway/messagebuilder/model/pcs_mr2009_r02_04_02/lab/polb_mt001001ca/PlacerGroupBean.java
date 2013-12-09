@@ -23,26 +23,23 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ReferralRedirectIndicator;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.LabInitiatedOrderIndicatorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OrderSortKeyBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ParentTestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.PriorTestRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
@@ -60,16 +57,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private II occurrenceOfActParentPointerId = new IIImpl();
+    private ParentTestBean occurrenceOfActParentPointer;
     private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private BL component1LabInitiatedOrderIndicatorNegationInd = new BLImpl();
-    private CD component2ReferralRedirectIndicatorCode = new CDImpl();
-    private ST component3RequestSortKeyText = new STImpl();
+    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
+    private OrderSortKeyBean component3RequestSortKey;
     private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf2ControlActEvent;
@@ -171,38 +168,24 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
 
     /**
-     * <p>Business Name: Parent Test Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
      * 
-     * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to associate a repeating child order with it's 
-     * parent order.</p>
-     * 
-     * <p>Communicates the parent order (id) in a repeating child 
-     * order.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"occurrenceOf/actParentPointer/id"})
-    public Identifier getOccurrenceOfActParentPointerId() {
-        return this.occurrenceOfActParentPointerId.getValue();
+    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
+    public ParentTestBean getOccurrenceOfActParentPointer() {
+        return this.occurrenceOfActParentPointer;
     }
 
     /**
-     * <p>Business Name: Parent Test Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001001CA.OccurrenceOf.actParentPointer</p>
      * 
-     * <p>Relationship: POLB_MT001001CA.ActParentPointer.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to associate a repeating child order with it's 
-     * parent order.</p>
-     * 
-     * <p>Communicates the parent order (id) in a repeating child 
-     * order.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOccurrenceOfActParentPointerId(Identifier occurrenceOfActParentPointerId) {
-        this.occurrenceOfActParentPointerId.setValue(occurrenceOfActParentPointerId);
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
+        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
     }
 
 
@@ -219,94 +202,66 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
 
     /**
-     * <p>Business Name: Lab Initiated Order Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator/negationInd"})
-    public Boolean getComponent1LabInitiatedOrderIndicatorNegationInd() {
-        return this.component1LabInitiatedOrderIndicatorNegationInd.getValue();
+    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
+    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
+        return this.component1LabInitiatedOrderIndicator;
     }
 
     /**
-     * <p>Business Name: Lab Initiated Order Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001001CA.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001001CA.Component.labInitiatedOrderIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1LabInitiatedOrderIndicatorNegationInd(Boolean component1LabInitiatedOrderIndicatorNegationInd) {
-        this.component1LabInitiatedOrderIndicatorNegationInd.setValue(component1LabInitiatedOrderIndicatorNegationInd);
+    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
+        this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
     }
 
 
     /**
-     * <p>Business Name: O:Referral Redirect Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act event as a referral or redirect 
-     * indicator act.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2/referralRedirectIndicator/code"})
-    public ReferralRedirectIndicator getComponent2ReferralRedirectIndicatorCode() {
-        return (ReferralRedirectIndicator) this.component2ReferralRedirectIndicatorCode.getValue();
+    @Hl7XmlMapping({"component2/referralRedirectIndicator"})
+    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
+        return this.component2ReferralRedirectIndicator;
     }
 
     /**
-     * <p>Business Name: O:Referral Redirect Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001001CA.ReferralRedirectIndicator.code</p>
+     * POLB_MT001001CA.Component1.referralRedirectIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act event as a referral or redirect 
-     * indicator act.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2ReferralRedirectIndicatorCode(ReferralRedirectIndicator component2ReferralRedirectIndicatorCode) {
-        this.component2ReferralRedirectIndicatorCode.setValue(component2ReferralRedirectIndicatorCode);
+    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
+        this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
     }
 
 
     /**
-     * <p>Business Name: N:Sort Key Text</p>
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
      * 
-     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component3/requestSortKey/text"})
-    public String getComponent3RequestSortKeyText() {
-        return this.component3RequestSortKeyText.getValue();
+    @Hl7XmlMapping({"component3/requestSortKey"})
+    public OrderSortKeyBean getComponent3RequestSortKey() {
+        return this.component3RequestSortKey;
     }
 
     /**
-     * <p>Business Name: N:Sort Key Text</p>
+     * <p>Relationship: POLB_MT001001CA.Component2.requestSortKey</p>
      * 
-     * <p>Relationship: POLB_MT001001CA.RequestSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3RequestSortKeyText(String component3RequestSortKeyText) {
-        this.component3RequestSortKeyText.setValue(component3RequestSortKeyText);
+    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
+        this.component3RequestSortKey = component3RequestSortKey;
     }
 
 

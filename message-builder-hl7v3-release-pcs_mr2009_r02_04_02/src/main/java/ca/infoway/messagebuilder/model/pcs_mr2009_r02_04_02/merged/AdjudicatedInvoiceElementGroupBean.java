@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -70,7 +70,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     private AdjudicatedInvoiceAuthorBean author;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private AdjudicatedResultOutcomeBean outcomeOf;
 
 
     /**
@@ -469,25 +469,25 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

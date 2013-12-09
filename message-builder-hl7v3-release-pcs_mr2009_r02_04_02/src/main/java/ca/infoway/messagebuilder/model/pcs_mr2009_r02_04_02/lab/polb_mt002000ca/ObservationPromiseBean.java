@@ -41,11 +41,12 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.LabResultReportingProcessStepCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ObservationResultableLabType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
@@ -59,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -71,12 +72,12 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private II pertinentInformation1OutbreakEventId = new IIImpl();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
     private VersionInformationBean subjectOf1ControlActEvent;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private CD subjectOf3ResultStatusProcessStepCode = new CDImpl();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
     /**
@@ -290,26 +291,24 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent/id"})
-    public Identifier getPertinentInformation1OutbreakEventId() {
-        return this.pertinentInformation1OutbreakEventId.getValue();
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
     }
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT002000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT002000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformation1OutbreakEventId(Identifier pertinentInformation1OutbreakEventId) {
-        this.pertinentInformation1OutbreakEventId.setValue(pertinentInformation1OutbreakEventId);
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
@@ -368,32 +367,24 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Preliminary or Final.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep/code"})
-    public LabResultReportingProcessStepCode getSubjectOf3ResultStatusProcessStepCode() {
-        return (LabResultReportingProcessStepCode) this.subjectOf3ResultStatusProcessStepCode.getValue();
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
     }
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT002000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT002000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Preliminary or Final.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf3ResultStatusProcessStepCode(LabResultReportingProcessStepCode subjectOf3ResultStatusProcessStepCode) {
-        this.subjectOf3ResultStatusProcessStepCode.setValue(subjectOf3ResultStatusProcessStepCode);
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

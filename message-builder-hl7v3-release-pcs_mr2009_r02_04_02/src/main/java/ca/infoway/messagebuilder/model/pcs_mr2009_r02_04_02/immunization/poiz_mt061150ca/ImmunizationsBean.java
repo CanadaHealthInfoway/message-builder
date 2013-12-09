@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ActUncertainty;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.AdministeredToBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.InvestigationEventBean;
 import java.util.Date;
 
@@ -57,13 +57,13 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Summary {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
     private TS effectiveTime = new TSImpl();
     private CV uncertaintyCode = new CVImpl();
-    private Patient_2Bean subjectPatient;
+    private AdministeredToBean subject;
     private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
     private BL subjectOf1DetectedIssuesIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
@@ -265,22 +265,22 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Relationship: POIZ_MT061150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public Patient_2Bean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"subject"})
+    public AdministeredToBean getSubject() {
+        return this.subject;
     }
 
     /**
-     * <p>Relationship: POIZ_MT061150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT061150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectPatient(Patient_2Bean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setSubject(AdministeredToBean subject) {
+        this.subject = subject;
     }
 
 

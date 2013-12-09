@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceGroupType;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,16 +44,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private MO netAmt = new MOImpl();
     private Author1Bean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
-    private MO reference1AllowableNetAmt = new MOImpl();
+    private AllowableBean reference1Allowable;
     private CoverageBean coverage;
-    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+    private List<ComponentBean> component = new ArrayList<ComponentBean>();
     private AdjudicationResultBean outcomeOfAdjudicationResult;
 
 
@@ -205,26 +206,22 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reference1/allowable/netAmt"})
-    public Money getReference1AllowableNetAmt() {
-        return this.reference1AllowableNetAmt.getValue();
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
     }
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt) {
-        this.reference1AllowableNetAmt.setValue(reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
     }
 
 
@@ -252,13 +249,13 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
     /**
      * <p>Relationship: 
-     * FICR_MT510201CA.Component.adjudicatedInvoiceElementChoice</p>
+     * FICR_MT510201CA.AdjudicatedInvoiceElementGroup.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
-    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
-        return this.componentAdjudicatedInvoiceElementChoice;
+    @Hl7XmlMapping({"component"})
+    public List<ComponentBean> getComponent() {
+        return this.component;
     }
 
 

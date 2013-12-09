@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201ca.AdjudicationResultRequiredActBean;
 
 
 
@@ -45,7 +44,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201
 @Hl7PartTypeMapping({"FICR_MT510201CA.Trigger1","FICR_MT510201CA.Trigger2"})
 public class Trigger2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private AdjudicationResultRequiredActBean adjudicationResultRequiredAct;
     private BL negationInd = new BLImpl();
 

@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AdjudicatorIdBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceGroupType;
 import java.util.Date;
 
@@ -52,15 +53,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private CS authorContextControlCode = new CSImpl();
     private TS authorTime = new TSImpl();
     private CV authorModeCode = new CVImpl();
-    private II authorAdjudicatorRoleId = new IIImpl();
-    private ResultOfAdjudicationBean outcomeOfAdjudicationResult;
+    private AdjudicatorIdBean authorAdjudicatorRole;
+    private AdjudicatedResultOutcomeBean outcomeOf;
 
 
     /**
@@ -296,54 +297,46 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Adjudicator ID</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
      * 
-     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Set of identifiers that uniquely identify the adjudicator 
-     * of the invoice.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"author/adjudicatorRole/id"})
-    public Identifier getAuthorAdjudicatorRoleId() {
-        return this.authorAdjudicatorRoleId.getValue();
+    @Hl7XmlMapping({"author/adjudicatorRole"})
+    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
+        return this.authorAdjudicatorRole;
     }
 
     /**
-     * <p>Business Name: Adjudicator ID</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicatedInvoiceAuthor.adjudicatorRole</p>
      * 
-     * <p>Relationship: QUCR_MT830201CA.AdjudicatorRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Set of identifiers that uniquely identify the adjudicator 
-     * of the invoice.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthorAdjudicatorRoleId(Identifier authorAdjudicatorRoleId) {
-        this.authorAdjudicatorRoleId.setValue(authorAdjudicatorRoleId);
+    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
+        this.authorAdjudicatorRole = authorAdjudicatorRole;
     }
 
 
     /**
      * <p>Relationship: 
-     * QUCR_MT830201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public ResultOfAdjudicationBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Relationship: 
-     * QUCR_MT830201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * QUCR_MT830201CA.AdjudicatedInvoiceElementGroup.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(ResultOfAdjudicationBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

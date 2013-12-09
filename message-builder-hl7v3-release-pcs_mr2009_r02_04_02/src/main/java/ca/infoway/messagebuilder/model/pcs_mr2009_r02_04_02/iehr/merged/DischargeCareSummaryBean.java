@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -82,13 +81,13 @@ import java.util.Set;
 @Hl7RootType
 public class DischargeCareSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private RequestedByBean author;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<II> predecessorOldClinicalDocumentEventId = new ArrayList<II>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private Section_2Bean componentStructuredBodyComponentSection;
     private IncludesBean subjectOf1;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -96,7 +95,7 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     private ActingPerson responsiblePartyActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
-    private II successorNewClinicalDocumentEventId = new IIImpl();
+    private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
 
@@ -405,59 +404,23 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * <p>Relationship: 
+     * REPC_MT220001CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT220001CA.OldClinicalDocumentEvent.id</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once. May also be used when this is a newer 
-     * &quot;version&quot; of the type of Discharge-Care Summary 
-     * than those records being referenced.</i> </p>
+     * <p>Relationship: 
+     * REPC_MT220003CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.OldClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once. May also be used when this is a newer 
-     * &quot;version&quot; of the type of Discharge-Care Summary 
-     * than those records being referenced.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent/id"})
-    public List<Identifier> getPredecessorOldClinicalDocumentEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldClinicalDocumentEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
     }
 
 
@@ -659,48 +622,28 @@ public class DischargeCareSummaryBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Relationship: 
+     * REPC_MT220003CA.Predecessor.newClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newClinicalDocumentEvent/id"})
-    public Identifier getSuccessorNewClinicalDocumentEventId() {
-        return this.successorNewClinicalDocumentEventId.getValue();
+    @Hl7XmlMapping({"successor/newClinicalDocumentEvent"})
+    public NewClinicalDocumentEventBean getSuccessorNewClinicalDocumentEvent() {
+        return this.successorNewClinicalDocumentEvent;
     }
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Relationship: 
+     * REPC_MT220003CA.Predecessor.newClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT220003CA.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Discharge-Care Summary.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewClinicalDocumentEventId(Identifier successorNewClinicalDocumentEventId) {
-        this.successorNewClinicalDocumentEventId.setValue(successorNewClinicalDocumentEventId);
+    public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
+        this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
     }
 
 

@@ -29,13 +29,11 @@ import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
@@ -45,6 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DeviceProduct
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.CoverageExtensions_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ProcedureRequestBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -67,16 +66,16 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DeviceProductBean directTargetManufacturedProduct;
-    private II predecessorPriorDeviceRequestId = new IIImpl();
+    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private ST component1ProcedureRequestText = new STImpl();
+    private ProcedureRequestBean component1ProcedureRequest;
     private DispenseInstructionsBean component2SupplyRequest;
     private IncludesBean subjectOf;
 
@@ -230,42 +229,24 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: B:Previous Prescription Order Number</p>
+     * <p>Relationship: 
+     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest/id"})
-    public Identifier getPredecessorPriorDeviceRequestId() {
-        return this.predecessorPriorDeviceRequestId.getValue();
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
     }
 
     /**
-     * <p>Business Name: B:Previous Prescription Order Number</p>
+     * <p>Relationship: 
+     * PORX_MT010110CA.Predecessor.priorDeviceRequest</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.PriorDeviceRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPredecessorPriorDeviceRequestId(Identifier predecessorPriorDeviceRequestId) {
-        this.predecessorPriorDeviceRequestId.setValue(predecessorPriorDeviceRequestId);
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
     }
 
 
@@ -314,36 +295,22 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Usage Instructions</p>
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions are a key part of the prescription.</p>
-     * 
-     * <p>Indicates how the device should be used by the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/procedureRequest/text"})
-    public String getComponent1ProcedureRequestText() {
-        return this.component1ProcedureRequestText.getValue();
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
     }
 
     /**
-     * <p>Business Name: Usage Instructions</p>
+     * <p>Relationship: PORX_MT010110CA.Component1.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT010110CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions are a key part of the prescription.</p>
-     * 
-     * <p>Indicates how the device should be used by the 
-     * patient.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
-        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 

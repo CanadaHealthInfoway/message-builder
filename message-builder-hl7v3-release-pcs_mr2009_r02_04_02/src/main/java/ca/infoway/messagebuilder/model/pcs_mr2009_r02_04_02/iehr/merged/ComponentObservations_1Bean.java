@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.SimpleMe
 @Hl7PartTypeMapping({"REPC_MT410001CA.SubObservationEvent","REPC_MT410003CA.SubObservationEvent"})
 public class ComponentObservations_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private PQ value = new PQImpl();
 

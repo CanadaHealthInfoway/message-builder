@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActCareProvisionRequestType;
-import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
 import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveComplete;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdministeredByBean;
@@ -66,14 +65,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionRequest","REPC_MT210002CA.PatientCareProvisionRequest","REPC_MT210003CA.PatientCareProvisionRequest"})
 public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210001ca.DocumentContent, DocumentContent_1 {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private AdministeredByBean performer;
     private OccurredAtBean location;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private CD componentActRequestCode = new CDImpl();
+    private ActRequest2Bean componentActRequest;
     private CareCompositionsBean fulfillmentPatientCareProvisionEvent;
 
 
@@ -565,110 +564,50 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: RequestedService</p>
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
-     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
-     * <p>A coded value denoting the specific service that has been 
-     * ordered through the referral.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: RequestedService</p>
-     * 
-     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
-     * 
-     * <p>A coded value denoting the specific service that has been 
-     * ordered through the referral.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component/actRequest/code"})
-    public ActProfessionalServiceCode getComponentActRequestCode() {
-        return (ActProfessionalServiceCode) this.componentActRequestCode.getValue();
+    @Hl7XmlMapping({"component/actRequest"})
+    public ActRequest2Bean getComponentActRequest() {
+        return this.componentActRequest;
     }
 
     /**
-     * <p>Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: RequestedService</p>
+     * <p>Relationship: REPC_MT210002CA.Component8.actRequest</p>
      * 
-     * <p>Relationship: REPC_MT210002CA.ActRequest2.code</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
+     * <p>Relationship: REPC_MT210001CA.Component8.actRequest</p>
      * 
-     * <p>A coded value denoting the specific service that has been 
-     * ordered through the referral.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: RequestedService</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210001CA.ActRequest2.code</p>
+     * <p>Relationship: REPC_MT210003CA.Component8.actRequest</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: RequestedService</p>
-     * 
-     * <p>Relationship: REPC_MT210003CA.ActRequest2.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps to reconcile to service that is subsequently 
-     * performed.</p><p> <i>This element makes use of the CD 
-     * datatype because some terminologies used for the domain 
-     * require use of modifiers.</i> </p><p> <i>The element uses 
-     * CWE to allow for the capture of Requested Service concepts 
-     * not presently supported by the approved code system(s). In 
-     * this case, the human-to-human benefit of capturing 
-     * additional non-coded values outweighs the penalties of 
-     * capturing some information that will not be amenable to 
-     * searching or categorizing.</i> </p>
-     * 
-     * <p>A coded value denoting the specific service that has been 
-     * ordered through the referral.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponentActRequestCode(ActProfessionalServiceCode componentActRequestCode) {
-        this.componentActRequestCode.setValue(componentActRequestCode);
+    public void setComponentActRequest(ActRequest2Bean componentActRequest) {
+        this.componentActRequest = componentActRequest;
     }
 
 

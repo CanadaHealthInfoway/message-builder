@@ -37,7 +37,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 

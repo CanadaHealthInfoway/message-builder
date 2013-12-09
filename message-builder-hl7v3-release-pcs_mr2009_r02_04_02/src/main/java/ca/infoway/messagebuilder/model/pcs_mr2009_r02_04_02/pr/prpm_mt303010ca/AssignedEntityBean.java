@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

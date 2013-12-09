@@ -48,9 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdministeredByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
@@ -96,7 +94,7 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -106,7 +104,7 @@ public class ImmunizationsBean extends MessagePartBean {
     private CV approachSiteCode = new CVImpl();
     private CV routeCode = new CVImpl();
     private PQ doseQuantity = new PQImpl();
-    private Patient_2Bean subjectPatient;
+    private AdministeredToBean subject;
     private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AdministeredByBean performer;
@@ -115,7 +113,7 @@ public class ImmunizationsBean extends MessagePartBean {
     private HealthcareWorkerBean authenticatorAssignedEntity;
     private OccurredAtBean location;
     private InFulfillmentOfBean inFulfillmentOf;
-    private Choice reasonChoice;
+    private ReasonBean reason;
     private ConsentBean authorizationConsent;
     private List<PatientImmunizationObservationsBean> pertinentInformationPatientImmunizationObservations = new ArrayList<PatientImmunizationObservationsBean>();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -982,48 +980,48 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public Patient_2Bean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"subject"})
+    public AdministeredToBean getSubject() {
+        return this.subject;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT030050CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT030060CA.Immunization.subject</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectPatient(Patient_2Bean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setSubject(AdministeredToBean subject) {
+        this.subject = subject;
     }
 
 
@@ -1438,48 +1436,48 @@ public class ImmunizationsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030050CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reason/choice"})
-    public Choice getReasonChoice() {
-        return this.reasonChoice;
+    @Hl7XmlMapping({"reason"})
+    public ReasonBean getReason() {
+        return this.reason;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030050CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT030050CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Reason.choice</p>
+     * <p>Relationship: POIZ_MT030060CA.Immunization.reason</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReasonChoice(Choice reasonChoice) {
-        this.reasonChoice = reasonChoice;
+    public void setReason(ReasonBean reason) {
+        this.reason = reason;
     }
 
 

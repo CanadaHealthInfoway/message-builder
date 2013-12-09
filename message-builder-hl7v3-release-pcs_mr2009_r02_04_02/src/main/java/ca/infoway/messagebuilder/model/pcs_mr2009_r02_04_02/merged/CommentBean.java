@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

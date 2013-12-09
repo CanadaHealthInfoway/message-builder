@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInformationAccessCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,44 +55,44 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private Recipient receiverRecipient;
+    private static final long serialVersionUID = 20131209L;
+    private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver/recipient"})
-    public Recipient getReceiverRecipient() {
-        return this.receiverRecipient;
+    @Hl7XmlMapping({"receiver"})
+    public ConsentGivenToBean getReceiver() {
+        return this.receiver;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470012CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
+     * <p>Relationship: COCT_MT470002CA.InformDefinition.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReceiverRecipient(Recipient receiverRecipient) {
-        this.receiverRecipient = receiverRecipient;
+    public void setReceiver(ConsentGivenToBean receiver) {
+        this.receiver = receiver;
     }
 
 

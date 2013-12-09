@@ -27,22 +27,20 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import java.util.Set;
 
 
@@ -79,13 +77,12 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Party, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice, EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private ST assignedOrganizationName = new STImpl();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN assignedPersonName = new PNImpl();
-    private II assignedPersonAsHealthCareProviderId = new IIImpl();
+    private ActingPersonBean assignedPerson;
     private II representedOrganizationId = new IIImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
     private SET<TEL, TelecommunicationAddress> representedOrganizationAssignedOrganizationTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -321,154 +318,42 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>Relationship: COCT_MT090108CA.Person.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>This is a human-readable name and is essential for 
-     * validation of the person. As a result, the attribute is 
-     * mandatory</p>
-     * 
-     * <p>The name of the involved person.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"assignedPerson/name"})
-    public PersonName getAssignedPersonName() {
-        return this.assignedPersonName.getValue();
+    @Hl7XmlMapping({"assignedPerson"})
+    public ActingPersonBean getAssignedPerson() {
+        return this.assignedPerson;
     }
 
     /**
-     * <p>Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
+     * <p>Relationship: 
+     * COCT_MT090108CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>Relationship: COCT_MT090108CA.Person.name</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Relationship: 
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>This is a human-readable name and is essential for 
-     * validation of the person. As a result, the attribute is 
-     * mandatory</p>
-     * 
-     * <p>The name of the involved person.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAssignedPersonName(PersonName assignedPersonName) {
-        this.assignedPersonName.setValue(assignedPersonName);
-    }
-
-
-    /**
-     * <p>Business Name: LicenseNumber</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p><p>Detailed information about the 
-     * status and effective period of licenses must be retrieved 
-     * from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    @Hl7XmlMapping({"assignedPerson/asHealthCareProvider/id"})
-    public Identifier getAssignedPersonAsHealthCareProviderId() {
-        return this.assignedPersonAsHealthCareProviderId.getValue();
-    }
-
-    /**
-     * <p>Business Name: LicenseNumber</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: COCT_MT090108CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p><p>Detailed information about the 
-     * status and effective period of licenses must be retrieved 
-     * from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    public void setAssignedPersonAsHealthCareProviderId(Identifier assignedPersonAsHealthCareProviderId) {
-        this.assignedPersonAsHealthCareProviderId.setValue(assignedPersonAsHealthCareProviderId);
+    public void setAssignedPerson(ActingPersonBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
     }
 
 

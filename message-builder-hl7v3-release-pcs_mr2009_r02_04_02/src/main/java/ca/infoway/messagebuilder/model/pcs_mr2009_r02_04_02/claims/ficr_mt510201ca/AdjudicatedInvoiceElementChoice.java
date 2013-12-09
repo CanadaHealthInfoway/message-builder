@@ -21,9 +21,7 @@
 package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.datatype.MO;
-import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.lang.Money;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AllowableBean;
 
 
 
@@ -37,22 +35,18 @@ public interface AdjudicatedInvoiceElementChoice {
 
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Money getReference1AllowableNetAmt();
+    public AllowableBean getReference1Allowable();
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableBean reference1Allowable);
 
 
     /**

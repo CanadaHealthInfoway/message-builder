@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -51,7 +50,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActCommonCodedClinicalObservationCategoryListCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CommonCodedClinicalObservationType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
@@ -105,7 +103,7 @@ import java.util.Set;
 @Hl7RootType
 public class CodedObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -123,14 +121,14 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     private OccurredAtBean location;
     private Request_2Bean inFulfillmentOfActRequest;
     private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
-    private List<II> predecessorOldCommonObservationEventId = new ArrayList<II>();
+    private List<OldCommonObservationEventBean> predecessorOldCommonObservationEvent = new ArrayList<OldCommonObservationEventBean>();
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private List<ComponentObservations_2Bean> componentSubObservationEvent = new ArrayList<ComponentObservations_2Bean>();
-    private II successorNewCommonObservationEventId = new IIImpl();
+    private NewCommonObservationEventBean successorNewCommonObservationEvent;
     private IncludesBean subjectOf;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private List<CV> componentOf2WorkingListEventCode = new ArrayList<CV>();
+    private List<Component2Bean> componentOf2 = new ArrayList<Component2Bean>();
 
 
     /**
@@ -1157,57 +1155,23 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: ReplacesRecordIds</p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003CA.OldCommonObservationEvent.id</p>
+     * REPC_MT420003CA.Predecessor.oldCommonObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420001CA.OldCommonObservationEvent.id</p>
+     * REPC_MT420001CA.Predecessor.oldCommonObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldCommonObservationEvent/id"})
-    public List<Identifier> getPredecessorOldCommonObservationEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldCommonObservationEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldCommonObservationEvent"})
+    public List<OldCommonObservationEventBean> getPredecessorOldCommonObservationEvent() {
+        return this.predecessorOldCommonObservationEvent;
     }
 
 
@@ -1254,46 +1218,28 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: ReplaceByRecordId</p>
-     * 
-     * <p>Un-merged Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
+     * REPC_MT420003CA.Predecessor2.newCommonObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newCommonObservationEvent/id"})
-    public Identifier getSuccessorNewCommonObservationEventId() {
-        return this.successorNewCommonObservationEventId.getValue();
+    @Hl7XmlMapping({"successor/newCommonObservationEvent"})
+    public NewCommonObservationEventBean getSuccessorNewCommonObservationEvent() {
+        return this.successorNewCommonObservationEvent;
     }
 
     /**
-     * <p>Business Name: ReplaceByRecordId</p>
-     * 
-     * <p>Un-merged Business Name: ReplaceByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT420003CA.NewCommonObservationEvent.id</p>
+     * REPC_MT420003CA.Predecessor2.newCommonObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewCommonObservationEventId(Identifier successorNewCommonObservationEventId) {
-        this.successorNewCommonObservationEventId.setValue(successorNewCommonObservationEventId);
+    public void setSuccessorNewCommonObservationEvent(NewCommonObservationEventBean successorNewCommonObservationEvent) {
+        this.successorNewCommonObservationEvent = successorNewCommonObservationEvent;
     }
 
 
@@ -1393,31 +1339,16 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: ObservationCategories</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ObservationCategories</p>
+     * <p>Relationship: 
+     * REPC_MT420003CA.CommonObservationEvent.componentOf2</p>
      * 
-     * <p>Relationship: REPC_MT420003CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows categorizing of observations for presentation. A 
-     * given person may have had numerous observations related to a 
-     * particular area. By associating categories, a person viewing 
-     * the EHR information can first look at a list of categories 
-     * and then drill down to the specific observation.</p><p>The 
-     * presence of this field is essential to prevent users from 
-     * being overwhelmed, however not all observations will 
-     * necessarily be categorizable. Therefore this element is 
-     * marked as 'populated'.</p>
-     * 
-     * <p>Describes the categorization of the 
-     * observation.</p><p>E.g. signs and symptoms, history 
-     * observations, etc.</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
      */
-    @Hl7XmlMapping({"componentOf2/workingListEvent/code"})
-    public List<ActCommonCodedClinicalObservationCategoryListCode> getComponentOf2WorkingListEventCode() {
-        return new RawListWrapper<CV, ActCommonCodedClinicalObservationCategoryListCode>(componentOf2WorkingListEventCode, CVImpl.class);
+    @Hl7XmlMapping({"componentOf2"})
+    public List<Component2Bean> getComponentOf2() {
+        return this.componentOf2;
     }
 
 }

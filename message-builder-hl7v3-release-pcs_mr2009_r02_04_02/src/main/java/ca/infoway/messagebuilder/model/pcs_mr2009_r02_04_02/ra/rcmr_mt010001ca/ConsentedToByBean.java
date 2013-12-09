@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.ra.merged.PatientBea
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV modeCode = new CVImpl();
     private Consenter consenter;
 

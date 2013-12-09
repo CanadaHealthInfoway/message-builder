@@ -42,6 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
 @Hl7PartTypeMapping({"PORX_IN010400CA"})
 public class ActivatePrescriptionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

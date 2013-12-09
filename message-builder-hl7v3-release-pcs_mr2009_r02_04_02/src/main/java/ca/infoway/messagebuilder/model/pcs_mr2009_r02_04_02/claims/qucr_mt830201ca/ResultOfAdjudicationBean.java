@@ -24,7 +24,6 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
@@ -35,9 +34,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResult"})
 public class ResultOfAdjudicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
-    private List<II> referenceInvoiceElementGroupId = new ArrayList<II>();
+    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 
 
     /**
@@ -69,25 +68,14 @@ public class ResultOfAdjudicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Invoice Group ID</p>
+     * <p>Relationship: 
+     * QUCR_MT830201CA.AdjudicationResult.reference</p>
      * 
-     * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p></p><p>For example:</p><p>1. unique invoice group 
-     * identifier, independent of adjudicator recipient.</p><p>2. 
-     * sequential invoice grouping identifier by 
-     * adjudicator.</p><p>Obligation on adjudicator is to return 
-     * and communicate about this item with all identifiers (i.e. 
-     * identifier 1. and 2.).</p>
-     * 
-     * <p>Set of identifiers that uniquely identify the Invoice 
-     * Grouping.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"reference/invoiceElementGroup/id"})
-    public List<Identifier> getReferenceInvoiceElementGroupId() {
-        return new RawListWrapper<II, Identifier>(referenceInvoiceElementGroupId, IIImpl.class);
+    @Hl7XmlMapping({"reference"})
+    public List<AdjudicationResultReferenceBean> getReference() {
+        return this.reference;
     }
 
 }

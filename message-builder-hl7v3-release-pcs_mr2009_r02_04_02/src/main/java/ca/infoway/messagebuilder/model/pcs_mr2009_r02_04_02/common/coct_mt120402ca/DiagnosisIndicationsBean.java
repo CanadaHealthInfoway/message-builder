@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ProblemV
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private CD value = new CDImpl();
 

@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
@@ -37,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
@@ -46,14 +44,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CultureObservationCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.LabResultReportingProcessStepCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportableHealthIndicatorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultSortKeyBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.WasPerformedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,26 +77,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private SpecimenRoleBean specimenSpecimen;
+    private ReportSectionSpecimenBean specimen;
     private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
-    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private List<SupportingClinicalInformationBean> pertinentInformation1SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private II pertinentInformation2OutbreakEventId = new IIImpl();
+    private OutbreakBean pertinentInformation2OutbreakEvent;
     private List<CultureObservationsBean> component1CultureObservationEvent = new ArrayList<CultureObservationsBean>();
-    private ST component2ResultSortKeyText = new STImpl();
+    private ResultSortKeyBean component2ResultSortKey;
     private List<HasAComponentBean> component3 = new ArrayList<HasAComponentBean>();
     private List<ReportableHealthIndicatorBean> component4ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
     private VersionInformationBean subjectOf1ControlActEvent;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private CD subjectOf3ResultStatusProcessStepCode = new CDImpl();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
     /**
@@ -228,22 +228,22 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * <p>Relationship: POLB_MT004100CA.Culture.specimen</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"specimen/specimen"})
-    public SpecimenRoleBean getSpecimenSpecimen() {
-        return this.specimenSpecimen;
+    @Hl7XmlMapping({"specimen"})
+    public ReportSectionSpecimenBean getSpecimen() {
+        return this.specimen;
     }
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * <p>Relationship: POLB_MT004100CA.Culture.specimen</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSpecimenSpecimen(SpecimenRoleBean specimenSpecimen) {
-        this.specimenSpecimen = specimenSpecimen;
+    public void setSpecimen(ReportSectionSpecimenBean specimen) {
+        this.specimen = specimen;
     }
 
 
@@ -259,13 +259,13 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Performer.roleChoice</p>
+     * <p>Relationship: POLB_MT004100CA.Culture.performer</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-2)</p>
      */
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
     }
 
 
@@ -316,44 +316,24 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"pertinentInformation2/outbreakEvent/id"})
-    public Identifier getPertinentInformation2OutbreakEventId() {
-        return this.pertinentInformation2OutbreakEventId.getValue();
+    @Hl7XmlMapping({"pertinentInformation2/outbreakEvent"})
+    public OutbreakBean getPertinentInformation2OutbreakEvent() {
+        return this.pertinentInformation2OutbreakEvent;
     }
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004100CA.PertinentInformation2.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004100CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformation2OutbreakEventId(Identifier pertinentInformation2OutbreakEventId) {
-        this.pertinentInformation2OutbreakEventId.setValue(pertinentInformation2OutbreakEventId);
+    public void setPertinentInformation2OutbreakEvent(OutbreakBean pertinentInformation2OutbreakEvent) {
+        this.pertinentInformation2OutbreakEvent = pertinentInformation2OutbreakEvent;
     }
 
 
@@ -370,26 +350,22 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004100CA.Component7.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2/resultSortKey/text"})
-    public String getComponent2ResultSortKeyText() {
-        return this.component2ResultSortKeyText.getValue();
+    @Hl7XmlMapping({"component2/resultSortKey"})
+    public ResultSortKeyBean getComponent2ResultSortKey() {
+        return this.component2ResultSortKey;
     }
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004100CA.Component7.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004100CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2ResultSortKeyText(String component2ResultSortKeyText) {
-        this.component2ResultSortKeyText.setValue(component2ResultSortKeyText);
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
+        this.component2ResultSortKey = component2ResultSortKey;
     }
 
 
@@ -448,34 +424,24 @@ public class CultureGrouperObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep/code"})
-    public LabResultReportingProcessStepCode getSubjectOf3ResultStatusProcessStepCode() {
-        return (LabResultReportingProcessStepCode) this.subjectOf3ResultStatusProcessStepCode.getValue();
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
     }
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf3ResultStatusProcessStepCode(LabResultReportingProcessStepCode subjectOf3ResultStatusProcessStepCode) {
-        this.subjectOf3ResultStatusProcessStepCode.setValue(subjectOf3ResultStatusProcessStepCode);
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

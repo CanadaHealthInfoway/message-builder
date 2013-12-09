@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Reportab
 @Hl7PartTypeMapping({"POLB_MT004000CA.ReportableTestIndicator","POLB_MT004100CA.ReportableTestIndicator","POLB_MT004200CA.ReportableTestIndicator"})
 public class ReportableHealthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private BL value = new BLImpl();
 

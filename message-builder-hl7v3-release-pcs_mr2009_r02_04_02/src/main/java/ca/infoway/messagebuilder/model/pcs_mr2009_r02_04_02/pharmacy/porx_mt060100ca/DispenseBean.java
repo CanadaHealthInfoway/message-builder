@@ -61,7 +61,7 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

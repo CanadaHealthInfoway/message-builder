@@ -58,7 +58,7 @@ import java.util.List;
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private TS effectiveTime = new TSImpl();
@@ -66,7 +66,7 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private List<AdjudicatedInvoiceElementGroupBean> reasonOfAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
 
 
     /**
@@ -227,13 +227,13 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * FICR_MT510201CA.Reason2.adjudicatedInvoiceElementGroup</p>
+     * FICR_MT510201CA.FinancialTransactionIntent.reasonOf</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"reasonOf/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReasonOfAdjudicatedInvoiceElementGroup() {
-        return this.reasonOfAdjudicatedInvoiceElementGroup;
+    @Hl7XmlMapping({"reasonOf"})
+    public List<Reason2Bean> getReasonOf() {
+        return this.reasonOf;
     }
 
 }

@@ -22,27 +22,18 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
-import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInformRequestType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 
 
 
 @Hl7PartTypeMapping({"PRPM_MT301010CA.SequelTo","PRPM_MT303010CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private INT sequenceNumber = new INTImpl();
-    private CV informRequestCode = new CVImpl();
-    private CV informRequestSubjectModeCode = new CVImpl();
-    private ServiceDeliveryLocationBean informRequestSubjectServiceDeliveryLocation;
-    private Choice informRequestIndirectTargetChoice;
+    private InformRequestBean informRequest;
 
 
     /**
@@ -98,206 +89,38 @@ public class SequelToBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: InformRequestCode</p>
-     * 
-     * <p>Un-merged Business Name: InformRequestCode</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
-     * 
-     * <p>A coded value denoting a specific document type that a 
-     * provider expresses to have routed to them from the Service 
-     * Delivery Location to which they are associated.</p>
-     * 
-     * <p>Un-merged Business Name: InformRequestCode</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
-     * 
-     * <p>A coded value denoting a specific document type that a 
-     * provider expresses to have routed to them from the Service 
-     * Delivery Location to which they are associated.</p>
-     */
-    @Hl7XmlMapping({"informRequest/code"})
-    public ActInformRequestType getInformRequestCode() {
-        return (ActInformRequestType) this.informRequestCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: InformRequestCode</p>
-     * 
-     * <p>Un-merged Business Name: InformRequestCode</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.InformRequest.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
-     * 
-     * <p>A coded value denoting a specific document type that a 
-     * provider expresses to have routed to them from the Service 
-     * Delivery Location to which they are associated.</p>
-     * 
-     * <p>Un-merged Business Name: InformRequestCode</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.InformRequest.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated - Allows providers to request that specific 
-     * document(s) be routed from an SDL to them.</p>
-     * 
-     * <p>A coded value denoting a specific document type that a 
-     * provider expresses to have routed to them from the Service 
-     * Delivery Location to which they are associated.</p>
-     */
-    public void setInformRequestCode(ActInformRequestType informRequestCode) {
-        this.informRequestCode.setValue(informRequestCode);
-    }
-
-
-    /**
-     * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
-     */
-    @Hl7XmlMapping({"informRequest/subject/modeCode"})
-    public ParticipationMode getInformRequestSubjectModeCode() {
-        return (ParticipationMode) this.informRequestSubjectModeCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Populated</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationParticipationMode</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>A code specifying the modality by which the Entity 
-     * playing the Role is participating in the Act.</p>
-     */
-    public void setInformRequestSubjectModeCode(ParticipationMode informRequestSubjectModeCode) {
-        this.informRequestSubjectModeCode.setValue(informRequestSubjectModeCode);
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"informRequest/subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getInformRequestSubjectServiceDeliveryLocation() {
-        return this.informRequestSubjectServiceDeliveryLocation;
+    @Hl7XmlMapping({"informRequest"})
+    public InformRequestBean getInformRequest() {
+        return this.informRequest;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.Subject.serviceDeliveryLocation</p>
+     * <p>Relationship: PRPM_MT301010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PRPM_MT303010CA.Subject.serviceDeliveryLocation</p>
+     * <p>Relationship: PRPM_MT303010CA.SequelTo.informRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setInformRequestSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean informRequestSubjectServiceDeliveryLocation) {
-        this.informRequestSubjectServiceDeliveryLocation = informRequestSubjectServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"informRequest/indirectTarget/choice"})
-    public Choice getInformRequestIndirectTargetChoice() {
-        return this.informRequestIndirectTargetChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setInformRequestIndirectTargetChoice(Choice informRequestIndirectTargetChoice) {
-        this.informRequestIndirectTargetChoice = informRequestIndirectTargetChoice;
+    public void setInformRequest(InformRequestBean informRequest) {
+        this.informRequest = informRequest;
     }
 
 }

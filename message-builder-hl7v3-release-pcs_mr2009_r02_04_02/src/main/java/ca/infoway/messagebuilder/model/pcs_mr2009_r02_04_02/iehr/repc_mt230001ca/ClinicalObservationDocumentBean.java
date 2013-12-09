@@ -25,15 +25,11 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ClinicalReportDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -41,6 +37,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldClinicalDocumentEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
@@ -68,14 +65,14 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AuthorBean author;
     private ActingPerson informantActingPerson;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<II> predecessorOldClinicalDocumentEventId = new ArrayList<II>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private SectionBean componentStructuredBodyComponentSection;
     private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -287,33 +284,14 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: G:Replaces Record Ids</p>
+     * <p>Relationship: 
+     * REPC_MT230001CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT230001CA.OldClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once. May also be used when this is a newer 
-     * &quot;version&quot; of the type of Clinical Observation 
-     * Document than those records being referenced.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent/id"})
-    public List<Identifier> getPredecessorOldClinicalDocumentEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldClinicalDocumentEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
     }
 
 

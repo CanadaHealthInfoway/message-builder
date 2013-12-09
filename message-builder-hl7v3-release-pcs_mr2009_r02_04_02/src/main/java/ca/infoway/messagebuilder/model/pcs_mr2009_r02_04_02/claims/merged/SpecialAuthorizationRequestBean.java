@@ -43,6 +43,7 @@ import ca.infoway.messagebuilder.domainvalue.ActPriority;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt400001ca.FormRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActSpecialAuthorizationCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
@@ -57,7 +58,7 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -67,9 +68,9 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private II directTargetFormRolePlayingFormId = new IIImpl();
+    private FormRoleBean directTargetFormRole;
     private ContactPartyBean callBackContactContactParty;
-    private II predecessorSpecialAuthorizationRequestCrossReferenceId = new IIImpl();
+    private SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference;
     private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
     private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
@@ -548,30 +549,26 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: FormNumberVersion</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: FormNumberVersion</p>
-     * 
-     * <p>Relationship: FICR_MT400001CA.Form.id</p>
+     * <p>Relationship: FICR_MT400001CA.DirectTarget3.formRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"directTarget/formRole/playingForm/id"})
-    public Identifier getDirectTargetFormRolePlayingFormId() {
-        return this.directTargetFormRolePlayingFormId.getValue();
+    @Hl7XmlMapping({"directTarget/formRole"})
+    public FormRoleBean getDirectTargetFormRole() {
+        return this.directTargetFormRole;
     }
 
     /**
-     * <p>Business Name: FormNumberVersion</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: FormNumberVersion</p>
-     * 
-     * <p>Relationship: FICR_MT400001CA.Form.id</p>
+     * <p>Relationship: FICR_MT400001CA.DirectTarget3.formRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDirectTargetFormRolePlayingFormId(Identifier directTargetFormRolePlayingFormId) {
-        this.directTargetFormRolePlayingFormId.setValue(directTargetFormRolePlayingFormId);
+    public void setDirectTargetFormRole(FormRoleBean directTargetFormRole) {
+        this.directTargetFormRole = directTargetFormRole;
     }
 
 
@@ -602,32 +599,28 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: CrossReferenceID</p>
-     * 
-     * <p>Un-merged Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * FICR_MT400001CA.Predecessor.specialAuthorizationRequestCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference/id"})
-    public Identifier getPredecessorSpecialAuthorizationRequestCrossReferenceId() {
-        return this.predecessorSpecialAuthorizationRequestCrossReferenceId.getValue();
+    @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference"})
+    public SpecialAuthorizationRequestCrossReferenceBean getPredecessorSpecialAuthorizationRequestCrossReference() {
+        return this.predecessorSpecialAuthorizationRequestCrossReference;
     }
 
     /**
-     * <p>Business Name: CrossReferenceID</p>
-     * 
-     * <p>Un-merged Business Name: CrossReferenceID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT400001CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * FICR_MT400001CA.Predecessor.specialAuthorizationRequestCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPredecessorSpecialAuthorizationRequestCrossReferenceId(Identifier predecessorSpecialAuthorizationRequestCrossReferenceId) {
-        this.predecessorSpecialAuthorizationRequestCrossReferenceId.setValue(predecessorSpecialAuthorizationRequestCrossReferenceId);
+    public void setPredecessorSpecialAuthorizationRequestCrossReference(SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference) {
+        this.predecessorSpecialAuthorizationRequestCrossReference = predecessorSpecialAuthorizationRequestCrossReference;
     }
 
 

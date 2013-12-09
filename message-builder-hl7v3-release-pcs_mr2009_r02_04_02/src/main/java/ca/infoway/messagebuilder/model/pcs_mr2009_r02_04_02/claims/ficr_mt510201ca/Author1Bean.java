@@ -23,14 +23,12 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt51020
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AdjudicatorIdBean;
 import java.util.Date;
 
 
@@ -38,12 +36,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
-    private II adjudicatorRoleId = new IIImpl();
-    private AdjudicatorPersonBean adjudicatorRolePlayingAdjudicatorPerson;
-    private II adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId = new IIImpl();
+    private AdjudicatorIdBean adjudicatorRole;
 
 
     /**
@@ -91,72 +87,22 @@ public class Author1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Adjudicator Id</p>
+     * <p>Relationship: FICR_MT510201CA.Author1.adjudicatorRole</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"adjudicatorRole/id"})
-    public Identifier getAdjudicatorRoleId() {
-        return this.adjudicatorRoleId.getValue();
+    @Hl7XmlMapping({"adjudicatorRole"})
+    public AdjudicatorIdBean getAdjudicatorRole() {
+        return this.adjudicatorRole;
     }
 
     /**
-     * <p>Business Name: Adjudicator Id</p>
+     * <p>Relationship: FICR_MT510201CA.Author1.adjudicatorRole</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.AdjudicatorRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAdjudicatorRoleId(Identifier adjudicatorRoleId) {
-        this.adjudicatorRoleId.setValue(adjudicatorRoleId);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorPerson"})
-    public AdjudicatorPersonBean getAdjudicatorRolePlayingAdjudicatorPerson() {
-        return this.adjudicatorRolePlayingAdjudicatorPerson;
-    }
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT510201CA.AdjudicatorRole.playingAdjudicatorPerson</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setAdjudicatorRolePlayingAdjudicatorPerson(AdjudicatorPersonBean adjudicatorRolePlayingAdjudicatorPerson) {
-        this.adjudicatorRolePlayingAdjudicatorPerson = adjudicatorRolePlayingAdjudicatorPerson;
-    }
-
-
-    /**
-     * <p>Business Name: Adjudicator Insurance Carrier ID</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"adjudicatorRole/directAuthority/insuranceCarrierRole/id"})
-    public Identifier getAdjudicatorRoleDirectAuthorityInsuranceCarrierRoleId() {
-        return this.adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId.getValue();
-    }
-
-    /**
-     * <p>Business Name: Adjudicator Insurance Carrier ID</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.InsuranceCarrierRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAdjudicatorRoleDirectAuthorityInsuranceCarrierRoleId(Identifier adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId) {
-        this.adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId.setValue(adjudicatorRoleDirectAuthorityInsuranceCarrierRoleId);
+    public void setAdjudicatorRole(AdjudicatorIdBean adjudicatorRole) {
+        this.adjudicatorRole = adjudicatorRole;
     }
 
 }

@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -46,6 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EHRRep
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldClinicalDocumentEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Section_3Bean;
@@ -75,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private ST title = new STImpl();
@@ -86,9 +87,9 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<II> predecessorOldClinicalDocumentEventId = new ArrayList<II>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private Section_3Bean componentStructuredBodyComponentSection;
-    private II successorNewClinicalDocumentEventId = new IIImpl();
+    private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
     private IncludesBean subjectOf1;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -411,33 +412,14 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: G:Replaces Record Ids</p>
+     * <p>Relationship: 
+     * REPC_MT230003CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT230003CA.OldClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once. May also be used when this is a newer 
-     * &quot;version&quot; of the type of Clinical Observation 
-     * Document than those records being referenced.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent/id"})
-    public List<Identifier> getPredecessorOldClinicalDocumentEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldClinicalDocumentEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
     }
 
 
@@ -462,44 +444,24 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: H:Replaced by Record Id</p>
+     * <p>Relationship: 
+     * REPC_MT230003CA.Predecessor.newClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newClinicalDocumentEvent/id"})
-    public Identifier getSuccessorNewClinicalDocumentEventId() {
-        return this.successorNewClinicalDocumentEventId.getValue();
+    @Hl7XmlMapping({"successor/newClinicalDocumentEvent"})
+    public NewClinicalDocumentEventBean getSuccessorNewClinicalDocumentEvent() {
+        return this.successorNewClinicalDocumentEvent;
     }
 
     /**
-     * <p>Business Name: H:Replaced by Record Id</p>
+     * <p>Relationship: 
+     * REPC_MT230003CA.Predecessor.newClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT230003CA.NewClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists. May also be used 
-     * when there is a newer &quot;version&quot; of the type of the 
-     * Clinical Observation Document.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewClinicalDocumentEventId(Identifier successorNewClinicalDocumentEventId) {
-        this.successorNewClinicalDocumentEventId.setValue(successorNewClinicalDocumentEventId);
+    public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
+        this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
     }
 
 

@@ -23,24 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004100ca
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.IVL;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.LabResultReportingProcessStepCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
-import java.util.Date;
 
 
 
@@ -53,16 +37,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Component2"})
 public class HasAComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private BL contextConductionInd = new BLImpl();
-    private ST specimenObservationClusterText = new STImpl();
-    private CS specimenObservationClusterStatusCode = new CSImpl();
-    private IVL<TS, Interval<Date>> specimenObservationClusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private RoleChoice specimenObservationClusterPerformerRoleChoice;
-    private IsolateObservationsBean specimenObservationClusterComponent1IsolateObservationEvent;
-    private OrganismIdentificatonObservationsBean specimenObservationClusterComponent2OrganismIdentificationEvent;
-    private SensitivityBatteryBean specimenObservationClusterComponent3SensitivityBattery;
-    private CD specimenObservationClusterSubjectOfResultStatusProcessStepCode = new CDImpl();
+    private SpecimenObservationClusterBean specimenObservationCluster;
 
 
     /**
@@ -88,231 +65,24 @@ public class HasAComponentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Cluster Comment</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Comments associated with the Isolate Cluster.</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/text"})
-    public String getSpecimenObservationClusterText() {
-        return this.specimenObservationClusterText.getValue();
-    }
-
-    /**
-     * <p>Business Name: Cluster Comment</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.text</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Comments associated with the Isolate Cluster.</p>
-     */
-    public void setSpecimenObservationClusterText(String specimenObservationClusterText) {
-        this.specimenObservationClusterText.setValue(specimenObservationClusterText);
-    }
-
-
-    /**
-     * <p>Business Name: Cluster Status</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Status associated with the isolate cluster.</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/statusCode"})
-    public ActStatus getSpecimenObservationClusterStatusCode() {
-        return (ActStatus) this.specimenObservationClusterStatusCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: Cluster Status</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.statusCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Status associated with the isolate cluster.</p>
-     */
-    public void setSpecimenObservationClusterStatusCode(ActStatus specimenObservationClusterStatusCode) {
-        this.specimenObservationClusterStatusCode.setValue(specimenObservationClusterStatusCode);
-    }
-
-
-    /**
-     * <p>Business Name: Cluster Effective Time</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Effective time associated with the Isolate Cluster.</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/effectiveTime"})
-    public Interval<Date> getSpecimenObservationClusterEffectiveTime() {
-        return this.specimenObservationClusterEffectiveTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: Cluster Effective Time</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.SpecimenObservationCluster.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Effective time associated with the Isolate Cluster.</p>
-     */
-    public void setSpecimenObservationClusterEffectiveTime(Interval<Date> specimenObservationClusterEffectiveTime) {
-        this.specimenObservationClusterEffectiveTime.setValue(specimenObservationClusterEffectiveTime);
-    }
-
-
-    /**
-     * <p>Relationship: POLB_MT004100CA.Performer.roleChoice</p>
+     * POLB_MT004100CA.Component2.specimenObservationCluster</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"specimenObservationCluster/performer/roleChoice"})
-    public RoleChoice getSpecimenObservationClusterPerformerRoleChoice() {
-        return this.specimenObservationClusterPerformerRoleChoice;
+    @Hl7XmlMapping({"specimenObservationCluster"})
+    public SpecimenObservationClusterBean getSpecimenObservationCluster() {
+        return this.specimenObservationCluster;
     }
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Performer.roleChoice</p>
+     * <p>Relationship: 
+     * POLB_MT004100CA.Component2.specimenObservationCluster</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSpecimenObservationClusterPerformerRoleChoice(RoleChoice specimenObservationClusterPerformerRoleChoice) {
-        this.specimenObservationClusterPerformerRoleChoice = specimenObservationClusterPerformerRoleChoice;
-    }
-
-    public HealthcareOrganizationBean getSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity1() {
-        return this.specimenObservationClusterPerformerRoleChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.specimenObservationClusterPerformerRoleChoice : null;
-    }
-    public boolean hasSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity1() {
-        return (this.specimenObservationClusterPerformerRoleChoice instanceof HealthcareOrganizationBean);
-    }
-
-    public HealthcareWorkerBean getSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity2() {
-        return this.specimenObservationClusterPerformerRoleChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.specimenObservationClusterPerformerRoleChoice : null;
-    }
-    public boolean hasSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity2() {
-        return (this.specimenObservationClusterPerformerRoleChoice instanceof HealthcareWorkerBean);
-    }
-
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean getSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity3() {
-        return this.specimenObservationClusterPerformerRoleChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean) this.specimenObservationClusterPerformerRoleChoice : null;
-    }
-    public boolean hasSpecimenObservationClusterPerformerRoleChoiceAsAssignedEntity3() {
-        return (this.specimenObservationClusterPerformerRoleChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component3.isolateObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/component1/isolateObservationEvent"})
-    public IsolateObservationsBean getSpecimenObservationClusterComponent1IsolateObservationEvent() {
-        return this.specimenObservationClusterComponent1IsolateObservationEvent;
-    }
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component3.isolateObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSpecimenObservationClusterComponent1IsolateObservationEvent(IsolateObservationsBean specimenObservationClusterComponent1IsolateObservationEvent) {
-        this.specimenObservationClusterComponent1IsolateObservationEvent = specimenObservationClusterComponent1IsolateObservationEvent;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component4.organismIdentificationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/component2/organismIdentificationEvent"})
-    public OrganismIdentificatonObservationsBean getSpecimenObservationClusterComponent2OrganismIdentificationEvent() {
-        return this.specimenObservationClusterComponent2OrganismIdentificationEvent;
-    }
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component4.organismIdentificationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSpecimenObservationClusterComponent2OrganismIdentificationEvent(OrganismIdentificatonObservationsBean specimenObservationClusterComponent2OrganismIdentificationEvent) {
-        this.specimenObservationClusterComponent2OrganismIdentificationEvent = specimenObservationClusterComponent2OrganismIdentificationEvent;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component5.sensitivityBattery</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/component3/sensitivityBattery"})
-    public SensitivityBatteryBean getSpecimenObservationClusterComponent3SensitivityBattery() {
-        return this.specimenObservationClusterComponent3SensitivityBattery;
-    }
-
-    /**
-     * <p>Relationship: 
-     * POLB_MT004100CA.Component5.sensitivityBattery</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSpecimenObservationClusterComponent3SensitivityBattery(SensitivityBatteryBean specimenObservationClusterComponent3SensitivityBattery) {
-        this.specimenObservationClusterComponent3SensitivityBattery = specimenObservationClusterComponent3SensitivityBattery;
-    }
-
-
-    /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
-     */
-    @Hl7XmlMapping({"specimenObservationCluster/subjectOf/resultStatusProcessStep/code"})
-    public LabResultReportingProcessStepCode getSpecimenObservationClusterSubjectOfResultStatusProcessStepCode() {
-        return (LabResultReportingProcessStepCode) this.specimenObservationClusterSubjectOfResultStatusProcessStepCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
-     * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
-     */
-    public void setSpecimenObservationClusterSubjectOfResultStatusProcessStepCode(LabResultReportingProcessStepCode specimenObservationClusterSubjectOfResultStatusProcessStepCode) {
-        this.specimenObservationClusterSubjectOfResultStatusProcessStepCode.setValue(specimenObservationClusterSubjectOfResultStatusProcessStepCode);
+    public void setSpecimenObservationCluster(SpecimenObservationClusterBean specimenObservationCluster) {
+        this.specimenObservationCluster = specimenObservationCluster;
     }
 
 }

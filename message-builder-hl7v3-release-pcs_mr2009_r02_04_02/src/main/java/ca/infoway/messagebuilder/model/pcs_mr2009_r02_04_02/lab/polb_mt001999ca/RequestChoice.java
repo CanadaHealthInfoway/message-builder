@@ -22,22 +22,17 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
-import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ReferralRedirectIndicator;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.LabInitiatedOrderIndicatorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OrderSortKeyBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ParentTestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.PriorTestRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.SpecimenRoleBean;
@@ -115,59 +110,37 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
 
 
     /**
-     * <p>Business Name: Parent Test Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001999CA.OccurrenceOf.actParentPointer</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to associate a repeating child order with it's 
-     * parent order.</p>
-     * 
-     * <p>Communicates the parent order (id) in a repeating child 
-     * order.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Identifier getOccurrenceOfActParentPointerId();
+    public ParentTestBean getOccurrenceOfActParentPointer();
 
     /**
-     * <p>Business Name: Parent Test Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001999CA.OccurrenceOf.actParentPointer</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.ActParentPointer.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to associate a repeating child order with it's 
-     * parent order.</p>
-     * 
-     * <p>Communicates the parent order (id) in a repeating child 
-     * order.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOccurrenceOfActParentPointerId(Identifier occurrenceOfActParentPointerId);
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer);
 
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001999CA.PertinentInformation2.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Identifier getPertinentInformation1OutbreakEventId();
+    public OutbreakBean getPertinentInformation1OutbreakEvent();
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT001999CA.PertinentInformation2.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows public health to identify an outbreak for which 
-     * this test is being conducted.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformation1OutbreakEventId(Identifier pertinentInformation1OutbreakEventId);
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
     /**
@@ -180,80 +153,52 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
 
 
     /**
-     * <p>Business Name: O:Referral Redirect Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
+     * POLB_MT001999CA.Component1.referralRedirectIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act event as a referral or redirect 
-     * indicator act.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public ReferralRedirectIndicator getComponent1ReferralRedirectIndicatorCode();
+    public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator();
 
     /**
-     * <p>Business Name: O:Referral Redirect Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001999CA.ReferralRedirectIndicator.code</p>
+     * POLB_MT001999CA.Component1.referralRedirectIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Describes this act event as a referral or redirect 
-     * indicator act.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ReferralRedirectIndicatorCode(ReferralRedirectIndicator component1ReferralRedirectIndicatorCode);
+    public void setComponent1ReferralRedirectIndicator(ReferralRedirectIndicatorBean component1ReferralRedirectIndicator);
 
 
     /**
-     * <p>Business Name: N:Sort Key Text</p>
+     * <p>Relationship: POLB_MT001999CA.Component2.requestSortKey</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public String getComponent2RequestSortKeyText();
+    public OrderSortKeyBean getComponent2RequestSortKey();
 
     /**
-     * <p>Business Name: N:Sort Key Text</p>
+     * <p>Relationship: POLB_MT001999CA.Component2.requestSortKey</p>
      * 
-     * <p>Relationship: POLB_MT001999CA.RequestSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting orders.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2RequestSortKeyText(String component2RequestSortKeyText);
+    public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey);
 
 
     /**
-     * <p>Business Name: Lab Initiated Order Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001999CA.Component.labInitiatedOrderIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Boolean getComponent3LabInitiatedOrderIndicatorNegationInd();
+    public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator();
 
     /**
-     * <p>Business Name: Lab Initiated Order Indicator</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT001999CA.LabInitiatedOrderIndicator.negationInd</p>
+     * POLB_MT001999CA.Component.labInitiatedOrderIndicator</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3LabInitiatedOrderIndicatorNegationInd(Boolean component3LabInitiatedOrderIndicatorNegationInd);
+    public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator);
 
 
     /**

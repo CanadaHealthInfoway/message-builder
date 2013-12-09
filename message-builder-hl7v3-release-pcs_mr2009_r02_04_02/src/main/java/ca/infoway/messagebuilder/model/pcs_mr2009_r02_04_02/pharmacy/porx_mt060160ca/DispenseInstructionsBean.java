@@ -22,20 +22,18 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt060
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ExtendedDispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Component3Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,13 +54,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private AD destinationServiceDeliveryLocationAddr = new ADImpl();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private OccurredAtBean location;
-    private List<ExtendedDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<ExtendedDispenseInstructionsBean>();
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
 
 
     /**
@@ -178,44 +176,24 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: H:Prescription Ship to Address</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * PORX_MT060160CA.Destination1.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/addr"})
-    public PostalAddress getDestinationServiceDeliveryLocationAddr() {
-        return this.destinationServiceDeliveryLocationAddr.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Business Name: H:Prescription Ship to Address</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT060160CA.ServiceDeliveryLocation2.addr</p>
+     * PORX_MT060160CA.Destination1.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDestinationServiceDeliveryLocationAddr(PostalAddress destinationServiceDeliveryLocationAddr) {
-        this.destinationServiceDeliveryLocationAddr.setValue(destinationServiceDeliveryLocationAddr);
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -240,14 +218,13 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060160CA.Component3.supplyRequestItem</p>
+     * <p>Relationship: PORX_MT060160CA.SupplyRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      */
-    @Hl7XmlMapping({"component/supplyRequestItem"})
-    public List<ExtendedDispenseInstructionsBean> getComponentSupplyRequestItem() {
-        return this.componentSupplyRequestItem;
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 }

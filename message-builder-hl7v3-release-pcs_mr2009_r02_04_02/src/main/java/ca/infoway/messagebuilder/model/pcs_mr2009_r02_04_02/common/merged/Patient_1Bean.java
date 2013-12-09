@@ -24,35 +24,23 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050007ca.PatientIdentifyingCharacteristicsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OtherSpecimenIdentificationsBean;
-import java.util.ArrayList;
-import java.util.Date;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import java.util.List;
 import java.util.Set;
 
@@ -87,17 +75,12 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ST certificateText = new STImpl();
-    private PN patientPersonName = new PNImpl();
-    private CV patientPersonAdministrativeGenderCode = new CVImpl();
-    private TS patientPersonBirthTime = new TSImpl();
-    private BL patientPersonDeceasedInd = new BLImpl();
-    private TS patientPersonDeceasedTime = new TSImpl();
-    private List<OtherSpecimenIdentificationsBean> patientPersonAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
+    private ActingPersonBean patientPerson;
     private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
 
 
@@ -240,207 +223,26 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
 
 
     /**
-     * <p>Business Name: PatientName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: PatientName</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.name</p>
+     * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used, with other patient identity attributes, to confirm 
-     * patient identity, as well as when addressing the patient. 
-     * Element is populated because the patient's name is 
-     * frequently necessary for positive identification of the 
-     * patient in the jurisdictional client registry.</p>
-     * 
-     * <p>The name by which the patient is known and which apply to 
-     * a particular clinical action that has been reported or 
-     * recorded.</p>
      */
-    @Hl7XmlMapping({"patientPerson/name"})
-    public PersonName getPatientPersonName() {
-        return this.patientPersonName.getValue();
+    @Hl7XmlMapping({"patientPerson"})
+    public ActingPersonBean getPatientPerson() {
+        return this.patientPerson;
     }
-
-    /**
-     * <p>Business Name: PatientName</p>
-     * 
-     * <p>Un-merged Business Name: PatientName</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used, with other patient identity attributes, to confirm 
-     * patient identity, as well as when addressing the patient. 
-     * Element is populated because the patient's name is 
-     * frequently necessary for positive identification of the 
-     * patient in the jurisdictional client registry.</p>
-     * 
-     * <p>The name by which the patient is known and which apply to 
-     * a particular clinical action that has been reported or 
-     * recorded.</p>
-     */
-    public void setPatientPersonName(PersonName patientPersonName) {
-        this.patientPersonName.setValue(patientPersonName);
-    }
-
-
-    /**
-     * <p>Business Name: PatientGender</p>
-     * 
-     * <p>Un-merged Business Name: PatientGender</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT050007CA.Person.administrativeGenderCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to confirm patient identity.</p>
-     * 
-     * <p>Indicates the gender (sex) of the patient. Complex 
-     * genetic genders are handled as observations if they are 
-     * considered relevant.</p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
-        return (AdministrativeGender) this.patientPersonAdministrativeGenderCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: PatientGender</p>
-     * 
-     * <p>Un-merged Business Name: PatientGender</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT050007CA.Person.administrativeGenderCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to confirm patient identity.</p>
-     * 
-     * <p>Indicates the gender (sex) of the patient. Complex 
-     * genetic genders are handled as observations if they are 
-     * considered relevant.</p>
-     */
-    public void setPatientPersonAdministrativeGenderCode(AdministrativeGender patientPersonAdministrativeGenderCode) {
-        this.patientPersonAdministrativeGenderCode.setValue(patientPersonAdministrativeGenderCode);
-    }
-
-
-    /**
-     * <p>Business Name: PatientBirthDatetime</p>
-     * 
-     * <p>Un-merged Business Name: PatientBirthDatetime</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.birthTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to confirm patient identity.</p>
-     * 
-     * <p>Indicates the date on which the patient was born.</p>
-     */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientPersonBirthTime() {
-        return this.patientPersonBirthTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: PatientBirthDatetime</p>
-     * 
-     * <p>Un-merged Business Name: PatientBirthDatetime</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.birthTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Used to confirm patient identity.</p>
-     * 
-     * <p>Indicates the date on which the patient was born.</p>
-     */
-    public void setPatientPersonBirthTime(Date patientPersonBirthTime) {
-        this.patientPersonBirthTime.setValue(patientPersonBirthTime);
-    }
-
-
-    /**
-     * <p>Business Name: PatientDeceasedIndicator</p>
-     * 
-     * <p>Un-merged Business Name: PatientDeceasedIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.deceasedInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Indicates whether the patient is deceased.</p>
-     */
-    @Hl7XmlMapping({"patientPerson/deceasedInd"})
-    public Boolean getPatientPersonDeceasedInd() {
-        return this.patientPersonDeceasedInd.getValue();
-    }
-
-    /**
-     * <p>Business Name: PatientDeceasedIndicator</p>
-     * 
-     * <p>Un-merged Business Name: PatientDeceasedIndicator</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.deceasedInd</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Indicates whether the patient is deceased.</p>
-     */
-    public void setPatientPersonDeceasedInd(Boolean patientPersonDeceasedInd) {
-        this.patientPersonDeceasedInd.setValue(patientPersonDeceasedInd);
-    }
-
-
-    /**
-     * <p>Business Name: PatientDeceasedDatetime</p>
-     * 
-     * <p>Un-merged Business Name: PatientDeceasedDatetime</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.deceasedTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>The date/time the patient died or was ruled 
-     * &quot;deceased.&quot;</p>
-     */
-    @Hl7XmlMapping({"patientPerson/deceasedTime"})
-    public Date getPatientPersonDeceasedTime() {
-        return this.patientPersonDeceasedTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: PatientDeceasedDatetime</p>
-     * 
-     * <p>Un-merged Business Name: PatientDeceasedDatetime</p>
-     * 
-     * <p>Relationship: COCT_MT050007CA.Person.deceasedTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>The date/time the patient died or was ruled 
-     * &quot;deceased.&quot;</p>
-     */
-    public void setPatientPersonDeceasedTime(Date patientPersonDeceasedTime) {
-        this.patientPersonDeceasedTime.setValue(patientPersonDeceasedTime);
-    }
-
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT050007CA.Person.asIdentifiedEntity</p>
+     * <p>Relationship: COCT_MT050007CA.Patient.patientPerson</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-4)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"patientPerson/asIdentifiedEntity"})
-    public List<OtherSpecimenIdentificationsBean> getPatientPersonAsIdentifiedEntity() {
-        return this.patientPersonAsIdentifiedEntity;
+    public void setPatientPerson(ActingPersonBean patientPerson) {
+        this.patientPerson = patientPerson;
     }
 
 

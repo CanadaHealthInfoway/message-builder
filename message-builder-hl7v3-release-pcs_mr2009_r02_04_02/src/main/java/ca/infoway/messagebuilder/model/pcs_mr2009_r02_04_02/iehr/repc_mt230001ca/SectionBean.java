@@ -23,15 +23,12 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt230001c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.ED;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ClinicalObservationDocumentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DocumentSectionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReferenceBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,11 +37,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private DocumentContent component1DocumentContent;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
-    private List<II> component3ReferenceId = new ArrayList<II>();
+    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
 
 
     /**
@@ -134,26 +131,13 @@ public class SectionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: L:Reference Record Links</p>
+     * <p>Relationship: REPC_MT230001CA.Component5.reference</p>
      * 
-     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
-     * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
-     * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component3/reference/id"})
-    public List<Identifier> getComponent3ReferenceId() {
-        return new RawListWrapper<II, Identifier>(component3ReferenceId, IIImpl.class);
+    @Hl7XmlMapping({"component3/reference"})
+    public List<ReferenceBean> getComponent3Reference() {
+        return this.component3Reference;
     }
 
 }

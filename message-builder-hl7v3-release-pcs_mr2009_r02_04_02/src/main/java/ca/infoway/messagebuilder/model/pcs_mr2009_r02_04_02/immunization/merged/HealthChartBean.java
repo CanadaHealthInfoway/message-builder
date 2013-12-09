@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
@@ -31,9 +29,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthChart","POIZ_MT030060CA.HealthChart","POIZ_MT060150CA.HealthChart"})
 public class HealthChartBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private AntigenValidityBean subjectOf1AntigenValidity;
-    private INT subjectOf2AntigenCountValue = new INTImpl();
+    private AntigenCountBean subjectOf2AntigenCount;
 
 
     /**
@@ -85,84 +83,50 @@ public class HealthChartBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
+     * <p>Relationship: POIZ_MT060150CA.Subject3.antigenCount</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
+     * <p>Relationship: POIZ_MT030060CA.Subject3.antigenCount</p>
      * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
+     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
-     * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf2/antigenCount/value"})
-    public Integer getSubjectOf2AntigenCountValue() {
-        return this.subjectOf2AntigenCountValue.getValue();
+    @Hl7XmlMapping({"subjectOf2/antigenCount"})
+    public AntigenCountBean getSubjectOf2AntigenCount() {
+        return this.subjectOf2AntigenCount;
     }
 
     /**
-     * <p>Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
+     * <p>Relationship: POIZ_MT060150CA.Subject3.antigenCount</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.AntigenCount.value</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
+     * <p>Relationship: POIZ_MT030060CA.Subject3.antigenCount</p>
      * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.AntigenCount.value</p>
+     * <p>Relationship: POIZ_MT030050CA.Subject3.antigenCount</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
-     * 
-     * <p>Un-merged Business Name: AntigenCountValue</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.AntigenCount.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf2AntigenCountValue(Integer subjectOf2AntigenCountValue) {
-        this.subjectOf2AntigenCountValue.setValue(subjectOf2AntigenCountValue);
+    public void setSubjectOf2AntigenCount(AntigenCountBean subjectOf2AntigenCount) {
+        this.subjectOf2AntigenCount = subjectOf2AntigenCount;
     }
 
 }

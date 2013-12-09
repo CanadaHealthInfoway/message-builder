@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.Attachment"})
 public class AttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
 

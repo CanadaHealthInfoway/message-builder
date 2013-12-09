@@ -24,15 +24,11 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.ED;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.DocumentSectionType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
@@ -96,11 +92,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.SubSection","REPC_MT210003CA.SubSection","REPC_MT220001CA.SubSection","REPC_MT220003CA.SubSection","REPC_MT230001CA.SubSection","REPC_MT230003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
-    private List<II> componentReferenceId = new ArrayList<II>();
+    private List<ReferenceBean> componentReference = new ArrayList<ReferenceBean>();
 
 
     /**
@@ -708,102 +704,45 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
+     * <p>Relationship: REPC_MT220001CA.Component7.reference</p>
      * 
-     * <p>Relationship: REPC_MT220001CA.Reference.id</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
+     * <p>Relationship: REPC_MT230003CA.Component7.reference</p>
      * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
+     * <p>Relationship: REPC_MT210003CA.Component7.reference</p>
      * 
-     * <p>Relationship: REPC_MT230003CA.Reference.id</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
+     * <p>Relationship: REPC_MT220003CA.Component7.reference</p>
      * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
+     * <p>Relationship: REPC_MT230001CA.Component7.reference</p>
      * 
-     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
+     * <p>Relationship: REPC_MT210001CA.Component7.reference</p>
      * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
-     * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
-     * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
-     * 
-     * <p>Relationship: REPC_MT220003CA.Reference.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
-     * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
-     * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
-     * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
-     * 
-     * <p>Relationship: REPC_MT230001CA.Reference.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
-     * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
-     * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
-     * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
-     * 
-     * <p>Relationship: REPC_MT210001CA.Reference.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component/reference/id"})
-    public List<Identifier> getComponentReferenceId() {
-        return new RawListWrapper<II, Identifier>(componentReferenceId, IIImpl.class);
+    @Hl7XmlMapping({"component/reference"})
+    public List<ReferenceBean> getComponentReference() {
+        return this.componentReference;
     }
 
 }

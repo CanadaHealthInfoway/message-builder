@@ -22,23 +22,21 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt020
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.Date;
 
 
@@ -46,14 +44,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private DrugProductBean productMedication;
-    private AD destinationServiceDeliveryLocationAddr = new ADImpl();
+    private DispensedBean product;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
@@ -273,58 +271,44 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
     }
 
     /**
-     * <p>Relationship: PORX_MT020070CA.Product2.medication</p>
+     * <p>Relationship: PORX_MT020070CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 
     /**
-     * <p>Business Name: I:Ship-To Address</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * PORX_MT020070CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/addr"})
-    public PostalAddress getDestinationServiceDeliveryLocationAddr() {
-        return this.destinationServiceDeliveryLocationAddr.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Business Name: I:Ship-To Address</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT020070CA.ServiceDeliveryLocation.addr</p>
+     * PORX_MT020070CA.Destination2.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Important as part of a claim for justifying shipping 
-     * charges.</p>
-     * 
-     * <p>Indicates where the dispensed product was sent.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDestinationServiceDeliveryLocationAddr(PostalAddress destinationServiceDeliveryLocationAddr) {
-        this.destinationServiceDeliveryLocationAddr.setValue(destinationServiceDeliveryLocationAddr);
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

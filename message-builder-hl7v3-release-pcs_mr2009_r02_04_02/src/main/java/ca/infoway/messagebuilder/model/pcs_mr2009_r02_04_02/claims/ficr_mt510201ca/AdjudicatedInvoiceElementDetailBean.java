@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceDetailCode;
 import java.math.BigDecimal;
 import java.util.Set;
@@ -50,14 +51,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
     private MO netAmt = new MOImpl();
     private REAL factorNumber = new REALImpl();
-    private MO reference1AllowableNetAmt = new MOImpl();
+    private AllowableBean reference1Allowable;
     private AdjudicationResultBean outcomeOfAdjudicationResult;
 
 
@@ -206,26 +207,22 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reference1/allowable/netAmt"})
-    public Money getReference1AllowableNetAmt() {
-        return this.reference1AllowableNetAmt.getValue();
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
     }
 
     /**
-     * <p>Business Name: Fee Scheduled Eligibile Amt.</p>
+     * <p>Relationship: FICR_MT510201CA.Reference4.allowable</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt) {
-        this.reference1AllowableNetAmt.setValue(reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
     }
 
 

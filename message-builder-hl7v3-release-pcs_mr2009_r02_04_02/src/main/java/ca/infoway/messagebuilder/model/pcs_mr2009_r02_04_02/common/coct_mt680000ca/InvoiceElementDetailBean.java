@@ -37,20 +37,20 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceDetailCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicationResultBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedResultOutcomeBean;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
     private MO netAmt = new MOImpl();
     private INT factorNumber = new INTImpl();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private AdjudicatedResultOutcomeBean outcomeOf;
 
 
     /**
@@ -219,23 +219,23 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

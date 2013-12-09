@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Antigens","POIZ_MT030060CA.Antigens","POIZ_MT060150CA.Antigens"})
 public class AntigensBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private HealthChartBean asHealthChart;

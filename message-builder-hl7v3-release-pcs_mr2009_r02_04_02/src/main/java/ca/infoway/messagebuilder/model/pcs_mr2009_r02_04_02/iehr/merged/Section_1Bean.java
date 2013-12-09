@@ -25,12 +25,8 @@ import ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.ED;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +36,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210002CA.Section","REPC_MT210003CA.Section"})
 public class Section_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private DocumentContent_1 component1DocumentContent;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
-    private List<II> component3ReferenceId = new ArrayList<II>();
+    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
 
 
     /**
@@ -154,28 +150,15 @@ public class Section_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReferenceRecordLinks</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReferenceRecordLinks</p>
+     * <p>Relationship: REPC_MT210003CA.Component5.reference</p>
      * 
-     * <p>Relationship: REPC_MT210003CA.Reference.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The external references allow accessing discrete data for 
-     * additional analysis and manipulation such as graphing, 
-     * automated comparison or decision-support.</p>
-     * 
-     * <p>For sections, the links may refer specifically to records 
-     * which have been rendered as part of the section.</p>
-     * 
-     * <p>These identifiers allow for referencing other discrete 
-     * records within the EHR which are considered relevant to the 
-     * document as a whole or a particular section.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component3/reference/id"})
-    public List<Identifier> getComponent3ReferenceId() {
-        return new RawListWrapper<II, Identifier>(component3ReferenceId, IIImpl.class);
+    @Hl7XmlMapping({"component3/reference"})
+    public List<ReferenceBean> getComponent3Reference() {
+        return this.component3Reference;
     }
 
 }

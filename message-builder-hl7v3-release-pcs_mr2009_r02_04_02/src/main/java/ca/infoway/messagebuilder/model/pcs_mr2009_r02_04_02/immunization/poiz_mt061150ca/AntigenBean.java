@@ -23,13 +23,12 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_m
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.AntigenCountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.AntigenValidityBean;
 
 
@@ -45,11 +44,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
-    private INT asHealthChartSubjectOf2AntigenCountValue = new INTImpl();
+    private AntigenCountBean asHealthChartSubjectOf2AntigenCount;
 
 
     /**
@@ -145,36 +144,22 @@ public class AntigenBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Antigen Count Value</p>
-     * 
-     * <p>Relationship: POIZ_MT061150CA.AntigenCount.value</p>
+     * <p>Relationship: POIZ_MT061150CA.Subject.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
      */
-    @Hl7XmlMapping({"asHealthChart/subjectOf2/antigenCount/value"})
-    public Integer getAsHealthChartSubjectOf2AntigenCountValue() {
-        return this.asHealthChartSubjectOf2AntigenCountValue.getValue();
+    @Hl7XmlMapping({"asHealthChart/subjectOf2/antigenCount"})
+    public AntigenCountBean getAsHealthChartSubjectOf2AntigenCount() {
+        return this.asHealthChartSubjectOf2AntigenCount;
     }
 
     /**
-     * <p>Business Name: Antigen Count Value</p>
-     * 
-     * <p>Relationship: POIZ_MT061150CA.AntigenCount.value</p>
+     * <p>Relationship: POIZ_MT061150CA.Subject.antigenCount</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for an immunization registry to communicate the 
-     * current antigen count value.</p>
-     * 
-     * <p>Represents the asserted antigen count.</p>
      */
-    public void setAsHealthChartSubjectOf2AntigenCountValue(Integer asHealthChartSubjectOf2AntigenCountValue) {
-        this.asHealthChartSubjectOf2AntigenCountValue.setValue(asHealthChartSubjectOf2AntigenCountValue);
+    public void setAsHealthChartSubjectOf2AntigenCount(AntigenCountBean asHealthChartSubjectOf2AntigenCount) {
+        this.asHealthChartSubjectOf2AntigenCount = asHealthChartSubjectOf2AntigenCount;
     }
 
 }

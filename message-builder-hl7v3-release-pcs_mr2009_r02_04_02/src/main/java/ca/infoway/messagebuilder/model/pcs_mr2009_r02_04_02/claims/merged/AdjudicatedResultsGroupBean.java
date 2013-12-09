@@ -36,6 +36,10 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.qucr_mt810201ca.BusinessArrangementBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.qucr_mt810201ca.CarrierOrThirdPartyAdministratorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.qucr_mt810201ca.DevicePlayingTheSendingApplicationRoleBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.qucr_mt810201ca.ProviderIDBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt110200ca.PayeeAccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
@@ -74,16 +78,16 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
-    private II deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId = new IIImpl();
-    private II performerAdjudResultsProviderRoleId = new IIImpl();
-    private II authorAdjudResultsCarrierRoleId = new IIImpl();
+    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
+    private ProviderIDBean performerAdjudResultsProviderRole;
+    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
     private ServiceLocationBean locationServiceDeliveryLocation;
-    private II referenceAdjudResultsFinancialContractId = new IIImpl();
+    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
     private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
@@ -433,96 +437,80 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SendingApplicationIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
+     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Sending application identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole/playingAdjudResultsSendingAppDevice/id"})
-    public Identifier getDeviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId() {
-        return this.deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId.getValue();
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
+    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
+        return this.deviceAdjudResultsSendingAppRole;
     }
 
     /**
-     * <p>Business Name: SendingApplicationIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsSendingAppDevice.id</p>
+     * QUCR_MT810201CA.Device.adjudResultsSendingAppRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Sending application identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDeviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId(Identifier deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId) {
-        this.deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId.setValue(deviceAdjudResultsSendingAppRolePlayingAdjudResultsSendingAppDeviceId);
+    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
+        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
     }
 
 
     /**
-     * <p>Business Name: SummaryBreakdownProviderID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SummaryBreakdownProviderID</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
      * 
-     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identity of provider for summary breakdowns.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole/id"})
-    public Identifier getPerformerAdjudResultsProviderRoleId() {
-        return this.performerAdjudResultsProviderRoleId.getValue();
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
+    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
+        return this.performerAdjudResultsProviderRole;
     }
 
     /**
-     * <p>Business Name: SummaryBreakdownProviderID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SummaryBreakdownProviderID</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Performer.adjudResultsProviderRole</p>
      * 
-     * <p>Relationship: QUCR_MT810201CA.AdjudResultsProviderRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Identity of provider for summary breakdowns.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPerformerAdjudResultsProviderRoleId(Identifier performerAdjudResultsProviderRoleId) {
-        this.performerAdjudResultsProviderRoleId.setValue(performerAdjudResultsProviderRoleId);
+    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
+        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
     }
 
 
     /**
-     * <p>Business Name: CarrierId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: CarrierId</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
      * 
-     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"author/adjudResultsCarrierRole/id"})
-    public Identifier getAuthorAdjudResultsCarrierRoleId() {
-        return this.authorAdjudResultsCarrierRoleId.getValue();
+    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
+    public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
+        return this.authorAdjudResultsCarrierRole;
     }
 
     /**
-     * <p>Business Name: CarrierId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: CarrierId</p>
+     * <p>Relationship: 
+     * QUCR_MT810201CA.Author.adjudResultsCarrierRole</p>
      * 
-     * <p>Relationship: QUCR_MT810201CA.AdjudResultsCarrierRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthorAdjudResultsCarrierRoleId(Identifier authorAdjudResultsCarrierRoleId) {
-        this.authorAdjudResultsCarrierRoleId.setValue(authorAdjudResultsCarrierRoleId);
+    public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
+        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
     }
 
 
@@ -553,36 +541,28 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: BusinessArrangementID</p>
-     * 
-     * <p>Un-merged Business Name: BusinessArrangementID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
+     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Business arrangement identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract/id"})
-    public Identifier getReferenceAdjudResultsFinancialContractId() {
-        return this.referenceAdjudResultsFinancialContractId.getValue();
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
+    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
+        return this.referenceAdjudResultsFinancialContract;
     }
 
     /**
-     * <p>Business Name: BusinessArrangementID</p>
-     * 
-     * <p>Un-merged Business Name: BusinessArrangementID</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUCR_MT810201CA.AdjudResultsFinancialContract.id</p>
+     * QUCR_MT810201CA.AdjudResultsGroupRef.adjudResultsFinancialContract</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Business arrangement identifier</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReferenceAdjudResultsFinancialContractId(Identifier referenceAdjudResultsFinancialContractId) {
-        this.referenceAdjudResultsFinancialContractId.setValue(referenceAdjudResultsFinancialContractId);
+    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
+        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
     }
 
 

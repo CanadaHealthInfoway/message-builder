@@ -22,20 +22,15 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
-import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.LabResultReportingProcessStepCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportableHealthIndicatorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultSortKeyBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
@@ -114,40 +109,20 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
 
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Identifier getPertinentInformation1OutbreakEventId();
+    public OutbreakBean getPertinentInformation1OutbreakEvent();
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformation1OutbreakEventId(Identifier pertinentInformation1OutbreakEventId);
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
 
     /**
@@ -160,32 +135,18 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
 
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public String getComponent1ResultSortKeyText();
+    public ResultSortKeyBean getComponent1ResultSortKey();
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ResultSortKeyText(String component1ResultSortKeyText);
+    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey);
 
 
     /**
@@ -229,29 +190,19 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
 
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public LabResultReportingProcessStepCode getSubjectOf3ResultStatusProcessStepCode();
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf3ResultStatusProcessStepCode(LabResultReportingProcessStepCode subjectOf3ResultStatusProcessStepCode);
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
 }

@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.ra.rcmr_mt010001ca.C
 @Hl7PartTypeMapping({"RCMR_IN010003CA"})
 public class RecordConsentOrOverrideRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ConsentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

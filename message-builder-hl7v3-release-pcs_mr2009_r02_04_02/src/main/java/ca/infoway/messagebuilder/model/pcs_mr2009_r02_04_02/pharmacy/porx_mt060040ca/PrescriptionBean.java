@@ -29,13 +29,11 @@ import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
@@ -48,13 +46,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Component6Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.CoverageExtensions_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DeviceDispenseBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.FirstDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.LastDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ParentPrescriptionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PreviousDispenseInformation_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ProcedureRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.RemainingDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.StatusChangesBean;
@@ -86,7 +85,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -99,8 +98,8 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private ST component1ProcedureRequestText = new STImpl();
-    private DispenseInstructionsBean component2SupplyRequest;
+    private ProcedureRequestBean component1ProcedureRequest;
+    private Component6Bean component2;
     private LastDispenseInformation_2Bean fulfillment1SupplyEventLastSummary;
     private FirstDispenseInformation_2Bean fulfillment2SupplyEventFirstSummary;
     private RemainingDispenseInformation_2Bean fulfillment3SupplyEventFutureSummary;
@@ -386,58 +385,42 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Business Name: Usage Instructions</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions for use are a key part of any 
-     * prescription</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
-     */
-    @Hl7XmlMapping({"component1/procedureRequest/text"})
-    public String getComponent1ProcedureRequestText() {
-        return this.component1ProcedureRequestText.getValue();
-    }
-
-    /**
-     * <p>Business Name: Usage Instructions</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Instructions for use are a key part of any 
-     * prescription</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
-     */
-    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
-        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060040CA.Component1.procedureRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
-        return this.component2SupplyRequest;
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
     }
 
     /**
-     * <p>Relationship: PORX_MT060040CA.Component6.supplyRequest</p>
+     * <p>Relationship: PORX_MT060040CA.Component1.procedureRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
-        this.component2SupplyRequest = component2SupplyRequest;
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060040CA.DeviceRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"component2"})
+    public Component6Bean getComponent2() {
+        return this.component2;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060040CA.DeviceRequest.component2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setComponent2(Component6Bean component2) {
+        this.component2 = component2;
     }
 
 

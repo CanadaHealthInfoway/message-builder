@@ -39,8 +39,9 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceDetailCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicationResultBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedResultOutcomeBean;
 import java.math.BigDecimal;
 
 
@@ -48,15 +49,15 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
     private MO netAmt = new MOImpl();
     private REAL factorNumber = new REALImpl();
-    private MO reference1AllowableNetAmt = new MOImpl();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private AllowableBean reference1Allowable;
+    private AdjudicatedResultOutcomeBean outcomeOf;
 
 
     /**
@@ -216,48 +217,44 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Business Name: Paid Amount</p>
+     * <p>Relationship: FICR_MT610201CA.Reference2.allowable</p>
      * 
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reference1/allowable/netAmt"})
-    public Money getReference1AllowableNetAmt() {
-        return this.reference1AllowableNetAmt.getValue();
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
     }
 
     /**
-     * <p>Business Name: Paid Amount</p>
+     * <p>Relationship: FICR_MT610201CA.Reference2.allowable</p>
      * 
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt) {
-        this.reference1AllowableNetAmt.setValue(reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
     }
 
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

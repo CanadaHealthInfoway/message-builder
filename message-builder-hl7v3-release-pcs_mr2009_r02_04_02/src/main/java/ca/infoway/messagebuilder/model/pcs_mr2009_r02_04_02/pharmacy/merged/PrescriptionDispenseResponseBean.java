@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220200ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
@@ -73,13 +73,13 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private SET<II, Identifier> inFulfillmentOfActRequestId = new SETImpl<II, Identifier>(IIImpl.class);
     private RelatedPersonBean receiverPersonalRelationship;
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
-    private DrugProductBean productMedication;
+    private DispensedBean product;
     private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
     private IncludesBean subjectOf;
@@ -314,24 +314,24 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * <p>Relationship: PORX_MT020050CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 

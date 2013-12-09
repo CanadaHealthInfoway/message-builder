@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
-import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt220110ca.DrugProductBean;
@@ -47,6 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Substanc
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ClassifiesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.FirstDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.LastDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PrescribedAdminidtrationInstructionBean;
@@ -79,7 +79,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.Pharmacy, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -91,7 +91,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private PrescribedAdminidtrationInstructionBean component1AdministrationInstructions;
-    private DispenseInstructionsBean component2SupplyRequest;
+    private IncludesBean component2;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
@@ -100,7 +100,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
     private List<CareCompositionsBean> componentOf1PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private CV componentOf2WorkingListEventCode = new CVImpl();
+    private ClassifiesBean componentOf2;
 
 
     /**
@@ -388,22 +388,24 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
-        return this.component2SupplyRequest;
+    @Hl7XmlMapping({"component2"})
+    public IncludesBean getComponent2() {
+        return this.component2;
     }
 
     /**
-     * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.component2</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
-        this.component2SupplyRequest = component2SupplyRequest;
+    public void setComponent2(IncludesBean component2) {
+        this.component2 = component2;
     }
 
 
@@ -561,46 +563,24 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Business Name: D:Prescription Treatment Type</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf2</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked mandatory because the intended duration of the 
-     * therapy should be known at prescribe time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"componentOf2/workingListEvent/code"})
-    public ActTherapyDurationWorkingListCode getComponentOf2WorkingListEventCode() {
-        return (ActTherapyDurationWorkingListCode) this.componentOf2WorkingListEventCode.getValue();
+    @Hl7XmlMapping({"componentOf2"})
+    public ClassifiesBean getComponentOf2() {
+        return this.componentOf2;
     }
 
     /**
-     * <p>Business Name: D:Prescription Treatment Type</p>
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf2</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed.</p><p>The field 
-     * is marked mandatory because the intended duration of the 
-     * therapy should be known at prescribe time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponentOf2WorkingListEventCode(ActTherapyDurationWorkingListCode componentOf2WorkingListEventCode) {
-        this.componentOf2WorkingListEventCode.setValue(componentOf2WorkingListEventCode);
+    public void setComponentOf2(ClassifiesBean componentOf2) {
+        this.componentOf2 = componentOf2;
     }
 
 }

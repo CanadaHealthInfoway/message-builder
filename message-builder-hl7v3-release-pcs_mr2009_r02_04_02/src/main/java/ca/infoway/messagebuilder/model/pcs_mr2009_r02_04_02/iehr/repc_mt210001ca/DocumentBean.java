@@ -25,15 +25,11 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ReferralDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -41,6 +37,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldClinicalDocumentEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
@@ -55,14 +52,14 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private ActingPerson responsiblePartyActingPerson;
     private RequestedByBean author;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<II> predecessorOldClinicalDocumentEventId = new ArrayList<II>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
     private SectionBean componentStructuredBodyComponentSection;
     private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -206,15 +203,14 @@ public class DocumentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: G:Replaces Record Ids</p>
+     * <p>Relationship: 
+     * REPC_MT210001CA.Predecessor2.oldClinicalDocumentEvent</p>
      * 
-     * <p>Relationship: REPC_MT210001CA.OldClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent/id"})
-    public List<Identifier> getPredecessorOldClinicalDocumentEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldClinicalDocumentEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
     }
 
 

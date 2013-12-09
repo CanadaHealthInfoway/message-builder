@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -90,7 +89,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -104,9 +103,9 @@ public class HealthConditionBean extends MessagePartBean {
     private ChangedByBean author;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
-    private List<II> predecessorOldConditionId = new ArrayList<II>();
+    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private HealthConditionBean replacementOfConditionEvent;
-    private II successorNewConditionId = new IIImpl();
+    private NewConditionBean successorNewCondition;
     private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf3ControlActEvent;
@@ -867,33 +866,15 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * <p>Relationship: REPC_MT000010CA.Predecessor.oldCondition</p>
      * 
-     * <p>Relationship: REPC_MT000010CA.OldCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldCondition/id"})
-    public List<Identifier> getPredecessorOldConditionId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldConditionId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
     }
 
 
@@ -924,44 +905,26 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Relationship: REPC_MT000010CA.Predecessor2.newCondition</p>
      * 
-     * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newCondition/id"})
-    public Identifier getSuccessorNewConditionId() {
-        return this.successorNewConditionId.getValue();
+    @Hl7XmlMapping({"successor/newCondition"})
+    public NewConditionBean getSuccessorNewCondition() {
+        return this.successorNewCondition;
     }
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Relationship: REPC_MT000010CA.Predecessor2.newCondition</p>
      * 
-     * <p>Relationship: REPC_MT000010CA.NewCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewConditionId(Identifier successorNewConditionId) {
-        this.successorNewConditionId.setValue(successorNewConditionId);
+    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
+        this.successorNewCondition = successorNewCondition;
     }
 
 

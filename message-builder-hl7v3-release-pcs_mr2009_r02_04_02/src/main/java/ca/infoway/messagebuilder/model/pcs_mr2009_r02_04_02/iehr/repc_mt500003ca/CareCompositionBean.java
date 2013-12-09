@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -56,6 +55,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patien
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ControlActEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DischargeDiagnosisBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewPatientCareProvisionEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Request_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
@@ -98,7 +99,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -118,9 +119,9 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
     private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
     private Request_1Bean inFulfillmentOfActRequest;
-    private List<II> predecessorOldPatientCareProvisionEventId = new ArrayList<II>();
+    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private II successorNewPatientCareProvisionEventId = new IIImpl();
+    private NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private ControlActEventBean subjectOf2ControlActEvent;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -791,32 +792,14 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Business Name: F:Replaces Record Ids</p>
-     * 
      * <p>Relationship: 
-     * REPC_MT500003CA.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.Predecessor.oldPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent/id"})
-    public List<Identifier> getPredecessorOldPatientCareProvisionEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldPatientCareProvisionEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
+    public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
+        return this.predecessorOldPatientCareProvisionEvent;
     }
 
 
@@ -833,42 +816,24 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Business Name: G:Replaced by Record Id</p>
-     * 
      * <p>Relationship: 
-     * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.Predecessor2.newPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent/id"})
-    public Identifier getSuccessorNewPatientCareProvisionEventId() {
-        return this.successorNewPatientCareProvisionEventId.getValue();
+    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent"})
+    public NewPatientCareProvisionEventBean getSuccessorNewPatientCareProvisionEvent() {
+        return this.successorNewPatientCareProvisionEvent;
     }
 
     /**
-     * <p>Business Name: G:Replaced by Record Id</p>
-     * 
      * <p>Relationship: 
-     * REPC_MT500003CA.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500003CA.Predecessor2.newPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewPatientCareProvisionEventId(Identifier successorNewPatientCareProvisionEventId) {
-        this.successorNewPatientCareProvisionEventId.setValue(successorNewPatientCareProvisionEventId);
+    public void setSuccessorNewPatientCareProvisionEvent(NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent) {
+        this.successorNewPatientCareProvisionEvent = successorNewPatientCareProvisionEvent;
     }
 
 

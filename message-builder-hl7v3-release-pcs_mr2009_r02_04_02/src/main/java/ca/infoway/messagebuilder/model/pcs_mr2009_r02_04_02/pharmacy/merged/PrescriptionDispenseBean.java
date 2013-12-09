@@ -31,13 +31,11 @@ import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
@@ -69,12 +67,12 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
     private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
-    private ST component1ProcedureRequestText = new STImpl();
+    private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean componentSupplyEvent;
     private IncludesBean subjectOf;
     private CS statusCode = new CSImpl();
@@ -280,42 +278,28 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
+     * <p>Relationship: 
+     * PORX_MT020060CA.Component11.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates to other providers how the patient is 
-     * expected to use the dispensed device</p>
-     * 
-     * <p>Indicates how the patient is expected to use the 
-     * device.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/procedureRequest/text"})
-    public String getComponent1ProcedureRequestText() {
-        return this.component1ProcedureRequestText.getValue();
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
     }
 
     /**
-     * <p>Business Name: UsageInstructions</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: UsageInstructions</p>
+     * <p>Relationship: 
+     * PORX_MT020060CA.Component11.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Communicates to other providers how the patient is 
-     * expected to use the dispensed device</p>
-     * 
-     * <p>Indicates how the patient is expected to use the 
-     * device.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
-        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 

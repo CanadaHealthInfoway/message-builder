@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -36,11 +35,8 @@ import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
@@ -51,6 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Acting
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagnosisCode;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import java.util.ArrayList;
@@ -76,7 +73,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -84,7 +81,7 @@ public class HealthConditionBean extends MessagePartBean {
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CD value = new CDImpl();
     private ActingPerson informantActingPerson;
-    private List<II> predecessorOldConditionId = new ArrayList<II>();
+    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
@@ -447,31 +444,13 @@ public class HealthConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: H:Replaces Record Ids</p>
+     * <p>Relationship: REPC_MT000003CA.Predecessor.oldCondition</p>
      * 
-     * <p>Relationship: REPC_MT000003CA.OldCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldCondition/id"})
-    public List<Identifier> getPredecessorOldConditionId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldConditionId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
     }
 
 
