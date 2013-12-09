@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
-import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
@@ -46,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.Component2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.DispenseInstructionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.IncludesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.Includes_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010120ca.ReferencesBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +95,7 @@ import java.util.Set;
 @Hl7RootType
 public class ActRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private CV code = new CVImpl();
@@ -104,16 +103,16 @@ public class ActRequestBean extends MessagePartBean {
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean directTargetMedication;
     private List<ReferencesBean> definition = new ArrayList<ReferencesBean>();
-    private II predecessorPriorCombinedMedicationRequestId = new IIImpl();
+    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private List<IncludesBean> pertinentInformation = new ArrayList<IncludesBean>();
+    private List<Includes_2Bean> pertinentInformation = new ArrayList<Includes_2Bean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private Component2Bean component2;
-    private DispenseInstructionsBean component3SupplyRequest;
+    private Includes_1Bean component3;
     private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
     private NotesBean subjectOf2Annotation;
-    private CV componentOfWorkingListEventCode = new CVImpl();
+    private ClassifiesBean componentOf;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
 
@@ -475,48 +474,28 @@ public class ActRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest/id"})
-    public Identifier getPredecessorPriorCombinedMedicationRequestId() {
-        return this.predecessorPriorCombinedMedicationRequestId.getValue();
+    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
+    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
+        return this.predecessorPriorCombinedMedicationRequest;
     }
 
     /**
-     * <p>Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT010120CA.PriorCombinedMedicationRequest.id</p>
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPredecessorPriorCombinedMedicationRequestId(Identifier predecessorPriorCombinedMedicationRequestId) {
-        this.predecessorPriorCombinedMedicationRequestId.setValue(predecessorPriorCombinedMedicationRequestId);
+    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
+        this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
 
 
@@ -556,7 +535,7 @@ public class ActRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-6)</p>
      */
     @Hl7XmlMapping({"pertinentInformation"})
-    public List<IncludesBean> getPertinentInformation() {
+    public List<Includes_2Bean> getPertinentInformation() {
         return this.pertinentInformation;
     }
 
@@ -604,24 +583,26 @@ public class ActRequestBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120CA.Component6.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component3/supplyRequest"})
-    public DispenseInstructionsBean getComponent3SupplyRequest() {
-        return this.component3SupplyRequest;
+    @Hl7XmlMapping({"component3"})
+    public Includes_1Bean getComponent3() {
+        return this.component3;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010120CA.Component6.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.component3</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3SupplyRequest(DispenseInstructionsBean component3SupplyRequest) {
-        this.component3SupplyRequest = component3SupplyRequest;
+    public void setComponent3(Includes_1Bean component3) {
+        this.component3 = component3;
     }
 
 
@@ -676,50 +657,28 @@ public class ActRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: TreatmentType</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
      * 
-     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The code is 
-     * mandatory as this information should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"componentOf/workingListEvent/code"})
-    public ActTherapyDurationWorkingListCode getComponentOfWorkingListEventCode() {
-        return (ActTherapyDurationWorkingListCode) this.componentOfWorkingListEventCode.getValue();
+    @Hl7XmlMapping({"componentOf"})
+    public ClassifiesBean getComponentOf() {
+        return this.componentOf;
     }
 
     /**
-     * <p>Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: TreatmentType</p>
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
      * 
-     * <p>Relationship: PORX_MT010120CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The code is 
-     * mandatory as this information should be known at prescribe 
-     * time.</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponentOfWorkingListEventCode(ActTherapyDurationWorkingListCode componentOfWorkingListEventCode) {
-        this.componentOfWorkingListEventCode.setValue(componentOfWorkingListEventCode);
+    public void setComponentOf(ClassifiesBean componentOf) {
+        this.componentOf = componentOf;
     }
 
 

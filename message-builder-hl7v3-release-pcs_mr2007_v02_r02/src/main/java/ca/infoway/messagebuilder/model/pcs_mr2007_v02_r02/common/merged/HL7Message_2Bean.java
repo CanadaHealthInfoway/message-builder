@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();

@@ -23,21 +23,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt600201c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.ED;
-import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.EDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActClaimAttachmentCode;
-import java.util.Set;
 
 
 
@@ -63,11 +51,9 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroupAttachment"})
 public class AttachmentsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CS typeCode = new CSImpl();
-    private SET<II, Identifier> healthDocumentAttachmentId = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV healthDocumentAttachmentCode = new CVImpl();
-    private ED<EncapsulatedData> healthDocumentAttachmentValue = new EDImpl<EncapsulatedData>();
+    private HealthDocumentAttachmentBean healthDocumentAttachment;
 
 
     /**
@@ -93,117 +79,24 @@ public class AttachmentsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Attachment identifier</p>
-     * 
-     * <p>Relationship: FICR_MT600201CA.HealthDocumentAttachment.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1-5)</p>
-     * 
-     * <p>RxS1: Not permitted, as attachments are not included in 
-     * this scenario</p>
-     * 
-     * <p>Set of identifiers that uniquely identify the 
-     * Attachment.</p>
-     */
-    @Hl7XmlMapping({"healthDocumentAttachment/id"})
-    public Set<Identifier> getHealthDocumentAttachmentId() {
-        return this.healthDocumentAttachmentId.rawSet();
-    }
-
-
-    /**
-     * <p>Business Name: Attachment Type</p>
-     * 
      * <p>Relationship: 
-     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Domain has not been defined for attachment types. RxS1: 
-     * Not permitted, as attachments are not included in this 
-     * scenario.</p>
-     * 
-     * <p>The type of attachment. I.e.. Health document type, image 
-     * type.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"healthDocumentAttachment/code"})
-    public ActClaimAttachmentCode getHealthDocumentAttachmentCode() {
-        return (ActClaimAttachmentCode) this.healthDocumentAttachmentCode.getValue();
+    @Hl7XmlMapping({"healthDocumentAttachment"})
+    public HealthDocumentAttachmentBean getHealthDocumentAttachment() {
+        return this.healthDocumentAttachment;
     }
 
     /**
-     * <p>Business Name: Attachment Type</p>
-     * 
      * <p>Relationship: 
-     * FICR_MT600201CA.HealthDocumentAttachment.code</p>
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Domain has not been defined for attachment types. RxS1: 
-     * Not permitted, as attachments are not included in this 
-     * scenario.</p>
-     * 
-     * <p>The type of attachment. I.e.. Health document type, image 
-     * type.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setHealthDocumentAttachmentCode(ActClaimAttachmentCode healthDocumentAttachmentCode) {
-        this.healthDocumentAttachmentCode.setValue(healthDocumentAttachmentCode);
-    }
-
-
-    /**
-     * <p>Business Name: Attachment content</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>To reference a previously submitted attachment, only 
-     * require the identifier of the attachment</p>
-     * 
-     * <p>RxS1: Not permitted, as attachments are not included in 
-     * this scenario.</p>
-     * 
-     * <p>The content of the attachment that is intended either for 
-     * human interpretation or further machine processing. i.e. The 
-     * image. This includes unformatted or formatted written 
-     * language, multimedia data, or structured information in as 
-     * defined by a different standard i.e.. Health document 
-     * content. Instead of the attachment content this may contain 
-     * only a reference to the information that may be located 
-     * inline or remote.</p>
-     */
-    @Hl7XmlMapping({"healthDocumentAttachment/value"})
-    public EncapsulatedData getHealthDocumentAttachmentValue() {
-        return this.healthDocumentAttachmentValue.getValue();
-    }
-
-    /**
-     * <p>Business Name: Attachment content</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201CA.HealthDocumentAttachment.value</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>To reference a previously submitted attachment, only 
-     * require the identifier of the attachment</p>
-     * 
-     * <p>RxS1: Not permitted, as attachments are not included in 
-     * this scenario.</p>
-     * 
-     * <p>The content of the attachment that is intended either for 
-     * human interpretation or further machine processing. i.e. The 
-     * image. This includes unformatted or formatted written 
-     * language, multimedia data, or structured information in as 
-     * defined by a different standard i.e.. Health document 
-     * content. Instead of the attachment content this may contain 
-     * only a reference to the information that may be located 
-     * inline or remote.</p>
-     */
-    public void setHealthDocumentAttachmentValue(EncapsulatedData healthDocumentAttachmentValue) {
-        this.healthDocumentAttachmentValue.setValue(healthDocumentAttachmentValue);
+    public void setHealthDocumentAttachment(HealthDocumentAttachmentBean healthDocumentAttachment) {
+        this.healthDocumentAttachment = healthDocumentAttachment;
     }
 
 }

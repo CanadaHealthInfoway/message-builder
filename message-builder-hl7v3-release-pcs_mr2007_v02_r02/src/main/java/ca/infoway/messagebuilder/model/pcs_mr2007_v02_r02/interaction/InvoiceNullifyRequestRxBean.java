@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.InvoiceTypeBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SubmittedInvoiceGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerEvent_1Bean;
 
@@ -44,8 +44,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * <p>--> Payload: FICR_MT620000CA.InvoiceElementGroup</p>
  */
 @Hl7PartTypeMapping({"FICR_IN620102CA"})
-public class InvoiceNullifyRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<InvoiceTypeBean>> implements InteractionBean {
+public class InvoiceNullifyRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<SubmittedInvoiceGroupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

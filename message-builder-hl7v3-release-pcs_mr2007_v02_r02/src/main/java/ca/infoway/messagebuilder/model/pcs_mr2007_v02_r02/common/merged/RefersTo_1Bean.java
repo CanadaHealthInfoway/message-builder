@@ -93,6 +93,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCAI_MT700221CA.Subject2: f:refers to</p>
  * 
+ * <p>On 'creation' interactions where the state transition is 
+ * null-&gt;active, contextConductionInd must be true, 
+ * otherwise it must be false.</p>
+ * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
@@ -200,6 +204,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCAI_MT700216CA.Subject2: f:refers to</p>
  * 
+ * <p>On 'creation' interactions where the state transition is 
+ * null-&gt;active, contextConductionInd must be true, 
+ * otherwise it must be false.</p>
+ * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
@@ -230,6 +238,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MCAI_MT700220CA.Subject2: f:refers to</p>
  * 
+ * <p>On 'creation' interactions where the state transition is 
+ * null-&gt;active, contextConductionInd must be true, 
+ * otherwise it must be false.</p>
+ * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
  * 
@@ -244,7 +256,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700212CA.Subject2","MCAI_MT700216CA.Subject2","MCAI_MT700217CA.Subject2","MCAI_MT700218CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","MCAI_MT700222CA.Subject2","MCAI_MT700226CA.Subject2","MCAI_MT700227CA.Subject2","QUQI_MT120006CA.Subject2","QUQI_MT120008CA.Subject2"})
 public class RefersTo_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
@@ -359,10 +371,6 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On 'creation' interactions where the state transition is 
-     * null-&gt;active, contextConductionInd must be true, 
-     * otherwise it must be false.</p>
-     * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
@@ -456,7 +464,12 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * and add to any subject(s) (issues) already present in the 
      * payload).</p>
      * 
-    
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700226CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"contextConductionInd"})
@@ -574,10 +587,6 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On 'creation' interactions where the state transition is 
-     * null-&gt;active, contextConductionInd must be true, 
-     * otherwise it must be false.</p>
-     * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
      * objects.</p><p>Attribute is mandatory to ensure that 
@@ -671,7 +680,12 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
      * and add to any subject(s) (issues) already present in the 
      * payload).</p>
      * 
-    
+     * <p>Un-merged Business Name: CascadeResponsibilityIndicator</p>
+     * 
+     * <p>Relationship: 
+     * MCAI_MT700226CA.Subject2.contextConductionInd</p>
+     * 
+     * <p>
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setContextConductionInd(Boolean contextConductionInd) {

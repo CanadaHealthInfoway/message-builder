@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700220CA.AuthorRole"})
 public class NullAuthorRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.AuthorPerson {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CS classCode = new CSImpl();
 
 

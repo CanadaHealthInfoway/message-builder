@@ -24,13 +24,11 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueManagementCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Date;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
 
 
 
@@ -102,11 +100,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
-    private TS authorTime = new TSImpl();
-    private HealthcareWorkerBean authorAssignedEntity;
+    private ChangedByBean author;
 
 
     /**
@@ -702,230 +699,84 @@ public class IssueManagementsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ManagementDate</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getAuthorTime() {
-        return this.authorTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: ManagementDate</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260012CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record but not always available and 
-     * therefore only marked as 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider used this 
-     * management for the issue in the past.</p>
-     * 
-     * <p>Un-merged Business Name: ManagementDate</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.Author1.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ManagedContraindication.CreationDate</p>
-     * 
-     * <p>Part of the audit record, but not always available and 
-     * therefore 'populated'.</p>
-     * 
-     * <p>The date and time on which the provider managed the 
-     * issue.</p>
-     */
-    public void setAuthorTime(Date authorTime) {
-        this.authorTime.setValue(authorTime);
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.author</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260020CA.DetectedIssueManagement.author</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260012CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260012CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260022CA.DetectedIssueManagement.author</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author1.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.DetectedIssueManagement.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

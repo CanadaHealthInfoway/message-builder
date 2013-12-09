@@ -24,12 +24,10 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
@@ -37,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.LanguageAbilityMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.x_RoleClassPayeePolicyRelationship;
 
 
 
@@ -49,10 +46,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.x_RoleClas
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private PN name = new PNImpl();
     private AD addr = new ADImpl();
-    private CS asPayeeRelationshipRoleClassCode = new CSImpl();
+    private PayeeRelationshipRoleBean asPayeeRelationshipRole;
     private CV payeeLanguageLanguageCode = new CVImpl();
     private CV payeeLanguageModeCode = new CVImpl();
     private BL payeeLanguagePreferenceInd = new BLImpl();
@@ -112,23 +109,23 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
     /**
      * <p>Relationship: 
-     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"asPayeeRelationshipRole/classCode"})
-    public x_RoleClassPayeePolicyRelationship getAsPayeeRelationshipRoleClassCode() {
-        return (x_RoleClassPayeePolicyRelationship) this.asPayeeRelationshipRoleClassCode.getValue();
+    @Hl7XmlMapping({"asPayeeRelationshipRole"})
+    public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
+        return this.asPayeeRelationshipRole;
     }
 
     /**
      * <p>Relationship: 
-     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAsPayeeRelationshipRoleClassCode(x_RoleClassPayeePolicyRelationship asPayeeRelationshipRoleClassCode) {
-        this.asPayeeRelationshipRoleClassCode.setValue(asPayeeRelationshipRoleClassCode);
+    public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
+        this.asPayeeRelationshipRole = asPayeeRelationshipRole;
     }
 
 

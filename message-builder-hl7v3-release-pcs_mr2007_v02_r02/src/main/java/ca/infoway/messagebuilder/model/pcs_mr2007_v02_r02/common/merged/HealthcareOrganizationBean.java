@@ -65,9 +65,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT090502CA.AssignedEntity","COCT_MT090508CA.AssignedEntity"})
 @Hl7RootType
-public class HealthcareOrganizationBean extends MessagePartBean implements EntererChoice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson {
+public class HealthcareOrganizationBean extends MessagePartBean implements AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson, EntererChoice, ActingPerson {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();

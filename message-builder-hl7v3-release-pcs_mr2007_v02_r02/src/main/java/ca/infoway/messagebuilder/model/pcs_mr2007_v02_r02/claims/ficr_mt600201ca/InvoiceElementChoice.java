@@ -26,13 +26,6 @@ import java.util.List;
 
 
 
-/**
- * <p>All Relationships to the InvoiceElementGroup can only be 
- * associated with the root level instance</p>
- * 
- * <p>Data centre and sequence number must be the same for each 
- * complete group and detail hierarchy</p>
- */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementChoice"})
 public interface InvoiceElementChoice {
 

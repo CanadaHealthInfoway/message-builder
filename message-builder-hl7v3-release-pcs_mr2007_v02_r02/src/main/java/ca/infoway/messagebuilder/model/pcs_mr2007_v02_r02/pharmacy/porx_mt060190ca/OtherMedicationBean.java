@@ -48,8 +48,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt011001ca.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -94,7 +94,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     private DrugProductBean consumableMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -410,24 +410,22 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.Location2.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.Location2.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060190CA.OtherMedication.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

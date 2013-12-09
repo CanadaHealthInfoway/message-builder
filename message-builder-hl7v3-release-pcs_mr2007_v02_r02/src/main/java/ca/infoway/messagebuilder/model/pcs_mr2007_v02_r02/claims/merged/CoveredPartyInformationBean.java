@@ -81,7 +81,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
@@ -249,7 +249,8 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>Un-merged Business Name: CoveredPartyRelPToPolicyHolder</p>
+     * <p>Un-merged Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 
@@ -284,7 +285,8 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Relationship to Policy Holder - The covered party 
      * relationship to the Policy Holder.</p>
      * 
-     * <p>Un-merged Business Name: CoveredPartyRelPToPolicyHolder</p>
+     * <p>Un-merged Business Name: 
+     * CoveredPartyRelationshipToPolicyHolder</p>
      * 
      * <p>Relationship: FICR_MT600201CA.CoveredPartyAsPatient.code</p>
      * 

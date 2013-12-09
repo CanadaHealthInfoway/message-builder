@@ -30,16 +30,12 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
 import java.util.Date;
 
 
@@ -58,13 +54,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private TS authorTime = new TSImpl();
-    private ActingPerson authorActingPerson;
+    private ChangedByBean author;
 
 
     /**
@@ -220,85 +215,22 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Change Datetime</p>
-     * 
-     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p>
-     * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
      */
-    @Hl7XmlMapping({"author/time"})
-    public Date getAuthorTime() {
-        return this.authorTime.getValue();
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
 
     /**
-     * <p>Business Name: Change Datetime</p>
-     * 
-     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p>
-     * 
-     * <p>The date on which the change was made. Note that this may 
-     * be earlier or occassionally later than when the change is 
-     * actually effective.</p>
-     */
-    public void setAuthorTime(Date authorTime) {
-        this.authorTime.setValue(authorTime);
-    }
-
-
-    /**
-     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * <p>Relationship: COCT_MT130001CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/actingPerson"})
-    public ActingPerson getAuthorActingPerson() {
-        return this.authorActingPerson;
-    }
-
-    /**
-     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthorActingPerson(ActingPerson authorActingPerson) {
-        this.authorActingPerson = authorActingPerson;
-    }
-
-    public HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity1() {
-        return this.authorActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity1() {
-        return (this.authorActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getAuthorActingPersonAsAssignedEntity2() {
-        return this.authorActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity2() {
-        return (this.authorActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getAuthorActingPersonAsPersonalRelationship() {
-        return this.authorActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsPersonalRelationship() {
-        return (this.authorActingPerson instanceof RelatedPersonBean);
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

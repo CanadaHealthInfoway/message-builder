@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
 
 

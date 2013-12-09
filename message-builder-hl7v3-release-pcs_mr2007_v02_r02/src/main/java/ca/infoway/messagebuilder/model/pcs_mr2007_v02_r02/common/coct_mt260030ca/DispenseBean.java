@@ -36,8 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220210ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import java.util.Date;
 
 
@@ -55,13 +54,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private DrugProductBean productMedication;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private DispensedBean product;
+    private CreatedAtBean location;
 
 
     /**
@@ -243,44 +242,42 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Relationship: COCT_MT260030CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
     }
 
     /**
-     * <p>Relationship: COCT_MT260030CA.Product.medication</p>
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT260030CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
-     * <p>Relationship: 
-     * COCT_MT260030CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: COCT_MT260030CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

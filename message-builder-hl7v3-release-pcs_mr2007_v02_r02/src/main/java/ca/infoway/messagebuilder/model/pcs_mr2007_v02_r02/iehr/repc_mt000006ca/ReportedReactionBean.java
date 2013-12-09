@@ -51,8 +51,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Healthca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -91,7 +91,7 @@ public class ReportedReactionBean extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
     private ReportedByBean informant;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
@@ -404,23 +404,23 @@ public class ReportedReactionBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
+     * REPC_MT000006CA.ReactionObservationEvent.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Relationship: 
-     * REPC_MT000006CA.Location.serviceDeliveryLocation</p>
+     * REPC_MT000006CA.ReactionObservationEvent.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

@@ -66,7 +66,7 @@ import java.util.Date;
 @Hl7RootType
 public class NotesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
     private AssignedPerson authorAssignedPerson;

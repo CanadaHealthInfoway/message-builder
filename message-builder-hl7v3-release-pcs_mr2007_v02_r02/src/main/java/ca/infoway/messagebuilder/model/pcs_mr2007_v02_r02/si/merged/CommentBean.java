@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.comt_mt300003ca.AnnotatedByBean;
 import java.util.Set;
 
@@ -78,14 +78,14 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AnnotatedByBean author;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private CV languageCode = new CVImpl();
     private II subjectAnnotatedActId = new IIImpl();
 
@@ -410,26 +410,24 @@ public class CommentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: COMT_MT300003CA.Annotation.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

@@ -37,7 +37,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt470002ca.ConsentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ConsentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -88,11 +89,11 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private RefersTo_2Bean<RR> subject;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private ConsentBean subjectOf1ConsentEvent;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private ConsentBean subjectOf2ConsentEvent;
 
 
     /**
@@ -510,26 +511,24 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MFMI_MT700711CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MFMI_MT700711CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MFMI_MT700711CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MFMI_MT700711CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -598,6 +597,30 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf1/consentEvent"})
+    public ConsentBean getSubjectOf1ConsentEvent() {
+        return this.subjectOf1ConsentEvent;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
+        this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: MFMI_MT700711CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -608,38 +631,14 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf1/detectedIssueEvent"})
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf2/detectedIssueEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="MFMI_MT700716CA.Subject"),
         @Hl7MapByPartType(name="subjectOf/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf1", type="MFMI_MT700711CA.Subject"),
-        @Hl7MapByPartType(name="subjectOf1/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent")})
+        @Hl7MapByPartType(name="subjectOf2", type="MFMI_MT700711CA.Subject"),
+        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent")})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"subjectOf2/consentEvent"})
-    public ConsentBean getSubjectOf2ConsentEvent() {
-        return this.subjectOf2ConsentEvent;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700711CA.Subject3.consentEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
-        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
     }
 
 }

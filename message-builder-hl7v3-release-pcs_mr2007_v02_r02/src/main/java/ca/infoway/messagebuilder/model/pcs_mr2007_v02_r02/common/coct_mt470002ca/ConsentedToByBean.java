@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBe
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;

@@ -51,7 +51,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

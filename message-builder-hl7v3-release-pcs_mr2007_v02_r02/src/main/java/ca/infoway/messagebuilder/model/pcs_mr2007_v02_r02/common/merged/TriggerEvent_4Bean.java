@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt470002ca.ConsentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -77,17 +78,17 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private StoredInBean recordTarget;
+    private Patient_2 recordTargetPatient1;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private ConsentBean subjectOf2ConsentEvent;
@@ -410,26 +411,24 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"recordTarget"})
-    public StoredInBean getRecordTarget() {
-        return this.recordTarget;
+    @Hl7XmlMapping({"recordTarget/patient1"})
+    public Patient_2 getRecordTargetPatient1() {
+        return this.recordTargetPatient1;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTarget(StoredInBean recordTarget) {
-        this.recordTarget = recordTarget;
+    public void setRecordTargetPatient1(Patient_2 recordTargetPatient1) {
+        this.recordTargetPatient1 = recordTargetPatient1;
     }
 
 
@@ -588,40 +587,36 @@ public class TriggerEvent_4Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

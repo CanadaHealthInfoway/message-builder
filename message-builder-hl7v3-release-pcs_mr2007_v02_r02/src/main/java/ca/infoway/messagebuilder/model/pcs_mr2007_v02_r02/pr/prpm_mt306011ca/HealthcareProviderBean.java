@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

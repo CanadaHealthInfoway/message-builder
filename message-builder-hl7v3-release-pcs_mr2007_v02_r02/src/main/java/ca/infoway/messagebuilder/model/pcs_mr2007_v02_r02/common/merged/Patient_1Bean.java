@@ -75,9 +75,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
-public class Patient_1Bean extends MessagePartBean implements ActingPerson, Patient_2 {
+public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);

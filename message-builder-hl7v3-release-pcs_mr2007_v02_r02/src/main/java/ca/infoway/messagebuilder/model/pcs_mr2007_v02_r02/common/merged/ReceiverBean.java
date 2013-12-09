@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Receiver","MCCI_MT002200CA.Receiver","MCCI_MT002300CA.Receiver","MCCI_MT102001CA.Receiver"})
 public class ReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private TEL telecom = new TELImpl();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();
@@ -454,7 +454,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Organization.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -512,7 +512,7 @@ public class ReceiverBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: ReceiverOrganizationIdentifier</p>
      * 
-     * <p>Relationship: MCCI_MT002200CA.Organization.id</p>
+     * <p>Relationship: MCCI_MT002200CA.Organization2.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

@@ -27,12 +27,12 @@ import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
 import java.util.Date;
 
 
@@ -51,13 +51,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000009CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private TS authorTime = new TSImpl();
-    private HealthcareWorkerBean authorAssignedEntity;
+    private ChangedByBean author;
 
 
     /**
@@ -201,60 +200,22 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Change Time</p>
-     * 
-     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the allergy. Also 
-     * used for sorting and audit purposes. Time of change is 
-     * always known and thus the attribute is mandatory.</p>
-     * 
-     * <p>The date on which the change was made.</p>
      */
-    @Hl7XmlMapping({"author/time"})
-    public Date getAuthorTime() {
-        return this.authorTime.getValue();
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
 
     /**
-     * <p>Business Name: Change Time</p>
-     * 
-     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the allergy. Also 
-     * used for sorting and audit purposes. Time of change is 
-     * always known and thus the attribute is mandatory.</p>
-     * 
-     * <p>The date on which the change was made.</p>
-     */
-    public void setAuthorTime(Date authorTime) {
-        this.authorTime.setValue(authorTime);
-    }
-
-
-    /**
-     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
+     * <p>Relationship: REPC_MT000009CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

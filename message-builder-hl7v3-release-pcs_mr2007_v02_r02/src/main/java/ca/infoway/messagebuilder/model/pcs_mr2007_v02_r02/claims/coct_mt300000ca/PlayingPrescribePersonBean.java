@@ -23,18 +23,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt300000c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.PN;
-import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.List;
 
 
 
@@ -47,10 +38,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PlayingPrescribePersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
-    private PN playingPrescriberPersonName = new PNImpl();
-    private LIST<TEL, TelecommunicationAddress> playingPrescriberPersonTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PersonPrescribingBean playingPrescriberPerson;
 
 
     /**
@@ -88,47 +78,24 @@ public class PlayingPrescribePersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Prescriber Name</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.name</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Name of person prescribing</p>
      */
-    @Hl7XmlMapping({"playingPrescriberPerson/name"})
-    public PersonName getPlayingPrescriberPersonName() {
-        return this.playingPrescriberPersonName.getValue();
+    @Hl7XmlMapping({"playingPrescriberPerson"})
+    public PersonPrescribingBean getPlayingPrescriberPerson() {
+        return this.playingPrescriberPerson;
     }
 
     /**
-     * <p>Business Name: Prescriber Name</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.name</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.PresriberRole.playingPrescriberPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Name of person prescribing</p>
      */
-    public void setPlayingPrescriberPersonName(PersonName playingPrescriberPersonName) {
-        this.playingPrescriberPersonName.setValue(playingPrescriberPersonName);
-    }
-
-
-    /**
-     * <p>Business Name: Prescriber Telephone Number</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.PrescriberPerson.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-3)</p>
-     * 
-     * <p>used for Coverage Extension to contact prescriber</p>
-     * 
-     * <p>Telephone no. of the prescriber</p>
-     */
-    @Hl7XmlMapping({"playingPrescriberPerson/telecom"})
-    public List<TelecommunicationAddress> getPlayingPrescriberPersonTelecom() {
-        return this.playingPrescriberPersonTelecom.rawList();
+    public void setPlayingPrescriberPerson(PersonPrescribingBean playingPrescriberPerson) {
+        this.playingPrescriberPerson = playingPrescriberPerson;
     }
 
 }

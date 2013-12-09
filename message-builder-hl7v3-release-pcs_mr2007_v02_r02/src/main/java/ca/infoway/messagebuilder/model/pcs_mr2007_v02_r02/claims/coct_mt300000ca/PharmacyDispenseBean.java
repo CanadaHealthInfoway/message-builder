@@ -25,19 +25,14 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
-import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
@@ -47,7 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PatientE
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.Date;
-import java.util.Set;
 
 
 
@@ -62,17 +56,17 @@ import java.util.Set;
 @Hl7RootType
 public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CS moodCode = new CSImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DrugDispensedInBean productContent;
-    private SET<II, Identifier> performerPharmacistRoleId = new SETImpl<II, Identifier>(IIImpl.class);
+    private PharmacistRoleBean performerPharmacistRole;
     private ServiceLocationBean originServiceDeliveryLocation;
     private ServiceLocationBean destinationServiceDeliveryLocation;
-    private ExpectedStartTimeBean pertinentInformationSubstanceAdministrationIntent;
+    private DispenseInstructionsBean pertinentInformation;
     private PatientEncounterBean componentOfPatientEncounter;
 
 
@@ -249,17 +243,24 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: Pharmacist ID</p>
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
      * 
-     * <p>Relationship: COCT_MT300000CA.PharmacistRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (*)</p>
-     * 
-     * <p>Pharmacist ID</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"performer/pharmacistRole/id"})
-    public Set<Identifier> getPerformerPharmacistRoleId() {
-        return this.performerPharmacistRoleId.rawSet();
+    @Hl7XmlMapping({"performer/pharmacistRole"})
+    public PharmacistRoleBean getPerformerPharmacistRole() {
+        return this.performerPharmacistRole;
+    }
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT300000CA.ResponsibleProvider.pharmacistRole</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
+        this.performerPharmacistRole = performerPharmacistRole;
     }
 
 
@@ -309,23 +310,23 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
     /**
      * <p>Relationship: 
-     * COCT_MT300000CA.DispenseInstructions.substanceAdministrationIntent</p>
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"pertinentInformation/substanceAdministrationIntent"})
-    public ExpectedStartTimeBean getPertinentInformationSubstanceAdministrationIntent() {
-        return this.pertinentInformationSubstanceAdministrationIntent;
+    @Hl7XmlMapping({"pertinentInformation"})
+    public DispenseInstructionsBean getPertinentInformation() {
+        return this.pertinentInformation;
     }
 
     /**
      * <p>Relationship: 
-     * COCT_MT300000CA.DispenseInstructions.substanceAdministrationIntent</p>
+     * COCT_MT300000CA.SupplyEvent.pertinentInformation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformationSubstanceAdministrationIntent(ExpectedStartTimeBean pertinentInformationSubstanceAdministrationIntent) {
-        this.pertinentInformationSubstanceAdministrationIntent = pertinentInformationSubstanceAdministrationIntent;
+    public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
+        this.pertinentInformation = pertinentInformation;
     }
 
 

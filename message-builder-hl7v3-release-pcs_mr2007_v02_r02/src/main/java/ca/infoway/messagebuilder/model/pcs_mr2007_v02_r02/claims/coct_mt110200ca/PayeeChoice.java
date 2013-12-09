@@ -21,9 +21,6 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.x_RoleClassPayeePolicyRelationship;
 
 
 
@@ -33,18 +30,18 @@ public interface PayeeChoice {
 
     /**
      * <p>Relationship: 
-     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public x_RoleClassPayeePolicyRelationship getAsPayeeRelationshipRoleClassCode();
+    public PayeeRelationshipRoleBean getAsPayeeRelationshipRole();
 
     /**
      * <p>Relationship: 
-     * COCT_MT110200CA.PayeeRelationshipRole.classCode</p>
+     * COCT_MT110200CA.PayeeChoice.asPayeeRelationshipRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAsPayeeRelationshipRoleClassCode(x_RoleClassPayeePolicyRelationship asPayeeRelationshipRoleClassCode);
+    public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole);
 
 }

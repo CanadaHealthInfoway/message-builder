@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultOutcomeBean;
 
 
 
@@ -30,18 +31,18 @@ public interface AdjudicatedInvoiceElementChoice {
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult();
+    public AdjudicatedResultOutcomeBean getOutcomeOf();
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult);
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

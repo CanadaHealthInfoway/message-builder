@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -101,12 +101,12 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SubstitutionBean component3SubstitutionMade;
     private SupplyEventBean component1SupplyEvent;
@@ -466,54 +466,48 @@ public class MedicationDispenseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060340CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060090CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060160CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060340CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060340CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060090CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060090CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060160CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060160CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

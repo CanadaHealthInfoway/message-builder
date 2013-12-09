@@ -21,55 +21,43 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.datatype.MO;
-import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicationCodeChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultOutcomeBean;
 
 
 
-/**
- * <p>Want sum of all adjudication details (info &amp; 
- * non-info) to equal what was submitted. For example, the 
- * reasons why you refused to pay part of the invoice</p>
- */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementChoice"})
 public interface AdjudicatedInvoiceElementChoice {
 
 
     /**
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allowable or eligibile amount, as per fee schedule</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Money getReference1AllowableNetAmt();
+    public AllowableAmountBean getReference1Allowable();
 
     /**
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
+     * <p>Relationship: FICR_MT610201CA.Reference4.allowable</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allowable or eligibile amount, as per fee schedule</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableAmountBean reference1Allowable);
 
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public AdjudicationCodeChoice getOutcomeOfAdjudicationCodeChoice();
+    public AdjudicatedResultOutcomeBean getOutcomeOf();
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationCodeChoice</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationCodeChoice(AdjudicationCodeChoice outcomeOfAdjudicationCodeChoice);
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf);
 
 }

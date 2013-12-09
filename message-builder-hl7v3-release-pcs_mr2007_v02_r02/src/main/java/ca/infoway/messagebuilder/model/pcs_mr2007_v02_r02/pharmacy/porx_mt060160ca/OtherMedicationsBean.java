@@ -50,9 +50,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt120600ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.StatusChangesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -94,7 +94,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -104,7 +104,7 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     private DrugProductBean consumableMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
@@ -417,24 +417,22 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060160CA.Location2.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060160CA.Location2.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

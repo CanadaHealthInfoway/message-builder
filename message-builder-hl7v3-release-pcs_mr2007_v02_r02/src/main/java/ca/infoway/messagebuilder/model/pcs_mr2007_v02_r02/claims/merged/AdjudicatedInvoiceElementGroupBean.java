@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceAuthorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceCoverageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicatedInvoiceElementChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000ca.AdjudicationResultBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceGroupCode;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -69,7 +68,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     private AdjudicatedInvoiceAuthorBean author;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private AdjudicatedResultOutcomeBean outcomeOf;
 
 
     /**
@@ -474,25 +473,25 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 }

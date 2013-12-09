@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBea
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;

@@ -48,7 +48,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();

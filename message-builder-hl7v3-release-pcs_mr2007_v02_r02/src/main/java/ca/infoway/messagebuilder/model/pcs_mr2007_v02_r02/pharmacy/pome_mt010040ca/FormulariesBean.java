@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.AssignedEntity3Bean;
 
 
 
@@ -48,10 +49,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private ST title = new STImpl();
-    private ST performerAssignedEntityAssignedOrganizationName = new STImpl();
+    private AssignedEntity3Bean performerAssignedEntity;
 
 
     /**
@@ -121,38 +122,22 @@ public class FormulariesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Formulary Owner Name</p>
+     * <p>Relationship: POME_MT010040CA.Performer.assignedEntity</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the circumstances in which the formulary 
-     * applies.</p>
-     * 
-     * <p>The name of the organization or facility responsible for 
-     * the formulary.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"performer/assignedEntity/assignedOrganization/name"})
-    public String getPerformerAssignedEntityAssignedOrganizationName() {
-        return this.performerAssignedEntityAssignedOrganizationName.getValue();
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public AssignedEntity3Bean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
 
     /**
-     * <p>Business Name: Formulary Owner Name</p>
+     * <p>Relationship: POME_MT010040CA.Performer.assignedEntity</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Organization3.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the circumstances in which the formulary 
-     * applies.</p>
-     * 
-     * <p>The name of the organization or facility responsible for 
-     * the formulary.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPerformerAssignedEntityAssignedOrganizationName(String performerAssignedEntityAssignedOrganizationName) {
-        this.performerAssignedEntityAssignedOrganizationName.setValue(performerAssignedEntityAssignedOrganizationName);
+    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

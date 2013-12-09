@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.ActRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.SupplyEventBean;
 import java.util.Set;
@@ -62,13 +62,13 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private SupplyEventBean component1SupplyEvent;
     private ST component2AdministrationInstructionsText = new STImpl();
     private ActRequestBean fulfillmentSubstanceAdministrationRequest;
@@ -234,24 +234,22 @@ public class DispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060100CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060100CA.MedicationDispense.location</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

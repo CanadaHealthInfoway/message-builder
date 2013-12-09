@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200ca.PayeeAccountBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.AdjudicatedInvoiceElementChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.AdjudicatorBillingTaxAccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201ca.PaymentReasonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,13 +68,13 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private List<AdjudicatedInvoiceElementChoice> reasonOfAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+    private List<PaymentReasonBean> reasonOf = new ArrayList<PaymentReasonBean>();
 
 
     /**
@@ -322,14 +322,13 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementChoice</p>
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.reasonOf</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"reasonOf/adjudicatedInvoiceElementChoice"})
-    public List<AdjudicatedInvoiceElementChoice> getReasonOfAdjudicatedInvoiceElementChoice() {
-        return this.reasonOfAdjudicatedInvoiceElementChoice;
+    @Hl7XmlMapping({"reasonOf"})
+    public List<PaymentReasonBean> getReasonOf() {
+        return this.reasonOf;
     }
 
 }

@@ -29,13 +29,11 @@ import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
@@ -49,6 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.FirstD
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.LastDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.PreviousDispenseInformation_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.ProcedureRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.RemainingDispenseInformation_2Bean;
 import java.util.ArrayList;
@@ -73,7 +72,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescription {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -83,7 +82,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private ST component1ProcedureRequestText = new STImpl();
+    private ProcedureRequestBean component1ProcedureRequest;
     private DispenseInstructions_1Bean component2SupplyRequest;
     private RemainingDispenseInformation_2Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_2Bean fulfillment2SupplyEventFirstSummary;
@@ -334,38 +333,22 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Business Name: Usage Instructions</p>
+     * <p>Relationship: PORX_MT060060CA.Component1.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usage instructions are a critical part of a 
-     * prescription.</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/procedureRequest/text"})
-    public String getComponent1ProcedureRequestText() {
-        return this.component1ProcedureRequestText.getValue();
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
     }
 
     /**
-     * <p>Business Name: Usage Instructions</p>
+     * <p>Relationship: PORX_MT060060CA.Component1.procedureRequest</p>
      * 
-     * <p>Relationship: PORX_MT060060CA.ProcedureRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Usage instructions are a critical part of a 
-     * prescription.</p>
-     * 
-     * <p>Indicates how the prescribed device is intended to be 
-     * used.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ProcedureRequestText(String component1ProcedureRequestText) {
-        this.component1ProcedureRequestText.setValue(component1ProcedureRequestText);
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 

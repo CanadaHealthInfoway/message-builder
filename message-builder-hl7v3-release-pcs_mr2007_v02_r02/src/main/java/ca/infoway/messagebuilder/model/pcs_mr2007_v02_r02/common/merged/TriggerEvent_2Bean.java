@@ -23,11 +23,13 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
@@ -36,7 +38,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
+import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
@@ -130,19 +134,20 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private StoredInBean recordTarget;
+    private Patient_2 recordTargetPatient1;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CreatedAtBean location;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CS recordTargetTypeCode = new CSImpl();
     private II queryContinuationQueryId = new IIImpl();
     private INT queryContinuationStartResultNumber = new INTImpl();
     private INT queryContinuationContinuationQuantity = new INTImpl();
@@ -959,68 +964,60 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700230CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700237CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700231CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700236CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"recordTarget"})
-    public StoredInBean getRecordTarget() {
-        return this.recordTarget;
+    @Hl7XmlMapping({"recordTarget/patient1"})
+    public Patient_2 getRecordTargetPatient1() {
+        return this.recordTargetPatient1;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700230CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700230CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700237CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700231CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700231CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700236CA.ControlActEvent.recordTarget</p>
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.patient1</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTarget(StoredInBean recordTarget) {
-        this.recordTarget = recordTarget;
+    public void setRecordTargetPatient1(Patient_2 recordTargetPatient1) {
+        this.recordTargetPatient1 = recordTargetPatient1;
     }
 
 
@@ -1231,54 +1228,48 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700230CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MCAI_MT700230CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700232CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700231CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MCAI_MT700232CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700230CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MCAI_MT700230CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCAI_MT700232CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * MCAI_MT700231CA.Location.serviceDeliveryLocation</p>
+     * <p>Relationship: MCAI_MT700232CA.ControlActEvent.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700231CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 
@@ -1370,6 +1361,42 @@ public class TriggerEvent_2Bean extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"recordTarget/typeCode"})
+    public ParticipationType getRecordTargetTypeCode() {
+        return (ParticipationType) this.recordTargetTypeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700237CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCAI_MT700236CA.RecordTarget.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setRecordTargetTypeCode(ParticipationType recordTargetTypeCode) {
+        this.recordTargetTypeCode.setValue(recordTargetTypeCode);
     }
 
 

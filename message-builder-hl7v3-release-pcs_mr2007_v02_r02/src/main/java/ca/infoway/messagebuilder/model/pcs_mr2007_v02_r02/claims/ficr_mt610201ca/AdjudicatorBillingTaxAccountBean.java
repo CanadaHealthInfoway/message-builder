@@ -37,11 +37,14 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoice
  * 
  * <p>Can be used to specify the appropriate GST number and 
  * other tax numbers.</p>
+ * 
+ * <p>Billable item code which identifies modifications such as 
+ * a tax factor 7% Provincial Sales tax.</p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

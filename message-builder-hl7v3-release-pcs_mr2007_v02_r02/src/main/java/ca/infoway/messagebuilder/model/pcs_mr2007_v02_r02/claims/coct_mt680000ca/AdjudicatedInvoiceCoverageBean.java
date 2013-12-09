@@ -22,13 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt680000c
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInsurancePolicyCode;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CarrierRoleBean;
 
 
 
@@ -41,10 +37,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CarrierRoleBean
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private INT sequenceNumber = new INTImpl();
-    private CV policyOrAccountCode = new CVImpl();
-    private CarrierRoleBean policyOrAccountAuthorCarrierRole;
+    private FinancialContractPolicyAccountBean policyOrAccount;
 
 
     /**
@@ -74,52 +69,24 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: policy/account code</p>
-     * 
-     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Code Set denoting policy type</p>
-     */
-    @Hl7XmlMapping({"policyOrAccount/code"})
-    public ActInsurancePolicyCode getPolicyOrAccountCode() {
-        return (ActInsurancePolicyCode) this.policyOrAccountCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: policy/account code</p>
-     * 
-     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Code Set denoting policy type</p>
-     */
-    public void setPolicyOrAccountCode(ActInsurancePolicyCode policyOrAccountCode) {
-        this.policyOrAccountCode.setValue(policyOrAccountCode);
-    }
-
-
-    /**
      * <p>Relationship: 
-     * COCT_MT680000CA.PolicyUnderwriter.carrierRole</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"policyOrAccount/author/carrierRole"})
-    public CarrierRoleBean getPolicyOrAccountAuthorCarrierRole() {
-        return this.policyOrAccountAuthorCarrierRole;
+    @Hl7XmlMapping({"policyOrAccount"})
+    public FinancialContractPolicyAccountBean getPolicyOrAccount() {
+        return this.policyOrAccount;
     }
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.PolicyUnderwriter.carrierRole</p>
+     * COCT_MT680000CA.AdjudicatedInvoiceCoverage.policyOrAccount</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPolicyOrAccountAuthorCarrierRole(CarrierRoleBean policyOrAccountAuthorCarrierRole) {
-        this.policyOrAccountAuthorCarrierRole = policyOrAccountAuthorCarrierRole;
+    public void setPolicyOrAccount(FinancialContractPolicyAccountBean policyOrAccount) {
+        this.policyOrAccount = policyOrAccount;
     }
 
 }
