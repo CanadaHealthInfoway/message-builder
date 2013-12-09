@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -125,7 +124,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -145,12 +144,12 @@ public class CareCompositionBean extends MessagePartBean {
     private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
     private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
     private Request_1Bean inFulfillmentOfActRequest;
-    private List<II> predecessorOldPatientCareProvisionEventId = new ArrayList<II>();
+    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
     private CareCompositionBean replacementOfPatientCareProvisionEvent;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private List<ActEventBean> component1ActEvent = new ArrayList<ActEventBean>();
     private List<ParticipantGroupingsBean> component2PatientCareProvisionEventPortion = new ArrayList<ParticipantGroupingsBean>();
-    private II successorNewPatientCareProvisionEventId = new IIImpl();
+    private NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf2ControlActEvent;
     private BL subjectOf3AnnotationIndicator = new BLImpl(false);
@@ -1021,34 +1020,16 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacesRecordIds</p>
-     * 
-     * <p>Un-merged Business Name: ReplacesRecordIds</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004CA.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.Predecessor.oldPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent/id"})
-    public List<Identifier> getPredecessorOldPatientCareProvisionEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldPatientCareProvisionEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
+    public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
+        return this.predecessorOldPatientCareProvisionEvent;
     }
 
 
@@ -1140,46 +1121,28 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.Predecessor2.newPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent/id"})
-    public Identifier getSuccessorNewPatientCareProvisionEventId() {
-        return this.successorNewPatientCareProvisionEventId.getValue();
+    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent"})
+    public NewPatientCareProvisionEventBean getSuccessorNewPatientCareProvisionEvent() {
+        return this.successorNewPatientCareProvisionEvent;
     }
 
     /**
-     * <p>Business Name: ReplacedByRecordId</p>
-     * 
-     * <p>Un-merged Business Name: ReplacedByRecordId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500004CA.NewPatientCareProvisionEvent.id</p>
+     * REPC_MT500004CA.Predecessor2.newPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewPatientCareProvisionEventId(Identifier successorNewPatientCareProvisionEventId) {
-        this.successorNewPatientCareProvisionEventId.setValue(successorNewPatientCareProvisionEventId);
+    public void setSuccessorNewPatientCareProvisionEvent(NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent) {
+        this.successorNewPatientCareProvisionEvent = successorNewPatientCareProvisionEvent;
     }
 
 

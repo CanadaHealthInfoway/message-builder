@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ImmunizationForecastStatus;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ImmunizingAgentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.MedicationBean;
 import java.util.Date;
 
 
@@ -46,10 +46,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT consumableSequenceNumber = new INTImpl();
-    private ImmunizingAgentBean consumableMedicationAdministerableMedicine;
+    private MedicationBean consumableMedication;
     private CV subjectForecastStatusCode = new CVImpl();
 
 
@@ -144,24 +144,22 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * POIZ_MT070020CA.Medication.administerableMedicine</p>
+     * <p>Relationship: POIZ_MT070020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"consumable/medication/administerableMedicine"})
-    public ImmunizingAgentBean getConsumableMedicationAdministerableMedicine() {
-        return this.consumableMedicationAdministerableMedicine;
+    @Hl7XmlMapping({"consumable/medication"})
+    public MedicationBean getConsumableMedication() {
+        return this.consumableMedication;
     }
 
     /**
-     * <p>Relationship: 
-     * POIZ_MT070020CA.Medication.administerableMedicine</p>
+     * <p>Relationship: POIZ_MT070020CA.Consumable.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setConsumableMedicationAdministerableMedicine(ImmunizingAgentBean consumableMedicationAdministerableMedicine) {
-        this.consumableMedicationAdministerableMedicine = consumableMedicationAdministerableMedicine;
+    public void setConsumableMedication(MedicationBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 

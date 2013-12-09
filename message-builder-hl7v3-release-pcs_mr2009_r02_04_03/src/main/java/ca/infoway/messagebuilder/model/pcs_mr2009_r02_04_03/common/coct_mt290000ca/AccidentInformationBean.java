@@ -22,25 +22,18 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt29000
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.InjuryActSite;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.InjuryObservationValue;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ObservationInjuryType;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private INT sequenceNumber = new INTImpl();
-    private CV accidentInjuryCodingCode = new CVImpl();
-    private CV accidentInjuryCodingValue = new CVImpl();
-    private CV accidentInjuryCodingTargetSiteCode = new CVImpl();
+    private AccidentInjuryCodingBean accidentInjuryCoding;
 
 
     /**
@@ -80,88 +73,24 @@ public class AccidentInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Observation Injury type</p>
-     * 
-     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Injury Type</p>
-     */
-    @Hl7XmlMapping({"accidentInjuryCoding/code"})
-    public ObservationInjuryType getAccidentInjuryCodingCode() {
-        return (ObservationInjuryType) this.accidentInjuryCodingCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: Observation Injury type</p>
-     * 
-     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Injury Type</p>
-     */
-    public void setAccidentInjuryCodingCode(ObservationInjuryType accidentInjuryCodingCode) {
-        this.accidentInjuryCodingCode.setValue(accidentInjuryCodingCode);
-    }
-
-
-    /**
-     * <p>Business Name: Injury code</p>
-     * 
-     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Nature of Injury</p>
-     */
-    @Hl7XmlMapping({"accidentInjuryCoding/value"})
-    public InjuryObservationValue getAccidentInjuryCodingValue() {
-        return (InjuryObservationValue) this.accidentInjuryCodingValue.getValue();
-    }
-
-    /**
-     * <p>Business Name: Injury code</p>
-     * 
-     * <p>Relationship: COCT_MT290000CA.AccidentInjuryCoding.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Nature of Injury</p>
-     */
-    public void setAccidentInjuryCodingValue(InjuryObservationValue accidentInjuryCodingValue) {
-        this.accidentInjuryCodingValue.setValue(accidentInjuryCodingValue);
-    }
-
-
-    /**
-     * <p>Business Name: Act Injury Site</p>
-     * 
      * <p>Relationship: 
-     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Body Part + modifier = Side of Body</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"accidentInjuryCoding/targetSiteCode"})
-    public InjuryActSite getAccidentInjuryCodingTargetSiteCode() {
-        return (InjuryActSite) this.accidentInjuryCodingTargetSiteCode.getValue();
+    @Hl7XmlMapping({"accidentInjuryCoding"})
+    public AccidentInjuryCodingBean getAccidentInjuryCoding() {
+        return this.accidentInjuryCoding;
     }
 
     /**
-     * <p>Business Name: Act Injury Site</p>
-     * 
      * <p>Relationship: 
-     * COCT_MT290000CA.AccidentInjuryCoding.targetSiteCode</p>
+     * COCT_MT290000CA.AccidentInformation.accidentInjuryCoding</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Body Part + modifier = Side of Body</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAccidentInjuryCodingTargetSiteCode(InjuryActSite accidentInjuryCodingTargetSiteCode) {
-        this.accidentInjuryCodingTargetSiteCode.setValue(accidentInjuryCodingTargetSiteCode);
+    public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
+        this.accidentInjuryCoding = accidentInjuryCoding;
     }
 
 }

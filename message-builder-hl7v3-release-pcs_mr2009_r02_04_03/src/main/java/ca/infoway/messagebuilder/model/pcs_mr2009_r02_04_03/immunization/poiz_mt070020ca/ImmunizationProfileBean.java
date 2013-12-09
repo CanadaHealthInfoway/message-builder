@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.merged.AdministeredToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,29 +34,31 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationProfileBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private Patient_2Bean subject1Patient;
+    private static final long serialVersionUID = 20131209L;
+    private AdministeredToBean subject1;
     private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
     private AttachmentBean pertinentInformationAttachment;
 
 
     /**
-     * <p>Relationship: POIZ_MT070020CA.Subject.patient</p>
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationProfile.subject1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subject1/patient"})
-    public Patient_2Bean getSubject1Patient() {
-        return this.subject1Patient;
+    @Hl7XmlMapping({"subject1"})
+    public AdministeredToBean getSubject1() {
+        return this.subject1;
     }
 
     /**
-     * <p>Relationship: POIZ_MT070020CA.Subject.patient</p>
+     * <p>Relationship: 
+     * POIZ_MT070020CA.ImmunizationProfile.subject1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubject1Patient(Patient_2Bean subject1Patient) {
-        this.subject1Patient = subject1Patient;
+    public void setSubject1(AdministeredToBean subject1) {
+        this.subject1 = subject1;
     }
 
 

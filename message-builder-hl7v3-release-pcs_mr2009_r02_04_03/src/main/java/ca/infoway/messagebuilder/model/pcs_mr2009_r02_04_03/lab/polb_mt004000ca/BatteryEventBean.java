@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
@@ -37,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
@@ -46,11 +44,13 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.LabResultReportingProcessStepCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReportableHealthIndicatorBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ResultSortKeyBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice;
@@ -70,7 +70,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.BatteryEvent"})
 public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -82,14 +82,14 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
     private PrimaryInformationRecipientBean primaryInformationRecipient;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private II pertinentInformation1OutbreakEventId = new IIImpl();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private ST component1ResultSortKeyText = new STImpl();
+    private ResultSortKeyBean component1ResultSortKey;
     private List<ReportableHealthIndicatorBean> component2ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
     private List<ResultChoice> component3ResultChoice = new ArrayList<ResultChoice>();
     private VersionInformationBean subjectOf1ControlActEvent;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private CD subjectOf3ResultStatusProcessStepCode = new CDImpl();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
 
     /**
@@ -301,44 +301,24 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent/id"})
-    public Identifier getPertinentInformation1OutbreakEventId() {
-        return this.pertinentInformation1OutbreakEventId.getValue();
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
     }
 
     /**
-     * <p>Business Name: Outbreak Identifier</p>
+     * <p>Relationship: 
+     * POLB_MT004000CA.PertinentInformation1.outbreakEvent</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.OutbreakEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used as an indicator to public health that this lab 
-     * result may indicate the subject is a part of an outbreak. 
-     * This does not confirm that lab result is an outbreak 
-     * subject, only that the potential exists and public health 
-     * should disposition.</p>
-     * 
-     * <p>Identifies an outbreak which the reporting lab suspects 
-     * this result might be a part of.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPertinentInformation1OutbreakEventId(Identifier pertinentInformation1OutbreakEventId) {
-        this.pertinentInformation1OutbreakEventId.setValue(pertinentInformation1OutbreakEventId);
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
@@ -355,36 +335,22 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/resultSortKey/text"})
-    public String getComponent1ResultSortKeyText() {
-        return this.component1ResultSortKeyText.getValue();
+    @Hl7XmlMapping({"component1/resultSortKey"})
+    public ResultSortKeyBean getComponent1ResultSortKey() {
+        return this.component1ResultSortKey;
     }
 
     /**
-     * <p>Business Name: Sort Key Text</p>
+     * <p>Relationship: POLB_MT004000CA.Component2.resultSortKey</p>
      * 
-     * <p>Relationship: POLB_MT004000CA.ResultSortKey.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Attribute for communicating the actual sort key 
-     * value.</p>
-     * 
-     * <p>Value used for sorting results.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1ResultSortKeyText(String component1ResultSortKeyText) {
-        this.component1ResultSortKeyText.setValue(component1ResultSortKeyText);
+    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey) {
+        this.component1ResultSortKey = component1ResultSortKey;
     }
 
 
@@ -443,34 +409,24 @@ public class BatteryEventBean extends MessagePartBean implements ResultChoice {
 
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep/code"})
-    public LabResultReportingProcessStepCode getSubjectOf3ResultStatusProcessStepCode() {
-        return (LabResultReportingProcessStepCode) this.subjectOf3ResultStatusProcessStepCode.getValue();
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
     }
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004000CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf3ResultStatusProcessStepCode(LabResultReportingProcessStepCode subjectOf3ResultStatusProcessStepCode) {
-        this.subjectOf3ResultStatusProcessStepCode.setValue(subjectOf3ResultStatusProcessStepCode);
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

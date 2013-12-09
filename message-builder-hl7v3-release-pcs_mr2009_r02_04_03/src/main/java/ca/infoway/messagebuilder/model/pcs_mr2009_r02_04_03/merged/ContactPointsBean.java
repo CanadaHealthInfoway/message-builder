@@ -77,7 +77,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -54,6 +53,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patien
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActDiagnosisCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.AllergyIntoleranceStatusChangesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.NewConditionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -92,8 +93,8 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson informantActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
-    private List<II> predecessorOldConditionId = new ArrayList<II>();
-    private II successorNewConditionId = new IIImpl();
+    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
+    private NewConditionBean successorNewCondition;
     private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
@@ -612,69 +613,33 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>Business Name: H:Replaces Record Ids</p>
+     * <p>Relationship: REPC_MT000007CA.Predecessor.oldCondition</p>
      * 
-     * <p>Relationship: REPC_MT000007CA.OldCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldCondition/id"})
-    public List<Identifier> getPredecessorOldConditionId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldConditionId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
     }
 
 
     /**
-     * <p>Business Name: I: Replaced by Record Id</p>
+     * <p>Relationship: REPC_MT000007CA.Predecessor2.newCondition</p>
      * 
-     * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newCondition/id"})
-    public Identifier getSuccessorNewConditionId() {
-        return this.successorNewConditionId.getValue();
+    @Hl7XmlMapping({"successor/newCondition"})
+    public NewConditionBean getSuccessorNewCondition() {
+        return this.successorNewCondition;
     }
 
     /**
-     * <p>Business Name: I: Replaced by Record Id</p>
+     * <p>Relationship: REPC_MT000007CA.Predecessor2.newCondition</p>
      * 
-     * <p>Relationship: REPC_MT000007CA.NewCondition.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewConditionId(Identifier successorNewConditionId) {
-        this.successorNewConditionId.setValue(successorNewConditionId);
+    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
+        this.successorNewCondition = successorNewCondition;
     }
 
 

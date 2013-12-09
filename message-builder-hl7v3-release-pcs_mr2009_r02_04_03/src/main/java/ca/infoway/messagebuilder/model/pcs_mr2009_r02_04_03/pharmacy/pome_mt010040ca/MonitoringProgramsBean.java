@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActMonitoringProtocolType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.AssignedEntity3Bean;
 
 
 
@@ -48,10 +49,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActMonit
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
-    private ST custodianAssignedEntityAssignedOrganizationName = new STImpl();
+    private AssignedEntity3Bean custodianAssignedEntity;
 
 
     /**
@@ -131,38 +132,22 @@ public class MonitoringProgramsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Monitoring Organization Name</p>
+     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the program and understand its context. 
-     * May also indicate who to send reports to.</p>
-     * 
-     * <p>The name of the organization responsible for the 
-     * monitoring program</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"custodian/assignedEntity/assignedOrganization/name"})
-    public String getCustodianAssignedEntityAssignedOrganizationName() {
-        return this.custodianAssignedEntityAssignedOrganizationName.getValue();
+    @Hl7XmlMapping({"custodian/assignedEntity"})
+    public AssignedEntity3Bean getCustodianAssignedEntity() {
+        return this.custodianAssignedEntity;
     }
 
     /**
-     * <p>Business Name: Monitoring Organization Name</p>
+     * <p>Relationship: POME_MT010040CA.Custodian.assignedEntity</p>
      * 
-     * <p>Relationship: POME_MT010040CA.Organization2.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Helps identify the program and understand its context. 
-     * May also indicate who to send reports to.</p>
-     * 
-     * <p>The name of the organization responsible for the 
-     * monitoring program</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setCustodianAssignedEntityAssignedOrganizationName(String custodianAssignedEntityAssignedOrganizationName) {
-        this.custodianAssignedEntityAssignedOrganizationName.setValue(custodianAssignedEntityAssignedOrganizationName);
+    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
+        this.custodianAssignedEntity = custodianAssignedEntity;
     }
 
 }

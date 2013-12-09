@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
-import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.SubstanceAdministrationType;
@@ -88,13 +87,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private HealthcareOrganizationBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private CV component1WorkingListEventCode = new CVImpl();
-    private SupplyRequestBean componentSupplyRequest;
+    private ClassifiesBean component1;
+    private Component2Bean component;
     private CS statusCode = new CSImpl();
 
 
@@ -366,91 +365,69 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: TreatmentType</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component1</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The code is 
-     * mandatory as this information is known at dispense time if 
-     * the act relationship was not a NULL..</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"component1/workingListEvent/code"})
-    public ActTherapyDurationWorkingListCode getComponent1WorkingListEventCode() {
-        return (ActTherapyDurationWorkingListCode) this.component1WorkingListEventCode.getValue();
+    @Hl7XmlMapping({"component1"})
+    public ClassifiesBean getComponent1() {
+        return this.component1;
     }
 
     /**
-     * <p>Business Name: TreatmentType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: TreatmentType</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component1</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.WorkingListEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows categorizing prescription for presentation. May 
-     * influence detection of duplicate therapy. May also be used 
-     * to affect how DUR processing is completed. The code is 
-     * mandatory as this information is known at dispense time if 
-     * the act relationship was not a NULL..</p>
-     * 
-     * <p>Describes the categorization of the therapy envisioned by 
-     * this prescription (e.g. Continuous/Chronic, Short-Term/Acute 
-     * and &quot;As-Needed).</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setComponent1WorkingListEventCode(ActTherapyDurationWorkingListCode component1WorkingListEventCode) {
-        this.component1WorkingListEventCode.setValue(component1WorkingListEventCode);
+    public void setComponent1(ClassifiesBean component1) {
+        this.component1 = component1;
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component2</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"component/supplyRequest","component2/supplyRequest"})
+    @Hl7XmlMapping({"component","component2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
-        @Hl7MapByPartType(name="component/supplyRequest", type="PORX_MT020060CA.SupplyRequest2"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2"),
-        @Hl7MapByPartType(name="component2/supplyRequest", type="PORX_MT020070CA.SupplyRequest")})
-    public SupplyRequestBean getComponentSupplyRequest() {
-        return this.componentSupplyRequest;
+        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2")})
+    public Component2Bean getComponent() {
+        return this.component;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
+     * <p>Relationship: 
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component2</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.Component2.supplyRequest</p>
+     * <p>Relationship: PORX_MT020060CA.DeviceRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setComponentSupplyRequest(SupplyRequestBean componentSupplyRequest) {
-        this.componentSupplyRequest = componentSupplyRequest;
+    public void setComponent(Component2Bean component) {
+        this.component = component;
     }
 
 

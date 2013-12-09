@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT400003CA.Medicine","FICR_MT400004CA.Medicine","FICR_MT490101CA.Medicine","FICR_MT490102CA.Medicine","POIZ_MT070020CA.Medicine"})
 public class ImmunizingAgentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
     private ST desc = new STImpl();

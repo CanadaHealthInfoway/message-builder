@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.domainvalue.ActPriority;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.HealthDocumentAttachment_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationRequestCrossReferenceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Subject3Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Subject5Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
@@ -55,14 +56,14 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareOrganizationBean authorAssignedEntity;
-    private II predecessorSpecialAuthorizationRequestCrossReferenceId = new IIImpl();
+    private SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference;
     private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
     private Subject3Bean subject1;
     private List<Subject5Bean> subject2 = new ArrayList<Subject5Bean>();
@@ -213,28 +214,24 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Cross Reference ID</p>
-     * 
      * <p>Relationship: 
-     * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * FICR_MT490102CA.Predecessor.specialAuthorizationRequestCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference/id"})
-    public Identifier getPredecessorSpecialAuthorizationRequestCrossReferenceId() {
-        return this.predecessorSpecialAuthorizationRequestCrossReferenceId.getValue();
+    @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference"})
+    public SpecialAuthorizationRequestCrossReferenceBean getPredecessorSpecialAuthorizationRequestCrossReference() {
+        return this.predecessorSpecialAuthorizationRequestCrossReference;
     }
 
     /**
-     * <p>Business Name: Cross Reference ID</p>
-     * 
      * <p>Relationship: 
-     * FICR_MT490102CA.SpecialAuthorizationRequestCrossReference.id</p>
+     * FICR_MT490102CA.Predecessor.specialAuthorizationRequestCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPredecessorSpecialAuthorizationRequestCrossReferenceId(Identifier predecessorSpecialAuthorizationRequestCrossReferenceId) {
-        this.predecessorSpecialAuthorizationRequestCrossReferenceId.setValue(predecessorSpecialAuthorizationRequestCrossReferenceId);
+    public void setPredecessorSpecialAuthorizationRequestCrossReference(SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference) {
+        this.predecessorSpecialAuthorizationRequestCrossReference = predecessorSpecialAuthorizationRequestCrossReference;
     }
 
 

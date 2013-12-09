@@ -64,7 +64,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthDocument","POIZ_MT030060CA.HealthDocument","POIZ_MT060150CA.HealthDocument"})
 public class HealthDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();

@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActClaim
 @Hl7PartTypeMapping({"FICR_MT400001CA.HealthDocumentAttachment","FICR_MT490102CA.HealthDocumentAttachment","FICR_MT490103CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();

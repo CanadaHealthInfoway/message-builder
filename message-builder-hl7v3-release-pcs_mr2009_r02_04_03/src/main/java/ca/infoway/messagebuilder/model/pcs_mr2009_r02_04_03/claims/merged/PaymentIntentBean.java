@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt610201ca.AdjudicatedInvoiceElementGroupBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt610201ca.PaymentIntentReasonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt110200ca.PayeeAccountBean;
 import java.util.ArrayList;
@@ -55,13 +55,13 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private TS effectiveTime = new TSImpl();
     private MO amt = new MOImpl();
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
     private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private List<AdjudicatedInvoiceElementGroupBean> reasonOfAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<PaymentIntentReasonBean> reasonOf = new ArrayList<PaymentIntentReasonBean>();
 
 
     /**
@@ -269,14 +269,13 @@ public class PaymentIntentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT610201CA.PaymentIntentReason.adjudicatedInvoiceElementGroup</p>
+     * <p>Relationship: FICR_MT610201CA.PaymentIntent.reasonOf</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"reasonOf/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReasonOfAdjudicatedInvoiceElementGroup() {
-        return this.reasonOfAdjudicatedInvoiceElementGroup;
+    @Hl7XmlMapping({"reasonOf"})
+    public List<PaymentIntentReasonBean> getReasonOf() {
+        return this.reasonOf;
     }
 
 }

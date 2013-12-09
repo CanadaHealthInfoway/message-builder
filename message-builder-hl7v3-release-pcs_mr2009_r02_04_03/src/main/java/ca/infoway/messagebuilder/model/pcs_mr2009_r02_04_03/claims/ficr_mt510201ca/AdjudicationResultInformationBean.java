@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
     private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
 

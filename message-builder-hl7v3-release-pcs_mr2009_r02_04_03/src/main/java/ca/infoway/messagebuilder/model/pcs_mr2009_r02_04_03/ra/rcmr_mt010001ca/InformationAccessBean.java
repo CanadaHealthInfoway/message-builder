@@ -26,10 +26,8 @@ import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInformationAccessCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Recipient;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,42 +45,28 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private Recipient receiverRecipient;
+    private static final long serialVersionUID = 20131209L;
+    private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 
 
     /**
-     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * <p>Relationship: RCMR_MT010001CA.PermissionToInform.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver/recipient"})
-    public Recipient getReceiverRecipient() {
-        return this.receiverRecipient;
+    @Hl7XmlMapping({"receiver"})
+    public ConsentGivenToBean getReceiver() {
+        return this.receiver;
     }
 
     /**
-     * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
+     * <p>Relationship: RCMR_MT010001CA.PermissionToInform.receiver</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReceiverRecipient(Recipient receiverRecipient) {
-        this.receiverRecipient = receiverRecipient;
-    }
-
-    public HealthcareOrganizationBean getReceiverRecipientAsAssignedEntity() {
-        return this.receiverRecipient instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.receiverRecipient : null;
-    }
-    public boolean hasReceiverRecipientAsAssignedEntity() {
-        return (this.receiverRecipient instanceof HealthcareOrganizationBean);
-    }
-
-    public ServiceLocationBean getReceiverRecipientAsServiceDeliveryLocation() {
-        return this.receiverRecipient instanceof ServiceLocationBean ? (ServiceLocationBean) this.receiverRecipient : null;
-    }
-    public boolean hasReceiverRecipientAsServiceDeliveryLocation() {
-        return (this.receiverRecipient instanceof ServiceLocationBean);
+    public void setReceiver(ConsentGivenToBean receiver) {
+        this.receiver = receiver;
     }
 
 

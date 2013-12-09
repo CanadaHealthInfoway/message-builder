@@ -135,7 +135,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020050CA.Author2","PORX_MT030040CA.Author2","PORX_MT060020CA.Author2","PORX_MT060040CA.Author4","PORX_MT060060CA.Author2","PORX_MT060100CA.Author2","PORX_MT060160CA.Author4","PORX_MT060190CA.Author2","PORX_MT060340CA.Author4","RCMR_MT010001CA.Author2"})
 public class PrescribedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();

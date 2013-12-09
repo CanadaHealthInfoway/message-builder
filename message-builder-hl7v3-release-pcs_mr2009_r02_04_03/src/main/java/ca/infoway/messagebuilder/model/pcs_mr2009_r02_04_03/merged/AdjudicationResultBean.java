@@ -24,10 +24,9 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AdjudicationResultRequiredActBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActAdjudicationResultActionType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActAdjudicationType;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +43,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult","FICR_MT610201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
-    private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
+    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
-    private List<CV> triggerAdjudicationResultRequiredActCode = new ArrayList<CV>();
+    private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
     private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
@@ -98,20 +97,20 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * COCT_MT680000CA.AdjudicationResultReference.invoiceElementChoice</p>
+     * COCT_MT680000CA.AdjudicationResult.reference</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicationResultReference.invoiceElementChoice</p>
+     * FICR_MT610201CA.AdjudicationResult.reference</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"reference/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
-        return this.referenceInvoiceElementChoice;
+    @Hl7XmlMapping({"reference"})
+    public List<AdjudicationResultReferenceBean> getReference() {
+        return this.reference;
     }
 
 
@@ -137,18 +136,16 @@ public class AdjudicationResultBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: RequiredActionType</p>
-     * 
-     * <p>Un-merged Business Name: RequiredActionType</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicationResultRequiredAct.code</p>
+     * FICR_MT610201CA.AdjudicationResultTrigger.adjudicationResultRequiredAct</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct/code"})
-    public List<ActAdjudicationResultActionType> getTriggerAdjudicationResultRequiredActCode() {
-        return new RawListWrapper<CV, ActAdjudicationResultActionType>(triggerAdjudicationResultRequiredActCode, CVImpl.class);
+    @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
+    public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
+        return this.triggerAdjudicationResultRequiredAct;
     }
 
 

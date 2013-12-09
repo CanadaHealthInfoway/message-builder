@@ -29,19 +29,18 @@ import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoiceGroupType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.InvoiceElementChoice;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
-public class InventElementChoiceBean extends MessagePartBean implements InvoiceElementChoice {
+public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
-    private List<InvoiceElementChoice> componentInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
 
 
     /**
@@ -106,13 +105,13 @@ public class InventElementChoiceBean extends MessagePartBean implements InvoiceE
 
     /**
      * <p>Relationship: 
-     * COCT_MT680000CA.InvoiceElementComponent.invoiceElementChoice</p>
+     * COCT_MT680000CA.InvoiceElementIntent.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      */
-    @Hl7XmlMapping({"component/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getComponentInvoiceElementChoice() {
-        return this.componentInvoiceElementChoice;
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
     }
 
 }

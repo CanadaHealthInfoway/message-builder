@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ConsentGivenToBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Consenter;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Recipient;
 import java.util.Date;
 
 
@@ -44,11 +44,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private Recipient receiverRecipient;
+    private ConsentGivenToBean receiver;
     private CE responsiblePartyModeCode = new CEImpl();
     private Consenter responsiblePartyConsenter;
 
@@ -212,48 +212,48 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Receiver.recipient</p>
+     * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Receiver.recipient</p>
+     * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"receiver/recipient"})
-    public Recipient getReceiverRecipient() {
-        return this.receiverRecipient;
+    @Hl7XmlMapping({"receiver"})
+    public ConsentGivenToBean getReceiver() {
+        return this.receiver;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT060150CA.Receiver.recipient</p>
+     * <p>Relationship: POIZ_MT060150CA.Consent.receiver</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POIZ_MT030060CA.Receiver.recipient</p>
+     * <p>Relationship: POIZ_MT030050CA.Consent.receiver</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POIZ_MT030060CA.Consent.receiver</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setReceiverRecipient(Recipient receiverRecipient) {
-        this.receiverRecipient = receiverRecipient;
+    public void setReceiver(ConsentGivenToBean receiver) {
+        this.receiver = receiver;
     }
 
 

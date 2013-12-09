@@ -27,18 +27,14 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
@@ -50,6 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.DischargeDiagnosisBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ParticipantGroupingsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Request_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
@@ -94,7 +91,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -108,7 +105,7 @@ public class CareCompositionBean extends MessagePartBean {
     private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
     private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
     private Request_1Bean inFulfillmentOfActRequest;
-    private List<II> predecessorOldPatientCareProvisionEventId = new ArrayList<II>();
+    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private List<ActEventBean> component1ActEvent = new ArrayList<ActEventBean>();
     private List<ParticipantGroupingsBean> component2PatientCareProvisionEventPortion = new ArrayList<ParticipantGroupingsBean>();
@@ -580,32 +577,14 @@ public class CareCompositionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: F:Replaces Record Ids</p>
-     * 
      * <p>Relationship: 
-     * REPC_MT500001CA.OldPatientCareProvisionEvent.id</p>
+     * REPC_MT500001CA.Predecessor.oldPatientCareProvisionEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent/id"})
-    public List<Identifier> getPredecessorOldPatientCareProvisionEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldPatientCareProvisionEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
+    public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
+        return this.predecessorOldPatientCareProvisionEvent;
     }
 
 

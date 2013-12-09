@@ -23,10 +23,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt30000
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdminSubstitutionCode;
 import ca.infoway.messagebuilder.domainvalue.SubstanceAdminSubstitutionReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -36,10 +33,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
-    private II performerSubstitutionRoleId = new IIImpl();
+    private SubstitutionRoleBean performerSubstitutionRole;
 
 
     /**
@@ -105,38 +102,22 @@ public class DispenseSubstitutionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Person who did the substitution</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.SubstitutionRole.id</p>
+     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ID must be that of the patient, ordering provider or 
-     * dispensing provider</p>
-     * 
-     * <p>Id must be that of the patient, ordering provider or 
-     * dispensing provider.</p>
      */
-    @Hl7XmlMapping({"performer/substitutionRole/id"})
-    public Identifier getPerformerSubstitutionRoleId() {
-        return this.performerSubstitutionRoleId.getValue();
+    @Hl7XmlMapping({"performer/substitutionRole"})
+    public SubstitutionRoleBean getPerformerSubstitutionRole() {
+        return this.performerSubstitutionRole;
     }
 
     /**
-     * <p>Business Name: Person who did the substitution</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.SubstitutionRole.id</p>
+     * <p>Relationship: COCT_MT300000CA.Performer.substitutionRole</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>ID must be that of the patient, ordering provider or 
-     * dispensing provider</p>
-     * 
-     * <p>Id must be that of the patient, ordering provider or 
-     * dispensing provider.</p>
      */
-    public void setPerformerSubstitutionRoleId(Identifier performerSubstitutionRoleId) {
-        this.performerSubstitutionRoleId.setValue(performerSubstitutionRoleId);
+    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
+        this.performerSubstitutionRole = performerSubstitutionRole;
     }
 
 }

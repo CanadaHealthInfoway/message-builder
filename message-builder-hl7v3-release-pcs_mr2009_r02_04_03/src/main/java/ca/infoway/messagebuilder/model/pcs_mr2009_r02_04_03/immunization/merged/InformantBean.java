@@ -50,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
     private CV modeCode = new CVImpl();
     private InformationSourceChoice informationSourceChoice;

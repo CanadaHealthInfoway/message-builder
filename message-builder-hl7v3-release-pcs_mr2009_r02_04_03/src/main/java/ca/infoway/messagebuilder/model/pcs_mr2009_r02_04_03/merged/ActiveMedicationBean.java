@@ -69,9 +69,9 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration","FICR_MT400001CA.SubstanceAdministration","FICR_MT400003CA.SubstanceAdministration","FICR_MT400004CA.SubstanceAdministration","FICR_MT490101CA.SubstanceAdministration","FICR_MT490102CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private PQ doseQuantity = new PQImpl();
-    private ImmunizingAgentBean directTargetMedicationAdministerableMedicine;
+    private MedicationBean directTargetMedication;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -218,82 +218,72 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT490102CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT490102CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400001CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT400003CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400003CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT400004CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400004CA.Medication.administerableMedicine</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490101CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT490101CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"directTarget/medication/administerableMedicine"})
-    public ImmunizingAgentBean getDirectTargetMedicationAdministerableMedicine() {
-        return this.directTargetMedicationAdministerableMedicine;
+    @Hl7XmlMapping({"directTarget/medication"})
+    public MedicationBean getDirectTargetMedication() {
+        return this.directTargetMedication;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT490102CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT490102CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400001CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400001CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT400003CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400003CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT400004CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT400004CA.Medication.administerableMedicine</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490101CA.Medication.administerableMedicine</p>
+     * <p>Relationship: FICR_MT490101CA.DirectTarget.medication</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setDirectTargetMedicationAdministerableMedicine(ImmunizingAgentBean directTargetMedicationAdministerableMedicine) {
-        this.directTargetMedicationAdministerableMedicine = directTargetMedicationAdministerableMedicine;
+    public void setDirectTargetMedication(MedicationBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
     }
 
 

@@ -35,8 +35,9 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AdjudicatedResultsGroupBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoiceGroupType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicationResultBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedResultOutcomeBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
@@ -53,10 +54,10 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     private AdjudicatedInvoiceAuthorBean author;
     private AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup;
     private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedInvoiceElementGroupBean>();
-    private MO reference1AllowableNetAmt = new MOImpl();
+    private AllowableBean reference1Allowable;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private List<AdjudicatedInvoiceElementComponentBean> component = new ArrayList<AdjudicatedInvoiceElementComponentBean>();
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
 
 
@@ -221,26 +222,22 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
 
     /**
-     * <p>Business Name: Paid Amount</p>
+     * <p>Relationship: FICR_MT610201CA.Reference2.allowable</p>
      * 
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"reference1/allowable/netAmt"})
-    public Money getReference1AllowableNetAmt() {
-        return this.reference1AllowableNetAmt.getValue();
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
     }
 
     /**
-     * <p>Business Name: Paid Amount</p>
+     * <p>Relationship: FICR_MT610201CA.Reference2.allowable</p>
      * 
-     * <p>Relationship: FICR_MT610201CA.Allowable.netAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReference1AllowableNetAmt(Money reference1AllowableNetAmt) {
-        this.reference1AllowableNetAmt.setValue(reference1AllowableNetAmt);
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
     }
 
 
@@ -258,35 +255,35 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedInvoiceElementComponent.adjudicatedInvoiceElementChoice</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementGroup.component</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      */
-    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
-    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
-        return this.componentAdjudicatedInvoiceElementChoice;
+    @Hl7XmlMapping({"component"})
+    public List<AdjudicatedInvoiceElementComponentBean> getComponent() {
+        return this.component;
     }
 
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
 
     /**
      * <p>Relationship: 
-     * FICR_MT610201CA.AdjudicatedResultOutcome.adjudicationResult</p>
+     * FICR_MT610201CA.AdjudicatedInvoiceElementChoice.outcomeOf</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 

@@ -66,7 +66,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActDiagn
 @Hl7PartTypeMapping({"REPC_MT500001CA.DiagnosisEvent","REPC_MT500002CA.DiagnosisEvent","REPC_MT500003CA.DiagnosisEvent","REPC_MT500004CA.DiagnosisEvent"})
 public class DischargeDiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private CV value = new CVImpl();
 

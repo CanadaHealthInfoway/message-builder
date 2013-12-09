@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.Money;
@@ -54,17 +53,17 @@ import java.util.List;
  * 
  * <p>Cancel reasons are noted in the control wrapper</p>
  */
-@Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroup","FICR_MT610201CA.InvoiceElementGroup","FICR_MT620000CA.InvoiceElementGroup"})
+@Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroup","FICR_MT610201CA.InvoiceElementGroup","FICR_MT620000CA.InvoiceElementGroup","QUCR_MT830201CA.InvoiceElementGroup"})
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt600201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private FinancialContractBean inFulfillmentOfFinancialContract;
-    private List<II> predecessorInvoiceElementCrossReferenceId = new ArrayList<II>();
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
     private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
     private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
@@ -90,6 +89,22 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
      * <p></p>
+     * 
+     * <p>Un-merged Business Name: InvoiceGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p></p><p>For example:</p><p>1. unique invoice group 
+     * identifier, independent of adjudicator recipient.</p><p>2. 
+     * sequential invoice grouping identifier by 
+     * adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
      * 
      * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
@@ -125,6 +140,22 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
      * with all identifiers (i.e. identifier 1. and 2.).</p>
      * 
      * <p></p>
+     * 
+     * <p>Un-merged Business Name: InvoiceGroupID</p>
+     * 
+     * <p>Relationship: QUCR_MT830201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p></p><p>For example:</p><p>1. unique invoice group 
+     * identifier, independent of adjudicator recipient.</p><p>2. 
+     * sequential invoice grouping identifier by 
+     * adjudicator.</p><p>Obligation on adjudicator is to return 
+     * and communicate about this item with all identifiers (i.e. 
+     * identifier 1. and 2.).</p>
+     * 
+     * <p>Set of identifiers that uniquely identify the Invoice 
+     * Grouping.</p>
      * 
      * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
      * 
@@ -350,18 +381,16 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Business Name: CrossReferenceIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: CrossReferenceIdentifier</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.InvoiceElementCrossReference.id</p>
+     * FICR_MT600201CA.Predecessor.invoiceElementCrossReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference/id"})
-    public List<Identifier> getPredecessorInvoiceElementCrossReferenceId() {
-        return new RawListWrapper<II, Identifier>(predecessorInvoiceElementCrossReferenceId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
     }
 
 

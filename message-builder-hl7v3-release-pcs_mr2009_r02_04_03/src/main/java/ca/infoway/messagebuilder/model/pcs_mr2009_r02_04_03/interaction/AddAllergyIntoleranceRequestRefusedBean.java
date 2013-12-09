@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
 @Hl7PartTypeMapping({"REPC_IN000014CA"})
 public class AddAllergyIntoleranceRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

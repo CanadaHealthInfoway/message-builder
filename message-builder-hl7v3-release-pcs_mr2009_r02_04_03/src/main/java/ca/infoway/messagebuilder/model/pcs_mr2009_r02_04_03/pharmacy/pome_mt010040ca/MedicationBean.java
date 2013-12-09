@@ -23,14 +23,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.pome_mt010
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.MO;
-import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.impl.MOImpl;
-import ca.infoway.messagebuilder.datatype.impl.PQImpl;
-import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.AppearanceCharacteristicsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.DrugCostBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.MonographsBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,13 +46,13 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private DrugOrCompoundBean administerableMedicine;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
     private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private MO subjectOf4PotentialChargeUnitPriceAmt = new MOImpl();
-    private PQ subjectOf5HalfLifeValue = new PQImpl();
+    private DrugCostBean subjectOf4PotentialCharge;
+    private DrugHalfLifeBean subjectOf5HalfLife;
     private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
     private DispenseInformationBean productOf1DispenseGuidelines;
     private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
@@ -119,88 +114,42 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Drug Cost</p>
+     * <p>Relationship: POME_MT010040CA.Subject2.potentialCharge</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>May influence prescriber and pharmacists decisions as 
-     * cost can impact compliance.</p>
-     * 
-     * <p>The average unit dose cost of the drug.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf4/potentialCharge/unitPriceAmt"})
-    public Money getSubjectOf4PotentialChargeUnitPriceAmt() {
-        return this.subjectOf4PotentialChargeUnitPriceAmt.getValue();
+    @Hl7XmlMapping({"subjectOf4/potentialCharge"})
+    public DrugCostBean getSubjectOf4PotentialCharge() {
+        return this.subjectOf4PotentialCharge;
     }
 
     /**
-     * <p>Business Name: Drug Cost</p>
+     * <p>Relationship: POME_MT010040CA.Subject2.potentialCharge</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.PotentialCharge.unitPriceAmt</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>May influence prescriber and pharmacists decisions as 
-     * cost can impact compliance.</p>
-     * 
-     * <p>The average unit dose cost of the drug.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf4PotentialChargeUnitPriceAmt(Money subjectOf4PotentialChargeUnitPriceAmt) {
-        this.subjectOf4PotentialChargeUnitPriceAmt.setValue(subjectOf4PotentialChargeUnitPriceAmt);
+    public void setSubjectOf4PotentialCharge(DrugCostBean subjectOf4PotentialCharge) {
+        this.subjectOf4PotentialCharge = subjectOf4PotentialCharge;
     }
 
 
     /**
-     * <p>Business Name: Half-Life Period</p>
+     * <p>Relationship: POME_MT010040CA.Subject5.halfLife</p>
      * 
-     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Depending on the half-life, a drug may remain present and 
-     * active in a patient's system long after they cease taking 
-     * it. Understanding this time period is essential to 
-     * appropriate dosing, and also to identifying when to include 
-     * medications in drug-drug interaction checking.</p>
-     * 
-     * <p>Different drugs are absorbed and degraded by the body at 
-     * different rates. The half-life indicates the length of time 
-     * necessary for a human body to degrade the drug to half its 
-     * original potency. The actual time-period will vary from 
-     * person to person based on mass, renal function, liver 
-     * function, route of administration and other factors</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf5/halfLife/value"})
-    public PhysicalQuantity getSubjectOf5HalfLifeValue() {
-        return this.subjectOf5HalfLifeValue.getValue();
+    @Hl7XmlMapping({"subjectOf5/halfLife"})
+    public DrugHalfLifeBean getSubjectOf5HalfLife() {
+        return this.subjectOf5HalfLife;
     }
 
     /**
-     * <p>Business Name: Half-Life Period</p>
+     * <p>Relationship: POME_MT010040CA.Subject5.halfLife</p>
      * 
-     * <p>Relationship: POME_MT010040CA.HalfLife.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Depending on the half-life, a drug may remain present and 
-     * active in a patient's system long after they cease taking 
-     * it. Understanding this time period is essential to 
-     * appropriate dosing, and also to identifying when to include 
-     * medications in drug-drug interaction checking.</p>
-     * 
-     * <p>Different drugs are absorbed and degraded by the body at 
-     * different rates. The half-life indicates the length of time 
-     * necessary for a human body to degrade the drug to half its 
-     * original potency. The actual time-period will vary from 
-     * person to person based on mass, renal function, liver 
-     * function, route of administration and other factors</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf5HalfLifeValue(PhysicalQuantity subjectOf5HalfLifeValue) {
-        this.subjectOf5HalfLifeValue.setValue(subjectOf5HalfLifeValue);
+    public void setSubjectOf5HalfLife(DrugHalfLifeBean subjectOf5HalfLife) {
+        this.subjectOf5HalfLife = subjectOf5HalfLife;
     }
 
 

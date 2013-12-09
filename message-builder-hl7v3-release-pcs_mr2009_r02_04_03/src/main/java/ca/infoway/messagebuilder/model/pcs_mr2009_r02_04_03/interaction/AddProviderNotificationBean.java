@@ -49,6 +49,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt301010ca.R
 @Hl7PartTypeMapping({"PRPM_IN301030CA"})
 public class AddProviderNotificationBean extends HL7Message_1Bean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

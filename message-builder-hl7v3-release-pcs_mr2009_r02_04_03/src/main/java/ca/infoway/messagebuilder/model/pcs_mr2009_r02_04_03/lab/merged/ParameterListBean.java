@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV assignedPatientLocationValue = new CVImpl();
     private BL includeHistoryIndicatorValue = new BLImpl();
     private IVL<TS, Interval<Date>> jLISReceivedDateTimeValue = new IVLImpl<TS, Interval<Date>>();

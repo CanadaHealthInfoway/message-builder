@@ -82,7 +82,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Performer","POIZ_MT030060CA.Performer","POIZ_MT060150CA.Performer","REPC_MT210001CA.Performer","REPC_MT210002CA.Performer","REPC_MT210003CA.Performer"})
 public class AdministeredByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CV modeCode = new CVImpl();
     private CV signatureCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();

@@ -54,7 +54,7 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II immunizationEventIDValue = new IIImpl();
     private TS patientBirthDateValue = new TSImpl();
     private CV patientGenderValue = new CVImpl();

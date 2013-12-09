@@ -22,12 +22,15 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt500201ca.PolicyHolderPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CarrierRoleBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt500201ca.PolicyHolderBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInsurancePolicyType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PolicyUnderwriterBean;
 
 
 
@@ -46,22 +49,27 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CarrierRoleBe
  * similar). Carrier noted in author participation, and may not 
  * be same namespace as OID of id</p>
  */
-@Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount"})
+@Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyOrAccount_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
+    private CD code = new CDImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
-    private CarrierRoleBean authorCarrierRole;
-    private PolicyHolderPersonBean holderPolicyHolderPolicyHolderPerson;
+    private PolicyUnderwriterBean author;
+    private PolicyHolderBean holderPolicyHolder;
 
 
     /**
-     * <p>Business Name: PolicyID</p>
-     * 
      * <p>Un-merged Business Name: PolicyID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -77,11 +85,15 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Business Name: PolicyID</p>
-     * 
      * <p>Un-merged Business Name: PolicyID</p>
      * 
      * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: PolicyIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -97,10 +109,45 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: PolicyType</p>
+     * 
+     * <p>Un-merged Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInsurancePolicyType getCode() {
+        return (ActInsurancePolicyType) this.code.getValue();
+    }
+
+    /**
+     * <p>Business Name: PolicyType</p>
+     * 
+     * <p>Un-merged Business Name: PolicyType</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setCode(ActInsurancePolicyType code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -127,6 +174,13 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * FICR_MT500201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -139,66 +193,72 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"author/carrierRole"})
-    public CarrierRoleBean getAuthorCarrierRole() {
-        return this.authorCarrierRole;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201CA.PolicyUnderwriter.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.PolicyUnderwriter.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
-        this.authorCarrierRole = authorCarrierRole;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.PolicyHolder.policyHolderPerson</p>
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"holder/policyHolder/policyHolderPerson"})
-    public PolicyHolderPersonBean getHolderPolicyHolderPolicyHolderPerson() {
-        return this.holderPolicyHolderPolicyHolderPerson;
+    @Hl7XmlMapping({"author"})
+    public PolicyUnderwriterBean getAuthor() {
+        return this.author;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * FICR_MT500201CA.PolicyHolder.policyHolderPerson</p>
+     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.PolicyOrAccount.author</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setHolderPolicyHolderPolicyHolderPerson(PolicyHolderPersonBean holderPolicyHolderPolicyHolderPerson) {
-        this.holderPolicyHolderPolicyHolderPerson = holderPolicyHolderPolicyHolderPerson;
+    public void setAuthor(PolicyUnderwriterBean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"holder/policyHolder"})
+    public PolicyHolderBean getHolderPolicyHolder() {
+        return this.holderPolicyHolder;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT500201CA.Holder.policyHolder</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
+        this.holderPolicyHolder = holderPolicyHolder;
     }
 
 }

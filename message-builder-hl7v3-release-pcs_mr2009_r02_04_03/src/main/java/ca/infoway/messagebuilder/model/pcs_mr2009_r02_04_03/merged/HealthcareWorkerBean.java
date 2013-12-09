@@ -118,13 +118,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AssignedEntity","POIZ_MT030060CA.AssignedEntity","POIZ_MT060150CA.AssignedEntity","REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN assignedProviderName = new PNImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN assignedPersonName = new PNImpl();
-    private II assignedPersonAsHealthCareProviderId = new IIImpl();
+    private ActingPersonBean assignedPerson;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();
@@ -614,220 +613,56 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT030060CA.Person.name</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT060150CA.Person.name</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The name of the participating person.</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"assignedPerson/name"})
-    public PersonName getAssignedPersonName() {
-        return this.assignedPersonName.getValue();
+    @Hl7XmlMapping({"assignedPerson"})
+    public ActingPersonBean getAssignedPerson() {
+        return this.assignedPerson;
     }
 
     /**
-     * <p>Business Name: HealthcareWorkerName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT030060CA.Person.name</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The name of the participating person.</p>
-     * 
-     * <p>Un-merged Business Name: HealthcareWorkerName</p>
-     * 
-     * <p>Relationship: POIZ_MT060150CA.Person.name</p>
+     * <p>Relationship: 
+     * POIZ_MT030060CA.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>This is a human-readable name and is thus essential for 
-     * both display and validation of the person. As a result, the 
-     * attribute is mandatory.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>The name of the participating person.</p>
+     * <p>Relationship: 
+     * POIZ_MT060150CA.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAssignedPersonName(PersonName assignedPersonName) {
-        this.assignedPersonName.setValue(assignedPersonName);
-    }
-
-
-    /**
-     * <p>Business Name: LicenseNumber</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT030060CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT060150CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    @Hl7XmlMapping({"assignedPerson/asHealthCareProvider/id"})
-    public Identifier getAssignedPersonAsHealthCareProviderId() {
-        return this.assignedPersonAsHealthCareProviderId.getValue();
-    }
-
-    /**
-     * <p>Business Name: LicenseNumber</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT030050CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT030060CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     * 
-     * <p>Un-merged Business Name: LicenseNumber</p>
-     * 
-     * <p>Relationship: POIZ_MT060150CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of AssignedEntity 
-     * class is the same as the license number, the license number 
-     * should be sent in both places.</p><p>Detailed information 
-     * about the status and effective period of licenses must be 
-     * retrieved from the provider registry.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    public void setAssignedPersonAsHealthCareProviderId(Identifier assignedPersonAsHealthCareProviderId) {
-        this.assignedPersonAsHealthCareProviderId.setValue(assignedPersonAsHealthCareProviderId);
+    public void setAssignedPerson(ActingPersonBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
     }
 
 

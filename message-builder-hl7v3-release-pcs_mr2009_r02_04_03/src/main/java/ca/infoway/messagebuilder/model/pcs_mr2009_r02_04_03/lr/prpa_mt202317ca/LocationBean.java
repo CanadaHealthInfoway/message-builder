@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryRoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt960002ca.GeographicCoordinatesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.merged.IndirectAuthorithyOverBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -73,7 +74,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
@@ -81,7 +82,7 @@ public class LocationBean extends MessagePartBean {
     private CS statusCode = new CSImpl();
     private PlaceBean location;
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
-    private II indirectAuthorityTerritorialAuthorityId = new IIImpl();
+    private IndirectAuthorithyOverBean indirectAuthority;
 
 
     /**
@@ -368,48 +369,24 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: H: Location Region Id</p>
-     * 
-     * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
+     * <p>Relationship: 
+     * PRPA_MT202317CA.ServiceDeliveryLocation.indirectAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
-     * 
-     * <p>Identifies the health region associated with the service 
-     * delivery location (if any).</p>
      */
-    @Hl7XmlMapping({"indirectAuthority/territorialAuthority/id"})
-    public Identifier getIndirectAuthorityTerritorialAuthorityId() {
-        return this.indirectAuthorityTerritorialAuthorityId.getValue();
+    @Hl7XmlMapping({"indirectAuthority"})
+    public IndirectAuthorithyOverBean getIndirectAuthority() {
+        return this.indirectAuthority;
     }
 
     /**
-     * <p>Business Name: H: Location Region Id</p>
-     * 
-     * <p>Relationship: PRPA_MT202317CA.TerritorialAuthority.id</p>
+     * <p>Relationship: 
+     * PRPA_MT202317CA.ServiceDeliveryLocation.indirectAuthority</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>In Canada, many service delivery locations are organized 
-     * into regions for administrative, coordination and/or funding 
-     * reasons. Regions may influence where a patient may go for 
-     * services. They may also be used for searching.</p><p>Because 
-     * not all service delivery locations are associated with a 
-     * region, this element is only 'populated' to allow null 
-     * flavors such as 'NA'.</p>
-     * 
-     * <p>Identifies the health region associated with the service 
-     * delivery location (if any).</p>
      */
-    public void setIndirectAuthorityTerritorialAuthorityId(Identifier indirectAuthorityTerritorialAuthorityId) {
-        this.indirectAuthorityTerritorialAuthorityId.setValue(indirectAuthorityTerritorialAuthorityId);
+    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
+        this.indirectAuthority = indirectAuthority;
     }
 
 }

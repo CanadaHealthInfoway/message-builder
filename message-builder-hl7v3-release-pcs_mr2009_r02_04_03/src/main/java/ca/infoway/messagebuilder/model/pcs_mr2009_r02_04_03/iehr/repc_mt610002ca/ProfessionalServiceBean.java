@@ -36,11 +36,9 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ActProcedureCategoryList;
 import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -51,6 +49,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Health
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ActDefinitionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Component2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldProcedureEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Request_3Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
@@ -88,7 +89,7 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -103,13 +104,13 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
     private OccurredAtBean location;
     private Request_3Bean inFulfillmentOfActRequest;
     private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
-    private List<II> predecessorOldProcedureEventId = new ArrayList<II>();
+    private List<OldProcedureEventBean> predecessorOldProcedureEvent = new ArrayList<OldProcedureEventBean>();
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private II successorNewProcedureEventId = new IIImpl();
+    private NewProcedureEventBean successorNewProcedureEvent;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private II subjectOf3ClinicalDocumentEventId = new IIImpl();
-    private List<CV> componentOf1WorkingListEventCode = new ArrayList<CV>();
+    private ClinicalDocumentEventBean subjectOf3ClinicalDocumentEvent;
+    private List<Component2Bean> componentOf1 = new ArrayList<Component2Bean>();
     private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
@@ -668,31 +669,14 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Business Name: H:Replaces Record Ids</p>
+     * <p>Relationship: 
+     * REPC_MT610002CA.Predecessor.oldProcedureEvent</p>
      * 
-     * <p>Relationship: REPC_MT610002CA.OldProcedureEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where information initially 
-     * captured about an event is erroneous, incomplete or not 
-     * captured at the desired level of detail and the change 
-     * cannot be made by retracting the original record. (E.g. Too 
-     * much time has elapsed, change is being made by a provider 
-     * other than the original author of the vent record, etc.) May 
-     * also be used to reference multiple records in the case where 
-     * the same event has been accidentally captured more than 
-     * once.</i> </p>
-     * 
-     * <p> <i>Used to identify any records that are 
-     * &quot;superseded&quot; by the current record. This will 
-     * cause the referenced records to be marked as 
-     * &quot;obsolete&quot; with a reference pointing to this 
-     * record.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"predecessor/oldProcedureEvent/id"})
-    public List<Identifier> getPredecessorOldProcedureEventId() {
-        return new RawListWrapper<II, Identifier>(predecessorOldProcedureEventId, IIImpl.class);
+    @Hl7XmlMapping({"predecessor/oldProcedureEvent"})
+    public List<OldProcedureEventBean> getPredecessorOldProcedureEvent() {
+        return this.predecessorOldProcedureEvent;
     }
 
 
@@ -708,40 +692,24 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Business Name: I:Replaced by Record Id</p>
+     * <p>Relationship: 
+     * REPC_MT610002CA.Predecessor2.newProcedureEvent</p>
      * 
-     * <p>Relationship: REPC_MT610002CA.NewProcedureEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"successor/newProcedureEvent/id"})
-    public Identifier getSuccessorNewProcedureEventId() {
-        return this.successorNewProcedureEventId.getValue();
+    @Hl7XmlMapping({"successor/newProcedureEvent"})
+    public NewProcedureEventBean getSuccessorNewProcedureEvent() {
+        return this.successorNewProcedureEvent;
     }
 
     /**
-     * <p>Business Name: I:Replaced by Record Id</p>
+     * <p>Relationship: 
+     * REPC_MT610002CA.Predecessor2.newProcedureEvent</p>
      * 
-     * <p>Relationship: REPC_MT610002CA.NewProcedureEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p> <i>Used in circumstances where a newer or corrected 
-     * version of the record of this event exists.</i> </p>
-     * 
-     * <p> <i>Used to identify the record that supersedes the 
-     * current record. This attribute is set when a new record 
-     * identifies the current record as being replaced.</i> </p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewProcedureEventId(Identifier successorNewProcedureEventId) {
-        this.successorNewProcedureEventId.setValue(successorNewProcedureEventId);
+    public void setSuccessorNewProcedureEvent(NewProcedureEventBean successorNewProcedureEvent) {
+        this.successorNewProcedureEvent = successorNewProcedureEvent;
     }
 
 
@@ -779,80 +747,35 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
 
 
     /**
-     * <p>Business Name: K:Service Report Reference Id</p>
-     * 
-     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for a direct link to a report that has been 
-     * written on the procedure. Often surgical, and even 
-     * psychological procedures can result in numerous 
-     * observations, and other information generally captured in 
-     * narrative form. When filled in, this attribute allows the 
-     * user to drill down to the Clinical Observation Document 
-     * record used to capture this additional information.</p>
-     * 
-     * <p>An identifier for a report associated with the 
-     * procedure.</p>
-     */
-    @Hl7XmlMapping({"subjectOf3/clinicalDocumentEvent/id"})
-    public Identifier getSubjectOf3ClinicalDocumentEventId() {
-        return this.subjectOf3ClinicalDocumentEventId.getValue();
-    }
-
-    /**
-     * <p>Business Name: K:Service Report Reference Id</p>
-     * 
-     * <p>Relationship: REPC_MT610002CA.ClinicalDocumentEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for a direct link to a report that has been 
-     * written on the procedure. Often surgical, and even 
-     * psychological procedures can result in numerous 
-     * observations, and other information generally captured in 
-     * narrative form. When filled in, this attribute allows the 
-     * user to drill down to the Clinical Observation Document 
-     * record used to capture this additional information.</p>
-     * 
-     * <p>An identifier for a report associated with the 
-     * procedure.</p>
-     */
-    public void setSubjectOf3ClinicalDocumentEventId(Identifier subjectOf3ClinicalDocumentEventId) {
-        this.subjectOf3ClinicalDocumentEventId.setValue(subjectOf3ClinicalDocumentEventId);
-    }
-
-
-    /**
-     * <p>Business Name: K:Service Categories</p>
-     * 
-     * <p>Relationship: REPC_MT610002CA.WorkingListEvent.code</p>
+     * <p>Relationship: 
+     * REPC_MT610002CA.Subject4.clinicalDocumentEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Allows categorizing professional services for 
-     * presentation. A given person may have had numerous 
-     * procedures related to a particular area. By associating 
-     * categories with procedures, a person viewing the EHR 
-     * information can first look at a list of categories and then 
-     * drill down to the specific procedures.</p><p>The presence of 
-     * this field is essential to prevent users from being 
-     * overwhelmed, however not all services will necessarily be 
-     * categorizable. Therefore this element is marked as 
-     * 'populated'.</p>
-     * 
-     * <p>Categories are inferred from the terminology hierarchy 
-     * and thus aren't specified as part of the 'record' 
-     * message.</p>
-     * 
-     * <p>Describes the categorization of the service. E.g. 
-     * Psychological Counseling, Smoking Cessation, Cardiac 
-     * Surgeries, etc.</p>
      */
-    @Hl7XmlMapping({"componentOf1/workingListEvent/code"})
-    public List<ActProcedureCategoryList> getComponentOf1WorkingListEventCode() {
-        return new RawListWrapper<CV, ActProcedureCategoryList>(componentOf1WorkingListEventCode, CVImpl.class);
+    @Hl7XmlMapping({"subjectOf3/clinicalDocumentEvent"})
+    public ClinicalDocumentEventBean getSubjectOf3ClinicalDocumentEvent() {
+        return this.subjectOf3ClinicalDocumentEvent;
+    }
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT610002CA.Subject4.clinicalDocumentEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf3ClinicalDocumentEvent(ClinicalDocumentEventBean subjectOf3ClinicalDocumentEvent) {
+        this.subjectOf3ClinicalDocumentEvent = subjectOf3ClinicalDocumentEvent;
+    }
+
+
+    /**
+     * <p>Relationship: REPC_MT610002CA.ProcedureEvent.componentOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
+     */
+    @Hl7XmlMapping({"componentOf1"})
+    public List<Component2Bean> getComponentOf1() {
+        return this.componentOf1;
     }
 
 

@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202301ca.L
 @Hl7PartTypeMapping({"PRPA_IN202311CA"})
 public class RecordServiceDeliveryLocationRequestBean extends HL7Message_1Bean<TriggerEvent_4Bean<LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
 
 }

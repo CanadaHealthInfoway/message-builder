@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.CultureObservationCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.LabResultReportingProcessStepCode;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,13 +50,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private IsolateBean specimenIsolate;
+    private IsolateParticipationBean specimen;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private CD subjectOf2ResultStatusProcessStepCode = new CDImpl();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
 
     /**
@@ -154,22 +154,24 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Specimen2.isolate</p>
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.specimen</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"specimen/isolate"})
-    public IsolateBean getSpecimenIsolate() {
-        return this.specimenIsolate;
+    @Hl7XmlMapping({"specimen"})
+    public IsolateParticipationBean getSpecimen() {
+        return this.specimen;
     }
 
     /**
-     * <p>Relationship: POLB_MT004100CA.Specimen2.isolate</p>
+     * <p>Relationship: 
+     * POLB_MT004100CA.OrganismIdentificationEvent.specimen</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSpecimenIsolate(IsolateBean specimenIsolate) {
-        this.specimenIsolate = specimenIsolate;
+    public void setSpecimen(IsolateParticipationBean specimen) {
+        this.specimen = specimen;
     }
 
 
@@ -186,34 +188,24 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep/code"})
-    public LabResultReportingProcessStepCode getSubjectOf2ResultStatusProcessStepCode() {
-        return (LabResultReportingProcessStepCode) this.subjectOf2ResultStatusProcessStepCode.getValue();
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
     }
 
     /**
-     * <p>Business Name: Result Status Process Step Code</p>
-     * 
      * <p>Relationship: 
-     * POLB_MT004100CA.ResultStatusProcessStep.code</p>
+     * POLB_MT004100CA.Subject3.resultStatusProcessStep</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Used to designate &quot;preliminary&quot; and 
-     * &quot;final&quot; result statuses.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf2ResultStatusProcessStepCode(LabResultReportingProcessStepCode subjectOf2ResultStatusProcessStepCode) {
-        this.subjectOf2ResultStatusProcessStepCode.setValue(subjectOf2ResultStatusProcessStepCode);
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 }

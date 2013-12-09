@@ -22,17 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt51020
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
-import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.CoveredPartyAsPatientBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInsurancePolicyType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CarrierRoleBean;
 
 
 
@@ -46,12 +38,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CarrierRoleBe
 @Hl7PartTypeMapping({"FICR_MT510201CA.Coverage"})
 public class CoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private INT sequenceNumber = new INTImpl();
-    private II policyOrAccountId = new IIImpl();
-    private CV policyOrAccountCode = new CVImpl();
-    private CoveredPartyAsPatientBean policyOrAccountBeneficiaryCoveredPartyAsPatient;
-    private CarrierRoleBean policyOrAccountAuthorCarrierRole;
+    private PolicyOrAccountBean policyOrAccount;
 
 
     /**
@@ -79,92 +68,22 @@ public class CoverageBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Policy Identifier</p>
+     * <p>Relationship: FICR_MT510201CA.Coverage.policyOrAccount</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.PolicyOrAccount.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"policyOrAccount/id"})
-    public Identifier getPolicyOrAccountId() {
-        return this.policyOrAccountId.getValue();
+    @Hl7XmlMapping({"policyOrAccount"})
+    public PolicyOrAccountBean getPolicyOrAccount() {
+        return this.policyOrAccount;
     }
 
     /**
-     * <p>Business Name: Policy Identifier</p>
+     * <p>Relationship: FICR_MT510201CA.Coverage.policyOrAccount</p>
      * 
-     * <p>Relationship: FICR_MT510201CA.PolicyOrAccount.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPolicyOrAccountId(Identifier policyOrAccountId) {
-        this.policyOrAccountId.setValue(policyOrAccountId);
-    }
-
-
-    /**
-     * <p>Business Name: Policy type</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.PolicyOrAccount.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"policyOrAccount/code"})
-    public ActInsurancePolicyType getPolicyOrAccountCode() {
-        return (ActInsurancePolicyType) this.policyOrAccountCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: Policy type</p>
-     * 
-     * <p>Relationship: FICR_MT510201CA.PolicyOrAccount.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPolicyOrAccountCode(ActInsurancePolicyType policyOrAccountCode) {
-        this.policyOrAccountCode.setValue(policyOrAccountCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT510201CA.Beneficiary.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"policyOrAccount/beneficiary/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getPolicyOrAccountBeneficiaryCoveredPartyAsPatient() {
-        return this.policyOrAccountBeneficiaryCoveredPartyAsPatient;
-    }
-
-    /**
-     * <p>Relationship: 
-     * FICR_MT510201CA.Beneficiary.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPolicyOrAccountBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean policyOrAccountBeneficiaryCoveredPartyAsPatient) {
-        this.policyOrAccountBeneficiaryCoveredPartyAsPatient = policyOrAccountBeneficiaryCoveredPartyAsPatient;
-    }
-
-
-    /**
-     * <p>Relationship: FICR_MT510201CA.Author2.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"policyOrAccount/author/carrierRole"})
-    public CarrierRoleBean getPolicyOrAccountAuthorCarrierRole() {
-        return this.policyOrAccountAuthorCarrierRole;
-    }
-
-    /**
-     * <p>Relationship: FICR_MT510201CA.Author2.carrierRole</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPolicyOrAccountAuthorCarrierRole(CarrierRoleBean policyOrAccountAuthorCarrierRole) {
-        this.policyOrAccountAuthorCarrierRole = policyOrAccountAuthorCarrierRole;
+    public void setPolicyOrAccount(PolicyOrAccountBean policyOrAccount) {
+        this.policyOrAccount = policyOrAccount;
     }
 
 }

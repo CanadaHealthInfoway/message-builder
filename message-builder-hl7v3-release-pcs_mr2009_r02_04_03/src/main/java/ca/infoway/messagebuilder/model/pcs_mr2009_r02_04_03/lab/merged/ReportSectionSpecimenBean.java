@@ -30,7 +30,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.SpecimenRoleB
 
 
 /**
- * <p>Business Name: ReportSectionSpecimen</p>
+ * <p>POLB_MT004100CA.Specimen1: Culture Specimen</p>
+ * 
+ * <p>Associates the specimens as received with the culture 
+ * observation (before processing). Specimen processing and 
+ * subsequent reporting is communicated using the Isolate 
+ * Specimen participation.</p>
  * 
  * <p>POLB_MT004200CA.Specimen: Report Section Specimen</p>
  * 
@@ -42,12 +47,72 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.SpecimenRoleB
  * processed) are communicated using the Report Specimen 
  * participation.</p>
  */
-@Hl7PartTypeMapping({"POLB_MT002000CA.Specimen","POLB_MT004000CA.Specimen","POLB_MT004200CA.Specimen"})
+@Hl7PartTypeMapping({"POLB_MT002000CA.Specimen","POLB_MT004000CA.Specimen","POLB_MT004100CA.Specimen1","POLB_MT004200CA.Specimen"})
 public class ReportSectionSpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private INT sequenceNumber = new INTImpl();
+    private static final long serialVersionUID = 20131209L;
     private SpecimenRoleBean specimen;
+    private INT sequenceNumber = new INTImpl();
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"specimen"})
+    public SpecimenRoleBean getSpecimen() {
+        return this.specimen;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004100CA.Specimen1.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSpecimen(SpecimenRoleBean specimen) {
+        this.specimen = specimen;
+    }
 
 
     /**
@@ -117,54 +182,6 @@ public class ReportSectionSpecimenBean extends MessagePartBean {
      */
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"specimen"})
-    public SpecimenRoleBean getSpecimen() {
-        return this.specimen;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT002000CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004200CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POLB_MT004000CA.Specimen.specimen</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setSpecimen(SpecimenRoleBean specimen) {
-        this.specimen = specimen;
     }
 
 }
