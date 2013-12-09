@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
-import ca.infoway.messagebuilder.domainvalue.MaskableMaterialEntityType;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
@@ -49,11 +48,11 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientB
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
-    private CV directTargetRolePlayingEntityKindCode = new CVImpl();
+    private RoleBean directTargetRole;
     private PatientBean recordTargetPatient;
     private DiagnosisBean reasonDiagnosis;
 
@@ -187,46 +186,22 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Maskable Material</p>
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
      * 
-     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows masking a drug, avoiding the requirement to mask 
-     * each prescription and dispense individually.</p>
-     * 
-     * <p>Usually specified at the generic or 
-     * therapeutic-equivalent level to ensure related medications 
-     * are also covered.</p>
-     * 
-     * <p>Indicates the materia (e.g drug) whose associated records 
-     * should be masked.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"directTarget/role/playingEntityKind/code"})
-    public MaskableMaterialEntityType getDirectTargetRolePlayingEntityKindCode() {
-        return (MaskableMaterialEntityType) this.directTargetRolePlayingEntityKindCode.getValue();
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
     }
 
     /**
-     * <p>Business Name: Maskable Material</p>
+     * <p>Relationship: COMT_MT400001CA.DirectTarget.role</p>
      * 
-     * <p>Relationship: COMT_MT400001CA.EntityKind.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows masking a drug, avoiding the requirement to mask 
-     * each prescription and dispense individually.</p>
-     * 
-     * <p>Usually specified at the generic or 
-     * therapeutic-equivalent level to ensure related medications 
-     * are also covered.</p>
-     * 
-     * <p>Indicates the materia (e.g drug) whose associated records 
-     * should be masked.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDirectTargetRolePlayingEntityKindCode(MaskableMaterialEntityType directTargetRolePlayingEntityKindCode) {
-        this.directTargetRolePlayingEntityKindCode.setValue(directTargetRolePlayingEntityKindCode);
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
     }
 
 

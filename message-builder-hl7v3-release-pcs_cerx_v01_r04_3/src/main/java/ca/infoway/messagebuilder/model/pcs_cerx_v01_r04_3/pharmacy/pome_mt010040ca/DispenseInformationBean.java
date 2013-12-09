@@ -22,12 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.pome_mt01004
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.IVL;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Date;
 
 
 
@@ -46,106 +41,50 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private IVL<TS, Interval<Date>> component1SubsequentDispenseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> component2InitialDispenseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20131209L;
+    private SubsequentDispenseBean component1SubsequentDispense;
+    private DrugValidityPeriodBean component2InitialDispense;
 
 
     /**
-     * <p>Business Name: Refill period</p>
-     * 
      * <p>Relationship: 
-     * POME_MT010040CA.SubsequentDispense.effectiveTime</p>
+     * POME_MT010040CA.Component2.subsequentDispense</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>DrugProduct.refillPeriod (second or only occurrence)</p>
-     * 
-     * <p>Certain prescribers have time limitations or certain 
-     * drugs must be filled in a finite period of time.</p>
-     * 
-     * <p>The interval within which subsequent dispensing can be 
-     * made against a prescription, after the first/initial 
-     * fill.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component1/subsequentDispense/effectiveTime"})
-    public Interval<Date> getComponent1SubsequentDispenseEffectiveTime() {
-        return this.component1SubsequentDispenseEffectiveTime.getValue();
+    @Hl7XmlMapping({"component1/subsequentDispense"})
+    public SubsequentDispenseBean getComponent1SubsequentDispense() {
+        return this.component1SubsequentDispense;
     }
 
     /**
-     * <p>Business Name: Refill period</p>
-     * 
      * <p>Relationship: 
-     * POME_MT010040CA.SubsequentDispense.effectiveTime</p>
+     * POME_MT010040CA.Component2.subsequentDispense</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>DrugProduct.refillPeriod (second or only occurrence)</p>
-     * 
-     * <p>Certain prescribers have time limitations or certain 
-     * drugs must be filled in a finite period of time.</p>
-     * 
-     * <p>The interval within which subsequent dispensing can be 
-     * made against a prescription, after the first/initial 
-     * fill.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent1SubsequentDispenseEffectiveTime(Interval<Date> component1SubsequentDispenseEffectiveTime) {
-        this.component1SubsequentDispenseEffectiveTime.setValue(component1SubsequentDispenseEffectiveTime);
+    public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
+        this.component1SubsequentDispense = component1SubsequentDispense;
     }
 
 
     /**
-     * <p>Business Name: First Fill Period</p>
+     * <p>Relationship: POME_MT010040CA.Component.initialDispense</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.InitialDispense.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>DrugProduct:firstFillPeriod (first occurrence, if 
-     * multiple)</p>
-     * 
-     * <p>Certain prescribers have time limitations or certain 
-     * drugs must be filled in a finite period of time.</p>
-     * 
-     * <p>The period within which the prescribed drug has to be 
-     * dispensed for the first time.</p><p>This is usually 
-     * jurisdiction-specific, and for the most part, it is set at 
-     * the drug class level.</p><p>For instance, the first fill 
-     * period of validity for narcotic drugs is 3 days in most 
-     * jurisdiction, where as it is between 18 and 24 months for 
-     * other non-controlled drugs.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"component2/initialDispense/effectiveTime"})
-    public Interval<Date> getComponent2InitialDispenseEffectiveTime() {
-        return this.component2InitialDispenseEffectiveTime.getValue();
+    @Hl7XmlMapping({"component2/initialDispense"})
+    public DrugValidityPeriodBean getComponent2InitialDispense() {
+        return this.component2InitialDispense;
     }
 
     /**
-     * <p>Business Name: First Fill Period</p>
+     * <p>Relationship: POME_MT010040CA.Component.initialDispense</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.InitialDispense.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>DrugProduct:firstFillPeriod (first occurrence, if 
-     * multiple)</p>
-     * 
-     * <p>Certain prescribers have time limitations or certain 
-     * drugs must be filled in a finite period of time.</p>
-     * 
-     * <p>The period within which the prescribed drug has to be 
-     * dispensed for the first time.</p><p>This is usually 
-     * jurisdiction-specific, and for the most part, it is set at 
-     * the drug class level.</p><p>For instance, the first fill 
-     * period of validity for narcotic drugs is 3 days in most 
-     * jurisdiction, where as it is between 18 and 24 months for 
-     * other non-controlled drugs.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2InitialDispenseEffectiveTime(Interval<Date> component2InitialDispenseEffectiveTime) {
-        this.component2InitialDispenseEffectiveTime.setValue(component2InitialDispenseEffectiveTime);
+    public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
+        this.component2InitialDispense = component2InitialDispense;
     }
 
 }

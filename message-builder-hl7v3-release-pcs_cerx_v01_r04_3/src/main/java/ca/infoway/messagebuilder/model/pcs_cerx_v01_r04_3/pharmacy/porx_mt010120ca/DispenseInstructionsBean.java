@@ -22,19 +22,14 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt01012
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,13 +52,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
-    private AD destinationServiceDeliveryLocationAddr = new ADImpl();
-    private IVL<TS, Interval<Date>> locationTime = new IVLImpl<TS, Interval<Date>>();
-    private CV locationSubstitutionConditionCode = new CVImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private RecordedAtBean location;
     private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
 
 
@@ -163,154 +156,44 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: H:Prescription Ship to Address</p>
-     * 
      * <p>Relationship: 
-     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/addr"})
-    public PostalAddress getDestinationServiceDeliveryLocationAddr() {
-        return this.destinationServiceDeliveryLocationAddr.getValue();
-    }
-
-    /**
-     * <p>Business Name: H:Prescription Ship to Address</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases drugs need to be delivered to the patient 
-     * instead of being picked up. In other cases, drugs need to be 
-     * shipped to the physician's office to replace stock used for 
-     * the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed medication should be 
-     * shipped to, at the request of the patient or provider.</p>
-     */
-    public void setDestinationServiceDeliveryLocationAddr(PostalAddress destinationServiceDeliveryLocationAddr) {
-        this.destinationServiceDeliveryLocationAddr.setValue(destinationServiceDeliveryLocationAddr);
-    }
-
-
-    /**
-     * <p>Business Name: to be picked up when</p>
-     * 
-     * <p>Relationship: PORX_MT010120CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     */
-    @Hl7XmlMapping({"location/time"})
-    public Interval<Date> getLocationTime() {
-        return this.locationTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: to be picked up when</p>
-     * 
-     * <p>Relationship: PORX_MT010120CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * medication.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     */
-    public void setLocationTime(Interval<Date> locationTime) {
-        this.locationTime.setValue(locationTime);
-    }
-
-
-    /**
-     * <p>Business Name: Dispense Facility Not Reassignable</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     */
-    @Hl7XmlMapping({"location/substitutionConditionCode"})
-    public x_SubstitutionConditionNoneOrUnconditional getLocationSubstitutionConditionCode() {
-        return (x_SubstitutionConditionNoneOrUnconditional) this.locationSubstitutionConditionCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: Dispense Facility Not Reassignable</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.Location2.substitutionConditionCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Influences whether the prescription may be transferred to 
-     * a service delivery location other than the targeted 
-     * dispenser.</p>
-     * 
-     * <p>Indicates a 'hard' or 'soft' assignment of dispensing 
-     * priviledged to the targetted facility.</p><p>'Hard' 
-     * assignment (mandated facility) indicates that the 
-     * prescription can be dispensed only at that 
-     * facility.</p><p>'Soft' assignment (usually as a patient 
-     * directive) indicates that the prescription may be dispensed 
-     * at facilities other than the targeted facility.</p>
-     */
-    public void setLocationSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional locationSubstitutionConditionCode) {
-        this.locationSubstitutionConditionCode.setValue(locationSubstitutionConditionCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
      * <p>Relationship: 
-     * PORX_MT010120CA.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010120CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 

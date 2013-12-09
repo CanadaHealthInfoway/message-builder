@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private PatientBean subject1Patient;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;

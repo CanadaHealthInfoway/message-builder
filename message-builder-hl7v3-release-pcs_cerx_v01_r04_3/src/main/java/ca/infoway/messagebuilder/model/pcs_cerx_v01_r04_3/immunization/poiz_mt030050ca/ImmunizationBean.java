@@ -25,13 +25,11 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
@@ -40,7 +38,6 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActNoImmunizationReason;
 import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
-import ca.infoway.messagebuilder.domainvalue.x_InformationSource;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
@@ -71,7 +68,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private TS effectiveTime = new TSImpl();
@@ -82,7 +79,7 @@ public class ImmunizationBean extends MessagePartBean {
     private PQ doseQuantity = new PQImpl();
     private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
-    private CS informantInformantionSourceRoleClassCode = new CSImpl();
+    private InformantionSourceRoleBean informantInformantionSourceRole;
     private PartOfBean inFulfillmentOf;
     private CommentBean subjectOfAnnotation;
     private BL causeAdverseReactionObservationEvent = new BLImpl(false);
@@ -481,42 +478,24 @@ public class ImmunizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Information Source</p>
-     * 
      * <p>Relationship: 
-     * POIZ_MT030050CA.InformantionSourceRole.classCode</p>
+     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for the explicit identification of the source of 
-     * the recorded information.</p>
-     * 
-     * <p>A coded value denoting a patient, patient's agent, or a 
-     * provider as the source of the recorded immunization 
-     * information.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"informant/informantionSourceRole/classCode"})
-    public x_InformationSource getInformantInformantionSourceRoleClassCode() {
-        return (x_InformationSource) this.informantInformantionSourceRoleClassCode.getValue();
+    @Hl7XmlMapping({"informant/informantionSourceRole"})
+    public InformantionSourceRoleBean getInformantInformantionSourceRole() {
+        return this.informantInformantionSourceRole;
     }
 
     /**
-     * <p>Business Name: Information Source</p>
-     * 
      * <p>Relationship: 
-     * POIZ_MT030050CA.InformantionSourceRole.classCode</p>
+     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for the explicit identification of the source of 
-     * the recorded information.</p>
-     * 
-     * <p>A coded value denoting a patient, patient's agent, or a 
-     * provider as the source of the recorded immunization 
-     * information.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setInformantInformantionSourceRoleClassCode(x_InformationSource informantInformantionSourceRoleClassCode) {
-        this.informantInformantionSourceRoleClassCode.setValue(informantInformantionSourceRoleClassCode);
+    public void setInformantInformantionSourceRole(InformantionSourceRoleBean informantInformantionSourceRole) {
+        this.informantInformantionSourceRole = informantInformantionSourceRole;
     }
 
 

@@ -22,12 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.pome_mt01004
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.AssignedEntityBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980050ca.Indications;
 import java.util.ArrayList;
@@ -48,85 +44,51 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
-    private CV subjectPatientPatientLivingSubjectKindAdministrativeGenderCode = new CVImpl();
-    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
+    private static final long serialVersionUID = 20131209L;
+    private PatientBean subjectPatient;
+    private AssignedEntityBean authorAssignedEntity;
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<Indications> reasonIndications = new ArrayList<Indications>();
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
     /**
-     * <p>Business Name: Patient Gender</p>
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Some dosage specifications are gender-specific.</p>
-     * 
-     * <p>Indicates the gender of patient to whom the dosage 
-     * specification applies.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient/patientLivingSubjectKind/administrativeGenderCode"})
-    public AdministrativeGender getSubjectPatientPatientLivingSubjectKindAdministrativeGenderCode() {
-        return (AdministrativeGender) this.subjectPatientPatientLivingSubjectKindAdministrativeGenderCode.getValue();
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
     }
 
     /**
-     * <p>Business Name: Patient Gender</p>
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
      * 
-     * <p>Relationship: 
-     * POME_MT010040CA.LivingSubjectKind.administrativeGenderCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Some dosage specifications are gender-specific.</p>
-     * 
-     * <p>Indicates the gender of patient to whom the dosage 
-     * specification applies.</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectPatientPatientLivingSubjectKindAdministrativeGenderCode(AdministrativeGender subjectPatientPatientLivingSubjectKindAdministrativeGenderCode) {
-        this.subjectPatientPatientLivingSubjectKindAdministrativeGenderCode.setValue(subjectPatientPatientLivingSubjectKindAdministrativeGenderCode);
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
     /**
-     * <p>Business Name: Recommending Authority Name</p>
-     * 
-     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
+     * <p>Relationship: POME_MT010040CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The source of a recommendation may influence prescriber's 
-     * willingness to use the recommended dose and is therefore 
-     * mandatory</p>
-     * 
-     * <p>Indicates the name of the organization or agency that 
-     * created the dosage recommendation</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
-    public String getAuthorAssignedEntityAssignedOrganizationName() {
-        return this.authorAssignedEntityAssignedOrganizationName.getValue();
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntityBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
     }
 
     /**
-     * <p>Business Name: Recommending Authority Name</p>
-     * 
-     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
+     * <p>Relationship: POME_MT010040CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The source of a recommendation may influence prescriber's 
-     * willingness to use the recommended dose and is therefore 
-     * mandatory</p>
-     * 
-     * <p>Indicates the name of the organization or agency that 
-     * created the dosage recommendation</p>
      */
-    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
-        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
+    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 

@@ -22,17 +22,14 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import java.util.Date;
 
 
@@ -90,12 +87,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT020060CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130614L;
+    private static final long serialVersionUID = 20131209L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private AD destinationServiceDeliveryLocationAddr = new ADImpl();
-    private IVL<TS, Interval<Date>> locationTime = new IVLImpl<TS, Interval<Date>>();
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private RecordedAtBean location;
     private SupplementalFillInformationBean componentSupplementalFillInformation;
 
 
@@ -350,226 +346,90 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases devices need to be delivered to the patient 
-     * instead of being picked up. In other cases, devices need to 
-     * be shipped to the physician's office to replace stock used 
-     * for the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases devices need to be delivered to the patient 
-     * instead of being picked up. In other cases, devices need to 
-     * be shipped to the physician's office to replace stock used 
-     * for the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
-     */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/addr"})
-    public PostalAddress getDestinationServiceDeliveryLocationAddr() {
-        return this.destinationServiceDeliveryLocationAddr.getValue();
-    }
-
-    /**
-     * <p>Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040CA.ServiceDeliveryLocation2.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases devices need to be delivered to the patient 
-     * instead of being picked up. In other cases, devices need to 
-     * be shipped to the physician's office to replace stock used 
-     * for the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
-     * 
-     * <p>Un-merged Business Name: PrescriptionShipToAddress</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>In some cases devices need to be delivered to the patient 
-     * instead of being picked up. In other cases, devices need to 
-     * be shipped to the physician's office to replace stock used 
-     * for the patient.</p>
-     * 
-     * <p>Indicates the location the dispensed device should be 
-     * shipped to, at the request of the patient or provider.</p>
-     */
-    public void setDestinationServiceDeliveryLocationAddr(PostalAddress destinationServiceDeliveryLocationAddr) {
-        this.destinationServiceDeliveryLocationAddr.setValue(destinationServiceDeliveryLocationAddr);
-    }
-
-
-    /**
-     * <p>Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.Location4.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060060CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010110CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     */
-    @Hl7XmlMapping({"location/time"})
-    public Interval<Date> getLocationTime() {
-        return this.locationTime.getValue();
-    }
-
-    /**
-     * <p>Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.Location4.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT060060CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     * 
-     * <p>Un-merged Business Name: ToBePickedUpWhen</p>
-     * 
-     * <p>Relationship: PORX_MT010110CA.Location2.time</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Allows a prescriber to indicate to the targeted pharmacy, 
-     * when patient will be expecting to pick up the dispensed 
-     * device.</p>
-     * 
-     * <p>The date and time on which the dispense is expected to be 
-     * picked up.</p>
-     */
-    public void setLocationTime(Interval<Date> locationTime) {
-        this.locationTime.setValue(locationTime);
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040CA.Location4.serviceDeliveryLocation</p>
+     * PORX_MT060040CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060040CA.Location4.serviceDeliveryLocation</p>
+     * PORX_MT060040CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060060CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010110CA.Location2.serviceDeliveryLocation</p>
+     * PORX_MT010110CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060060CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 
