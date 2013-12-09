@@ -60,6 +60,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Sender
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_5Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.RequestQueryResultsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ParameterListBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.transport.Credentials;
 import ca.infoway.messagebuilder.transport.CredentialsProvider;
@@ -149,10 +150,13 @@ public class QueryLabTestResultsExample {
 		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		
-		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
+		ActingPersonBean person = new ActingPersonBean();
+		person.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		person.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		person.setAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
+		
+		identifiedPersonBean.setPatientPerson(person);
 		
 		return identifiedPersonBean;
 	}
@@ -202,7 +206,11 @@ public class QueryLabTestResultsExample {
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
 		person.getId().add(new Identifier("1.1.1", "1"));
-		person.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
+		
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
+		
+		person.setAssignedPerson(assignedPerson);
 		return person;
 	}
 

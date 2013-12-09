@@ -62,6 +62,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Refers
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.AddPatientNoteRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CommentBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.transport.Credentials;
@@ -179,7 +180,9 @@ public class AddPatientNoteExample {
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean healthcareWorkerBean = new HealthcareWorkerBean();
 		healthcareWorkerBean.getId().add(new Identifier("1.1.1", "1"));
-		healthcareWorkerBean.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
+		ActingPersonBean person = new ActingPersonBean();
+		person.setName(createFirstNameLastName("John", "Doe"));
+		healthcareWorkerBean.setAssignedPerson(person);
 		return healthcareWorkerBean;
 	}
 
@@ -190,10 +193,14 @@ public class AddPatientNoteExample {
 		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		
-		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
+		ActingPersonBean person = new ActingPersonBean();
+		person.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		person.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		person.setAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
+		
+		identifiedPersonBean.setPatientPerson(person);
+		
 		
 		return identifiedPersonBean;
 	}

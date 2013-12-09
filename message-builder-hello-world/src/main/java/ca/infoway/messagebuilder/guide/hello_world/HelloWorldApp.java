@@ -62,6 +62,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Mes
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 import ca.infoway.messagebuilder.transport.Credentials;
 import ca.infoway.messagebuilder.transport.CredentialsProvider;
@@ -336,9 +337,13 @@ public abstract class HelloWorldApp {
 		"samantha.black");
 		
 		authorPerson.getId().add(id);
-		authorPerson.setAssignedPersonAsHealthCareProviderId(healthcareProviderId);
-		authorPerson.setAssignedPersonName(pn);
 		
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setAsHealthCareProviderId(healthcareProviderId);
+		assignedPerson.setName(pn);
+		
+		authorPerson.setAssignedPerson(assignedPerson);
+
 		authorBean.setAuthorPerson(authorPerson);
 
 		return authorBean;
@@ -362,8 +367,12 @@ public abstract class HelloWorldApp {
 		Identifier id = new Identifier("2.16.840.1.113883.3.19.3.163.77.1",
 		"samantha.black");
 		
-		authorPerson.setAssignedPersonAsHealthCareProviderId(healthcareProviderId);
-		authorPerson.setAssignedPersonName(pn);
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setAsHealthCareProviderId(healthcareProviderId);
+		assignedPerson.setName(pn);
+		
+		authorPerson.setAssignedPerson(assignedPerson);
+
 		
 		authorPerson.getId().add(id);
 		authorBean.setAuthorPerson(authorPerson);
@@ -387,14 +396,18 @@ public abstract class HelloWorldApp {
 		patientName.getUses().add(EntityNameUse.LEGAL);
 		patientName.addNamePart(prefix);
 		
-		patient.setPatientPersonName(patientName);
-
+		ActingPersonBean patientPerson = new ActingPersonBean();
+		patientPerson.setName(patientName);
+		
 		// Now set the patient's birthdate
 		java.util.Date birthDate = (new GregorianCalendar(1949, java.util.Calendar.NOVEMBER, 05)).getTime();
-		patient.setPatientPersonBirthTime(birthDate);
-
+		patientPerson.setBirthTime(birthDate);
+		
 		// Set Gender
-		patient.setPatientPersonAdministrativeGenderCode(AdministrativeGender.MALE);
+		patientPerson.setAdministrativeGenderCode(AdministrativeGender.MALE);
+		
+		patient.setPatientPerson(patientPerson);
+		
 		
 		// Set the address for this patient
 		PostalAddress addr = new PostalAddress();
