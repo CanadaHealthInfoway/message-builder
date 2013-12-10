@@ -44,7 +44,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Author"})
 public class AnnotatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private TS time = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
 

@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT010110CA.DeviceRequest</p>
+ * <p>--> Payload: PORX_MT010110CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010300CA"})
 public class ActivateDevicePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<DeviceRequest_1Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

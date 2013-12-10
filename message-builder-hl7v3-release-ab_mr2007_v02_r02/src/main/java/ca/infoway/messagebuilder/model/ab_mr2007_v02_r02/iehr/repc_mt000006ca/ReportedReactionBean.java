@@ -83,22 +83,22 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV value = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private ReportedByBean informant;
     private CreatedAtBean location;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -411,28 +411,6 @@ public class ReportedReactionBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: 
-     * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * REPC_MT000006CA.ReactionObservationEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -450,6 +428,18 @@ public class ReportedReactionBean extends MessagePartBean {
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
@@ -494,6 +484,28 @@ public class ReportedReactionBean extends MessagePartBean {
      */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT000006CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -561,18 +573,6 @@ public class ReportedReactionBean extends MessagePartBean {
      */
     public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
         this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * REPC_MT000006CA.Component.patientCareProvisionEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

@@ -109,7 +109,7 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -118,9 +118,9 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     private SET<CV, Code> approachSiteCode = new SETImpl<CV, Code>(CVImpl.class);
     private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maxDoseQuantity = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
     private CV administrationUnitCode = new CVImpl();
-    private Medication consumableMedication1;
     private AdditionalSIGInstructionBean component1SupplementalInstruction;
     private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
+    private Medication consumableMedication1;
 
 
     /**
@@ -1083,42 +1083,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"consumable/medication1"})
-    public Medication getConsumableMedication1() {
-        return this.consumableMedication1;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setConsumableMedication1(Medication consumableMedication1) {
-        this.consumableMedication1 = consumableMedication1;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * PORX_MT980040CA.Component.supplementalInstruction</p>
      * 
@@ -1174,6 +1138,42 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     @Hl7XmlMapping({"component2"})
     public List<ConsistsOfBean> getComponent2() {
         return this.component2;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"consumable/medication1"})
+    public Medication getConsumableMedication1() {
+        return this.consumableMedication1;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Consumable1.medication1</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setConsumableMedication1(Medication consumableMedication1) {
+        this.consumableMedication1 = consumableMedication1;
     }
 
 }

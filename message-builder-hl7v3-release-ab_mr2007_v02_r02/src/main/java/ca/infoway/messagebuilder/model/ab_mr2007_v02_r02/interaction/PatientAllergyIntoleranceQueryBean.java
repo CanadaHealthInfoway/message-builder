@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.GenericQueryPara
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: REPC_MT000004CA.ParameterList</p>
+ * <p>--> Payload: REPC_MT000004CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000015CA"})
 public class PatientAllergyIntoleranceQueryBean extends HL7MessageBean<TriggerEvent_3Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

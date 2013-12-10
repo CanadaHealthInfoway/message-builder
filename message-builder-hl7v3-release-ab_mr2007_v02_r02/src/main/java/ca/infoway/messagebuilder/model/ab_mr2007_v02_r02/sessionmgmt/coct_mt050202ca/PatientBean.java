@@ -56,7 +56,7 @@ import java.util.Date;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private PN patientPersonName = new PNImpl();
     private CV patientPersonAdministrativeGenderCode = new CVImpl();
@@ -552,7 +552,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuff
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)<
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -749,7 +754,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Recipient Name Last 
      * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
      * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuff
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)<
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {

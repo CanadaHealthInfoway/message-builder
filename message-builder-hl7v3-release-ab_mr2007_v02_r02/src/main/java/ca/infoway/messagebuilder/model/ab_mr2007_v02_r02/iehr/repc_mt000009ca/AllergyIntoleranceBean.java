@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -85,16 +85,16 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private ReportedByBean informant;
     private CreatedAtBean location;
     private AllergyIntoleranceBean replacementOfIntoleranceCondition;
-    private List<Records> supportRecords = new ArrayList<Records>();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private List<AllergyIntoleranceStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<AllergyIntoleranceStatusChangesBean>();
     private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf3SeverityObservation;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<Records> supportRecords = new ArrayList<Records>();
 
 
     /**
@@ -683,28 +683,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: 
-     * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
      * <p>Relationship: REPC_MT000009CA.IntoleranceCondition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -721,6 +699,18 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT000009CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
@@ -791,13 +781,24 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: REPC_MT000009CA.Support.records</p>
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Relationship: 
+     * REPC_MT000009CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -846,14 +847,13 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * REPC_MT000009CA.Component.patientCareProvisionEvent</p>
+     * <p>Relationship: REPC_MT000009CA.Support.records</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
     }
 
 }

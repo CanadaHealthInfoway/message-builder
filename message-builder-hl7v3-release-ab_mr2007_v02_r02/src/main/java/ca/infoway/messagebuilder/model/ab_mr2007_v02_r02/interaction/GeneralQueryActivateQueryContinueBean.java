@@ -33,11 +33,11 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT000001CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT000001CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
 public class GeneralQueryActivateQueryContinueBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

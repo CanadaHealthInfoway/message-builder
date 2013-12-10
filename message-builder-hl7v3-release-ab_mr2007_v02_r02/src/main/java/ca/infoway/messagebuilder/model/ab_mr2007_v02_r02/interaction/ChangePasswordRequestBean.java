@@ -33,13 +33,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: COMT_MT900003AB.ActPermissionRequest</p>
+ * <p>--> Payload: COMT_MT900003AB.ActPermissionRequest</p>
  */
 @Hl7PartTypeMapping({"COMT_IN900030AB"})
 public class ChangePasswordRequestBean extends HL7MessageBean<TriggerEventBean<ActPermissionRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

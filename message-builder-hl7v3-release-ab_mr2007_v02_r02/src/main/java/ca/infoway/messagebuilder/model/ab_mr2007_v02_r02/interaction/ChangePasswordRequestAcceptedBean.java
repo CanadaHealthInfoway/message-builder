@@ -33,11 +33,11 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.HL7M
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700222CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN900031AB"})
 public class ChangePasswordRequestAcceptedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

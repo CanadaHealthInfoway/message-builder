@@ -33,11 +33,11 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TriggerEventBean
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700236CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700236CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"PORX_IN020330CA"})
 public class RecordDeviceDispProcessingRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

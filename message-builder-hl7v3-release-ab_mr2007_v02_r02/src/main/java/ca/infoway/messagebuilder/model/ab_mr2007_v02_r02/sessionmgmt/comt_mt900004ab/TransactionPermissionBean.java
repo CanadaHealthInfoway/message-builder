@@ -35,7 +35,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COMT_MT900004AB.TransactionPermission"})
 public class TransactionPermissionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private List<HealthcareWorkerBean> responsiblePartyAssignedEntity = new ArrayList<HealthcareWorkerBean>();
 

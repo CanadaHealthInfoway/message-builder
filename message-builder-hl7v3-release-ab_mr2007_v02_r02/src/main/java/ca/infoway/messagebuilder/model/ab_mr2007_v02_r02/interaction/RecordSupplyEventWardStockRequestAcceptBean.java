@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseBean;
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT020030CA.SupplyEvent</p>
+ * <p>--> Payload: PORX_MT020030CA.SupplyEvent</p>
  */
 @Hl7PartTypeMapping({"PORX_IN020220CA"})
 public class RecordSupplyEventWardStockRequestAcceptBean extends HL7MessageBean<TriggerEvent_1Bean<DispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

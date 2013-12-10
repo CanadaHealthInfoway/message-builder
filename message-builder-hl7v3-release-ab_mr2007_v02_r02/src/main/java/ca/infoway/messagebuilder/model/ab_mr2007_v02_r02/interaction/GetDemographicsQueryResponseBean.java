@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101102ca.Iden
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700746CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700746CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPA_MT101102CA.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101102CA.IdentifiedEntity</p>
  * 
- * <p>--> Sub-Payload: PRPA_MT101101CA.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101101CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101102CA"})
 public class GetDemographicsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

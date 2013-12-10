@@ -79,10 +79,8 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private static final long serialVersionUID = 20131210L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -90,19 +88,10 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private PrinicpalPerson_2Bean assignedPrincipalPerson;
-    private OrganizationBean representedOrganization;
     private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
-
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
-    }
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private OrganizationBean representedOrganization;
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
 
 
     /**
@@ -121,17 +110,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getId() {
         return this.id.rawSet();
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -323,6 +301,28 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
+     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.performance</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     */
+    @Hl7XmlMapping({"performance"})
+    public List<PrimaryPerformer3Bean> getPerformance() {
+        return this.performance;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT306011CA.AssignedEntity.representedOrganization</p>
      * 
@@ -345,13 +345,13 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Relationship: PRPM_MT306011CA.AssignedEntity.performance</p>
+     * <p>Relationship: PRPM_MT306011CA.RoleChoice.responsibleFor</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      */
-    @Hl7XmlMapping({"performance"})
-    public List<PrimaryPerformer3Bean> getPerformance() {
-        return this.performance;
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
     }
 
 }

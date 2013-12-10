@@ -286,13 +286,19 @@ import java.util.Date;
  * occurred.</p>
  * 
  * <p>Indicates where paper records may be located, and may be 
- * important to determining 
+ * important to determining authorization.</p><p>The 
+ * association is optional because in some jurisdictions this 
+ * information will be conveyed as part of the authentication 
+ * token.</p>
+ * 
+ * <p>Indicates where paper records may be located, and may be 
+ * important to de
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location","COMT_MT300003CA.Location","COMT_MT900001AB.Location","MCAI_MT700210CA.Location","MCAI_MT700211CA.Location","MCAI_MT700212CA.Location","MCAI_MT700221CA.Location","MCAI_MT700230CA.Location","MCAI_MT700231CA.Location","MCAI_MT700232CA.Location","MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","PORX_MT980010CA.Location","PORX_MT980020CA.Location","PORX_MT980030CA.Location","QUQI_MT020000CA.Location","QUQI_MT020002CA.Location","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000009CA.Location"})
 public class CreatedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private ServiceLocationBean serviceDeliveryLocation;
     private CV substitutionConditionCode = new CVImpl();
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
@@ -593,7 +599,16 @@ public class CreatedAtBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Bus
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>R
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
@@ -896,7 +911,16 @@ public class CreatedAtBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Un-merged Bus
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>R
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setServiceDeliveryLocation(ServiceLocationBean serviceDeliveryLocation) {

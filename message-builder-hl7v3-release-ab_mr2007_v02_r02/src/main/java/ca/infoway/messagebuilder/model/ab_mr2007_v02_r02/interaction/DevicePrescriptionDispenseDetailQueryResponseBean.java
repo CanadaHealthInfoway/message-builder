@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Prescri
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120006CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060010CA.DeviceDispense</p>
+ * <p>--> Payload: PORX_MT060010CA.DeviceDispense</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060360CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT060360CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060060CA"})
 public class DevicePrescriptionDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<PrescriptionDispensesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

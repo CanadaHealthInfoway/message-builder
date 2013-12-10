@@ -117,24 +117,24 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeCode = new CVImpl();
-    private DrugProductBean consumableMedication;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
-    private CreatedAtBean location;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private DrugProductBean consumableMedication;
+    private CreatedAtBean location;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private List<DispenseStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<DispenseStatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
     private List<CausedBean> subjectOf5 = new ArrayList<CausedBean>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -482,48 +482,6 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
      * <p>Relationship: PORX_MT060210CA.OtherMedication.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -540,6 +498,49 @@ public class OtherMedicationBean extends MessagePartBean {
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.Component2.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 
@@ -564,13 +565,24 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -648,18 +660,6 @@ public class OtherMedicationBean extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf5"})
     public List<CausedBean> getSubjectOf5() {
         return this.subjectOf5;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060210CA.Component2.patientCareProvisionEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

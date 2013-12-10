@@ -58,14 +58,14 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private BL subject = new BLImpl(false);
-    private DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
+    private DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
+    private BL subject = new BLImpl(false);
     private NotesBean subjectOfAnnotation;
 
 
@@ -172,48 +172,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"subject"})
-    public Boolean getSubject() {
-        return this.subject.getValue();
-    }
-
-    /**
-     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setSubject(Boolean subject) {
-        this.subject.setValue(subject);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public DeviceRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setInFulfillmentOfSubstanceAdministrationRequest(DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PORX_MT020070CA.Component13.substitutionMade</p>
      * 
@@ -264,6 +222,48 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public DeviceRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setInFulfillmentOfSubstanceAdministrationRequest(DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"subject"})
+    public Boolean getSubject() {
+        return this.subject.getValue();
+    }
+
+    /**
+     * <p>Relationship: PORX_MT020070CA.MedicationDispense.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setSubject(Boolean subject) {
+        this.subject.setValue(subject);
     }
 
 

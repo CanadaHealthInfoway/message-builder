@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.prpm_mt306050ca.Para
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700751CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPM_MT306050CA.ParameterList</p>
+ * <p>--> Payload: PRPM_MT306050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN306050CA"})
 public class FindAssociatedProviderIdentifiersQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

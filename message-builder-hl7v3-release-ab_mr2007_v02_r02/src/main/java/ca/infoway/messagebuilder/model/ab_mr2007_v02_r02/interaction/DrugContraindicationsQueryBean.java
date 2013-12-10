@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.porx_mt050010c
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020002CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020002CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT050010CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT050010CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN050010CA"})
 public class DrugContraindicationsQueryBean extends HL7MessageBean<TriggerEvent_3Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

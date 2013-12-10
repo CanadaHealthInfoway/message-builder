@@ -263,13 +263,17 @@ import java.util.Date;
  * must be specified.</p>
  * 
  * <p>In an EHR integrated health services environment, it is 
- * important that other provid
+ * important that other providers are able to query who is 
+ * responsible for status changes. Also used by applications 
+ * for auditing and sorting.</p><p>The attribute is populated 
+ * because provider or application maintaining the prescription 
+ * dispen
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260010CA.Author1","COCT_MT260012CA.Author1","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","PORX_MT060010CA.Author6","PORX_MT060040CA.Author1","PORX_MT060090CA.Author6","PORX_MT060160CA.Author1","PORX_MT060210CA.Author7","PORX_MT060340CA.Author1","PORX_MT980010CA.Author1","PORX_MT980020CA.Author1","PORX_MT980030CA.Author1","REPC_MT000009CA.Author3"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private TS time = new TSImpl();
     private ChangedBy changedBy;
     private HealthcareWorkerBean assignedEntity;

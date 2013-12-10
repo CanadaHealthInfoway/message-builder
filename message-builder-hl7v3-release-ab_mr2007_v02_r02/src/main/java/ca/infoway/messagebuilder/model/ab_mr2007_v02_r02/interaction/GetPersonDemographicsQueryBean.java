@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.cr.prpa_mt101101ca.Para
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700751CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700751CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPA_MT101101CA.ParameterList</p>
+ * <p>--> Payload: PRPA_MT101101CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101101CA"})
 public class GetPersonDemographicsQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

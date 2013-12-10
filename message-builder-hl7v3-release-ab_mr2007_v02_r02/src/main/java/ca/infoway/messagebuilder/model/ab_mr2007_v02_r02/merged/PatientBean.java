@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient_2 {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -302,7 +302,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PT
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -526,7 +531,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
      * (Root)</p><p>Person.PHN (Extension)</p>
      * 
-     * <p>C39 (Extension)</p><p>PT
+     * <p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -739,7 +749,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (part
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"addr"})
@@ -952,7 +967,12 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=UNID)</p><p>ZPA2.5 (DMODID - following 
      * DMOD=P.P.Box)</p><p>ZPA2.6 (partType=??)</p><p>ZPA2.7 
      * (partType=??)</p><p>ZPA2.8 (partType=CTY)</p><p>ZPA2.9 
-     * (partType=CNT - populate mnemonic of 
+     * (partType=CNT - populate mnemonic of SC)</p><p>ZPA2.10 
+     * (partType=ZIP)</p><p>ZPA2.11 
+     * (partType=SINST=PST)</p><p>ZPA2.12 
+     * (partTYpe=STA)</p><p>ZPA2.13 
+     * (partType=DMODID-followingDMOD=RR)</p><p>ZPA2.14 
+     * (part
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAddr(PostalAddress addr) {
@@ -1285,7 +1305,9 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Patient.311-CB 
      * (partType=Family)</p><p>Recipient Name First 
      * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any n
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientPerson/name"})
@@ -1484,7 +1506,9 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * (partType=Given)</p><p>Patient.311-CB 
      * (partType=Family)</p><p>Recipient Name First 
      * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any n
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientPersonName(PersonName patientPersonName) {

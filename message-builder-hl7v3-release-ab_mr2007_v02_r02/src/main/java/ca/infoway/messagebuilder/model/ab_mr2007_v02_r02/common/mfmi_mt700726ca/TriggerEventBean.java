@@ -37,10 +37,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RegisteredItemBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ReplacesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RegistrationEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausedBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.EHRRepositoryBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,15 +63,13 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private BL subjectContextConductionInd = new BLImpl();
-    private RegisteredItemBean<RR> subjectRegistrationEventSubject;
-    private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
-    private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
+    private RegistrationEventBean<RR> subjectRegistrationEvent;
     private List<CausedBean> subjectOf = new ArrayList<CausedBean>();
 
 
@@ -384,54 +380,22 @@ public class TriggerEventBean<RR> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/registrationEvent/subject"})
-    public RegisteredItemBean<RR> getSubjectRegistrationEventSubject() {
-        return this.subjectRegistrationEventSubject;
+    @Hl7XmlMapping({"subject/registrationEvent"})
+    public RegistrationEventBean<RR> getSubjectRegistrationEvent() {
+        return this.subjectRegistrationEvent;
     }
 
     /**
-     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * <p>Relationship: MFMI_MT700726CA.Subject2.registrationEvent</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectRegistrationEventSubject(RegisteredItemBean<RR> subjectRegistrationEventSubject) {
-        this.subjectRegistrationEventSubject = subjectRegistrationEventSubject;
-    }
-
-
-    /**
-     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject/registrationEvent/custodian/assignedDevice"})
-    public EHRRepositoryBean getSubjectRegistrationEventCustodianAssignedDevice() {
-        return this.subjectRegistrationEventCustodianAssignedDevice;
-    }
-
-    /**
-     * <p>Relationship: MFMI_MT700726CA.Custodian.assignedDevice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
-        this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700726CA.RegistrationEvent.replacementOf</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-10)</p>
-     */
-    @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
-    public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
-        return this.subjectRegistrationEventReplacementOf;
+    public void setSubjectRegistrationEvent(RegistrationEventBean<RR> subjectRegistrationEvent) {
+        this.subjectRegistrationEvent = subjectRegistrationEvent;
     }
 
 

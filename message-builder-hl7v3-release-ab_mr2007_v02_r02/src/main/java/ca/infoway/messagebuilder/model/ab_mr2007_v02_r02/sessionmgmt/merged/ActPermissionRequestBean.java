@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 
 
 
@@ -62,15 +63,105 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedAtBean;
 @Hl7RootType
 public class ActPermissionRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
-    private II subjectAssignedDeviceAssignedDeviceId = new IIImpl();
-    private ST performerSignatureText = new STImpl();
-    private II performerAssignedEntityId = new IIImpl();
+    private static final long serialVersionUID = 20131210L;
     private CreatedAtBean location;
+    private ST performerSignatureText = new STImpl();
+    private HealthcareWorkerBean performerAssignedEntity;
+    private II subjectAssignedDeviceAssignedDeviceId = new IIImpl();
     private ST performer1SignatureText = new STImpl();
-    private II performer1AssignedEntityId = new IIImpl();
+    private HealthcareWorkerBean performer1AssignedEntity;
     private ST performer2SignatureText = new STImpl();
-    private II performer2AssignedEntityId = new IIImpl();
+    private HealthcareWorkerBean performer2AssignedEntity;
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900001AB.ActPermissionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900001AB.ActPermissionRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>Business Name: Password</p>
+     * 
+     * <p>Un-merged Business Name: Password</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the current password associated with the user id 
+     * used to authenticate the user to the application.</p>
+     * 
+     * <p>This element is mandatory because validating identity is 
+     * the key function of the logon transaction.</p>
+     */
+    @Hl7XmlMapping({"performer/signatureText"})
+    public String getPerformerSignatureText() {
+        return this.performerSignatureText.getValue();
+    }
+
+    /**
+     * <p>Business Name: Password</p>
+     * 
+     * <p>Un-merged Business Name: Password</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>This is the current password associated with the user id 
+     * used to authenticate the user to the application.</p>
+     * 
+     * <p>This element is mandatory because validating identity is 
+     * the key function of the logon transaction.</p>
+     */
+    public void setPerformerSignatureText(String performerSignatureText) {
+        this.performerSignatureText.setValue(performerSignatureText);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.Performer.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
 
 
     /**
@@ -156,110 +247,6 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Password</p>
-     * 
-     * <p>Un-merged Business Name: Password</p>
-     * 
-     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is the current password associated with the user id 
-     * used to authenticate the user to the application.</p>
-     * 
-     * <p>This element is mandatory because validating identity is 
-     * the key function of the logon transaction.</p>
-     */
-    @Hl7XmlMapping({"performer/signatureText"})
-    public String getPerformerSignatureText() {
-        return this.performerSignatureText.getValue();
-    }
-
-    /**
-     * <p>Business Name: Password</p>
-     * 
-     * <p>Un-merged Business Name: Password</p>
-     * 
-     * <p>Relationship: COMT_MT900001AB.Performer.signatureText</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is the current password associated with the user id 
-     * used to authenticate the user to the application.</p>
-     * 
-     * <p>This element is mandatory because validating identity is 
-     * the key function of the logon transaction.</p>
-     */
-    public void setPerformerSignatureText(String performerSignatureText) {
-        this.performerSignatureText.setValue(performerSignatureText);
-    }
-
-
-    /**
-     * <p>Business Name: LogonUser</p>
-     * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
-     */
-    @Hl7XmlMapping({"performer/assignedEntity/id"})
-    public Identifier getPerformerAssignedEntityId() {
-        return this.performerAssignedEntityId.getValue();
-    }
-
-    /**
-     * <p>Business Name: LogonUser</p>
-     * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
-     */
-    public void setPerformerAssignedEntityId(Identifier performerAssignedEntityId) {
-        this.performerAssignedEntityId.setValue(performerAssignedEntityId);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COMT_MT900001AB.ActPermissionRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COMT_MT900001AB.ActPermissionRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
      * <p>Business Name: OldPassword</p>
      * 
      * <p>Un-merged Business Name: OldPassword</p>
@@ -302,40 +289,26 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * <p>Relationship: COMT_MT900003AB.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
      */
-    @Hl7XmlMapping({"performer1/assignedEntity/id"})
-    public Identifier getPerformer1AssignedEntityId() {
-        return this.performer1AssignedEntityId.getValue();
+    @Hl7XmlMapping({"performer1/assignedEntity"})
+    public HealthcareWorkerBean getPerformer1AssignedEntity() {
+        return this.performer1AssignedEntity;
     }
 
     /**
-     * <p>Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * <p>Relationship: COMT_MT900003AB.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
      */
-    public void setPerformer1AssignedEntityId(Identifier performer1AssignedEntityId) {
-        this.performer1AssignedEntityId.setValue(performer1AssignedEntityId);
+    public void setPerformer1AssignedEntity(HealthcareWorkerBean performer1AssignedEntity) {
+        this.performer1AssignedEntity = performer1AssignedEntity;
     }
 
 
@@ -376,40 +349,26 @@ public class ActPermissionRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * <p>Relationship: COMT_MT900003AB.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
      */
-    @Hl7XmlMapping({"performer2/assignedEntity/id"})
-    public Identifier getPerformer2AssignedEntityId() {
-        return this.performer2AssignedEntityId.getValue();
+    @Hl7XmlMapping({"performer2/assignedEntity"})
+    public HealthcareWorkerBean getPerformer2AssignedEntity() {
+        return this.performer2AssignedEntity;
     }
 
     /**
-     * <p>Business Name: LogonUser</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: LogonUser</p>
-     * 
-     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * <p>Relationship: COMT_MT900003AB.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Indicates the userid of the person being logged on.</p>
-     * 
-     * <p>This is mandatory because you can't log someone on if you 
-     * don't know who they are . . .</p>
      */
-    public void setPerformer2AssignedEntityId(Identifier performer2AssignedEntityId) {
-        this.performer2AssignedEntityId.setValue(performer2AssignedEntityId);
+    public void setPerformer2AssignedEntity(HealthcareWorkerBean performer2AssignedEntity) {
+        this.performer2AssignedEntity = performer2AssignedEntity;
     }
 
 }

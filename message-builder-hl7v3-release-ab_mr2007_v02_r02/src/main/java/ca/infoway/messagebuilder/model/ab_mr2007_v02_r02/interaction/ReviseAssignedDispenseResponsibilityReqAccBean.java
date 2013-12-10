@@ -34,18 +34,18 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Prescri
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700226CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700226CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060350CA.Prescription</p>
+ * <p>--> Payload: PORX_MT060350CA.Prescription</p>
  * 
- * <p>----> Sub-Payload Choice: 
+ * <p>----> Payload Choice: 
  * PORX_MT060340CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Sub-Payload Choice: PORX_MT060040CA.DeviceRequest</p>
+ * <p>----> Payload Choice: PORX_MT060040CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010110CA"})
 public class ReviseAssignedDispenseResponsibilityReqAccBean extends HL7MessageBean<TriggerEvent_1Bean<Prescription_1>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

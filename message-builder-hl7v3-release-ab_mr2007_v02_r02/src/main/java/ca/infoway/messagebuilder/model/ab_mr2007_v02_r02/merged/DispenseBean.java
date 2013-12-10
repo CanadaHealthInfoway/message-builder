@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ActRequestBean;
 import java.util.Date;
 
 
@@ -100,14 +101,14 @@ import java.util.Date;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
-    private II inFulfillmentOfActRequestId = new IIImpl();
+    private ActRequestBean inFulfillmentOfActRequest;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private Dispensed_1Bean product;
     private CreatedAtBean location;
+    private Dispensed_1Bean product;
     private RelatedPersonBean receiverPersonalRelationship;
 
 
@@ -306,64 +307,26 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * <p>Relationship: PORX_MT020030CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is an identifier assigned to a specific medication 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
      */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Identifier getInFulfillmentOfActRequestId() {
-        return this.inFulfillmentOfActRequestId.getValue();
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public ActRequestBean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
     }
 
     /**
-     * <p>Business Name: PrescriptionOrderNumber</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: PrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT020030CA.ActRequest.id</p>
+     * <p>Relationship: PORX_MT020030CA.InFulfillmentOf.actRequest</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>This is an identifier assigned to a specific medication 
-     * order. The number remains constant across the lifetime of 
-     * the order, regardless of the number of providers or 
-     * pharmacies involved in fulfilling the order.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
-     * 
-     * <p>Allows prescriptions to be uniquely referenced. Multiple 
-     * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p>
      */
-    public void setInFulfillmentOfActRequestId(Identifier inFulfillmentOfActRequestId) {
-        this.inFulfillmentOfActRequestId.setValue(inFulfillmentOfActRequestId);
+    public void setInFulfillmentOfActRequest(ActRequestBean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
@@ -894,66 +857,6 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"product"})
-    public Dispensed_1Bean getProduct() {
-        return this.product;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setProduct(Dispensed_1Bean product) {
-        this.product = product;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: PORX_MT980020CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -1008,6 +911,66 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"product"})
+    public Dispensed_1Bean getProduct() {
+        return this.product;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setProduct(Dispensed_1Bean product) {
+        this.product = product;
     }
 
 

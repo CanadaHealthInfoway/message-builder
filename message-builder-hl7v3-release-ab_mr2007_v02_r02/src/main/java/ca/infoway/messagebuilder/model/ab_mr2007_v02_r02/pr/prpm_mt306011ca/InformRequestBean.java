@@ -55,14 +55,14 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ServiceDelive
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CD code = new CDImpl();
-    private CE subjectModeCode = new CEImpl();
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private CS indirectTargetTypeCode = new CSImpl();
     private Choice indirectTargetChoice;
+    private CE subjectModeCode = new CEImpl();
+    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
 
 
     /**
@@ -144,48 +144,6 @@ public class InformRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"subject/modeCode"})
-    public ParticipationMode getSubjectModeCode() {
-        return (ParticipationMode) this.subjectModeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setSubjectModeCode(ParticipationMode subjectModeCode) {
-        this.subjectModeCode.setValue(subjectModeCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
-        return this.subjectServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
-        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
-    }
-
-
-    /**
      * <p>Relationship: PRPM_MT306011CA.IndirectTarget.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -236,6 +194,48 @@ public class InformRequestBean extends MessagePartBean {
     }
     public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
         return (this.indirectTargetChoice instanceof HealthcareProviderBean);
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"subject/modeCode"})
+    public ParticipationMode getSubjectModeCode() {
+        return (ParticipationMode) this.subjectModeCode.getValue();
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.Subject.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setSubjectModeCode(ParticipationMode subjectModeCode) {
+        this.subjectModeCode.setValue(subjectModeCode);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+        return this.subjectServiceDeliveryLocation;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Subject.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
 }

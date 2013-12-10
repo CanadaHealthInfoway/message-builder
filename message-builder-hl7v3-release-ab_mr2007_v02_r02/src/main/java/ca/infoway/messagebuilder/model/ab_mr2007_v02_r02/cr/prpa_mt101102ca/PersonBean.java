@@ -70,7 +70,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS classCode = new CSImpl();
     private CS determinerCode = new CSImpl();
     private PN name = new PNImpl();
@@ -83,8 +83,8 @@ public class PersonBean extends MessagePartBean {
     private List<INT> multipleBirthOrderNumber = new ArrayList<INT>();
     private AD addr = new ADImpl();
     private List<OtherIDsNonHealthcareIdentifiersBean> asOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
-    private List<PersonalRelationshipBean> personalRelationship = new ArrayList<PersonalRelationshipBean>();
     private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
+    private List<PersonalRelationshipBean> personalRelationship = new ArrayList<PersonalRelationshipBean>();
 
 
     /**
@@ -412,17 +412,6 @@ public class PersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PRPA_MT101102CA.Person.personalRelationship</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
-     */
-    @Hl7XmlMapping({"personalRelationship"})
-    public List<PersonalRelationshipBean> getPersonalRelationship() {
-        return this.personalRelationship;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PRPA_MT101102CA.Person.languageCommunication</p>
      * 
@@ -431,6 +420,17 @@ public class PersonBean extends MessagePartBean {
     @Hl7XmlMapping({"languageCommunication"})
     public List<LanguageCommunicationBean> getLanguageCommunication() {
         return this.languageCommunication;
+    }
+
+
+    /**
+     * <p>Relationship: PRPA_MT101102CA.Person.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
+    @Hl7XmlMapping({"personalRelationship"})
+    public List<PersonalRelationshipBean> getPersonalRelationship() {
+        return this.personalRelationship;
     }
 
 }

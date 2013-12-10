@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -99,8 +99,8 @@ public class IdentifiedPersonBean extends MessagePartBean {
     private INT identifiedPersonMultipleBirthOrderNumber = new INTImpl();
     private LIST<AD, PostalAddress> identifiedPersonAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
-    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
     private List<LanguageOfCommunicationBean> identifiedPersonLanguageCommunication = new ArrayList<LanguageOfCommunicationBean>();
+    private List<PersonalRelationshipBean> identifiedPersonPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
 
 
     /**
@@ -548,17 +548,6 @@ public class IdentifiedPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PRPA_MT101002CA.Person.personalRelationship</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
-    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
-        return this.identifiedPersonPersonalRelationship;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PRPA_MT101002CA.Person.languageCommunication</p>
      * 
@@ -567,6 +556,17 @@ public class IdentifiedPersonBean extends MessagePartBean {
     @Hl7XmlMapping({"identifiedPerson/languageCommunication"})
     public List<LanguageOfCommunicationBean> getIdentifiedPersonLanguageCommunication() {
         return this.identifiedPersonLanguageCommunication;
+    }
+
+
+    /**
+     * <p>Relationship: PRPA_MT101002CA.Person.personalRelationship</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/personalRelationship"})
+    public List<PersonalRelationshipBean> getIdentifiedPersonPersonalRelationship() {
+        return this.identifiedPersonPersonalRelationship;
     }
 
 }

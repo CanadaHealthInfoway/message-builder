@@ -55,7 +55,7 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private ST patientNonPersonLivingSubjectName = new STImpl();
     private AD patientNonPersonLivingSubjectContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientNonPersonLivingSubjectContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -252,7 +252,11 @@ public class AnimalPatientBean extends MessagePartBean {
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Fa
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
@@ -450,7 +454,11 @@ public class AnimalPatientBean extends MessagePartBean {
      * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p>
      * 
      * <p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Fa
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientNonPersonLivingSubjectName(String patientNonPersonLivingSubjectName) {

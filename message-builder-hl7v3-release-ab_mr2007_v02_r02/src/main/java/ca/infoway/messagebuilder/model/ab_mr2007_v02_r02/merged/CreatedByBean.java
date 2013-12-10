@@ -272,13 +272,13 @@ import java.util.Date;
  * <p>Choice of Patient CMET is as follows:</p><p>1. 
  * 'identified' when supporting Patient Session 
  * Tokens.</p><p>2. 'informational' when passing through non 
- * Client- Registry patient for PHS or sim
- * ... [rest of documentation truncated due to excessive length]
+ * Client- Registry patient for PHS or similar 
+ * processing.</p><p>3. 'identified-confirmable' otherwise.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Author","MCAI_MT700211CA.Author","MCAI_MT700212CA.Author","MCAI_MT700221CA.Author","MCAI_MT700230CA.Author","MCAI_MT700231CA.Author","MCAI_MT700232CA.Author","QUQI_MT020000CA.Author","QUQI_MT020002CA.Author"})
 public class CreatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
@@ -497,7 +497,10 @@ public class CreatedByBean extends MessagePartBean {
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
-     * time the change became effec
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"time"})
@@ -716,7 +719,10 @@ public class CreatedByBean extends MessagePartBean {
      * 
      * <p>The time the person responsible for the event made the 
      * decision for it to occur. This may be different than the 
-     * time the change became effec
+     * time the change became effective. (E.g. If a provider 
+     * decides today to put a prescription on hold starting next 
+     * Tuesday, the time of creation would be today and the change 
+     * effective period would be next Tuesday.)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setTime(Date time) {

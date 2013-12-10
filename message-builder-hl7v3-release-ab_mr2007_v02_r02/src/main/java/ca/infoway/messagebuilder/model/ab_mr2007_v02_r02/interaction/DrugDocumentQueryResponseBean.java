@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Monogra
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120008CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120008CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORR_MT050016CA.Document</p>
+ * <p>--> Payload: PORR_MT050016CA.Document</p>
  * 
- * <p>--> Sub-Payload: POME_MT010050CA.ParameterList</p>
+ * <p>--> Payload: POME_MT010050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010020CA"})
 public class DrugDocumentQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<MonographsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private List<TEL> telecom = new ArrayList<TEL>();
     private II deviceId = new IIImpl();
     private ST deviceName = new STImpl();

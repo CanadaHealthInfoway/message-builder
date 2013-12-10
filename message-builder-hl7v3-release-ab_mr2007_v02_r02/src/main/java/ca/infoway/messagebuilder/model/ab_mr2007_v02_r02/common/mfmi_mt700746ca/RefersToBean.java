@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RegistrationEventBean;
 
 
 
@@ -53,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private BL contextConductionInd = new BLImpl();

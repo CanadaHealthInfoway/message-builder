@@ -57,25 +57,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20130103L;
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
+    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
 
 
     /**
@@ -109,17 +98,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -215,6 +193,28 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
     /**
      * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: 
      * PRPM_MT301010CA.QualifiedEntity.qualifiedPrincipalPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -236,24 +236,24 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Relationship: 
-     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      */
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
+
     /**
-     * <p>Relationship: 
-     * PRPM_MT301010CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
     }
 
 }

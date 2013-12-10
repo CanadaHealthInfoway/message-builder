@@ -58,13 +58,13 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Medication {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
     private CV playerFormCode = new CVImpl();
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
     private DrugDispensedInBean playerAsContent;
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
 
 
@@ -233,7 +233,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredi
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"player/code"})
@@ -406,7 +408,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredi
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPlayerCode(ClinicalDrug playerCode) {
@@ -532,8 +536,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefor
-     * ... [rest of documentation truncated due to excessive length]
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>First occurrence is preferred for display.</p>
      */
     @Hl7XmlMapping({"player/name"})
     public String getPlayerName() {
@@ -658,8 +663,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefor
-     * ... [rest of documentation truncated due to excessive length]
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>First occurrence is preferred for display.</p>
      */
     public void setPlayerName(String playerName) {
         this.playerName.setValue(playerName);
@@ -895,6 +901,26 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"player/asContent"})
+    public DrugDispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+
+    /**
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setPlayerAsContent(DrugDispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
+    }
+
+
+    /**
      * <p>Relationship: 
      * COCT_MT220110CA.ManufacturedProduct.manufacturer</p>
      * 
@@ -913,26 +939,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      */
     public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
         this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
-    }
-
-
-    /**
-     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"player/asContent"})
-    public DrugDispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-
-    /**
-     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setPlayerAsContent(DrugDispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
     }
 
 

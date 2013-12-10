@@ -65,11 +65,11 @@ import java.util.Set;
  * <p>The person assigned to carry out the associated (linked 
  * by a participation) action.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT090102CA.AssignedEntity","COCT_MT090108CA.AssignedEntity"})
+@Hl7PartTypeMapping({"COCT_MT090102CA.AssignedEntity","COCT_MT090108CA.AssignedEntity","COMT_MT900001AB.AssignedEntity","COMT_MT900003AB.AssignedEntity","COMT_MT900004AB.AssignedEntity"})
 @Hl7RootType
-public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice, Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson, ChangedBy, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorPerson, Recipient, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
+public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice, Recipient, Choice, ChangedBy, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -105,6 +105,41 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the person in an assigned role (participating 
      * in the associated act).</p>
+     * 
+     * <p>Un-merged Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The identifier of the provider logged on</p>
+     * 
+     * <p>Links the user id to the provider id</p>
+     * 
+     * <p>The Wellnet Provider Id of the assigned person is 
+     * returned.</p>
+     * 
+     * <p>Un-merged Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the userid of the person being logged on.</p>
+     * 
+     * <p>This is mandatory because you can't log someone on if you 
+     * don't know who they are . . .</p>
+     * 
+     * <p>Un-merged Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the userid of the person being logged on.</p>
+     * 
+     * <p>This is mandatory because you can't log someone on if you 
+     * don't know who they are . . .</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -135,6 +170,41 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Identifies the person in an assigned role (participating 
      * in the associated act).</p>
+     * 
+     * <p>Un-merged Business Name: ProviderId</p>
+     * 
+     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The identifier of the provider logged on</p>
+     * 
+     * <p>Links the user id to the provider id</p>
+     * 
+     * <p>The Wellnet Provider Id of the assigned person is 
+     * returned.</p>
+     * 
+     * <p>Un-merged Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900001AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the userid of the person being logged on.</p>
+     * 
+     * <p>This is mandatory because you can't log someone on if you 
+     * don't know who they are . . .</p>
+     * 
+     * <p>Un-merged Business Name: LogonUser</p>
+     * 
+     * <p>Relationship: COMT_MT900003AB.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the userid of the person being logged on.</p>
+     * 
+     * <p>This is mandatory because you can't log someone on if you 
+     * don't know who they are . . .</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

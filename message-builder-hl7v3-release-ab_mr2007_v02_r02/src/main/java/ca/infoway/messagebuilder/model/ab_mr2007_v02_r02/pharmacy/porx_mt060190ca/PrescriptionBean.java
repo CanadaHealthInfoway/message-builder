@@ -75,29 +75,29 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private DrugProductBean directTargetMedication;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private ConsentOverriddenByBean author;
-    private CreatedAtBean location;
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private BL derivedFromSourceDispense = new BLImpl(false);
     private ST component1AdministrationInstructionsText = new STImpl();
     private IncludesBean component2;
+    private List<CareCompositionsBean> componentOf1PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private ClassifiesBean componentOf2;
+    private BL derivedFromSourceDispense = new BLImpl(false);
+    private DrugProductBean directTargetMedication;
     private RemainingDispenseInformationBean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformationBean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformationBean fulfillment3SupplyEventLastSummary;
     private PreviousDispenseInformationBean fulfillment4SupplyEventPastSummary;
+    private CreatedAtBean location;
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
-    private List<CareCompositionsBean> componentOf1PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private ClassifiesBean componentOf2;
 
 
     /**
@@ -373,48 +373,6 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PORX_MT060190CA.CombinedMedicationRequest.author</p>
      * 
@@ -433,82 +391,6 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      */
     public void setAuthor(ConsentOverriddenByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.CombinedMedicationRequest.reason</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
-     */
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"derivedFrom/sourceDispense"})
-    public Boolean getDerivedFromSourceDispense() {
-        return this.derivedFromSourceDispense.getValue();
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
-        this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
     }
 
 
@@ -587,6 +469,80 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      */
     public void setComponent2(IncludesBean component2) {
         this.component2 = component2;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf1/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOf1PatientCareProvisionEvent() {
+        return this.componentOf1PatientCareProvisionEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.componentOf2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf2"})
+    public ClassifiesBean getComponentOf2() {
+        return this.componentOf2;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.componentOf2</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setComponentOf2(ClassifiesBean componentOf2) {
+        this.componentOf2 = componentOf2;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"derivedFrom/sourceDispense"})
+    public Boolean getDerivedFromSourceDispense() {
+        return this.derivedFromSourceDispense.getValue();
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060190CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
+        this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060190CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
     }
 
 
@@ -679,6 +635,84 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     */
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060190CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    /**
      * <p>Relationship: PORX_MT060190CA.Subject.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -728,40 +762,6 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     @Hl7XmlMapping({"subjectOf3/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
         return this.subjectOf3RefusalToFill;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.Component.patientCareProvisionEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"componentOf1/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOf1PatientCareProvisionEvent() {
-        return this.componentOf1PatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.CombinedMedicationRequest.componentOf2</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"componentOf2"})
-    public ClassifiesBean getComponentOf2() {
-        return this.componentOf2;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060190CA.CombinedMedicationRequest.componentOf2</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setComponentOf2(ClassifiesBean componentOf2) {
-        this.componentOf2 = componentOf2;
     }
 
 }

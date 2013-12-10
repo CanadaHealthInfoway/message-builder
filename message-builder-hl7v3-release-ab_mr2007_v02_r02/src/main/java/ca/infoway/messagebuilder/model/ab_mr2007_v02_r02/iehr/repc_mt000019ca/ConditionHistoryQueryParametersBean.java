@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II allergyIntoleranceIDValue = new IIImpl();
 
 

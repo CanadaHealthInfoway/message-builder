@@ -71,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -276,7 +276,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-    
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -481,7 +485,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-    
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -749,7 +757,10 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
@@ -931,7 +942,10 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefix)</
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/performer
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {

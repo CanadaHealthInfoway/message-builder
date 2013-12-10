@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SubstanceAdministrationRequestBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ActRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt700210ca.TriggerEventBean;
 
 
@@ -34,14 +34,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.mcai_mt7002
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: 
- * PORX_MT010120CA.CombinedMedicationRequest</p>
+ * <p>--> Payload: PORX_MT010120CA.CombinedMedicationRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010380CA"})
-public class ActivatePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<SubstanceAdministrationRequestBean>> implements InteractionBean {
+public class ActivatePrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

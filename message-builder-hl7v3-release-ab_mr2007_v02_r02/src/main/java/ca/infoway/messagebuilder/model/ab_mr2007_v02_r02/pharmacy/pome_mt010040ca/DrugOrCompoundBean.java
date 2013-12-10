@@ -62,14 +62,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
     private CV formCode = new CVImpl();
+    private DispensedInBean asContent;
     private ManufacturerBean asManufacturedProductManufacturer;
     private CS asRegulatedProductStatusCode = new CSImpl();
-    private DispensedInBean asContent;
     private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
 
@@ -232,6 +232,26 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
+    }
+
+
+    /**
      * <p>Relationship: 
      * POME_MT010040CA.ManufacturedProduct.manufacturer</p>
      * 
@@ -288,26 +308,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
      */
     public void setAsRegulatedProductStatusCode(RoleStatusNormal asRegulatedProductStatusCode) {
         this.asRegulatedProductStatusCode.setValue(asRegulatedProductStatusCode);
-    }
-
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
     }
 
 

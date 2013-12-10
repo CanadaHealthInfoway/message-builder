@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.comt_mt900004ab.TransactionPermissionBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,11 +63,11 @@ import java.util.List;
 @Hl7RootType
 public class LogoffBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
-    private IVL<TS, Interval<Date>> performerTime = new IVLImpl<TS, Interval<Date>>();
-    private II performerAssignedEntityId = new IIImpl();
     private List<TransactionPermissionBean> componentTransactionPermission = new ArrayList<TransactionPermissionBean>();
+    private IVL<TS, Interval<Date>> performerTime = new IVLImpl<TS, Interval<Date>>();
+    private HealthcareWorkerBean performerAssignedEntity;
 
 
     /**
@@ -130,6 +131,20 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900004AB.Component.transactionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"component/transactionPermission"})
+    public List<TransactionPermissionBean> getComponentTransactionPermission() {
+        return this.componentTransactionPermission;
+    }
+
+
+    /**
      * <p>Business Name: PasswordExpiryDate</p>
      * 
      * <p>Un-merged Business Name: PasswordExpiryDate</p>
@@ -170,58 +185,26 @@ public class LogoffBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: ProviderId</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: ProviderId</p>
-     * 
-     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
+     * <p>Relationship: COMT_MT900004AB.Performer.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier of the provider logged on</p>
-     * 
-     * <p>Links the user id to the provider id</p>
-     * 
-     * <p>The Wellnet Provider Id of the assigned person is 
-     * returned.</p>
      */
-    @Hl7XmlMapping({"performer/assignedEntity/id"})
-    public Identifier getPerformerAssignedEntityId() {
-        return this.performerAssignedEntityId.getValue();
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
-
-    /**
-     * <p>Business Name: ProviderId</p>
-     * 
-     * <p>Un-merged Business Name: ProviderId</p>
-     * 
-     * <p>Relationship: COMT_MT900004AB.AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The identifier of the provider logged on</p>
-     * 
-     * <p>Links the user id to the provider id</p>
-     * 
-     * <p>The Wellnet Provider Id of the assigned person is 
-     * returned.</p>
-     */
-    public void setPerformerAssignedEntityId(Identifier performerAssignedEntityId) {
-        this.performerAssignedEntityId.setValue(performerAssignedEntityId);
-    }
-
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * COMT_MT900004AB.Component.transactionPermission</p>
+     * <p>Relationship: COMT_MT900004AB.Performer.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"component/transactionPermission"})
-    public List<TransactionPermissionBean> getComponentTransactionPermission() {
-        return this.componentTransactionPermission;
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

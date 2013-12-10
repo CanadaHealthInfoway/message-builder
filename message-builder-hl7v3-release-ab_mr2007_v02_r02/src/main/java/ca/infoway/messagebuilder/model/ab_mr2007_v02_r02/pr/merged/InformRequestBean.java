@@ -66,11 +66,11 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseShipToLo
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
+    private Choice indirectTargetChoice;
     private CV subjectModeCode = new CVImpl();
     private DispenseShipToLocationBean subjectServiceDeliveryLocation;
-    private Choice indirectTargetChoice;
 
 
     /**
@@ -136,6 +136,42 @@ public class InformRequestBean extends MessagePartBean {
      */
     public void setCode(ActCode code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"indirectTarget/choice"})
+    public Choice getIndirectTargetChoice() {
+        return this.indirectTargetChoice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
+        this.indirectTargetChoice = indirectTargetChoice;
     }
 
 
@@ -216,42 +252,6 @@ public class InformRequestBean extends MessagePartBean {
      */
     public void setSubjectServiceDeliveryLocation(DispenseShipToLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"indirectTarget/choice"})
-    public Choice getIndirectTargetChoice() {
-        return this.indirectTargetChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.IndirectTarget.choice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
-        this.indirectTargetChoice = indirectTargetChoice;
     }
 
 }

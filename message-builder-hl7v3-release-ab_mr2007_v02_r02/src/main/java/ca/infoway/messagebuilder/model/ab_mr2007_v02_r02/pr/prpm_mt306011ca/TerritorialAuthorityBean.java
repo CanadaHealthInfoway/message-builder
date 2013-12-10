@@ -45,10 +45,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
-    private CV territoryCode = new CVImpl();
     private List<PartBean> part = new ArrayList<PartBean>();
+    private CV territoryCode = new CVImpl();
 
 
     /**
@@ -84,6 +84,17 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306011CA.TerritorialAuthority.part</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
+     */
+    @Hl7XmlMapping({"part"})
+    public List<PartBean> getPart() {
+        return this.part;
     }
 
 
@@ -134,17 +145,6 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      */
     public void setTerritoryCode(PlaceEntityType territoryCode) {
         this.territoryCode.setValue(territoryCode);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT306011CA.TerritorialAuthority.part</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-*)</p>
-     */
-    @Hl7XmlMapping({"part"})
-    public List<PartBean> getPart() {
-        return this.part;
     }
 
 }

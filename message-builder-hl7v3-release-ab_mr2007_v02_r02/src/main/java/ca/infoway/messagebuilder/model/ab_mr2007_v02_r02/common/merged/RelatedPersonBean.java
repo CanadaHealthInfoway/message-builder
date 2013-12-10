@@ -93,9 +93,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship"})
 @Hl7RootType
-public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
+public class RelatedPersonBean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Consenter, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();
@@ -301,7 +301,12 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>Provider.providerKey 
      * (Extension)</p><p>Provider.wellnetProviderId 
      * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistrati
+     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
+     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -506,7 +511,12 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * (Extension)</p><p>Provider.providerKey 
      * (Extension)</p><p>Provider.wellnetProviderId 
      * (Extension)</p><p>ProviderRegistration.Identifier 
-     * (Extension)</p><p>ProviderRegistrati
+     * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
+     * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -836,7 +846,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartT
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"relationshipHolder/name"})
@@ -1018,7 +1032,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p>ZPB3.13</p><p>PVD.050-01 (PartType = 
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
-     * the first)</p><p>PVD.050-04 (PartT
+     * the first)</p><p>PVD.050-04 (PartType = 
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setRelationshipHolderName(PersonName relationshipHolderName) {

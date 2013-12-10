@@ -33,13 +33,13 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.OtherSpecimenIde
  * 
  * <p>Message: MCCI_MT002100CA.Message</p>
  * 
- * <p>Payload: MFMI_MT700716CA.ControlActEvent</p>
+ * <p>Control Act: MFMI_MT700716CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PRPA_MT101003CA.IdentifiedEntity</p>
+ * <p>--> Payload: PRPA_MT101003CA.IdentifiedEntity</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101999CA"})
 public class PersonNullifiedBean extends HL7MessageBean<TriggerEvent_2Bean<OtherSpecimenIdentificationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

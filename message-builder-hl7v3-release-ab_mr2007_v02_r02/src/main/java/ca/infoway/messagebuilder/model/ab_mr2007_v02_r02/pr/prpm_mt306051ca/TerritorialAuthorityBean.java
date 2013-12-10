@@ -46,11 +46,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
-    private CV territoryCode = new CVImpl();
     private CS partTypeCode = new CSImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;
+    private CV territoryCode = new CVImpl();
 
 
     /**
@@ -86,6 +86,46 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      */
     public void setCode(RoleCode code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306051CA.Part.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"part/typeCode"})
+    public RoleLinkType getPartTypeCode() {
+        return (RoleLinkType) this.partTypeCode.getValue();
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT306051CA.Part.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setPartTypeCode(RoleLinkType partTypeCode) {
+        this.partTypeCode.setValue(partTypeCode);
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT306051CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"part/territorialAuthority"})
+    public TerritorialAuthorityBean getPartTerritorialAuthority() {
+        return this.partTerritorialAuthority;
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT306051CA.Part.territorialAuthority</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
+        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 
@@ -130,46 +170,6 @@ public class TerritorialAuthorityBean extends MessagePartBean {
      */
     public void setTerritoryCode(PlaceEntityType territoryCode) {
         this.territoryCode.setValue(territoryCode);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT306051CA.Part.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"part/typeCode"})
-    public RoleLinkType getPartTypeCode() {
-        return (RoleLinkType) this.partTypeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: PRPM_MT306051CA.Part.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPartTypeCode(RoleLinkType partTypeCode) {
-        this.partTypeCode.setValue(partTypeCode);
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT306051CA.Part.territorialAuthority</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"part/territorialAuthority"})
-    public TerritorialAuthorityBean getPartTerritorialAuthority() {
-        return this.partTerritorialAuthority;
-    }
-
-    /**
-     * <p>Relationship: PRPM_MT306051CA.Part.territorialAuthority</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setPartTerritorialAuthority(TerritorialAuthorityBean partTerritorialAuthority) {
-        this.partTerritorialAuthority = partTerritorialAuthority;
     }
 
 }

@@ -62,7 +62,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private UnderwriterBean authorUnderwriter;

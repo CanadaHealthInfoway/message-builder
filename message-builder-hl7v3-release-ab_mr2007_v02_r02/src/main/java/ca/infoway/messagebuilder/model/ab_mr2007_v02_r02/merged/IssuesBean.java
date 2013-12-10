@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
-import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -180,14 +179,14 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<MitigatesBean> mitigatedBy = new ArrayList<MitigatesBean>();
-    private CV subjectOfSeverityObservationValue = new CVImpl();
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private BL triggerForActRequest = new BLImpl(false);
@@ -353,7 +352,11 @@ public class IssuesBean extends MessagePartBean {
      * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.crossSensitive (if code is relate
+     * <p>Contraindication.crossSensitive (if code is related 
+     * reaction dected issue then crossSensitive is 
+     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
+     * DPD, and Duplicate Therapy 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -519,7 +522,11 @@ public class IssuesBean extends MessagePartBean {
      * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
      * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_DetectedMedicationIssue</p>
      * 
-     * <p>Contraindication.crossSensitive (if code is relate
+     * <p>Contraindication.crossSensitive (if code is related 
+     * reaction dected issue then crossSensitive is 
+     * 'True')</p><p>Distinguishes between DAI, DDI, DosageCheck, 
+     * DPD, and Duplicate Therapy 
+
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {
@@ -759,7 +766,15 @@ public class IssuesBean extends MessagePartBean {
      * contraindication errors are handled at transmission or 
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
-     * <p>Lets providers see textual explanation of t
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"text"})
@@ -999,7 +1014,15 @@ public class IssuesBean extends MessagePartBean {
      * contraindication errors are handled at transmission or 
      * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p>
      * 
-     * <p>Lets providers see textual explanation of t
+     * <p>Lets providers see textual explanation of the issue.</p>
+     * 
+     * <p>Un-merged Business Name: IssueDetails</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.DetectedIssueEvent.text</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>A 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setText(String text) {
@@ -1298,49 +1321,6 @@ public class IssuesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260030CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * COCT_MT260030CA.Definition.detectedIssueDefinition</p>
      * 
@@ -1498,186 +1478,86 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260030CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: COCT_MT260010CA.Subject2.causalActs</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: COCT_MT260020CA.Subject2.causalActs</p>
      * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260010CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="COCT_MT260010CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="COCT_MT260030CA.Subject"),
@@ -1691,192 +1571,49 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT980020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="COCT_MT260020CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="PORX_MT980020CA.SeverityObservation")})
-    public SeverityObservation getSubjectOfSeverityObservationValue() {
-        return (SeverityObservation) this.subjectOfSeverityObservationValue.getValue();
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
     }
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260030CA.SeverityObservation.value</p>
+     * <p>Relationship: COCT_MT260030CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260010CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;mandatory&quot; because the code denoting the level of 
-     * severity must be specified.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: COCT_MT260020CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * ... [rest of documentation truncated due to excessive length]
+     * <p>Relationship: COCT_MT260010CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
-        this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 

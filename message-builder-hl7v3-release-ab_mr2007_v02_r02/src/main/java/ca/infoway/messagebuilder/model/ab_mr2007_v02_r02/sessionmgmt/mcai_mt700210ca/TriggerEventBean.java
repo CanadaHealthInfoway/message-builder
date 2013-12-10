@@ -66,16 +66,16 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
     private CreatedByBean author;
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
     private RefersToBean<ACT> subject;
     private List<CausedBean> subjectOf1 = new ArrayList<CausedBean>();
     private ConsentBean subjectOf2ConsentEvent;
@@ -240,28 +240,6 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Relationship: 
-     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
      * <p>Relationship: MCAI_MT700210CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -340,6 +318,28 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      */
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Relationship: 
+     * MCAI_MT700210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 

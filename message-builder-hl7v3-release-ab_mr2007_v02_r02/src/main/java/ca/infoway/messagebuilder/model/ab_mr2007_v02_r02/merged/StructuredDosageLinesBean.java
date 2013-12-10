@@ -93,14 +93,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine","PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private URG<PQ, PhysicalQuantity> rateQuantity = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
+    private AdministrationPreconditionBean triggerActEventCriterion;
 
 
     /**
@@ -607,7 +607,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (
+     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
+     * times)</p><p>PID.13.3 (outer 
+     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
+     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
+     * IVL&lt;TS&gt;.hi
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -799,7 +803,11 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      * - codes will need to be mapped to and from formal GTS 
      * expressions)</p><p>RepeatPattern.uncodedPattern 
      * (PIVL.originalText)</p><p>ZDP.13.2.1 
-     * (PIVL.period)</p><p>DP.13.2.2 (
+     * (PIVL.period)</p><p>DP.13.2.2 (single time or list of 
+     * times)</p><p>PID.13.3 (outer 
+     * IVL&lt;TS&gt;.width)</p><p>PID.13.4 (outer 
+     * IVL&lt;TS&gt;.low)</p><p>PID.13.5 (outer 
+     * IVL&lt;TS&gt;.hi
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setEffectiveTime(GeneralTimingSpecification effectiveTime) {
@@ -986,42 +994,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"trigger/actEventCriterion"})
-    public AdministrationPreconditionBean getTriggerActEventCriterion() {
-        return this.triggerActEventCriterion;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
-        this.triggerActEventCriterion = triggerActEventCriterion;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * COCT_MT270010CA.Component18.supplementalInstruction</p>
      * 
@@ -1056,6 +1028,42 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      */
     public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
         this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"trigger/actEventCriterion"})
+    public AdministrationPreconditionBean getTriggerActEventCriterion() {
+        return this.triggerActEventCriterion;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT270010CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
+        this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
 }

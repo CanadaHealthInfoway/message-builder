@@ -44,12 +44,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS typeCode = new CSImpl();
     private List<INT> messageWaitingNumber = new ArrayList<INT>();
     private List<CV> messageWaitingPriorityCode = new ArrayList<CV>();
-    private II targetMessageId = new IIImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
+    private II targetMessageId = new IIImpl();
 
 
     /**
@@ -134,6 +134,18 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * MCCI_MT002300CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
+    @Hl7XmlMapping({"acknowledgementDetail"})
+    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
+        return this.acknowledgementDetail;
+    }
+
+
+    /**
      * <p>Business Name: BA:Acknowledged Message Id</p>
      * 
      * <p>Relationship: MCCI_MT002300CA.TargetMessage.id</p>
@@ -172,18 +184,6 @@ public class AcknowledgementBean extends MessagePartBean {
      */
     public void setTargetMessageId(Identifier targetMessageId) {
         this.targetMessageId.setValue(targetMessageId);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * MCCI_MT002300CA.Acknowledgement.acknowledgementDetail</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     */
-    @Hl7XmlMapping({"acknowledgementDetail"})
-    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
-        return this.acknowledgementDetail;
     }
 
 }

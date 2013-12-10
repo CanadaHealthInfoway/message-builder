@@ -62,15 +62,15 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private List<RefersToBean<RR>> subject = new ArrayList<RefersToBean<RR>>();
-    private List<CausedBean> subjectOf = new ArrayList<CausedBean>();
     private QueryAckBean queryAck;
     private QueryByParameterBean<PL> queryByParameter;
+    private List<RefersToBean<RR>> subject = new ArrayList<RefersToBean<RR>>();
+    private List<CausedBean> subjectOf = new ArrayList<CausedBean>();
 
 
     /**
@@ -266,28 +266,6 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
-     */
-    @Hl7XmlMapping({"subject"})
-    public List<RefersToBean<RR>> getSubject() {
-        return this.subject;
-    }
-
-
-    /**
-     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.subjectOf</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     */
-    @Hl7XmlMapping({"subjectOf"})
-    public List<CausedBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    /**
      * <p>Relationship: MFMI_MT700746CA.ControlActEvent.queryAck</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -326,6 +304,28 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
      */
     public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     */
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<RR>> getSubject() {
+        return this.subject;
+    }
+
+
+    /**
+     * <p>Relationship: MFMI_MT700746CA.ControlActEvent.subjectOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
+    @Hl7XmlMapping({"subjectOf"})
+    public List<CausedBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 }

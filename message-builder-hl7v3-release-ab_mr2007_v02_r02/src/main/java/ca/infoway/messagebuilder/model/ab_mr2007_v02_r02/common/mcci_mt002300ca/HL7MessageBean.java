@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private List<ST> securityText = new ArrayList<ST>();
@@ -68,12 +68,12 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     private LIST<II, Identifier> profileId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
     private CS acceptAckCode = new CSImpl();
+    private AcknowledgementBean acknowledgement;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private CAE controlActEvent;
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private AcknowledgementBean acknowledgement;
-    private CAE controlActEvent;
 
 
     /**
@@ -379,6 +379,57 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
+    }
+
+
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     */
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
+
+
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"controlActEvent"})
+    public CAE getControlActEvent() {
+        return this.controlActEvent;
+    }
+
+    /**
+     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setControlActEvent(CAE controlActEvent) {
+        this.controlActEvent = controlActEvent;
+    }
+
+
+    /**
      * <p>Relationship: MCCI_MT002300CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -435,57 +486,6 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
      */
     public void setSender(SenderBean sender) {
         this.sender = sender;
-    }
-
-
-    /**
-     * <p>Relationship: MCCI_MT002300CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     */
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
-    }
-
-
-    /**
-     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-
-    /**
-     * <p>Relationship: MCCI_MT002300CA.Message.acknowledgement</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
-    }
-
-
-    /**
-     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"controlActEvent"})
-    public CAE getControlActEvent() {
-        return this.controlActEvent;
-    }
-
-    /**
-     * <p>Relationship: MCCI_MT002300CA.Message.controlActEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setControlActEvent(CAE controlActEvent) {
-        this.controlActEvent = controlActEvent;
     }
 
 }

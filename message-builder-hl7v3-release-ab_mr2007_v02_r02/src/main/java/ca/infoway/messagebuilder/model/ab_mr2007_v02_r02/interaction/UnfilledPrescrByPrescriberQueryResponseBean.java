@@ -35,21 +35,20 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.Unfille
  * 
  * <p>Message: MCCI_MT002300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120006CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120006CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060300CA.Prescription</p>
+ * <p>--> Payload: PORX_MT060300CA.Prescription</p>
  * 
- * <p>----> Sub-Payload Choice: 
+ * <p>----> Payload Choice: 
  * PORX_MT030040CA.CombinedMedicationRequest</p>
  * 
- * <p>----> Sub-Payload Choice: 
- * PORX_MT060060CA.DevicePrescription</p>
+ * <p>----> Payload Choice: PORX_MT060060CA.DevicePrescription</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060270CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT060270CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060480CA"})
 public class UnfilledPrescrByPrescriberQueryResponseBean extends HL7MessageBean<TriggerEvent_4Bean<Prescription_1,UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

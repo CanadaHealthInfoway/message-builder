@@ -95,7 +95,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Mitigates","COCT_MT260012CA.Mitigates","COCT_MT260020CA.Mitigates","COCT_MT260022CA.Mitigates","COCT_MT260030CA.Mitigates","PORX_MT980010CA.Mitigates","PORX_MT980020CA.Mitigates","PORX_MT980030CA.Mitigates"})
 public class MitigatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private IssueManagementsBean detectedIssueManagement;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();

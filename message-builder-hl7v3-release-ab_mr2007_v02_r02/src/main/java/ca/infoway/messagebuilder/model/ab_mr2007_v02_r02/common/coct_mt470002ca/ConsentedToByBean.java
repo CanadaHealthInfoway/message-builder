@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.RelatedPe
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();
     private CV modeCode = new CVImpl();

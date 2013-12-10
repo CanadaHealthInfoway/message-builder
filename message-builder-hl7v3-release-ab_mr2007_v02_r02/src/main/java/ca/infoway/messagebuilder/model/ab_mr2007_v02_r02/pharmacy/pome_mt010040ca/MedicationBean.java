@@ -46,16 +46,28 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
+    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
     private DrugOrCompoundBean player;
+    private DispenseInformationBean productOf1DispenseGuidelines;
+    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DrugHalfLifeBean subjectOf2HalfLife;
     private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private List<MonitoringProgramsBean> subjectOf4MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
     private DrugCostBean subjectOf5PotentialCharge;
-    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
-    private DispenseInformationBean productOf1DispenseGuidelines;
-    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
+
+
+    /**
+     * <p>Relationship: 
+     * POME_MT010040CA.Consumable2.administrationGuideline</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
+    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
+        return this.consumedInAdministrationGuideline;
+    }
 
 
     /**
@@ -75,6 +87,37 @@ public class MedicationBean extends MessagePartBean {
      */
     public void setPlayer(DrugOrCompoundBean player) {
         this.player = player;
+    }
+
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
+    public DispenseInformationBean getProductOf1DispenseGuidelines() {
+        return this.productOf1DispenseGuidelines;
+    }
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
+        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
+    }
+
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Product.potentialSupply</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"productOf2/potentialSupply"})
+    public List<FormulariesBean> getProductOf2PotentialSupply() {
+        return this.productOf2PotentialSupply;
     }
 
 
@@ -148,49 +191,6 @@ public class MedicationBean extends MessagePartBean {
      */
     public void setSubjectOf5PotentialCharge(DrugCostBean subjectOf5PotentialCharge) {
         this.subjectOf5PotentialCharge = subjectOf5PotentialCharge;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POME_MT010040CA.Consumable2.administrationGuideline</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
-    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
-        return this.consumedInAdministrationGuideline;
-    }
-
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
-    public DispenseInformationBean getProductOf1DispenseGuidelines() {
-        return this.productOf1DispenseGuidelines;
-    }
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Product2.dispenseGuidelines</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
-        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
-    }
-
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Product.potentialSupply</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"productOf2/potentialSupply"})
-    public List<FormulariesBean> getProductOf2PotentialSupply() {
-        return this.productOf2PotentialSupply;
     }
 
 }
