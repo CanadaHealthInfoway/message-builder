@@ -6,9 +6,9 @@ Build-Jdk: 1.6.0_34
 Implementation-Title: message-builder-hl7v3-release-on_cerx_v01_r04_3
 Implementation-Vendor-Id: ca.infoway.messagebuilder
 Application-Name: message-builder-hl7v3-release-on_cerx_v01_r04_3
-Implementation-Build-Date: 2013-06-13_18-09-45
-Implementation-Version: 1.4.7-SNAPSHOT
+Implementation-Build-Date: 2013-12-10_08-21-51
+Implementation-Version: 1.5.4-SNAPSHOT
 MBT-Message-Set: /messageSet_on_cerx_v01_r04_3.xml
 MBT-Model-Version-Numbers: V01R04_3_ON
-MBT-Version: 1.4.7-SNAPSHOT
+MBT-Version: 1.5.4-SNAPSHOT
 
