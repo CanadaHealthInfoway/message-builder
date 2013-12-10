@@ -71,24 +71,24 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
-    private DrugProductBean directTargetMedication;
-    private PatientBean subjectPatient;
-    private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
-    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private Component2Bean component2;
     private IncludesBean component3;
+    private ClassifiesBean componentOf;
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
+    private DrugProductBean directTargetMedication;
+    private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
+    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private PatientBean subjectPatient;
     private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
     private CommentBean subjectOf2Annotation;
-    private ClassifiesBean componentOf;
 
 
     /**
@@ -308,167 +308,6 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>Documentation of why a prescriber has chosen 
-     * to&nbsp;prescribe the drug in the manner they 
-     * have.&nbsp;</div></p>
-     */
-    @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
-    public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
-        return this.definitionSubstanceAdministrationDefinition;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
-    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
-        return this.predecessorPriorCombinedMedicationRequest;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
-        this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.CombinedMedicationRequest.reason</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
-     * 
-     * <p><div>Denotes the reason(s) for this 
-     * specific&nbsp;prescription; it must not be interpreted as 
-     * a</div> <div>permanent diagnosis.</div> <div>NOTE: Although 
-     * at least one repetition must be&nbsp;PIN CeRx Business 
-     * Requirements</div> <div>sent, &ldquo;Nulls&rdquo; are 
-     * allowed if there are no indications&nbsp;recorded against a 
-     * prescription.&nbsp;</div></p>
-     */
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    /**
-     * <p>Business Name: Non-authoritative Indicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;If present, indicates that the prescription is 
-     * nonauthoritative.I.e. A paper copy must be viewed</p> 
-     * <div>before the prescription can be dispensed.</div>
-     */
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
-    }
-
-    /**
-     * <p>Business Name: Non-authoritative Indicator</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;If present, indicates that the prescription is 
-     * nonauthoritative.I.e. A paper copy must be viewed</p> 
-     * <div>before the prescription can be dispensed.</div>
-     */
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    /**
-     * <p>Business Name: Includes</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;This comprises the height and/or weight of 
-     * a&nbsp;patient as measured/observed/known by 
-     * the&nbsp;prescriber at the time of prescribing.</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
-    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
-        return this.pertinentInformationQuantityObservationEvent;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    /**
      * <p>Relationship: 
      * PORX_MT010120CA.Component1.dosageInstruction</p>
      * 
@@ -540,6 +379,195 @@ public class PrescriptionBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Indicates the clinical use category in which 
+     * the</p> <div>prescription has been put.</div>
+     */
+    @Hl7XmlMapping({"componentOf"})
+    public ClassifiesBean getComponentOf() {
+        return this.componentOf;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Indicates the clinical use category in which 
+     * the</p> <div>prescription has been put.</div>
+     */
+    public void setComponentOf(ClassifiesBean componentOf) {
+        this.componentOf = componentOf;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.Coverage2.coverage</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Definition.substanceAdministrationDefinition</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>Documentation of why a prescriber has chosen 
+     * to&nbsp;prescribe the drug in the manner they 
+     * have.&nbsp;</div></p>
+     */
+    @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
+    public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
+        return this.definitionSubstanceAdministrationDefinition;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
+    }
+
+
+    /**
+     * <p>Business Name: Includes</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.PertinentInformation.quantityObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;This comprises the height and/or weight of 
+     * a&nbsp;patient as measured/observed/known by 
+     * the&nbsp;prescriber at the time of prescribing.</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
+    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
+        return this.pertinentInformationQuantityObservationEvent;
+    }
+
+
+    /**
+     * <p>Business Name: Non-authoritative Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;If present, indicates that the prescription is 
+     * nonauthoritative.I.e. A paper copy must be viewed</p> 
+     * <div>before the prescription can be dispensed.</div>
+     */
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+
+    /**
+     * <p>Business Name: Non-authoritative Indicator</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT010120CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;If present, indicates that the prescription is 
+     * nonauthoritative.I.e. A paper copy must be viewed</p> 
+     * <div>before the prescription can be dispensed.</div>
+     */
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
+    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
+        return this.predecessorPriorCombinedMedicationRequest;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.Predecessor.priorCombinedMedicationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
+        this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT010120CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * 
+     * <p><div>Denotes the reason(s) for this 
+     * specific&nbsp;prescription; it must not be interpreted as 
+     * a</div> <div>permanent diagnosis.</div> <div>NOTE: Although 
+     * at least one repetition must be&nbsp;PIN CeRx Business 
+     * Requirements</div> <div>sent, &ldquo;Nulls&rdquo; are 
+     * allowed if there are no indications&nbsp;recorded against a 
+     * prescription.&nbsp;</div></p>
+     */
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    /**
+     * <p>Relationship: 
      * PORX_MT010120CA.Subject.substitutionPermission</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -577,34 +605,6 @@ public class PrescriptionBean extends MessagePartBean {
      */
     public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
         this.subjectOf2Annotation = subjectOf2Annotation;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Indicates the clinical use category in which 
-     * the</p> <div>prescription has been put.</div>
-     */
-    @Hl7XmlMapping({"componentOf"})
-    public ClassifiesBean getComponentOf() {
-        return this.componentOf;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT010120CA.CombinedMedicationRequest.componentOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Indicates the clinical use category in which 
-     * the</p> <div>prescription has been put.</div>
-     */
-    public void setComponentOf(ClassifiesBean componentOf) {
-        this.componentOf = componentOf;
     }
 
 }

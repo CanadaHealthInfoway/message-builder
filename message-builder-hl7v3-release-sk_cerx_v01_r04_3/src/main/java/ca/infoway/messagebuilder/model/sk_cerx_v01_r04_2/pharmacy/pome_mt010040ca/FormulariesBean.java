@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.AssignedEntity3Bean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.AssignedEntityBean;
 
 
 
@@ -49,10 +49,10 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Assigne
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private ST title = new STImpl();
-    private AssignedEntity3Bean performerAssignedEntity;
+    private AssignedEntityBean performerAssignedEntity;
 
 
     /**
@@ -127,7 +127,7 @@ public class FormulariesBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntity3Bean getPerformerAssignedEntity() {
+    public AssignedEntityBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
@@ -136,7 +136,7 @@ public class FormulariesBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
+    public void setPerformerAssignedEntity(AssignedEntityBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 

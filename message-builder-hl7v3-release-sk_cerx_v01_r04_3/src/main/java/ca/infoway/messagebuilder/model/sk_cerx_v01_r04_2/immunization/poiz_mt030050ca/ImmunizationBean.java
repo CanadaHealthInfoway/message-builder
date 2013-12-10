@@ -78,7 +78,7 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private TS effectiveTime = new TSImpl();
@@ -87,12 +87,12 @@ public class ImmunizationBean extends MessagePartBean {
     private CV routeCode = new CVImpl();
     private CV approachSiteCode = new CVImpl();
     private PQ doseQuantity = new PQImpl();
-    private PatientBean subjectPatient;
-    private DrugProductBean consumableMedication;
-    private InformantionSourceRoleBean informantInformantionSourceRole;
-    private PartOfBean inFulfillmentOf;
-    private CommentBean subjectOfAnnotation;
     private BL causeAdverseReactionObservationEvent = new BLImpl(false);
+    private DrugProductBean consumableMedication;
+    private PartOfBean inFulfillmentOf;
+    private InformantionSourceRoleBean informantInformantionSourceRole;
+    private PatientBean subjectPatient;
+    private CommentBean subjectOfAnnotation;
 
 
     /**
@@ -520,22 +520,24 @@ public class ImmunizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.CauseOf.adverseReactionObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
+    public Boolean getCauseAdverseReactionObservationEvent() {
+        return this.causeAdverseReactionObservationEvent.getValue();
     }
 
     /**
-     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * <p>Relationship: 
+     * POIZ_MT030050CA.CauseOf.adverseReactionObservationEvent</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
+        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }
 
 
@@ -556,28 +558,6 @@ public class ImmunizationBean extends MessagePartBean {
      */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"informant/informantionSourceRole"})
-    public InformantionSourceRoleBean getInformantInformantionSourceRole() {
-        return this.informantInformantionSourceRole;
-    }
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setInformantInformantionSourceRole(InformantionSourceRoleBean informantInformantionSourceRole) {
-        this.informantInformantionSourceRole = informantInformantionSourceRole;
     }
 
 
@@ -604,6 +584,48 @@ public class ImmunizationBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"informant/informantionSourceRole"})
+    public InformantionSourceRoleBean getInformantInformantionSourceRole() {
+        return this.informantInformantionSourceRole;
+    }
+
+    /**
+     * <p>Relationship: 
+     * POIZ_MT030050CA.Informant.informantionSourceRole</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setInformantInformantionSourceRole(InformantionSourceRoleBean informantInformantionSourceRole) {
+        this.informantInformantionSourceRole = informantInformantionSourceRole;
+    }
+
+
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: POIZ_MT030050CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    /**
      * <p>Relationship: POIZ_MT030050CA.Subject9.annotation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -620,28 +642,6 @@ public class ImmunizationBean extends MessagePartBean {
      */
     public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT030050CA.CauseOf.adverseReactionObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
-    public Boolean getCauseAdverseReactionObservationEvent() {
-        return this.causeAdverseReactionObservationEvent.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT030050CA.CauseOf.adverseReactionObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
-        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }
 
 }

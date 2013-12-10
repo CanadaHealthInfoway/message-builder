@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
@@ -231,7 +231,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredi
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"player/code"})
@@ -404,7 +406,9 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredi
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPlayerCode(ClinicalDrug playerCode) {
@@ -530,7 +534,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefor
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>First occurrence is preferred for display.</p>
+     * 
+     * <p><font color="#0000
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"player/name"})
@@ -656,7 +664,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * allow selection from dropdowns and for local searching. If a 
      * code is available, the name acts as a cross-check. If the 
      * code is not available the name acts as the primary 
-     * identifier. The attribute is therefor
+     * identifier. The attribute is therefore mandatory.</p>
+     * 
+     * <p>First occurrence is preferred for display.</p>
+     * 
+     * <p><font color="#0000
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPlayerName(String playerName) {

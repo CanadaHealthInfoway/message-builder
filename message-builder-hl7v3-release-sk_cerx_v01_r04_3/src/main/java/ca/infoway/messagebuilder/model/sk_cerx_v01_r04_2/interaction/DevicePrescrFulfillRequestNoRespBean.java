@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Prescri
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700220CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT010110CA.DeviceRequest</p>
+ * <p>--> Payload: PORX_MT010110CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010940CA"})
 public class DevicePrescrFulfillRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_2Bean<PrescriptionReferenceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

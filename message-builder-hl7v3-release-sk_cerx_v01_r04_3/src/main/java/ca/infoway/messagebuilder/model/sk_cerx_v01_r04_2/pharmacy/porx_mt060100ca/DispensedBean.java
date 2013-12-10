@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
 @Hl7PartTypeMapping({"PORX_MT060100CA.InFulfillmentOf"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private SubstanceAdministrationRequestBean substanceAdministrationRequest;
 
 

@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -80,15 +80,15 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private CV confidentialityCode = new CVImpl();
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
-    private PatientBean subjectPatient;
-    private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private ReportedByBean informant;
     private RecordedAtBean location;
-    private List<Records> supportRecords = new ArrayList<Records>();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean subjectPatient;
     private List<CommentBean> subjectOf1Annotation = new ArrayList<CommentBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
     private BL subjectOf3AnnotationIndicator = new BLImpl(false);
+    private List<Records> supportRecords = new ArrayList<Records>();
 
 
     /**
@@ -626,68 +626,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Suffered By</p>
-     * 
-     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>&nbsp;Identifies the person suffering from 
-     * the&nbsp;allergy/intolerance.</p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Business Name: Suffered By</p>
-     * 
-     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>&nbsp;Identifies the person suffering from 
-     * the&nbsp;allergy/intolerance.</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Business Name: Supervised By</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Identifies the provider who is taking 
-     * responsibility for&nbsp;the actions of the author.</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Business Name: Supervised By</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Identifies the provider who is taking 
-     * responsibility for&nbsp;the actions of the author.</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
      * <p>Relationship: REPC_MT000005CA.IntoleranceCondition.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -764,13 +702,64 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: REPC_MT000005CA.Support.records</p>
+     * <p>Business Name: Supervised By</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who is taking 
+     * responsibility for&nbsp;the actions of the author.</p>
      */
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Business Name: Supervised By</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000005CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who is taking 
+     * responsibility for&nbsp;the actions of the author.</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Business Name: Suffered By</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Business Name: Suffered By</p>
+     * 
+     * <p>Relationship: REPC_MT000005CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -838,6 +827,17 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      */
     public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
         this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
+    }
+
+
+    /**
+     * <p>Relationship: REPC_MT000005CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
     }
 
 }

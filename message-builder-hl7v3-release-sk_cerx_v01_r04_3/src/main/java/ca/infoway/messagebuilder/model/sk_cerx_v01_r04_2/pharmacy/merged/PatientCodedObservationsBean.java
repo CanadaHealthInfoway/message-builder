@@ -80,7 +80,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -831,7 +831,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
      * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p>
+     * 
+     * <p>Con
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"value"})
@@ -1038,7 +1043,12 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
      * <p>Containdication.allergenGroupName (PrintName) 
      * PIN:Contraindications.drugAllergy (Inferred from Code System 
      * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p>
+     * 
+     * <p>Con
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setValue(IssueTriggerObservationValue value) {

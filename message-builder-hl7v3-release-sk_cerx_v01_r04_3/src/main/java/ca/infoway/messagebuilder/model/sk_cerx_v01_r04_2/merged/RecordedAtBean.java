@@ -288,13 +288,19 @@ import java.util.Date;
  * <p>Important for performing follow-up and is therefore 
  * mandatory.</p>
  * 
- * <p>PORX_MT010110CA.Location2: *
+ * <p>PORX_MT010110CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p>Indicates the pharmacy to which the prescription has been 
+ * directed or which has currently assumed responsibility for 
+ * dispensing the prescription.</p>
+ * 
+ * <p>Allows prescriptions to be directed on the reque
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"COMT_MT300003CA.Location","MCAI_MT700210CA.Location","MCAI_MT700221CA.Location","MCAI_MT700223CA.Location","POIZ_MT060150CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","PORX_MT980010CA.Location","PORX_MT980020CA.Location","PORX_MT980030CA.Location","QUQI_MT020000CA.Location","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000007CA.Location","REPC_MT000009CA.Location","REPC_MT000010CA.Location","REPC_MT100001CA.Location","REPC_MT100002CA.Location"})
 public class RecordedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private ServiceLocationBean serviceDeliveryLocation;
     private CV substitutionConditionCode = new CVImpl();
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
@@ -595,7 +601,16 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340CA.Location2.serv
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinalit
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
@@ -898,7 +913,16 @@ public class RecordedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT060340CA.Location2.serv
+     * PORX_MT060340CA.Location2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060340CA.Location3.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinalit
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setServiceDeliveryLocation(ServiceLocationBean serviceDeliveryLocation) {

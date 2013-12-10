@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Referen
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700220CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700220CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT990010CA.ActEvent</p>
+ * <p>--> Payload: PORX_MT990010CA.ActEvent</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000045CA"})
 public class RecordPharmacyProfServiceRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

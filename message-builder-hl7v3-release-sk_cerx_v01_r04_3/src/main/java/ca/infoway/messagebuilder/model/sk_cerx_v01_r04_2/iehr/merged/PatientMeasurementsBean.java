@@ -92,17 +92,17 @@ import java.util.List;
 @Hl7RootType
 public class PatientMeasurementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();
     private CV confidentialityCode = new CVImpl();
     private PQ value = new PQImpl();
-    private PatientBean subjectPatient;
-    private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private RecordedAtBean location;
     private List<ComponentMeasurementsBean> componentSubObservationEvent = new ArrayList<ComponentMeasurementsBean>();
+    private RecordedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean subjectPatient;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private CommentBean subjectOfAnnotation;
 
@@ -542,36 +542,79 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.Component.subObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Represents one of the two components (systolic</p> 
+     * <div>and diastolic) of a blood pressure measurement.</div>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT000018CA.Component.subObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Represents one of the two components (systolic</p> 
+     * <div>and diastolic) of a blood pressure measurement.</div>
+     */
+    @Hl7XmlMapping({"component/subObservationEvent"})
+    public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
+        return this.componentSubObservationEvent;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT100002CA.CommonObservationEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 
@@ -614,79 +657,36 @@ public class PatientMeasurementsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.author</p>
+     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.author</p>
+     * <p>Relationship: REPC_MT100002CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000018CA.Subject5.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT100002CA.CommonObservationEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT100002CA.Component.subObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Represents one of the two components (systolic</p> 
-     * <div>and diastolic) of a blood pressure measurement.</div>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT000018CA.Component.subObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Represents one of the two components (systolic</p> 
-     * <div>and diastolic) of a blood pressure measurement.</div>
-     */
-    @Hl7XmlMapping({"component/subObservationEvent"})
-    public List<ComponentMeasurementsBean> getComponentSubObservationEvent() {
-        return this.componentSubObservationEvent;
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 

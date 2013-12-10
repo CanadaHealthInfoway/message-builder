@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
@@ -68,9 +68,9 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private RecordedAtBean location;
+    private QueryDefinitionBean<PL> queryByParameter;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private ConsentBean subjectOf2ConsentEvent;
-    private QueryDefinitionBean<PL> queryByParameter;
 
 
     /**
@@ -326,6 +326,28 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryDefinitionBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+
+    /**
+     * <p>Relationship: 
+     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
      * <p>Business Name: Caused</p>
      * 
      * <p>Relationship: QUQI_MT020000CA.Subject.detectedIssueEvent</p>
@@ -358,28 +380,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      */
     public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
         this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryDefinitionBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-
-    /**
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
     }
 
 }

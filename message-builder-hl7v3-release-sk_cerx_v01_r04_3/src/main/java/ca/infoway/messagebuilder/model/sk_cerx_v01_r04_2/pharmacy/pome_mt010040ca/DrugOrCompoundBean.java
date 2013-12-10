@@ -64,14 +64,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POME_MT010040CA.Medicine"})
 public class DrugOrCompoundBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private SET<TN, TrivialName> name = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST desc = new STImpl();
     private CV formCode = new CVImpl();
+    private DispensedInBean asContent;
     private ManufacturerBean asManufacturedProductManufacturer;
     private CS asRegulatedProductStatusCode = new CSImpl();
-    private DispensedInBean asContent;
     private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
 
@@ -241,7 +241,9 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredien
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code sy
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -414,7 +416,9 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * (determined from code 
      * system)</p><p>RXA.5</p><p>A_BillablePharmacyDispense</p>
      * 
-     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredien
+     * <p>DrugProduct.activeIngredientId</p><p>DrugProduct.ActiveIngredientGroupNumber</p><p>DrugProduct.DIN</p><p>DrugProduct.StandardProductId 
+     * (Mnemonic)</p><p>DrugProduct.StandardIDType(Code 
+     * System)</p><p>D56(use code sy
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ClinicalDrug code) {
@@ -540,7 +544,9 @@ public class DrugOrCompoundBean extends MessagePartBean {
      * allow selection from dropdowns and for local searching. Up 
      * to two names are supported: a 'search name' which is fully 
      * formed with no abbreviations, and a 'display name' which may 
-     * contain abbreviations to fi
+     * contain abbreviations to fit within a smaller area on the 
+     * screen.</p><p>This attribute is marked as 'mandatory' as 
+     * drugs at any l
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"name"})
@@ -780,6 +786,36 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: Dispensed In</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p><div>Information about how the dispensed drug is or 
+     * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+
+    /**
+     * <p>Business Name: Dispensed In</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p><div>Information about how the dispensed drug is or 
+     * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
+     */
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
+    }
+
+
+    /**
      * <p>Relationship: 
      * POME_MT010040CA.ManufacturedProduct.manufacturer</p>
      * 
@@ -836,36 +872,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
      */
     public void setAsRegulatedProductStatusCode(RoleStatusNormal asRegulatedProductStatusCode) {
         this.asRegulatedProductStatusCode.setValue(asRegulatedProductStatusCode);
-    }
-
-
-    /**
-     * <p>Business Name: Dispensed In</p>
-     * 
-     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p><div>Information about how the dispensed drug is or 
-     * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-
-    /**
-     * <p>Business Name: Dispensed In</p>
-     * 
-     * <p>Relationship: POME_MT010040CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p><div>Information about how the dispensed drug is or 
-     * should&nbsp;asContent be contained.</div> <p>&nbsp;</p></p>
-     */
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
     }
 
 

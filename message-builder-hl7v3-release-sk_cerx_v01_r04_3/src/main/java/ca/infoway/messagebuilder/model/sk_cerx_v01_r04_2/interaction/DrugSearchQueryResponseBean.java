@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.pome_mt010100c
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: POME_MT010100CA.Medication</p>
+ * <p>--> Payload: POME_MT010100CA.Medication</p>
  * 
- * <p>--> Sub-Payload: POME_MT010090CA.ParameterList</p>
+ * <p>--> Payload: POME_MT010090CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010080CA"})
 public class DrugSearchQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

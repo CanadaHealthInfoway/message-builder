@@ -106,18 +106,18 @@ import java.util.List;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
     private CV routeCode = new CVImpl();
-    private PatientBean subjectPatient;
-    private DrugProductBean consumableMedication;
-    private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private RecordedAtBean location;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private DrugProductBean consumableMedication;
+    private RecordedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean subjectPatient;
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<CommentBean> subjectOf3Annotation = new ArrayList<CommentBean>();
@@ -426,74 +426,6 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><div>Indicates the patient who is taking the drug</div> 
-     * <p>product.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><div>Indicates the patient who is taking the drug</div> 
-     * <p>product.&nbsp;</p></p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
      * <p>Relationship: PORX_MT060210CA.OtherMedication.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -518,6 +450,37 @@ public class OtherMedicationBean extends MessagePartBean {
      */
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Consumable2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 
@@ -548,13 +511,50 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060210CA.Component.dosageInstruction</p>
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060210CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>Indicates the patient who is taking the drug</div> 
+     * <p>product.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060210CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>Indicates the patient who is taking the drug</div> 
+     * <p>product.&nbsp;</p></p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 

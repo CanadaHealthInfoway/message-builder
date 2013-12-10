@@ -33,13 +33,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.CommentBean;
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: COMT_MT300001CA.Annotation</p>
+ * <p>--> Payload: COMT_MT300001CA.Annotation</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300001CA"})
 public class AddPatientNoteRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

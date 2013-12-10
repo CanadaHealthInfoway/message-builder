@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt060240c
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060240CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT060240CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060490CA"})
 public class UnfilledPrescriptionsQueryBean extends HL7Message_1Bean<TriggerEventBean<UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

@@ -33,11 +33,11 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.TriggerEv
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700222CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700222CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"PORX_IN020230CA"})
 public class RecordSupplyEventWardStockRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

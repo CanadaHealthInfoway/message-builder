@@ -55,14 +55,14 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
-    private DrugProductBean productMedication;
     private II destinationServiceDeliveryLocationId = new IIImpl();
     private SupplyOrderBean fulfillmentSupplyRequest;
+    private DrugProductBean productMedication;
     private CommentBean subjectOfAnnotation;
 
 
@@ -623,26 +623,6 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
-    /**
      * <p>Business Name: C:Ship-to Facility Id</p>
      * 
      * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
@@ -699,6 +679,26 @@ public class OfficeSupplyBean extends MessagePartBean {
      */
     public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT020050CA.Product2.medication</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 

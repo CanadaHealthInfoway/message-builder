@@ -78,7 +78,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -86,11 +86,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private CV confidentialityCode = new CVImpl();
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
-    private PatientBean subjectPatient;
     private ReportedByBean informant;
-    private List<Records> supportRecords = new ArrayList<Records>();
+    private PatientBean subjectPatient;
     private CommentBean subjectOf1Annotation;
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+    private List<Records> supportRecords = new ArrayList<Records>();
     private II id = new IIImpl();
 
 
@@ -742,7 +742,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * that it may not be free of errors and uncertainty may still 
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraind
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N.</p>
+     * 
+     * <p>An indication of the level of confidence/surety placed in 
+     * the recorded information.</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"uncertaintyCode"})
@@ -922,7 +926,11 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * that it may not be free of errors and uncertainty may still 
      * exist. In healthcare, N is believed to express certainty to 
      * the strength possible.</p><p>An allergy or intolerance 
-     * record is always used in drug contraind
+     * record is always used in drug contraindication checking 
+     * whether the record is U or N.</p>
+     * 
+     * <p>An indication of the level of confidence/surety placed in 
+     * the recorded information.</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
@@ -983,52 +991,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SufferedBy</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: SufferedBy</p>
-     * 
-     * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><div>Identifies the person suffering from 
-     * the&nbsp;allergy/intolerance.&nbsp;</div></p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Business Name: SufferedBy</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: SufferedBy</p>
-     * 
-     * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><div>Identifies the person suffering from 
-     * the&nbsp;allergy/intolerance.&nbsp;</div></p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
      * <p>Business Name: ReportedBy</p>
      * 
      * <p>Un-merged Business Name: ReportedBy</p>
@@ -1085,37 +1047,48 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SupportedBy</p>
+     * <p>Business Name: SufferedBy</p>
      * 
-     * <p>Un-merged Business Name: SupportedBy</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT000001CA.Support.records</p>
+     * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p><font color="#000080" size="2" face="Helvetica"><font 
-     * color="#000080" size="2" face="Helvetica"><font 
-     * color="#000080" size="2" face="Helvetica"> <p 
-     * align="left">Indicates a particular type of reaction 
-     * experienced by the patient or testing performed on the 
-     * patient which provides evidence for the existence (or 
-     * non-existence) of the allergy/intolerance.</p> 
-     * </font></font></font></p>
+     * <p>Un-merged Business Name: SufferedBy</p>
      * 
-     * <p>Un-merged Business Name: SupportedBy</p>
+     * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
      * 
-     * <p>Relationship: REPC_MT000013CA.Support.records</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>Indicates a particular type of reaction experienced 
-     * by&nbsp;the patient or testing performed on the patient 
-     * which</div> <div>provides evidence for the existence (or 
-     * non-existence)&nbsp;of the allergy/intolerance.&nbsp;</div></p>
+     * <p><div>Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.&nbsp;</div></p>
      */
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Business Name: SufferedBy</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: SufferedBy</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>Identifies the person suffering from 
+     * the&nbsp;allergy/intolerance.&nbsp;</div></p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -1197,6 +1170,41 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      */
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    }
+
+
+    /**
+     * <p>Business Name: SupportedBy</p>
+     * 
+     * <p>Un-merged Business Name: SupportedBy</p>
+     * 
+     * <p>Relationship: REPC_MT000001CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><font color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"><font 
+     * color="#000080" size="2" face="Helvetica"> <p 
+     * align="left">Indicates a particular type of reaction 
+     * experienced by the patient or testing performed on the 
+     * patient which provides evidence for the existence (or 
+     * non-existence) of the allergy/intolerance.</p> 
+     * </font></font></font></p>
+     * 
+     * <p>Un-merged Business Name: SupportedBy</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>Indicates a particular type of reaction experienced 
+     * by&nbsp;the patient or testing performed on the patient 
+     * which</div> <div>provides evidence for the existence (or 
+     * non-existence)&nbsp;of the allergy/intolerance.&nbsp;</div></p>
+     */
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
     }
 
 

@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt050010c
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT980020CA.DetectedIssueEvent</p>
+ * <p>--> Payload: PORX_MT980020CA.DetectedIssueEvent</p>
  * 
- * <p>--> Sub-Payload: PORX_MT050010CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT050010CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
 public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

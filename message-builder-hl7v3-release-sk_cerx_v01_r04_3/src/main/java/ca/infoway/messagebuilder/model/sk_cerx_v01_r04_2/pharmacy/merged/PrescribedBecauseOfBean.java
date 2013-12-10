@@ -211,13 +211,16 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt980050c
  * device.</p><p>Provided at the discretion of the prescriber 
  * to enhance patient care. E.g., take 1 tab bid for migraine. 
  * Also needed for drug-disease interaction checking software 
- * to work properly.</p><p>This fi
+ * to work properly.</p><p>This field is marked as populated 
+ * because of its high clinical importance, however 'Nulls' are 
+ * allowed because the individual recording the prescription 
+ * (e.g. pharmacist) may no
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Reason2","PORX_MT010120CA.Reason2","PORX_MT030040CA.Reason","PORX_MT060040CA.Reason2","PORX_MT060060CA.Reason","PORX_MT060160CA.Reason2","PORX_MT060190CA.Reason","PORX_MT060340CA.Reason2"})
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private INT priorityNumber = new INTImpl();
     private Indications indications;
 

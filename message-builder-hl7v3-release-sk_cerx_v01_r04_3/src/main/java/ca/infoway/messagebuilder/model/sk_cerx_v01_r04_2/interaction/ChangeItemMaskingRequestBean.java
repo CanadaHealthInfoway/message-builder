@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt400001ca.Mask
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: COMT_MT400001CA.MaskableActType</p>
+ * <p>--> Payload: COMT_MT400001CA.MaskableActType</p>
  */
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

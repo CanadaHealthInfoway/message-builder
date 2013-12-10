@@ -200,7 +200,7 @@ import java.util.List;
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private CV issueFilterCodeValue = new CVImpl();
     private BL mostRecentByDeviceIndicatorValue = new BLImpl();
@@ -2089,7 +2089,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Id
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Allows filtering of result set by patien
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientID/value"})
@@ -2351,7 +2356,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Id
+     * <p>Identifier of the patient who is the subject of the 
+     * patient medication query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p>
+     * 
+     * <p>Allows filtering of result set by patien
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientIDValue(Identifier patientIDValue) {
@@ -2599,7 +2609,13 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
-    
+     * this name.</p>
+     * 
+     * <p>The name of the patient who is the subject of the 
+     * condition history query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
+ 
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"patientName/value"})
@@ -2847,7 +2863,13 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * <p>The name of the patient who is the subject of the 
      * condition history query.</p><p>Filter the result set to 
      * include only those records pertaining to the patient with 
-    
+     * this name.</p>
+     * 
+     * <p>The name of the patient who is the subject of the 
+     * condition history query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p>
+ 
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setPatientNameValue(PersonName patientNameValue) {

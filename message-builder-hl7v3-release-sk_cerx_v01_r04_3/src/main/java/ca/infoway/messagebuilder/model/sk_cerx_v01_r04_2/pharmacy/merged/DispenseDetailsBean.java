@@ -41,13 +41,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyEvent","PORX_MT060010CA.SupplyEvent","PORX_MT060020CA.SupplyEvent","PORX_MT060040CA.SupplyEvent"})
 public class DispenseDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private DeviceProductBean productManufacturedProduct;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private DeviceProductBean productManufacturedProduct;
     private ResponsiblePersonBean receiverResponsibleParty;
 
 
@@ -433,7 +433,12 @@ public class DispenseDetailsBean extends MessagePartBean {
      * qualifier=36, 
      * format=102)</p><p>A_BillablePharmacyDispense</p><p>Dispense 
      * Date</p><p>Dispense 
-     * Date</p><p>DispensedItem.dis
+     * Date</p><p>DispensedItem.dispenseDate</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>ZPB3.9</p><p>ZDP.17 (high)</p><p>DRU.040-02 (low, 
+     * qualifier=07, format=102)</p><p>DRU.040-02 (low, 
+     * qualifier=36, 
+     * format=1
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -651,7 +656,12 @@ public class DispenseDetailsBean extends MessagePartBean {
      * qualifier=36, 
      * format=102)</p><p>A_BillablePharmacyDispense</p><p>Dispense 
      * Date</p><p>Dispense 
-     * Date</p><p>DispensedItem.dis
+     * Date</p><p>DispensedItem.dispenseDate</p><p>A_BillablePharmacyDispense</p>
+     * 
+     * <p>ZPB3.9</p><p>ZDP.17 (high)</p><p>DRU.040-02 (low, 
+     * qualifier=07, format=102)</p><p>DRU.040-02 (low, 
+     * qualifier=36, 
+     * format=1
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setEffectiveTime(Interval<Date> effectiveTime) {
@@ -814,7 +824,10 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
      * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p
+     * package is determined by a playing entity)</p><p>DRU.020-01 
+     * (Unit, qualifier=38 0r 87)</p><p>DRU.020-02 (Quantity, 
+     * qualifier=38 0r 87)</p><p>DRU.020-03 (qualifier=38 0r 
+     * 87)</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"quantity"})
@@ -977,7 +990,10 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>D58</p><p>ZPB3.4</p><p>ZDP.10.1</p><p>ZDP.10.2.1 (the 
      * fact that it is package is determined by a playing 
      * entity)</p><p>ZDP.9.1</p><p>ZDP.9.2.1 (the fact that it is 
-     * package is determined by a playing entity)</p
+     * package is determined by a playing entity)</p><p>DRU.020-01 
+     * (Unit, qualifier=38 0r 87)</p><p>DRU.020-02 (Quantity, 
+     * qualifier=38 0r 87)</p><p>DRU.020-03 (qualifier=38 0r 
+     * 87)</p>
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setQuantity(Integer quantity) {
@@ -1431,6 +1447,60 @@ public class DispenseDetailsBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * PORX_MT020060CA.Product2.manufacturedProduct</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -1492,60 +1562,6 @@ public class DispenseDetailsBean extends MessagePartBean {
      */
     public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
         this.productManufacturedProduct = productManufacturedProduct;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060010CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060040CA.Destination2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 

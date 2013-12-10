@@ -45,10 +45,10 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
-    private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
+    private PatientBean subjectPatient;
 
 
     /**
@@ -90,6 +90,26 @@ public class DispensePickupBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public ResponsiblePersonBean getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
+        this.receiverResponsibleParty = receiverResponsibleParty;
+    }
+
+
+    /**
      * <p>Business Name: Dispensed For</p>
      * 
      * <p>Relationship: PORX_MT020020CA.Subject.patient</p>
@@ -116,26 +136,6 @@ public class DispensePickupBean extends MessagePartBean {
      */
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public ResponsiblePersonBean getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT020020CA.Receiver.responsibleParty</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
-        this.receiverResponsibleParty = receiverResponsibleParty;
     }
 
 }

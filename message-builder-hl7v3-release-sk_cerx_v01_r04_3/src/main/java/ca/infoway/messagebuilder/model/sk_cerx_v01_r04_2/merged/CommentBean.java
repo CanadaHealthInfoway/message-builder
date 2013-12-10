@@ -93,14 +93,14 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.si.comt_mt301001ca.Anno
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private PatientBean recordTargetPatient;
     private II id = new IIImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
     private RecordedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
     private CV languageCode = new CVImpl();
     private AnnotatedActBean subjectAnnotatedAct;
 
@@ -408,42 +408,6 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SupervisedBy</p>
-     * 
-     * <p>Un-merged Business Name: SupervisedBy</p>
-     * 
-     * <p>Relationship: 
-     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Identifies the provider who is taking 
-     * responsibility</p> <div>for the actions of the author.</div>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Business Name: SupervisedBy</p>
-     * 
-     * <p>Un-merged Business Name: SupervisedBy</p>
-     * 
-     * <p>Relationship: 
-     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Identifies the provider who is taking 
-     * responsibility</p> <div>for the actions of the author.</div>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: COMT_MT300003CA.Annotation.author</p>
@@ -506,6 +470,42 @@ public class CommentBean extends MessagePartBean {
      */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Business Name: SupervisedBy</p>
+     * 
+     * <p>Un-merged Business Name: SupervisedBy</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who is taking 
+     * responsibility</p> <div>for the actions of the author.</div>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Business Name: SupervisedBy</p>
+     * 
+     * <p>Un-merged Business Name: SupervisedBy</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT300003CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Identifies the provider who is taking 
+     * responsibility</p> <div>for the actions of the author.</div>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 

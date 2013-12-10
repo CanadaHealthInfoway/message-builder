@@ -57,15 +57,15 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
-    private Patient subjectPatient1;
-    private PatientBean recordTargetPatient;
-    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
+    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+    private PatientBean recordTargetPatient;
+    private Patient subjectPatient1;
     private CommentBean subjectOfAnnotation;
 
 
@@ -166,98 +166,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Dispensed For</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><strong>NOTE: The CeRx model allows for this field to be 
-     * an animal. PIN does not support animals and this field is 
-     * constrained to only allow Patients</strong></p>
-     * 
-     * <p>Indicates the patient the drug was dispensed for.</p>
-     */
-    @Hl7XmlMapping({"subject/patient1"})
-    public Patient getSubjectPatient1() {
-        return this.subjectPatient1;
-    }
-
-    /**
-     * <p>Business Name: Dispensed For</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p><strong>NOTE: The CeRx model allows for this field to be 
-     * an animal. PIN does not support animals and this field is 
-     * constrained to only allow Patients</strong></p>
-     * 
-     * <p>Indicates the patient the drug was dispensed for.</p>
-     */
-    public void setSubjectPatient1(Patient subjectPatient1) {
-        this.subjectPatient1 = subjectPatient1;
-    }
-
-    public PatientBean getSubjectPatient1AsPatient1() {
-        return this.subjectPatient1 instanceof PatientBean ? (PatientBean) this.subjectPatient1 : null;
-    }
-    public boolean hasSubjectPatient1AsPatient1() {
-        return (this.subjectPatient1 instanceof PatientBean);
-    }
-
-    public AnimalPatientBean getSubjectPatient1AsPatient2() {
-        return this.subjectPatient1 instanceof AnimalPatientBean ? (AnimalPatientBean) this.subjectPatient1 : null;
-    }
-    public boolean hasSubjectPatient1AsPatient2() {
-        return (this.subjectPatient1 instanceof AnimalPatientBean);
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    /**
      * <p>Business Name: Performs</p>
      * 
      * <p>Relationship: 
@@ -318,6 +226,98 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      */
     public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT020070CA.InFulfillmentOf1.substanceAdministrationRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT020070CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    /**
+     * <p>Business Name: Dispensed For</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><strong>NOTE: The CeRx model allows for this field to be 
+     * an animal. PIN does not support animals and this field is 
+     * constrained to only allow Patients</strong></p>
+     * 
+     * <p>Indicates the patient the drug was dispensed for.</p>
+     */
+    @Hl7XmlMapping({"subject/patient1"})
+    public Patient getSubjectPatient1() {
+        return this.subjectPatient1;
+    }
+
+    /**
+     * <p>Business Name: Dispensed For</p>
+     * 
+     * <p>Relationship: PORX_MT020070CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><strong>NOTE: The CeRx model allows for this field to be 
+     * an animal. PIN does not support animals and this field is 
+     * constrained to only allow Patients</strong></p>
+     * 
+     * <p>Indicates the patient the drug was dispensed for.</p>
+     */
+    public void setSubjectPatient1(Patient subjectPatient1) {
+        this.subjectPatient1 = subjectPatient1;
+    }
+
+    public PatientBean getSubjectPatient1AsPatient1() {
+        return this.subjectPatient1 instanceof PatientBean ? (PatientBean) this.subjectPatient1 : null;
+    }
+    public boolean hasSubjectPatient1AsPatient1() {
+        return (this.subjectPatient1 instanceof PatientBean);
+    }
+
+    public AnimalPatientBean getSubjectPatient1AsPatient2() {
+        return this.subjectPatient1 instanceof AnimalPatientBean ? (AnimalPatientBean) this.subjectPatient1 : null;
+    }
+    public boolean hasSubjectPatient1AsPatient2() {
+        return (this.subjectPatient1 instanceof AnimalPatientBean);
     }
 
 

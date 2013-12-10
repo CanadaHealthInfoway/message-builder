@@ -67,14 +67,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980040CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS moodCode = new CSImpl();
     private ST text = new STImpl();
     private GTS effectiveTime = new GTSImpl();
     private URG<PQ, PhysicalQuantity> doseQuantity = new URGImpl<PQ, PhysicalQuantity>();
     private URG<PQ, PhysicalQuantity> rateQuantity = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
+    private AdministrationPreconditionBean triggerActEventCriterion;
 
 
     /**
@@ -622,6 +622,34 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;This is a modifier for this specific dosage 
+     * line.</p>
+     */
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT980040CA.Component18.supplementalInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;This is a modifier for this specific dosage 
+     * line.</p>
+     */
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
+
+    /**
      * <p>Relationship: PORX_MT980040CA.Trigger.actEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -648,34 +676,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
      */
     public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
         this.triggerActEventCriterion = triggerActEventCriterion;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT980040CA.Component18.supplementalInstruction</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;This is a modifier for this specific dosage 
-     * line.</p>
-     */
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT980040CA.Component18.supplementalInstruction</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;This is a modifier for this specific dosage 
-     * line.</p>
-     */
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
     }
 
 }

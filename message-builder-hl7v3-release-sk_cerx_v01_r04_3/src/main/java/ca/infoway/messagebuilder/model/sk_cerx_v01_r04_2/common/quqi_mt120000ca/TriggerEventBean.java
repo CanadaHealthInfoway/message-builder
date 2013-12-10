@@ -59,15 +59,15 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
-    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private QueryResponseInformationBean queryAck;
     private QueryDefinitionBean<PL> queryByParameter;
+    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -243,31 +243,6 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-999)</p>
-     */
-    @Hl7XmlMapping({"subject"})
-    public List<RefersToBean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
-    /**
-     * <p>Relationship: QUQI_MT120000CA.Subject.detectedIssueEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;The set of issues that were detected when</p> 
-     * <div>detectedIssueEvent processing the query.</div>
-     */
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
      * <p>Relationship: QUQI_MT120000CA.ControlActEvent.queryAck</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -306,6 +281,31 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
      */
     public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
+     * <p>Relationship: QUQI_MT120000CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-999)</p>
+     */
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    /**
+     * <p>Relationship: QUQI_MT120000CA.Subject.detectedIssueEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;The set of issues that were detected when</p> 
+     * <div>detectedIssueEvent processing the query.</div>
+     */
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

@@ -63,14 +63,14 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV playerCode = new CVImpl();
     private SET<TN, TrivialName> playerName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST playerDesc = new STImpl();
     private CV playerFormCode = new CVImpl();
+    private DispensedInBean playerAsContent;
     private ManufacturerBean playerAsManufacturedProductManufacturer;
     private CS playerAsRegulatedProductStatusCode = new CSImpl();
-    private DispensedInBean playerAsContent;
     private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
     private DrugCostBean subjectOf1PotentialCharge;
@@ -227,6 +227,36 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: Dispensed In</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&nbsp;Information about how the dispensed drug is or 
+     * should</p> <div>be contained.</div>
+     */
+    @Hl7XmlMapping({"player/asContent"})
+    public DispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+
+    /**
+     * <p>Business Name: Dispensed In</p>
+     * 
+     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>&nbsp;Information about how the dispensed drug is or 
+     * should</p> <div>be contained.</div>
+     */
+    public void setPlayerAsContent(DispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
+    }
+
+
+    /**
      * <p>Relationship: 
      * POME_MT010100CA.ManufacturedProduct.manufacturer</p>
      * 
@@ -283,36 +313,6 @@ public class MedicationBean extends MessagePartBean {
      */
     public void setPlayerAsRegulatedProductStatusCode(RoleStatusNormal playerAsRegulatedProductStatusCode) {
         this.playerAsRegulatedProductStatusCode.setValue(playerAsRegulatedProductStatusCode);
-    }
-
-
-    /**
-     * <p>Business Name: Dispensed In</p>
-     * 
-     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>&nbsp;Information about how the dispensed drug is or 
-     * should</p> <div>be contained.</div>
-     */
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-
-    /**
-     * <p>Business Name: Dispensed In</p>
-     * 
-     * <p>Relationship: POME_MT010100CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>&nbsp;Information about how the dispensed drug is or 
-     * should</p> <div>be contained.</div>
-     */
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
     }
 
 

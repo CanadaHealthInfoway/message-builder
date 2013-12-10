@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private List<Recipient> recipient = new ArrayList<Recipient>();
 
 

@@ -69,7 +69,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private PatientBean recordTargetPatient;
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
@@ -224,7 +224,11 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Allows prescriptions to be uniquely referenced. Multiple 
      * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and
+     * ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p>
+     * 
+     
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -381,7 +385,11 @@ public class ReferencedRecordBean extends MessagePartBean {
      * 
      * <p>Allows prescriptions to be uniquely referenced. Multiple 
      * identifiers are allowed to support assigning of prescription 
-     * ids by the prescriber, EHR, and
+     * ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p>
+     * 
+     
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {

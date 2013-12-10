@@ -42,12 +42,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT000200CA.Acknowledgement","MCCI_MT000300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS typeCode = new CSImpl();
     private INT messageWaitingNumber = new INTImpl();
     private CV messageWaitingPriorityCode = new CVImpl();
-    private II targetMessageId = new IIImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
+    private II targetMessageId = new IIImpl();
 
 
     /**
@@ -283,6 +283,30 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000300CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT000200CA.Acknowledgement.acknowledgementDetail</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     * 
+     * <p><div>Any errors, warnings, or information messages will 
+     * be</div> <p>go here.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"acknowledgementDetail"})
+    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
+        return this.acknowledgementDetail;
+    }
+
+
+    /**
      * <p>Business Name: AcknowledgedMessageId</p>
      * 
      * <p>Un-merged Business Name: AcknowledgedMessageId</p>
@@ -347,30 +371,6 @@ public class AcknowledgementBean extends MessagePartBean {
      */
     public void setTargetMessageId(Identifier targetMessageId) {
         this.targetMessageId.setValue(targetMessageId);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCCI_MT000300CA.Acknowledgement.acknowledgementDetail</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MCCI_MT000200CA.Acknowledgement.acknowledgementDetail</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     * 
-     * <p><div>Any errors, warnings, or information messages will 
-     * be</div> <p>go here.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"acknowledgementDetail"})
-    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
-        return this.acknowledgementDetail;
     }
 
 }

@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Recipient;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private Recipient recipient;
 
 

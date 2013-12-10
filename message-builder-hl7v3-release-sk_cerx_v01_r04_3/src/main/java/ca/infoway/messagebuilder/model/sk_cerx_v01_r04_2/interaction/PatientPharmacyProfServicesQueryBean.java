@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.GenericQueryPara
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: QUQI_MT020000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT020000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: REPC_MT120001CA.ParameterList</p>
+ * <p>--> Payload: REPC_MT120001CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000041CA"})
 public class PatientPharmacyProfServicesQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

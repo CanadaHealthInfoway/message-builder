@@ -80,7 +80,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.merged.Party, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Recipient {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN representedPersonName = new PNImpl();
@@ -284,7 +284,12 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Exte
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
+     *
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -489,7 +494,12 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * (Extension)</p><p>ProviderRegistration.Identifier 
      * (Extension)</p><p>ProviderRegistration.IdentifierDomain 
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
-     * (part of Exte
+     * (part of Extension)</p>
+     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
+     *
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -709,7 +719,10 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Give
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"representedPerson/name"})
@@ -891,7 +904,10 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
      * Family)</p><p>PVD.050-02 (PartType = Given - 1st 
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
-     * Suffix)</p><p>PVD
+     * Suffix)</p><p>PVD.050-05 (PartType = 
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Give
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setRepresentedPersonName(PersonName representedPersonName) {

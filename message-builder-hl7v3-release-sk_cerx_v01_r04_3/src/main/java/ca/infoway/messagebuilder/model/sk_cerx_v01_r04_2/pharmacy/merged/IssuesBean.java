@@ -33,8 +33,8 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueCode;
 import ca.infoway.messagebuilder.domainvalue.ActIssuePriority;
-import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.AllergyIntoleranceSeverityLevelBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,16 +132,16 @@ import java.util.List;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV priorityCode = new CVImpl();
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV subjectOfSeverityObservationValue = new CVImpl();
-    private BL triggerForActRequest = new BLImpl(false);
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
     private BL subjectOf1StorageIntent = new BLImpl(false);
+    private BL triggerForActRequest = new BLImpl(false);
 
 
     /**
@@ -329,7 +329,9 @@ public class IssuesBean extends MessagePartBean {
      * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
      * contraindications errors are handled at transmission or 
      * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>In
+     * Codes</p><p>Interaction 
+     * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
+     * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_Detec
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"code"})
@@ -522,7 +524,9 @@ public class IssuesBean extends MessagePartBean {
      * Contraindications</p><p>Contraindication.DosageContraType</p><p>OverrideReason.reasonDomain</p><p>ZP3.3</p><p>E06(for 
      * contraindications errors are handled at transmission or 
      * controlAct wrapper level)</p><p>05.03D</p><p>DUR Response 
-     * Codes</p><p>In
+     * Codes</p><p>Interaction 
+     * Type</p><p>ZPS.7.1</p><p>ZDU.9.1(PLYPHRM)</p><p>ZDU.10.1 
+     * (PLYDOC)</p><p>ZDU.6.2</p><p>ZDU.6.4</p><p>ZDU.7.3</p><p>DRU.100-01</p><p>DUR/PPS.439-E4</p><p>A_Detec
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setCode(ActDetectedIssueCode code) {
@@ -985,51 +989,6 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: CausalActs</p>
-     * 
-     * <p>Un-merged Business Name: CausalActs</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>Although CeRx allows for</div> 
-     * <div>ObservationMeasurableEvent components</div> <div>to be 
-     * sent, since PIN does not support</div> <div>those at this 
-     * time, this component will not</div> <div>be sent by PIN and 
-     * can not be sent to PIN.</div> <div>PIN will never generate 
-     * issues against</div> <div>SupplyEvents, so those will never 
-     * be sent</div> <p>from PIN, although they can be sent to 
-     * PIN.&nbsp;</p></p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: CausalActs</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>Although CeRx allows for</div> 
-     * <div>ObservationMeasurableEvent components</div> <div>to be 
-     * sent, since PIN does not support</div> <div>those at this 
-     * time, this component will not</div> <div>be sent by PIN and 
-     * can not be sent to PIN.</div> <div>PIN will never generate 
-     * issues against</div> <div>SupplyEvents, so those will never 
-     * be sent</div> <p>from PIN, although they can be sent to 
-     * PIN.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
-
-
-    /**
      * <p>Business Name: IssueDescription</p>
      * 
      * <p>Un-merged Business Name: IssueDescription</p>
@@ -1134,102 +1093,76 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: SeverityCode</p>
+     * <p>Business Name: CausalActs</p>
      * 
-     * <p>Un-merged Business Name: SeverityCode</p>
+     * <p>Un-merged Business Name: CausalActs</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980020CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p><div>Although CeRx allows for</div> 
+     * <div>ObservationMeasurableEvent components</div> <div>to be 
+     * sent, since PIN does not support</div> <div>those at this 
+     * time, this component will not</div> <div>be sent by PIN and 
+     * can not be sent to PIN.</div> <div>PIN will never generate 
+     * issues against</div> <div>SupplyEvents, so those will never 
+     * be sent</div> <p>from PIN, although they can be sent to 
+     * PIN.&nbsp;</p></p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * <p>Relationship: PORX_MT980030CA.Subject2.causalActs</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
+     * <p>Un-merged Business Name: CausalActs</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Relationship: PORX_MT980010CA.Subject2.causalActs</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * <p><div>Although CeRx allows for</div> 
+     * <div>ObservationMeasurableEvent components</div> <div>to be 
+     * sent, since PIN does not support</div> <div>those at this 
+     * time, this component will not</div> <div>be sent by PIN and 
+     * can not be sent to PIN.</div> <div>PIN will never generate 
+     * issues against</div> <div>SupplyEvents, so those will never 
+     * be sent</div> <p>from PIN, although they can be sent to 
+     * PIN.&nbsp;</p></p>
      */
-    @Hl7XmlMapping({"subjectOf/severityObservation/value","subjectOf2/severityObservation/value"})
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;This is a ranking/assertion of gravity of the</p> 
+     * <div>detected issue.</div>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>This is a ranking/assertion of gravity of the</div> 
+     * <p>detected issue.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980010CA.Subject"),
         @Hl7MapByPartType(name="subjectOf", type="PORX_MT980030CA.Subject"),
@@ -1237,138 +1170,37 @@ public class IssuesBean extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf/severityObservation", type="PORX_MT980030CA.SeverityObservation"),
         @Hl7MapByPartType(name="subjectOf2", type="PORX_MT980020CA.Subject"),
         @Hl7MapByPartType(name="subjectOf2/severityObservation", type="PORX_MT980020CA.SeverityObservation")})
-    public SeverityObservation getSubjectOfSeverityObservationValue() {
-        return (SeverityObservation) this.subjectOfSeverityObservationValue.getValue();
-    }
-
-    /**
-     * <p>Business Name: SeverityCode</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which issues must be managed and 
-     * how.</p><p>This attribute is marked as &quot;populated&quot; 
-     * to allow the use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow for use of null flavors.</p>
-     * 
-     * <p>Un-merged Business Name: SeverityCode</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>A coded value denoting the gravity of the detected 
-     * issue.</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     * 
-     * <p>May be used to determine which contraindications must be 
-     * managed and how.</p><p>This attribute is marked as 
-     * &quot;populated&quot; to allow the use of null flavors.</p>
-     */
-    public void setSubjectOfSeverityObservationValue(SeverityObservation subjectOfSeverityObservationValue) {
-        this.subjectOfSeverityObservationValue.setValue(subjectOfSeverityObservationValue);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Information that indicates whether or not a</p> 
-     * <div>detected issue needs to be managed.</div>
-     */
-    @Hl7XmlMapping({"triggerFor/actRequest"})
-    public Boolean getTriggerForActRequest() {
-        return this.triggerForActRequest.getValue();
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
+     * <p>Relationship: PORX_MT980020CA.Subject.severityObservation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>&nbsp;Information that indicates whether or not a</p> 
-     * <div>detected issue needs to be managed.</div>
+     * <p>&nbsp;This is a ranking/assertion of gravity of the</p> 
+     * <div>detected issue.</div>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.Subject.severityObservation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p><div>This is a ranking/assertion of gravity of the</div> 
+     * <p>detected issue.&nbsp;</p></p>
      */
-    public void setTriggerForActRequest(Boolean triggerForActRequest) {
-        this.triggerForActRequest.setValue(triggerForActRequest);
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 
@@ -1399,6 +1231,36 @@ public class IssuesBean extends MessagePartBean {
      */
     public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
         this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Information that indicates whether or not a</p> 
+     * <div>detected issue needs to be managed.</div>
+     */
+    @Hl7XmlMapping({"triggerFor/actRequest"})
+    public Boolean getTriggerForActRequest() {
+        return this.triggerForActRequest.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.Trigger2.actRequest</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Information that indicates whether or not a</p> 
+     * <div>detected issue needs to be managed.</div>
+     */
+    public void setTriggerForActRequest(Boolean triggerForActRequest) {
+        this.triggerForActRequest.setValue(triggerForActRequest);
     }
 
 }

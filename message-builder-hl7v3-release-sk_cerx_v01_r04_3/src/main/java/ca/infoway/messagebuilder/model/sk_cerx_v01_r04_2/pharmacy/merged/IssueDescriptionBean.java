@@ -24,11 +24,9 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -70,11 +68,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.DetectedIssueDefinition","PORX_MT980020CA.DetectedIssueDefinition","PORX_MT980030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private TS authorTime = new TSImpl();
-    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
+    private AssignedEntityBean authorAssignedEntity;
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
@@ -535,120 +533,50 @@ public class IssueDescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980010CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980020CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980030CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
-    public String getAuthorAssignedEntityAssignedOrganizationName() {
-        return this.authorAssignedEntityAssignedOrganizationName.getValue();
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntityBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
     }
 
     /**
-     * <p>Business Name: KnowledgebaseVendorName</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980010CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980010CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980020CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980020CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Un-merged Business Name: KnowledgebaseVendorName</p>
-     * 
-     * <p>Relationship: PORX_MT980030CA.Organization.name</p>
+     * <p>Relationship: PORX_MT980030CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>The name of a clinical knowledgebase vendor 
-     * organization.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
-     * 
-     * <p>Allows a knowledgebase vendor to be referenced by 
-     * name.</p><p>The attribute is mandatory because it is the 
-     * only information collected about a knowledgebase vendor.</p>
      */
-    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
-        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
+    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 

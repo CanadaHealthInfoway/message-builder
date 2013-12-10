@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7RootType
 public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.Consenter, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -266,7 +266,10 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
      * (part of Extension)</p>
      * 
-     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
+     * (Root)</p><p>ZPB3.19 (EXte
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -472,7 +475,10 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * (part of Extension)</p><p>ProviderRegistrationjurisdiction 
      * (part of Extension)</p>
      * 
-     * 
+     * <p>ZPB1.6 (Root)</p><p>ZPB1.7 (EXtension)</p><p>ZPB2.8 
+     * (Root)</p><p>ZPB2.9 (EXtension)</p><p>ZPB3.11 
+     * (Root)</p><p>ZPB3.12 (EXtension)</p><p>ZPB3.18 
+     * (Root)</p><p>ZPB3.19 (EXte
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -983,7 +989,10 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefi
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/perfo
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"agentPerson/name"})
@@ -1165,7 +1174,10 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
      * rep)</p><p>PVD.050-03 PartType = Given - any rep other than 
      * the first)</p><p>PVD.050-04 (PartType = 
      * Suffix)</p><p>PVD.050-05 (PartType = 
-     * Prefi
+     * Prefix)</p><p>PVD.100-01 (PartType = Family; 
+     * author/performer when supervisor is also 
+     * specified)</p><p>PVD.100-02 (PartType = Given - 1st rep; 
+     * author/perfo
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setAgentPersonName(PersonName agentPersonName) {

@@ -113,13 +113,13 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private PatientBean subjectPatient;
     private PrescribedByBean author2;
     private ConsentedToByBean author1;
+    private PatientBean subjectPatient;
     private AccessTypeBean subject2InformDefinition;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -361,53 +361,6 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
-     * Person&nbsp;Identified Confirmable.</p>
-     */
-    @Hl7XmlMapping({"subject/patient","subject1/patient"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subject", type="RCMR_MT010001CA.Subject"),
-        @Hl7MapByPartType(name="subject/patient", type="COCT_MT050203CA.Patient"),
-        @Hl7MapByPartType(name="subject1", type="COCT_MT470000CA.Subject"),
-        @Hl7MapByPartType(name="subject1/patient", type="COCT_MT050202CA.Patient")})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
-     * Person&nbsp;Identified Confirmable.</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
      * <p>Business Name: OverriddenBy</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
@@ -518,6 +471,53 @@ public class ConsentBean extends MessagePartBean {
      */
     public void setAuthor1(ConsentedToByBean author1) {
         this.author1 = author1;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
+     * Person&nbsp;Identified Confirmable.</p>
+     */
+    @Hl7XmlMapping({"subject/patient","subject1/patient"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subject", type="RCMR_MT010001CA.Subject"),
+        @Hl7MapByPartType(name="subject/patient", type="COCT_MT050203CA.Patient"),
+        @Hl7MapByPartType(name="subject1", type="COCT_MT470000CA.Subject"),
+        @Hl7MapByPartType(name="subject1/patient", type="COCT_MT050202CA.Patient")})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: RCMR_MT010001CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>&nbsp;This uses COCT_MT050202CA &ndash; Patient 
+     * Person&nbsp;Identified Confirmable.</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 

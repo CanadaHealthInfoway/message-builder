@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.SupplyO
 @Hl7PartTypeMapping({"PORX_MT060020CA.InFulfillmentOf"})
 public class DispensedPrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private SupplyOrderBean supplyRequest;
 
 

@@ -35,16 +35,15 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Substan
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: 
- * PORX_MT030040CA.CombinedMedicationRequest</p>
+ * <p>--> Payload: PORX_MT030040CA.CombinedMedicationRequest</p>
  * 
- * <p>--> Sub-Payload: PORX_MT060130CA.ParameterList</p>
+ * <p>--> Payload: PORX_MT060130CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060300CA"})
 public class MedicationPrescriptionSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<SubstanceAdministrationRequestBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

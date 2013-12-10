@@ -34,13 +34,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.iehr.merged.PatientMeas
  * 
  * <p>Message: MCCI_MT000100CA.Message</p>
  * 
- * <p>Payload: MCAI_MT700210CA.ControlActEvent</p>
+ * <p>Control Act: MCAI_MT700210CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: REPC_MT000018CA.CommonObservationEvent</p>
+ * <p>--> Payload: REPC_MT000018CA.CommonObservationEvent</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000051CA"})
 public class RecordPatientBasicObservationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PatientMeasurementsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

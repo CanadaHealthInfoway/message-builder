@@ -66,20 +66,20 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt060020c
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
-    private Patient subjectPatient1;
-    private PatientBean recordTargetPatient;
-    private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean componentSupplyEvent;
+    private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
+    private PatientBean recordTargetPatient;
+    private Patient subjectPatient1;
     private CommentBean subjectOfAnnotation;
     private CS statusCode = new CSImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
-    private ProviderBean performerAssignedPerson;
-    private RecordedAtBean location;
     private DispensedPrescriptionReferenceBean fulfillment;
+    private RecordedAtBean location;
+    private ProviderBean performerAssignedPerson;
+    private ProviderBean responsiblePartyAssignedPerson;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -401,80 +401,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject/patient1"})
-    public Patient getSubjectPatient1() {
-        return this.subjectPatient1;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubjectPatient1(Patient subjectPatient1) {
-        this.subjectPatient1 = subjectPatient1;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
-        return this.inFulfillmentOfDeviceRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
-        this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * PORX_MT020060CA.Component11.procedureRequest</p>
      * 
@@ -536,6 +462,80 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      */
     public void setComponentSupplyEvent(DispenseDetailsBean componentSupplyEvent) {
         this.componentSupplyEvent = componentSupplyEvent;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
+        return this.inFulfillmentOfDeviceRequest;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.InFulfillmentOf1.deviceRequest</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
+        this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient1"})
+    public Patient getSubjectPatient1() {
+        return this.subjectPatient1;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.Subject8.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient1(Patient subjectPatient1) {
+        this.subjectPatient1 = subjectPatient1;
     }
 
 
@@ -616,50 +616,36 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates the prescription that was dispensed.</p>
+     * 
+     * <p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p>
      */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
+    @Hl7XmlMapping({"fulfillment"})
+    public DispensedPrescriptionReferenceBean getFulfillment() {
+        return this.fulfillment;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
+     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Indicates the prescription that was dispensed.</p>
+     * 
+     * <p><strong>NOTE: Although the CeRx specification defines 
+     * this to be 0..1, a dispense in PIN is always associated with 
+     * a prescription.</strong></p>
      */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"performer/assignedPerson"})
-    public ProviderBean getPerformerAssignedPerson() {
-        return this.performerAssignedPerson;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
-        this.performerAssignedPerson = performerAssignedPerson;
+    public void setFulfillment(DispensedPrescriptionReferenceBean fulfillment) {
+        this.fulfillment = fulfillment;
     }
 
 
@@ -696,36 +682,50 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
+     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Indicates the prescription that was dispensed.</p>
-     * 
-     * <p><strong>NOTE: Although the CeRx specification defines 
-     * this to be 0..1, a dispense in PIN is always associated with 
-     * a prescription.</strong></p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"fulfillment"})
-    public DispensedPrescriptionReferenceBean getFulfillment() {
-        return this.fulfillment;
+    @Hl7XmlMapping({"performer/assignedPerson"})
+    public ProviderBean getPerformerAssignedPerson() {
+        return this.performerAssignedPerson;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060020CA.DeviceDispense.fulfillment</p>
+     * <p>Relationship: PORX_MT060020CA.Performer.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setPerformerAssignedPerson(ProviderBean performerAssignedPerson) {
+        this.performerAssignedPerson = performerAssignedPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Indicates the prescription that was dispensed.</p>
-     * 
-     * <p><strong>NOTE: Although the CeRx specification defines 
-     * this to be 0..1, a dispense in PIN is always associated with 
-     * a prescription.</strong></p>
      */
-    public void setFulfillment(DispensedPrescriptionReferenceBean fulfillment) {
-        this.fulfillment = fulfillment;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060020CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 

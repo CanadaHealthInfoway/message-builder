@@ -30,8 +30,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Business Name: AllergyIntoleranceSeverityLevel</p>
- * 
  * <p>REPC_MT000002CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
@@ -40,6 +38,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>PORX_MT980020CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
  * 
  * <p>REPC_MT000009CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
@@ -58,6 +63,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
+ * 
+ * <p>PORX_MT980030CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
  * 
  * <p>REPC_MT000006CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
@@ -89,6 +101,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
  * 
+ * <p>PORX_MT980010CA.SeverityObservation: Severity Level</p>
+ * 
+ * <p>This is a ranking/assertion of gravity of the detected 
+ * issue.</p>
+ * 
+ * <p>Suggests the importance of managing the issue.</p>
+ * 
  * <p>REPC_MT000005CA.SeverityObservation: Allergy/Intolerance 
  * Severity Level</p>
  * 
@@ -98,16 +117,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Allows providers to determine appropriate managements for 
  * contraindications involving such medical conditions.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
+@Hl7PartTypeMapping({"PORX_MT980010CA.SeverityObservation","PORX_MT980020CA.SeverityObservation","PORX_MT980030CA.SeverityObservation","REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
 public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CV value = new CVImpl();
 
 
     /**
-     * <p>Business Name: SeverityLevel</p>
-     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
@@ -124,6 +141,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * contraindications must be managed. Because SNOMED 
      * pre-coordinates this concept into code, the association is 
      * optional</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -146,6 +194,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED handles this concept by pre-coordinating it into 
      * code, this association is optional.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -223,6 +302,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into code, this association is 
      * optional</p>
      * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
@@ -231,14 +341,8 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
-     * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed. Because this 
-     * concept is pre-coordinated with code for SNOMED, the 
-     * association is optional.</p>
+     * patient.<
+     * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"value"})
     public SeverityObservation getValue() {
@@ -246,8 +350,6 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
     }
 
     /**
-     * <p>Business Name: SeverityLevel</p>
-     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000002CA.SeverityObservation.value</p>
@@ -264,6 +366,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * contraindications must be managed. Because SNOMED 
      * pre-coordinates this concept into code, the association is 
      * optional</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980020CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
+     * 
+     * <p>May be used to determine which issues must be managed and 
+     * how.</p><p>This attribute is marked as &quot;populated&quot; 
+     * to allow the use of null flavors.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -286,6 +419,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * whether contraindications must be managed.</p><p>Because 
      * SNOMED handles this concept by pre-coordinating it into 
      * code, this association is optional.</p>
+     * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980030CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow for use of null flavors.</p>
      * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
@@ -363,6 +527,37 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * pre-coordinates severity into code, this association is 
      * optional</p>
      * 
+     * <p>Un-merged Business Name: SeverityCode</p>
+     * 
+     * <p>Relationship: PORX_MT980010CA.SeverityObservation.value</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>A coded value denoting the gravity of the detected 
+     * issue.</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>Contraindication.severity</p><p>ZPE.3</p><p>MB.05.03A</p><p>Severity</p><p>ZDU.6.3</p><p>ZDU.8.4</p><p>A_DetectedMedicationIssue</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
+     * <p>May be used to determine which contraindications must be 
+     * managed and how.</p><p>This attribute is marked as 
+     * &quot;populated&quot; to allow the use of null flavors.</p>
+     * 
      * <p>Un-merged Business Name: SeverityLevel</p>
      * 
      * <p>Relationship: REPC_MT000005CA.SeverityObservation.value</p>
@@ -371,14 +566,8 @@ public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
      * 
      * <p>Indicates the gravity of the allergy, intolerance or 
      * reaction in terms of its actual or potential impact on the 
-     * patient.</p>
-     * 
-     * <p>AllergyIntolerance.severity</p>
-     * 
-     * <p>Allows for sorting of allergy records. May influence 
-     * whether contraindications must be managed. Because this 
-     * concept is pre-coordinated with code for SNOMED, the 
-     * association is optional.</p>
+     * patient.<
+     * ... [rest of documentation truncated due to excessive length]
      */
     public void setValue(SeverityObservation value) {
         this.value.setValue(value);

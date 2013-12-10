@@ -63,13 +63,13 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV languageCode = new CVImpl();
-    private AssignedEntity3Bean authorAssignedEntity;
+    private AssignedEntityBean authorAssignedEntity;
     private ED<EncapsulatedData> componentDocumentBodyEventText = new EDImpl<EncapsulatedData>();
 
 
@@ -573,7 +573,7 @@ public class MonographsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity3Bean getAuthorAssignedEntity() {
+    public AssignedEntityBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
@@ -590,7 +590,7 @@ public class MonographsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
+    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 

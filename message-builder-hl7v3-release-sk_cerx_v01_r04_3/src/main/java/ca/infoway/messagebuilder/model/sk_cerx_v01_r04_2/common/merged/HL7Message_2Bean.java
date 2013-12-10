@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -75,10 +75,10 @@ public class HL7Message_2Bean extends MessagePartBean {
     private SET<II, Identifier> profileId = new SETImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
     private CS acceptAckCode = new CSImpl();
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
 
 
@@ -627,6 +627,30 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
+     * <p>Business Name: RoutingInstructionLine</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     * 
+     * <p>Un-merged Business Name: RoutingInstructionLine</p>
+     * 
+     * <p>Relationship: MCCI_MT000200CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     * 
+     * <p>PIN does not require this field so it will not be 
+     * sent.&nbsp;</p>
+     */
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
+
+
+    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
@@ -753,30 +777,6 @@ public class HL7Message_2Bean extends MessagePartBean {
      */
     public void setSender(SenderBean sender) {
         this.sender = sender;
-    }
-
-
-    /**
-     * <p>Business Name: RoutingInstructionLine</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     * 
-     * <p>Un-merged Business Name: RoutingInstructionLine</p>
-     * 
-     * <p>Relationship: MCCI_MT000200CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     * 
-     * <p>PIN does not require this field so it will not be 
-     * sent.&nbsp;</p>
-     */
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
     }
 
 

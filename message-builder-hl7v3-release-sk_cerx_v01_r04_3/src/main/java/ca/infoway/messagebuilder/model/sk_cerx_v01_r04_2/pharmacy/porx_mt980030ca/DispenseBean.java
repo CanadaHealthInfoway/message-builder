@@ -54,13 +54,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.CausalActs {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private DispensedBean product;
     private RecordedAtBean location;
+    private DispensedBean product;
 
 
     /**
@@ -272,26 +272,6 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Relationship: PORX_MT980030CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT980030CA.SupplyEvent.product</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setProduct(DispensedBean product) {
-        this.product = product;
-    }
-
-
-    /**
      * <p>Relationship: PORX_MT980030CA.SupplyEvent.location</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -308,6 +288,26 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      */
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT980030CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT980030CA.SupplyEvent.product</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 }

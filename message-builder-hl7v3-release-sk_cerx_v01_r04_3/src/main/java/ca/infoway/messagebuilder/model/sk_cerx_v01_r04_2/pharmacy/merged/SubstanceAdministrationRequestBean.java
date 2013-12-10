@@ -71,27 +71,27 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationRequestBean extends MessagePartBean implements Prescription {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private CV confidentialityCode = new CVImpl();
-    private DrugProductBean directTargetMedication;
-    private PatientBean subjectPatient;
-    private ProviderBean responsiblePartyAssignedPerson;
     private PrescribedByBean author;
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
-    private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private BL derivedFromSourceDispense = new BLImpl(false);
     private ST component1AdministrationInstructionsText = new STImpl();
     private Component2Bean component2;
+    private ClassifiesBean componentOf;
+    private BL derivedFromSourceDispense = new BLImpl(false);
+    private DrugProductBean directTargetMedication;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
     private PreviousDispenseInformation_1Bean fulfillment4SupplyEventPastSummary;
+    private BL preconditionVerificationEventCriterion = new BLImpl(false);
+    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean subjectPatient;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<RefusalToFillsBean> subjectOf3RefusalToFill = new ArrayList<RefusalToFillsBean>();
-    private ClassifiesBean componentOf;
 
 
     /**
@@ -243,7 +243,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relation
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Th
      * ... [rest of documentation truncated due to excessive length]
      */
     @Hl7XmlMapping({"id"})
@@ -400,7 +405,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * 
      * <p>Un-merged Business Name: PrescriptionIdentifier</p>
      * 
-     * <p>Relation
+     * <p>Relationship: 
+     * PORX_MT060100CA.SubstanceAdministrationRequest.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Th
      * ... [rest of documentation truncated due to excessive length]
      */
     public void setId(Identifier id) {
@@ -605,94 +615,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * PORX_MT030040CA.CombinedMedicationRequest.author</p>
      * 
@@ -739,99 +661,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      */
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.reason</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
-     * 
-     * <p><div>Denotes the reason(s) for this specific</div> 
-     * <div>prescription; it must not be interpreted as a</div> 
-     * <div>permanent diagnosis.</div> <div>NOTE: Although at least 
-     * one repetition must be</div> <div>sent, &ldquo;Nulls&rdquo; 
-     * are allowed if there are no indications</div> <p>recorded 
-     * against a prescription.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>If present, indicates that the prescription is 
-     * nonauthoritative.</div> <div>I.e. A paper copy must be 
-     * viewed</div> <p>before the prescription can be 
-     * dispensed.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p><div>If present, indicates that the prescription is 
-     * nonauthoritative.</div> <div>I.e. A paper copy must be 
-     * viewed</div> <p>before the prescription can be 
-     * dispensed.&nbsp;</p></p>
-     */
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;If present, indicates that the data associated 
-     * with</p> <div>the prescription is uncertain because 
-     * the</div> <div>existence of the prescription has been 
-     * inferred</div> <div>from a secondary source (e.g. dispensing 
-     * data).</div>
-     */
-    @Hl7XmlMapping({"derivedFrom/sourceDispense"})
-    public Boolean getDerivedFromSourceDispense() {
-        return this.derivedFromSourceDispense.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;If present, indicates that the data associated 
-     * with</p> <div>the prescription is uncertain because 
-     * the</div> <div>existence of the prescription has been 
-     * inferred</div> <div>from a secondary source (e.g. dispensing 
-     * data).</div>
-     */
-    public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
-        this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
     }
 
 
@@ -963,6 +792,98 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Indicates the clinical use category in which 
+     * the</p> <div>prescription has been put.</div>
+     */
+    @Hl7XmlMapping({"componentOf"})
+    public ClassifiesBean getComponentOf() {
+        return this.componentOf;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;Indicates the clinical use category in which 
+     * the</p> <div>prescription has been put.</div>
+     */
+    public void setComponentOf(ClassifiesBean componentOf) {
+        this.componentOf = componentOf;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;If present, indicates that the data associated 
+     * with</p> <div>the prescription is uncertain because 
+     * the</div> <div>existence of the prescription has been 
+     * inferred</div> <div>from a secondary source (e.g. dispensing 
+     * data).</div>
+     */
+    @Hl7XmlMapping({"derivedFrom/sourceDispense"})
+    public Boolean getDerivedFromSourceDispense() {
+        return this.derivedFromSourceDispense.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DerivedFrom.sourceDispense</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>&nbsp;If present, indicates that the data associated 
+     * with</p> <div>the prescription is uncertain because 
+     * the</div> <div>existence of the prescription has been 
+     * inferred</div> <div>from a secondary source (e.g. dispensing 
+     * data).</div>
+     */
+    public void setDerivedFromSourceDispense(Boolean derivedFromSourceDispense) {
+        this.derivedFromSourceDispense.setValue(derivedFromSourceDispense);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.DirectTarget.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * PORX_MT030040CA.InFulfillmentOf4.supplyEventFutureSummary</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -1066,6 +987,127 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>If present, indicates that the prescription is 
+     * nonauthoritative.</div> <div>I.e. A paper copy must be 
+     * viewed</div> <p>before the prescription can be 
+     * dispensed.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.Precondition.verificationEventCriterion</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p><div>If present, indicates that the prescription is 
+     * nonauthoritative.</div> <div>I.e. A paper copy must be 
+     * viewed</div> <p>before the prescription can be 
+     * dispensed.&nbsp;</p></p>
+     */
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.CombinedMedicationRequest.reason</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * 
+     * <p><div>Denotes the reason(s) for this specific</div> 
+     * <div>prescription; it must not be interpreted as a</div> 
+     * <div>permanent diagnosis.</div> <div>NOTE: Although at least 
+     * one repetition must be</div> <div>sent, &ldquo;Nulls&rdquo; 
+     * are allowed if there are no indications</div> <p>recorded 
+     * against a prescription.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"reason"})
+    public List<PrescribedBecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT030040CA.ResponsibleParty.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT060100CA.ResponsibleParty2.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT030040CA.Subject5.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: PORX_MT030040CA.Subject.annotationIndicator</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -1141,38 +1183,6 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean implemen
     @Hl7XmlMapping({"subjectOf3/refusalToFill"})
     public List<RefusalToFillsBean> getSubjectOf3RefusalToFill() {
         return this.subjectOf3RefusalToFill;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Indicates the clinical use category in which 
-     * the</p> <div>prescription has been put.</div>
-     */
-    @Hl7XmlMapping({"componentOf"})
-    public ClassifiesBean getComponentOf() {
-        return this.componentOf;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT030040CA.CombinedMedicationRequest.componentOf</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>&nbsp;Indicates the clinical use category in which 
-     * the</p> <div>prescription has been put.</div>
-     */
-    public void setComponentOf(ClassifiesBean componentOf) {
-        this.componentOf = componentOf;
     }
 
 }

@@ -71,14 +71,14 @@ import java.util.List;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
     private CV value = new CVImpl();
-    private PatientBean subjectPatient;
     private ReportedByBean informant;
+    private PatientBean subjectPatient;
     private CommentBean subjectOf1Annotation;
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
     private List<ReactionAssessmentsBean> subjectOf3CausalityAssessment = new ArrayList<ReactionAssessmentsBean>();
@@ -375,26 +375,6 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
      * <p>Relationship: 
      * REPC_MT000002CA.ReactionObservationEvent.informant</p>
      * 
@@ -413,6 +393,26 @@ public class ReportedReactionBean extends MessagePartBean {
      */
     public void setInformant(ReportedByBean informant) {
         this.informant = informant;
+    }
+
+
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: REPC_MT000002CA.Subject2.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 

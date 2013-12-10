@@ -35,15 +35,15 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.immunization.poiz_mt060
  * 
  * <p>Message: MCCI_MT000300CA.Message</p>
  * 
- * <p>Payload: QUQI_MT120000CA.ControlActEvent</p>
+ * <p>Control Act: QUQI_MT120000CA.ControlActEvent</p>
  * 
- * <p>--> Sub-Payload: POIZ_MT060150CA.Immunization</p>
+ * <p>--> Payload: POIZ_MT060150CA.Immunization</p>
  * 
- * <p>--> Sub-Payload: POIZ_MT060140CA.ParameterList</p>
+ * <p>--> Payload: POIZ_MT060140CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POIZ_IN020020CA"})
 public class ImmunizationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ImmunizationsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
 
 }

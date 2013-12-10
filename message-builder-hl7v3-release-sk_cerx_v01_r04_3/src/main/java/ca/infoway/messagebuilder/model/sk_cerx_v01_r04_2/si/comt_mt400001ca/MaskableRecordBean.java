@@ -48,13 +48,13 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBe
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
     private RoleBean directTargetRole;
-    private PatientBean recordTargetPatient;
     private DiagnosisBean reasonDiagnosis;
+    private PatientBean recordTargetPatient;
 
 
     /**
@@ -238,26 +238,6 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COMT_MT400001CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-
-    /**
-     * <p>Relationship: COMT_MT400001CA.RecordTarget.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    /**
      * <p>Relationship: COMT_MT400001CA.Reason.diagnosis</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -274,6 +254,26 @@ public class MaskableRecordBean extends MessagePartBean {
      */
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
+    }
+
+
+    /**
+     * <p>Relationship: COMT_MT400001CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
+    }
+
+    /**
+     * <p>Relationship: COMT_MT400001CA.RecordTarget.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 }

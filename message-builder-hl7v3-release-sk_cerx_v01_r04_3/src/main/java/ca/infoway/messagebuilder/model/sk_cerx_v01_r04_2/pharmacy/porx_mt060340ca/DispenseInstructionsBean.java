@@ -56,13 +56,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
-    private RecordedAtBean location;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private List<Component3Bean> component = new ArrayList<Component3Bean>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private RecordedAtBean location;
+    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
 
 
     /**
@@ -346,13 +346,43 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060340CA.Receiver.responsibleParty</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyRequest.component</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * 
+     * <p><div>Identifies the instructions for how the 
+     * prescribed</div> <div>medication should be dispensed to the 
+     * patient.</div> <div>Multiple repetitions are included to 
+     * accommodate</div> <div>circumstances where multiple drug 
+     * products may</div> <div>need to be dispensed to complete a 
+     * therapy. E.g.</div> <p>100 x 20mg tablets and 50 x 10mg 
+     * tablets.&nbsp;</p></p>
+     */
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -387,43 +417,13 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
+     * <p>Relationship: PORX_MT060340CA.Receiver.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060340CA.Destination1.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060340CA.SupplyRequest.component</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
-     * 
-     * <p><div>Identifies the instructions for how the 
-     * prescribed</div> <div>medication should be dispensed to the 
-     * patient.</div> <div>Multiple repetitions are included to 
-     * accommodate</div> <div>circumstances where multiple drug 
-     * products may</div> <div>need to be dispensed to complete a 
-     * therapy. E.g.</div> <p>100 x 20mg tablets and 50 x 10mg 
-     * tablets.&nbsp;</p></p>
-     */
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
     }
 
 }

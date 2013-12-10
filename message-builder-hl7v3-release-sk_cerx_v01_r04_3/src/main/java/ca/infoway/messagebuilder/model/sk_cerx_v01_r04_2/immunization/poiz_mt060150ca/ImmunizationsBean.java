@@ -89,7 +89,7 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -99,18 +99,18 @@ public class ImmunizationsBean extends MessagePartBean {
     private CV routeCode = new CVImpl();
     private CV approachSiteCode = new CVImpl();
     private PQ doseQuantity = new PQImpl();
-    private PatientBean subjectPatient;
-    private DrugProductBean consumableMedication;
-    private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
+    private BL causeAdverseReactionObservationEvent = new BLImpl(false);
+    private DrugProductBean consumableMedication;
+    private PartOfBean inFulfillmentOf;
     private InformationSourceRoleBean informantInformationSourceRole;
     private RecordedAtBean location;
-    private PartOfBean inFulfillmentOf;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private PatientBean subjectPatient;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
     private BL subjectOf3DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
-    private BL causeAdverseReactionObservationEvent = new BLImpl(false);
 
 
     /**
@@ -562,22 +562,44 @@ public class ImmunizationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
 
     /**
-     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.CauseOf.adverseReactionObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
+    public Boolean getCauseAdverseReactionObservationEvent() {
+        return this.causeAdverseReactionObservationEvent.getValue();
+    }
+
+    /**
+     * <p>Relationship: 
+     * POIZ_MT060150CA.CauseOf.adverseReactionObservationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
+        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }
 
 
@@ -603,43 +625,23 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * POIZ_MT060150CA.ResponsibleParty.assignedPerson</p>
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
+    @Hl7XmlMapping({"inFulfillmentOf"})
+    public PartOfBean getInFulfillmentOf() {
+        return this.inFulfillmentOf;
     }
 
     /**
      * <p>Relationship: 
-     * POIZ_MT060150CA.ResponsibleParty.assignedPerson</p>
+     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * <p>Relationship: POIZ_MT060150CA.Immunization.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
+        this.inFulfillmentOf = inFulfillmentOf;
     }
 
 
@@ -687,23 +689,43 @@ public class ImmunizationsBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * POIZ_MT060150CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"inFulfillmentOf"})
-    public PartOfBean getInFulfillmentOf() {
-        return this.inFulfillmentOf;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
     }
 
     /**
      * <p>Relationship: 
-     * POIZ_MT060150CA.Immunization.inFulfillmentOf</p>
+     * POIZ_MT060150CA.ResponsibleParty.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
-        this.inFulfillmentOf = inFulfillmentOf;
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: POIZ_MT060150CA.Subject10.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -770,28 +792,6 @@ public class ImmunizationsBean extends MessagePartBean {
      */
     public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
         this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT060150CA.CauseOf.adverseReactionObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
-    public Boolean getCauseAdverseReactionObservationEvent() {
-        return this.causeAdverseReactionObservationEvent.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * POIZ_MT060150CA.CauseOf.adverseReactionObservationEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
-        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }
 
 }

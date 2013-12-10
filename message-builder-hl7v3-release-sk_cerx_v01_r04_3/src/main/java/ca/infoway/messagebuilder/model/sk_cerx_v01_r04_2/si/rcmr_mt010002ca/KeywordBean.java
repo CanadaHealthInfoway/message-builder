@@ -52,31 +52,11 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
-    private ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean subject1Patient;
+    private static final long serialVersionUID = 20131210L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
+    private ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean subject1Patient;
     private List<CV> subject2RecordTypeCode = new ArrayList<CV>();
-
-
-    /**
-     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject1/patient"})
-    public ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean getSubject1Patient() {
-        return this.subject1Patient;
-    }
-
-    /**
-     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubject1Patient(ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean subject1Patient) {
-        this.subject1Patient = subject1Patient;
-    }
 
 
     /**
@@ -182,6 +162,26 @@ public class KeywordBean extends MessagePartBean {
     }
     public boolean hasAuthorConsenterAsResponsibleParty() {
         return (this.authorConsenter instanceof ResponsiblePersonBean);
+    }
+
+
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject1/patient"})
+    public ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean getSubject1Patient() {
+        return this.subject1Patient;
+    }
+
+    /**
+     * <p>Relationship: RCMR_MT010002CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubject1Patient(ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.merged.PatientBean subject1Patient) {
+        this.subject1Patient = subject1Patient;
     }
 
 

@@ -56,13 +56,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20130103L;
+    private static final long serialVersionUID = 20131210L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
-    private RecordedAtBean location;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private List<Component3Bean> component = new ArrayList<Component3Bean>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private RecordedAtBean location;
+    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
 
 
     /**
@@ -372,33 +372,13 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060160CA.Receiver.responsibleParty</p>
+     * <p>Relationship: PORX_MT060160CA.SupplyRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      */
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060160CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060160CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 
@@ -425,13 +405,33 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060160CA.SupplyRequest.component</p>
+     * <p>Relationship: PORX_MT060160CA.SupplyRequest.location</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060160CA.SupplyRequest.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060160CA.Receiver.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
     }
 
 }
