@@ -34,12 +34,12 @@
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-core</artifactId>
-			<version>1.5.4-SNAPSHOT</version>
+			<version>1.5.5-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</artifactId>
-			<version>1.5.4-SNAPSHOT</version>
+			<version>1.5.5-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
