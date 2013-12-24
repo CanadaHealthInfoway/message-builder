@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -33,7 +34,11 @@ import ca.infoway.messagebuilder.schema.XmlSchemas;
 
 public abstract class AbstractElementParser implements ElementParser {
 
+	private static final String RTO_DATATYPE = "RTO";
 	protected static final String SPECIALIZATION_TYPE = "specializationType";
+	private static final String DATATYPE_CA_SUFFIX = ".CA";
+	private static final int DATATYPE_CA_SUFFIX_LENGTH = DATATYPE_CA_SUFFIX.length();
+	
 
 	public abstract BareANY parse(ParseContext context, List<Node> node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
 	
@@ -43,10 +48,50 @@ public abstract class AbstractElementParser implements ElementParser {
 
 	protected String getSpecializationType(Node node) {
 		String specializationType = node != null && node instanceof Element ? getAttributeValue((Element) node, SPECIALIZATION_TYPE) : null;
+		return convertSpecializationType(specializationType);
+	}
+
+	protected String convertSpecializationType(String specializationType) {
 		// specialization types defined as A<B.C> are not a problem.
 		// specialization types defined as A_B.C (the way MB formats specializationType!) are not handled properly, so convert the value here
-		if (specializationType != null && specializationType.contains("_")) {
-			specializationType = specializationType.replaceAll("_", "<") + ">";
+		if (specializationType != null) {
+			specializationType = specializationType.toUpperCase();
+			specializationType = removeCaFromSpecializationType(specializationType);
+			specializationType = handleRtoInSpecializationType(specializationType);
+			specializationType = handleUnderscoresInSpecializationType(specializationType);
+		}
+		return specializationType;
+	}
+
+	private String handleUnderscoresInSpecializationType(String specializationType) {
+		// now convert the type to a format that MB recognizes (i.e. A<B.C>)
+		int numUnderscores = StringUtils.split(specializationType, "_").length - 1;
+		specializationType = specializationType.replaceAll("_", "<") + StringUtils.repeat(">", numUnderscores);
+		return specializationType;
+	}
+
+	private String handleRtoInSpecializationType(String specializationType) {
+		// assumes the only datatype with multiple args is RTO (which is handled as a special case)
+		boolean isRto = specializationType.startsWith(RTO_DATATYPE) || specializationType.contains("_" + RTO_DATATYPE);
+		if (isRto) {
+			// special handling for RTO's multiple arguments the first "_" after "RTO_" should be changed to a comma
+			int rtoIndex = specializationType.indexOf(RTO_DATATYPE + "_");
+			int underscoreToReplace = specializationType.indexOf("_", rtoIndex + 4);
+			if (rtoIndex > -1 && underscoreToReplace > -1) {
+				specializationType = specializationType.substring(0, underscoreToReplace) + "," + specializationType.substring(underscoreToReplace + 1);
+			}
+		}
+		return specializationType;
+	}
+
+	private String removeCaFromSpecializationType(String specializationType) {
+		// 1) remove ending .CA and 2) replace .CA_ with _ (to handle any types named X.CAYYY, such as MO.CAD)
+		// the above also leaves ANY.CA.IZ alone, which is what we want!
+		if (specializationType.contains(DATATYPE_CA_SUFFIX)) {
+			if (specializationType.endsWith(DATATYPE_CA_SUFFIX)) {
+				specializationType = specializationType.substring(0, specializationType.length() - DATATYPE_CA_SUFFIX_LENGTH);
+			}
+			specializationType = specializationType.replaceAll(DATATYPE_CA_SUFFIX + "_", "_");
 		}
 		return specializationType;
 	} 

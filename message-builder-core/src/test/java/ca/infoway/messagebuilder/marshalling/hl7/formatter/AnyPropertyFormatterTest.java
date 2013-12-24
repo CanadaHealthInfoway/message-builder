@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -73,6 +74,19 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		stImpl.setLanguage("en-CA");
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
 		assertXml("result", "<name language=\"en-CA\" specializationType=\"ST.LANG\" xsi:type=\"ST\">some value</name>", result);
+	}
+
+	@Test
+	public void testRto() throws Exception {
+		Ratio<PhysicalQuantity, PhysicalQuantity> ratio = new Ratio<PhysicalQuantity, PhysicalQuantity>();
+		ratio.setNumerator(new PhysicalQuantity(new BigDecimal(1), ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.CENTIMETRE));
+		ratio.setDenominator(new PhysicalQuantity(new BigDecimal(2), ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.METRE));
+		
+		ANYImpl<Object> rtoImpl = new ANYImpl<Object>(ratio, null, StandardDataType.RTO_PQ_DRUG_PQ_DRUG);
+		
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), rtoImpl, 0);
+		// FIXME: TM - this is not quite right - I believe the "name" element should have an xsi:type set to RTO_PQ_PQ
+		assertXml("result", "<name><numerator specializationType=\"PQ.DRUG\" unit=\"cm\" value=\"1\" xsi:type=\"PQ\"/><denominator specializationType=\"PQ.DRUG\" unit=\"m\" value=\"2\" xsi:type=\"PQ\"/></name>", result);
 	}
 
 	@Test

@@ -78,8 +78,11 @@ class PnElementParser extends AbstractEntityNameElementParser {
 	protected void validateName(EntityName result, ParseContext context, Element element, Hl7Errors errors) {
 		String personNameType = context.getType();
 		// some jurisdictions make use of PN, even though it is not strictly defined (allowed?) in the datatype specifications
-		if ("PN".equals(personNameType) && element.hasAttribute(SPECIALIZATION_TYPE)) {
-			personNameType = element.getAttribute(SPECIALIZATION_TYPE);
+		if ("PN".equals(personNameType)) {
+			String specializationType = getSpecializationType(element);
+			if (StringUtils.isNotBlank(specializationType)) {
+				personNameType = specializationType;
+			}
 		}
 		PN_VALIDATION_UTILS.validatePersonName((PersonName) result, personNameType, context.getVersion().getBaseVersion(), element, null, errors);
 	}
