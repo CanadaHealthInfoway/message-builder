@@ -169,11 +169,11 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				}
 			}
 			
+			if (StringUtils.isNotBlank(rawSpecializationType)) {
+				rawSpecializationType = convertSpecializationType(rawSpecializationType);
+			}
 		}
 		
-		if (rawSpecializationType != null && rawSpecializationType.contains("_") && rawSpecializationType.indexOf('_') == rawSpecializationType.lastIndexOf('_')) {
-			rawSpecializationType = rawSpecializationType.replace("_", "<") + ">";
-		}
 		return rawSpecializationType;
 	}
 
