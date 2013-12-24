@@ -30,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -77,6 +78,48 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
 		
 		assertEquals("result", "<name code=\"cm\" codeSystem=\"1.2.3.4\"/>", StringUtils.trim(result));
+	}
+	
+	@Test
+	public void testHandlingOfSimpleCodesWithDisplayNameNotForBC() throws Exception {
+		CVImpl cvImpl = new CVImpl(CeRxDomainTestValues.CENTIMETRE);
+		cvImpl.setDisplayName("testDisplayName");
+		
+		String result = new CvPropertyFormatter().format(getContext("name", StandardDataType.CV.getType()), cvImpl);
+		
+		assertEquals(2, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
+		assertEquals("CV should not include the 'displayName' property", this.result.getHl7Errors().get(1).getMessage());
+		
+		assertEquals("result", "<name code=\"cm\" codeSystem=\"1.2.3.4\" displayName=\"testDisplayName\"/>", StringUtils.trim(result));
+	}
+	
+	@Test
+	public void testHandlingOfSimpleCodesWithDisplayNameForBC() throws Exception {
+		CVImpl cvImpl = new CVImpl(CeRxDomainTestValues.CENTIMETRE);
+		cvImpl.setDisplayName("testDisplayName");
+		
+		FormatContext context = getContext("name", StandardDataType.CV.getType(), SpecificationVersion.V02R04_BC);
+		String result = new CvPropertyFormatter().format(context, cvImpl);
+		
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
+		
+		assertEquals("result", "<name code=\"cm\" codeSystem=\"1.2.3.4\" displayName=\"testDisplayName\"/>", StringUtils.trim(result));
+	}
+	
+	@Test
+	public void testHandlingOfSimpleCodesWithDisplayNameForBCWithNullFlavor() throws Exception {
+		CVImpl cvImpl = new CVImpl(NullFlavor.NOT_APPLICABLE);
+		cvImpl.setDisplayName("testDisplayName");
+		
+		FormatContext context = getContext("name", StandardDataType.CV.getType(), SpecificationVersion.V02R04_BC);
+		String result = new CvPropertyFormatter().format(context, cvImpl);
+		
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertEquals("CV should not include the 'displayName' property (when a nullFlavor)", this.result.getHl7Errors().get(0).getMessage());
+		
+		assertEquals("result", "<name displayName=\"testDisplayName\" nullFlavor=\"NA\"/>", StringUtils.trim(result));
 	}
 	
 	@Test

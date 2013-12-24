@@ -29,7 +29,6 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
@@ -85,7 +84,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     		// don't bother validating if we don't have anything to validate
     		if (cd.hasNullFlavor() || hasValue(cd, context)) {
 	    		Hl7Errors errors = context.getModelToXmlResult();
-	    		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
+	    		VersionNumber version = context.getVersion();
 	    		String type = context.getType();
 	    		boolean isCne = context.getCodingStrength() == CodingStrength.CNE;
 	    		boolean isCwe = context.getCodingStrength() == CodingStrength.CWE;
@@ -94,13 +93,13 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		// a "reverse" lookup of domain type by code/codesystem could be possible, but difficult to implement to be 100% correct (MB does not track code systems)
 	    		if (!isAny) {
 		    		if (cd.getValue() != null && cd.getValue().getCodeValue() != null) {
-		    			validateCodeExists(cd.getValue(), context.getDomainType(), context.getVersion(), context.getPropertyPath(), errors);
+		    			validateCodeExists(cd.getValue(), context.getDomainType(), version, context.getPropertyPath(), errors);
 		    		}
 	    		}
 	    		
 	    		String codeAsString = (cd.getValue() != null ? cd.getValue().getCodeValue() : null);
 	    		
-	    		CD_VALIDATION_UTILS.validateCodedType(cd, codeAsString, isCwe, isCne, false, type, baseVersion, null, context.getPropertyPath(), errors);
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, codeAsString, isCwe, isCne, false, type, version, null, context.getPropertyPath(), errors);
     		}
         	
     		Map<String, String> attributes = new HashMap<String, String>();

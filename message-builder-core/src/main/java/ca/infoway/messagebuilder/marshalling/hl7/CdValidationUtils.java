@@ -26,6 +26,8 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -39,8 +41,10 @@ public class CdValidationUtils {
 	private static final int MAX_CODE_SYSTEM_LENGTH = 100;
 	private static final int MAX_ORIGINAL_TEXT_LENGTH = 150;
 
-	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
-	
+	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
+
+		Hl7BaseVersion baseVersion = version == null ? null : version.getBaseVersion();
+		
 		// validations use codeAsString instead of codeWrapper.getValue().getCodeValue() in case the code specified wasn't found by a lookup
 		//    - this ensures we validate exactly what was passed in, and redundant errors aren't recorded (in most cases, at least)
 		
@@ -64,12 +68,19 @@ public class CdValidationUtils {
 				createError("Code cannot be provided along with a nullFlavor.", element, propertyPath, errors, isTranslation);
 			}
 			
-			if (!isTranslation && (!StandardDataType.CD_LAB.getType().equals(type) || hasNullFlavor)) {
-				validateUnallowedValue(StandardDataType.getByTypeName(type), "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, isTranslation);
+			if (!isTranslation) {
+				// displayName is only allowed for CD.LAB, and for CV (but only if BC); in both of these cases, this is disallowed if nullFlavor
+				if (isCdLab(type) || (isBC(version) && isCv(type))) {
+					if (hasNullFlavor) {
+						validateUnallowedValue(StandardDataType.getByTypeName(type), "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, isTranslation, "when a nullFlavor");
+					}
+				} else {
+					validateUnallowedValue(StandardDataType.getByTypeName(type), "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, isTranslation, null);
+				}
 			}
 			
 			if (!isTranslation) {
-				validateTranslations(translations, type, isCwe, isCne, hasNullFlavor, baseVersion, element, propertyPath, errors);
+				validateTranslations(translations, type, isCwe, isCne, hasNullFlavor, version, element, propertyPath, errors);
 			}
 			
 			// codes can be one of CWE or CNE (unsure if they can be *neither*)
@@ -106,6 +117,18 @@ public class CdValidationUtils {
 		}
 	}
 
+	private boolean isCdLab(String type) {
+		return StandardDataType.CD_LAB.getType().equals(type);
+	}
+
+	private boolean isCv(String type) {
+		return StandardDataType.CV.getType().equals(type);
+	}
+
+	private boolean isBC(VersionNumber version) {
+		return SpecificationVersion.isExactVersion(version, SpecificationVersion.V02R04_BC);
+	}
+
 	private boolean hasAnyPropertiesProvided(CD codeWrapper, String codeAsString) {
 		Code code = codeWrapper.getValue();
 		boolean hasCode = (codeAsString != null);
@@ -129,22 +152,22 @@ public class CdValidationUtils {
 		validateCodeLength(codeAsString, baseVersion, element, propertyPath, errors, false);
 		// skip validating codeSystem (codes can be created with a codeSystem even if one wasn't provided, unfortunately)
 		// validateUnallowedValue("codeSystem", code == null ? null : code.getCodeSystem(), element, errors);
-		validateUnallowedValue(StandardDataType.CS, "originalText", codeWrapper.getOriginalText(), element, propertyPath, errors, false);
-		validateUnallowedValue(StandardDataType.CS, "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, false);
-		validateUnallowedValue(StandardDataType.CS, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
+		validateUnallowedValue(StandardDataType.CS, "originalText", codeWrapper.getOriginalText(), element, propertyPath, errors, false, null);
+		validateUnallowedValue(StandardDataType.CS, "displayName", codeWrapper.getDisplayName(), element, propertyPath, errors, false, null);
+		validateUnallowedValue(StandardDataType.CS, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false, null);
 	}
 
 	private void validateCodeLength(String codeAsString, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
 		validateValueLength("code", codeAsString, isCeRx(baseVersion) || isMr2007(baseVersion) ? MAX_CODE_LENGTH_CERX_MR2007 : MAX_CODE_LENGTH, element, propertyPath, errors, isTranslation);
 	}
 
-	private void validateTranslations(List<CD> translations, String type, boolean isCwe, boolean isCne, boolean hasNullFlavor, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
+	private void validateTranslations(List<CD> translations, String type, boolean isCwe, boolean isCne, boolean hasNullFlavor, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		if (hasNullFlavor && !translations.isEmpty() && !StandardDataType.CV.getType().equals(type)) {
 			createError("Translations are not allowed when a NullFlavor is specified", element, propertyPath, errors, false);
 		} 
 			
 		if (StandardDataType.CV.getType().equals(type)) {
-			validateUnallowedValue(StandardDataType.CV, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false);
+			validateUnallowedValue(StandardDataType.CV, "translation", translations.isEmpty() ? null : "", element, propertyPath, errors, false, null);
 		} else {
 			// translation max 10; same type as root; no nesting; no NF
 			if (translations.size() > MAX_TRANSLATIONS) {
@@ -167,14 +190,18 @@ public class CdValidationUtils {
 				boolean isTranslation = true;
 				// this could still result in seeing some redundant error messages if the translation code was invalid; decided this is ok for a little-used feature
 				String codeAsString = translationCodeWrapper.getValue() == null ? null : translationCodeWrapper.getValue().getCodeValue();
-				validateCodedType(translationCodeWrapper, codeAsString, false, false, isTranslation, type, baseVersion, element, propertyPath, errors);
+				validateCodedType(translationCodeWrapper, codeAsString, false, false, isTranslation, type, version, element, propertyPath, errors);
 			}
 		}
 	}
 
-	private void validateUnallowedValue(StandardDataType type, String propertyName, String value, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation) {
+	private void validateUnallowedValue(StandardDataType type, String propertyName, String value, Element element, String propertyPath, Hl7Errors errors, boolean isTranslation, String detailMessage) {
 		if (value != null) {
-			createError(type.getName() + " should not include the '" + propertyName + "' property.", element, propertyPath, errors, isTranslation);
+			String errorMessage = (type == null ? "Type" : type.getName()) + " should not include the '" + propertyName + "' property";
+			if (StringUtils.isNotBlank(detailMessage)) {
+				errorMessage += " (" + detailMessage + ")";
+			}
+			createError(errorMessage, element, propertyPath, errors, isTranslation);
 		}
 	}
 
