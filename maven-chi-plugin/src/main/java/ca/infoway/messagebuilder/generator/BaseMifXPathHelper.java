@@ -46,6 +46,9 @@ import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 abstract class BaseMifXPathHelper {
 
+	private static final String DATATYPE_CA_SUFFIX = ".CA";
+	private static final int DATATYPE_CA_SUFFIX_LENGTH = DATATYPE_CA_SUFFIX.length();
+	
 	public static Element getSingleElement(Element start, String xpath) {
 		try {
 			return (Element) new XPathHelper().getSingleNode(start, xpath, 
@@ -97,6 +100,15 @@ abstract class BaseMifXPathHelper {
 		return document.getDocumentElement().getNamespaceURI();
 	}
 	
+	protected static String getTypeAsString(Element element) {
+		String typeAsString = element.getAttribute("name");
+		// strip off .CA suffix (some jurisdictions add this to some datatypes)
+		if (StringUtils.endsWith(typeAsString, DATATYPE_CA_SUFFIX)) {
+			typeAsString = typeAsString.substring(0, typeAsString.length() - DATATYPE_CA_SUFFIX_LENGTH);
+		}
+		return typeAsString;
+	}
+
 	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String... postMifAnnotationPaths) {
 		List<Annotation> result = new ArrayList<Annotation>();
 		// for every annotation type

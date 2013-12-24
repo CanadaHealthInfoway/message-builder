@@ -111,7 +111,7 @@ class MifXPathHelper extends BaseMifXPathHelper {
 
 	public static String getAttributeType(Element attribute) {
 		Element element = getSingleElement(attribute, "./mif:type");
-		String type = element.getAttribute("name");
+		String type = getTypeAsString(element);
 		type += getDatatypeArguments(element);
 		return type;
 	}
@@ -123,7 +123,7 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			if (builder.length() > 0) {
 				builder.append(",");
 			}
-			builder.append(element.getAttribute("name"));
+			builder.append(getTypeAsString(element));
 			builder.append(getDatatypeArguments(element));
 		}
 		return builder.length() == 0 ? "" : ("<" + builder.toString() + ">");

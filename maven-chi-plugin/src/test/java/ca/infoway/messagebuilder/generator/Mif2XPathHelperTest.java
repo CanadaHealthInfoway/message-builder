@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public class Mif2XPathHelperTest {
 	
-	private Mif2XPathHelper fixture;
+	private BaseMifXPathHelper fixture;
 	
 	@Before
 	public void setUp() throws Exception {
