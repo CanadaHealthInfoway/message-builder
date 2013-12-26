@@ -61,6 +61,8 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType ANY_LAB = new StandardDataType("ANY_LAB", "ANY.LAB"); 
 	public static final StandardDataType ANY_CA_IZ = new StandardDataType("ANY_CA_IZ", "ANY.CA.IZ"); 
 	public static final StandardDataType ANY_PATH = new StandardDataType("ANY_PATH", "ANY.PATH");
+	public static final StandardDataType ANY_X1 = new StandardDataType("ANY_X1", "ANY.X1");
+	public static final StandardDataType ANY_X2 = new StandardDataType("ANY_X2", "ANY.X2");
 	
 	public static final StandardDataType AD = new StandardDataType("AD", "AD"); 
 	public static final StandardDataType AD_BASIC = new StandardDataType("AD_BASIC", "AD.BASIC"); 

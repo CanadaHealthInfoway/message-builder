@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 
 /**
  * 
- * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH
+ * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH; added for BC: ANY.X1, ANY.X2
  * 
  * Each value sent over the wire must correspond to one of the
  * following non-abstract data type flavor specifications defined below:
@@ -38,6 +38,8 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
  * ANY.LAB:   CD.LAB, ST, PQ.LAB, IVL<PQ.x>, INT.NONNEG, INT.POS, TS.FULLDATETIME, URG<PQ,x>
  * ANY.CA.IZ: ST, PN.BASIC, INT.POS, BL
  * ANY.PATH:  ST, PQ, ED.DOCORREF or CD.LAB
+ * ANY.X1:    ST, CV, PQ.LAB, IVL<PQ.x>, URG<PQ.LAB>
+ * ANY.X2:    ST, CV, ED.DOCORREF
  * 
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
@@ -85,11 +87,32 @@ public class AnyHelper {
 			StandardDataType.BL.getType()
 	});
 
+	private static List<String> ANY_X1_LIST = Arrays.asList(new String[] {
+			StandardDataType.CV.getType(), 
+			StandardDataType.ST.getType(),
+			StandardDataType.PQ_LAB.getType(),
+			StandardDataType.IVL_PQ_BASIC.getType(),
+			StandardDataType.IVL_PQ_DISTANCE.getType(),
+			StandardDataType.IVL_PQ_DRUG.getType(),
+			StandardDataType.IVL_PQ_HEIGHTWEIGHT.getType(),
+			StandardDataType.IVL_PQ_LAB.getType(),
+			StandardDataType.IVL_PQ_TIME.getType(),
+			StandardDataType.URG_PQ_LAB.getType(),
+	});
+
+	private static List<String> ANY_X2_LIST = Arrays.asList(new String[] {
+			StandardDataType.CV.getType(), 
+			StandardDataType.ST.getType(),
+			StandardDataType.ED_DOC_OR_REF.getType()
+	});
+
 	private static Map<String, List<String>> validTypesForAnyType = new HashMap<String, List<String>>();
 	static {
 		validTypesForAnyType.put("ANY.LAB", ANY_LAB_LIST); 
 		validTypesForAnyType.put("ANY.CA.IZ", ANY_CA_IZ_LIST); 
 		validTypesForAnyType.put("ANY.PATH", ANY_PATH_LIST); 
+		validTypesForAnyType.put("ANY.X1", ANY_X1_LIST); 
+		validTypesForAnyType.put("ANY.X2", ANY_X2_LIST); 
 	}
 	
 	public static boolean isValidTypeForAny(String type, String specializationType) {

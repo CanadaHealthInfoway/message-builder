@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
 /**
- * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH
+ * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH; added for BC: ANY.X1, ANY.X2
  *
  * Each value sent over the wire must correspond to one of the
  * following non-abstract data type flavor specifications defined below:
@@ -49,9 +49,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * ANY.LAB:   CD.LAB, ST, PQ.LAB, IVL<PQ.x>, INT.NONNEG, INT.POS, TS.FULLDATETIME, URG<PQ,x>
  * ANY.CA.IZ: ST, PN.BASIC, INT.POS, BL
  * ANY.PATH:  ST, PQ, ED.DOCORREF or CD.LAB
+ * ANY.X1:    ST, CV, PQ.LAB, IVL<PQ.x>, URG<PQ.LAB>
+ * ANY.X2:    ST, CV, ED.DOCORREF
  *
  */
-@DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH"})
+@DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH", "ANY.X1", "ANY.X1"})
 public class AnyElementParser extends AbstractSingleElementParser<Object> {
 
 	@SuppressWarnings("rawtypes")

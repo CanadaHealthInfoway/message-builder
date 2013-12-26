@@ -137,6 +137,43 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
+	public void testParsePQForAnyX1() throws Exception {
+		Node node = createNode(
+				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
+		
+		BareANY result = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY.X1", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertNotNull("null", result);
+		assertEquals("type", StandardDataType.PQ_LAB, result.getDataType());
+		
+		
+		assertNotNull("null", result.getBareValue());
+	
+		assertEquals("unit", "mg/dL", ((PhysicalQuantity) result.getBareValue()).getUnit().getCodeValue());
+		assertEquals("unit", new BigDecimal(80), ((PhysicalQuantity) result.getBareValue()).getQuantity());
+	}
+	
+	@Test
+	public void testParsePQForAnyX2ShouldHaveError() throws Exception {
+		Node node = createNode(
+				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
+		
+		BareANY result = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY.X2", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				node, this.xmlResult);
+		
+		assertFalse(this.xmlResult.isValid());
+		assertNotNull("null", result);
+
+		// rest of type will not be parsed once invalid type is detected
+		assertEquals("type", StandardDataType.ANY_X2, result.getDataType());
+		assertNull("null", result.getBareValue());
+	}
+	
+	@Test
 	public void testParseStLang() throws Exception {
 		Node node = createNode(
 				"<value xsi:type=\"ST\" specializationType=\"ST.LANG\" language=\"fr-CA\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">some text</value>");
