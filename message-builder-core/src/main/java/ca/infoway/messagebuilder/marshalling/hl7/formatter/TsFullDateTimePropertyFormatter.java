@@ -24,8 +24,6 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
@@ -38,9 +36,9 @@ import ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
 /**
- * TS.FULLDATETIME - Timestamp (fully-specified date and time only) and TS.DATETIME (partial date/time)
+ * TS.FULLDATETIME - Timestamp (fully-specified date and time only) and TS.DATETIME (partial date/time) and TS.FULLDATEPARTTIME
  *
- * Represents a TS.FULLDATETIME/TS.DATETIME object as an element:
+ * Represents a TS.FULLDATETIME/TS.FULLDATEPARTTIME/TS.DATETIME object as an element:
  *
  * &lt;element-name value="yyyyMMddHHmmss"&gt;&lt;/element-name&gt;
  *
@@ -51,7 +49,7 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
-@DataTypeHandler({"TS.FULLDATETIME", "TS", "TS.DATETIME"})
+@DataTypeHandler({"TS", "TS.FULLDATETIME", "TS.FULLDATEPARTTIME", "TS.DATETIME"})
 public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
 	public static final String DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME = "messagebuilder.date.format.override.";

@@ -24,8 +24,6 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;

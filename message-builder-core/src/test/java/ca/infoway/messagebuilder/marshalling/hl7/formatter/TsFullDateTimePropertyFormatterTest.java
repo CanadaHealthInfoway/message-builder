@@ -109,6 +109,36 @@ public class TsFullDateTimePropertyFormatterTest {
 	}
 	
 	@Test
+	public void testGetAttributeNameValuePairsValidPartTimePattern() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHHZZZZZ");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.FULLDATEPARTTIME", null, null, false, SpecificationVersion.R02_04_02, null, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "1999042310" + getCurrentTimeZone(calendar);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
+	}
+	
+	@Test
+	public void testGetAttributeNameValuePairsInvalidPartTimePattern() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMM");
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsFullDateTimePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.FULLDATEPARTTIME", null, null, false, SpecificationVersion.R02_04_02, null, null, null), dateWithInvalidPattern, null);
+		assertEquals("map size", 1, result.size());
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "199904";
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertEquals(1, xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
 	public void testGetAttributeNameValuePairsValidDatePatternMissingTimezone() throws Exception  {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);

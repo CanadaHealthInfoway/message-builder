@@ -185,6 +185,30 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("no timezone missing error", 0, this.xmlResult.getHl7Errors().size());
     }
 	
+	@Test
+    public void testParseFullDatePartTimeWithMissingTimezoneForNonCeRx() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 00, 0);
+		
+		String value = "200806251416";
+        Node node = createNode("<something value=\"" + value + "\" />");
+        
+        ParseContext context = ParserContextImpl.create("TS.FULLDATEPARTTIME", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("has timezone missing error", 1, this.xmlResult.getHl7Errors().size());
+    }
+	
+	@Test
+    public void testParseFullDatePartTimeWithMissingTimezoneForCeRx() throws Exception {
+		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 00, 0);
+		
+		String value = "200806251416";
+        Node node = createNode("<something value=\"" + value + "\" />");
+        
+        ParseContext context = ParserContextImpl.create("TS.FULLDATEPARTTIME", Date.class, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.POPULATED, null);
+        assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlResult).getBareValue());
+        assertEquals("no timezone missing error", 0, this.xmlResult.getHl7Errors().size());
+    }
+	
 	/**
 	 * @sharpen.remove
 	 */

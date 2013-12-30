@@ -164,6 +164,25 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     }
 	
 	@Test
+    public void testParsePartTimeDateWithSpecializationType() throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH");
+		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
+		Date expectedResultLow = format.parse("2013-03-11_16");
+
+		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int hours = -1 * offset/(1000*60*60);
+		
+    	Node node = createNode("<effectiveTime specializationType=\"IVL_TS.FULLDATEPARTTIME\"><low value=\"2013031116-0" + hours + "00\"/><high nullFlavor=\"NA\" /></effectiveTime>");
+    	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");
+    	
+        assertTrue("valid", this.result.isValid());
+    	assertNotNull("null", interval);
+    	assertDateEquals("low", FULL_DATE_TIME, expectedResultLow, interval.getLow());
+    	assertNull(interval.getHigh());
+    	assertEquals(NullFlavor.NOT_APPLICABLE.getCodeValue(), interval.getHighNullFlavor().getCodeValue());
+    }
+	
+	@Test
     public void testParseEffectiveTimeDateWithMissingSpecializationType() throws Exception {
     	Node node = createNode("<effectiveTime><low value=\"20080918\"/><high value=\"20090918\"/></effectiveTime>");
     	Interval<Date> interval = parse(node, "IVL<TS.FULLDATEWITHTIME>");

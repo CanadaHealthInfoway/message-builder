@@ -120,8 +120,9 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_DATE = new StandardDataType("IVL_DATE", "IVL<TS.DATE>");
 	public static final StandardDataType IVL_DATETIME = new StandardDataType("IVL_DATETIME", "IVL<TS.DATETIME>"); 
 	public static final StandardDataType IVL_FULL_DATE = new StandardDataType("IVL_FULL_DATE", "IVL<TS.FULLDATE>");
-	public static final StandardDataType IVL_FULL_DATE_TIME = new StandardDataType("IVL_FULL_DATE_TIME", "IVL<TS.FULLDATETIME>");
 	public static final StandardDataType IVL_FULL_DATE_WITH_TIME = new StandardDataType("IVL_FULL_DATE_WITH_TIME", "IVL<TS.FULLDATEWITHTIME>"); 
+	public static final StandardDataType IVL_FULL_DATE_TIME = new StandardDataType("IVL_FULL_DATE_TIME", "IVL<TS.FULLDATETIME>");
+	public static final StandardDataType IVL_FULL_DATE_PART_TIME = new StandardDataType("IVL_FULL_DATE_PART_TIME", "IVL<TS.FULLDATEPARTTIME>");
 	public static final StandardDataType IVL_TS = new StandardDataType("IVL_TS", "IVL<TS>", "DateInterval"); 
 	public static final StandardDataType IVL_HIGH_TS_FULLDATE = new StandardDataType("IVL_HIGH_TS_FULLDATE", "IVL.HIGH<TS.FULLDATE>", "DateInterval");
 	public static final StandardDataType IVL_WIDTH_TS_FULLDATE = new StandardDataType("IVL_WIDTH_TS_FULLDATE", "IVL.WIDTH<TS.FULLDATE>", "DateInterval");
@@ -173,6 +174,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType TS_FULLDATEWITHTIME = new StandardDataType("TS_FULLDATEWITHTIME", "TS.FULLDATEWITHTIME", "FullDateWithTime");
 	public static final StandardDataType TS_FULLDATE = new StandardDataType("TS_FULLDATE", "TS.FULLDATE", "FullDate");
 	public static final StandardDataType TS_FULLDATETIME = new StandardDataType("TS_FULLDATETIME", "TS.FULLDATETIME", "FullDateTime");
+	public static final StandardDataType TS_FULLDATEPARTTIME = new StandardDataType("TS_FULLDATEPARTTIME", "TS.FULLDATEPARTTIME", "FullDatePartTime");
 	
 	public static final StandardDataType TEL = new StandardDataType("TEL", "TEL", "BaseTelecommunicationAddress"); 
 	public static final StandardDataType TEL_ALL = new StandardDataType("TEL_ALL", "TEL.ALL", "PhonemailTelecommunicationAddress"); 

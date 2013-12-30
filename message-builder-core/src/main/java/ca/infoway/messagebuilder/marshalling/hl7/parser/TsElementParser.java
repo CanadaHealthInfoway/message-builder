@@ -101,7 +101,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
 	private boolean isValidSpecializationType(String specializationType) {
 		StandardDataType type = StandardDataType.getByTypeName(specializationType);
-		return StandardDataType.TS_FULLDATE.equals(type) || StandardDataType.TS_FULLDATETIME.equals(type);
+		return StandardDataType.TS_FULLDATE.equals(type) || StandardDataType.TS_FULLDATETIME.equals(type) || StandardDataType.TS_FULLDATEPARTTIME.equals(type);
 	}
 
 	private boolean isAbstractFullDateWithTime(ParseContext context) {

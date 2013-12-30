@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -99,6 +100,28 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
+	}
+
+	/**
+	 * 
+	 * @sharpen.remove timezone handling
+	 */
+	@Test
+	public void testBasicAbstractPartTime() throws Exception {
+		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		Date lowDate = new DateWithPattern(DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone), "yyyyMMddHHZZZZZ");
+		Date highDate = new DateWithPattern(DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone), "yyyyMMddHHZZZZZ");
+		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
+				lowDate,
+				highDate);
+				
+		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
+		hl7DataType.setDataType(StandardDataType.IVL_FULL_DATE_PART_TIME);
+		
+		String result = new IvlTsPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+				hl7DataType);
+		assertTrue(this.result.isValid());
+		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATEPARTTIME\" xsi:type=\"IVL_TS\"><low value=\"2006122511-0500\"/><high value=\"2007010210-0500\"/></name>", result);
 	}
 
 	/**

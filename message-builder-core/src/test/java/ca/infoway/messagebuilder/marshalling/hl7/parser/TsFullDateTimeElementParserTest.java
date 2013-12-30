@@ -89,7 +89,6 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something value=\"19990303\" />");
 		assertNotNull("correct value returned", new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 		assertEquals("error", 1, this.xmlResult.getHl7Errors().size());
-		System.out.println(this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 	
 	@Test

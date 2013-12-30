@@ -49,6 +49,19 @@ public class TsDateFormats {
 				"yyyyMMddHHmmss.SSSZZZZZ",
 				"yyyyMMddHHmmssZZZZZ"
 				));
+		map.put(StandardDataType.TS_FULLDATEPARTTIME, Arrays.asList(
+				"yyyyMMddHHmmss.SSS0ZZZZZ",
+				"yyyyMMddHHmmss.SSS0",      // not allowed if non-CeRx
+				"yyyyMMddHHmmss.SSSZZZZZ",
+				"yyyyMMddHHmmss.SSS",       // not allowed if non-CeRx
+				"yyyyMMddHHmmssZZZZZ",
+				"yyyyMMddHHmmss",           // not allowed if non-CeRx
+				"yyyyMMddHHmmZZZZZ",
+				"yyyyMMddHHmm",             // not allowed if non-CeRx
+				"yyyyMMddHHZZZZZ",
+				"yyyyMMddHH",               // not allowed if non-CeRx
+				"yyyyMMddZZZZZ",
+				"yyyyMMdd"));
 		map.put(StandardDataType.TS_FULLDATE, Arrays.asList(
 				"yyyyMMdd"
 				));

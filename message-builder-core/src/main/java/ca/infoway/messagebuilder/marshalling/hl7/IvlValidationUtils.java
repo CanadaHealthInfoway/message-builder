@@ -61,7 +61,9 @@ public class IvlValidationUtils {
 				}
 			} else {
 				StandardDataType concreteType = StandardDataType.getByTypeName(specializationType);
-				if (concreteType == StandardDataType.IVL_FULL_DATE || concreteType == StandardDataType.IVL_FULL_DATE_TIME) {
+				if (concreteType == StandardDataType.IVL_FULL_DATE || 
+					concreteType == StandardDataType.IVL_FULL_DATE_TIME ||
+					concreteType == StandardDataType.IVL_FULL_DATE_PART_TIME) {
 					resultType = specializationType; 
 				} else {
 					errors.add("Invalid specializationType provided for abstract type IVL<TS.FULLDATEWITHTIME>. IVL<TS.FULLDATETIME> will be assumed.");
