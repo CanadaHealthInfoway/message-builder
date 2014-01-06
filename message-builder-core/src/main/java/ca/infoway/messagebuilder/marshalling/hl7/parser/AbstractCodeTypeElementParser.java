@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 
-import org.apache.commons.lang.ClassUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -31,12 +30,8 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.j5goodies.Generics;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
@@ -93,28 +88,5 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
         }
     }
 
-	protected Hl7Error createInvalidCodeError(Node node, Class<? extends Code> type, String code) {
-		String message = "The code, \"" + code + "\", in element <" + NodeUtil.getLocalOrTagName(node) 
-			+ "> is not a valid value for domain type \"" 
-	    	+ ClassUtils.getShortClassName(type) + "\"";
-		return new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, message, (Element) node);
-	}
-
-	protected Hl7Error createMissingCodeSystemError(Node node, Class<? extends Code> type, String code) {
-		return new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "CodeSystem is mandatory when providing a code value", (Element) node);
-	}
-
-	@SuppressWarnings("unchecked")
-	protected Class<Code> getReturnTypeAsCodeType(Type type) {
-		if (type instanceof Class) {
-			return (Class<Code>) type;
-		} else if (Generics.isCollectionParameterizedType(type)) {
-			// this case should only happen if the original property was inlined
-			return (Class<Code>) Generics.getParameterType(type);
-		} else {
-			throw new IllegalArgumentException("Can't determine the domain type of " + type);
-		}
-	}
-	
     protected abstract Code parseNonNullCodeNode(ParseContext context, String codeAttributeName, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult);
 }

@@ -39,6 +39,11 @@ public class CodedString<T extends Code> {
     private final T code;
     private final String value;
     
+    // these would normally be on Code itself, but they are not used in the pan-Canadian standards and only apply to SC
+    private final String displayName;
+    private final String codeSystemName;
+    private final String codeSystemVersion;
+    
     /**
      * <p>Constructs a CodedString based on a value and a code. 
      * 
@@ -46,8 +51,23 @@ public class CodedString<T extends Code> {
      * @param code the code for the SC
      */
     public CodedString(String value, T code) {
+    	this(value, code, null, null, null);
+    }
+
+    /**
+     * 
+     * @param value the value of the SC
+     * @param code the code for the SC
+     * @param displayName alternate display name for the SC
+     * @param codeSystemName name of code system for the provided code
+     * @param codeSystemVersion version of code system for the provided code
+     */
+	public CodedString(String value, T code, String displayName, String codeSystemName, String codeSystemVersion) {
         this.value = value;
         this.code = code;
+		this.displayName = displayName;
+		this.codeSystemName = codeSystemName;
+		this.codeSystemVersion = codeSystemVersion;
     }
     
     /**
@@ -68,11 +88,41 @@ public class CodedString<T extends Code> {
         return this.value;
     }
 
+    /**
+     * <p>Returns the display anme.
+     * 
+     * @return the display name
+     */
+    public String getDisplayName() {
+		return displayName;
+	}
+
+    /**
+     * <p>Returns the code system name.
+     * 
+     * @return the code system name
+     */
+	public String getCodeSystemName() {
+		return codeSystemName;
+	}
+
+    /**
+     * <p>Returns the code system version.
+     * 
+     * @return the code system version
+     */
+	public String getCodeSystemVersion() {
+		return codeSystemVersion;
+	}
+
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
 		        .append(this.code)
 		        .append(this.value)
+		        .append(this.displayName)
+		        .append(this.codeSystemName)
+		        .append(this.codeSystemVersion)
                 .toHashCode();
     }
 
@@ -92,6 +142,9 @@ public class CodedString<T extends Code> {
         return new EqualsBuilder()
                 .append(this.code, that.code)
                 .append(this.value, that.value)
+		        .append(this.displayName, that.displayName)
+		        .append(this.codeSystemName, that.codeSystemName)
+		        .append(this.codeSystemVersion, that.codeSystemVersion)
                 .isEquals();
     }
 }

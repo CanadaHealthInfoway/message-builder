@@ -22,13 +22,18 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
 
+import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.SCImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
+import ca.infoway.messagebuilder.marshalling.hl7.CodedStringValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
@@ -53,6 +58,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 @DataTypeHandler("SC")
 class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedString<V>> {
 
+	private CodeLookupUtils codeLookupUtils = new CodeLookupUtils();
+	private CodedStringValidationUtils codedStringValidationUtils = new CodedStringValidationUtils(); 
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected CodedString<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
@@ -66,15 +75,34 @@ class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedS
 		} else if (childNodeCount == 1) {
 			Node childNode = node.getFirstChild();
 			if (childNode.getNodeType() != Node.TEXT_NODE) {
-				throw new XmlToModelTransformationException("Expected SC node to have a text node");
+				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Expected SC node to have a text node", (Element) node));
 			}
             value = childNode.getNodeValue();
 			
 		} else {
-			throw new XmlToModelTransformationException("Expected SC node to have at most one child");
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Expected SC node to have at most one child", (Element) node));
 		}
         
-		return new CodedString<V>(value, null);
+		String code = getAttributeValue(node, "code");
+		String codeSystem = getAttributeValue(node, "codeSystem");
+		
+		Code lookedUpCode = null;
+		if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(codeSystem)) {
+			lookedUpCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, (Element) node, context, xmlToModelResult);
+		}
+		
+		String displayName = getAttributeValue(node, "displayName");
+		String codeSystemName = getAttributeValue(node, "codeSystemName");
+		String codeSystemVersion = getAttributeValue(node, "codeSystemVersion");
+		
+		// FIXME - TM - this cast may not work properly within .NET
+		CodedString<V> codedString = new CodedString<V>(value, (V) lookedUpCode, displayName, codeSystemName, codeSystemVersion);
+		
+		boolean codeProvided = StringUtils.isNotBlank(code);
+		boolean codeSystemProvided = StringUtils.isNotBlank(codeSystem);
+		this.codedStringValidationUtils.validateCodedString(codedString, codeProvided, codeSystemProvided, (Element) node, null, xmlToModelResult);
+		
+		return codedString;
 	}
 
 	@Override

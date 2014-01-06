@@ -21,29 +21,20 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 
-import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
-
 import java.lang.reflect.Type;
 
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.resolver.CodeResolver;
-import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
-import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
-import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 /**
  * CV - Coded Value
@@ -70,12 +61,12 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * CWE (coded with extensibility): code attribute is required (that is, must be supported
  * but not mandatory. originalText may be specified if code is not entered.
  * 
- * Currently this class does nothing with codeSystem or originalText. Therefore it is
- * identical to the CS class.
  */
 @DataTypeHandler({"CV", "CD", "CE", "CS"})
 public class CvElementParser extends AbstractCodeTypeElementParser {
 
+	private CodeLookupUtils codeLookupUtils = new CodeLookupUtils();
+	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new CVImpl();
@@ -93,17 +84,18 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     	
     	performStandardValidations(context, element, xmlToModelResult);
     	
-    	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
-    	
-    	Code code = getCorrespondingCode(context, element, codeType, xmlToModelResult, codeAttributeName);
+        String code = getAttributeValue(element, codeAttributeName);
+		String codeSystem = getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);
+		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, element, context, xmlToModelResult);
+		
         populateOriginalText(result, context, (Element) node, xmlToModelResult);
     	addTranslations(context, element, (CD) result, xmlToModelResult);
     	addDisplayName(element, (CD) result);
 
         // this is not the usual way of doing things; this is to make validation easier
-        ((BareANYImpl) result).setBareValue(code);
+        ((BareANYImpl) result).setBareValue(actualCode);
     	
-        return code;
+        return actualCode;
     }
 
 	private void performStandardValidations(ParseContext context, Element element, XmlToModelResult result) {
@@ -113,62 +105,6 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
 		validateUnallowedAttributes(context.getType(), element, result, "codeSystemName");
     	validateUnallowedAttributes(context.getType(), element, result, "codeSystemVersion");
    		validateUnallowedChildNode(context.getType(), element, result, "qualifier");
-	}
-    
-    private boolean isInterface(Class<? extends Code> codeType) {
-        return codeType.isInterface();
-    }
-
-    private Code getCorrespondingCode(ParseContext context, Element element, 
-    		Class<? extends Code> codeType, XmlToModelResult xmlToModelResult, String codeAttributeName) {
-    	
-        String code = getAttributeValue(element, codeAttributeName);
-		String codeSystem = getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);
-        		
-    	if (StandardDataType.CS.getType().equals(context.getType())) {
-    		if (codeSystem != null) {
-    			xmlToModelResult.addHl7Error(
-    					new Hl7Error(
-    							DATA_TYPE_ERROR, 
-    							"CS should not include the 'codeSystem' property. (" + XmlDescriber.describeSingleElement(element) + ")", 
-    							element));
-    		}
-    	} else {
-    		if (StringUtils.isNotBlank(code) && StringUtils.isBlank(codeSystem)) {
-            	xmlToModelResult.addHl7Error(createMissingCodeSystemError(element, codeType, code));
-    		}
-    	}
-    	
-		Code result = getCode(codeType, code, codeSystem);
-
-        // if a code is specified and there is no matching enum value for it,
-		// something is seriously wrong
-        if (StringUtils.isNotBlank(code) && result == null) {
-        	xmlToModelResult.addHl7Error(createInvalidCodeError(element, codeType, code));
-        }
-
-        // the following code will preserve the codeSystem even if the actual code can not be found
-        if (result == null && !StringUtils.isEmpty(codeSystem) && isInterface(codeType)) {
-			result = FullCodeWrapper.wrap(codeType, null, codeSystem);
-		}
-		
-    	return result;
-    }
-
-	private Code getCode(Type expectedReturnType, String codeValue, String codeSystem) {
-		CodeResolver resolver = null;
-		Class<Code> returnType = null;
-		if (ANY.class.equals(expectedReturnType)) {
-			// if the underlying datatype is an ANY, then we don't have enough information to figure out the domaintype; have to assume generic Code
-			returnType = Code.class;
-			resolver = new TrivialCodeResolver();
-		} else {
-			returnType = getReturnTypeAsCodeType(expectedReturnType);
-			resolver = CodeResolverRegistry.getResolver(returnType);
-		}
-		return (StringUtils.isBlank(codeSystem) 
-				? resolver.<Code>lookup(returnType, codeValue)
-				: resolver.<Code>lookup(returnType, codeValue, codeSystem));
 	}
     
 	private void addDisplayName(Element element, CD result) {

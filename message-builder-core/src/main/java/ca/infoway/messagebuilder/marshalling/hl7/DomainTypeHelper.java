@@ -60,6 +60,7 @@ public class DomainTypeHelper {
 		}
 		if (StringUtils.isNotBlank(sanitizedDomainType)) {
 			try {
+				// FIXME - RM 18323 - TM - this does not look like it will work with release-specific domains?
 				return (Class<? extends Code>) Class.forName(ClassUtils.getPackageName(ActCode.class) + "." + sanitizedDomainType);
 			} catch (ClassNotFoundException e) {
 				return Code.class;
