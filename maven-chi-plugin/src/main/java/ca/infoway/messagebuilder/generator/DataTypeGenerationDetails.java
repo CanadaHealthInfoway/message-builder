@@ -254,6 +254,7 @@ enum DataTypeGenerationDetails implements Typed {
 		map.put(IVL_DATETIME, PQ_TIME);
 		map.put(IVL_FULL_DATE_TIME, PQ_TIME);
 		map.put(IVL_FULL_DATE_WITH_TIME, PQ_TIME);
+		map.put(IVL_FULL_DATE_PART_TIME, PQ_TIME);
 		map.put(IVL_TS, PQ_TIME);
 		
 		widthType = Collections.unmodifiableMap(map);
