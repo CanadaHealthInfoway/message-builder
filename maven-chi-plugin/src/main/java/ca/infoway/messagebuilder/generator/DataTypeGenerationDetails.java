@@ -64,7 +64,6 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.SXCM;
 import ca.infoway.messagebuilder.datatype.SXPR;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
