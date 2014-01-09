@@ -146,12 +146,12 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	    throw new XmlToModelTransformationException("Unexpected part of type: " + value);
 	}
 
-	protected void validateUnallowedAttributes(String type, Element node, XmlToModelResult result, String attribute) {
+	protected void validateUnallowedAttributes(StandardDataType type, Element node, XmlToModelResult result, String attribute) {
 		if (StringUtils.isNotBlank(getAttributeValue(node, attribute))) {
 			result.addHl7Error(
 					new Hl7Error(
 							DATA_TYPE_ERROR, 
-							type + " should not include the '" + attribute + "' property. (" + XmlDescriber.describeSingleElement(node) + ")", 
+							type.getType() + " should not include the '" + attribute + "' property. (" + XmlDescriber.describeSingleElement(node) + ")", 
 							node));
 		}
 	}

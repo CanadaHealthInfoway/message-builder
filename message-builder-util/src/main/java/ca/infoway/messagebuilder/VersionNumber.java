@@ -38,4 +38,12 @@ public interface VersionNumber {
 	 * @return the base version
 	 */
 	public Hl7BaseVersion getBaseVersion();
+	
+	/**
+	 * This method should only return getBaseVersion() in the great majority of cases.
+	 * 
+	 * @param datatype An object representing a datatype. Usually, but not restricted to, an instance of StandardDataType. 
+	 * @return the HL7 release that the given datatype conforms to 
+	 */
+	public Hl7BaseVersion getBaseVersion(Typed datatype);
 }

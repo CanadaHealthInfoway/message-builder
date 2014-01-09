@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.acceptance.runner;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 
 public interface AcceptanceTestRunner {
@@ -28,6 +29,7 @@ public interface AcceptanceTestRunner {
 	public static final VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
 		public Hl7BaseVersion getBaseVersion() {return Hl7BaseVersion.MR2007;} // Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
+		public Hl7BaseVersion getBaseVersion(Typed datatype) {return getBaseVersion();};
 	};
 
 	public void run(AcceptanceTestResultCallback resultCallback);

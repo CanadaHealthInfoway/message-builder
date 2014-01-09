@@ -26,6 +26,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.domainvalue.basic.MediaType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -59,11 +60,12 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 	@Override
 	protected String parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
-		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "compression");
-		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "language");
-		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "reference");
-		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "integrityCheck");
-		validateUnallowedAttributes(context.getType(), (Element) node, xmlToModelResult, "thumbnail");
+		StandardDataType type = StandardDataType.getByTypeName(context);
+		validateUnallowedAttributes(type, (Element) node, xmlToModelResult, "compression");
+		validateUnallowedAttributes(type, (Element) node, xmlToModelResult, "language");
+		validateUnallowedAttributes(type, (Element) node, xmlToModelResult, "reference");
+		validateUnallowedAttributes(type, (Element) node, xmlToModelResult, "integrityCheck");
+		validateUnallowedAttributes(type, (Element) node, xmlToModelResult, "thumbnail");
 		validateMaxChildCount(context, node, 1);
 		if (!MediaType.XML_TEXT.getCodeValue().equals(getAttributeValue(node, "mediaType"))) {
 			xmlToModelResult.addHl7Error(createHl7Error("Attribute mediaType must be included with a value of \"text/xml\" for ED.SIGNATURE", (Element) node));

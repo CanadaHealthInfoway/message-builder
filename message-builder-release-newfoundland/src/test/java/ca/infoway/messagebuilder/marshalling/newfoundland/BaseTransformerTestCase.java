@@ -34,6 +34,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeset.newfoundland.QueryRequestLimitEnum;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
@@ -61,6 +62,7 @@ public abstract class BaseTransformerTestCase {
 	public static VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
 		public Hl7BaseVersion getBaseVersion() {return Hl7BaseVersion.MR2007;} // Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
+		public Hl7BaseVersion getBaseVersion(Typed datatype) {return getBaseVersion();}
 	};
 	
 	protected MessageBeanTransformerImpl transformer;

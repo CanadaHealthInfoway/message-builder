@@ -90,12 +90,12 @@ public class IiValidationUtils {
 		}
 	}
 
-	public int getMaxRootLength(VersionNumber version) {
-		return SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX) ? ROOT_MAX_LENGTH_CERX : ROOT_MAX_LENGTH;
+	public int getMaxRootLength(StandardDataType type, VersionNumber version) {
+		return SpecificationVersion.isVersion(type, version, Hl7BaseVersion.CERX) ? ROOT_MAX_LENGTH_CERX : ROOT_MAX_LENGTH;
 	}
 	
-	public boolean isRootLengthInvalid(String root, VersionNumber version) {
-		return StringUtils.length(root) > getMaxRootLength(version);
+	public boolean isRootLengthInvalid(String root, StandardDataType type, VersionNumber version) {
+		return StringUtils.length(root) > getMaxRootLength(type, version);
 	}
 	
 	public int getMaxExtensionLength() {
@@ -106,16 +106,17 @@ public class IiValidationUtils {
 		return StringUtils.length(extension) > getMaxExtensionLength();
 	}
 
-	public boolean isCerxOrMr2007(VersionNumber version) {
-		return SpecificationVersion.isVersion(version, Hl7BaseVersion.MR2007) ||
-			   SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
+	public boolean isCerxOrMr2007(VersionNumber version, StandardDataType type) {
+		return SpecificationVersion.isVersion(type, version, Hl7BaseVersion.MR2007) ||
+			   SpecificationVersion.isVersion(type, version, Hl7BaseVersion.CERX);
 	}
 
 	public boolean isSpecializationTypeRequired(VersionNumber version, String type) {
+		StandardDataType standardDataType = StandardDataType.getByTypeName(type);
 		// AB does not treat II as abstract; for CeRx, II is concrete; Newfoundland is excepted to allow our legacy tests to pass
 		return isIiBusAndVer(type) ||
 				(isII(type) && 
-						!(SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX) || 
+						!(SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX) || 
 						  "NEWFOUNDLAND".equals(version == null ? null : version.getVersionLiteral()) ||
 						  SpecificationVersion.isExactVersion(SpecificationVersion.V02R02_AB, version))
 				);
@@ -154,8 +155,8 @@ public class IiValidationUtils {
 		return "root '" + root + "' should be a UUID.";
 	}
 
-	public String getInvalidRootLengthErrorMessage(String root, VersionNumber version) {
-		return "root '" + root + "' exceeds maximum allowed length of " + getMaxRootLength(version) + ".";
+	public String getInvalidRootLengthErrorMessage(String root, StandardDataType type, VersionNumber version) {
+		return "root '" + root + "' exceeds maximum allowed length of " + getMaxRootLength(type, version) + ".";
 	}
 
 	public String getInvalidExtensionLengthErrorMessage(String extension) {

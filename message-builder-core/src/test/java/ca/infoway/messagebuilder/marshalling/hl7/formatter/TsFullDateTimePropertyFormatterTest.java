@@ -37,7 +37,9 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -53,6 +55,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	private static final VersionNumber NEWFOUNDLAND_LEGACY_VERSION_HACK = new VersionNumber() {
 		public String getVersionLiteral() {return "NEWFOUNDLAND";}
 		public Hl7BaseVersion getBaseVersion() {return Hl7BaseVersion.MR2007;} // Newfoundland (as IWD currently implements it) is a mix of CeRx and V02R02
+		public Hl7BaseVersion getBaseVersion(Typed datatype) {return getBaseVersion();}
 	};
 
 	@Test
@@ -280,37 +283,37 @@ public class TsFullDateTimePropertyFormatterTest {
 		TsFullDateTimePropertyFormatter formatter = new TsFullDateTimePropertyFormatter();
 		
 		assertEquals("Should use default format if nothing else provided", 
-				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, version));
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, version));
 		assertEquals("Should use old default format if nothing else provided and version is CeRx", 
-				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3));
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, SpecificationVersion.V01R04_3));
 		assertEquals("Should use old default format if nothing else provided and version is SK CeRx", 
-				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should NOW use default format if nothing else provided and version is NFLD", 
-				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		System.setProperty(
 				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral(),
 				overridePattern);
 		
 		assertEquals("Should use override format when provided", 
-				overridePattern, formatter.determineDateFormat(normalDate, version));
+				overridePattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, version));
 		assertEquals("Should not use override format when provided version is only the base version of provided version", 
-				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, SpecificationVersion.V02R02));
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, SpecificationVersion.V02R02));
 		assertEquals("Should not use override format when provided version does not match", 
-				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_3));
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, SpecificationVersion.V01R04_3));
 		assertEquals("Should not use override format when provided version does not match", 
-				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(normalDate, SpecificationVersion.V01R04_2_SK));
+				DATE_FORMAT_YYYYMMDDHHMMSS, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should not use override format when provided version does not match", 
-				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+				DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, normalDate, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 		
 		assertEquals("Should use date with pattern always when provided", 
-				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, version));
+				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, version));
 		assertEquals("Should use date with pattern always when provided even if version is CeRx", 
-				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.V01R04_3));
+				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, SpecificationVersion.V01R04_3));
 		assertEquals("Should use date with pattern always when provided even if version is SK CeRx", 
-				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, SpecificationVersion.V01R04_2_SK));
+				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should use date with pattern always when provided even if version is NFLD", 
-				dateWithPatternPattern, formatter.determineDateFormat(dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
 	}
 	
 	private String getCurrentTimeZone(Date calendar) {

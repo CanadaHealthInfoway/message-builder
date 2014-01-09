@@ -37,6 +37,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -120,32 +121,32 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	private void validate(Identifier ii, String type, VersionNumber version, FormatContext context) {
     	validateMandatoryAttribute("root", ii.getRoot(), type, context);
 		if (II.getType().equals(type)) {
-        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), type, version, context);
+        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), II, version, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         } else if (II_PUBLIC.getType().equals(type)) {
-        	validateRootAsOid(ii.getRoot(), version, context);
+        	validateRootAsOid(ii.getRoot(), version, II_PUBLIC, context);
         	validateExtensionForOid(ii.getExtension(), type, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         } else if (II_BUS.getType().equals(type)) {
-        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), type, version, context);
+        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), II_BUS, version, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         } else if (II_VER.getType().equals(type)) {
-        	validateRootAsUuid(ii.getRoot(), version, context);
+        	validateRootAsUuid(ii.getRoot(), version, II_VER, context);
         	validateUnallowedAttribute("extension", ii.getExtension(), type, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         } else if (II_BUSVER.getType().equals(type)) {
-        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), type, version, context);
+        	validateRootAndExtensionAsOidOrUuid(ii.getRoot(), ii.getExtension(), II_BUSVER, version, context);
         	validateMandatoryAttribute("version", ii.getVersion(), type, context);
         } else if (II_PUBLICVER.getType().equals(type)) {
-        	validateRootAsOid(ii.getRoot(), version, context);
+        	validateRootAsOid(ii.getRoot(), version, II_PUBLICVER, context);
         	validateExtensionForOid(ii.getExtension(), type, context);
         	validateMandatoryAttribute("version", ii.getVersion(), type, context);
         } else if (II_OID.getType().equals(type)) {
-        	validateRootAsOid(ii.getRoot(), version, context);
+        	validateRootAsOid(ii.getRoot(), version, II_OID, context);
         	validateUnallowedAttribute("extension", ii.getExtension(), type, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         } else if (II_TOKEN.getType().equals(type)) {
-        	validateRootAsUuid(ii.getRoot(), version, context);
+        	validateRootAsUuid(ii.getRoot(), version, II_TOKEN, context);
         	validateUnallowedAttribute("extension", ii.getExtension(), type, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         }
@@ -163,27 +164,27 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 		}
 	}
 	
-	private void validateRootAsUuid(String root, VersionNumber version, FormatContext context) {
+	private void validateRootAsUuid(String root, VersionNumber version, StandardDataType type, FormatContext context) {
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
 				recordError(iiValidationUtils.getRootMustBeUuidErrorMessage(root), context);
 			}
-			validateRootLength(root, version, context);
+			validateRootLength(root, version, type, context);
 		}
 	}
 
-	private void validateRootLength(String root, VersionNumber version, FormatContext context) {
-		if (iiValidationUtils.isRootLengthInvalid(root, version)) {
-			recordError(iiValidationUtils.getInvalidRootLengthErrorMessage(root, version), context);
+	private void validateRootLength(String root, VersionNumber version, StandardDataType type, FormatContext context) {
+		if (iiValidationUtils.isRootLengthInvalid(root, type, version)) {
+			recordError(iiValidationUtils.getInvalidRootLengthErrorMessage(root, type, version), context);
 		}
 	}
 
-	private void validateRootAsOid(String root, VersionNumber version, FormatContext context) {
+	private void validateRootAsOid(String root, VersionNumber version, StandardDataType type, FormatContext context) {
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isOid(root)) {
 				recordError(iiValidationUtils.getRootMustBeAnOidErrorMessage(root), context);
 			}
-			validateRootLength(root, version, context);
+			validateRootLength(root, version, type, context);
 		}
 	}
 	
@@ -199,15 +200,15 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 		}
 	}
 
-	private void validateRootAndExtensionAsOidOrUuid(String root, String extension, String type, VersionNumber version, FormatContext context) {
+	private void validateRootAndExtensionAsOidOrUuid(String root, String extension, StandardDataType type, VersionNumber version, FormatContext context) {
 		// if root has not been provided don't bother further validating root or extension
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
-				validateRootAsOid(root, version, context);
-				validateExtensionForOid(extension, type, context);
+				validateRootAsOid(root, version, type, context);
+				validateExtensionForOid(extension, type.getName(), context);
 			} else {
-				validateRootAsUuid(root, version, context);
-				validateUnallowedAttribute("extension", extension, type, context);
+				validateRootAsUuid(root, version, type, context);
+				validateUnallowedAttribute("extension", extension, type.getName(), context);
 			}
 		}
 	}
@@ -226,7 +227,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 
 	private void addExtraAttributes(String type, VersionNumber version, Map<String, String> result) {
 		if (II_PUBLIC.getType().equals(type)) {
-			if (!iiValidationUtils.isCerxOrMr2007(version)) {
+			if (!iiValidationUtils.isCerxOrMr2007(version, II_PUBLIC)) {
 				result.put("use", "BUS");
             }
             result.put("displayable", "true");
@@ -239,7 +240,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         } else if (II_PUBLICVER.getType().equals(type)) {
             result.put("displayable", "true");
         } else if (II_OID.getType().equals(type)) {
-			if (!iiValidationUtils.isCerxOrMr2007(version)) {
+			if (!iiValidationUtils.isCerxOrMr2007(version, II_OID)) {
 				result.put("use", "BUS");
             }
         }

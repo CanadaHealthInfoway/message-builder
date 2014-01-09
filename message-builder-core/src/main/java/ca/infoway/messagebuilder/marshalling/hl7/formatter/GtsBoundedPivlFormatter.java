@@ -27,6 +27,7 @@ import java.util.Map;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PIVLImpl;
@@ -111,7 +112,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresSpecializationType(FormatContext formatContext) {
 		boolean result = true;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = !SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX);
+			result = !SpecificationVersion.isVersion(StandardDataType.GTS_BOUNDEDPIVL, formatContext.getVersion(), Hl7BaseVersion.CERX);
 		}
 		return result;
 	}
@@ -119,8 +120,8 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	private boolean requiresOperatorOnFirstRepetition(FormatContext formatContext) {
 		boolean result = false;
 		if (formatContext != null && formatContext.getVersion() != null) {
-			result = SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.CERX)
-				  || SpecificationVersion.isVersion(formatContext.getVersion(), Hl7BaseVersion.MR2007);
+			result = SpecificationVersion.isVersion(StandardDataType.GTS_BOUNDEDPIVL, formatContext.getVersion(), Hl7BaseVersion.CERX)
+				  || SpecificationVersion.isVersion(StandardDataType.GTS_BOUNDEDPIVL, formatContext.getVersion(), Hl7BaseVersion.MR2007);
 		}
 		return result;
 	}

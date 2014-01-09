@@ -38,6 +38,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -92,93 +93,93 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 
 		if (II.equals(type)) {
 			// should only occur for CeRx and AB, but could happen if a relationship of type II is not specified via specializationType 
-			validateII(xmlToModelResult, element, version, root, extension,	type);
+			validateII(xmlToModelResult, element, root, extension, StandardDataType.II,	version);
 		} else if (II_TOKEN.equals(type)) {
-			validateII_TOKEN(xmlToModelResult, element, root, type, version);
+			validateII_TOKEN(xmlToModelResult, element, root, StandardDataType.II_TOKEN, version);
 		} else if (II_BUS.equals(type)) {
-			validateII_BUS(xmlToModelResult, element, root, extension, type, version);
+			validateII_BUS(xmlToModelResult, element, root, extension, StandardDataType.II_BUS, version);
 		} else if (II_OID.equals(type)) {
-			validateII_OID(context, xmlToModelResult, element, root, type, version);
+			validateII_OID(context, xmlToModelResult, element, root, StandardDataType.II_OID, version);
 		} else if (II_PUBLIC.equals(type)) {
-			validateII_PUBLIC(context, xmlToModelResult, element, root, extension, type, version, false);
+			validateII_PUBLIC(context, xmlToModelResult, element, root, extension, StandardDataType.II_PUBLIC, version, false);
 		} else if (II_VER.equals(type)) {
-			validateII_VER(xmlToModelResult, element, root, type, version);
+			validateII_VER(xmlToModelResult, element, root, StandardDataType.II_VER, version);
 		} else if (II_BUSVER.equals(type)) {
-			versionAttribute = validateII_BUSVER(xmlToModelResult, element, root, extension, type, version);
+			versionAttribute = validateII_BUSVER(xmlToModelResult, element, root, extension, StandardDataType.II_BUSVER, version);
 		} else if (II_PUBLICVER.equals(type)) {
-			versionAttribute = validateII_PUBLICVER(context, xmlToModelResult, element, root, extension, type, version);
+			versionAttribute = validateII_PUBLICVER(context, xmlToModelResult, element, root, extension, StandardDataType.II_PUBLICVER, version);
 		}
-		validateUnallowedAttributes(type, element, xmlToModelResult, "assigningAuthorityName");
+		validateUnallowedAttributes(result.getDataType(), element, xmlToModelResult, "assigningAuthorityName");
 		return new Identifier(root, extension, versionAttribute);
 	}
 
-	private void validateII(XmlToModelResult xmlToModelResult, Element element, VersionNumber version, String root, String extension, String type) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension,	type, version);
+	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
+		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "use");
 	}
 
-	private String validateII_PUBLICVER(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
+	private String validateII_PUBLICVER(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
 		validateII_PUBLIC(context, xmlToModelResult, element, root, extension, type, version, true);
 		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
 	}
 
-	private String validateII_BUSVER(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
+	private String validateII_BUSVER(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
 		validateII_BUS(xmlToModelResult, element, root, extension, type, version);
 		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
 	}
 
-	private void validateII_VER(XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsUuid(element, root, xmlToModelResult, version);
+	private void validateII_VER(XmlToModelResult xmlToModelResult, Element element, String root, StandardDataType type, VersionNumber version) {
+		validateRootAsUuid(element, root, xmlToModelResult, version, type);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		validateAttributeEquals(type, element, xmlToModelResult, "use", "VER");
 	}
 
-	private void validateII_TOKEN(XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsUuid(element, root, xmlToModelResult, version);
+	private void validateII_TOKEN(XmlToModelResult xmlToModelResult, Element element, String root, StandardDataType type, VersionNumber version) {
+		validateRootAsUuid(element, root, xmlToModelResult, version, type);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "use");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 	}
 
-	private void validateII_OID(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String type, VersionNumber version) {
-		validateRootAsOid(root, element, xmlToModelResult, version);
+	private void validateII_OID(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, StandardDataType type, VersionNumber version) {
+		validateRootAsOid(root, element, xmlToModelResult, version, type);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
-		if (!iiValidationUtils.isCerxOrMr2007(context.getVersion())) {
+		if (!iiValidationUtils.isCerxOrMr2007(context.getVersion(), type)) {
 			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 		} else {
 			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
 		}
 	}
 
-	private void validateII_PUBLIC(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version, boolean isII_PUBLICVER) {
-		validateRootAsOid(root, element, xmlToModelResult, version);
+	private void validateII_PUBLIC(ParseContext context, XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version, boolean isII_PUBLICVER) {
+		validateRootAsOid(root, element, xmlToModelResult, version, type);
 		validateExtensionForOid(xmlToModelResult, element, extension);
 		validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
 		// Redmine 11293 - TM - must have use=BUS, but not for MR2007 (use is not permitted in this case)
-		if (!isII_PUBLICVER && !iiValidationUtils.isCerxOrMr2007(context.getVersion())) {
+		if (!isII_PUBLICVER && !iiValidationUtils.isCerxOrMr2007(context.getVersion(), type)) {
 			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 		} else {
 			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
 		}
 	}
 
-	private void validateII_BUS(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String type, VersionNumber version) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension,	type, version);
+	private void validateII_BUS(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
+		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 	}
 
-	private void validateRootAndExtensionAsOidOrUuid(XmlToModelResult xmlToModelResult,	Element element, String root, String extension, String type, VersionNumber version) {
+	private void validateRootAndExtensionAsOidOrUuid(XmlToModelResult xmlToModelResult,	Element element, String root, String extension, VersionNumber version, StandardDataType type) {
 		// if root has not been provided don't bother further validating root or extension
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
-				validateRootAsOid(root, element, xmlToModelResult, version);
+				validateRootAsOid(root, element, xmlToModelResult, version, type);
 				validateExtensionForOid(xmlToModelResult, element, extension);
 			} else {
-				validateRootAsUuid(element, root, xmlToModelResult, version);
+				validateRootAsUuid(element, root, xmlToModelResult, version, type);
 				validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 			}
 		}
@@ -224,26 +225,26 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		return specializationType != null;
 	}
 
-	private void validateAttributeEquals(String type, Element element, XmlToModelResult xmlToModelResult, String attributeName, String attributeValue) {
+	private void validateAttributeEquals(StandardDataType type, Element element, XmlToModelResult xmlToModelResult, String attributeName, String attributeValue) {
 		if (!element.hasAttribute(attributeName)) {
-			recordError(iiValidationUtils.getMissingAttributeErrorMessage(type, attributeName, attributeValue), element, xmlToModelResult);
+			recordError(iiValidationUtils.getMissingAttributeErrorMessage(type.getType(), attributeName, attributeValue), element, xmlToModelResult);
 		} else if (!StringUtils.equals(element.getAttribute(attributeName), attributeValue)) {
-			recordError(iiValidationUtils.getIncorrectAttributeValueErrorMessage(type, attributeName, attributeValue), element, xmlToModelResult);
+			recordError(iiValidationUtils.getIncorrectAttributeValueErrorMessage(type.getType(), attributeName, attributeValue), element, xmlToModelResult);
 		}
 	}
 
-	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version) {
+	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version, StandardDataType type) {
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
 				recordError(iiValidationUtils.getRootMustBeUuidErrorMessage(root), element, xmlToModelResult);
 			}
-			validateRootLength(element, root, xmlToModelResult, version);
+			validateRootLength(element, root, xmlToModelResult, version, type);
 		}
 	}
 
-	private void validateRootLength(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version) {
-		if (iiValidationUtils.isRootLengthInvalid(root, version)) {
-			recordError(iiValidationUtils.getInvalidRootLengthErrorMessage(root, version), element, xmlToModelResult);
+	private void validateRootLength(Element element, String root, XmlToModelResult xmlToModelResult, VersionNumber version, StandardDataType type) {
+		if (iiValidationUtils.isRootLengthInvalid(root, type, version)) {
+			recordError(iiValidationUtils.getInvalidRootLengthErrorMessage(root, type, version), element, xmlToModelResult);
 		}
 	}
 
@@ -253,12 +254,12 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		}
 	}
 
-	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToModelResult, VersionNumber version) {
+	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToModelResult, VersionNumber version, StandardDataType type) {
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isOid(root)) {
 				recordError(iiValidationUtils.getRootMustBeAnOidErrorMessage(root), element, xmlToModelResult);
 			}
-			validateRootLength(element, root, xmlToModelResult, version);
+			validateRootLength(element, root, xmlToModelResult, version, type);
 		}
 	}
 

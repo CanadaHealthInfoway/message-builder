@@ -132,7 +132,10 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 
 	private void checkForMissingTimezone(ParseContext context, XmlToModelResult xmlToModelResult, Date result, String unparsedDate, Element element) {
 		// issue a warning if a datetime (partial or otherwise) was passed in without a timezone (non-CeRx only)
-		if (context == null || context.getVersion() == null || !SpecificationVersion.isVersion(context.getVersion(), Hl7BaseVersion.CERX)) {
+		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
+		if (context == null || 
+				context.getVersion() == null || 
+				!SpecificationVersion.isVersion(standardDataType, context.getVersion(), Hl7BaseVersion.CERX)) {
 			if (result instanceof DateWithPattern && TsDateFormats.datetimeFormatsRequiringWarning.contains(((DateWithPattern) result).getDatePattern()))  {
 				xmlToModelResult.addHl7Error(
 						new Hl7Error(

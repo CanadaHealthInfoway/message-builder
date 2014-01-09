@@ -99,11 +99,12 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     }
 
 	private void performStandardValidations(ParseContext context, Element element, XmlToModelResult result) {
-		if (StandardDataType.CS.getType().equals(context.getType())) {
-			validateUnallowedAttributes(context.getType(), element, result, CODE_SYSTEM_ATTRIBUTE_NAME);
+		StandardDataType type = StandardDataType.getByTypeName(context);
+		if (type == StandardDataType.CS) {
+			validateUnallowedAttributes(type, element, result, CODE_SYSTEM_ATTRIBUTE_NAME);
 		}
-		validateUnallowedAttributes(context.getType(), element, result, "codeSystemName");
-    	validateUnallowedAttributes(context.getType(), element, result, "codeSystemVersion");
+		validateUnallowedAttributes(type, element, result, "codeSystemName");
+    	validateUnallowedAttributes(type, element, result, "codeSystemVersion");
    		validateUnallowedChildNode(context.getType(), element, result, "qualifier");
 	}
     

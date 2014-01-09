@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -81,6 +84,8 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	private final String description;
 	private final Hl7BaseVersion baseVersion;
 	
+	private final Map<String, Hl7BaseVersion> hl7ReleaseByDatatypeMap = new HashMap<String, Hl7BaseVersion>();
+	
 	private SpecificationVersion(String name, String description, Hl7BaseVersion baseVersion) {
 		super(name);
 		this.description = description;
@@ -113,24 +118,71 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	}
 
 	/**
-	 * Checks if the supplied VersionNumber is based on a particular HL7v3 release
+	 * Check registry to see if the provided datatype should be treated as specified by a specific HL7v3 release. If not, 
+	 * use the defined base version.
+	 * 
+	 * The great majority of implementations should never need to register specific datatypes against HL7v3 releases.  
+	 * 
+	 * @param datatype An object representing a datatype. Usually, but not restricted to, an instance of StandardDataType. 
+	 * @return the HL7 release that the given datatype conforms to 
+	 */
+	public Hl7BaseVersion getBaseVersion(Typed datatype) {
+		if (datatype != null && this.hl7ReleaseByDatatypeMap.containsKey(datatype.getType())) {
+			return this.hl7ReleaseByDatatypeMap.get(datatype.getType());
+		}
+		return getBaseVersion();
+	}
+
+	/**
+	 * Clear the registry.
+	 */
+	public void clearHl7ReleaseByDatatypeRegistry() {
+		this.hl7ReleaseByDatatypeMap.clear();
+	}
+	
+	/**
+	 * Register a specific datatype against a particular HL7v3 release (for validation and processing).
+	 * 
+	 * @param hl7BaseVersion
+	 * @param datatype
+	 */
+	public void registerHl7ReleaseByDatatype(Hl7BaseVersion hl7BaseVersion, Typed datatype) {
+		this.hl7ReleaseByDatatypeMap.put(datatype.getType(), hl7BaseVersion);
+	}
+	
+	/**
+	 * Checks if the supplied VersionNumber is based on a particular HL7v3 release.
+	 * 
+	 * This now takes in the specific datatype for which this check is being performed. If the datatype 
+	 * registry contains this datatype then its registered version is returned, otherwise the base version
+	 * is returned. 
 	 * 
 	 * @param version
 	 * @param versionToCheck
-	 * @return
+	 * @return whether the version supplied is a match for the given HL7v3 release
 	 */
-	public static boolean isVersion(VersionNumber version, Hl7BaseVersion versionToCheck) {
+	public static boolean isVersion(Typed datatype, VersionNumber version, Hl7BaseVersion versionToCheck) {
 		if (versionToCheck == null || version == null) {
 			return false;
 		}
-		return version.getBaseVersion() == versionToCheck;
+		
+		return version.getBaseVersion(datatype) == versionToCheck;
 	}
-	
+
+	/**
+	 * Checks that a provided version is a match for a known version. Usually done for jurisdiction-specific datatype processing.
+	 * 
+	 * This check does _not_ compare the contents of the datatype registry.
+	 * 
+	 * @param version1
+	 * @param version2
+	 * @return whether the versions match
+	 */
 	public static boolean isExactVersion(VersionNumber version1, VersionNumber version2) {
 		if (version1 == null || version1.getVersionLiteral() == null || version2 == null || version2.getVersionLiteral() == null) {
 			return false;
 		}
 		return version1.getVersionLiteral().equals(version2.getVersionLiteral()) && version1.getBaseVersion() == version2.getBaseVersion();
 	}
-	
+
 }

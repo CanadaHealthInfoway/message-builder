@@ -61,7 +61,8 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     protected String getValue(Date date, FormatContext context, BareANY bareAny) {
     	// write out the date using the applicable "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);
-    	String datePattern = determineDateFormat(date, version);
+		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
+    	String datePattern = determineDateFormat(standardDataType, date, version);
 		validateDatePattern(datePattern, context);
 		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
@@ -73,7 +74,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		String[] allowedDateFormats = TsDateFormats.getAllDateFormats(standardDataType, version);
 		if (arrayContains(allowedDateFormats, datePattern)) {
 			// check if this pattern is missing a timezone
-			if (!isCerx(version) && TsDateFormats.datetimeFormatsRequiringWarning.contains(datePattern)) {
+			if (!isCerx(standardDataType, version) && TsDateFormats.datetimeFormatsRequiringWarning.contains(datePattern)) {
 				context.getModelToXmlResult().addHl7Error(
 						new Hl7Error(
 								Hl7ErrorCode.DATA_TYPE_ERROR, 
@@ -100,12 +101,12 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
         return false;
 	}
 
-	private boolean isCerx(VersionNumber version) {
-		return SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
+	private boolean isCerx(StandardDataType standardDataType, VersionNumber version) {
+		return SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX);
 	}
 
 	// package level for testing purposes
-	String determineDateFormat(Date date, VersionNumber version) {
+	String determineDateFormat(StandardDataType standardDataType, Date date, VersionNumber version) {
 		// date format precedence:
 		//    provided Date is a dateWithPattern
 		//    format has been overridden for this version
@@ -114,7 +115,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     	if (datePattern == null) {
     		datePattern = getOverrideDatePattern(version);
     		if (datePattern == null) {
-    			datePattern = getDefaultDatePattern(version);
+    			datePattern = getDefaultDatePattern(standardDataType, version);
     		}
     	}
 		return datePattern;
@@ -134,8 +135,8 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 		return null;
 	}
 
-	private String getDefaultDatePattern(VersionNumber version) {
-		if (SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX)) {
+	private String getDefaultDatePattern(StandardDataType standardDataType, VersionNumber version) {
+		if (SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX)) {
 			return DATE_FORMAT_YYYYMMDDHHMMSS;
 		}
 		return DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ;

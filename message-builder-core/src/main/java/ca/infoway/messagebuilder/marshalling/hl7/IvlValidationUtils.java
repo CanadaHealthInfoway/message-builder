@@ -75,7 +75,9 @@ public class IvlValidationUtils {
 	
 	public List<String> validateCorrectElementsProvided(String type, VersionNumber version, boolean lowProvided, boolean highProvided, boolean centerProvided, boolean widthProvided) {
 		List<String> errors = new ArrayList<String>();
-		boolean isCeRx = SpecificationVersion.isVersion(version, Hl7BaseVersion.CERX);
+		
+		StandardDataType standardDataType = StandardDataType.getByTypeName(type);
+		boolean isCeRx = SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX);
 		
 		String typeWithoutParameters = Hl7DataTypeName.getTypeWithoutParameters(type);
 		String parameterizedType = Hl7DataTypeName.getParameterizedType(type);

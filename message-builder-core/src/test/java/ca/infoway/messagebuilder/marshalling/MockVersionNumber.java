@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.VersionNumber;
 
 public class MockVersionNumber implements VersionNumber {
@@ -41,5 +42,9 @@ public class MockVersionNumber implements VersionNumber {
 
 	public Hl7BaseVersion getBaseVersion() {
 		return this.baseVersion;
+	}
+
+	public Hl7BaseVersion getBaseVersion(Typed datatype) {
+		return getBaseVersion();
 	}
 }
