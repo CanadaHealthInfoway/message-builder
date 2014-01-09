@@ -64,6 +64,7 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.SXCM;
 import ca.infoway.messagebuilder.datatype.SXPR;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -172,6 +173,7 @@ enum DataTypeGenerationDetails implements Typed {
 	IVL_DATETIME("IVL<TS.DATETIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_FULL_DATE("IVL<TS.FULLDATE>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_FULL_DATE_TIME("IVL<TS.FULLDATETIME>", IVL.class.getName(), Interval.class.getName(), null),
+	IVL_FULL_DATE_PART_TIME("IVL<TS.FULLDATEPARTTIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_FULL_DATE_WITH_TIME("IVL<TS.FULLDATEWITHTIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_TS("IVL<TS>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_PQ("IVL<PQ>", "PhysicalQuantityInterval", IVL.class.getName(), Interval.class.getName(), null), 
@@ -213,6 +215,7 @@ enum DataTypeGenerationDetails implements Typed {
 	TS("TS", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_DATE("TS.DATE", "PartialDate", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_DATETIME("TS.DATETIME", "PartialDateTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	TS_FULLDATEPARTTIME("TS.FULLDATEPARTTIME", "FullDatePartTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATEWITHTIME("TS.FULLDATEWITHTIME", "FullDateWithTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATE("TS.FULLDATE", "FullDate", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATETIME("TS.FULLDATETIME", "FullDateTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
