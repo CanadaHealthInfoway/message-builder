@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * ANY.X2:    ST, CV, ED.DOCORREF
  *
  */
-@DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH", "ANY.X1", "ANY.X2"})
+@DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH", "ANY.x1", "ANY.x2"})
 public class AnyElementParser extends AbstractSingleElementParser<Object> {
 
 	@SuppressWarnings("rawtypes")

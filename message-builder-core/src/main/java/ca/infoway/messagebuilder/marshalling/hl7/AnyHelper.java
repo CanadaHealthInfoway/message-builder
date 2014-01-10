@@ -111,8 +111,8 @@ public class AnyHelper {
 		validTypesForAnyType.put("ANY.LAB", ANY_LAB_LIST); 
 		validTypesForAnyType.put("ANY.CA.IZ", ANY_CA_IZ_LIST); 
 		validTypesForAnyType.put("ANY.PATH", ANY_PATH_LIST); 
-		validTypesForAnyType.put("ANY.X1", ANY_X1_LIST); 
-		validTypesForAnyType.put("ANY.X2", ANY_X2_LIST); 
+		validTypesForAnyType.put("ANY.x1", ANY_X1_LIST); 
+		validTypesForAnyType.put("ANY.x2", ANY_X2_LIST); 
 	}
 	
 	public static boolean isValidTypeForAny(String type, String specializationType) {

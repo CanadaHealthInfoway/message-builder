@@ -142,7 +142,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.X1", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				ParserContextImpl.create("ANY.x1", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
 				node, this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
@@ -162,7 +162,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" specializationType=\"PQ.LAB\" value=\"80\" unit=\"mg/dL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyElementParser().parse(
-				ParserContextImpl.create("ANY.X2", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
+				ParserContextImpl.create("ANY.x2", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null), 
 				node, this.xmlResult);
 		
 		assertFalse(this.xmlResult.isValid());

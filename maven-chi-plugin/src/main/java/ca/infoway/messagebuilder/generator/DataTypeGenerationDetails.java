@@ -113,8 +113,8 @@ enum DataTypeGenerationDetails implements Typed {
 	ANY_LAB("ANY.LAB", ANY.class.getName(), Object.class.getName(), "System.object"), 
 	ANY_CA_IZ("ANY.CA.IZ", ANY.class.getName(), Object.class.getName(), "System.object"), 
 	ANY_PATH("ANY.PATH", ANY.class.getName(), Object.class.getName(), "System.object"),
-	ANY_X1("ANY.X1", ANY.class.getName(), Object.class.getName(), "System.object"),
-	ANY_X2("ANY.X2", ANY.class.getName(), Object.class.getName(), "System.object"),
+	ANY_X1("ANY.x1", ANY.class.getName(), Object.class.getName(), "System.object"),
+	ANY_X2("ANY.x2", ANY.class.getName(), Object.class.getName(), "System.object"),
 	
 	AD("AD", AD.class.getName(), PostalAddress.class.getName(), null), 
 	AD_BASIC("AD.BASIC", AD.class.getName(), PostalAddress.class.getName(), null), 
