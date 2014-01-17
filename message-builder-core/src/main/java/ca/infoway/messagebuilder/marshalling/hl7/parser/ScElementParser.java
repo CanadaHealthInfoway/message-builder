@@ -56,14 +56,13 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * TODO: handle code properly
  */
 @DataTypeHandler("SC")
-class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedString<V>> {
+class ScElementParser extends AbstractSingleElementParser<CodedString<? extends Code>> {
 
 	private CodeLookupUtils codeLookupUtils = new CodeLookupUtils();
 	private CodedStringValidationUtils codedStringValidationUtils = new CodedStringValidationUtils(); 
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	protected CodedString<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected CodedString<? extends Code> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		String value = null;
 		int childNodeCount = node.getChildNodes().getLength();
@@ -96,7 +95,7 @@ class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedS
 		String codeSystemVersion = getAttributeValue(node, "codeSystemVersion");
 		
 		// FIXME - TM - this cast may not work properly within .NET
-		CodedString<V> codedString = new CodedString<V>(value, (V) lookedUpCode, displayName, codeSystemName, codeSystemVersion);
+		CodedString<? extends Code> codedString = new CodedString<Code>(value, lookedUpCode, displayName, codeSystemName, codeSystemVersion);
 		
 		boolean codeProvided = StringUtils.isNotBlank(code);
 		boolean codeSystemProvided = StringUtils.isNotBlank(codeSystem);
@@ -105,8 +104,9 @@ class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedS
 		return codedString;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new SCImpl<V>();
+		return new SCImpl();
 	}
 }

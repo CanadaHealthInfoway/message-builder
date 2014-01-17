@@ -58,7 +58,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
 		
-		SC<Code> sc = (SC<Code>) new ScElementParser<Code>().parse(createContext(), node, this.xmlResult);
+		SC<Code> sc = (SC<Code>) new ScElementParser().parse(createContext(), node, this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
 		assertNull("null returned", sc.getValue());
@@ -72,7 +72,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-        CodedString<Code> result = (CodedString<Code>) new ScElementParser<Code>().parse(null, node, this.xmlResult).getBareValue();
+        CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(null, node, this.xmlResult).getBareValue();
 
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -84,7 +84,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseTextNode() throws Exception {
 		Node node = createNode("<something>text value</something>");
-		CodedString<Code> result = (CodedString<Code>) new ScElementParser<Code>().parse(null, node, this.xmlResult).getBareValue();
+		CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(null, node, this.xmlResult).getBareValue();
 
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("proper text returned", "text value", result.getValue());
@@ -94,7 +94,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	@Test
     public void testParseTextNodeWithAttributes() throws Exception {
         Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\">text value</something>");
-        CodedString<Code> result = (CodedString<Code>) new ScElementParser<Code>().parse(null, node, this.xmlResult).getBareValue();
+        CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(null, node, this.xmlResult).getBareValue();
         
 		assertTrue(this.xmlResult.isValid());
         assertEquals("proper text returned", "text value", result.getValue());
@@ -104,7 +104,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	@Test
     public void testParseTextNodeWithCodeAttributesSomeErrors() throws Exception {
         Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\" code=\"AB\">text value</something>");
-        CodedString<Code> result = (CodedString<Code>) new ScElementParser<Code>().parse(
+        CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(
         		ParserContextImpl.create("SC", new CodedString<State>(null ,null).getClass(), SpecificationVersion.V02R02, null, null, null, null), 
         		node, 
         		this.xmlResult).getBareValue();
@@ -122,7 +122,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
         
         Node node = createNode("<something code=\"FRED\" codeSystem=\"1.2.3.4.5\" displayName=\"some text\" codeSystemName=\"cs name\" codeSystemVersion=\"cs version\">text value</something>");
         
-		CodedString<MockCharacters> result = (CodedString<MockCharacters>) new ScElementParser<MockCharacters>().parse(
+		CodedString<MockCharacters> result = (CodedString<MockCharacters>) new ScElementParser().parse(
         		context, 
         		node, 
         		this.xmlResult).getBareValue();
@@ -142,7 +142,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 				"<monkey/>" +
 				"<shines/>" +
 				"</something>");
-		new ScElementParser<Code>().parse(null, node, this.xmlResult);
+		new ScElementParser().parse(null, node, this.xmlResult);
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size());
@@ -156,7 +156,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 				"<something>" +
 				"<monkey/>" +
 				"</something>");
-		new ScElementParser<Code>().parse(null, node, this.xmlResult);
+		new ScElementParser().parse(null, node, this.xmlResult);
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size());
