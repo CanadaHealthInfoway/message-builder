@@ -22,6 +22,10 @@ package ca.infoway.messagebuilder.datatype;
 
 import java.util.List;
 
+/**
+ * 
+ * @sharpen.ignore - datatype - translated manually 
+ */
 public interface ANYMetaData {
 
 	public String getLanguage();

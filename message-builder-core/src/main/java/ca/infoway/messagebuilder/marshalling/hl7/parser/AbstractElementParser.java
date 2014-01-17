@@ -51,7 +51,7 @@ public abstract class AbstractElementParser implements ElementParser {
 		return convertSpecializationType(specializationType);
 	}
 
-	protected String convertSpecializationType(String specializationType) {
+	public String convertSpecializationType(String specializationType) {
 		// specialization types defined as A<B.C> are not a problem.
 		// specialization types defined as A_B.C (the way MB formats specializationType!) are not handled properly, so convert the value here
 		if (specializationType != null) {

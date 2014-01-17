@@ -43,7 +43,7 @@ public class CdValidationUtils {
 
 	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 
-		Hl7BaseVersion baseVersion = version == null ? null : version.getBaseVersion();
+		Hl7BaseVersion baseVersion = version == null ? Hl7BaseVersion.MR2009 : version.getBaseVersion();
 		
 		// validations use codeAsString instead of codeWrapper.getValue().getCodeValue() in case the code specified wasn't found by a lookup
 		//    - this ensures we validate exactly what was passed in, and redundant errors aren't recorded (in most cases, at least)
