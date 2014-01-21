@@ -89,6 +89,10 @@ public class Concept {
 		return parentConcepts;
 	}
 
+	public void setParentConcepts(List<String> parentConcepts) {
+		this.parentConcepts = parentConcepts;
+	}
+
 	public void addParentConcept(String parentConcept) {
 		if (this.parentConcepts == null) {
 			this.parentConcepts = new ArrayList<String>();
