@@ -27,8 +27,8 @@ public class Code {
 
 	@Attribute
 	private String codeSystem;
-	@Attribute
-	private String code;
+	@Attribute(name="code")
+	private String codeValue;
 	@Attribute(required=false)
 	private String status;
 	@Attribute(required=false)
@@ -43,7 +43,7 @@ public class Code {
 	
 	public Code(String codeSystem, String code, String printName, String status) {
 		this.codeSystem = codeSystem;
-		this.code = code;
+		this.codeValue = code;
 		this.printName = printName;
 		this.status = status;
 	}
@@ -56,12 +56,12 @@ public class Code {
 		this.codeSystem = codeSystem;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCodeValue() {
+		return codeValue;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCodeValue(String code) {
+		this.codeValue = code;
 	}
 	
 	public String getStatus() {
@@ -93,7 +93,7 @@ public class Code {
 		
 		return new EqualsBuilder().
 				append(this.codeSystem, that.codeSystem).
-				append(this.code, that.code).
+				append(this.codeValue, that.codeValue).
 				isEquals();
 	}
 	
@@ -101,7 +101,7 @@ public class Code {
 	public int hashCode() {
 		return new HashCodeBuilder().
 				append(this.codeSystem).
-				append(this.code).
+				append(this.codeValue).
 				toHashCode();
 	}
 }
