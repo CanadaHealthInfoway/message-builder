@@ -65,7 +65,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		private final Code code;
 		private final Set<ValueSetTreeNode> children = new TreeSet<ValueSetTreeNode>();
 		public ValueSetTreeNode(Code code) {
-			this.name = code.getCode();
+			this.name = code.getCodeValue();
 			this.code = code;
 		}
 		public String getName() {
@@ -173,13 +173,13 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 			for (Code code : getValueSet().getCodes()) {
 				Div codeDiv = new Div();
 				codeDiv.setCSSClass("codeDiv");
-				codeDiv.setId(getCodeId(code.getCode()));
+				codeDiv.setId(getCodeId(code.getCodeValue()));
 				CodeSystem codeSystem = getCodeSystemByName(code.getCodeSystem(), getMessageSet().getVocabulary());
 				if (codeSystem!=null) {
-					codeDiv.appendChild(createHeader(code.getCode(), "", "titleHeader"));
+					codeDiv.appendChild(createHeader(code.getCodeValue(), "", "titleHeader"));
 					codeDiv.appendChild(createConceptDetailsTable(code, codeSystem, getMessageSet()));
 				} else {
-					codeDiv.appendChild(createHeader(code.getCode(), "", "titleHeader"));
+					codeDiv.appendChild(createHeader(code.getCodeValue(), "", "titleHeader"));
 					codeDiv.appendChild(new Text("No Details Available"));
 				}
 				result.appendChild(codeDiv);
@@ -199,8 +199,8 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		Tbody tBody = new Tbody();
 		
 		if (codeSystem != null) {
-			Concept concept = getConcept(codeSystem, code.getCode());
-			tBody.appendChild(createDataRow("Code:", new Text(code.getCode()), ""));
+			Concept concept = getConcept(codeSystem, code.getCodeValue());
+			tBody.appendChild(createDataRow("Code:", new Text(code.getCodeValue()), ""));
 			if (concept != null) {
 				tBody.appendChild(createDataRow("Name:", new Text(concept.getDisplayName()==null?"-":concept.getDisplayName()), ""));
 				addAnnotationDetails(concept.getDocumentation(), "Description:", tBody);
@@ -216,7 +216,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 
 	private Text createExample(Code code, CodeSystem codeSystem) {
 		String example = "&lt;code";
-		example+=" code=\"" + code.getCode();
+		example+=" code=\"" + code.getCodeValue();
 		example+="\" codeSystem=\"" + codeSystem.getOid();
 		example+="\" /&gt;";
 		return new Text(example);
@@ -277,22 +277,22 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		HashMap<String,ValueSetTreeNode> codeMap = new HashMap<String, ValueSetTreeNode>();
 		TreeSet<ValueSetTreeNode> structure = new TreeSet<ValueSetTreeNode>();
 		for (Code code : getValueSet().getCodes()) {
-			codeMap.put(code.getCode(), new ValueSetTreeNode(code));
+			codeMap.put(code.getCodeValue(), new ValueSetTreeNode(code));
 		}
 		for (Code code : getValueSet().getCodes()) {
 			Concept concept = findConcept(code);
 			if (concept == null || concept.getParentConcepts() == null || concept.getParentConcepts().isEmpty()) {
-				structure.add(codeMap.get(code.getCode()));
+				structure.add(codeMap.get(code.getCodeValue()));
 			} else {
 				boolean inserted = false;
 				for (String parent : concept.getParentConcepts()) {
 					if (codeMap.get(parent) != null) {
-						codeMap.get(parent).addCode(codeMap.get(code.getCode()));
+						codeMap.get(parent).addCode(codeMap.get(code.getCodeValue()));
 						inserted = true;
 					}
 				}
 				if (!inserted) {	// none of the parents are included in the value set, so treat it as a root
-					structure.add(codeMap.get(code.getCode()));
+					structure.add(codeMap.get(code.getCodeValue()));
 				}
 			}
 		}
@@ -302,7 +302,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 	private Concept findConcept(Code code) {
 		CodeSystem codeSystem = getCodeSystemByName(code.getCodeSystem(), messageSet.getVocabulary());
 		if (codeSystem != null) {
-			return getConcept(codeSystem, code.getCode());
+			return getConcept(codeSystem, code.getCodeValue());
 		}
 		return null;
 	}
@@ -313,7 +313,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 		String indentClass = "indent" + String.valueOf(indentationLevel);
 		CodeSystem codeSystem = getCodeSystemByName(code.getCodeSystem(), messageSet.getVocabulary());
 		if (codeSystem != null) {
-			Concept concept = getConcept(codeSystem, code.getCode());
+			Concept concept = getConcept(codeSystem, code.getCodeValue());
 			if (concept != null) {
 				result.appendChild(createDataColumn(
 						createLink("#"+ getCodeId(concept.getCode()), new Text(concept.getCode()), "", ""), indentClass));
@@ -327,7 +327,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 				return result;
 			} else {
 				result.appendChild(createDataColumn(
-						createLink("#"+ getCodeId(code.getCode()), new Text(code.getCode()), "", ""), indentClass));
+						createLink("#"+ getCodeId(code.getCodeValue()), new Text(code.getCodeValue()), "", ""), indentClass));
 				String printName = code.getPrintName() == null ? "-" : code.getPrintName();
 				result.appendChild(createDataColumn(new Text(printName), ""));
 				result.appendChild(createDataColumn(new Text(codeSystem.getOid()), ""));
@@ -336,7 +336,7 @@ public class ValueSetHtml extends BaseHtmlGenerator {
 			}
 		}
 		
-		result.appendChild(createDataColumn(new Text(code.getCode()), indentClass));
+		result.appendChild(createDataColumn(new Text(code.getCodeValue()), indentClass));
 		result.appendChild(createDataColumn(new Text("-"), ""));
 		result.appendChild(createDataColumn(new Text(code.getCodeSystem()), ""));
 		result.appendChild(createDataColumn(new Text("-"), ""));
