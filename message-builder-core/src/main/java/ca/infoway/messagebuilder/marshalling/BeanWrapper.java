@@ -37,9 +37,8 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -121,12 +120,12 @@ class BeanWrapper {
 			if (value.hasNullFlavor()) {
 				new DataTypeFieldHelper(property.getBean(), property.getName()).setNullFlavor(value.getNullFlavor());
 			}
-			if (value instanceof ANYImpl) {
+			if (field instanceof ANYMetaData && value instanceof ANYMetaData) {
 				// preserve any meta data (yes, this is not ideal)
-				((ANYImpl<?>) field).setLanguage(((ANYImpl<?>) value).getLanguage());
-				((ANYImpl<?>) field).setDisplayName(((ANYImpl<?>) value).getDisplayName());
-				((ANYImpl<?>) field).setOriginalText(((ANYImpl<?>) value).getOriginalText());
-				((ANYImpl<?>) field).getTranslations().addAll(((ANYImpl<?>) value).getTranslations());
+				((ANYMetaData) field).setLanguage(((ANYMetaData) value).getLanguage());
+				((ANYMetaData) field).setDisplayName(((ANYMetaData) value).getDisplayName());
+				((ANYMetaData) field).setOriginalText(((ANYMetaData) value).getOriginalText());
+				((ANYMetaData) field).getTranslations().addAll(((ANYMetaData) value).getTranslations());
 			}
 			((BareANYImpl) field).setBareValue(value.getBareValue());
 			field.setDataType(value.getDataType());

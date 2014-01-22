@@ -29,6 +29,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.ANY;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
@@ -90,10 +91,12 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				hl7Result.setDataType(parsedValue.getDataType());
 				
 				// preserve all metadata (yes, also not a great side effect); this will have to be adjusted whenever new metadata is added to a data type (extremely infrequently)
-				((ANYImpl<?>) hl7Result).setLanguage(((ANYImpl<?>) parsedValue).getLanguage());
-				((ANYImpl<?>) hl7Result).setDisplayName(((ANYImpl<?>) parsedValue).getDisplayName());
-				((ANYImpl<?>) hl7Result).setOriginalText(((ANYImpl<?>) parsedValue).getOriginalText());
-				((ANYImpl<?>) hl7Result).getTranslations().addAll(((ANYImpl<?>) parsedValue).getTranslations());
+				if (hl7Result instanceof ANYMetaData && parsedValue instanceof ANYMetaData) {
+					((ANYMetaData) hl7Result).setLanguage(((ANYMetaData) parsedValue).getLanguage());
+					((ANYMetaData) hl7Result).setDisplayName(((ANYMetaData) parsedValue).getDisplayName());
+					((ANYMetaData) hl7Result).setOriginalText(((ANYMetaData) parsedValue).getOriginalText());
+					((ANYMetaData) hl7Result).getTranslations().addAll(((ANYMetaData) parsedValue).getTranslations());
+				}
 			}
 		} else {
 			xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));

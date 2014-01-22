@@ -30,9 +30,10 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANY;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
@@ -141,15 +142,22 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     }
 
 	private CD convertAnyToCd(BareANY hl7Value) {
-		@SuppressWarnings("unchecked")
-		ANYImpl<Code> anyCd = (ANYImpl<Code>) hl7Value;
+		ANYMetaData anyCd = (ANYMetaData) hl7Value;
 		CD cd = new CDImpl();
 		if (anyCd != null) {
-			cd.setDataType(anyCd.getDataType());
+			if (hl7Value instanceof ANY<?>) {
+				@SuppressWarnings("unchecked")
+				ANY<Object> anyObj = (ANY<Object>) hl7Value;
+				if (anyObj.getValue() instanceof Code) { 
+					cd.setValue((Code) anyObj.getValue());
+				}
+			}
+			
+			cd.setDataType(hl7Value.getDataType());
+			cd.setNullFlavor(hl7Value.getNullFlavor());
+			
 			cd.setDisplayName(anyCd.getDisplayName());
-			cd.setNullFlavor(anyCd.getNullFlavor());
 			cd.setOriginalText(anyCd.getOriginalText());
-			cd.setValue(anyCd.getValue());
 			cd.getTranslations().addAll(anyCd.getTranslations());
 		}
 		return cd;

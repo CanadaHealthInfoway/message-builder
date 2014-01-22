@@ -29,17 +29,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
-import ca.infoway.messagebuilder.datatype.impl.URGImpl;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -58,12 +58,38 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	@Test
-	public void testBasic() throws Exception {
+	public void testUrg() throws Exception {
 		UncertainRange<PhysicalQuantity> urg = UncertainRangeFactory.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER));
-		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>(urg);
-		urgImpl.setDataType(StandardDataType.URG_PQ_BASIC);
+		ANYImpl<Object> urgImpl = new ANYImpl<Object>(urg, null, StandardDataType.URG_PQ_BASIC);
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null, false, SpecificationVersion.R02_04_02, null, null, null), urgImpl, 0);
 		assertXml("result", "<name specializationType=\"URG_PQ.BASIC\" xsi:type=\"URG_PQ\"><low unit=\"mm\" value=\"55\"/><high unit=\"mm\" value=\"60\"/></name>", result);
+		
+	}
+
+	@Test
+	public void testPq() throws Exception {
+		Object quantity = createQuantity("12", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.GRAM);
+		ANYImpl<Object> pqImpl = new ANYImpl<Object>(quantity, null, StandardDataType.PQ_BASIC);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		assertXml("result", "<name specializationType=\"PQ.BASIC\" unit=\"g\" value=\"12\" xsi:type=\"PQ\"/>", result);
+		
+	}
+
+	@Test
+	public void testTs() throws Exception {
+		Object time = DateUtil.getDate(2003, 2, 27); 
+		ANYImpl<Object> tsImpl = new ANYImpl<Object>(time, null, StandardDataType.TS_FULLDATE);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), tsImpl, 0);
+		assertXml("result", "<name specializationType=\"TS.FULLDATE\" value=\"20030327\" xsi:type=\"TS\"/>", result);
+		
+	}
+
+	@Test
+	public void testPn() throws Exception {
+		PersonName name = PersonName.createFirstNameLastName("John", "Smith");
+		ANYImpl<Object> pnImpl = new ANYImpl<Object>(name, null, StandardDataType.PN_BASIC);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pnImpl, 0);
+		assertXml("result", "<name specializationType=\"PN.BASIC\" use=\"L\" xsi:type=\"PN\"><given>John</given><family>Smith</family></name>", result);
 		
 	}
 
@@ -116,8 +142,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullCase() throws Exception {
-		URGImpl<PQ, PhysicalQuantity> urgImpl = new URGImpl<PQ, PhysicalQuantity>();
-		urgImpl.setDataType(StandardDataType.URG_PQ_BASIC);		
+		ANYImpl<Object> urgImpl = new ANYImpl<Object>(null, null, StandardDataType.URG_PQ_BASIC);
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null), 
 				urgImpl, 0);
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);

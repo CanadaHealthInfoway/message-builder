@@ -25,8 +25,8 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 
@@ -70,8 +70,7 @@ class CvPropertyFormatter extends AbstractCodePropertyFormatter {
             }
         }
         // TM - RM18203 - displayName allowed in CV for older CeRx releases (see validations)
-    	@SuppressWarnings("unchecked")
-		ANYImpl<Code> anyCv = (ANYImpl<Code>) bareAny;
+		ANYMetaData anyCv = (ANYMetaData) bareAny;
 		if (anyCv != null && StringUtils.isNotBlank(anyCv.getDisplayName())) {
             result.put("displayName", anyCv.getDisplayName());
     	}

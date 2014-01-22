@@ -25,9 +25,9 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -75,10 +75,9 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
         return buffer.toString();
 	}
 
-	@SuppressWarnings("unchecked")
 	private String getLanguage(BareANY dataType) {
-		 // could be an ANY; need to be careful extracting metadata
-		return ((ANYImpl<String>) dataType).getLanguage();
+		 // could be an ANY; need to be careful extracting metadata 
+		return ((ANYMetaData) dataType).getLanguage();
 	}
 
 	private void validate(StringBuffer buffer, int indentLevel, FormatContext context, boolean isStLang, BareANY dataType) {

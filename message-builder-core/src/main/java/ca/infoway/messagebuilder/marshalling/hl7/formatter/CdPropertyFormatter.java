@@ -26,9 +26,9 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -56,8 +56,7 @@ class CdPropertyFormatter extends AbstractCodePropertyFormatter {
             if (StringUtils.isNotBlank(code.getCodeSystem())) {
                 result.put("codeSystem", code.getCodeSystem());
             }
-        	@SuppressWarnings("unchecked")
-			ANYImpl<Code> anyCd = (ANYImpl<Code>) bareAny;
+			ANYMetaData anyCd = (ANYMetaData) bareAny;
 			if (StringUtils.isNotBlank(anyCd.getDisplayName())) {
                 result.put("displayName", anyCd.getDisplayName());
         	}

@@ -20,16 +20,16 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -97,7 +97,7 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		String result = super.format(context, hl7Value, indentLevel);
 		
 		if (hl7Value != null) {
-			String originalText = ((ANYImpl<?>) hl7Value).getOriginalText();
+			String originalText = ((ANYMetaData) hl7Value).getOriginalText();
 			
 			boolean hasNullFlavor = hl7Value.hasNullFlavor();
 			boolean hasAnyValues = hasAnyValues(hl7Value);
