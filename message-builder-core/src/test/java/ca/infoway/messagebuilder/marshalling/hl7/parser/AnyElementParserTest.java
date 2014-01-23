@@ -33,6 +33,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
@@ -266,14 +267,14 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(cdAny.getBareValue());
 		assertTrue(cdAny.getBareValue() instanceof Code);
 		
-		@SuppressWarnings("unchecked")
-		ANYImpl<Code> cd = (ANYImpl<Code>) cdAny;
+        Code value = (Code) cdAny.getBareValue();
+		assertNotNull("main enum found", value);
+		assertEquals("main code", "BARNEY", value.getCodeValue());
 		
-		assertNotNull("main enum found", cd.getValue());
+		ANYMetaData cd = (ANYMetaData) cdAny;
 		assertFalse("translation enums found", cd.getTranslations().isEmpty());
 		assertTrue("translation enums found", cd.getTranslations().size() == 4);
 		assertEquals("error message count", 0, this.xmlResult.getHl7Errors().size());
-		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
 		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
 		assertEquals("translation", "WILMA", cd.getTranslations().get(1).getValue().getCodeValue());
 		assertEquals("translation", "BETTY", cd.getTranslations().get(2).getValue().getCodeValue());
