@@ -122,7 +122,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
         
         Node node = createNode("<something code=\"FRED\" codeSystem=\"1.2.3.4.5\" displayName=\"some text\" codeSystemName=\"cs name\" codeSystemVersion=\"cs version\">text value</something>");
         
-		CodedString<MockCharacters> result = (CodedString<MockCharacters>) new ScElementParser().parse(
+		CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(
         		context, 
         		node, 
         		this.xmlResult).getBareValue();
