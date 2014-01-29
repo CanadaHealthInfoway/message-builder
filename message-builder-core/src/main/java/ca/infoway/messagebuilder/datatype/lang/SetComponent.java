@@ -113,8 +113,8 @@ public class SetComponent<T> {
     }
     
     private boolean equals(SetComponent<T> that) {
-        return new EqualsBuilder().appendSuper(super.equals(that))
-                .append(this.value, that.value)
+        return new EqualsBuilder()
+        		.append(this.value, that.value)
                 .append(this.operator, that.operator)
                 .isEquals();
     }
