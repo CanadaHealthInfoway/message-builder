@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.5.0
+                               Version 1.5.6
                                Release Notes
 
 INTRODUCTION:
@@ -59,6 +59,30 @@ messagebuilder.simplexml.resturl
 messagebuilder.simplexml.transportclass
  - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+CHANGES for 1.5.6:
+=======================
+
+16697 [DB RESOLVER] Provide a code demo for the new DB Resolver changes, utilizing an in-memory database
+17048 BC: Parsing issue with HL7 sensitivityObservationEvent
+17316 Store the release Realm Code and Descriptive Name in a MessageSet
+17371 [.NET] manual translation required for VocabularyDomain.getTypeAsClasses()
+17372 [.NET] implement Database Resolver registration utility in .NET
+17421 Validation errors with no xpath
+17477 Assigning different colors and adding CSS class for the vocab SVG diagrams
+17511 Invalid Concept Domains are defined in Message Set
+17524 Remove Java class assignment from Message Set
+18049 Capture concept status from MIF to Message Set
+18194 [BC] Add alias for ST.CA
+18195 [BC] Add alias for CS.CA
+18196 [BC] Add alias for CV.CA
+18197 [BC] implement ANY.x1 and ANY.x2
+18198 [BC] create new datatype TS.FULLDATEPARTTIME
+18201 [BC] Implement a cross-release approach to datatype validations
+18202 [BC] New dataype SC - and alias, SC.CA
+18203 [BC] add displayName to CV/CV.CA
+18531 [.NET] datatypes are not implementing Equals() correctly
 
 
 CHANGES for 1.5.0:
