@@ -25,7 +25,6 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.Argument;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
