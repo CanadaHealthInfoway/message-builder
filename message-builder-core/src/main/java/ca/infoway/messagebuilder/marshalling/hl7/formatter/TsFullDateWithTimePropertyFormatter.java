@@ -51,8 +51,10 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 	@Override
 	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
 		StandardDataType specializationType = hl7Value.getDataType();
+		
+		boolean valueOmitted = hl7Value.hasNullFlavor() && hl7Value.getBareValue() == null;
 
-		validateSpecializationType(specializationType, context);
+		validateSpecializationType(specializationType, valueOmitted, context);
 		
 		PropertyFormatter formatter = fullDateTimeFormatter;
 		String formatterSpecializationType = StandardDataType.TS_FULLDATETIME.getType();
@@ -77,10 +79,13 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 				indentLevel);
 	}
 
-	private void validateSpecializationType(StandardDataType specializationType, FormatContext context) {
+	private void validateSpecializationType(StandardDataType specializationType, boolean valueOmitted, FormatContext context) {
 		if (specializationType == StandardDataType.TS || specializationType == null) {
 			if (Boolean.valueOf(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
 				// user has specified that this validation error should be suppressed
+			} else if (valueOmitted) {
+				// RM16399 - there are some cases where it is valid to omit a specialization type (such as when not providing a TS value)
+				// do nothing; other potential errors will be caught by the default concrete TS formatter 
 			} else {
 				context.getModelToXmlResult().addHl7Error(
 						new Hl7Error(

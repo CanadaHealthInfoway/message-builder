@@ -30,8 +30,10 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class TsFullDateWithTimePropertyFormatterTest {
 
@@ -91,4 +93,16 @@ public class TsFullDateWithTimePropertyFormatterTest {
 		assertTrue(xmlOutput.trim().startsWith("<tsValue specializationType=\"TS.FULLDATETIME\" value=\"19990423010203.0000"));
 		assertTrue(xmlOutput.trim().endsWith("\" xsi:type=\"TS\"/>"));
 	}
+	
+	@Test
+	public void shouldProduceResultWithNoErrorsWhenNullFlavorSupplied() {
+		// writing test based on RM16399
+		ModelToXmlResult result = new ModelToXmlResult();
+		TS ts = new TSImpl(NullFlavor.ASKED_BUT_UNKNOWN);
+		FormatContext context = new FormatContextImpl(result, null, "tsValue", "TS.FULLDATEWITHTIME", ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		String xmlOutput = this.formatter.format(context, ts);
+		assertTrue(result.isValid());
+		assertEquals("<tsValue nullFlavor=\"ASKU\"/>", xmlOutput.trim());
+	}
+	
 }
