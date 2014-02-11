@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.terminology.codeset.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -40,6 +39,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.Describable;
+import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeResolver;
 
 /**
  * An identifier for a business concept that is used in a
@@ -52,6 +52,8 @@ import ca.infoway.messagebuilder.Describable;
 	    uniqueConstraints = {@UniqueConstraint(columnNames={"type"})}
 		)
 public class VocabularyDomain implements Describable {
+	
+	private static DomainTypeResolver domainTypeResolver = new DomainTypeResolver();
 
 	private Long id;	
 	private String type;
@@ -111,27 +113,7 @@ public class VocabularyDomain implements Describable {
 	 */
 	@Transient
 	public List<Class<?>> getTypeAsClasses() {
-		List<Class<?>> classList = new ArrayList<Class<?>>();
-		try {
-			Class<?> class1 = Class.forName("ca.infoway.messagebuilder.domainvalue." + getType());
-			classList.add(class1);
-		} catch (ClassNotFoundException e) {
-			// try to locate interfaces within MB generated API domainvalue packages
-			// (this likely will have translation issues; also, this requires the given domainvalue package to already be in the classloader)
-			Package[] packages = Package.getPackages();
-			for (Package package1 : packages) {
-				if (package1.getName().startsWith("ca.infoway.messagebuilder.") 
-						&& package1.getName().endsWith(".domainvalue")) {
-					try {
-						Class<?> class2 = Class.forName(package1.getName() + "." + getType());
-						classList.add(class2);
-					} catch (ClassNotFoundException e1) {
-						// do nothing
-					}
-				}
-			}
-		}
-		return classList;
+		return domainTypeResolver.resolveDomainType(getType());
 	}
 	
 	/**

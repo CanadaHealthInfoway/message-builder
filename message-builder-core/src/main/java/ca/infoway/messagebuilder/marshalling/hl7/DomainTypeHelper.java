@@ -25,7 +25,6 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.OtherIDsRoleCode;
 import ca.infoway.messagebuilder.domainvalue.OtherIdentifierRoleType;
@@ -33,6 +32,8 @@ import ca.infoway.messagebuilder.marshalling.MessageBeanRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class DomainTypeHelper {
+	
+	private static DomainTypeResolver domainTypeResolver = new DomainTypeResolver();
 
 	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version) {
 		return getReturnType(relationship.getDomainType(), version);
@@ -51,7 +52,7 @@ public class DomainTypeHelper {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static Class<? extends Code> getReturnType(String domainType) {
+	private static Class<Code> getReturnType(String domainType) {
 		String sanitizedDomainType = sanitize(domainType);
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(sanitizedDomainType)) {
 			sanitizedDomainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
@@ -59,12 +60,12 @@ public class DomainTypeHelper {
 			sanitizedDomainType = ClassUtils.getShortClassName(OtherIdentifierRoleType.class);
 		}
 		if (StringUtils.isNotBlank(sanitizedDomainType)) {
-			try {
-				// FIXME - RM 18323 - TM - this does not look like it will work with release-specific domains?
-				return (Class<? extends Code>) Class.forName(ClassUtils.getPackageName(ActCode.class) + "." + sanitizedDomainType);
-			} catch (ClassNotFoundException e) {
+			Class<?> result = domainTypeResolver.resolveDomainTypeUniquely(sanitizedDomainType);
+			if (result == null) {
 				return Code.class;
 			}
+			// TM - this code may not run properly in .NET
+			return (Class<Code>) result;
 		} else {
 			return null;
 		}
