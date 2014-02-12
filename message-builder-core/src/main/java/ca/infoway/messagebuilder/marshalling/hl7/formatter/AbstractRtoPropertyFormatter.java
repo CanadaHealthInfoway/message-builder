@@ -32,7 +32,8 @@ public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFla
     String formatNonNullValue(FormatContext context, BareRatio value, int indentLevel) {
         
         StringBuffer buffer = new StringBuffer();
-        buffer.append(createElement(context.getElementName(), null, indentLevel, false, true));
+        buffer.append(createElement(context, null, indentLevel, false, true));
+//        buffer.append(createElement(context.getElementName(), null, indentLevel, false, true));
 
         T bareNumerator = (T) value.getBareNumerator();
         U bareDenominator = (U) value.getBareDenominator();

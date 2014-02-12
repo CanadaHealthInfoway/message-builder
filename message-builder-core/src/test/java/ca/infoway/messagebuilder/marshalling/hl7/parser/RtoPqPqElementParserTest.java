@@ -68,7 +68,7 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
-		Node node = createNode("<something><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
+		Node node = createNode("<something xsi:type=\"RTO_PQ_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
         Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) new RtoPqPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("ratio", ratio);
         assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getQuantity());

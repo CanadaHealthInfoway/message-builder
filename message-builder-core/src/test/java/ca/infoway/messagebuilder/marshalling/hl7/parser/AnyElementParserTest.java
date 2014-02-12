@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
+import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -39,6 +41,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
@@ -68,6 +71,26 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("centre", new BigDecimal("345.0"), range.getCentre().getQuantity());
 		assertEquals("width", new BigDecimal("444"), range.getWidth().getValue().getQuantity());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testParseAnyAsRtoPqPq() throws Exception {
+		// only ANY (i.e. no ANY sub-variants) supports RTO
+		// note that this test is not correct in the way it specifies ST and XT
+		Node node = createNode("<something specializationType=\"RTO_PQ.DRUG_PQ.DRUG\" xsi:type=\"RTO_PQ_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
+		ParseContext context = ParserContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null);
+		
+		Object anyResult = new AnyElementParser().parse(context, node, this.xmlResult).getBareValue();
+		
+		assertTrue(this.xmlResult.isValid());
+        Ratio<PhysicalQuantity, PhysicalQuantity> ratio = (Ratio<PhysicalQuantity, PhysicalQuantity>) anyResult;
+        
+        assertNotNull("ratio", ratio);
+        assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getQuantity());
+        assertEquals("numerator unit", MILLIGRAM.getCodeValue(), ratio.getNumerator().getUnit().getCodeValue());
+        assertEquals("denominator", new BigDecimal("2345.67"), ratio.getDenominator().getQuantity());
+        assertEquals("denominator unit", MILLILITRE.getCodeValue(), ratio.getDenominator().getUnit().getCodeValue());
 	}
 	
 	@SuppressWarnings("unchecked")

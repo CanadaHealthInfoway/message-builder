@@ -147,6 +147,16 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	private String obtainSpecializationType(String parentType, Node node, XmlToModelResult xmlToModelResult) {
 		String rawSpecializationType = getSpecializationType(node);
 		
+		// RTO (numerator, denominator), IVL/URG (high, low, center, width) should have further specifications in their sub-nodes
+		// for non-ANY cases of the above, the MIF/message set itself would clearly indicate the proper type and subtypes (i.e. RTO<PQ.DRUG, PQ.TIME>
+		// however, in an ANY case we should really try to pull out the relevant information
+		
+		// what we *should* be doing when parsing ST and XT (and similarly for when we render xml):
+		// 1) get ST; if no ST, get XT
+		// 2) obtain first child node ST; if no ST, get XT
+		// 3) (RTO only) obtain second child node ST; if no ST, get XT
+		// 4) merge 1/2/3 and, possibly, convert special characters, in order to obtain a "true" MB datatype
+		
 		if (StringUtils.isBlank(rawSpecializationType)) {
 			
 			// some cases don't need specialization type. Treat xsi:type as specializationType (internally)
@@ -168,7 +178,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 					// the "true" specialization type, in this case, is found by combining the xsi type with the inner specialization type
 					int xsiTypeIndex = xsiType.indexOf("_");
 					xsiType = (xsiTypeIndex >= 0 ? xsiType.substring(0, xsiTypeIndex) : xsiType);
-					rawSpecializationType = xsiType + "_" + innerSpecializationType;;
+					rawSpecializationType = xsiType + "_" + innerSpecializationType;
 				} else {
 					rawSpecializationType = xsiType;
 				}

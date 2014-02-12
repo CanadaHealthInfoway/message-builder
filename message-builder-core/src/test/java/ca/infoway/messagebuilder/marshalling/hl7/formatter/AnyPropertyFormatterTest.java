@@ -111,8 +111,8 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		ANYImpl<Object> rtoImpl = new ANYImpl<Object>(ratio, null, StandardDataType.RTO_PQ_DRUG_PQ_DRUG);
 		
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), rtoImpl, 0);
-		// FIXME: TM - this is not quite right - I believe the "name" element should have an xsi:type set to RTO_PQ_PQ
-		assertXml("result", "<name><numerator specializationType=\"PQ.DRUG\" unit=\"cm\" value=\"1\" xsi:type=\"PQ\"/><denominator specializationType=\"PQ.DRUG\" unit=\"m\" value=\"2\" xsi:type=\"PQ\"/></name>", result);
+		// FIXME: TM - this is not quite right - I believe the specializationType should be omitted (though should check if it is ok as is)
+		assertXml("result", "<name specializationType=\"RTO_PQ.DRUG_PQ.DRUG\" xsi:type=\"RTO_PQ_PQ\"><numerator specializationType=\"PQ.DRUG\" unit=\"cm\" value=\"1\" xsi:type=\"PQ\"/><denominator specializationType=\"PQ.DRUG\" unit=\"m\" value=\"2\" xsi:type=\"PQ\"/></name>", result);
 	}
 
 	@Test
