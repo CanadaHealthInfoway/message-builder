@@ -138,8 +138,15 @@ class Hl7SourceMapper {
 	    	} else {
 	    		writeAssociation(bean, source, nodes, relationship, traversalName);
 	    	}
-    	} catch (XmlToModelTransformationException e) {
-    		throw new MarshallingException(e);
+    	} catch (MarshallingException e) {
+    		// RM18422 - log an error rather than throwing an exception up the chain
+    		// this is a "known" exception that has been handled to some extent
+        	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
+			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), element));
+    	} catch (Exception e) {
+    		// RM18422 - unexpected (and thus unhandled) exception; still, likely best to log it rather than kill entire process
+        	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
+			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Unexpected error: " + e.getMessage(), element));
     	}
 	}
 

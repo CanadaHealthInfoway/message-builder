@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
@@ -96,7 +95,8 @@ class StElementParser extends AbstractSingleElementParser<String> {
             
         } else if (childNodeCount == 1) {
             Node childNode = node.getFirstChild();
-            if (childNode.getNodeType() != Node.TEXT_NODE) {
+            if (childNode.getNodeType() != Node.TEXT_NODE && childNode.getNodeType() != Node.CDATA_SECTION_NODE) {
+            	// RM18422 - decided to allow for CDATA section within ST datatypes (other datatypes - AD, ON, PN, SC, TN - still restrict to TEXT only)
                 throw new XmlToModelTransformationException("Expected ST node to have a text node");
             }
             result = childNode.getNodeValue();
