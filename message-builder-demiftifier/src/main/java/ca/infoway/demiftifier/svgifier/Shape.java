@@ -26,6 +26,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.demiftifier.LayoutItem;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public abstract class Shape extends BasicShape {
@@ -114,7 +115,21 @@ public abstract class Shape extends BasicShape {
 			}
 			result.addSegment(" " + renderCardinality(attribute.getCardinality()), this.styleProvider.getDefaultAttributeTextFont());
 			if (attribute.isCodedType() && StringUtils.isNotBlank(attribute.getDomainType())) {
-				result.addSegment(" <= " + attribute.getDomainType(), this.styleProvider.getDefaultItalicAttributeTextFont());
+				String indicator = " < "; //no default or fixed value
+				if (StringUtils.isNotBlank(attribute.getFixedValue())) {
+					indicator = " = ";
+				} else if (StringUtils.isNotBlank(attribute.getDefaultValue())) {
+					indicator = " <= ";
+				} 
+				String domainSourcePrefix = "";
+				if (attribute.getDomainSource().equals(DomainSource.CONCEPT_DOMAIN)) {
+					domainSourcePrefix = "D:";
+				} else if (attribute.getDomainSource().equals(DomainSource.VALUE_SET)) {
+					domainSourcePrefix = "V:";
+				} else if (attribute.getDomainSource().equals(DomainSource.CODE_SYSTEM)) {
+					domainSourcePrefix = "C:";
+				}
+				result.addSegment(indicator + domainSourcePrefix + attribute.getDomainType(), this.styleProvider.getDefaultItalicAttributeTextFont());
 			}
 			if (attribute.getDocumentation() != null && StringUtils.isNotEmpty(attribute.getDocumentation().getBusinessName())) {
 				result.addSegment(" (" + attribute.getDocumentation().getBusinessName() + ")", this.styleProvider.getDefaultAttributeTextFont());
