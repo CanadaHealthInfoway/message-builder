@@ -50,17 +50,24 @@ class EnPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityName
     @Override
     String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) {
     	
+    	// this code is delegating to the appropriate formatter based on the type of the
+    	// object set as the value; specializationType needs to also be set, but we can infer it
+    	// (note that this is a bit different from how other formatters treat abstract types)
+    	
         if (value == null || value.getClass().isAssignableFrom(TrivialName.class)) {
+        	context = new FormatContextImpl("TN", true, context);
             return this.tnPropertyFormatter.format(context, new TNImpl((TrivialName) value), indentLevel);
 
         } else if (value.getClass().isAssignableFrom(PersonName.class)){
+        	context = new FormatContextImpl("PN", true, context);
             return this.pnPropertyFormatter.format(context, new PNImpl((PersonName) value), indentLevel);
 
         } else if (value.getClass().isAssignableFrom(OrganizationName.class)){
+        	context = new FormatContextImpl("ON", true, context);
             return this.onPropertyFormatter.format(context, new ONImpl((OrganizationName) value), indentLevel);
 
         } else {
-            throw new IllegalArgumentException("Can not handle values of type " + value.getClass());
+            throw new IllegalArgumentException("EN can not handle values of type " + value.getClass());
         }
     }
 }

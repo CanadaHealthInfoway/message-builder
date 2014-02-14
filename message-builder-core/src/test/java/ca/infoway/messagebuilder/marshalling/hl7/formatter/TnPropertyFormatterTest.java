@@ -58,7 +58,7 @@ public class TnPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
     public void testFormatNameUses() throws Exception {
-        EnPropertyFormatter formatter = new EnPropertyFormatter();
+        TnPropertyFormatter formatter = new TnPropertyFormatter();
         
         EntityName name = new TrivialName("something");
         name.addUse(EntityNameUse.ALPHABETIC);
