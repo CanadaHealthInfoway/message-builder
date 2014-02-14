@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class EnElementParserTest extends MarshallingTestCase {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\" />");
@@ -67,11 +68,51 @@ public class EnElementParserTest extends MarshallingTestCase {
 	}
 
 	@Test
-    public void testParseTrivialName() throws Exception {
+    public void testParseTrivialNameNoSpecializationType() throws Exception {
         Node node = createNode(
                   "<something>trivial name</something>");
         
         EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertEquals(2, this.xmlResult.getHl7Errors().size());
+        assertNotNull("entity name", entityName);
+        assertEquals("number of name parts", 1, entityName.getParts().size());
+        assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
+        assertTrue("returned class", entityName instanceof TrivialName);
+    }
+
+	@Test
+    public void testParseTrivialNameWithSpecializationTypeAndXsiType() throws Exception {
+        Node node = createNode(
+                  "<something specializationType=\"TN\" xsi:type=\"TN\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">trivial name</something>");
+        
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertTrue(this.xmlResult.isValid());
+        assertNotNull("entity name", entityName);
+        assertEquals("number of name parts", 1, entityName.getParts().size());
+        assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
+        assertTrue("returned class", entityName instanceof TrivialName);
+    }
+
+	@Test
+    public void testParseTrivialNameWithSpecializationType() throws Exception {
+        Node node = createNode(
+                  "<something specializationType=\"TN\">trivial name</something>");
+        
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertTrue(this.xmlResult.isValid());
+        assertNotNull("entity name", entityName);
+        assertEquals("number of name parts", 1, entityName.getParts().size());
+        assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
+        assertTrue("returned class", entityName instanceof TrivialName);
+    }
+
+	@Test
+    public void testParseTrivialNameWithXsiType() throws Exception {
+        Node node = createNode(
+                  "<something xsi:type=\"TN\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">trivial name</something>");
+        
+        EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertTrue(this.xmlResult.isValid());
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 1, entityName.getParts().size());
         assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
@@ -81,9 +122,10 @@ public class EnElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseOrganizationName() throws Exception {
         Node node = createNode(
-                  "<something>trivial name<suffix>Inc</suffix></something>");
+                  "<something specializationType=\"ON\">trivial name<suffix>Inc</suffix></something>");
         
         EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertTrue(this.xmlResult.isValid());
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 2, entityName.getParts().size());
         assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
@@ -92,11 +134,12 @@ public class EnElementParserTest extends MarshallingTestCase {
     }
 
 	@Test
-    public void testParsePersonName() throws Exception {
+    public void testParsePersonNameWithoutSpecializationType() throws Exception {
         Node node = createNode(
                   "<something><given>Steve</given><family>Shaw</family><suffix>Inc</suffix></something>");
         
         EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
+        assertEquals(3, this.xmlResult.getHl7Errors().size());  // 2 for parser, 1 for missing "use"
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 3, entityName.getParts().size());
         assertNamePartAsExpected("given", entityName.getParts().get(0), PersonNamePartType.GIVEN, "Steve");
