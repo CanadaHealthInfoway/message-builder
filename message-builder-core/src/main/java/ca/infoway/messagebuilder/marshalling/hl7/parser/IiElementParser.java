@@ -215,7 +215,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
     				recordError(iiValidationUtils.getInvalidOrMissingSpecializationTypeErrorMessage(specializationType), element, xmlToModelResult);
     			}
     		}
-    	} else if (isSpecializationTypeProvided(specializationType)) {
+    	} else if (isSpecializationTypeProvided(specializationType) && !StringUtils.equals(typeFromContext, specializationType)) {
 			recordError(iiValidationUtils.getShouldNotProvideSpecializationTypeErrorMessage(typeFromContext), element, xmlToModelResult);
     	}
 		return typeFromContext;

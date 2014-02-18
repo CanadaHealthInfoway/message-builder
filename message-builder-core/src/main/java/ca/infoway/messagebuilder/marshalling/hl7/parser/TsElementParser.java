@@ -80,7 +80,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
 			//    - (update: perhaps the real issue is that this was an IVL<TS.FULLDATEWITHTIME> and MB has a bug where inner types can't have specializationType set??)
 			// TM - 16/10/2012 - should be able to set specialization type now (need to specify IVL_FULL_DATE_TIME as the specialization type for IVL<TS.FULLDATEWITHTIME>, for example)
-			//                 - in a cowardly move, I have allowed for a system property to bypass this error
+			//                 - in a cowardly move, I have allowed for a system property to bypass this validation error
 			
 			if (Boolean.valueOf(System.getProperty(ABSTRACT_TS_IGNORE_SPECIALIZATION_TYPE_ERROR_PROPERTY_NAME))) {
 				// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME

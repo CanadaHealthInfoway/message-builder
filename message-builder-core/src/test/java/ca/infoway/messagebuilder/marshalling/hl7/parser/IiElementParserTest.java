@@ -441,6 +441,24 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("exceeds maximum allowed length"));
 	}
 	
+	@Test
+	public void testParseValidIiBusWithSuperfluousSpecializationType() throws Exception {
+		Node node = createNode("<something root=\"11.22.33\" specializationType=\"II.BUS\" extension=\"extensionValue\" use=\"BUS\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II.BUS", SpecificationVersion.R02_04_02), node, this.result);
+		assertResultAsExpected(ii.getValue(), "11.22.33", "extensionValue");
+		assertTrue(this.result.isValid());
+	}
+	
+	@Test
+	public void testParseValidIiBusWithIncorrectSuperfluousSpecializationType() throws Exception {
+		Node node = createNode("<something root=\"11.22.33\" specializationType=\"II.VER\" extension=\"extensionValue\" use=\"BUS\" />");
+		II ii = (II) new IiElementParser().parse(createContext("II.BUS", SpecificationVersion.R02_04_02), node, this.result);
+		assertResultAsExpected(ii.getValue(), "11.22.33", "extensionValue");
+		assertFalse(this.result.isValid());
+		assertEquals(1, this.result.getHl7Errors().size());
+		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("A specializationType should not be specified for non-abstract type: II.BUS"));
+	}
+	
 	private void assertResultAsExpected(Identifier result, String rootValue, String extensionValue) {
 		assertNotNull("populated result returned", result);
 		
