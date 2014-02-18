@@ -289,17 +289,6 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseSpecializationTypeProvidedWhenNotNecessary() throws Exception {
-		Node node = createNode("<something root=\"1.3.1.2\" extension=\"extensionValue\" use=\"BUS\" specializationType=\"II.BUS\" />");
-		II ii = (II) new IiElementParser().parse(createContext("II.BUS"), node, this.result);
-		assertResultAsExpected(ii.getValue(), "1.3.1.2", "extensionValue");
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals(Hl7ErrorCode.DATA_TYPE_ERROR, this.result.getHl7Errors().get(0).getHl7ErrorCode());
-		assertTrue(this.result.getHl7Errors().get(0).getMessage().contains("A specializationType should not be specified for non-abstract type: II.BUS"));
-	}
-	
-	@Test
 	public void testParseValidMissingSpecializationTypeForCeRx() throws Exception {
 		Node node = createNode("<something root=\"1.2.3.4\" extension=\"extensionValue\" />");
 		ParseContext context = createContext("II", SpecificationVersion.V01R04_3);
