@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
+import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -64,8 +65,28 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	}
 
 	@Override
+	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		// if we have any specialization type (even with a NF), delegate control to a subparser
+		// otherwise, let the ANY parser handle this
+		String parentType = context == null ? null : context.getType();
+		String specializationType = obtainSpecializationType(parentType, node, xmlToModelResult);
+		boolean hasSpecializationType = StringUtils.isNotBlank(specializationType);
+		if (hasSpecializationType) {
+			BareANY result = createDataTypeInstance(context != null ? getType(context) : null);
+            Object value = delegateToConcreteParser(context, node, result, xmlToModelResult);
+            ((BareANYImpl) result).setBareValue(value);
+            return result;
+		} 
+		return super.parse(context, node, xmlToModelResult);
+	}
+	
+	@Override
 	protected Object parseNonNullNode(ParseContext context, Node node, BareANY hl7Result, Type returnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
+		return delegateToConcreteParser(context, node, hl7Result, xmlToModelResult);
+	}
+
+	private Object delegateToConcreteParser(ParseContext context, Node node, BareANY hl7Result, XmlToModelResult xmlToModelResult) {
 		Object result = null;
 		String parentType = context == null ? null : context.getType();
 		String specializationType = obtainSpecializationType(parentType, node, xmlToModelResult);
@@ -89,6 +110,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 
 				// Yes, this is a side effect of calling this method. If we don't do this then the actual type of the ANY.LAB (i.e. PQ.LAB) is lost.
 				hl7Result.setDataType(parsedValue.getDataType());
+				hl7Result.setNullFlavor(parsedValue.getNullFlavor());
 				
 				// preserve all metadata (yes, also not a great side effect); this will have to be adjusted whenever new metadata is added to a data type (extremely infrequently)
 				if (hl7Result instanceof ANYMetaData && parsedValue instanceof ANYMetaData) {

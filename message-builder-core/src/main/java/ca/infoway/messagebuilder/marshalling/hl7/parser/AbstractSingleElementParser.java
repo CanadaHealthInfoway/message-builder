@@ -79,7 +79,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 
 	protected abstract V parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
 
-	private BareANY createDataTypeInstance(String typeName) {
+	protected BareANY createDataTypeInstance(String typeName) {
 		BareANY dataTypeInstance = doCreateDataTypeInstance(typeName);
 		setDataType(typeName, dataTypeInstance);
 		return dataTypeInstance;
@@ -194,7 +194,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 			|| (child instanceof Element);
 	}
 	
-	private String getType(ParseContext context) {
+	protected String getType(ParseContext context) {
 		return context == null ? "" : context.getType();
 	}
 	

@@ -68,12 +68,6 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		
 		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
 
-		// validation of OT done in overridden parse() method
-		if (hasOriginalText(element)) {
-			String originalText = getOriginalText(element);
-			((PQ) result).setOriginalText(originalText);
-		}
-		
 		PhysicalQuantity physicalQuantity = (value != null) ? new PhysicalQuantity(value, unit) : null;
 		
         // this is not the usual way of doing things; this is to make validation easier
@@ -84,16 +78,21 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	
 	@Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		BareANY results = super.parse(context, node, xmlToModelResult);
+		BareANY result = super.parse(context, node, xmlToModelResult);
 		
 		Element element = (Element) node;
-		
+
+		// validation of OT done a bit later below
 		String originalText = getOriginalText(element);
+		if (hasOriginalText(element)) {
+			((PQ) result).setOriginalText(originalText);
+		}
+		
 		boolean hasValues = hasAnyValues(element);
 		boolean hasNullFlavor = hasValidNullFlavorAttribute(context, node, xmlToModelResult);
 		this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasValues, hasNullFlavor, element, null, xmlToModelResult);
 		
-		return results;
+		return result;
 	}
 	
 	private boolean hasAnyValues(Element element) {

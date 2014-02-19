@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -304,4 +305,44 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("translation", "BAM_BAM", cd.getTranslations().get(3).getValue().getCodeValue());
 	}
 	
+	@Test
+	public void testParseCdWithNullFlavorAndMetaData() throws Exception {
+		Node node = createNode("<something nullFlavor=\"UNK\" specializationType=\"CD.LAB\">" +
+				"<originalText>some original text</originalText>" +
+				"</something>");
+		
+		BareANY cdAny = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null), 
+				node, this.xmlResult);
+
+		assertTrue(this.xmlResult.isValid());
+		assertNull(cdAny.getBareValue());
+		assertEquals(NullFlavor.UNKNOWN, cdAny.getNullFlavor());
+		
+		ANYMetaData cd = (ANYMetaData) cdAny;
+		assertEquals("some original text", cd.getOriginalText());
+	}
+	
+	@Test
+	public void testParsePqLabWithNullFlavorAndMetaData() throws Exception {
+		Node node = createNode("<something nullFlavor=\"ASKU\" specializationType=\"PQ.LAB\">" +
+				"<originalText>some more original text</originalText>" +
+				"</something>");
+		
+		BareANY pqAny = new AnyElementParser().parse(
+				ParserContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_03, null, null, ConformanceLevel.POPULATED, null), 
+				node, this.xmlResult);
+
+		assertTrue(this.xmlResult.isValid());
+		assertNull(pqAny.getBareValue());
+		assertEquals(NullFlavor.ASKED_BUT_UNKNOWN, pqAny.getNullFlavor());
+		
+		ANYMetaData pq = (ANYMetaData) pqAny;
+		assertEquals("some more original text", pq.getOriginalText());
+	}
+	
+	@Test
+	public void testParsePqLabWithNullFlavor() throws Exception {
+		
+	}
 }
