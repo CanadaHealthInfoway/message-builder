@@ -141,6 +141,16 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	}
 
 	@Test
+	public void testPqLabWithNullFlavorAndMetadata() throws Exception {
+		ANYImpl<Object> pqImpl = new ANYImpl<Object>(null, NullFlavor.UNKNOWN, StandardDataType.PQ_LAB);
+		pqImpl.setOriginalText("orig text");
+		
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"PQ.LAB\" xsi:type=\"PQ\"><originalText>orig text</originalText></name>", result);
+		assertTrue(this.result.isValid());
+	}
+
+	@Test
 	public void testNullCase() throws Exception {
 		ANYImpl<Object> urgImpl = new ANYImpl<Object>(null, null, StandardDataType.URG_PQ_BASIC);
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null), 

@@ -55,7 +55,8 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     public abstract String format(FormatContext formatContext, BareANY dataType, int indentLevel);
 
     protected String createElement(FormatContext context, Map<String, String> attributes, int indentLevel, boolean close, boolean lineBreak) {
-    	if (!isNullFlavor(attributes) || isCodedType(context)) {
+    	// RM18070 - include (if required) ST/XT attributes for PQ.LAB as well (which can contain meta data even with a NF)
+    	if (!isNullFlavor(attributes) || isCodedType(context) || isPqLab(context)) {
     		if (attributes == null) {
     			attributes = new HashMap<String, String>();
     		}
@@ -69,6 +70,13 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     	return createElement(context.getElementName(), attributes, indentLevel, close, lineBreak); 
     }
     
+	private boolean isPqLab(FormatContext context) {
+		if (context != null && context.getType() != null) {
+			return StandardDataType.PQ_LAB.getType().equals(context.getType());
+		}
+		return false;
+	}
+
 	private boolean isCodedType(FormatContext context) {
 		if (context != null && context.getType() != null) {
 			StandardDataType dataType = StandardDataType.getByTypeName(context);
