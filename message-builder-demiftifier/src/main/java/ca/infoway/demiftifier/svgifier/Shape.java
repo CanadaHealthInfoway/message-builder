@@ -122,12 +122,14 @@ public abstract class Shape extends BasicShape {
 					indicator = " <= ";
 				} 
 				String domainSourcePrefix = "";
-				if (attribute.getDomainSource().equals(DomainSource.CONCEPT_DOMAIN)) {
-					domainSourcePrefix = "D:";
-				} else if (attribute.getDomainSource().equals(DomainSource.VALUE_SET)) {
-					domainSourcePrefix = "V:";
-				} else if (attribute.getDomainSource().equals(DomainSource.CODE_SYSTEM)) {
-					domainSourcePrefix = "C:";
+				if (attribute.getDomainSource() != null) {
+					if (attribute.getDomainSource().equals(DomainSource.CONCEPT_DOMAIN)) {
+						domainSourcePrefix = "D:";
+					} else if (attribute.getDomainSource().equals(DomainSource.VALUE_SET)) {
+						domainSourcePrefix = "V:";
+					} else if (attribute.getDomainSource().equals(DomainSource.CODE_SYSTEM)) {
+						domainSourcePrefix = "C:";
+					}
 				}
 				result.addSegment(indicator + domainSourcePrefix + attribute.getDomainType(), this.styleProvider.getDefaultItalicAttributeTextFont());
 			}
