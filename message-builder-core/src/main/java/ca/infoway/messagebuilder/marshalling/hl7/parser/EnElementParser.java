@@ -75,7 +75,8 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
     		specializationType = getXsiType(node);
     	}
     	
-    	NameParser nameParser = nameParsers.get(StringUtils.upperCase(specializationType));
+    	String upperCaseST = StringUtils.isBlank(specializationType) ? "" : specializationType.toUpperCase();
+		NameParser nameParser = nameParsers.get(upperCaseST);
     	if (nameParser == null) {
     		// log error based on bad ST/XT
     		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "EN fields require a specializationType and/or xsi:type specifying one of TN/PN/ON", (Element) node));
