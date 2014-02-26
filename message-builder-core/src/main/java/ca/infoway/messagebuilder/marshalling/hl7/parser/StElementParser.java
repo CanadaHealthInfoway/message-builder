@@ -31,6 +31,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -98,6 +99,9 @@ class StElementParser extends AbstractSingleElementParser<String> {
             if (childNode.getNodeType() != Node.TEXT_NODE && childNode.getNodeType() != Node.CDATA_SECTION_NODE) {
             	// RM18422 - decided to allow for CDATA section within ST datatypes (other datatypes - AD, ON, PN, SC, TN - still restrict to TEXT only)
                 throw new XmlToModelTransformationException("Expected ST node to have a text node");
+            }
+            if (childNode.getNodeType() == Node.CDATA_SECTION_NODE) {
+            	((ST) dataType).setCdata(true);
             }
             result = childNode.getNodeValue();
 

@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -147,6 +148,19 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		
 		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
 		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"PQ.LAB\" xsi:type=\"PQ\"><originalText>orig text</originalText></name>", result);
+		assertTrue(this.result.isValid());
+	}
+
+	@Test
+	public void testFormatStWithCdataValue() throws Exception {
+		AnyPropertyFormatter formatter = new AnyPropertyFormatter();
+		FormatContext context = getContext("name", "ANY");
+		
+		ANYImpl<Object> dataType = new ANYImpl<Object>("something", null, StandardDataType.ST);
+		dataType.setCdata(true);
+		
+		String result = formatter.format(context, dataType);
+		assertEquals("something in text node", addLineSeparator("<name specializationType=\"ST\" xsi:type=\"ST\"><![CDATA[something]]></name>"), result);
 		assertTrue(this.result.isValid());
 	}
 

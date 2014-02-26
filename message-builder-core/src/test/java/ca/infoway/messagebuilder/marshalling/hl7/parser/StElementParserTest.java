@@ -23,12 +23,14 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
@@ -48,7 +50,11 @@ public class StElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createStContext(String type) {
-		return ParserContextImpl.create(type, String.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null, 25);
+		return createStContext(type, 25);
+	}
+	
+	private ParseContext createStContext(String type, int length) {
+		return ParserContextImpl.create(type, String.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null, length);
 	}
 
 	@Test
@@ -82,6 +88,48 @@ public class StElementParserTest extends MarshallingTestCase {
 		assertEquals("proper text returned", 
 				"text value", 
 				new StElementParser().parse(createStContext("ST"), node, this.xmlResult).getBareValue());
+	}
+	
+	@Test
+	public void shouldParseTextNodeAsCdata() throws Exception {
+		Node node = createNode("<something><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></something>");
+		BareANY parseResult = new StElementParser().parse(createStContext("ST", 100), node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertTrue(parseResult instanceof ST);
+		assertTrue("noted as cdata", ((ST) parseResult).isCdata());
+		assertEquals("proper text returned", 
+				"<cats think they're > humans & dogs 99% of the time/>", 
+				parseResult.getBareValue());
+		
+	}
+	
+	@Test
+	public void shouldParseTextNodeWithEmptyCdata() throws Exception {
+		Node node = createNode("<something><![CDATA[]]></something>");
+		BareANY parseResult = new StElementParser().parse(createStContext("ST"), node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertTrue(parseResult instanceof ST);
+		assertTrue("noted as cdata", ((ST) parseResult).isCdata());
+		assertEquals("proper text returned", 
+				"", 
+				parseResult.getBareValue());
+		
+	}
+	
+	@Test
+	public void shouldParseTextNodeWithSpecialCharactersNotCdata() throws Exception {
+		Node node = createNode("<something>&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</something>");
+		BareANY parseResult = new StElementParser().parse(createStContext("ST", 100), node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertTrue(parseResult instanceof ST);
+		assertFalse("not cdata", ((ST) parseResult).isCdata());
+		assertEquals("proper text returned", 
+				"<cats think they're > humans & dogs 99% of the time/>", 
+				parseResult.getBareValue());
+		
 	}
 	
 	@Test

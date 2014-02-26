@@ -65,6 +65,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	private String displayName;
 	private final List<CD> translations = new ArrayList<CD>();
 	private String originalText;
+	private boolean isCdata = false;
 	
 	/**
 	 * <p>Constructs an empty ANY.
@@ -310,10 +311,6 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 		this.value = (V) value;
 	}
 	
-	
-	
-	
-	
 	/**
 	 * <p>Returns the ST's language.
 	 * 
@@ -378,4 +375,22 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 		this.originalText = originalText;
 	}
 	
+	/**
+	 * <p>Indicates the text requires a CDATA block
+	 * 
+	 * @return whether the text requires a CDATA block
+	 */
+	public boolean isCdata() {
+		return this.isCdata;
+	}
+
+	/**
+	 * <p>Sets whether the text requires a CDATA block
+	 * 
+	 * @param isCdata sets whether the text requires a CDATA block
+	 */
+	public void setCdata(boolean isCdata) {
+		this.isCdata = isCdata;
+	}
+
 }

@@ -118,6 +118,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 					((ANYMetaData) hl7Result).setDisplayName(((ANYMetaData) parsedValue).getDisplayName());
 					((ANYMetaData) hl7Result).setOriginalText(((ANYMetaData) parsedValue).getOriginalText());
 					((ANYMetaData) hl7Result).getTranslations().addAll(((ANYMetaData) parsedValue).getTranslations());
+					((ANYMetaData) hl7Result).setCdata(((ANYMetaData) parsedValue).isCdata());
 				}
 			}
 		} else {

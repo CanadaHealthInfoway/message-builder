@@ -54,6 +54,54 @@ public class StPropertyFormatterTest extends FormatterTestCase {
 	}
 
 	@Test
+	public void testFormatCdataValueNull() throws Exception {
+		AbstractPropertyFormatter formatter = new StPropertyFormatter();
+		
+		FormatContext context = getContext("name");
+		STImpl dataType = new STImpl((String) null);
+		dataType.setCdata(true);
+		String result = formatter.format(context, dataType);
+		assertEquals("something in text node", addLineSeparator("<name nullFlavor=\"NI\"/>"), result);
+		assertNoErrors(context);
+	}
+
+	@Test
+	public void testFormatCdataValueEmpty() throws Exception {
+		AbstractPropertyFormatter formatter = new StPropertyFormatter();
+		
+		FormatContext context = getContext("name");
+		STImpl dataType = new STImpl("");
+		dataType.setCdata(true);
+		String result = formatter.format(context, dataType);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[]]></name>"), result);
+		assertNoErrors(context);
+	}
+
+	@Test
+	public void testFormatCdataValueNonNull() throws Exception {
+		AbstractPropertyFormatter formatter = new StPropertyFormatter();
+		
+		FormatContext context = getContext("name");
+		STImpl dataType = new STImpl("something");
+		dataType.setCdata(true);
+		String result = formatter.format(context, dataType);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[something]]></name>"), result);
+		assertNoErrors(context);
+	}
+
+	@Test
+	public void testFormatCdataValueNonNullWithSpecialCharacters() throws Exception {
+		AbstractPropertyFormatter formatter = new StPropertyFormatter();
+		
+		FormatContext context = getContext("name");
+		STImpl dataType = new STImpl("<cats think they're > humans & dogs 99% of the time/>");
+		dataType.setCdata(true);
+		String result = formatter.format(context, dataType);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></name>"), result);
+		assertNoErrors(context);
+	}
+
+	@Test
 	public void testFormatValueNonNullWithLanguageNotAllowed() throws Exception {
 		AbstractPropertyFormatter formatter = new StPropertyFormatter();
 		

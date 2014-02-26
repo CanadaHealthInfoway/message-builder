@@ -69,10 +69,23 @@ class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {
 			attributes.put("language", !STImpl.ALLOWED_LANGUAGES.contains(language) ? "en-CA" : language);
     	}
         buffer.append(createElement(context, attributes, indentLevel, false, false));
-        Object bareValue = dataType.getBareValue();
-		buffer.append(XmlStringEscape.escape(bareValue == null ? "" : bareValue.toString()));
+		buffer.append(createText(dataType));
         buffer.append(createElementClosure(context, 0, true));
         return buffer.toString();
+	}
+
+	private String createText(BareANY dataType) {
+        Object bareValue = dataType.getBareValue();
+        String textValue = bareValue == null ? "" : bareValue.toString();
+        
+        String results = null;
+        if (dataType instanceof ANYMetaData && ((ANYMetaData) dataType).isCdata()) {
+        	// RM18719 - do not escape text, but wrap with a CDATA block
+        	results = "<![CDATA[" + textValue + "]]>";
+        } else {
+        	results = XmlStringEscape.escape(textValue);
+        }
+		return results;
 	}
 
 	private String getLanguage(BareANY dataType) {

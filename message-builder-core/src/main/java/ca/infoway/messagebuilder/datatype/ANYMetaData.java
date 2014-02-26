@@ -39,4 +39,7 @@ public interface ANYMetaData {
 	public String getOriginalText();
 	public void setOriginalText(String originalText);
 	
+	public boolean isCdata();
+	public void setCdata(boolean isCdata);
+	
 }

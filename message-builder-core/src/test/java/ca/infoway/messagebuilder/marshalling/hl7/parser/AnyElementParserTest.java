@@ -74,6 +74,21 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 	}
 	
+	@Test
+	public void shouldParseStTextNodeAsCdata() throws Exception {
+		Node node = createNode("<something specializationType=\"ST\" xsi:type=\"ST\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></something>");
+		ParseContext context = ParserContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null);
+		BareANY parseResult = new AnyElementParser().parse(context, node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+		assertEquals(StandardDataType.ST, parseResult.getDataType());
+		assertTrue("noted as cdata", ((ANYMetaData) parseResult).isCdata());
+		assertEquals("proper text returned", 
+				"<cats think they're > humans & dogs 99% of the time/>", 
+				parseResult.getBareValue());
+		
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseAnyAsRtoPqPq() throws Exception {

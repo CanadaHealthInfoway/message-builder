@@ -53,4 +53,18 @@ public interface ST extends ED<String> {
 	 * @param language the language
 	 */
 	public void setLanguage(String language);
+	
+	/**
+	 * <p>Indicates the text requires a CDATA block
+	 * 
+	 * @return whether the text requires a CDATA block
+	 */
+	public boolean isCdata();
+	
+	/**
+	 * <p>Sets whether the text requires a CDATA block
+	 * 
+	 * @param isCdata sets whether the text requires a CDATA block
+	 */
+	public void setCdata(boolean isCdata);
 }
