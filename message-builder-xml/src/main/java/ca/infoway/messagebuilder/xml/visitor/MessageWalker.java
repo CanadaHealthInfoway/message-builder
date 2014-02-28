@@ -22,7 +22,9 @@ package ca.infoway.messagebuilder.xml.visitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -73,6 +75,8 @@ public class MessageWalker {
 	private void processAllRelationships(Element element, Interaction interaction,
 			List<MessagePart> messagePartAndChoiceExtensionParts, MessageVisitor visitor) {
 		Set<String> knownItems = new HashSet<String>();
+		
+		validateElementOrder(messagePartAndChoiceExtensionParts, element, visitor);
 		
 		for (MessagePart messagePart : messagePartAndChoiceExtensionParts) {
 			ElementBridge helper = new ElementBridge(element, messagePart, getInteraction(element.getOwnerDocument()));
@@ -219,6 +223,95 @@ public class MessageWalker {
 
 	private MessagePart getMessagePart(String type) {
 		return this.service.getMessagePart(this.version, type);
+	}
+
+	private void validateElementOrder(List<MessagePart> messagePartAndChoiceExtensionParts, Element element, MessageVisitor visitor) {
+		// create list of properly ordered names (skipping those not provided, and skipping those without a relationship match)
+		List<String> properlyOrderedProvidedRelationshipNames = createListOfProperlyOrderedNames(element, messagePartAndChoiceExtensionParts, visitor);
+		
+		// create list of xml names in the order provided (collapsing duplicates)
+		// remove/ignore any not in properly ordered names
+		List<String> xmlElementNamesInOrderProvided = createListOfXmlNamesInOrderProvided(element, properlyOrderedProvidedRelationshipNames);
+
+		// iterate proper list, look for exact match
+		int expectedSize = properlyOrderedProvidedRelationshipNames.size();
+		int actualSize = xmlElementNamesInOrderProvided.size();
+		boolean errorDetected = false;
+		for (int i = 0; i < expectedSize; i++) {
+			String expectedName = properlyOrderedProvidedRelationshipNames.get(i);
+			String actualName = actualSize > i ? xmlElementNamesInOrderProvided.get(i) : null; 
+			if (!StringUtils.equals(expectedName, actualName)) {
+				// if not found, break out and log error "beginning with...", then show expected element order
+				errorDetected = true;
+				String errorMessage = createElementOutOfOrderErrorMessage(properlyOrderedProvidedRelationshipNames, actualName);
+				visitor.addError(errorMessage, element);
+				break;
+			}
+		}
+
+		// the two sets of names should be the same length, but just in case...
+		if (!errorDetected && actualSize > expectedSize) {
+			String errorMessage = createElementOutOfOrderErrorMessage(properlyOrderedProvidedRelationshipNames, xmlElementNamesInOrderProvided.get(expectedSize));
+			visitor.addError(errorMessage, element);
+		}
+	}
+
+	private String createElementOutOfOrderErrorMessage(List<String> orderedNames, String nameInError) {
+		String errorLocation = StringUtils.isBlank(nameInError) ? "": " starting around '" + nameInError + "'";
+		return "Elements appear to be out of expected order" + errorLocation + ". Expected order to be: " + listNames(orderedNames);
+	}
+
+	private String listNames(Collection<String> orderedNames) {
+		 Iterator<String> i = orderedNames.iterator();
+		 if (!i.hasNext()) {
+			 return "[]";
+		 }
+
+		 StringBuilder sb = new StringBuilder();
+		 sb.append('[');
+		 for (;;) {
+		     sb.append(i.next());
+			 if (!i.hasNext()) {
+			     return sb.append(']').toString();
+			 }
+			 sb.append(", ");
+		 }
+	}
+	 
+	 private List<String> createListOfXmlNamesInOrderProvided(Element element,
+			List<String> properlyOrderedProvidedRelationshipNames) {
+		List<String> xmlElementNamesInOrderProvided = new ArrayList<String>();
+		for (Element currentXmlElement : NodeUtil.toElementList(element)) {
+			String elementName = NodeUtil.getLocalOrTagName(currentXmlElement);
+			if (properlyOrderedProvidedRelationshipNames.contains(elementName)) {
+				// remove consecutive dups (ignore garbage/extra in between; they will be caught later)
+				if (xmlElementNamesInOrderProvided.isEmpty() || !xmlElementNamesInOrderProvided.get(xmlElementNamesInOrderProvided.size() - 1).equals(elementName)) {
+					xmlElementNamesInOrderProvided.add(elementName);
+				}
+			}
+		}
+		return xmlElementNamesInOrderProvided;
+	}
+
+	private List<String> createListOfProperlyOrderedNames(Element element, List<MessagePart> messagePartAndChoiceExtensionParts, MessageVisitor visitor) {
+		List<String> properlyOrderedProvidedRelationshipNames = new ArrayList<String>();
+		for (MessagePart messagePart : messagePartAndChoiceExtensionParts) {
+			ElementBridge helper = new ElementBridge(element, messagePart, getInteraction(element.getOwnerDocument()));
+			for (RelationshipBridge relationshipBridge : helper.getRelationships()) {
+				if (!relationshipBridge.isStructuralAttribute()) {
+					Set<String> names = relationshipBridge.getNames();
+					if (!names.isEmpty()) {
+						properlyOrderedProvidedRelationshipNames.add(names.iterator().next());
+						if (names.size() > 1) {
+							// not expecting this to ever happen, but need to know if it does so we can adjust the code
+							visitor.addError("Internal error: found more than one name " + listNames(names), element);
+						}
+					}
+				}
+			}
+			
+		}
+		return properlyOrderedProvidedRelationshipNames;
 	}
 
 }

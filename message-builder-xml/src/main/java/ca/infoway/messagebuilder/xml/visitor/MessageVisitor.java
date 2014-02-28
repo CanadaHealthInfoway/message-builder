@@ -33,4 +33,5 @@ public interface MessageVisitor {
 	public void visitAssociation(Element base, String xmlName, List<Element> elements, Relationship relationship);
 	public void visitNonStructuralAttribute(Element base, List<Element> elements, Relationship relationship);
 	public void visitRoot(Element documentElement, Interaction interaction);
+	public void addError(String message, Element element);
 }

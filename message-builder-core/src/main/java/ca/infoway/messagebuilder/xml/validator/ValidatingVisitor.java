@@ -51,7 +51,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
@@ -246,5 +245,14 @@ public class ValidatingVisitor implements MessageVisitor {
 			result.add(node);
 		}
 		return result;
+	}
+
+	public void addError(String message, Element element) {
+		this.result.addHl7Error(
+				new Hl7Error(
+					Hl7ErrorCode.SYNTAX_ERROR, 
+					message,
+					element
+				));
 	}
 }
