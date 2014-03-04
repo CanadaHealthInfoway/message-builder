@@ -422,4 +422,12 @@ class XmlRenderingVisitor implements Visitor {
 			currentBuffer().getChildBuilder().append(buffer.toXml());
 		}
 	}
+
+	public void logError(Hl7Error error) {
+		this.result.addHl7Error(error);
+	}
+
+	public String getCurrentPropertyPath() {
+		return buildPropertyPath();
+	}
 }

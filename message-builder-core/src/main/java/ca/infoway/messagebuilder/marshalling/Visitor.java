@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -36,4 +37,6 @@ interface Visitor {
 	public void visitAssociationStart(PartBridge tealBean, Relationship relationship);
 	public void visitAssociationEnd(PartBridge tealBean, Relationship relationship);
 
+	public void logError(Hl7Error error);
+	public String getCurrentPropertyPath();
 }

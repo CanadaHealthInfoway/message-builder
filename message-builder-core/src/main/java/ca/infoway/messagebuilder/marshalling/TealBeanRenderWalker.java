@@ -26,8 +26,12 @@ import java.util.TimeZone;
 import org.apache.commons.lang.ClassUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Interaction;
+import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
@@ -96,27 +100,43 @@ class TealBeanRenderWalker {
 		}
 	}
 
-	void processAllRelationshipValues(Interaction interaction, 
-			AssociationBridge relationshipBridge, Visitor visitor) {
+	void processAllRelationshipValues(Interaction interaction, AssociationBridge relationshipBridge, Visitor visitor) {
 		Collection<PartBridge> associationValues = relationshipBridge.getAssociationValues();
-//		if (associationValues.isEmpty() && relationshipBridge.getRelationship().isPopulated()) {
-//			processAssociation(interaction, relationshipBridge, visitor, null);
-//		} else {
-			for (PartBridge child : associationValues) {
-				processAssociation(interaction, relationshipBridge, visitor, child);
-			}
-//		}
+		validateAssociationCardinality(relationshipBridge, associationValues, visitor);
+		for (PartBridge child : associationValues) {
+			processAssociation(interaction, relationshipBridge, visitor, child);
+		}
 	}
-	private void processAssociation(Interaction interaction,
-			AssociationBridge relationshipBridge, Visitor visitor, PartBridge child) {
+	
+	// RM16130 - the MB marshaller was not validating association cardinality
+	private void validateAssociationCardinality( AssociationBridge relationshipBridge, Collection<PartBridge> associationValues, Visitor visitor) {
+		// can't just check the size of associationValues: need to iterate and only count each "not empty" or each with NF
+		int size = 0;
+		for (PartBridge partBridge : associationValues) {
+			if (!partBridge.isEmpty() || partBridge.hasNullFlavor()) {
+				size++;
+			}
+		}
+		
+		Relationship relationship = relationshipBridge.getRelationship();
+		Cardinality cardinality = relationship.getCardinality();
+		if (size > cardinality.getMax()) {
+			String errorMessage = "Expected no more than " + cardinality.getMax() + " entries for association " + relationship.getParentType() + "." + relationship.getName() + " but found " + size;
+			visitor.logError(new Hl7Error(Hl7ErrorCode.NUMBER_OF_ASSOCIATIONS_EXCEEDS_LIMIT, errorMessage, visitor.getCurrentPropertyPath() + "." + relationship.getName()));
+		} else if (size != 0 && size < cardinality.getMin()) {
+			// cases where at least 1 association is required are handled elsewhere (under mandatory checks)
+			String errorMessage = "Expected at least " + cardinality.getMin() + " entries for association " + relationship.getParentType() + "." + relationship.getName() + " but only found " + size;
+			visitor.logError(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, errorMessage, visitor.getCurrentPropertyPath() + "." + relationship.getName()));
+		}
+	}
+	
+	private void processAssociation(Interaction interaction, AssociationBridge relationshipBridge, Visitor visitor, PartBridge child) {
 		visitor.visitAssociationStart(child, relationshipBridge.getRelationship());
 		processPartValue(child, interaction, relationshipBridge, visitor);
 		visitor.visitAssociationEnd(child, relationshipBridge.getRelationship());
 	}
 
-	private void processPartValue(PartBridge child,
-			Interaction interaction, AssociationBridge relationshipBridge,
-			Visitor visitor) {
+	private void processPartValue(PartBridge child,	Interaction interaction, AssociationBridge relationshipBridge, Visitor visitor) {
 		if (child.isEmpty() && !relationshipBridge.getRelationship().isMandatory()) {
 		} else {
 			processAllRelationships(child, interaction, visitor);

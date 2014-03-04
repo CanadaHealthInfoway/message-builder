@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -68,6 +69,14 @@ class MockVisitor implements Visitor {
 
 	public boolean isAttributeVisited() {
 		return this.attributeVisited;
+	}
+
+	public void logError(Hl7Error error) {
+		// do nothing
+	}
+
+	public String getCurrentPropertyPath() {
+		return "";
 	}
 
 }
