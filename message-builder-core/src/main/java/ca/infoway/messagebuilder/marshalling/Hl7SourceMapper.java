@@ -24,7 +24,11 @@ import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.SYNTAX_ERRO
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -96,6 +100,24 @@ class Hl7SourceMapper {
 		
 		List<Element> elements = NodeUtil.toElementList(source.getCurrentElement());
 		
+		// 1) "elements" contains the xml-order of the current part's relationships - note that this can have duplicatess at this point
+		// 2) "source" contains the message part being processed - this is not exposed
+		// 3) "source" contains the result bean where errors can be stored - this *is* exposed
+		// 4) need to watch choice/template cases (including choices with supertypes)
+		
+		// relationship.getType() is 
+		//		- choice type (if choice)
+		//		- null (if template)
+		//		- or the actual type
+		// source.getMessagePartName() is
+		//      - the choice option (if above was a choice)
+		//      - the actual template type (if above was null)
+		//      - or the actual type (which it is in all cases, really)
+
+		List<String> xmlElementNamesInProvidedOrder = new ArrayList<String>();
+		List<Relationship> sortedRelationshipsMatchingUpToXmlElementNames = new ArrayList<Relationship>();
+		Map<String, String> resolvedRelationshipNames = new HashMap<String, String>();
+		
 		int length = elements.size();
         for (int j = 0; j < length; j++) {
             Element element = elements.get(j);
@@ -106,12 +128,82 @@ class Hl7SourceMapper {
             while (j+1 < length && isSameElementName(element, elements.get(j+1))) {
                 nodes.add(elements.get(++j));
             }
+            
             if (NamespaceUtil.isHl7Node(element)) {
+            	
+    	    	Relationship xmlRelationship = source.getRelationship(nodeName);
+    	    	if (xmlRelationship != null) {
+    	    		// since we have a match we know that the xml name is correct; all we need the xmlRelationship for is sorting purposes
+    	    		// however, for choice and template relationships, there will be an apparent mismatch between relationship names 
+    	    		xmlElementNamesInProvidedOrder.add(nodeName);
+    	    		sortedRelationshipsMatchingUpToXmlElementNames.add(xmlRelationship);
+    	    		resolvedRelationshipNames.put(xmlRelationship.getParentType() + xmlRelationship.getName(), nodeName);
+    	    	}
+    	    	
             	process(wrapper, source, nodes, nodeName);
             }
         }
+
+        // this sorts the matching relationships according to HL7v3/MIF requirements
+		Collections.sort(sortedRelationshipsMatchingUpToXmlElementNames);
+		validateElementOrder(source, xmlElementNamesInProvidedOrder, sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
+
+//		System.out.println(">>>> for " + source.getMessagePartName() + (relationship == null || relationship.getType() == null ? " (used in a template or choice)" : ""));
+//		System.out.print("Actual order:   ");
+//		for (String string : xmlElementNamesInProvidedOrder) {
+//			System.out.print(string + ", ");
+//		}
+//		System.out.println("");
+//		System.out.print("Expected order: ");
+//		for (Relationship relationship2 : sortedRelationshipsMatchingUpToXmlElementNames) {
+//			System.out.print(resolvedRelationshipNames.get(relationship2.getParentType() + relationship2.getName()) + ", ");
+//		}
+//		System.out.println("\n\n");
+        
+	}
+
+	private void validateElementOrder(
+			Hl7Source source,
+			List<String> xmlElementNamesInProvidedOrder,
+			List<Relationship> sortedRelationshipsMatchingUpToXmlElementNames,
+			Map<String, String> resolvedRelationshipNames) {
+		
+		for (int i = 0; i < sortedRelationshipsMatchingUpToXmlElementNames.size(); i++) {
+			Relationship rel = sortedRelationshipsMatchingUpToXmlElementNames.get(i);
+			String name1 = xmlElementNamesInProvidedOrder.get(i);
+    		String name2 = resolvedRelationshipNames.get(rel.getParentType() + rel.getName());
+			
+			if (!StringUtils.equals(name1, name2)) {
+				String message = 
+						"Elements appear to be out of expected order starting around '" + name1 + "'" + ". " +
+						"Expected order to be: " + listNames(sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
+
+				// would be nice to merge this error in at the correct place if new errors added by the call to process() within mapToTeal()
+				source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, message, source.getCurrentElement()));
+				break;
+			}
+		}
+		
 	}
 	
+	private String listNames(List<Relationship> sortedRelationshipsMatchingUpToXmlElementNames,	Map<String, String> resolvedRelationshipNames) {
+		 Iterator<Relationship> iterator = sortedRelationshipsMatchingUpToXmlElementNames.iterator();
+		 if (!iterator.hasNext()) {
+			 return "[]";
+		 }
+
+		 StringBuilder sb = new StringBuilder();
+		 sb.append('[');
+		 for (;;) {
+		    Relationship relationship = iterator.next();
+			sb.append(resolvedRelationshipNames.get(relationship.getParentType() + relationship.getName()));
+			 if (!iterator.hasNext()) {
+			     return sb.append(']').toString();
+			 }
+			 sb.append(", ");
+		 }
+	}
+
 	private boolean isSameElementName(Element element, Element nextElement) {
 		return StringUtils.equals(element.getNamespaceURI(), nextElement.getNamespaceURI())
 			&& StringUtils.equals(NodeUtil.getLocalOrTagName(element), NodeUtil.getLocalOrTagName(nextElement));
@@ -134,8 +226,11 @@ class Hl7SourceMapper {
 	    	} else if (relationship.isAttribute()) {
 	    		writeAttribute(bean, source, nodes, relationship, traversalName);
 	    	} else if (isIndicator(source, relationship)) {
+	    		// FIXME - can possibly check cardinality either here or within writeIndicator 
 	    		writeIndicator(bean, source, nodes, relationship, traversalName);
 	    	} else {
+	    		// FIXME - can possibly check cardinality either here or within writeAssociation
+	    		//       - move this and above to an "else", to avoid duplication
 	    		writeAssociation(bean, source, nodes, relationship, traversalName);
 	    	}
     	} catch (MarshallingException e) {

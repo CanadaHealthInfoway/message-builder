@@ -8226,11 +8226,11 @@
                      <annotation>Provides support for immediate, deferred and polling mode and distinguishes which mode is desired. The attribute is therefore mandatory.</annotation>
                   </documentation>
                </relationship>
-               <relationship name="receiver" type="MCCI_MT002100CA.Receiver" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="10"/>
-               <relationship name="respondTo" type="MCCI_MT002100CA.RespondTo" structural="false" conformance="OPTIONAL" cardinality="0-1" sortOrder="11"/>
-               <relationship name="sender" type="MCCI_MT002100CA.Sender" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="12"/>
-               <relationship name="attentionLine" type="MCCI_MT002100CA.AttentionLine" structural="false" conformance="OPTIONAL" cardinality="0-5" sortOrder="13"/>
-               <relationship name="controlActEvent" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="14" templateParameterName="ControlActEvent"/>
+               <relationship name="receiver" type="MCCI_MT002100CA.Receiver" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="10" associationSortKey="AAA" />
+               <relationship name="respondTo" type="MCCI_MT002100CA.RespondTo" structural="false" conformance="OPTIONAL" cardinality="0-1" sortOrder="11" associationSortKey="BBB" />
+               <relationship name="sender" type="MCCI_MT002100CA.Sender" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="12" associationSortKey="CCC" />
+               <relationship name="attentionLine" type="MCCI_MT002100CA.AttentionLine" structural="false" conformance="OPTIONAL" cardinality="0-5" sortOrder="13" associationSortKey="DDD" />
+               <relationship name="controlActEvent" structural="false" conformance="REQUIRED" cardinality="0-1" sortOrder="14" templateParameterName="ControlActEvent" associationSortKey="EEE" />
             </messagePart>
          </entry>
          <entry name="MCCI_MT002100CA.Message_V02R02">
@@ -10137,9 +10137,9 @@
                <relationship name="classCode" type="CS" structural="true" domainType="ActClass" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="REG" codingStrength="CNE"/>
                <relationship name="moodCode" type="CS" structural="true" domainType="ActMood" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="RQO" codingStrength="CNE"/>
                <relationship name="statusCode" type="CS" structural="false" domainType="ActStatus" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="active" codingStrength="CNE"/>
-               <relationship name="subject" type="MFMI_MT700711CA.Subject4" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="3"/>
-               <relationship name="custodian" type="MFMI_MT700711CA.Custodian" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="4"/>
-               <relationship name="replacementOf" type="MFMI_MT700711CA.ReplacementOf" structural="false" conformance="OPTIONAL" cardinality="0-10" sortOrder="5"/>
+               <relationship name="subject" type="MFMI_MT700711CA.Subject4" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="3" associationSortKey="AAA" />
+               <relationship name="custodian" type="MFMI_MT700711CA.Custodian" structural="false" conformance="MANDATORY" cardinality="1" sortOrder="4" associationSortKey="BBB" />
+               <relationship name="replacementOf" type="MFMI_MT700711CA.ReplacementOf" structural="false" conformance="OPTIONAL" cardinality="0-10" sortOrder="5" associationSortKey="CCC" />
             </messagePart>
          </entry>
          <entry name="MFMI_MT700711CA.ReplacementOf">

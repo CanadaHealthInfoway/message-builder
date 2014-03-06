@@ -107,6 +107,7 @@ class Hl7PartSource implements Hl7Source {
 		return result;
 	}
 
+	// looks for a matching relationship within "supertype"/abstract message parts 
 	private Relationship getNestedRelationship(MessagePart part, String name) {
 		Relationship relationship = part.getRelationship(name, this.hl7InteractionSource.getInteraction());
 		if (relationship == null) {

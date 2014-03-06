@@ -681,9 +681,11 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		}
 		
 		if (result == 0 && this.isAssociation()) {
-			String name1 = this.getName() == null ? "" : this.getName();
-			String name2 = o.getName() == null ? "" : o.getName();
-			result = name1.compareTo(name2);
+			// FIXME - TM - temporary change until can work on RM18979 (this code should be reverted, then add an exception for NFLD)
+			result = this.getSortOrder() - o.getSortOrder();
+//			String name1 = this.getName() == null ? "" : this.getName();
+//			String name2 = o.getName() == null ? "" : o.getName();
+//			result = name1.compareTo(name2);
 		}
 		
 		return result;

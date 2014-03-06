@@ -125,9 +125,9 @@ class BridgeFactoryImpl implements BridgeFactory {
 			}
 		}
 		
-		if (sorter.getPropertyName() == null || sorter.getPropertyName().equals("null")) {
-			System.out.println("not correct");
-		}
+//		if (sorter.getPropertyName() == null || sorter.getPropertyName().equals("null")) {
+//			System.out.println("not correct");
+//		}
 		
 		return new PartBridgeImpl(sorter.getPropertyName(), sorter.getBean(), currentMessagePart.getName(), relationships, context.isCollapsed(), nullPart);
 	}
