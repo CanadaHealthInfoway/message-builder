@@ -115,7 +115,7 @@ class Hl7SourceMapper {
 		//      - or the actual type (which it is in all cases, really)
 
 		List<String> xmlElementNamesInProvidedOrder = new ArrayList<String>();
-		List<Relationship> sortedRelationshipsMatchingUpToXmlElementNames = new ArrayList<Relationship>();
+		ArrayList<Relationship> sortedRelationshipsMatchingUpToXmlElementNames = new ArrayList<Relationship>();
 		Map<String, String> resolvedRelationshipNames = new HashMap<String, String>();
 		
 		int length = elements.size();
