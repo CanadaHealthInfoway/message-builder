@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -63,8 +65,11 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     		Map<String, String> extraAttributes = createSpecializationTypeAttibutesIfNecessary(context);
     		// bug 13884 - csharp throws exception if put duplicate key in map; this was occurring when using putAll() instead of below code
     		for (String key : extraAttributes.keySet()) {
-				attributes.remove(key);
-				attributes.put(key, extraAttributes.get(key));
+    			// TM - decided to not overwrite already existing attributes (as these would have been explicitly set)
+    			if (!attributes.containsKey(key) || StringUtils.isBlank(attributes.get(key))) {
+    				//attributes.remove(key);
+    				attributes.put(key, extraAttributes.get(key));
+    			}
 			}
     	}
     	return createElement(context.getElementName(), attributes, indentLevel, close, lineBreak); 
