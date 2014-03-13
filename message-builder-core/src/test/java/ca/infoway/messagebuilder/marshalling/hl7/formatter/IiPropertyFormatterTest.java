@@ -301,6 +301,69 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	}
 
 	@Test
+    public void testGetAttributeNameValuePairsForValidII_BUS_AND_VER_BUSforCerxWithNewMaxRoot() throws Exception {
+        Identifier ii = new Identifier("123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890", 
+        		"extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_BUS);
+        
+        ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II.BUS_AND_VER", null, null, false, SpecificationVersion.V01R04_3, null, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 5, result.size());
+        assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
+        
+        assertKeyValuePairInMap(result, "root", "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+        assertKeyValuePairInMap(result, "use", "BUS");
+        assertKeyValuePairInMap(result, "specializationType", "II.BUS");
+        assertKeyValuePairInMap(result, "xsi:type", "II");
+	}
+
+	@Test
+    public void testGetAttributeNameValuePairsForValidII_VERforCerx() throws Exception {
+        String uuid = UUID.randomUUID().toString();
+		Identifier ii = new Identifier(uuid);
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_VER);
+        
+        ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II.VER", null, null, false, SpecificationVersion.V01R04_3, null, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 2, result.size());
+        assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
+        
+        assertKeyValuePairInMap(result, "root", uuid);
+        assertKeyValuePairInMap(result, "use", "VER");
+	}
+
+	@Test
+    public void testGetAttributeNameValuePairsForValidII_BUSforCerxWithInvalidRoot() throws Exception {
+        Identifier ii = new Identifier("123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1", 
+        		"extensionString");
+        
+        II iiHl7 = new IIImpl();
+        iiHl7.setDataType(StandardDataType.II_BUS);
+        
+        ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II.BUS", null, null, false, SpecificationVersion.V01R04_3, null, null, null);
+        
+		Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+        assertEquals("map size", 3, result.size());
+        assertFalse("1 error", modelToXmlResult.getHl7Errors().isEmpty());
+        assertEquals("1 error", 1, modelToXmlResult.getHl7Errors().size());
+        assertTrue(modelToXmlResult.getHl7Errors().get(0).getMessage().contains("200"));
+        
+        assertKeyValuePairInMap(result, "root", "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1");
+        assertKeyValuePairInMap(result, "extension", "extensionString");
+        assertKeyValuePairInMap(result, "use", "BUS");
+	}
+
+	@Test
     public void testGetAttributeNameValuePairsForII_BUS_AND_VER_InvalidSpecializationType() throws Exception {
         Identifier ii = new Identifier("11.22.33.44", "extensionString");
         

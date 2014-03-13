@@ -23,14 +23,13 @@ package ca.infoway.messagebuilder;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
  * <p>An enum that lists the various supported hl7 versions.
  */
 public class SpecificationVersion extends EnumPattern implements VersionNumber {
-
-	static{ /*static init block for translation purposes. Please do not remove.*/ }
 
 	private static final long serialVersionUID = 3269139690668726076L;
 
@@ -80,6 +79,23 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 
 	// BC V02R04
 	public static final SpecificationVersion V02R04_BC = new SpecificationVersion("V02R04_BC", "BC (V02R04)", Hl7BaseVersion.MR2007);
+
+	
+	static{ /*static init block for translation purposes. Please do not remove.*/ 
+		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
+		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
+		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+		
+		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
+		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
+		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+		
+		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
+		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
+		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+	}
+
+	
 	
 	private final String description;
 	private final Hl7BaseVersion baseVersion;

@@ -411,7 +411,7 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseValidIiBusWithMaxRootLengthForCeRx() throws Exception {
-		String maxLengthRoot = "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890";
+		String maxLengthRoot = "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890";
 		Node node = createNode("<something root=\"" + maxLengthRoot + "\" extension=\"extensionValue\" use=\"BUS\" />");
 		II ii = (II) new IiElementParser().parse(createContext("II.BUS", SpecificationVersion.V01R04_3), node, this.result);
 		assertResultAsExpected(ii.getValue(), maxLengthRoot, "extensionValue");
@@ -420,7 +420,7 @@ public class IiElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseInvalidIiBusWithMaxRootLengthPlusOneForCeRx() throws Exception {
-		String maxLengthRootPlusOne = "0" + "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890";
+		String maxLengthRootPlusOne = "0" + "123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.123456789.1234567890";
 		Node node = createNode("<something root=\"" + maxLengthRootPlusOne + "\" extension=\"extensionValue\" use=\"BUS\" />");
 		II ii = (II) new IiElementParser().parse(createContext("II.BUS", SpecificationVersion.V01R04_3), node, this.result);
 		assertResultAsExpected(ii.getValue(), maxLengthRootPlusOne, "extensionValue");
