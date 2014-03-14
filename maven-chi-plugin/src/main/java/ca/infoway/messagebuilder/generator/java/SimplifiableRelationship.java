@@ -25,8 +25,9 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
+import ca.infoway.messagebuilder.xml.util.RelationshipComparable;
 
-class SimplifiableRelationship implements Named, Fingerprintable {
+class SimplifiableRelationship implements Named, Fingerprintable, RelationshipComparable {
 
 	private final Relationship relationship;
 	private DataType dataType;
@@ -104,6 +105,21 @@ class SimplifiableRelationship implements Named, Fingerprintable {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public boolean isAttribute() {
+		return this.relationship.isAttribute();
+	}
+
+	@Override
+	public int getSortOrder() {
+		return this.relationship.getSortOrder();
+	}
+
+	@Override
+	public String getAssociationSortKey() {
+		return this.relationship.getAssociationSortKey();
 	}
 	
 }

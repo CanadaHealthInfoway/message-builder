@@ -34,6 +34,8 @@ import org.simpleframework.xml.Root;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
+import ca.infoway.messagebuilder.xml.util.RelationshipComparable;
+import ca.infoway.messagebuilder.xml.util.RelationshipComparator;
 
 /**
  * <p>A message part relationship (either an attribute or an association).
@@ -50,8 +52,10 @@ import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Relationship extends ChoiceSupport implements Documentable, HasDifferences, NamedAndTyped, Comparable<Relationship> {
+public class Relationship extends ChoiceSupport implements Documentable, HasDifferences, NamedAndTyped, RelationshipComparable, Comparable<Relationship> {
 
+	private static RelationshipComparator relationshipComparator = new RelationshipComparator();
+	
 	@Attribute
 	private String name;
 	@Attribute(required=false)
@@ -655,40 +659,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		this.nonFixedVocabularyBinding = nonFixedVocabularyBinding;
 	}
 
-	public int compareTo(Relationship o) {
-		int result = 0;
-		
-		if (o == null) {
-			result = 1;
-		}
-		
-		if (result == 0 && this.isAttribute() != o.isAttribute()) {
-			if (this.isAttribute()) {
-				result = -1;
-			} else {
-				result = 1;
-			}
-		}
-		
-		if (result == 0 && this.isAttribute()) {
-			result = this.getSortOrder() - o.getSortOrder();
-		}
-		
-		if (result == 0 && this.isAssociation()) {
-			String sortKey1 = this.getAssociationSortKey() == null ? "" : this.getAssociationSortKey();
-			String sortKey2 = o.getAssociationSortKey() == null ? "" : o.getAssociationSortKey();
-			result = sortKey1.compareTo(sortKey2);
-		}
-		
-		if (result == 0 && this.isAssociation()) {
-			// FIXME - TM - temporary change until can work on RM18979 (this code should be reverted, then add an exception for NFLD)
-			result = this.getSortOrder() - o.getSortOrder();
-//			String name1 = this.getName() == null ? "" : this.getName();
-//			String name2 = o.getName() == null ? "" : o.getName();
-//			result = name1.compareTo(name2);
-		}
-		
-		return result;
+	public int compareTo(Relationship rel) {
+		return relationshipComparator.compare(this, rel);
 	}
 
 }

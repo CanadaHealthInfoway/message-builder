@@ -26,12 +26,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
@@ -57,6 +55,7 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
+import ca.infoway.messagebuilder.xml.util.RelationshipComparator;
 import ca.intelliware.commons.dependency.DependencyManager;
 import ca.intelliware.commons.dependency.Layer;
 import ca.intelliware.commons.dependency.Node;
@@ -290,20 +289,7 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	private void sortRelationships(SimplifiableType simplifiableType) {
-		Collections.sort(simplifiableType.getRelationships(), new Comparator<SimplifiableRelationship>(){
-			public int compare(SimplifiableRelationship o1, SimplifiableRelationship o2) {
-				CompareToBuilder builder = new CompareToBuilder();
-				builder.append(o1.getRelationship().isAssociation(), o2.getRelationship().isAssociation());
-				if (o1.getRelationship().isAttribute()) {
-					builder.append(o1.getRelationship().getSortOrder(), o2.getRelationship().getSortOrder());
-				}
-				if (o1.getRelationship().isAssociation()) {
-					builder.append(o1.getRelationship().getAssociationSortKey(), o2.getRelationship().getAssociationSortKey())
-						.append(o1.getName(), o2.getName());
-				}
-				return builder.toComparison();
-			}
-		});
+		Collections.sort(simplifiableType.getRelationships(), new RelationshipComparator());
 	}
 
 	private SimplifiableRelationship createRelationship(TypeName name, SimplifiableDefinitions definitions,

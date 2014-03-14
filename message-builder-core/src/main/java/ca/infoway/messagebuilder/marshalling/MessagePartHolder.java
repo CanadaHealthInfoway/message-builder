@@ -22,10 +22,8 @@ package ca.infoway.messagebuilder.marshalling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
-
-import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -35,25 +33,9 @@ import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
 class MessagePartHolder {
 
-	private class RelationshipComparator implements Comparator<Relationship> {
-		public int compare(Relationship o1, Relationship o2) {
-			// taken from IntermediateToModelGenerator.sortRelationships
-			CompareToBuilder builder = new CompareToBuilder();
-			builder.append(o1.isAssociation(), o2.isAssociation());
-			if (o1.isAttribute()) {
-				builder.append(o1.getSortOrder(), o2.getSortOrder());
-			}
-			if (o1.isAssociation()) {
-				builder.append(o1.getAssociationSortKey(), o2.getAssociationSortKey())
-				.append(o1.getName(), o2.getName());
-			}
-			return builder.toComparison();
-		}
-	}
-
 	private final MessagePart messagePart;
-	private final List<Relationship> allRelationships;
-	private Comparator<Relationship> relationshipComparator = new RelationshipComparator();
+	// intentionally specified as an ArrayList for translation purposes
+	private final ArrayList<Relationship> allRelationships;
 
 	MessagePartHolder(MessageDefinitionService service, VersionNumber version, String superTypeName) {
 		this(service, version, superTypeName, Arrays.asList(new TypeName(superTypeName)));
@@ -63,20 +45,19 @@ class MessagePartHolder {
 		this.messagePart = service.getMessagePart(version, typeName);
 		this.allRelationships = mergeRelationships(service, version, typeHierarchy);
 		if (typeHierarchy.size() > 1) {
-			// should be Collections.sort, but this does not translate correctly
-			CollectionSorter.sort(this.allRelationships, this.relationshipComparator);
+			Collections.sort(this.allRelationships);
 		}
 	}
 	
 	// tests only
 	MessagePartHolder(MessagePart partForTestOnly) {
 		this.messagePart = partForTestOnly;
-		this.allRelationships = partForTestOnly.getRelationships();
+		this.allRelationships = new ArrayList<Relationship>(partForTestOnly.getRelationships());
 	}
 
-	private List<Relationship> mergeRelationships(MessageDefinitionService service,
+	private ArrayList<Relationship> mergeRelationships(MessageDefinitionService service,
 			VersionNumber version, List<TypeName> typeHierarchy) {
-		List<Relationship> mergedRelationships = new ArrayList<Relationship>(); 
+		ArrayList<Relationship> mergedRelationships = new ArrayList<Relationship>(); 
 		for (TypeName type : typeHierarchy) {
 			MessagePart part = service.getMessagePart(version, type.getName());
 			if (part != null) {

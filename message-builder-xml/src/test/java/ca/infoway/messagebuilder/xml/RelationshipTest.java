@@ -25,7 +25,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -33,8 +32,6 @@ import org.junit.Test;
 public class RelationshipTest {
 
 	@Test
-	// FIXME - TM - temporary change until can work on RM18979 (this code should be reverted, then add an exception for NFLD)
-	@Ignore
 	public void shouldSortRelationships() throws Exception {
 		Relationship relationship1 = createRelationship(true, "attribute", 5, null);
 		Relationship relationship2 = createRelationship(true, "another attribute", 11, null);
