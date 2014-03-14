@@ -122,9 +122,10 @@ public class Hl7SourceMapperBasicTest {
 
 		XmlToModelResult result = partSource2.getResult();
 		assertNotNull("result", result);
-		assertEquals(2, result.getHl7Errors().size());
+		assertEquals(3, result.getHl7Errors().size());
 		assertEquals(Hl7ErrorCode.UNSUPPORTED_INTERACTION, result.getHl7Errors().get(0).getHl7ErrorCode());
 		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, result.getHl7Errors().get(1).getHl7ErrorCode());
+		assertEquals(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, result.getHl7Errors().get(2).getHl7ErrorCode());
 	}
 	
 	

@@ -56,6 +56,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -100,7 +101,7 @@ class Hl7SourceMapper {
 		
 		List<Element> elements = NodeUtil.toElementList(source.getCurrentElement());
 		
-		// 1) "elements" contains the xml-order of the current part's relationships - note that this can have duplicatess at this point
+		// 1) "elements" contains the xml-order of the current part's relationships - note that this can have duplicates at this point
 		// 2) "source" contains the message part being processed - this is not exposed
 		// 3) "source" contains the result bean where errors can be stored - this *is* exposed
 		// 4) need to watch choice/template cases (including choices with supertypes)
@@ -137,7 +138,7 @@ class Hl7SourceMapper {
     	    		// however, for choice and template relationships, there will be an apparent mismatch between relationship names 
     	    		xmlElementNamesInProvidedOrder.add(nodeName);
     	    		sortedRelationshipsMatchingUpToXmlElementNames.add(xmlRelationship);
-    	    		resolvedRelationshipNames.put(xmlRelationship.getParentType() + xmlRelationship.getName(), nodeName);
+    	    		resolvedRelationshipNames.put(generateRelationshipKey(xmlRelationship), nodeName);
     	    	}
     	    	
             	process(wrapper, source, nodes, nodeName);
@@ -147,19 +148,30 @@ class Hl7SourceMapper {
         // this sorts the matching relationships according to HL7v3/MIF requirements
 		Collections.sort(sortedRelationshipsMatchingUpToXmlElementNames);
 		validateElementOrder(source, xmlElementNamesInProvidedOrder, sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
+		validateMissingMandatoryNonStructuralRelationships(source, resolvedRelationshipNames);
 
-//		System.out.println(">>>> for " + source.getMessagePartName() + (relationship == null || relationship.getType() == null ? " (used in a template or choice)" : ""));
-//		System.out.print("Actual order:   ");
-//		for (String string : xmlElementNamesInProvidedOrder) {
-//			System.out.print(string + ", ");
-//		}
-//		System.out.println("");
-//		System.out.print("Expected order: ");
-//		for (Relationship relationship2 : sortedRelationshipsMatchingUpToXmlElementNames) {
-//			System.out.print(resolvedRelationshipNames.get(relationship2.getParentType() + relationship2.getName()) + ", ");
-//		}
-//		System.out.println("\n\n");
-        
+	}
+
+	private void validateMissingMandatoryNonStructuralRelationships(Hl7Source source, Map<String, String> resolvedRelationshipNames) {
+		// compare xml provided elements with all known mandatory relationships (watch for nested)
+		List<Relationship> allRelationships = source.getAllRelationships();
+		for (Relationship relationship : allRelationships) {
+			// ignore structural - this has been checked elsewhere (and isn't contained in the resolved relationships anyway)
+			if (!relationship.isStructural() && relationship.getCardinality().getMin() > 0) {
+				if (!resolvedRelationshipNames.containsKey(generateRelationshipKey(relationship))) {
+					Hl7Error error = new Hl7Error(
+							Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
+							"Relationship '" + relationship.getName() + "' has a minimum cardinality greater than zero, but no value was provided.", 
+							source.getCurrentElement());
+					source.getResult().addHl7Error(error);
+				}
+			}
+			
+		}
+	}
+
+	private String generateRelationshipKey(Relationship xmlRelationship) {
+		return xmlRelationship.getParentType() + "." + xmlRelationship.getName();
 	}
 
 	private void validateElementOrder(
@@ -171,7 +183,7 @@ class Hl7SourceMapper {
 		for (int i = 0; i < sortedRelationshipsMatchingUpToXmlElementNames.size(); i++) {
 			Relationship rel = sortedRelationshipsMatchingUpToXmlElementNames.get(i);
 			String name1 = xmlElementNamesInProvidedOrder.get(i);
-    		String name2 = resolvedRelationshipNames.get(rel.getParentType() + rel.getName());
+    		String name2 = resolvedRelationshipNames.get(generateRelationshipKey(rel));
 			
 			if (!StringUtils.equals(name1, name2)) {
 				String message = 
@@ -196,7 +208,7 @@ class Hl7SourceMapper {
 		 sb.append('[');
 		 for (;;) {
 		    Relationship relationship = iterator.next();
-			sb.append(resolvedRelationshipNames.get(relationship.getParentType() + relationship.getName()));
+			sb.append(resolvedRelationshipNames.get(generateRelationshipKey(relationship)));
 			 if (!iterator.hasNext()) {
 			     return sb.append(']').toString();
 			 }
@@ -224,15 +236,17 @@ class Hl7SourceMapper {
 	    			}
 	    		}
 	    	} else if (relationship.isAttribute()) {
+	    		// attribute cardinality checked at datatype level
 	    		writeAttribute(bean, source, nodes, relationship, traversalName);
-	    	} else if (isIndicator(source, relationship)) {
-	    		// FIXME - can possibly check cardinality either here or within writeIndicator 
-	    		writeIndicator(bean, source, nodes, relationship, traversalName);
 	    	} else {
-	    		// FIXME - can possibly check cardinality either here or within writeAssociation
-	    		//       - move this and above to an "else", to avoid duplication
-	    		writeAssociation(bean, source, nodes, relationship, traversalName);
-	    	}
+	    		// need to check association cardinality here
+	    		validateAssociationCardinality(source, nodes, traversalName, relationship);
+		    	if (isIndicator(source, relationship)) {
+		    		writeIndicator(bean, source, nodes, relationship, traversalName);
+		    	} else {
+		    		writeAssociation(bean, source, nodes, relationship, traversalName);
+		    	}
+	    	} 
     	} catch (MarshallingException e) {
     		// RM18422 - log an error rather than throwing an exception up the chain
     		// this is a "known" exception that has been handled to some extent
@@ -243,6 +257,15 @@ class Hl7SourceMapper {
         	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
 			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Unexpected error: " + e.getMessage(), element));
     	}
+	}
+
+	private void validateAssociationCardinality(Hl7Source source, List<Node> nodes, String traversalName, Relationship relationship) {
+		Cardinality cardinality = relationship.getCardinality();
+		int numberOfAssociations = nodes.size();
+		if (cardinality != null && !cardinality.contains(numberOfAssociations)) {
+			Hl7Error error = Hl7Error.createWrongNumberOfAssociationsError(traversalName, source.getCurrentElement(), numberOfAssociations, cardinality);
+			source.getResult().addHl7Error(error);
+		}
 	}
 
 	private boolean isIndicator(Hl7Source source, Relationship relationship) {

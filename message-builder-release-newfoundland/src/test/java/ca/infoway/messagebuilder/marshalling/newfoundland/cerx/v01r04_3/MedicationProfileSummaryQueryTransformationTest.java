@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.x_DrugUnitsOfMeasure;
@@ -63,6 +64,8 @@ import ca.infoway.messagebuilder.model.newfoundland.MessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.newfoundland.NewBaseMessageBean;
 import ca.infoway.messagebuilder.model.newfoundland.RecordBean;
+import ca.infoway.messagebuilder.model.newfoundland.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.newfoundland.cerx.MedicationDispenseInstructionsBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.RefusalToFillBeanBuilder;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.MedicationPrescriptionBean;
 import ca.infoway.messagebuilder.model.newfoundland.cerx.deviceprescription.ReasonBeanBuilder;
@@ -239,6 +242,14 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 		medicationPrescription.setStatusCode(lookup(ActStatus.class, "normal", CodeSystem.VOCABULARY_ACT_STATUS.getRoot()));
 		medicationPrescription.setUsageInstructions("usage instructions");
 		
+		medicationPrescription.setWorkingListCode(lookup(ActTherapyDurationWorkingListCode.class, "xyz", CodeSystem.VOCABULARY_ACT_STATUS.getRoot()));
+		ServiceDeliveryLocationBean serviceDeliveryLocation = new ServiceDeliveryLocationBean();
+		serviceDeliveryLocation.setIdentifier(new Identifier("1.2.3", "123"));
+		serviceDeliveryLocation.setName("name");
+		MedicationDispenseInstructionsBean supplyRequest = new MedicationDispenseInstructionsBean();
+		supplyRequest.setServiceDeliveryLocation(serviceDeliveryLocation);
+		supplyRequest.setActStatus(lookup(ActStatus.class, "normal", CodeSystem.VOCABULARY_ACT_STATUS.getRoot()));
+		medicationPrescription.setDispenseInstructions(supplyRequest);
 		
 		model.getControlActEventBean().getQueryRecords().add(new RecordBean<MedicationProfileSummaryBean>(medicationPrescription));
 		

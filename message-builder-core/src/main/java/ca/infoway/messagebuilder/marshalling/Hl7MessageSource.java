@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.List;
 import java.util.TimeZone;
 
 import org.w3c.dom.Document;
@@ -121,7 +122,12 @@ class Hl7MessageSource implements Hl7Source {
 		return this.messagePart.getRelationship(name, getInteraction());
 	}
 
+	public List<Relationship> getAllRelationships() {
+		return this.messagePart.getRelationships();
+	}
+
 	public String getMessagePartName() {
 		return this.messagePart.getName();
 	}
+
 }

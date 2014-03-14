@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.List;
 import java.util.TimeZone;
 
 import org.w3c.dom.Element;
@@ -51,6 +52,8 @@ interface Hl7Source {
 	public Hl7PartSource createPartSource(Relationship relationship, Element currentElement);
 	
 	public Relationship getRelationship(String name);
+	
+	public List<Relationship> getAllRelationships();
 	
 	public Interaction getInteraction();
 	

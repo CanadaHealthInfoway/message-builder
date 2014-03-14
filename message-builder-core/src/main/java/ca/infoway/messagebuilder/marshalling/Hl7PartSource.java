@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
@@ -124,6 +126,23 @@ class Hl7PartSource implements Hl7Source {
 		return relationship;
 	}
 
+	public List<Relationship> getAllRelationships() {
+		List<Relationship> allRelationships = new ArrayList<Relationship>();
+		getAllRelationships(this.originalMessagePart, allRelationships);
+		return allRelationships;
+	}
+	
+	private void getAllRelationships(MessagePart part, List<Relationship> relationships) {
+		relationships.addAll(part.getRelationships());
+		for (SpecializationChild childType : part.getSpecializationChilds()) {
+			if (typeIsAssignable(childType.getName())) {
+				MessagePart childPart = getService().getMessagePart(getVersion(), childType.getName());
+				getAllRelationships(childPart, relationships);
+			}
+		}
+	}
+	
+	
 	/** 
 	 * Is our type an implementation of the given child type?
 	 * 
