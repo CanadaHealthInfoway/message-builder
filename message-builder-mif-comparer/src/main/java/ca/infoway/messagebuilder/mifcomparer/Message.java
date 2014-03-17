@@ -45,7 +45,7 @@ import org.w3c.dom.Node;
  * </ul>
  * Objects of this class are immutable.
  *
- * TODO: Add fields for line/col numbers and xpaths.  Probably in a subclass, to make it easier to vary the output format (by overloading asText() etc.)
+ * (Later) Add fields for line/col numbers and xpaths.  Probably in a subclass, to make it easier to vary the output format (by overloading asText() etc.)
  */
 class Message {
 	

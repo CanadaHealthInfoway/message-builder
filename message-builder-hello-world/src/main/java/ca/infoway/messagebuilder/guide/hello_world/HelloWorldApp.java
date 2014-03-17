@@ -208,10 +208,8 @@ public abstract class HelloWorldApp {
 		try {
 			requestMessage = SimpleRequestMessage.create(new DocumentFactory().createFromString(xmlRequest));
 		} catch (TransportLayerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String xmlResponse = transportLayer.sendRequestAndGetResponse(credentials, requestMessage);
@@ -448,7 +446,6 @@ public abstract class HelloWorldApp {
 		try {
 			contents = convertStreamToString(is);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return contents;

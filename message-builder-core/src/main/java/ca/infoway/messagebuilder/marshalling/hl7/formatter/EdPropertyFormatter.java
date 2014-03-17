@@ -60,8 +60,6 @@ import ca.infoway.messagebuilder.platform.Base64;
 @DataTypeHandler("ED")
 public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EncapsulatedData> {
 
-	// FIXME - for reference and content (ED.DOC only)
-	
 	private EdValidationUtils edValidationUtils = new EdValidationUtils();
 	
 	@Override

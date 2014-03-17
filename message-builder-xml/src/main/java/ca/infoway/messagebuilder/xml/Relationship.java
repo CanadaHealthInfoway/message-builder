@@ -214,7 +214,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public ConformanceLevel getConformance() {
 		if (this.conformance != null) {
 			return EnumPattern.valueOf(ConformanceLevel.class, this.conformance);
-		} else if (hasFixedValue()) { // TODO: TM - should this also return MANDATORY if min cardinality > 0?
+		} else if (hasFixedValue()) { // TM - should this also return MANDATORY if min cardinality > 0?
 			return ConformanceLevel.MANDATORY;
 		} else {
 			return ConformanceLevel.OPTIONAL;
@@ -335,7 +335,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * <p>Get a flag indicating whether or not the relationship is an attribute.
 	 * @return true if the relationship is an attribute; false otherwise.
 	 */
-	// BCH/TM: TODO: This might not be the best algorithm...
+	// BCH/TM: This might not be the best algorithm...
 	public boolean isAttribute() {
 		if (hasFixedValue()) {
 			return true;

@@ -265,7 +265,7 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	
 	public static boolean isExternalReferenceType(Element targetConnection) {
 		if (!isMifReferenceElementPresent(targetConnection)) {
-			return false; // TODO: BCH: I think?
+			return false; // BCH: I think?
 		} else {
 			String reference = getMifReferenceType(targetConnection);
 			return StringUtils.isNotBlank(getExternalReferenceType(targetConnection, reference));

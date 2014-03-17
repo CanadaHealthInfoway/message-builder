@@ -100,7 +100,7 @@ public class LocationDetailsQueryTransformationTest extends BaseTransformerTestC
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldProduceMeaningfulResponse() throws Exception {
 		LocationDetailsQueryResponseMessageBean model = createResponseBean();
 		String xml = toHl7(model);

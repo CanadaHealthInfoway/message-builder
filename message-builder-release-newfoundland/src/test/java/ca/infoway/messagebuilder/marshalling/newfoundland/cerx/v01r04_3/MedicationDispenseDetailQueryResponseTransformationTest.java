@@ -58,7 +58,7 @@ public class MedicationDispenseDetailQueryResponseTransformationTest extends Bas
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownQuery() throws Exception {
 		MedicationDispenseDetailQueryResponseMessageBean model = createQueryResponseBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();

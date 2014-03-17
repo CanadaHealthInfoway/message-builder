@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
  */
 public interface PQ extends QTY<PhysicalQuantity> {
 
-	// TODO - Datatypes - TM/AG - consider implementing the following unsupported methods
+// TM/AG - consider implementing the following unsupported methods
 	
 //    PQ canonical();
 //    PQ expressedIn(PQ that);

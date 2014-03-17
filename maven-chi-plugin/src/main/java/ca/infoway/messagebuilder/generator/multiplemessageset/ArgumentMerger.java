@@ -111,7 +111,7 @@ class ArgumentMerger implements Merger<List<Argument>> {
 
 	private void mergeTraversalName(Argument result, String traversalName, String traversalName2) {
 		
-		// TODO - TM - might want to ensure that a traversal name difference does not match a traversal name in the same hierarchy-level of argumrnts
+		// TM - might want to ensure that a traversal name difference does not match a traversal name in the same hierarchy-level of argumrnts
 		
 		result.setTraversalName(traversalName);
 		if (!StringUtils.equals(traversalName, traversalName2)) {

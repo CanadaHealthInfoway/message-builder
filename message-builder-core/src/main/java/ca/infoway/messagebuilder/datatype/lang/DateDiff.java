@@ -43,7 +43,7 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
 
 	// SS-20090407: Bug 10882 has been opened to allow this class to handle fractional units.
 	
-    // TODO SS-20080211: there is some overlap with DefaultTimeUnit here 
+    // SS-20080211: there is some overlap with DefaultTimeUnit here 
     public static final String YEAR = "a";
     public static final String MONTH = "mo";
     public static final String WEEK = "wk";

@@ -82,7 +82,7 @@ class MessagePartMerger implements Merger<MessagePart> {
 		this.result.setAbstract(abstract1 || abstract2);
 	}
 
-	// TODO - TM - perhaps log some differences here when appropriate? 
+	// TM - perhaps log some differences here when appropriate? 
 	private void mergeSpecializationChilds(List<SpecializationChild> specializationChilds1, List<SpecializationChild> specializationChilds2) {
 		// can we really just merge this list? seems like it should be ok
 		Set<SpecializationChild> resultSet = new TreeSet<SpecializationChild>(); 

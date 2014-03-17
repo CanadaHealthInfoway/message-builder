@@ -62,7 +62,7 @@ public class ImportTypeUtil {
 		if (!type.isAbstract()) {
 			importTypes.add(language == JAVA 
 					? "ca.infoway.messagebuilder.model.MessagePartBean" 
-					: "Ca.Infoway.Messagebuilder.Model.MessagePartBean"); // TODO: BCH: remove 'Bean'
+					: "Ca.Infoway.Messagebuilder.Model.MessagePartBean");
 		}
 		if (type.isRootType()) {
 			importTypes.add("ca.infoway.messagebuilder.annotation.Hl7RootType");

@@ -48,7 +48,6 @@ public class TypeResolver {
 			String unqualifiedName = MifXPathHelper.getSpecializedClass(specializationChild);
 			return NameHelper.qualifiyName(specializationChild, unqualifiedName);
 		} else {
-			// TODO: BCH/TM: better error message
 			throw new MifProcessingException(specializationChild, "Cannot resolve type for specialization child.  Parent = " +
 					getParentName(specializationChild));
 		}

@@ -134,7 +134,7 @@ public class MifSimpleTextConverter implements Converter<MifSimpleText> {
 
 	@Override
 	public void write(OutputNode node, MifSimpleText value) throws Exception {
-		//FIXME: We only care about reading in DT coremifs right now (this will likely need to be updated to regenerate the dt coremifs properly) 
+		//TODO: We only care about reading in DT coremifs right now (this will likely need to be updated to regenerate the dt coremifs properly) 
 		if(!StringUtils.isBlank(value.getValue())){
 			//String html = StringEscapeUtils.unescapeXml(value.getValue());
 			String html = value.getValue();

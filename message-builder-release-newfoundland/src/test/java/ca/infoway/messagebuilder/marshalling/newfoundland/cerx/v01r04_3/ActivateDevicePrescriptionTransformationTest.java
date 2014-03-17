@@ -53,7 +53,7 @@ public class ActivateDevicePrescriptionTransformationTest extends BaseTransforme
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
 		ActivateDevicePrescriptionRequestMessageBean model = createRequestBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();

@@ -96,7 +96,7 @@ class InteractionMerger implements Merger<Interaction> {
 		} else if (superTypeName == null) {
 			this.result.setSuperTypeName(superTypeName2);
 		} else {
-			// FIXME TM - what do we do when we have different supertypes???
+			// TM - what do we do when we have different supertypes???
 //			Here is the breakdown of how supertypename changes between currently supported versions:
 //				v01r04.2  / v01r04.3  : MCCI 0300 changes to 0100 (3 occurrences)
 //				v01r04.2  / v02r02    : MCCI 0100,0200,0300 change to 2100,2200,2300 (numerous)

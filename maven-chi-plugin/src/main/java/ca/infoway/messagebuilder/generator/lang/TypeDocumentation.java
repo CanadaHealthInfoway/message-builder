@@ -220,7 +220,7 @@ public class TypeDocumentation {
 		} else {
 			TypeDocumentation that = (TypeDocumentation) obj;
 			// some trivial differences will match
-			// TODO - TM/AG - might want to cache getText instead of building it each time
+			// TM/AG - might want to cache getText instead of building it each time
 			return new EqualsBuilder()
 					.append(this.getText(), that.getText()) 
 					.isEquals();

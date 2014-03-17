@@ -106,10 +106,10 @@ public class LocationSummaryQueryTransformationTest extends BaseTransformerTestC
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		
-//      FIXME - TM/BC - using the new renderer, this test will fail (detected issue not written)		
+//      TM/BC - using the new renderer, this test will fail (detected issue not written)		
 		
 //		LocationSummaryQueryResponseMessageBean model = createResponseBean();
 //		String xml = toHl7UsingNewRenderer(model, VERSION);

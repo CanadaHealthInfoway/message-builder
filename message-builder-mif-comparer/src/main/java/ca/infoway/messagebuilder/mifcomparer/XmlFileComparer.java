@@ -96,7 +96,7 @@ public class XmlFileComparer extends FileComparer {
 		super(l, r, m);
 	}
 
-	// XXX Is return value really useful?  Need more detailed stats anyway, e.g. XML error vs. XML miscompare
+	// Is return value really useful?  Need more detailed stats anyway, e.g. XML error vs. XML miscompare
 	public int compare() {
 		messages.add(new Message(DEBUG, PROGRESS, "Comparing using XmlFileComparer", left.getFile(), right.getFile()));
 	

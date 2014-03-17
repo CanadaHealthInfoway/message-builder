@@ -130,9 +130,9 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 	private Type determineReturnType(String specializationType, Type returnType) {
 		StandardDataType specializationTypeAsType = StandardDataType.getByTypeName(specializationType);
 		if (specializationTypeAsType != null && specializationTypeAsType.isCoded()) {
-			// TODO - TM: expand this to try to obtain the actual domain type using the code and code system (possibly more trouble than its worth)
-			//            (this type of "lookup domain type by code system" is not currently supported; would need to watch out for multiple domains using same code system)
-			//            Also: MB doesn't track code systems, though it does have an enum of some of the more common ones
+			// TM: could expand this to try to obtain the actual domain type using the code and code system (possibly more trouble than its worth)
+			//     (this type of "lookup domain type by code system" is not currently supported; would need to watch out for multiple domains using same code system)
+			//     Also: MB doesn't track code systems, though it does have an enum of some of the more common ones
 			return ANY.class;
 		}
 		return returnType;

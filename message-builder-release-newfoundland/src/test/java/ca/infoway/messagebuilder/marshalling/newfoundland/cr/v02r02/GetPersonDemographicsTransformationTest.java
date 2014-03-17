@@ -88,7 +88,7 @@ public class GetPersonDemographicsTransformationTest extends BaseTransformerTest
 	
 	@Test
 	public void shouldCreateAMeaningfulResponse() throws Exception {
-//      FIXME - TM/BC - using the new renderer, this test will fail (detected issue not written)		
+//      TM/BC - using the new renderer, this test will fail (detected issue not written)		
 
 //		GetPersonDemographicsQueryResponseMessageBean model = createResponseBean();
 //		String xml = toHl7UsingNewRenderer(model, VERSION);

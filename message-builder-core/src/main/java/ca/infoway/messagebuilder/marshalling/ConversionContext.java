@@ -134,7 +134,7 @@ class ConversionContext {
 			if (StringUtils.equals(argument.getTemplateParameterName(), templateName)) {
 				templateFormatInfo = new RelationshipFormat(argument.getTraversalName(), argument.getName(), argument);
 			} else if (argument.getName() != null && argument.getName().endsWith("." + templateName)) {
-				// BCH: TODO: this looks suspicious.  Investigate later...
+				// BCH: this looks suspicious.  Investigate later...
 				templateFormatInfo = new RelationshipFormat(argument.getTraversalName(), argument.getName(), argument);
 			} else {
 				templateFormatInfo = resolveTemplateType(argument.getArguments(), templateName);

@@ -58,7 +58,7 @@ public class MessageSetCoverageAcceptanceTestRunner implements AcceptanceTestRun
 			// collect together all part type mappings used in our model objects under a certain package structure
 			Set<String> messagePartsInModel = new HashSet<String>();
 			
-//			// FIXME - TM/SPD - check if reflections is loading classes; replace with something else?
+//			// TM/SPD - check if reflections is loading classes; replace with something else?
 //			Reflections reflections = new Reflections("ca.infoway.messagebuilder.model", new TypeAnnotationsScanner(), new SubTypesScanner());
 //			Set<Class<?>> classes = reflections.getTypesAnnotatedWith(Hl7PartTypeMapping.class);
 			

@@ -344,7 +344,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	
 	private boolean isNewfoundland(VersionNumber version) {
 		// this version is not currently supported by MB and is not in the SpecificationVersion enum
-		// TODO - TM - NEWFOUNDLAND TEST HACK
+		// TM - NEWFOUNDLAND TEST HACK
 		return version != null && StringUtils.equals(version.getVersionLiteral(), "NEWFOUNDLAND");
 	}
 	

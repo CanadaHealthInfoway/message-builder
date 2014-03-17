@@ -107,7 +107,7 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 		return getCodeValue();
 	}
 	
-	//CP: TODO: Move these methods up to the CodeImpl class. 
+	//CP: Should move these methods up to the CodeImpl class. 
 	/**
 	 * {@inheritDoc}
 	 */

@@ -33,7 +33,6 @@ public class MifFormalConstraint extends MifBasicAnnotation{
 	
 	public MifFormalConstraint(String text) {
 		super(text);
-		//TODO: may need to add a graphicLinkId (some sort of UUID)
 	}
 
 	public String getGraphicLinkId() {

@@ -41,6 +41,6 @@ package ca.infoway.messagebuilder.datatype;
  */
 public interface TEL extends URL {
 
-	// TODO - Datatype - TM/AG - useablePeriod not currently supported
+	// TM/AG - useablePeriod not currently supported
 	
 }

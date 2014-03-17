@@ -394,7 +394,7 @@ public abstract class BaseHtmlGenerator {
 			});
 			
 			for (Annotation annotation : sortedAnnotations) {
-				//FIXME: Filter out mapping annotations for now (not in requirements), will likely require different handling for subtype
+				// Filter out mapping annotations for now (not in requirements), will likely require different handling for subtype
 				String text = annotation.getText();
 				if (text != null) {
 					if (AnnotationType.DEFINITION.equals(annotation.getAnnotationTypeAsEnum())) {

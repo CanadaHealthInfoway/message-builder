@@ -100,7 +100,7 @@ public class MessageBeanBuilderSupport {
 	private static void populateAcknowledgement(NoPayloadResponseMessageBean bean) {
 		bean.setDesiredAcknowledgmentType(AcknowledgementCondition.NEVER);
 		
-		// TODO - TM - OLDTEAL - any need to preserve these lines? 
+		// TM - OLDTEAL - any need to preserve these lines? 
 		bean.getAcknowledgement().setAcknowledgementType(AcknowledgementType.APPLICATION_ACKNOWLEDGEMENT_ACCEPT);		
 		bean.getAcknowledgement().setTargetMessage(new Identifier("2.16.124.113620.1.1.1.1.2", "293844"));		
 	}
@@ -111,7 +111,7 @@ public class MessageBeanBuilderSupport {
 		result.setId(new Identifier("2.16.840.1.113883.4.267", "EHR ID EXT"));
 		result.setLicenseNumber(new Identifier("2.16.840.1.113883.4.268", "55555"));
 		
-		// TODO: I'm a little unhappy about this. The data setup seems too HL7-y. Would it be better to retain the PersonNameBean and the adaptor?
+		// I'm a little unhappy about this. The data setup seems too HL7-y. Would it be better to retain the PersonNameBean and the adaptor?
 		PersonName name = new PersonName();
 		name.addNamePart(new EntityNamePart("Jane", GIVEN));
 		name.addNamePart(new EntityNamePart("Doe", FAMILY));
@@ -167,7 +167,7 @@ public class MessageBeanBuilderSupport {
 		return personBean;
 	}
 
-	// TODO - TM - OLDTEAL - can this be removed?
+	// TM - OLDTEAL - can this be removed?
 	
 	@Deprecated
 	public static void populateBetterStandardValuesV02(NewBaseMessageBean messageAttributes) {

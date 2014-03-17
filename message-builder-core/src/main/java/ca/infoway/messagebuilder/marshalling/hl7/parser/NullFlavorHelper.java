@@ -62,7 +62,7 @@ public class NullFlavorHelper {
 					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
 					(Element) node));
 //      RM #15431 - strictly speaking, nullFlavors are not allowed for REQUIRED fields. However, jurisdictions often ignore this restriction.
-//      TODO:  TM - once MB has error levels implemented, this can be reinstated as a warning
+//      FIXME:  TM - once MB has error levels implemented, this can be reinstated as a warning
 //		} else if (this.conformanceLevel != null && this.conformanceLevel == ConformanceLevel.REQUIRED) {
 //			xmlToModelResult.addHl7Error(Hl7Error.createRequiredAttributeIsNullError(
 //					NodeUtil.getLocalOrTagName((Element) node), 

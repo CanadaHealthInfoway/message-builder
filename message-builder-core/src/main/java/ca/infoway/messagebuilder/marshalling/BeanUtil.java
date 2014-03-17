@@ -69,7 +69,7 @@ class BeanUtil {
 				sorter = RelationshipSorter.create("", beanProperty.get()); 
 			} else {
 				// if can't find a mapping match then stop here
-				// TODO - just append letfover parts? i.e. a.b.c (.leftover1.leftover2)
+				// just append letfover parts? i.e. a.b.c (.leftover1.leftover2)
 				break;
 			}
 		}
@@ -97,7 +97,7 @@ class BeanUtil {
 	}
 
 	private static List<String> obtainParts(String xpath) {
-		// TODO - handle attribute ('@') in xpath - currently attributes are not included in any of our error xpaths,
+		// need to handle attribute ('@') in xpath - currently attributes are not included in any of our error xpaths,
 		//                                          so not handling this situation for now
 		if (xpath.startsWith(XPATH_SEPARATOR)) {
 			xpath = xpath.substring(1);

@@ -107,7 +107,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createRequest()).getXmlMessage();
 		Document actual = this.factory.createFromString(xml);
@@ -132,7 +132,7 @@ public abstract class BaseAdverseReactionTransformationTest extends BaseTransfor
 	}
 	
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getRequestMessageFile()));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);

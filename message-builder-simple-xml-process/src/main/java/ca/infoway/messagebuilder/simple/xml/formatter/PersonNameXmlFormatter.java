@@ -101,7 +101,7 @@ public class PersonNameXmlFormatter extends AbstractSimpleXmlFormatter {
 			
 			String textContent = item.getTextContent();
 			
-			// TODO - TM - should handle empty content/unknown parttype
+			// TM - should handle empty content/unknown parttype
 			
 			personName.getParts().add(new EntityNamePart(textContent, partType, qualifierString));
 		}
@@ -140,7 +140,7 @@ public class PersonNameXmlFormatter extends AbstractSimpleXmlFormatter {
             while (tokenizer.hasMoreElements()) {
                 String token = tokenizer.nextToken();
                 EntityNameUse nameUse = CodeResolverRegistry.lookup(EntityNameUse.class, token);
-                // TODO - TM - should null be handled here at all? (throw exception?)
+                // TM - should null be handled here at all? (throw exception?)
                 if (nameUse != null) {
                     uses.add(nameUse);
                 }

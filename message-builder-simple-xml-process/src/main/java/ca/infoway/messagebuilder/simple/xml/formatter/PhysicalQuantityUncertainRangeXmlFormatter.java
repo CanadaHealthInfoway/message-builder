@@ -46,7 +46,7 @@ public class PhysicalQuantityUncertainRangeXmlFormatter extends AbstractSimpleXm
 		Element fromElement = getSingleElement(element, "from");
 		Element toElement = getSingleElement(element, "to");
 		
-		// TODO: BCH: consider the handling of nullFlavor parts, here?
+		// BCH: consider the handling of nullFlavor parts, here?
 		
 		if (fromElement != null && toElement != null) {
 			PQ from = parseQuantity(formatContext, fromElement);

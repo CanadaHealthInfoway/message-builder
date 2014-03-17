@@ -85,14 +85,14 @@ public class ReviseAssignedDispenseResponsibilityRequestTransformationTest exten
 	}
 	
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldProduceSomeResponseResult() throws Exception {
 		String transformToXml = this.transformer.transformToHl7(VERSION, createResponseMessageBean()).getXmlMessage();
 		assertNotNull("result", transformToXml);
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownResponse() throws Exception {
 		ReviseAssignedDispenseResponsibilityRequestAcceptedMessageBean model = createResponseMessageBean();
 		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();

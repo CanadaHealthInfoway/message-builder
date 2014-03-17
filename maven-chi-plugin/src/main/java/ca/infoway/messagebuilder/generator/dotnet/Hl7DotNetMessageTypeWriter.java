@@ -160,7 +160,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
         } else {
 	    	if (!this.type.isAbstract()) {
 	    		writer.write(" : ");
-	    		writer.write("MessagePartBean"); // TODO: BCH: remove 'Bean'
+	    		writer.write("MessagePartBean");
 	    	}
 	        if (!this.type.getInterfaceTypes().isEmpty()) {
 	       		boolean first = this.type.isAbstract();

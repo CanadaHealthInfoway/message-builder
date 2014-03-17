@@ -59,7 +59,7 @@ class ChoiceMerger implements Merger<Relationship> {
 		return result;
 	}
 
-	// TODO - TM - perhaps log some differences here when appropriate? 
+	// perhaps log some differences here when appropriate? 
 	private void mergeChoices(List<Relationship> choices, List<Relationship> choices2) {
 		List<Relationship> mergedChoices = this.choicesMerger.merge(choices, choices2);
 		this.result.getChoices().addAll(mergedChoices);

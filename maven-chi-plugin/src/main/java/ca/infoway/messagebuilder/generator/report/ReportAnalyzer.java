@@ -190,7 +190,7 @@ public class ReportAnalyzer {
 		return relationship.getDocumentation() == null ? null : relationship.getDocumentation().getBusinessName();
 	}
 
-	// TODO: BCH: maintain original order?
+	// BCH: maintain original order?
 	private Set<String> getRelationshipNames(MessageSet[] messageSets, String messagePartName) {
 		Set<String> result = new HashSet<String>();
 		for (MessageSet messageSet : messageSets) {

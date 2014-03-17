@@ -354,8 +354,7 @@ class XmlRenderingVisitor implements Visitor {
 					this.result.addHl7Error(hl7Error);
 				}
 				
-				// boolean isSpecializationType = (tealBean.getHl7Value().getDataType() != tealBean.getRelationship().getType());
-				// FIXME - VALIDATION - TM - SPECIALIZATION_TYPE - need to allow for specialization type to be set here???
+				// TM - need to allow for specialization type to be set here???
 				
 				xmlFragment += formatter.format(
 						FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), 

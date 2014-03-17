@@ -78,7 +78,7 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 	}
 	
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldProduceSomeResult() throws Exception {
 		String xml = this.transformer.transformToHl7(VERSION, createQuery()).getXmlMessage();
 		assertNotNull("result", xml);
@@ -86,7 +86,7 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 	}
 	
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownMessage() throws Exception {
 		MessageBean model = createQuery();
 		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();
@@ -143,7 +143,7 @@ public class MedicationProfileDetailGenericQueryTransformationTest extends BaseT
 	}
 	
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		MedicationProfileDetailGenericQueryResponseMessageBean model = createResponseBean();
 		String xml = this.transformer.transformToHl7(VERSION, model).getXmlMessage();

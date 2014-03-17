@@ -84,7 +84,6 @@ public class ConceptDomainLayoutItem implements LayoutItem {
 
 	@Override
 	public RimClass getRimClass() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -95,25 +94,21 @@ public class ConceptDomainLayoutItem implements LayoutItem {
 
 	@Override
 	public PackageLocation getPackageLocation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Relationship getFirstOutgoingAssociation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isDuplicate() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isCmet() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -124,25 +119,21 @@ public class ConceptDomainLayoutItem implements LayoutItem {
 
 	@Override
 	public boolean isSpecialization() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isRootType() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public InboundElement getInboundElement() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public CmetBinding getCmetBinding() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

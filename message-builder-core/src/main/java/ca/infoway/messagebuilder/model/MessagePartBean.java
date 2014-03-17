@@ -237,7 +237,8 @@ public class MessagePartBean implements ExtendedNullFlavorSupport, Specializatio
 		return setMetadataInCollection(propertyName, -1, valueInSet, specializationType, true);
 	}
 
-	// TODO - TM - modify get/set to accommodate NFs on collections of associations? (users can set NF directly on MessagePart beans, not really necessary to do this here)
+	// TM - could modify get/set to accommodate NFs on collections of associations? 
+	//      (users can set NF directly on MessagePart beans, not really necessary to do this here)
 	private Object getMetadataInCollection(String propertyName, int indexInList, Object valueInSet, boolean isSpecializationType) {
 		
 		Collection<ANY<?>> value = obtainFieldInCollection(propertyName, indexInList);

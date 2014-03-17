@@ -59,7 +59,6 @@ class IntElementParser extends AbstractSingleElementParser<Integer> {
 
 	@Override
 	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		// TODO - TM - this validation throws an XmlToModelTransformationException if it fails; would be nice to log this as an error and then try to process the value anyway
 		validateNoChildren(context, node);
 		return parseNonNullNode(context, (Element) node, xmlToModelResult);
 	}

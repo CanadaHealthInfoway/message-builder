@@ -51,7 +51,7 @@ public class DateIntervalXmlFormatter extends AbstractSimpleXmlFormatter {
 		Element to = getSingleElement(element, "to");
 		Element duration = getSingleElement(element, "duration");
 		
-		// TODO: BCH: consider the handling of nullFlavor parts, here?
+		// BCH: consider the handling of nullFlavor parts, here?
 		
 		if (from != null && to != null) {
 			TS fromDate = parseDate(formatContext, from);

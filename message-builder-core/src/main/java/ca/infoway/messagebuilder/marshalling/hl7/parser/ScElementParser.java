@@ -53,7 +53,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * 
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-SC
  * 
- * TODO: handle code properly
  */
 @DataTypeHandler("SC")
 class ScElementParser extends AbstractSingleElementParser<CodedString<? extends Code>> {
@@ -94,7 +93,7 @@ class ScElementParser extends AbstractSingleElementParser<CodedString<? extends 
 		String codeSystemName = getAttributeValue(node, "codeSystemName");
 		String codeSystemVersion = getAttributeValue(node, "codeSystemVersion");
 		
-		// FIXME - TM - this cast may not work properly within .NET
+		// TM - this cast may not work properly within .NET
 		CodedString<? extends Code> codedString = new CodedString<Code>(value, lookedUpCode, displayName, codeSystemName, codeSystemVersion);
 		
 		boolean codeProvided = StringUtils.isNotBlank(code);

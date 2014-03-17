@@ -262,10 +262,9 @@ public class VocabularyLayoutItem implements LayoutItem {
 	}
 
 
-	//TODO: NOT NEEDED In this class, need to clean up the interface a bit later as it was originally built for only message parts/packages
+	// NOT NEEDED In this class, need to clean up the interface a bit later as it was originally built for only message parts/packages
 	@Override
 	public RimClass getRimClass() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -276,49 +275,41 @@ public class VocabularyLayoutItem implements LayoutItem {
 
 	@Override
 	public PackageLocation getPackageLocation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Relationship getFirstOutgoingAssociation() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean isDuplicate() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isCmet() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isAbstract() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isSpecialization() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isRootType() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public CmetBinding getCmetBinding() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

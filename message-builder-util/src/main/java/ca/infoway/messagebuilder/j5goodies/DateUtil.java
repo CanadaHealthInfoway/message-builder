@@ -83,7 +83,7 @@ public class DateUtil {
      * @param hour - the hour in 24-hour notation
      * @param minute - the minute
      * @param second - the second
-     * @param subsecond TODO
+     * @param subsecond subsecond
      * @return - the date.
      */
     public static Date getDate(int year, int zeroBasedMonth, int day, int hour, int minute, int second, int subsecond) {

@@ -88,22 +88,22 @@ public class LabResultsQueryApp extends HelloWorldApp {
 					this.processObservationReport(bean);
 				}
 				else if (ResultObservationBean.class.isInstance(bean)) {
-					//TODO - process result observation bean
+					// process result observation bean here
 				}
 				else if (BatteryEventBean.class.isInstance(bean)) {
-					//TODO - process battery event bean
+					// process battery event bean here
 				}
 				else if (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.BatteryEventBean.class.isInstance(bean)) {
-					//TODO - process other battery event bean
+					// process other battery event bean here
 				}
 				else if (ReportHeaderBean.class.isInstance(bean)) {
-					//TODO - process report header
+					// process report header here
 				}
 				else if (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.ReportHeaderBean.class.isInstance(bean)) {
-					//TODO - process other report header
+					// process other report header here
 				}
 				else if (DiagnosisOrInterpretationObservationBean.class.isInstance(bean)) {
-					//TODO - process diagnosis/interpretation observation bean
+					// process diagnosis/interpretation observation bean here
 				}
 			}
 		}
@@ -128,7 +128,7 @@ public class LabResultsQueryApp extends HelloWorldApp {
 		System.out.printf("Report Title:= %s\n", report.getTitle());
 		
 		// text [0..1] specialization = ED.DOCORREF
-		//TODO - Uncomment the next two lines once CR5 release is provided
+		//Uncomment the next two lines once CR5 release is provided
 		//EncapsulatedData ed = report.getRenderedReport();
 		//System.out.printf("Report Text:= %s\n", ed.getContent().toString());
 		

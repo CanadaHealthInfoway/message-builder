@@ -317,7 +317,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 * @return whether the supplied HL7 datatype is a collection type
 	 */
 	public static boolean isSetOrList(String dataTypeName) {
-		// FIXME - TM - add isCollection here?
+		// TM - add isCollection here?
 		return dataTypeName!=null && (isSet(dataTypeName) || isList(dataTypeName));
 	}
 

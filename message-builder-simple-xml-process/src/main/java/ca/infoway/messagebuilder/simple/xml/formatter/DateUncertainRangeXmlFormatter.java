@@ -51,7 +51,7 @@ public class DateUncertainRangeXmlFormatter extends AbstractSimpleXmlFormatter {
 		Element centerElement = getSingleElement(element, "center");
 		Element durationElement = getSingleElement(element, "duration");
 		
-		// TODO: BCH: consider the handling of nullFlavor parts, here?
+		// BCH: consider the handling of nullFlavor parts, here?
 		
 		if (fromElement != null && toElement != null) {
 			TS from = parseDate(formatContext, fromElement);

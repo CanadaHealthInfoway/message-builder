@@ -313,7 +313,7 @@ public class ValueSetHtmlTest {
 	
 	@Test
 	public void testShouldNotContainNullDescription() {
-		//FIXME: GN: Can remove this test when problem in marshaller is fixed (currently has problems with annotations that do not have paragraph tags, gets run in as empty CData values)
+		// GN: Can remove this test when problem in marshaller is fixed (currently has problems with annotations that do not have paragraph tags, gets run in as empty CData values)
 		String valueSetName = "ControlActNullificationRefusalReasonCode";
 		ValueSet valueSet = getValueSet(testMessageSet.getVocabulary(), valueSetName);
 		ValueSetHtml html = new ValueSetHtml(valueSet, testMessageSet);

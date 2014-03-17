@@ -151,7 +151,6 @@ public class MessagePartWrapper {
 		return result;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void collectFields(Map<String,Field> result, Class<?> c) throws MarshallingException {
 		Field[] declaredFields = c.getDeclaredFields();
 		for (Field field : declaredFields) {
@@ -163,7 +162,7 @@ public class MessagePartWrapper {
 			} else if (isChoicePlaceholder(field)) {
 				addField(result, field);
 			} else if (field.getGenericType() instanceof TypeVariable) {
-				// BCH: TODO: need to be able to detect, say, the record types in a query response
+				// need to be able to detect, say, the record types in a query response
 				addField(result, field);
 			} else if (MessagePartBean.class.isAssignableFrom(field.getType())) {
 				addField(result, field);

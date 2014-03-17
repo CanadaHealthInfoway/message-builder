@@ -131,7 +131,7 @@ public class CodeSystemHtml extends BaseHtmlGenerator {
 		result.appendChild(createHeader("Code Summary Details", "codeSummaryDetailsHeader", "titleHeader"));
 
 		for (Concept concept : getCodeSystem().getConcepts()) {
-			//FIXME: Can probably remove this check once the mif parsing gets fixed 
+			// Can probably remove this check once the mif parsing gets fixed 
 			if (concept.getCode() != null) {
 				Div codeDiv = new Div();
 				codeDiv.setCSSClass("codeDiv");
@@ -198,7 +198,7 @@ public class CodeSystemHtml extends BaseHtmlGenerator {
 		
 		if (getCodeSystem().getConcepts().size() > 0) {
 			for (Concept concept : getCodeSystem().getConcepts()) {
-				//FIXME: Can probably remove this check once the mif parsing gets fixed 
+				// Can probably remove this check once the mif parsing gets fixed 
 				if (concept.getCode() != null) {
 					tableBody.appendChild(createCodeRow(concept, getCodeSystem()));
 				}

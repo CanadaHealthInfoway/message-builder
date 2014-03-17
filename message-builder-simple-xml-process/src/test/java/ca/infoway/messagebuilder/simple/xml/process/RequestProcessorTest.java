@@ -36,8 +36,8 @@ public class RequestProcessorTest {
 	
 	@Test
 	@Ignore
-	// TODO - TM - this test seems broken now; unsure if this is because of validation changes or if it has always been broken (check earlier version)
-	//           - went back to 1.3.4.x branch and this test is also broken there (though not outright failing; my changes just shone a light on the problems)
+	// TM - this test seems broken now; unsure if this is because of validation changes or if it has always been broken (check earlier version)
+	//    - went back to 1.3.4.x branch and this test is also broken there (though not outright failing; my changes just shone a light on the problems)
 	public void shouldTransform() throws Exception {
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		

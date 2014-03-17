@@ -33,5 +33,5 @@ import ca.infoway.messagebuilder.datatype.lang.EntityName;
  */
 public interface EN<V extends EntityName> extends ANY<V> {
 
-	// TODO - Datatypes - TM/AG -"validTime" not currently supported 
+	// TM/AG -"validTime" not currently supported 
 }

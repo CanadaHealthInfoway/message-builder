@@ -90,7 +90,6 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 	}
 
 	public int compareTo(SpecializationChild o) {
-		// TODO Auto-generated method stub
 		return this.getName().compareTo(o.getName());
 	}
 

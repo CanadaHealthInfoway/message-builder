@@ -103,8 +103,8 @@ public class DomainTypeHelper {
 			} else if (code2.isAssignableFrom(code1)) {
 				result = relationship2.getDomainType();
 			}
-			// TODO - TM - could also try walking up each code's hierarchy looking for a compatible domain type
-			//           - this only affects one group of types in MR2009, so I'll leave this as an enhancement
+			// TM - could also try walking up each code's hierarchy looking for a compatible domain type
+			//    - this only affects one group of types in MR2009, so I'll leave this as an enhancement
 		} else if (code1 != code2) {
 			System.out.println("WARNING: one of the relationships seems to be missing a domainType");
 		}

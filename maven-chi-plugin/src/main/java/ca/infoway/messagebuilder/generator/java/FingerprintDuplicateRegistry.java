@@ -29,7 +29,7 @@ public abstract class FingerprintDuplicateRegistry {
 	
 	private static Map<String, Set<String>> duplicateFingerprintRegistry = new HashMap<String, Set<String>>();
 	
-	// TODO - TM - Not as ideal as I would like. Would be better to log and check the Version as well. While
+	// TM - Not as ideal as I would like. Would be better to log and check the Version as well. While
 	// we could log the Version here easily, this value is not available at the time we create Fingerprints.
 	
 	static {

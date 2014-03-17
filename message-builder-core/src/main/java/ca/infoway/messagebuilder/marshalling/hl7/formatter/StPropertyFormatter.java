@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-ST
  *
- * TODO: this should be abstracted if more single-level elements with text nodes are needed.
+ * this should be abstracted if more single-level elements with text nodes are needed.
  */
 @DataTypeHandler("ST")
 class StPropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> {

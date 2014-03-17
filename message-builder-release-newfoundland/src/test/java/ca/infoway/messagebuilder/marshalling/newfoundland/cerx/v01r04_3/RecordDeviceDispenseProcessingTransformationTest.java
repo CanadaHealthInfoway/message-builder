@@ -55,7 +55,7 @@ public class RecordDeviceDispenseProcessingTransformationTest extends BaseTransf
 	}
 
 	@Test
-	@Ignore // FIXME - TM - TRANSFORMATION TEST BEING IGNORED 
+	@Ignore // TM - TRANSFORMATION TEST BEING IGNORED 
 	public void shouldMatchKnownRequest() throws Exception {
 		RecordDeviceDispenseProcessingRequestMessageBean model = createRequestBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();

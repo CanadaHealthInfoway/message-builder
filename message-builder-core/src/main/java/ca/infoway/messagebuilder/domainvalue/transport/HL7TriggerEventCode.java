@@ -294,7 +294,7 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 	
 	/* Location Registry */
 	// BCH: These seem to vary from version to version
-	// TODO - TM - NEWFOUNDLAND TEST HACK
+	// TM - NEWFOUNDLAND TEST HACK
 	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY", "PRLO_TE202010CA", "NEWFOUNDLAND");
 	public static final HL7TriggerEventCode LOCATION_SUMMARY_QUERY_RESPONSE = new HL7TriggerEventCode("LOCATION_SUMMARY_QUERY_RESPONSE", "PRLO_TE202011CA", "NEWFOUNDLAND");
 	public static final HL7TriggerEventCode LOCATION_DETAILS_QUERY = new HL7TriggerEventCode("LOCATION_DETAILS_QUERY", "PRLO_TE202012CA", "NEWFOUNDLAND");

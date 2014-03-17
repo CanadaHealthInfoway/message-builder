@@ -106,7 +106,7 @@ class RelationshipMerger implements Merger<Relationship> {
 		}
 	}
 
-	// TODO - TM - perhaps log some differences here when appropriate? 
+	// TM - perhaps log some differences here when appropriate? 
 	private void mergeChoices(List<Relationship> choices, List<Relationship> choices2) {
 		List<Relationship> mergedChoices = this.choicesMerger.merge(choices, choices2);
 		

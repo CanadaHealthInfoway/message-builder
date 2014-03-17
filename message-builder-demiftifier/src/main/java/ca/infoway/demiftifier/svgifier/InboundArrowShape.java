@@ -32,7 +32,6 @@ public abstract class InboundArrowShape extends BasicShape {
 	
 	@Override
 	protected void initializeLabels() {
-		// TODO Auto-generated method stub
 	}
 
 

@@ -109,7 +109,7 @@ public class Attribute extends BaseRelationship {
 	
 	@Override
 	public String getTypeParameters() {
-		// TODO: BCH: I don't think this should be called, here.
+		// BCH: I don't think this should be called, here.
 		return getDataType().getTypeParameters(ProgrammingLanguage.JAVA);
 	}
 	

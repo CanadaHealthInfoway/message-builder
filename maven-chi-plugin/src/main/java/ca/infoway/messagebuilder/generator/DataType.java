@@ -280,7 +280,6 @@ public class DataType {
 		ParameterAppender appender = getImplementationParameterAppender();
 		appender.appendWrapped(builder, this, Arrays.asList(this.parameters), language);
 		
-		// TODO: BCH/TM: consider whether or not constructor arguments should be added here.
 		return builder.toString();
 	}
 	private ParameterAppender getImplementationParameterAppender() {
