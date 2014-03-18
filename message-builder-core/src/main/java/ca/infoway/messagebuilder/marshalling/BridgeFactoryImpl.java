@@ -133,7 +133,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	}
 
 	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
-		// FIXME - TM - IGNORED/NOT_ALLOWED - these should log a warning in the Hl7Errors bean, not just as a log message
+		// FIXME - TM (see RM19206) - IGNORED/NOT_ALLOWED - these should log a warning in the Hl7Errors bean, not just as a log message
 		if(isIgnoredNotAllowed() && relationship.isIgnored()) {
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?

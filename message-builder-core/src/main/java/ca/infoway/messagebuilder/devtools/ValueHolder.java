@@ -120,7 +120,7 @@ public class ValueHolder {
 		this.respondTo = respondTo;
 	}
 	
-	// FIXME - TM - this currently does not work due to the nature of MessageBeanFactory handling collections
+	// FIXME - TM (see RM19207) - this currently does not work due to the nature of MessageBeanFactory handling collections
     public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
 		return attentionLine;
 	}

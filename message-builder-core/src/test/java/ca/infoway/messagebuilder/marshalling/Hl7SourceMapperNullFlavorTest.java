@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionService;
 
-// FIXME - TM - 3 tests are commented out below and should be re-implemented
+// FIXME - TM - 3 tests are commented out below and should be re-implemented (possibly related to RM19204)
 
 public class Hl7SourceMapperNullFlavorTest {
 	
