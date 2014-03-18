@@ -122,7 +122,7 @@ public class Matcher {
 		} else if (base.getCardinality().isMultiple() != other.getCardinality().isMultiple()) {
 //			System.out.println(">>>> Cardinality incompatibility: " + base.getType() + " ("+ base.getCardinality() + ") vs " + other.getType() + " (" + other.getCardinality() + ")");
 			// bug 13308: cardinality not being checked when merging types
-			// FIXME TM - note that if bug 13050 (in Bugzilla) is fixed the change here can be undone as long as in these cases
+			// FIXME TM (see RM334 for a somewhat related issue, plus others in Bugzilla) - note that if bug 13050 (in Bugzilla) is fixed the change here can be undone as long as in these cases
 			//           the generator provides single and collection accessors (or just a collection, but that 
 			//           could be confusing) for the property in question    
 			return MatchType.MAJOR_DIFFERENCE;
