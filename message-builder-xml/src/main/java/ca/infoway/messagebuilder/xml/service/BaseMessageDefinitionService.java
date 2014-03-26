@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -34,53 +35,20 @@ import org.apache.commons.io.IOUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.platform.ResourceLoader;
-import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
-import ca.infoway.messagebuilder.xml.PackageLocation;
-import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.SpecializationChild;
+import ca.infoway.messagebuilder.xml.util.MessageSetUtils;
 
 /**
  * <p>A base class for the message defintion service.
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
- * @sharpen.ignore - xml.service - translated manually
  */
 public abstract class BaseMessageDefinitionService implements MessageDefinitionService {
 	
 	protected List<MessageSet> messageSets;
-
-	/**
-	 * <p>Get an interaction by name and version.
-	 * @param version - the version
-	 * @param type - the type name
-	 * @return the interaction
-	 */
-	public Interaction getInteraction(VersionNumber version, String type) {
-		return getInteraction(version == null ? null : version.getVersionLiteral(), type);
-	}
-
-	/**
-	 * <p>Get an interaction by name and version.
-	 * @param version - the version
-	 * @param type - the type name
-	 * @return the interaction
-	 */
-	private Interaction getInteraction(String version, String type) {
-		Interaction result = null;
-		for (MessageSet messageSet : getMessageSets()) {
-			if (messageSet.getVersion().equals(version)) {
-				result = messageSet.getInteractions().get(type);
-				if (result != null) {
-					break;
-				}
-			}
-		}
-		return result;
-	}
 
 	/**
 	 * <p>Get the list of message sets.
@@ -124,6 +92,30 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	protected abstract List<String> getNames();
 
 	/**
+	 * <p>Get an interaction by name and version.
+	 * @param version - the version
+	 * @param type - the type name
+	 * @return the interaction
+	 */
+	public Interaction getInteraction(VersionNumber version, String type) {
+		return getInteraction(version == null ? null : version.getVersionLiteral(), type);
+	}
+
+	/**
+	 * <p>Get an interaction by name and version.
+	 * @param version - the version
+	 * @param type - the type name
+	 * @return the interaction
+	 */
+	private Interaction getInteraction(String version, String type) {
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return null;
+		}
+		return new MessageSetUtils(messageSet).getInteraction(type);
+	}
+	
+	/**
 	 * <p>Get a message part by name and version.
 	 * @param version - the version
 	 * @param type - the type name
@@ -140,16 +132,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return the message part
 	 */
 	private MessagePart getMessagePart(String version, String type) {
-		MessagePart result = null;
-		for (MessageSet messageSet : getMessageSets()) {
-			if (messageSet.getVersion().equals(version)) {
-				result = messageSet.getMessagePart(type);
-				if (result != null) {
-					break;
-				}
-			}
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return null;
 		}
-		return result;
+		return new MessageSetUtils(messageSet).getMessagePart(type);
 	}
 
 	/**
@@ -189,12 +176,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return the message parts
 	 */
 	public Collection<MessagePart> getAllMessageParts(VersionNumber version) {
-		for (MessageSet messageSet : getMessageSets()) {
-			if (messageSet.getVersion().equals(version.getVersionLiteral())) {
-				return messageSet.getAllMessageParts();
-			}
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return new ArrayList<MessagePart>();
 		}
-		return Collections.emptyList();
+		return new MessageSetUtils(messageSet).getAllMessageParts();
 	}
 
 	/**
@@ -203,13 +189,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return the interactions
 	 */
 	private List<Interaction> getAllInteractions(String version) {
-		TreeMap<String, Interaction> map = new TreeMap<String, Interaction>();
-		for (MessageSet messageSet : getMessageSets()) {
-			if (messageSet.getVersion().equals(version)) {
-				map.putAll(messageSet.getInteractions());
-			}
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return new ArrayList<Interaction>();
 		}
-		return new ArrayList<Interaction>(map.values());
+		return new MessageSetUtils(messageSet).getAllInteractions();
 	}
 
 	/**
@@ -248,12 +232,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return - the message parts
 	 */
 	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, VersionNumber version) {
-		Map<String, MessagePart> allParts = new TreeMap<String, MessagePart>(); 
-		if (interaction != null) {
-			addMessagePartsFromSupertype(allParts, interaction.getSuperTypeName(), version);
-			addMessagePartsFromArguments(allParts, interaction.getArguments(), version);
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return null;
 		}
-		return allParts;
+		return new MessageSetUtils(messageSet).getAllMessageParts(interaction);
 	}
 	
 	/**
@@ -263,13 +246,7 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	public List<MessagePart> getAllRootMessageParts() {
 		List<MessagePart> allRootParts = new ArrayList<MessagePart>();
 		for (MessageSet messageSet : getMessageSets()) {
-			for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
-				for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
-					if (packageLocation.getRootType().equals(messagePart.getName())) {
-						allRootParts.add(messagePart);
-					}
-				}
-			}
+			allRootParts.addAll(new MessageSetUtils(messageSet).getAllRootMessageParts());
 		}
 		return allRootParts;
 	}
@@ -280,20 +257,11 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return - the message parts
 	 */
 	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
-		String versionLiteral = version.getVersionLiteral();
-		List<MessagePart> allRootParts = new ArrayList<MessagePart>();
-		for (MessageSet messageSet : getMessageSets()) {
-			if (versionLiteral.equals(messageSet.getVersion())) {
-				for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
-					for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
-						if (packageLocation.getRootType().equals(messagePart.getName())) {
-							allRootParts.add(messagePart);
-						}
-					}
-				}
-			}
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return new ArrayList<MessagePart>();
 		}
-		return allRootParts;
+		return new MessageSetUtils(messageSet).getAllRootMessageParts();
 	}
 	
 	/**
@@ -303,76 +271,28 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	 * @return - the message parts
 	 */		
 	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, VersionNumber version) {
-		Map<String, MessagePart> allParts = new TreeMap<String, MessagePart>(); 
-		addMessagePartsFromSupertype(allParts, messagePart.getName(), version);
-		return allParts;
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet == null) {
+			return new HashMap<String, MessagePart>();
+		}
+		return new MessageSetUtils(messageSet).getAllRelatedMessageParts(messagePart);
 	}
 
-	protected void addMessagePartsFromSupertype(Map<String, MessagePart> allParts, String superTypeName, VersionNumber version) {
-		MessagePart messagePart = this.getMessagePart(version, superTypeName);
-		if (!allParts.containsKey(superTypeName)) {
-			allParts.put(superTypeName, messagePart);
-			if (messagePart.isAbstract() && !messagePart.getSpecializationChilds().isEmpty()) {
-				addMessagePartsFromSpecializationChilds(allParts, messagePart.getSpecializationChilds(), version);
-			}
-			addMessagePartsFromRelationships(allParts, messagePart.getRelationships(), version);
-		}
-	}
-
-	private void addMessagePartsFromArguments(Map<String, MessagePart> allParts, List<Argument> arguments, VersionNumber version) {
-		if (arguments != null) {
-			for (Argument argument : arguments) {
-				MessagePart messagePart = this.getMessagePart(version, argument.getName());
-				if (!allParts.containsKey(messagePart.getName())) {
-					allParts.put(messagePart.getName(), messagePart);
-					
-					if (messagePart.isAbstract() && !messagePart.getSpecializationChilds().isEmpty()) {
-						addMessagePartsFromSpecializationChilds(allParts, messagePart.getSpecializationChilds(), version);
-					}
-					addMessagePartsFromRelationships(allParts, messagePart.getRelationships(), version);
-					addMessagePartsFromArguments(allParts, argument.getArguments(), version);
-				}
-			}
-		}
+	private MessageSet findMessageSet(VersionNumber version) {
+		return findMessageSet(version == null ? null : version.getVersionLiteral());
 	}
 	
-	private void addMessagePartsFromRelationships(Map<String, MessagePart> allParts, List<Relationship> relationships, VersionNumber version) {
-		for (Relationship relationship : relationships) {
-			String type = relationship.getType();
-			if (type != null) {
-				MessagePart messagePart = this.getMessagePart(version, type);
-				if (messagePart != null) {
-					if (!allParts.containsKey(messagePart.getName())) {
-						allParts.put(messagePart.getName(), messagePart);
-						if (messagePart.isAbstract() && !messagePart.getSpecializationChilds().isEmpty()) {
-							addMessagePartsFromSpecializationChilds(allParts, messagePart.getSpecializationChilds(), version);
-						}
-						addMessagePartsFromRelationships(allParts, messagePart.getRelationships(), version);
-					}
-				}
-			}
-			if (relationship.isChoice()) {
-				addMessagePartsFromRelationships(allParts, relationship.getChoices(), version);
-			}
-		}
-	}
-
-	private void addMessagePartsFromSpecializationChilds(Map<String, MessagePart> allParts, List<SpecializationChild> specializationChilds, VersionNumber version) {
-		
-		for (SpecializationChild specializationChild : specializationChilds) {
-			if (specializationChild != null && specializationChild.getName() != null) {
-				MessagePart messagePart = this.getMessagePart(version, specializationChild.getName());
-				if (messagePart != null && messagePart.getName() != null) {
-					if (!allParts.containsKey(messagePart.getName())) {
-						allParts.put(messagePart.getName(), messagePart);
-						if (messagePart.isAbstract() && !messagePart.getSpecializationChilds().isEmpty()) {
-							addMessagePartsFromSpecializationChilds(allParts, messagePart.getSpecializationChilds(), version);
-						}
-						addMessagePartsFromRelationships(allParts, messagePart.getRelationships(), version);
-					}
+	private MessageSet findMessageSet(String version) {
+		MessageSet result = null;
+		for (MessageSet messageSet : getMessageSets()) {
+			if (messageSet.getVersion().equals(version)) {
+				result = messageSet;
+				if (result != null) {
+					break;
 				}
 			}
 		}
+		return result;
 	}
 
 }

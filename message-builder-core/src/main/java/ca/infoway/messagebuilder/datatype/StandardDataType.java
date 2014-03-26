@@ -199,11 +199,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType SXCM = new StandardDataType("SXCM", "SXCM");
 	
 	public static final StandardDataType SET = new StandardDataType("SET", "SET"); 
-	public static final StandardDataType SET_II = new StandardDataType("SET_II", "SET<II>");
-	
 	public static final StandardDataType LIST = new StandardDataType("LIST", "LIST"); 
-	public static final StandardDataType LIST_TEL_PHONEMAIL = new StandardDataType("LIST_TEL_PHONEMAIL", "LIST<TEL.PHONEMAIL>");
-	
 	public static final StandardDataType COLLECTION = new StandardDataType("COLLECTION", "COLLECTION");
 
 	/** 
