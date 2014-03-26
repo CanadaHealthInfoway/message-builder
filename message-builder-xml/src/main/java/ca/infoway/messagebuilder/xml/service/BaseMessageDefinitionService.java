@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.xml.util.MessageSetUtils;
  * <p>A base class for the message defintion service.
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
+ * @sharpen.ignore - xml.service - translated manually
  */
 public abstract class BaseMessageDefinitionService implements MessageDefinitionService {
 	
