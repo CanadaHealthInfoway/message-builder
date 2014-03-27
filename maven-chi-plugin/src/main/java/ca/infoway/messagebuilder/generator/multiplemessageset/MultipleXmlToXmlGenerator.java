@@ -123,7 +123,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 		this.messageSetWriter.writeToMessageSet(outputFile);
 	}
 
-	public void processAllMifs(MifSource mifSource) throws GeneratorException, IOException {
+	public MessageSet processAllMifs(MifSource mifSource) throws GeneratorException, IOException {
 		throw new UnsupportedOperationException("Must use processAllMessageSets() method instead.");
 	}
 	

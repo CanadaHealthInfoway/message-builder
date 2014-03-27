@@ -33,6 +33,9 @@ import org.apache.maven.plugin.MojoFailureException;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
+import ca.infoway.messagebuilder.tools.MessageSetValidator;
+import ca.infoway.messagebuilder.tools.MessageSetValidator.MessageSetValidatorError;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 /**
  * <p>This goal converts MIFs to the XML message sets.  
@@ -137,8 +140,16 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
 			this.generatedReportsDirectory.mkdirs();
 
 			MessageSetGenerator generator = this.factory.create(this, this.version, this.realmCode, this.descriptiveName, this.mifTransformer, this.generatedReportsDirectory);
-			generator.processAllMifs(new MifSourceImpl(this.fileSets));
+			MessageSet generatedMessageSet = generator.processAllMifs(new MifSourceImpl(this.fileSets));
 			generator.writeToMessageSet(this.messageSet);
+			
+			if (generatedMessageSet != null) { 
+				List<MessageSetValidatorError> results = new MessageSetValidator(generatedMessageSet).validate();
+				for (MessageSetValidatorError error : results) {
+					getLog().info(error.toString());
+				}
+			}
+			
 		} catch (GeneratorException e) {
 			getLog().error(e);
 			throw new MojoExecutionException("An exception occurred while trying to generate the message set", e);

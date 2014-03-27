@@ -37,7 +37,6 @@ import javax.xml.xpath.XPathExpressionException;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.domainvalue.RelatedLinkType;
 import ca.infoway.messagebuilder.generator.maven.FileSet;
 import ca.infoway.messagebuilder.j5goodies.ManifestReader;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -86,8 +85,9 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 		return this.processor;
 	}
 
-	public void processAllMifs(MifSource mifSource) throws GeneratorException, IOException {
+	public MessageSet processAllMifs(MifSource mifSource) throws GeneratorException, IOException {
 		initializeVersionAndProcessEachFile(mifSource.getAllMifs());
+		return this.messageSet;
 	}	
 
 

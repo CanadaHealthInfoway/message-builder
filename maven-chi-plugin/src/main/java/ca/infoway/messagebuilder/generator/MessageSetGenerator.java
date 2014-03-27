@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.util.List;
 
 import ca.infoway.messagebuilder.generator.maven.FileSet;
+import ca.infoway.messagebuilder.xml.MessageSet;
 
 /**
  * <p>An interface describing the basic functions of a message set generator.</p>
@@ -43,7 +44,7 @@ public interface MessageSetGenerator {
 	 * @throws GeneratorException - if the generator encounters a problem
 	 * @throws IOException - if there's a problem reading any of the files
 	 */
-	public void processAllMifs(MifSource mifSource) throws GeneratorException, IOException;
+	public MessageSet processAllMifs(MifSource mifSource) throws GeneratorException, IOException;
 	
 	/**
 	 * <p>Merge a collection of message set xml files, putting the information into a 
