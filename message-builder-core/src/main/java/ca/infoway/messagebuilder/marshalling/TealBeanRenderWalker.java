@@ -109,6 +109,7 @@ class TealBeanRenderWalker {
 	}
 	
 	// RM16130 - the MB marshaller was not validating association cardinality
+	// TODO TM - this should really be in the visitor, but would pollute the interface a bit
 	private void validateAssociationCardinality( AssociationBridge relationshipBridge, Collection<PartBridge> associationValues, Visitor visitor) {
 		// can't just check the size of associationValues: need to iterate and only count each "not empty" or each with NF
 		int size = 0;
