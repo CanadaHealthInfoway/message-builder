@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.platform;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
 
@@ -37,7 +38,14 @@ public class GenericClassUtil {
 
 	public static Class<?> getCollectionContentsType(BeanProperty property) {
 		Type[] actualTypeArguments = ((java.lang.reflect.ParameterizedType) (property.getDescriptor().getReadMethod().getGenericReturnType())).getActualTypeArguments();
-		return actualTypeArguments != null && actualTypeArguments.length > 0 ? (Class<?>) actualTypeArguments[0] : null;
+		if (actualTypeArguments != null && actualTypeArguments.length > 0) {
+			if (actualTypeArguments[0] instanceof Class<?>) {
+				return (Class<?>) actualTypeArguments[0];
+			} else if (actualTypeArguments[0] instanceof ParameterizedType) {
+				return (Class<?>) ((ParameterizedType) actualTypeArguments[0]).getRawType();
+			}
+		}
+		return null;
 	}
 
 }

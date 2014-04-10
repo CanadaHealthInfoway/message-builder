@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.xml;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -351,13 +350,6 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		}
 	}
 
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is a choice association.
-	 * @return true if the relationship is a choice association; false otherwise
-	 */
-	public boolean isChoice() {
-		return !CollectionUtils.isEmpty(this.choices);
-	}
 	/**
 	 * <p>Get a flag indicating whether or not the relationship is a fixed value and is mandatory.
 	 * @return true if the relationship has a fixed value and is mandatory; false otherwise

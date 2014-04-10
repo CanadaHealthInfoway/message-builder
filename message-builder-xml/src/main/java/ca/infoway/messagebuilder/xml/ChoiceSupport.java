@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.xml;
 
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -63,6 +64,14 @@ public abstract class ChoiceSupport {
 	 */
 	public abstract List<Relationship> getChoices();
 
+	/**
+	 * <p>Get a flag indicating whether or not the relationship or argument is a choice association.
+	 * @return true if the relationship or argument is a choice association; false otherwise
+	 */
+	public boolean isChoice() {
+		return !CollectionUtils.isEmpty(getChoices());
+	}
+	
 	/**
 	 * <p>A convenience utility to create a predicate that finds a specific choice based
 	 * on the name of the XML element.

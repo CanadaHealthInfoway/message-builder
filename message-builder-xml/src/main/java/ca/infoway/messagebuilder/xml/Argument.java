@@ -156,15 +156,6 @@ public class Argument extends ChoiceSupport implements HasDifferences, Named {
 	public List<Relationship> getChoices() {
 		return this.choices;
 	}
-	/**
-	 * <p>Indicates that an argument is defined as an abstract type and has specific 
-	 * choices.
-	 * 
-	 * @return true if the argument is abstract and has choices; false otherwise.
-	 */
-	public boolean isChoice() {
-		return !this.choices.isEmpty();
-	}
 
 	/**
 	 * Records the differences between arguments of different release versions during regen.

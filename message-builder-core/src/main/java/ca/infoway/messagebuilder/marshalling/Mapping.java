@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
-class Mapping {
+public class Mapping {
 
 	static class PartTypeMapping {
 		private final String type;
