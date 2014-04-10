@@ -1,3 +1,22 @@
+/**
+ * Copyright 2013 Canada Health Infoway, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2011-05-04 16:47:15 -0300 (Wed, 04 May 2011) $
+ * Revision:      $LastChangedRevision: 2623 $
+ */
 package ca.infoway.messagebuilder.util.messagegenerator;
 
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.ConformanceOption.ALL;
@@ -566,6 +585,9 @@ public class InteractionPopulatingUtility  {
 		if (typeToInstantiate == Boolean.class) {
 			return Boolean.TRUE;
 		}
+		if (typeToInstantiate.isInterface()) {
+			System.out.println("break");
+		}
 		return ClassUtil.newInstance(typeToInstantiate);
 	}
 
@@ -586,10 +608,12 @@ public class InteractionPopulatingUtility  {
 		
 		// iterate all implementing classes looking for an Hl7PartTypeMapping that matches the desired choice option's relationship type
 		for (Class<?> choiceOptionImplementationClass : choiceImplmentationClasses) {
-			String[] choicePartTypes = choiceOptionImplementationClass.getAnnotation(Hl7PartTypeMapping.class).value();
-			for (String choicePartType : choicePartTypes) {
-				if (StringUtils.equals(choiceOptionRelationshipType, choicePartType)) {
-					return choiceOptionImplementationClass;
+			if (!choiceOptionImplementationClass.isInterface()) {
+				String[] choicePartTypes = choiceOptionImplementationClass.getAnnotation(Hl7PartTypeMapping.class).value();
+				for (String choicePartType : choicePartTypes) {
+					if (StringUtils.equals(choiceOptionRelationshipType, choicePartType)) {
+						return choiceOptionImplementationClass;
+					}
 				}
 			}
 		}
