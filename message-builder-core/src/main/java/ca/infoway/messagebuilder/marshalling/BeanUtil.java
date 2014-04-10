@@ -59,6 +59,7 @@ class BeanUtil {
 		
 		RelationshipSorter sorter = RelationshipSorter.create("", bean);
 		for (String part : pathParts) {
+			@SuppressWarnings("deprecation")
 			Object sorterObj = sorter.get(part);
 			if (sorterObj instanceof RelationshipSorter) {
 				sorter = (RelationshipSorter) sorterObj;
