@@ -277,6 +277,10 @@ public class InteractionPopulatingUtility  {
 			nextType = choiceRelationshipType;
 		}
 
+		if (typeToInstantiate.getSimpleName().equals("IssueDescriptionBean")) {
+			System.out.println("break");
+		}
+		
 		// since this is an association, we want to populate the properties of its type as well
 		MessagePart newMessageContext = service.getMessagePart(context.getVersion(), nextType);
 		
@@ -407,6 +411,14 @@ public class InteractionPopulatingUtility  {
 			if (relationship != null) {
 				// if has part type mappings, check if there is a relationship type match; if yes, we have a match (error if already matched)
 				// else if no part type mappings we have a match (error if already matched)
+				
+				// BUG - see ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.AssignedEntityBean.getAssignedOrganizationName (also in MR2009)
+				// mapping is assignedOrganization/name, and last rel of mapping returns a non-null rel
+				// BUT even though the mapping has part type mappings, none of them show up calling mapping.getAllTypes()
+				// the part type mappings only cover the first half of the mappings, and don't include name
+				// - take rel if only one matches? then do as below, then what if still not matched?
+				// - ah, the last part of the mapping is not an association, so it won't show up in the part types
+				
 				if (mapping.hasPartTypeMappings()) {
 					for (NamedAndTyped namedAndTyped : mapping.getAllTypes()) {
 						if (relationship.getType().equals(namedAndTyped.getType())) {
