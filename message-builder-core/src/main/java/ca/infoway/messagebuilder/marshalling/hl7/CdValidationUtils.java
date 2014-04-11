@@ -37,7 +37,7 @@ public class CdValidationUtils {
 
 	private static final int MAX_TRANSLATIONS = 10;
 	private static final int MAX_CODE_LENGTH = 200;
-	private static final int MAX_CODE_LENGTH_CERX_MR2007 = 20;
+	public static final int MAX_CODE_LENGTH_CERX_MR2007 = 20;
 	private static final int MAX_CODE_SYSTEM_LENGTH = 100;
 	private static final int MAX_ORIGINAL_TEXT_LENGTH = 150;
 

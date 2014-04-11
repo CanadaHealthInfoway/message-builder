@@ -235,7 +235,7 @@ public class InteractionPopulatingUtility  {
 		if (relationship.isAssociation()) {
 			populateAssociation(beanProperty, relationship, numberOfObjectsToCreate, context);
 		} else {
-			populateAttribute(beanProperty, relationship, numberOfObjectsToCreate);
+			populateAttribute(beanProperty, relationship, numberOfObjectsToCreate, context.getVersion());
 		}
 	}
 
@@ -308,20 +308,20 @@ public class InteractionPopulatingUtility  {
 	 * @param relationship
 	 * @param numberOfObjectsToCreate
 	 */
-	private void populateAttribute(BeanProperty beanProperty, Relationship relationship, int numberOfObjectsToCreate) {
+	private void populateAttribute(BeanProperty beanProperty, Relationship relationship, int numberOfObjectsToCreate, VersionNumber version) {
 		if (beanProperty.isCollection()) {
 			Class<?> clazz = GenericClassUtil.getCollectionContentsType(beanProperty);
 			for (int i = 0; i < numberOfObjectsToCreate; i++) {
-				createAndSetValueForAttributeCollection(beanProperty, relationship, clazz);
+				createAndSetValueForAttributeCollection(beanProperty, relationship, clazz, version);
 			}
 		} else {
-			createAndSetValueForAttribute(beanProperty, relationship);
+			createAndSetValueForAttribute(beanProperty, relationship, version);
 		}
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void createAndSetValueForAttributeCollection(BeanProperty beanProperty, Relationship relationship, Class<?> clazz) {
-		Object value = getValueForAttribute(relationship, clazz);
+	private void createAndSetValueForAttributeCollection(BeanProperty beanProperty, Relationship relationship, Class<?> clazz, VersionNumber version) {
+		Object value = getValueForAttribute(relationship, clazz, version);
 		if (value != null) {
 			((Collection) beanProperty.get()).add(value);
 	
@@ -336,8 +336,8 @@ public class InteractionPopulatingUtility  {
 		}
 	}
 	
-	private void createAndSetValueForAttribute(BeanProperty beanProperty, Relationship relationship) {
-		Object value = getValueForAttribute(relationship, beanProperty.getPropertyType());
+	private void createAndSetValueForAttribute(BeanProperty beanProperty, Relationship relationship, VersionNumber version) {
+		Object value = getValueForAttribute(relationship, beanProperty.getPropertyType(), version);
 		if (value != null) {
 			beanProperty.set(value);
 			
@@ -648,10 +648,10 @@ public class InteractionPopulatingUtility  {
 	 * @param propertyType
 	 * @return
 	 */
-	private Object getValueForAttribute(Relationship relationship, Class<?> propertyType) {
+	private Object getValueForAttribute(Relationship relationship, Class<?> propertyType, VersionNumber version) {
 		String dataType = extractDatatype(relationship);
-		Object result = (this.userDataTypeStore == null ? null : this.userDataTypeStore.getValueForDatatype(dataType, propertyType));
-		return result == null ? this.defaultDataTypeStore.getValueForDatatype(dataType, propertyType) : result;
+		Object result = (this.userDataTypeStore == null ? null : this.userDataTypeStore.getValueForDatatype(dataType, propertyType, version));
+		return result == null ? this.defaultDataTypeStore.getValueForDatatype(dataType, propertyType, version) : result;
 	}
 
 	/**

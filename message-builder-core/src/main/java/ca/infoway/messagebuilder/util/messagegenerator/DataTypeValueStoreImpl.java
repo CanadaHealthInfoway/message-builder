@@ -24,12 +24,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 
@@ -81,7 +85,7 @@ public class DataTypeValueStoreImpl implements DataTypeValueStore {
 	 * Obtains the next value for the supplied datatype. Property type passed in to 
 	 * enable handling of coded types.
 	 */
-	public Object getValueForDatatype(String dataType, Class<?> propertyType) {
+	public Object getValueForDatatype(String dataType, Class<?> propertyType, VersionNumber version) {
 		StandardDataType type = StandardDataType.getByTypeName(dataType);
 		List<Object> values = this.valueGenerators.get(type);
 		Integer index = this.valueIndexes.get(type);
@@ -93,7 +97,7 @@ public class DataTypeValueStoreImpl implements DataTypeValueStore {
 				this.valueIndexes.put(type, index + 1 >= values.size() ? 0 : index + 1);
 				result = values.get(index);
 				if (type.isCoded()) {
-					result = handleCodedType(propertyType, type, result);
+					result = handleCodedType(propertyType, type, result, version);
 				}
 			} else {
 				this.log.error("Index out of bounds for data store: " + dataType + " index=" + index + " size=" + values.size());
@@ -118,12 +122,21 @@ public class DataTypeValueStoreImpl implements DataTypeValueStore {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	private Object handleCodedType(Class<?> propertyType, StandardDataType type, Object result) {
+	private Object handleCodedType(Class<?> propertyType, StandardDataType type, Object result, VersionNumber version) {
 		// can't easily return a real code for the domain, so adjust the mock value to show the domain as well 
 		String codeValue = result.toString() + " (" + propertyType.getSimpleName() + ")";
+		if (isCeRxOrMr2007(version)) {
+			// we are restricted to a length of 20, unfortunately
+			codeValue = StringUtils.left("_" + propertyType.getSimpleName(), CdValidationUtils.MAX_CODE_LENGTH_CERX_MR2007);
+		}
 		return new TrivialCodeResolver().lookup((Class<Code>) propertyType, codeValue, CodeSystem.HEALTH_CANADA.getRoot());
 	}
 	
+	private boolean isCeRxOrMr2007(VersionNumber version) {
+		Hl7BaseVersion baseVersion = version.getBaseVersion();
+		return baseVersion == Hl7BaseVersion.CERX || baseVersion == Hl7BaseVersion.MR2007;
+	}
+
 	/**
 	 * For abstract types, checks to see what actual type is used for the stored value. 
 	 */

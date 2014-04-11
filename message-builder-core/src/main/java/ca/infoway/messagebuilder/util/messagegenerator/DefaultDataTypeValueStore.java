@@ -391,7 +391,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		this.addValue(ED_REF, edRefOnly);
 		this.addValue(ED_DOC_REF, edRefOnly);
 		this.addValue(ED_SIGNATURE, edSig);
-		this.addValue(ED_DOC_OR_REF, edWithRef);
+		this.addValue(ED_DOC_OR_REF, edRefOnly);
 	}
 
 	private void createStringValues() {

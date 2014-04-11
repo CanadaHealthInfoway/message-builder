@@ -19,6 +19,7 @@
  */
 package ca.infoway.messagebuilder.util.messagegenerator;
 
+import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 
 /**
@@ -26,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
  */
 public interface DataTypeValueStore {
 
-	public Object getValueForDatatype(String dataType, Class<?> propertyType);
+	public Object getValueForDatatype(String dataType, Class<?> propertyType, VersionNumber version);
 	public StandardDataType getDatatypeUsedForAbstract(String dataType);
 	
 }
