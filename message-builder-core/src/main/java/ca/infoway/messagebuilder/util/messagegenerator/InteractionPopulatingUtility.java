@@ -186,7 +186,7 @@ public class InteractionPopulatingUtility  {
 		Predicate predicate = PredicateUtils.equalPredicate(messageContext.getName());
 		if (CollectionUtils.countMatches(context.getMessagePartStack(), predicate) >= MAX_SELF_REFERENCES) {;
 			// there is almost certainly a self-referential loop going on here; it has been allowed to happen a reasonable amount of times (twice, currently), but cut it off now
-			this.log.info("Detected a self-referential loop: " + messageContext.getName());
+			this.log.debug("Detected a self-referential loop: " + messageContext.getName());
 			return;
 		}
 		

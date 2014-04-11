@@ -68,6 +68,7 @@ import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_PQ_DRUG;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_PQ_HEIGHTWEIGHT;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_PQ_LAB;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_PQ_TIME;
+import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_TS;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_WIDTH_TS_FULLDATE;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.MO_CAD;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.ON;
@@ -204,13 +205,11 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 //		this.addValue(IVL_PQ, value);
 //		this.addValue(GTS, value);
 //		this.addValue(IVL, value);
-//		this.addValue(IVL_TS, value);
 //		this.addValue(IVL_WIDTH, value);
 //		this.addValue(IVL_LOW, value);
 //		this.addValue(IVL_HIGH, value);
 //		this.addValue(TEL, value);
 //		this.addValue(URG_PQ, value);
-//		this.addValue(PIVL_TS_FULLDATETIME, pivl);
 	}
 
 	private void createCodeValues() {
@@ -249,6 +248,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		PeriodicIntervalTime pivl = PeriodicIntervalTime.createFrequency(3, new PhysicalQuantity(new BigDecimal("1"), DefaultTimeUnit.DAY));
 		
 		this.addValue(PIVL_TS_DATETIME, pivl);
+		this.addValue(StandardDataType.PIVL_TS_FULLDATETIME, pivl);
 	}
 
 	private void createScValues() {
@@ -348,6 +348,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 	private void createIntervalValues() {
 		Interval<Date> dateIvl = IntervalFactory.createLowHigh(DateUtil.getDate(1977, 4, 22), DateUtil.getDate(2013, 8, 14));
 		this.addValue(IVL_DATE, dateIvl);
+		this.addValue(IVL_TS, dateIvl);
 		this.addValue(IVL_DATETIME, dateIvl);
 		this.addValue(IVL_FULL_DATE, dateIvl);
 		this.addValue(IVL_FULL_DATE_TIME, dateIvl);

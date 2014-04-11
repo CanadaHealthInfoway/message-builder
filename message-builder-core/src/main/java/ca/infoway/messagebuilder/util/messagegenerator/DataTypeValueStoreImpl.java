@@ -84,11 +84,11 @@ public class DataTypeValueStoreImpl implements DataTypeValueStore {
 	public Object getValueForDatatype(String dataType, Class<?> propertyType) {
 		StandardDataType type = StandardDataType.getByTypeName(dataType);
 		List<Object> values = this.valueGenerators.get(type);
-		int index = this.valueIndexes.get(type);
+		Integer index = this.valueIndexes.get(type);
 		
 		Object result = null;
 		
-		if (type != null && values != null) {
+		if (type != null && values != null && index != null) {
 			if (index < values.size()) {
 				this.valueIndexes.put(type, index + 1 >= values.size() ? 0 : index + 1);
 				result = values.get(index);
