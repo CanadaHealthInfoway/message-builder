@@ -181,16 +181,7 @@ public class InteractionPopulatingUtility  {
 	 * @param messageContext
 	 */
 	private void populateProperties(Map<String, BeanProperty> properties, BeanPopulatingContext context, MessagePart messageContext) {
-		
-		// check to see if we are recursing into a message part we are already in, i.e. a reference loop
-		Predicate predicate = PredicateUtils.equalPredicate(messageContext.getName());
-		if (CollectionUtils.countMatches(context.getMessagePartStack(), predicate) >= MAX_SELF_REFERENCES) {;
-			// there is almost certainly a self-referential loop going on here; it has been allowed to happen a reasonable amount of times (twice, currently), but cut it off now
-			this.log.debug("Detected a self-referential loop: " + messageContext.getName());
-			return;
-		}
-		
-		// store current message part in a stack to avoid infinite loops
+		// store current message part in a stack to detect infinite loops
 		context.getMessagePartStack().push(messageContext.getName());
 		this.log.debug("Stack is now: " + context.getMessagePartStack());
 		for (BeanProperty beanProperty : properties.values()) {
@@ -201,6 +192,17 @@ public class InteractionPopulatingUtility  {
 			}
 		}
 		context.getMessagePartStack().pop();
+	}
+
+	private boolean isSelfReferencingLoop(BeanPopulatingContext context, MessagePart messageContext) {
+		// check to see if we are recursing into a message part we are already in, i.e. a reference loop
+		Predicate predicate = PredicateUtils.equalPredicate(messageContext.getName());
+		if (CollectionUtils.countMatches(context.getMessagePartStack(), predicate) >= MAX_SELF_REFERENCES) {;
+			// there is almost certainly a self-referential loop going on here; it has been allowed to happen a reasonable amount of times (twice, currently), but cut it off now
+			this.log.debug("Detected a self-referential loop: " + messageContext.getName());
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -278,18 +280,20 @@ public class InteractionPopulatingUtility  {
 		// since this is an association, we want to populate the properties of its type as well
 		MessagePart newMessageContext = service.getMessagePart(context.getVersion(), nextType);
 		
-		if (beanProperty.isCollection()) {
-			for (int i = 0; i < numberOfObjectsToCreate; i++) {
+		if (!isSelfReferencingLoop(context, newMessageContext)) {
+			if (beanProperty.isCollection()) {
+				for (int i = 0; i < numberOfObjectsToCreate; i++) {
+					Object newInstance = createInstanceForAssociation(typeToInstantiate);
+					((Collection) beanProperty.get()).add(newInstance);
+					Map<String, BeanProperty> properties = BeanProperty.getProperties(newInstance);
+					populateProperties(properties, context, newMessageContext); 
+				}
+			} else {
 				Object newInstance = createInstanceForAssociation(typeToInstantiate);
-				((Collection) beanProperty.get()).add(newInstance);
+				beanProperty.set(newInstance);
 				Map<String, BeanProperty> properties = BeanProperty.getProperties(newInstance);
 				populateProperties(properties, context, newMessageContext); 
 			}
-		} else {
-			Object newInstance = createInstanceForAssociation(typeToInstantiate);
-			beanProperty.set(newInstance);
-			Map<String, BeanProperty> properties = BeanProperty.getProperties(newInstance);
-			populateProperties(properties, context, newMessageContext); 
 		}
 	}
 	

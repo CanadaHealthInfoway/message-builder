@@ -56,7 +56,6 @@ public class SampleMessageGenerator {
 		public int compare(Interaction o1, Interaction o2) {
 			return o1.getName().compareTo(o2.getName());
 		}
-		
 	}
 	
 	private InteractionPopulatingUtility beanPopulatingUtility;
