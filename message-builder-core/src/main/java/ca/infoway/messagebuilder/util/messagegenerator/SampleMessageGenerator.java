@@ -127,6 +127,9 @@ public class SampleMessageGenerator {
 					String interactionName = interaction.getBusinessName();
 					this.log.info("Generating sample message for: " + interactionId + " (" + interactionName + ")");
 					String xml = generateSampleMessage(includesOptions, interaction, version, conformanceOption, cardinalityOption, choiceOption);
+					if (interactionId.equals("MCCI_IN000002CA")) {
+						System.out.println(xml);
+					}
 					if (StringUtils.isNotBlank(xml)) {
 						String fileName = interactionId + "_" + interactionName.replaceAll("[^a-zA-Z]", "_") + ".xml";
 						writeToFile(new File(directory, fileName), xml);
@@ -164,13 +167,15 @@ public class SampleMessageGenerator {
 	
 	private void writeToFile(File file, String xml) {
 		FileWriter output = null;
+		BufferedWriter writer = null;
 		try {
 			output = new FileWriter(file);
-			BufferedWriter writer = new BufferedWriter(output);
+			writer = new BufferedWriter(output);
 			writer.write(xml);
 		} catch (Exception e) {
 			this.log.error("Unable to write xml to file", e);
 		} finally {
+			IOUtils.closeQuietly(writer);
 			IOUtils.closeQuietly(output);
 		}
 	}
