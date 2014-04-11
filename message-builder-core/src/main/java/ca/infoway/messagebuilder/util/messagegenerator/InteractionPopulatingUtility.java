@@ -41,6 +41,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
@@ -112,7 +113,7 @@ public class InteractionPopulatingUtility  {
 	}
 	
 	// limit recursive object creation - increase at your own risk!
-	private static final int MAX_SELF_REFERENCES = 1;
+	private static final int MAX_SELF_REFERENCES = 2;
 	
 	private MessageDefinitionService service;
 	private Instantiator instantiator;
@@ -183,17 +184,21 @@ public class InteractionPopulatingUtility  {
 		
 		// check to see if we are recursing into a message part we are already in, i.e. a reference loop
 		Predicate predicate = PredicateUtils.equalPredicate(messageContext.getName());
-		if (CollectionUtils.countMatches(context.getMessagePartStack(), predicate) > MAX_SELF_REFERENCES) {;
+		if (CollectionUtils.countMatches(context.getMessagePartStack(), predicate) >= MAX_SELF_REFERENCES) {;
 			// there is almost certainly a self-referential loop going on here; it has been allowed to happen a reasonable amount of times (twice, currently), but cut it off now
+			this.log.info("Detected a self-referential loop: " + messageContext.getName());
 			return;
 		}
 		
 		// store current message part in a stack to avoid infinite loops
 		context.getMessagePartStack().push(messageContext.getName());
 		this.log.debug("Stack is now: " + context.getMessagePartStack());
-		System.out.println(("Stack is now: " + context.getMessagePartStack()));
 		for (BeanProperty beanProperty : properties.values()) {
-			populatePropertyAndSubProperties(beanProperty, context, messageContext);
+			try {
+				populatePropertyAndSubProperties(beanProperty, context, messageContext);
+			} catch (Exception e) {
+				this.log.error("Exception encountered trying to populate a property: " + messageContext.getName() + "." + beanProperty.getName(), e);
+			}
 		}
 		context.getMessagePartStack().pop();
 	}
@@ -396,11 +401,25 @@ public class InteractionPopulatingUtility  {
 			String mappingName = mapping.getName();
 			Relationship relationship = getLastRelationshipOfMapping(mappingName, messageContext, version);
 			if (relationship != null) {
-				if (mappingResult == null) {
-					// FIXME - must check that the type matches the mapping type (might have multiple mappings that apply)
-					mappingResult = mappingName;
+				// if has part type mappings, check if there is a relationship type match; if yes, we have a match (error if already matched)
+				// else if no part type mappings we have a match (error if already matched)
+				if (mapping.hasPartTypeMappings()) {
+					for (NamedAndTyped namedAndTyped : mapping.getAllTypes()) {
+						if (relationship.getType().equals(namedAndTyped.getType())) {
+							if (mappingResult == null) {
+								mappingResult = mappingName;
+								break;
+							} else {
+								this.log.error("ERROR - found at least two part type mappings that worked: " + messageContext.getName() + " - " + mappingName);
+							}
+						}
+					}
 				} else {
-					this.log.error("ERROR - found at least two mappings that worked: " + messageContext.getName() + " - " + mappingName);
+					if (mappingResult == null) {
+						mappingResult = mappingName;
+					} else {
+						this.log.error("ERROR - found at least two mappings that worked (b): " + messageContext.getName() + " - " + mappingName);
+					}
 				}
 			}
 		}
@@ -584,9 +603,6 @@ public class InteractionPopulatingUtility  {
 		// watch for indicator beans, which are associations that have been modified by MB generator to be of type Boolean
 		if (typeToInstantiate == Boolean.class) {
 			return Boolean.TRUE;
-		}
-		if (typeToInstantiate.isInterface()) {
-			System.out.println("break");
 		}
 		return ClassUtil.newInstance(typeToInstantiate);
 	}
