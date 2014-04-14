@@ -131,17 +131,32 @@ public class Mapping {
 	}
 
 	public List<NamedAndTyped> getAllTypes() {
+		return getAllTypes(this.mapping);
+	}
+
+	private List<NamedAndTyped> getAllTypes(String suppliedMapping) {
 		List<NamedAndTyped> types = new ArrayList<NamedAndTyped>();
 		if (hasPartTypeMappings()) {
 			for (PartTypeMapping map : this.mappings) {
-				if (StringUtils.equals(this.mapping, map.getName())) {
-					types.add(new RelationshipMap.Key(this.mapping, map.getType()));
+				if (StringUtils.equals(suppliedMapping, map.getName())) {
+					types.add(new RelationshipMap.Key(suppliedMapping, map.getType()));
 				}
 			}
 		} else {
-			types.add(new RelationshipMap.Key(this.mapping));
+			types.add(new RelationshipMap.Key(suppliedMapping));
 		}
 		return types;
+	}
+	
+	public List<NamedAndTyped> getAllTypesIncludingAttribute() {
+		List<NamedAndTyped> results = getAllTypes();
+		if (results.isEmpty() && isCompound()) {
+			// this mapping is likely for an attribute; back the mapping up one step to find type matches
+			int lastSlash = this.mapping.lastIndexOf('/');
+			String newMapping = this.mapping.substring(0, lastSlash);
+			results = getAllTypes(newMapping);
+		}
+		return results;
 	}
 
 	public boolean hasPartTypeMappings() {

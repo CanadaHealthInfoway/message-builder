@@ -127,9 +127,6 @@ public class SampleMessageGenerator {
 					String interactionName = interaction.getBusinessName();
 					this.log.info("Generating sample message for: " + interactionId + " (" + interactionName + ")");
 					String xml = generateSampleMessage(includesOptions, interaction, version, conformanceOption, cardinalityOption, choiceOption);
-					if (interactionId.equals("MCCI_IN000002CA")) {
-						System.out.println(xml);
-					}
 					if (StringUtils.isNotBlank(xml)) {
 						String fileName = interactionId + "_" + interactionName.replaceAll("[^a-zA-Z]", "_") + ".xml";
 						writeToFile(new File(directory, fileName), xml);

@@ -28,6 +28,7 @@ import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulat
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.List;
@@ -277,10 +278,6 @@ public class InteractionPopulatingUtility  {
 			nextType = choiceRelationshipType;
 		}
 
-//		if (typeToInstantiate.getSimpleName().equals("IssueDescriptionBean")) {
-//			System.out.println("break");
-//		}
-		
 		// since this is an association, we want to populate the properties of its type as well
 		MessagePart newMessageContext = service.getMessagePart(context.getVersion(), nextType);
 		
@@ -407,8 +404,8 @@ public class InteractionPopulatingUtility  {
 		String mappingResult = null;
 		for (Mapping mapping : mappings) {
 			String mappingName = mapping.getName();
-			Relationship relationship = getLastRelationshipOfMapping(mappingName, messageContext, version);
-			if (relationship != null) {
+			List<Relationship> relationshipsOfMapping = getRelationshipsOfMapping(mappingName, messageContext, version);
+			if (!relationshipsOfMapping.isEmpty()) {
 				// if has part type mappings, check if there is a relationship type match; if yes, we have a match (error if already matched)
 				// else if no part type mappings we have a match (error if already matched)
 				
@@ -419,9 +416,17 @@ public class InteractionPopulatingUtility  {
 				// - take rel if only one matches? then do as below, then what if still not matched?
 				// - ah, the last part of the mapping is not an association, so it won't show up in the part types
 				
+				
 				if (mapping.hasPartTypeMappings()) {
-					for (NamedAndTyped namedAndTyped : mapping.getAllTypes()) {
-						if (relationship.getType().equals(namedAndTyped.getType())) {
+					Relationship relationshipToCheck = relationshipsOfMapping.get(relationshipsOfMapping.size() - 1);
+					
+					if (relationshipToCheck.isAttribute()) {
+						// we need to back up a step in order to obtain an association we can match against
+						relationshipToCheck = relationshipsOfMapping.get(relationshipsOfMapping.size() - 2);
+					}
+					
+					for (NamedAndTyped namedAndTyped : mapping.getAllTypesIncludingAttribute()) {
+						if (relationshipToCheck.getType().equals(namedAndTyped.getType())) {
 							if (mappingResult == null) {
 								mappingResult = mappingName;
 								break;
@@ -434,11 +439,15 @@ public class InteractionPopulatingUtility  {
 					if (mappingResult == null) {
 						mappingResult = mappingName;
 					} else {
-						this.log.error("ERROR - found at least two mappings that worked (b): " + messageContext.getName() + " - " + mappingName);
+						this.log.error("ERROR - found at least two mappings that worked: " + messageContext.getName() + " - " + mappingName);
 					}
 				}
 			}
 		}
+		
+//		if (mappingResult == null && !mappings.isEmpty()) {
+//			this.log.error("ERROR - not able to determine a matching mapping: " + messageContext.getName() + " " + mappings);
+//		}
 		
 		return mappingResult;
 	}
@@ -453,25 +462,41 @@ public class InteractionPopulatingUtility  {
 	 */
 	private Relationship getLastRelationshipOfMapping(String mapping, MessagePart messageContext, VersionNumber version) {
 		// due to merging, may not find last relationship (this is an expected state); on a merged type, not all properties will apply for every context
-		Relationship lastRelationship = null;
+		List<Relationship> relationshipsOfMapping = getRelationshipsOfMapping(mapping, messageContext, version);
+		return relationshipsOfMapping.isEmpty() ? null : relationshipsOfMapping.get(relationshipsOfMapping.size() - 1);
+	}
+
+	/**
+	 * Given a (possibly compound) mapping and the message part the mapping is from, determine the relationship corresponding to the last part of the mapping. 
+	 * 
+	 * @param mapping
+	 * @param messageContext
+	 * @param version
+	 * @return
+	 */
+	private List<Relationship> getRelationshipsOfMapping(String mapping, MessagePart messageContext, VersionNumber version) {
+		// due to merging, may not find last relationship (this is an expected state); on a merged type, not all properties will apply for every context
+		List<Relationship> allRelationships = new ArrayList<Relationship>();
 		for (String relationshipName : mapping.split("/")) {
 			// generally, this is ok if not found (which will set relationship back to null, which is what we want)
-			lastRelationship = (messageContext == null ? null : messageContext.getRelationship(relationshipName));
-			if (lastRelationship == null) {
+			Relationship relationship = (messageContext == null ? null : messageContext.getRelationship(relationshipName));
+			if (relationship == null) {
 				// this mapping didn't lead to a relationship for the given context (likely due to being a merged message part)
 				// no need to continue down the mapping
+				allRelationships.clear();
 				break;
 			}
-			if (lastRelationship.isAssociation()) {
+			allRelationships.add(relationship);
+			if (relationship.isAssociation()) {
 				// alter the message context for the next mapping segment being checked
-				messageContext = service.getMessagePart(version, lastRelationship.getType());
+				messageContext = service.getMessagePart(version, relationship.getType());
 			} else {
 				// this shouldn't necessary, as if this isn't an association we should be at the last mapping; this ensures a NPE if not
 				messageContext = null;
 			}
 		}
 		
-		return lastRelationship;
+		return allRelationships;
 	}
 
 	/**
