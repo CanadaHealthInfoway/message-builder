@@ -277,9 +277,9 @@ public class InteractionPopulatingUtility  {
 			nextType = choiceRelationshipType;
 		}
 
-		if (typeToInstantiate.getSimpleName().equals("IssueDescriptionBean")) {
-			System.out.println("break");
-		}
+//		if (typeToInstantiate.getSimpleName().equals("IssueDescriptionBean")) {
+//			System.out.println("break");
+//		}
 		
 		// since this is an association, we want to populate the properties of its type as well
 		MessagePart newMessageContext = service.getMessagePart(context.getVersion(), nextType);
@@ -351,7 +351,7 @@ public class InteractionPopulatingUtility  {
 			if (typeForAbstract != null) {
 				messageBean.setSpecializationType(beanProperty.getName(), typeForAbstract);
 			}
-			
+			// should also include this in the collection setter method
 			handleMetaData(beanProperty, relationship, messageBean);
 		} else {
 			this.log.error("No value specified for type " + relationship.getType() + " on " + relationship.getParentType() + "." + relationship.getName());
@@ -532,54 +532,44 @@ public class InteractionPopulatingUtility  {
 	private Argument findArgumentForRelationship(Relationship relationship, Interaction interaction) {
 		return interaction.getArgumentByTemplateParameterName(relationship.getTemplateParameterName());
 	}
-
-	
-	
-	// refactor code, handle errors here and above
 	
 	/**
 	 * Given an argument for an interaction, determine the matching class.
 	 * 
-	 * @param arg
+	 * @param argToMatch
 	 * @param interactionBean
 	 * @param interaction
 	 * @return
 	 */
-	private Class<?> determineTemplateType(Argument arg, Object interactionBean, Interaction interaction) {
+	private Class<?> determineTemplateType(Argument argToMatch, Object interactionBean, Interaction interaction) {
 		// pass in args, matched arg, and parameterized types; then iterate in lock step until args match
 		ParameterizedType parameterizedType = (ParameterizedType) interactionBean.getClass().getGenericSuperclass();
-		// this assumes that there will only ever by one parameterized type for the interaction; might want to change this to be more flexible
-		Type type = parameterizedType.getActualTypeArguments()[0];
-		String typeName = StringUtils.removeStart(type.toString(), "class ");
-
-		// FIXME complete hack to match up args for now; needs recursive method to be correct
-		if (interaction.getArguments().get(0) == arg) {
-			if (typeName.contains("<")) {
-				typeName = typeName.substring(0, typeName.indexOf("<"));
-			}
-		} else {
-			typeName = typeName.substring(typeName.indexOf("<") + 1);
-			if (interaction.getArguments().get(0).getArguments().get(0) == arg) {
-				if (typeName.contains(",")) {
-					typeName = typeName.substring(0, typeName.indexOf(","));
-				} else {
-					typeName = typeName.substring(0, typeName.length() - 1);
-				}
-			} else {
-				if (typeName.contains(",")) {
-					typeName = typeName.substring(typeName.indexOf(",") + 1, typeName.length() - 1);
-				}
-			}
-		}
+		Type[] allArgs = parameterizedType.getActualTypeArguments();
 		
-		try {
-			return Class.forName(typeName.trim());
-		} catch (ClassNotFoundException e) {
-			this.log.error("Unable to determine class for: " + typeName.trim(), e);
+		Type matchingArgumentType = getMatchingArgumentType(allArgs, interaction.getArguments(), argToMatch);
+
+		return (Class<?>) (matchingArgumentType instanceof Class ?  
+					matchingArgumentType : 
+					((ParameterizedType) matchingArgumentType).getRawType());
+	}
+	
+	private Type getMatchingArgumentType(Type[] allArgs, List<Argument> arguments, Argument argumentToMatch) {
+		int i = 0;
+		for (Argument argument : arguments) {
+			Type argType = allArgs[i];
+			if (argument == argumentToMatch) {
+				return argType;
+			} else if (!argument.getArguments().isEmpty()) {
+				Type[] nextArgs = ((ParameterizedType) argType).getActualTypeArguments();
+				argType = getMatchingArgumentType(nextArgs, argument.getArguments(), argumentToMatch);
+				if (argType != null) {
+					return argType;
+				}
+			}
+			i++;
 		}
 		return null;
 	}
-	
 
 	/**
 	 * Given the choice selection option, choose one of the choices in the collection (including nested choice options) 
