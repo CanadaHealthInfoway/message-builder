@@ -21,6 +21,7 @@ package ca.infoway.messagebuilder.util.messagegenerator;
 
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.ConformanceOption.ALL;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.ConformanceOption.MANDATORY_INCLUDING_PAYLOAD;
+import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_5;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_10;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_25;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MINIMUM_WITH_AT_LEAST_1;
@@ -78,7 +79,7 @@ public class InteractionPopulatingUtility  {
 	}
 	
 	public enum MultipleCardinalityOption {
-		MINIMUM_WITH_AT_LEAST_1, MAXIMUM_WITH_LIMIT_5, MAXIMUM_WITH_LIMIT_10, MAXIMUM_WITH_LIMIT_25
+		MINIMUM_WITH_AT_LEAST_1, MAXIMUM_WITH_LIMIT_3, MAXIMUM_WITH_LIMIT_5, MAXIMUM_WITH_LIMIT_10, MAXIMUM_WITH_LIMIT_25
 	}
 	
 	public enum ChoiceOption {
@@ -144,7 +145,7 @@ public class InteractionPopulatingUtility  {
 	 * @return
 	 */
 	public InteractionBean createAndPopulateInteraction(String interactionId, VersionNumber version) {
-		return createAndPopulateInteraction(interactionId, version, ConformanceOption.ALL, MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_5, ChoiceOption.ALWAYS_FIRST);
+		return createAndPopulateInteraction(interactionId, version, ConformanceOption.ALL, MultipleCardinalityOption.MINIMUM_WITH_AT_LEAST_1, ChoiceOption.ALWAYS_FIRST);
 	}
 
 	/**
@@ -534,7 +535,7 @@ public class InteractionPopulatingUtility  {
 			return Math.max(cardinality.getMin(), 1);
 		}
 		
-		int upperLimit = (cardinalityOption == MAXIMUM_WITH_LIMIT_25 ? 25 : (cardinalityOption == MAXIMUM_WITH_LIMIT_10 ? 10 : 5));
+		int upperLimit = (cardinalityOption == MAXIMUM_WITH_LIMIT_25 ? 25 : (cardinalityOption == MAXIMUM_WITH_LIMIT_10 ? 10 : (cardinalityOption == MAXIMUM_WITH_LIMIT_5 ? 5: 3)));
 		return Math.max(cardinality.getMin(), Math.min(cardinality.getMax(), upperLimit));
 	}
 
