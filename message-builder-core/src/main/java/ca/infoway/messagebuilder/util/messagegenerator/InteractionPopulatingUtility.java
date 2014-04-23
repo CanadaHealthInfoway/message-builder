@@ -133,7 +133,8 @@ public class InteractionPopulatingUtility  {
 		this.instantiator = Instantiator.getInstance();
 		this.classFinder = new ClassFinder();
 		this.userDataTypeStore = dataStore;
-		this.defaultDataTypeStore = new DefaultDataTypeValueStore();
+		// CHI requested that the default approach should handle SK (which has some datatype exceptions); forces every datastore retrieval to do an extra check, unfortunately
+		this.defaultDataTypeStore = new DefaultDataTypeValueStoreIncludingSk();
 		this.random = new Random();
 	}
 
