@@ -423,7 +423,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		abstractMapping.put(ANY_X1, StandardDataType.ST);
 		abstractMapping.put(ANY_X2, StandardDataType.ST);
 		abstractMapping.put(II_BUS_AND_VER, StandardDataType.II_BUS);
-		abstractMapping.put(ED_DOC_OR_REF, StandardDataType.ED_DOC);
+		abstractMapping.put(ED_DOC_OR_REF, StandardDataType.ED_DOC_REF);
 		abstractMapping.put(IVL_FULL_DATE_PART_TIME, StandardDataType.IVL_FULL_DATE_TIME);
 		abstractMapping.put(IVL_FULL_DATE_WITH_TIME, StandardDataType.IVL_FULL_DATE_TIME);
 		abstractMapping.put(TS_FULLDATEWITHTIME, StandardDataType.TS_FULLDATETIME);
