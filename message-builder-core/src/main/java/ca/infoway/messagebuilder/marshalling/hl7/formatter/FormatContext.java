@@ -35,6 +35,7 @@ public interface FormatContext extends Typed {
 	public String getElementName();
 	public String getType();
 	public String getDomainType();
+	public boolean isFixed();
 	public CodingStrength getCodingStrength();
 	public boolean isSpecializationType();
 	public ConformanceLevel getConformanceLevel();

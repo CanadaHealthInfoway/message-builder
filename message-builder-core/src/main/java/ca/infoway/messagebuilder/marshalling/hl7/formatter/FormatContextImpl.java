@@ -141,4 +141,9 @@ class FormatContextImpl implements FormatContext {
 		return this.domainType;
 	}
 
+	public boolean isFixed() {
+		// assumes that this version of FormatContext is only ever used for non-fixed relationships (might change later)
+		return false;
+	}
+
 }

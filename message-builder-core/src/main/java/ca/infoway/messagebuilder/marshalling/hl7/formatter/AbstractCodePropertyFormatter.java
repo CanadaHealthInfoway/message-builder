@@ -100,7 +100,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		
 	    		String codeAsString = (cd.getValue() != null ? cd.getValue().getCodeValue() : null);
 	    		
-	    		CD_VALIDATION_UTILS.validateCodedType(cd, codeAsString, isCwe, isCne, false, type, version, null, context.getPropertyPath(), errors);
+	    		CD_VALIDATION_UTILS.validateCodedType(cd, codeAsString, isCwe, isCne, false, context.isFixed(), type, version, null, context.getPropertyPath(), errors);
     		}
         	
     		Map<String, String> attributes = new HashMap<String, String>();

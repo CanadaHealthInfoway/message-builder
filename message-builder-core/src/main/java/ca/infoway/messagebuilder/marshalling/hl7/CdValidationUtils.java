@@ -41,7 +41,7 @@ public class CdValidationUtils {
 	private static final int MAX_CODE_SYSTEM_LENGTH = 100;
 	private static final int MAX_ORIGINAL_TEXT_LENGTH = 150;
 
-	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
+	public void validateCodedType(CD codeWrapper, String codeAsString, boolean isCwe, boolean isCne, boolean isTranslation, boolean isFixed, String type, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 
 		Hl7BaseVersion baseVersion = version == null ? Hl7BaseVersion.MR2009 : version.getBaseVersion();
 		
@@ -84,7 +84,13 @@ public class CdValidationUtils {
 			}
 			
 			// codes can be one of CWE or CNE (unsure if they can be *neither*)
-			if (isCwe && !hasNullFlavor) {
+			// RM19852 - special validation exception for codes that are fixed
+			if (isFixed) {
+				// only validate that a code has been provided
+				if (!hasNonBlankCode) {
+					createError("Code property must be provided.", element, propertyPath, errors, isTranslation);
+				}
+			} else if (isCwe && !hasNullFlavor) {
 				// cwe = 1 of code/originalText must be non-null; code present = codeSystem mandatory
 				if (!hasNonBlankCode && StringUtils.isBlank(codeWrapper.getOriginalText())) {
 					createError("For codes with codingStrength of CWE, one of code or originalText must be provided.", element, propertyPath, errors, isTranslation);
@@ -190,7 +196,7 @@ public class CdValidationUtils {
 				boolean isTranslation = true;
 				// this could still result in seeing some redundant error messages if the translation code was invalid; decided this is ok for a little-used feature
 				String codeAsString = translationCodeWrapper.getValue() == null ? null : translationCodeWrapper.getValue().getCodeValue();
-				validateCodedType(translationCodeWrapper, codeAsString, false, false, isTranslation, type, version, element, propertyPath, errors);
+				validateCodedType(translationCodeWrapper, codeAsString, false, false, isTranslation, false, type, version, element, propertyPath, errors);
 			}
 		}
 	}

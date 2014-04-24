@@ -100,4 +100,8 @@ class FormatContextImpl implements FormatContext {
 		return this.relationship.getDomainType();
 	}
 
+	public boolean isFixed() {
+		return this.relationship.isFixed();
+	}
+
 }
