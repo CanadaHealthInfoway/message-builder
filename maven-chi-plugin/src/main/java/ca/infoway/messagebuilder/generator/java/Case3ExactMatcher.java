@@ -80,6 +80,13 @@ class Case3ExactMatcher extends Case3Matcher {
 				}
 			}
 		}
+		
+		// RM19851 - some concrete parts that had no non-fixed relationships (rare, but they exist) were being merged with interfaces
+		if (result == MatchType.EXACT && type.isAbstract() != otherType.isAbstract()) {
+			this.log.log(LogLevel.DEBUG, "Types would have merged except for abstract mismatch: " + type.getName() + " " + otherType.getName());
+			result = MatchType.MAJOR_DIFFERENCE;
+		}
+		
 		return result;
 	}
 	

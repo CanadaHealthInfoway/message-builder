@@ -648,16 +648,14 @@ public class InteractionPopulatingUtility  {
 		
 		// iterate all implementing classes looking for an Hl7PartTypeMapping that matches the desired choice option's relationship type
 		for (Class<?> choiceOptionImplementationClass : choiceImplmentationClasses) {
-			if (!choiceOptionImplementationClass.isInterface()) {
-				String[] choicePartTypes = choiceOptionImplementationClass.getAnnotation(Hl7PartTypeMapping.class).value();
-				for (String choicePartType : choicePartTypes) {
-					if (StringUtils.equals(choiceOptionRelationshipType, choicePartType)) {
-						return choiceOptionImplementationClass;
-					}
+			String[] choicePartTypes = choiceOptionImplementationClass.getAnnotation(Hl7PartTypeMapping.class).value();
+			for (String choicePartType : choicePartTypes) {
+				if (StringUtils.equals(choiceOptionRelationshipType, choicePartType)) {
+					return choiceOptionImplementationClass;
 				}
 			}
 		}
-		this.log.error("Could not determine the property type for a choice option: " + choiceOptionRelationshipType + " - " + choicePropertyType.getName());
+		this.log.error("Not able to determine the property type for a choice option: " + choiceOptionRelationshipType + " - " + choicePropertyType.getName());
 		return null;
 	}
 	
