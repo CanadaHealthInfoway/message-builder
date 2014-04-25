@@ -89,7 +89,8 @@ public class Predicates {
 		return new AbstractClassPredicate() {
 			@Override
 			public boolean isSelected(Class<?> c) {
-				return c != null && type != null && type.isAssignableFrom(c) && (!isInterface || c.isInterface());
+				// TM - bugfix: "isInterface = true" would only return interfaces (as expected), but "isInterface = false" would return everything 
+				return c != null && type != null && type.isAssignableFrom(c) && (isInterface == c.isInterface());
 			}
 		};
 	}
