@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -100,7 +99,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     private CE languageCode = new CEImpl();
     private RefersTo_1Bean<ACT> subject;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private Patient recordTargetPatient1;
+    private Patient_3 recordTargetPatient1;
 
 
     /**
@@ -684,7 +683,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient getRecordTargetPatient1() {
+    public Patient_3 getRecordTargetPatient1() {
         return this.recordTargetPatient1;
     }
 
@@ -701,7 +700,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient recordTargetPatient1) {
+    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
         this.recordTargetPatient1 = recordTargetPatient1;
     }
 

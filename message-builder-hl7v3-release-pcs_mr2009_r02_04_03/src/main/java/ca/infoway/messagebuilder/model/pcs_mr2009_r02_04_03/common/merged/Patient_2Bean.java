@@ -70,7 +70,7 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
-public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient {
+public class Patient_2Bean extends MessagePartBean implements Patient_3, ActingPerson {
 
     private static final long serialVersionUID = 20131209L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);

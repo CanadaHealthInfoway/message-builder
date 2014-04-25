@@ -48,10 +48,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Create
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_3;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.RefersTo_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Patient;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RelatedPersonBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -83,7 +83,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
-    private Patient recordTargetPatient1;
+    private Patient_3 recordTargetPatient1;
     private AssignedEntityBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
@@ -300,7 +300,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient getRecordTargetPatient1() {
+    public Patient_3 getRecordTargetPatient1() {
         return this.recordTargetPatient1;
     }
 
@@ -309,7 +309,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient recordTargetPatient1) {
+    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
         this.recordTargetPatient1 = recordTargetPatient1;
     }
 
