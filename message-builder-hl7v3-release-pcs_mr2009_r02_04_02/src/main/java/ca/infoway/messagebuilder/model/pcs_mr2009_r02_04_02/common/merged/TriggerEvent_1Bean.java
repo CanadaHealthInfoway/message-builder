@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt470002ca.ConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Patient;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -222,7 +221,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     private CE languageCode = new CEImpl();
     private RefersTo_1Bean<ACT> subject;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private Patient recordTargetPatient1;
+    private Patient_3 recordTargetPatient1;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
@@ -2309,7 +2308,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient getRecordTargetPatient1() {
+    public Patient_3 getRecordTargetPatient1() {
         return this.recordTargetPatient1;
     }
 
@@ -2362,7 +2361,7 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient recordTargetPatient1) {
+    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
         this.recordTargetPatient1 = recordTargetPatient1;
     }
 
