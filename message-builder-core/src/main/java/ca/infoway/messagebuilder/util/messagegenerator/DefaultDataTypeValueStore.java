@@ -405,14 +405,23 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 
 	private void createIdentifierValues() {
 		this.addValue(II, new Identifier("1.2.3.4", "II value"));
+		this.addValue(II, new Identifier("1.2.3.45", "II val"));
 		this.addValue(II_BUS, new Identifier("1.2.3.5", "II.BUS value"));
+		this.addValue(II_BUS, new Identifier("1.2.3.56", "II.BUS val"));
 		this.addValue(II_PUBLIC, new Identifier("1.2.3.6", "II.PUBLIC value"));
+		this.addValue(II_PUBLIC, new Identifier("1.2.3.67", "II.PUBLIC val"));
 		this.addValue(II_OID, new Identifier("1.2.3.7", "II.OID value"));
+		this.addValue(II_OID, new Identifier("1.2.3.78", "II.OID val"));
 		this.addValue(II_PUBLICVER, new Identifier("1.2.3.8", "II.PUBLICVER value"));
+		this.addValue(II_PUBLICVER, new Identifier("1.2.3.89", "II.PUBLICVER val"));
 		this.addValue(II_BUSVER, new Identifier("1.2.3.9", "II.BUSVER value"));
+		this.addValue(II_BUSVER, new Identifier("1.2.3.90", "II.BUSVER val"));
+		this.addValue(II_TOKEN, new Identifier(UUID.randomUUID().toString()));
 		this.addValue(II_TOKEN, new Identifier(UUID.randomUUID().toString()));
 		this.addValue(II_VER, new Identifier(UUID.randomUUID().toString()));
+		this.addValue(II_VER, new Identifier(UUID.randomUUID().toString()));
 		this.addValue(II_BUS_AND_VER, new Identifier("1.2.2.2", "II.BUS_AND_VER value"));
+		this.addValue(II_BUS_AND_VER, new Identifier("1.2.2.23", "II.BUS_AND_VER val"));
 	}
 
 	private void setupAbstractMappings() {

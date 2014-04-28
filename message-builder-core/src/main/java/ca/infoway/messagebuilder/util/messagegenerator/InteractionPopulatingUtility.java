@@ -31,6 +31,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
@@ -86,6 +88,12 @@ public class InteractionPopulatingUtility  {
 		ALWAYS_FIRST, ALWAYS_SECOND, ALWAYS_THIRD, ALWAYS_LAST, RANDOM
 	}
 
+	private Comparator<Argument> argumentComparator = new Comparator<Argument>() {
+		public int compare(Argument arg0, Argument arg1) {
+			return arg0.getTemplateParameterName().compareTo(arg1.getTemplateParameterName());
+		}
+	};
+	
 	private class BeanPopulatingContext {
 		private final InteractionBean interactionBean;
 		private final Interaction interaction;
@@ -187,6 +195,7 @@ public class InteractionPopulatingUtility  {
 		// store current message part in a stack to detect infinite loops
 		context.getMessagePartStack().push(messageContext.getName());
 		this.log.debug("Stack is now: " + context.getMessagePartStack());
+		
 		for (BeanProperty beanProperty : properties.values()) {
 			try {
 				populatePropertyAndSubProperties(beanProperty, context, messageContext);
@@ -515,7 +524,7 @@ public class InteractionPopulatingUtility  {
 			if (relationship.isAssociation()) {
 				messageContext = service.getMessagePart(version, relationship.getType());
 			} else {
-				// this shouldn't necessary, as if this isn't an association we should be at the last mapping; this ensures a NPE if not
+				// this shouldn't be necessary, as if this isn't an association we should be at the last mapping; this ensures a NPE if not
 				messageContext = null;
 			}
 		}
@@ -572,6 +581,9 @@ public class InteractionPopulatingUtility  {
 	}
 	
 	private Type getMatchingArgumentType(Type[] allArgs, List<Argument> arguments, Argument argumentToMatch) {
+		// sort arguments before comparing so that they are in the same order as they were when the interaction class was generated
+		Collections.sort(arguments, argumentComparator);
+		
 		int i = 0;
 		for (Argument argument : arguments) {
 			Type argType = allArgs[i];
