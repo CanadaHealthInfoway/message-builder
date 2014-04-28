@@ -489,9 +489,9 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		this.addValue(AD_SEARCH, createSearchPostalAddress("Deep River"));
 		this.addValue(AD_SEARCH, createSearchPostalAddress("Brampton"));
 
-		this.addValue(AD_FULL, createPostalAddress("Yonge"));
-		this.addValue(AD_FULL, createPostalAddress("Richmond"));
-		this.addValue(AD_FULL, createPostalAddress("Keele"));
+		this.addValue(AD_FULL, createFullPostalAddress("Yonge"));
+		this.addValue(AD_FULL, createFullPostalAddress("Richmond"));
+		this.addValue(AD_FULL, createFullPostalAddress("Keele"));
 	}
 
 	private Object createOrganizationName(String organizationName) {
@@ -500,12 +500,15 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		return orgName;
 	}
 	
-	private PostalAddress createPostalAddress(String streetName) {
+	private PostalAddress createFullPostalAddress(String streetName) {
 		PostalAddress address1 = new PostalAddress();
 		address1.addUse(HOME);
 		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.HOUSE_NUMBER, "123"));
 		address1.addPostalAddressPart(new PostalAddressPart(STREET_NAME, streetName));
 		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.CITY, "Toronto"));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, State.ONTARIO));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.COUNTRY, Country.CANADA));
+		address1.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.POSTAL_CODE, "M1L 4V1"));
 		return address1;
 	}
 
