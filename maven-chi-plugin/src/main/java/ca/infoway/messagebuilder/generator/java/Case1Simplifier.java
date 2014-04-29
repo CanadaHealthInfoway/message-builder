@@ -25,7 +25,6 @@ import java.util.Collection;
 import java.util.List;
 
 import ca.infoway.messagebuilder.generator.LogUI;
-import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class Case1Simplifier extends InlineableSimplifier {
 
