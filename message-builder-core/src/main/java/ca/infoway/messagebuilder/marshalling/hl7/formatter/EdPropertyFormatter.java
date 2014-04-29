@@ -83,7 +83,7 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 		buffer.append(createElement(context, attributes, indentLevel, false, false));
 		writeReference(encapsulatedData, buffer, indentLevel + 1);
 		writeContent(encapsulatedData, buffer, content, base64);
-		buffer.append(createElementClosure(context, 0, true));
+		buffer.append(createElementClosure(context, indentLevel, true));
 		return buffer.toString();
 	}
 
