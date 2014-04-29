@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.junit.XmlAssert;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -321,7 +322,8 @@ public class XmlRenderingVisitorTest {
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
-				+"<baby/></ABCD_IN123456CA>", xml);
+				+"<!-- INFO: Selected option baby/ABCD_MT987654CA.Baby from choice PRPA_IN101103CA.Receiver -->" +
+				 "<baby/></ABCD_IN123456CA>", xml);
 	}
 
 	@Test

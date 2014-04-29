@@ -41,6 +41,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
@@ -70,6 +71,7 @@ class XmlRenderingVisitor implements Visitor {
 		private final StringBuilder childBuilder = new StringBuilder();
 		private final int indent;
 		private List<String> warnings = new ArrayList<String>();
+		private List<String> infos = new ArrayList<String>();
 
 		private XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 		
@@ -94,6 +96,11 @@ class XmlRenderingVisitor implements Visitor {
 			if (!this.warnings.isEmpty()) {
 				for (String warning : this.warnings) {
 					builder.append(this.xmlWarningRenderer.createWarning(this.indent, warning));
+				}
+			}
+			if (!this.infos.isEmpty()) {
+				for (String warning : this.infos) {
+					builder.append(this.xmlWarningRenderer.createLog("INFO", this.indent, warning));
 				}
 			}
 			Indenter.indentBuilder(builder, this.indent);
@@ -131,6 +138,9 @@ class XmlRenderingVisitor implements Visitor {
 		public void addWarning(String warning) {
 			this.warnings.add(warning);
 		}
+		public void addInfo(String info) {
+			this.infos.add(info);
+		}
 	}
 	
 	private final Stack<String> propertyPathNames = new Stack<String>();
@@ -165,7 +175,10 @@ class XmlRenderingVisitor implements Visitor {
 			
 			pushPropertyPathName(determinePropertyName(part.getPropertyName(), relationship), part.isCollapsed());
 			String propertyPath = buildPropertyPath();
+			
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
+			
+			addChoiceAnnotation(part, relationship);
 			
 			if (part.isEmpty() && (relationship.isPopulated() || part.hasNullFlavor())) {
 				currentBuffer().getStructuralBuilder().append(
@@ -193,6 +206,24 @@ class XmlRenderingVisitor implements Visitor {
 			}
 			
 			addNewErrorsToList(currentBuffer().getWarnings());
+		}
+	}
+
+	private void addChoiceAnnotation(PartBridge part, Relationship relationship) {
+		NamedAndTyped choiceOptionRelationship = null;
+		String choiceType = relationship.getType();
+		if (relationship.isChoice()) {
+			choiceOptionRelationship = resolveChoice(part, relationship);
+		} else if (relationship.isTemplateRelationship()) {
+			Argument argument = this.interaction.getArgumentByTemplateParameterName(relationship.getTemplateParameterName());
+			if (argument != null && argument.isChoice()) {
+				Predicate<Relationship> predicate =	choiceOptionTypePredicate(new String[] { part.getTypeName() } );
+				choiceOptionRelationship = argument.findChoiceOption(predicate);
+				choiceType = argument.getName();
+			}
+		}
+		if (choiceOptionRelationship != null) {
+			currentBuffer().addInfo("Selected option " + choiceOptionRelationship.getName() + "/" + choiceOptionRelationship.getType() + " from choice " + choiceType);
 		}
 	}
 
