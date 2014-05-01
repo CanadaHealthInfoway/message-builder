@@ -38,6 +38,7 @@ public class GenericClassUtil {
 
 	public static Class<?> getCollectionContentsType(BeanProperty property) {
 		Type[] actualTypeArguments = ((java.lang.reflect.ParameterizedType) (property.getDescriptor().getReadMethod().getGenericReturnType())).getActualTypeArguments();
+		// TM - changes below were *not* reflected in MB .NET (didn't seem to directly apply)
 		if (actualTypeArguments != null && actualTypeArguments.length > 0) {
 			if (actualTypeArguments[0] instanceof Class<?>) {
 				return (Class<?>) actualTypeArguments[0];
