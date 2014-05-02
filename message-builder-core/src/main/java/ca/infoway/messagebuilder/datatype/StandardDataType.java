@@ -128,6 +128,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_WIDTH_TS_FULLDATE = new StandardDataType("IVL_WIDTH_TS_FULLDATE", "IVL.WIDTH<TS.FULLDATE>", "DateInterval");
 	public static final StandardDataType IVL_LOW_TS_DATE = new StandardDataType("IVL_LOW_TS_DATE", "IVL.LOW<TS.DATE>", "DateInterval");
 	public static final StandardDataType IVL_LOW_TS_FULLDATE = new StandardDataType("IVL_LOW_TS_FULLDATE", "IVL.LOW<TS.FULLDATE>", "DateInterval");
+	public static final StandardDataType IVL_LOW_TS_FULLDATETIME = new StandardDataType("IVL_LOW_TS_FULLDATETIME", "IVL.LOW<TS.FULLDATETIME>", "DateInterval");
 	public static final StandardDataType IVL_PQ = new StandardDataType("IVL_PQ", "IVL<PQ>", "PhysicalQuantityInterval"); 
 	public static final StandardDataType IVL_PQ_BASIC = new StandardDataType("IVL_PQ_BASIC", "IVL<PQ.BASIC>", "PhysicalQuantityInterval"); 
 	public static final StandardDataType IVL_PQ_DRUG = new StandardDataType("IVL_PQ_DRUG", "IVL<PQ.DRUG>", "PhysicalQuantityInterval"); 
