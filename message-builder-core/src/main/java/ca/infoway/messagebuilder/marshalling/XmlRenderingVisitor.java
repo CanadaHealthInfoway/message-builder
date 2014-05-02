@@ -223,7 +223,7 @@ class XmlRenderingVisitor implements Visitor {
 			}
 		}
 		if (choiceOptionRelationship != null) {
-			currentBuffer().addInfo("Selected option " + choiceOptionRelationship.getName() + "/" + choiceOptionRelationship.getType() + " from choice " + choiceType);
+			currentBuffer().addInfo("Selected option " + choiceOptionRelationship.getType() + " (" + choiceOptionRelationship.getName() + ") from choice " + choiceType);
 		}
 	}
 
