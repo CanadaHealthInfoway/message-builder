@@ -39,6 +39,8 @@ public abstract class FingerprintDuplicateRegistry {
 		addDuplicateFingerprint("COMT_MT900003AB.ActPermissionRequest", "performer1");
 		addDuplicateFingerprint("COMT_MT900003AB.ActPermissionRequest", "performer2");
 		
+		addDuplicateFingerprint("POLB_MT330000CA.ParameterList", "batteryRequestStatus");
+		addDuplicateFingerprint("POLB_MT330000CA.ParameterList", "observationRequestStatus");
 	}
 	
 	static boolean causesDuplicateFingerprint(String type, String relationship) {
