@@ -322,7 +322,7 @@ public class XmlRenderingVisitorTest {
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
-				+"<!-- INFO: Selected option baby/ABCD_MT987654CA.Baby from choice PRPA_IN101103CA.Receiver -->" +
+				+"<!-- INFO: Selected option ABCD_MT987654CA.Baby (baby) from choice PRPA_IN101103CA.Receiver -->" +
 				 "<baby/></ABCD_IN123456CA>", xml);
 	}
 

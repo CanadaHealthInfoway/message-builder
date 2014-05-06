@@ -39,6 +39,8 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 */
 	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3", Hl7BaseVersion.CERX);
 
+	public static final SpecificationVersion V01R04_4 = new SpecificationVersion("V01R04_4", "V01R04.4", Hl7BaseVersion.CERX);
+
 	/**
 	 * <p>This designation is used for the major release of CeRx, CR, PR and other 
 	 * messages.  It appears to have been officially released on 2007-12-07.
@@ -80,7 +82,6 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	// BC V02R04
 	public static final SpecificationVersion V02R04_BC = new SpecificationVersion("V02R04_BC", "BC (V02R04)", Hl7BaseVersion.MR2007);
 
-	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
 		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
 		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
