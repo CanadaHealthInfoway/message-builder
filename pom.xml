@@ -49,6 +49,7 @@
 		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</module>
+		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_4</module>
 		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r02</module>
 		<module>message-builder-hl7v3-release-sk_cerx_v01_r04_3</module>
 		<module>message-builder-release-newfoundland</module>
@@ -57,6 +58,7 @@
            <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
            <module>message-builder-hl7v3-release-ab_mr2009_r02_05_00_pa</module>
            <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
+           <module>message-builder-hl7v3-release-pcs_mr2009_r02_05_00</module>
            <module>message-builder-hl7v3-release-on_cerx_v01_r04_3</module>
            <module>message-builder-mif-comparer</module>
            <module>message-builder-html</module>
