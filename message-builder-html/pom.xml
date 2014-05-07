@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.5.8</version>
+		<version>1.5.9-SNAPSHOT</version>
 	</parent>
 	<artifactId>message-builder-html</artifactId>
 	<packaging>jar</packaging>
@@ -40,12 +40,12 @@
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-xml</artifactId>
-			<version>1.5.8</version>
+			<version>1.5.9-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-demiftifier</artifactId>
-			<version>1.5.8</version>
+			<version>1.5.9-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<!-- support for HTML Generation -->
