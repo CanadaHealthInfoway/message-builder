@@ -28,12 +28,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
-public class Location_2Bean extends MessagePartBean {
+@Hl7PartTypeMapping({"PRPM_MT301010CA.Location","PRPM_MT303010CA.Location"})
+public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private INT sequenceNumber = new INTImpl();
-    private ServiceDeliveryLocation_2Bean serviceDeliveryLocation;
+    private ServiceDeliveryLocationBean serviceDeliveryLocation;
 
 
     /**
@@ -41,18 +41,18 @@ public class Location_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
      * 
      * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
@@ -67,18 +67,18 @@ public class Location_2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT301010CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
      * 
      * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
      * 
-     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * <p>Relationship: PRPM_MT303010CA.Location.sequenceNumber</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Allows each Service Delivery Location to be sequentially 
      * listed.</p>
@@ -92,19 +92,19 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
 
@@ -112,18 +112,18 @@ public class Location_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
+     * PRPM_MT303010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setServiceDeliveryLocation(ServiceDeliveryLocation_2Bean serviceDeliveryLocation) {
+    public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }
 
