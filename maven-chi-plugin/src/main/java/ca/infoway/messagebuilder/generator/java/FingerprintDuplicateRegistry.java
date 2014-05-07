@@ -39,8 +39,16 @@ public abstract class FingerprintDuplicateRegistry {
 		addDuplicateFingerprint("COMT_MT900003AB.ActPermissionRequest", "performer1");
 		addDuplicateFingerprint("COMT_MT900003AB.ActPermissionRequest", "performer2");
 		
+		// R02.04.02
 		addDuplicateFingerprint("POLB_MT330000CA.ParameterList", "batteryRequestStatus");
 		addDuplicateFingerprint("POLB_MT330000CA.ParameterList", "observationRequestStatus");
+		
+		// R02.05.00
+		addDuplicateFingerprint("REPC_MT220002CA.PatientCareProvisionEvent", "responsibleParty");
+		addDuplicateFingerprint("REPC_MT220002CA.PatientCareProvisionEvent", "consultant");
+		
+		addDuplicateFingerprint("REPC_MT220003CA.PatientCareProvisionEvent", "responsibleParty");
+		addDuplicateFingerprint("REPC_MT220003CA.PatientCareProvisionEvent", "consultant");
 	}
 	
 	static boolean causesDuplicateFingerprint(String type, String relationship) {
