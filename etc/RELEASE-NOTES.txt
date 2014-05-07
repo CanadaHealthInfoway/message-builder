@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.5.6
+                               Version 1.5.8
                                Release Notes
 
 INTRODUCTION:
@@ -59,6 +59,27 @@ messagebuilder.simplexml.resturl
 messagebuilder.simplexml.transportclass
  - used to specify the transport class to use within the SimpleXml component (most users of MB will not use this component)
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
+
+
+CHANGES for 1.5.8:
+=======================
+
+- created a Sample Message Generator (Java only) that uses a generated MB API to create a sample message for a specific interaction or for all interactions
+- added new official MB API releases: V01R04.4; R02.05.00; AB PA R02.05.00
+18979 - Complex relationship sorting duplicated in three places
+16129 - Message Bean Transformer for unmarshalling xml (xml -> beans) does not validate cardinality for associations
+16132 - Unmarshalling xml (xml -> beans) does not validate against relationships that are out of order
+16130 - Message Bean Transformer for marshalling xml (beans -> xml) does not validate cardinality for associations
+16131 - Message validator does not validate order of relationships within an element
+18719 - ST should be able to handle CDATA blocks
+18070 - When an ANY type is set as a NullFlavor, originalText is not preserved
+18423 - MB runtime should not necessarily log an error when SpecializationType is unnecessarily provided
+17375 - Add support for EN abstract datatype
+18422 - MB Runtime should not throw an exception in a situation where logging an error would be more appropriate
+18323 - Domain type package location is effectively still hardcoded in one place
+16399 - TS.FULLDATEWITHTIME formatter will incorrectly flag a validation error when no value specified and relationship is not mandatory
+18989 - Create a message set validator
+18988 - Create a utility for checking message sets for "orphaned" message parts
 
 
 CHANGES for 1.5.6:
