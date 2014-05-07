@@ -36,8 +36,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * representative.)</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Patient"})
-public class ConsentByPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.Consenter {
+public class ConsentByPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.Consenter {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

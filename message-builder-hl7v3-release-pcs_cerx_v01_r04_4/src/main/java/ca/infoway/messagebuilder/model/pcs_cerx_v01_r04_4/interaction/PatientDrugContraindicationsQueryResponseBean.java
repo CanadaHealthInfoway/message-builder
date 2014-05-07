@@ -23,9 +23,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.porx_mt050020ca.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.porx_mt050020ca.GenericQueryParametersBean;
 
 
 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.quqi_mt120000ca
 @Hl7PartTypeMapping({"PORX_IN050040CA"})
 public class PatientDrugContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

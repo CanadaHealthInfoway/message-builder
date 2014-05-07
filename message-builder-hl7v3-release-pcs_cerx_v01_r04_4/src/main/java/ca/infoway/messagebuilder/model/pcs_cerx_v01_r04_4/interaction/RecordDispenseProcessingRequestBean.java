@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.porx_mt020070ca.PrescriptionDispenseBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.porx_mt020070ca.PrescriptionDispenseBean;
 
 
 
@@ -41,6 +41,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.porx_mt020070ca
 @Hl7PartTypeMapping({"PORX_IN020190CA"})
 public class RecordDispenseProcessingRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

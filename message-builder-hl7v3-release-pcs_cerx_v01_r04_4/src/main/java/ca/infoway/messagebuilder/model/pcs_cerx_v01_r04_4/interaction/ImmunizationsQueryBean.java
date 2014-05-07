@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.poiz_mt060140ca.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.immunization.poiz_mt060140ca.GenericQueryParametersBean;
 
 
 
@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.quqi_mt020000ca
 @Hl7PartTypeMapping({"POIZ_IN020010CA"})
 public class ImmunizationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

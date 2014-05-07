@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.quqi_mt120000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.repc_mt000010ca.MedicalConditionBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.repc_mt000010ca.MedicalConditionBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.GenericQueryParametersBean;
 
 
 
@@ -48,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.repc_mt000010ca
 @Hl7PartTypeMapping({"REPC_IN000026CA"})
 public class PatientMedicalConditionWithHistQueryRespBean extends HL7Message_1Bean<TriggerEventBean<MedicalConditionBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

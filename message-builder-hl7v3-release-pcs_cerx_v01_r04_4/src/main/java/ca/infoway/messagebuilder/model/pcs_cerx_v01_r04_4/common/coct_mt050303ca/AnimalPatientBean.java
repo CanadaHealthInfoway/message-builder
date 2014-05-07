@@ -53,9 +53,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050303CA.Patient"})
 @Hl7RootType
-public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.Patient_2 {
+public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.merged.Patient {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ST patientAnimalName = new STImpl();
     private AD patientAnimalContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientAnimalContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

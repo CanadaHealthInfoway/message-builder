@@ -55,9 +55,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT240003CA.ServiceDeliveryLocation"})
 @Hl7RootType
-public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.Recipient {
+public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.Recipient {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private AD addr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

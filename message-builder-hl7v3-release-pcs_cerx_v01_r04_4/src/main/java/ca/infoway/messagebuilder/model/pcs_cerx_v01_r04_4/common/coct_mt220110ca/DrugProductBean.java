@@ -32,9 +32,9 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.DispensedInBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.DrugContainsBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.ManufacturerBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.DispensedInBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.DrugContainsBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.ManufacturerBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,9 +56,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"COCT_MT220110CA.Medication"})
 @Hl7RootType
-public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.porx_mt980040ca.Medication {
+public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();

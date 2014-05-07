@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.CommentBean;
 
 
 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerE
 @Hl7PartTypeMapping({"COMT_IN301001CA"})
 public class AddNoteToRecordRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

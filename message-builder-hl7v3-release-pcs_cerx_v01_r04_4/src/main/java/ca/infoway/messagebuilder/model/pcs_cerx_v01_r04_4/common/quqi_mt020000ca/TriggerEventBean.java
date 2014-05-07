@@ -33,10 +33,10 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt240003ca.ServiceLocationBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.ConsentBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.ConsentBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +59,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();

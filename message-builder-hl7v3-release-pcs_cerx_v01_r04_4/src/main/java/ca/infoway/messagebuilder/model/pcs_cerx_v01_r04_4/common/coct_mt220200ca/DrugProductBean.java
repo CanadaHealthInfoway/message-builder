@@ -36,8 +36,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ManufacturedDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.DispensedInBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.DrugContainsBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.DispensedInBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.DrugContainsBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,9 +60,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"COCT_MT220200CA.Medication"})
 @Hl7RootType
-public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.porx_mt980040ca.Medication {
+public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CE playerCode = new CEImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();

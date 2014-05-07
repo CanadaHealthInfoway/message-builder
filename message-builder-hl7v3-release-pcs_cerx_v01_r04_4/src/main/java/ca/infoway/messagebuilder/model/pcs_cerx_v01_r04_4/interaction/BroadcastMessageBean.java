@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerE
  * <p>--> Payload: COMT_MT500001CA.InformEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
-public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
+public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

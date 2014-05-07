@@ -35,6 +35,9 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -74,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();

@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT120000CA.QueryAck"})
 public class QueryResponseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II queryId = new IIImpl();
     private CS queryResponseCode = new CSImpl();
     private INT resultTotalQuantity = new INTImpl();

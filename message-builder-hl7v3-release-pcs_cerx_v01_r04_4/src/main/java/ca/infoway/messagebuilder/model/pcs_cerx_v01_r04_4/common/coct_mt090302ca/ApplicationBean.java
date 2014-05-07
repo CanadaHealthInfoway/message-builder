@@ -42,9 +42,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  */
 @Hl7PartTypeMapping({"COCT_MT090302CA.AssignedDevice"})
 @Hl7RootType
-public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.ChangedBy {
+public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private ST assignedDeviceName = new STImpl();
 

@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.MedicalConditionBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.merged.MedicalConditionBean;
 
 
 
@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.TriggerE
 @Hl7PartTypeMapping({"REPC_IN000028CA"})
 public class RecordMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

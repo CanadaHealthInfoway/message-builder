@@ -58,9 +58,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT040205CA.ResponsibleParty"})
 @Hl7RootType
-public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.Consenter, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.merged.Party {
+public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.Consenter, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
