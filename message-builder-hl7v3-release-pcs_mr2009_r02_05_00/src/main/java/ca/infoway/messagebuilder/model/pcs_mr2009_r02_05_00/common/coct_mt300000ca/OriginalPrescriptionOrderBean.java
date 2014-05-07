@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private PlayingPrescribePersonBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
     private OriginalPrescriptionBean component2SupplyOrder;

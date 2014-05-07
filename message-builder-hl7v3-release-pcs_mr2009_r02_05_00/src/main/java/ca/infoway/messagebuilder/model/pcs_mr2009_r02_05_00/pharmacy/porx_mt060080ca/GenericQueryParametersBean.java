@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.Pres
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV issueFilterCodeValue = new CVImpl();
     private PrescriptionOrderNumberBean prescriptionOrderNumber;
 

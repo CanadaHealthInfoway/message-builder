@@ -53,7 +53,7 @@ import java.util.Set;
 @Hl7RootType
 public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.RecipientChoice, ActingPerson, Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.EntererChoice, RoleChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ResponsibleOrganizationBean assignedOrganization;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private PersonBean assignedPerson;

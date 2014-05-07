@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActEventBean;
 @Hl7PartTypeMapping({"PORX_IN020090CA"})
 public class RecordDispensePickupRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActEventBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPha
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CS statusCode = new CSImpl();
     private PQ quantity = new PQImpl();
     private TargetedToPharmacyBean location;

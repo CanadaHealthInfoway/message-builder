@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInformationAccessCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ConsentGivenToBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();
 

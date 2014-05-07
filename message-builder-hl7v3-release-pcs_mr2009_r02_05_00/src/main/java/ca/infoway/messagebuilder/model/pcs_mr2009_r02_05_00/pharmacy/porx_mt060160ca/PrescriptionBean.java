@@ -63,7 +63,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.Prot
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.RemainingDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.StatusChangesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -91,7 +90,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.CombinedMedicationRequest"})
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();

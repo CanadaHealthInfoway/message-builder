@@ -83,9 +83,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.ActDefinitionOrEvent","PRPM_MT303010CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<Location_1Bean> location = new ArrayList<Location_1Bean>();
+    private List<LocationBean> location = new ArrayList<LocationBean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
 
 
@@ -173,7 +173,7 @@ public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
      */
     @Hl7XmlMapping({"location"})
-    public List<Location_1Bean> getLocation() {
+    public List<LocationBean> getLocation() {
         return this.location;
     }
 

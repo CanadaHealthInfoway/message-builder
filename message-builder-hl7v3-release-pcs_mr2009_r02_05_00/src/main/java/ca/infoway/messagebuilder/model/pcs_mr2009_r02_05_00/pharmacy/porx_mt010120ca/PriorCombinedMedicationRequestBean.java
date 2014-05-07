@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.Substanc
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBea
 @Hl7PartTypeMapping({"REPC_MT220001CA.TransportationEvent","REPC_MT220003CA.TransportationEvent"})
 public class TransportedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private OccurredAtBean destination;
 
 

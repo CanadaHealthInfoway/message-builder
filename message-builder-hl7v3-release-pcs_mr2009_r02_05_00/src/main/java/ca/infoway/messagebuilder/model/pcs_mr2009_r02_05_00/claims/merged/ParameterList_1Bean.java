@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.domainvalue.ClinicalDeviceEntity;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActSpecialAuthorizationCode;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterList_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private TS coveredPartyDOBValue = new TSImpl();
     private CV coveredPartyGenderValue = new CVImpl();
     private PN coveredPartyNameValue = new PNImpl();

@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.domainvalue.IntoleranceValue;
 import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Records;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.AllergyIntoleranceStatusChangesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Records;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.CareCompositionsBean;
@@ -54,7 +54,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SupervisedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPharmacyBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +74,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();

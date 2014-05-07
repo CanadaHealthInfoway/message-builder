@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
-
 import java.util.List;
 
 

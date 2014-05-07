@@ -53,7 +53,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Issues_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ProviderBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -95,7 +94,7 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();

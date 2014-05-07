@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActEventCategoryWorkingListCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.CanadianEHRRecordDetailType;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -86,7 +85,7 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private List<II> careCompositionIDValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();
     private BL includeNotesIndicatorValue = new BLImpl();

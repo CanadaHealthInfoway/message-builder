@@ -35,7 +35,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT220002CA.AddendumDocument","REPC_MT220003CA.AddendumDocument","REPC_MT230002CA.AddendumDocument","REPC_MT230003CA.AddendumDocument"})
 public class AddendumDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 

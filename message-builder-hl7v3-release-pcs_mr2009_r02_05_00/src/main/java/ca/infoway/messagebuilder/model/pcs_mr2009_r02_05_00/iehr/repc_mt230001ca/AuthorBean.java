@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt090508
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.Date;
 
 
@@ -40,7 +39,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private TS time = new TSImpl();
     private CE signatureCode = new CEImpl();
     private ActingPerson actingPerson;

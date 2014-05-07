@@ -50,14 +50,14 @@ import ca.infoway.messagebuilder.domainvalue.ObservationInterpretationNormality;
 import ca.infoway.messagebuilder.domainvalue.SimpleMeasurableClinicalObservationType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -109,7 +109,7 @@ import java.util.Set;
 @Hl7RootType
 public class MeasuredObservationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -117,13 +117,13 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private PQ value = new PQImpl();
     private CE interpretationCode = new CEImpl();
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean indirectTargetServiceDeliveryLocation;
+    private ServiceLocationBean indirectTargetServiceDeliveryLocation;
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
     private RequestedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActingPerson informantActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
-    private ServiceLocationBean custodian2ServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean custodian2ServiceDeliveryLocation;
     private OccurredAtBean location;
     private Request_2Bean inFulfillmentOfActRequest;
     private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
@@ -864,7 +864,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"indirectTarget/serviceDeliveryLocation"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean getIndirectTargetServiceDeliveryLocation() {
+    public ServiceLocationBean getIndirectTargetServiceDeliveryLocation() {
         return this.indirectTargetServiceDeliveryLocation;
     }
 
@@ -883,7 +883,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setIndirectTargetServiceDeliveryLocation(ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean indirectTargetServiceDeliveryLocation) {
+    public void setIndirectTargetServiceDeliveryLocation(ServiceLocationBean indirectTargetServiceDeliveryLocation) {
         this.indirectTargetServiceDeliveryLocation = indirectTargetServiceDeliveryLocation;
     }
 
@@ -1028,7 +1028,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getCustodian2ServiceDeliveryLocation() {
         return this.custodian2ServiceDeliveryLocation;
     }
 
@@ -1040,7 +1040,7 @@ public class MeasuredObservationBean extends MessagePartBean implements ca.infow
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
+    public void setCustodian2ServiceDeliveryLocation(ServiceDeliveryLocationBean custodian2ServiceDeliveryLocation) {
         this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
     }
 

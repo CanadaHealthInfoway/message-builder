@@ -56,7 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBea
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SpecimenRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -93,7 +92,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();

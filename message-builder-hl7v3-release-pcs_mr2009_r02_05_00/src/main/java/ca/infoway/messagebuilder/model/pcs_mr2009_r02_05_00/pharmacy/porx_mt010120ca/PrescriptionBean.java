@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.Clas
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.CoverageExtensions_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PrescriptionPatientMeasurementsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.ProtocolsBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -73,7 +72,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();

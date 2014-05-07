@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActAdjud
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultRequiredAct","FICR_MT610201CA.AdjudicationResultRequiredAct"})
 public class AdjudicationResultRequiredActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV code = new CVImpl();
     private FormRoleBean directTargetFormRole;
 

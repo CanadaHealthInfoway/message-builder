@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatorBillingTaxAccount","FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Trigge
 @Hl7PartTypeMapping({"FICR_IN610102CA"})
 public class InvoiceResultsRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<PaymentIntentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

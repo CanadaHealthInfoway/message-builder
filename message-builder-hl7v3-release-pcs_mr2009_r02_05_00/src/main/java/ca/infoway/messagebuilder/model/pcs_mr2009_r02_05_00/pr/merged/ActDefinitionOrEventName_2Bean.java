@@ -27,8 +27,8 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt306011ca.SequelToBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -85,9 +85,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ActDefinitionOrEvent","PRPM_MT309000CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<Location_2Bean> location = new ArrayList<Location_2Bean>();
+    private List<TargetedToPharmacyBean> location = new ArrayList<TargetedToPharmacyBean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
 
 
@@ -175,7 +175,7 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-25)</p>
      */
     @Hl7XmlMapping({"location"})
-    public List<Location_2Bean> getLocation() {
+    public List<TargetedToPharmacyBean> getLocation() {
         return this.location;
     }
 

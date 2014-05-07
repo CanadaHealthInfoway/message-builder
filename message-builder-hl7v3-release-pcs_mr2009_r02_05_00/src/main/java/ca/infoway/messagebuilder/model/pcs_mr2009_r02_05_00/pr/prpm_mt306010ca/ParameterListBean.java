@@ -58,7 +58,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.Jurisdic
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ProviderQueryResponseObject;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.RoutedDocumentType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.x_RoleClassAssignedQualifiedProvider;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,7 +69,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private List<AD> addressValue = new ArrayList<AD>();
     private CV administrativeGenderValue = new CVImpl();
     private List<CV> assignedRoleTypeValue = new ArrayList<CV>();

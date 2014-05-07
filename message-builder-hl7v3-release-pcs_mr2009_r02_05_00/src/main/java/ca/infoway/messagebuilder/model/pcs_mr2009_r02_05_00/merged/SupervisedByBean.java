@@ -305,7 +305,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.Healthcare
 @Hl7PartTypeMapping({"COMT_MT300003CA.ResponsibleParty","PORX_MT020050CA.ResponsibleParty","PORX_MT020060CA.ResponsibleParty3","PORX_MT020070CA.ResponsibleParty3","PORX_MT030040CA.ResponsibleParty","PORX_MT060010CA.ResponsibleParty","PORX_MT060010CA.ResponsibleParty2","PORX_MT060010CA.ResponsibleParty3","PORX_MT060020CA.ResponsibleParty","PORX_MT060020CA.ResponsibleParty2","PORX_MT060040CA.ResponsibleParty2","PORX_MT060040CA.ResponsibleParty3","PORX_MT060040CA.ResponsibleParty4","PORX_MT060060CA.ResponsibleParty","PORX_MT060090CA.ResponsibleParty2","PORX_MT060090CA.ResponsibleParty3","PORX_MT060090CA.ResponsibleParty4","PORX_MT060100CA.ResponsibleParty","PORX_MT060100CA.ResponsibleParty2","PORX_MT060160CA.ResponsibleParty2","PORX_MT060160CA.ResponsibleParty3","PORX_MT060160CA.ResponsibleParty4","PORX_MT060160CA.ResponsibleParty6","PORX_MT060190CA.ResponsibleParty","PORX_MT060190CA.ResponsibleParty2","PORX_MT060210CA.ResponsibleParty","PORX_MT060210CA.ResponsibleParty2","PORX_MT060340CA.ResponsibleParty2","PORX_MT060340CA.ResponsibleParty3","PORX_MT060340CA.ResponsibleParty4","REPC_MT000005CA.ResponsibleParty","REPC_MT000006CA.ResponsibleParty","REPC_MT000009CA.ResponsibleParty","REPC_MT000009CA.ResponsibleParty2","REPC_MT220001CA.Consultant","REPC_MT220001CA.ResponsibleParty","REPC_MT220002CA.Consultant","REPC_MT220002CA.ResponsibleParty2","REPC_MT220003CA.Consultant","REPC_MT220003CA.ResponsibleParty2"})
 public class SupervisedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private HealthcareWorkerBean assignedEntity;
 
 

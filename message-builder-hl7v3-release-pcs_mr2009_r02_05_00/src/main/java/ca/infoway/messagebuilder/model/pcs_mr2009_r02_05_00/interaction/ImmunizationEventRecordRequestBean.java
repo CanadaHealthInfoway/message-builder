@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.immunization.merged.
 @Hl7PartTypeMapping({"POIZ_IN010020CA"})
 public class ImmunizationEventRecordRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ImmunizationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

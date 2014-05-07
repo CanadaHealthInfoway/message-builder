@@ -59,10 +59,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Choice;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
-    private ServiceDeliveryLocation_1Bean subjectServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
 
@@ -210,7 +210,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_1Bean getSubjectServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
@@ -229,7 +229,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocation_1Bean subjectServiceDeliveryLocation) {
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 

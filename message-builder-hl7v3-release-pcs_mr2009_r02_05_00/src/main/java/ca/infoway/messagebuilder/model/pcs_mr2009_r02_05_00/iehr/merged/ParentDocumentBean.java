@@ -35,7 +35,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT220002CA.ParentDocument","REPC_MT220003CA.ParentDocument","REPC_MT230002CA.ParentDocument","REPC_MT230003CA.ParentDocument"})
 public class ParentDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 

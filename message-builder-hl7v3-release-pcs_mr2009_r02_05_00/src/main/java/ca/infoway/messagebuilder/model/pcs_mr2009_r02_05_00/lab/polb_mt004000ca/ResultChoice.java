@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.polb_mt004000ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ElectronicResultReceiverBean;
@@ -34,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultSor
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import java.util.List;
 
 

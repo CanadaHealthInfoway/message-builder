@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ManufacturerB
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.AppearanceCharacteristicsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.DrugCostBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.GroupedWithinBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -64,7 +63,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV administerableMedicineCode = new CVImpl();
     private SET<TN, TrivialName> administerableMedicineName = new SETImpl<TN, TrivialName>(TNImpl.class);
     private ST administerableMedicineDesc = new STImpl();

@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.EntityRisk;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.HumanLabSpecimenEntityType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +50,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.Material","REPC_MT500001CA.Material","REPC_MT500002CA.Material","REPC_MT500003CA.Material","REPC_MT500004CA.Material"})
 public class SpecimenMaterialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ST desc = new STImpl();
     private CD code = new CDImpl();
     private List<OtherSpecimenIdentificationsBean> asIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();

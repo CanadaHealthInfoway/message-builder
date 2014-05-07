@@ -33,12 +33,11 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.DiagnosisInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.HealthcareProviderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.ManufacturedProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActProductAcquisitionType;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -66,9 +65,9 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     private HealthcareProviderBean performerHealthCareProvider;
     private HealthcareProviderBean referrerHealthCareProvider;
     private HealthcareProviderBean consultantHealthCareProvider;
-    private ServiceLocationBean originServiceDeliveryLocation;
-    private ServiceLocationBean destinationServiceDeliveryLocation;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean originServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean locationServiceDeliveryLocation;
     private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
 
 
@@ -255,7 +254,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceLocationBean getOriginServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getOriginServiceDeliveryLocation() {
         return this.originServiceDeliveryLocation;
     }
 
@@ -265,7 +264,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
+    public void setOriginServiceDeliveryLocation(ServiceDeliveryLocationBean originServiceDeliveryLocation) {
         this.originServiceDeliveryLocation = originServiceDeliveryLocation;
     }
 
@@ -277,7 +276,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
 
@@ -287,7 +286,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
@@ -299,7 +298,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
 
@@ -309,7 +308,7 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+    public void setLocationServiceDeliveryLocation(ServiceDeliveryLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 

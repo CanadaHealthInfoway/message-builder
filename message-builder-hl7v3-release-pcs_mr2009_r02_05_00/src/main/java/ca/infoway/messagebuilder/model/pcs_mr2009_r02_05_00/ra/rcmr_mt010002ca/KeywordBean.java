@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInfor
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Consenter;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.ra.merged.PatientBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;
     private List<CV> subjectRecordTypeCode = new ArrayList<CV>();

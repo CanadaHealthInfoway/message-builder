@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.mfmi_mt700746ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt306050ca.ParameterListBean;
 
 
@@ -54,6 +54,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt306050ca.P
 @Hl7PartTypeMapping({"PRPM_IN306051CA"})
 public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

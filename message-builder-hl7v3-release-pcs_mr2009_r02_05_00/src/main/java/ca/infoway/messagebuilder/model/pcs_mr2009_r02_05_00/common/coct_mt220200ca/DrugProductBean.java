@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.DispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.DrugContainsBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CD administerableMedicineCode = new CDImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();

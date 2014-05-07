@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV administrativeGenderValue = new CVImpl();
     private List<II> clientIdValue = new ArrayList<II>();
     private DeceasedIndicatorBean deceasedIndicator;

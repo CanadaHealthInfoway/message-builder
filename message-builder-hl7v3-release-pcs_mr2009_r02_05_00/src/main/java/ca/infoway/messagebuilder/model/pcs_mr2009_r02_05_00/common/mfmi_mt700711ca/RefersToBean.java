@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.EHRRepository
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;

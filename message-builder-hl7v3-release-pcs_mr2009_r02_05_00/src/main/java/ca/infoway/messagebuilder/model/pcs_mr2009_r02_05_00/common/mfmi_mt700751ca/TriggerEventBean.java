@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBea
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt470012ca.ConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -73,7 +72,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

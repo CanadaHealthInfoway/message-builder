@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.OldClini
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -48,7 +47,7 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

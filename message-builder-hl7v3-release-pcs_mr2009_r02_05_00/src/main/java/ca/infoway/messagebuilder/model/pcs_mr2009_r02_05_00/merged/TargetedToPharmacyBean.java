@@ -23,15 +23,15 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003ca.ServiceLocationBean;
-
 import java.util.Date;
 
 
@@ -313,11 +313,12 @@ import java.util.Date;
  * always be known for 'inferred pr
  * ... [rest of documentation truncated due to excessive length]
  */
-@Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location","COMT_MT300003CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000009CA.Location"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location","COMT_MT300003CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","PRPM_MT306011CA.Location","PRPM_MT309000CA.Location","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000009CA.Location"})
 public class TargetedToPharmacyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
-    private ServiceLocationBean serviceDeliveryLocation;
+    private static final long serialVersionUID = 20140507L;
+    private ServiceDeliveryLocationBean serviceDeliveryLocation;
+    private INT sequenceNumber = new INTImpl();
     private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
     private CV substitutionConditionCode = new CVImpl();
 
@@ -329,6 +330,13 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -460,6 +468,13 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT060160CA.Location5.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -576,7 +591,7 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"serviceDeliveryLocation"})
-    public ServiceLocationBean getServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
 
@@ -587,6 +602,13 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * COMT_MT300003CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT309000CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -724,6 +746,13 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * PRPM_MT306011CA.Location.serviceDeliveryLocation</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * PORX_MT060160CA.Location4.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -833,8 +862,60 @@ public class TargetedToPharmacyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setServiceDeliveryLocation(ServiceLocationBean serviceDeliveryLocation) {
+    public void setServiceDeliveryLocation(ServiceDeliveryLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     */
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
+    }
+
+    /**
+     * <p>Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT309000CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     * 
+     * <p>Un-merged Business Name: OrderOfServiceDeliveryLocations</p>
+     * 
+     * <p>Relationship: PRPM_MT306011CA.Location.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Allows each Service Delivery Location to be sequentially 
+     * listed.</p>
+     */
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 

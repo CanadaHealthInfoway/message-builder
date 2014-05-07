@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Issues_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SupervisedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -103,7 +102,7 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SupervisedByBean responsibleParty;

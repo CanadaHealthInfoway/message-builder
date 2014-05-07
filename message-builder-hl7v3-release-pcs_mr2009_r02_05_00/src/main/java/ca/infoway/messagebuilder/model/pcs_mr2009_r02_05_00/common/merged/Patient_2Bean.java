@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.PersonBean;
-
 import java.util.List;
 import java.util.Set;
 
@@ -73,7 +72,7 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActingPerson, Patient_3 {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);

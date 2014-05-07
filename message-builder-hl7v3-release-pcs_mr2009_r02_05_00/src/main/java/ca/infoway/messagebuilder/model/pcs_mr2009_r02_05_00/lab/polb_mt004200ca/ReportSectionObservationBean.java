@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.SectionHeadingObservationCode;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -56,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();

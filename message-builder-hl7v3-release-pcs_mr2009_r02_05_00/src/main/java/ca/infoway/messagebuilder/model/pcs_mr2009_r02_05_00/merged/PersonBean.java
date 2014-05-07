@@ -64,7 +64,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT050007CA.Person","COCT_MT050202CA.Person","COCT_MT050207CA.Person","COCT_MT050208CA.Person","COCT_MT090102CA.Person","COCT_MT090108CA.Person","COCT_MT910108CA.Person","POIZ_MT030050CA.Person","POIZ_MT030060CA.Person","POIZ_MT060150CA.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private PN name = new PNImpl();
     private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();

@@ -56,7 +56,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.Supportin
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.WasPerformedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -78,7 +77,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.SectionLevelObservationEvent"})
 public class DiagnosisOrInterpretationObservationBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private ST text = new STImpl();

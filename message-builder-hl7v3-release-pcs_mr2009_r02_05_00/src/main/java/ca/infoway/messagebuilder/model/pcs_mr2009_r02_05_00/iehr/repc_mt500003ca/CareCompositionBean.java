@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt090508ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_2Bean;
@@ -60,10 +59,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.CareCompositi
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SpecimenRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -100,7 +99,7 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -116,7 +115,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActingPerson informantActingPerson;
     private ActingPerson dischargerActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
-    private ServiceLocationBean custodian2ServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean custodian2ServiceDeliveryLocation;
     private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
     private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
     private Request_1Bean inFulfillmentOfActRequest;
@@ -732,7 +731,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getCustodian2ServiceDeliveryLocation() {
         return this.custodian2ServiceDeliveryLocation;
     }
 
@@ -742,7 +741,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
+    public void setCustodian2ServiceDeliveryLocation(ServiceDeliveryLocationBean custodian2ServiceDeliveryLocation) {
         this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
     }
 

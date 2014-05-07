@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.CarrierRoleBe
 @Hl7PartTypeMapping({"PORX_MT060160CA.Coverage","PORX_MT060340CA.Coverage"})
 public class CoverageExtensions_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CarrierRoleBean authorCarrierRole;

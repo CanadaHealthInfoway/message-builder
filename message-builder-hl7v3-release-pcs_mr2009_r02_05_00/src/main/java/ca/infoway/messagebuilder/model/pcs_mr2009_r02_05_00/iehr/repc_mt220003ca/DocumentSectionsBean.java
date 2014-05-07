@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.DocumentSectionType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReferenceChoice;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -60,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT220003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();

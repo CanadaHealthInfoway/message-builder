@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.AdjudicatorIdBean;
-
 import java.util.Date;
 
 
@@ -37,7 +36,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private AdjudicatorIdBean adjudicatorRole;

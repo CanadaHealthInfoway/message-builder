@@ -44,7 +44,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ObservationLabReportType;
@@ -57,7 +56,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultSor
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +76,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationReport"})
 public class ObservationReportBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();

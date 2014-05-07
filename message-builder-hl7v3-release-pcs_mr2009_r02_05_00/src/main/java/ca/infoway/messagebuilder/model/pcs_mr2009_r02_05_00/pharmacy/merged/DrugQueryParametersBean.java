@@ -52,7 +52,6 @@ import ca.infoway.messagebuilder.domainvalue.SymptomValue;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.pome_mt010090ca.HasCharacteristicBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.porx_mt060180ca.OtherMedicationRecordIdBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -113,7 +112,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriodValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> amendedInTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDValue = new ArrayList<II>();

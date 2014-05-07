@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT050303CA.ContactPerson","FICR_MT500201CA.ContactPerson","FICR_MT600201CA.ContactPerson"})
 public class OwnerPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private PN name = new PNImpl();
     private TEL telecom = new TELImpl();
 

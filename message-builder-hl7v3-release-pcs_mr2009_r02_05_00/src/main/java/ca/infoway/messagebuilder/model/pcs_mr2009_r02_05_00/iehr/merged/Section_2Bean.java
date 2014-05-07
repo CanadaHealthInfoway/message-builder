@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.repc_mt210003ca.DocumentSectionsBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210002CA.Section","REPC_MT210003CA.Section"})
 public class Section_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private DocumentContent_1 component1DocumentContent;
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();

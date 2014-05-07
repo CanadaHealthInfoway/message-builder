@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActBilli
 @Hl7PartTypeMapping({"FICR_MT500201CA.FinancialContract","FICR_MT600201CA.FinancialContract"})
 public class FinancialContractBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
 

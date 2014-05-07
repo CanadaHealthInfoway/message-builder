@@ -36,12 +36,12 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_3;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt470002ca.ConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.CreatedBy_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_3;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.AssignedEntityBean;
@@ -52,7 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RelatedPerson
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.HealthcareWorkerBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +76,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

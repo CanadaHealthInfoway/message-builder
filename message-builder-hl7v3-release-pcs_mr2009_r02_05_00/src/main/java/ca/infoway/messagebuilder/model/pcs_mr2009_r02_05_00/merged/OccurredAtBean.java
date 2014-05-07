@@ -282,7 +282,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Location","MCAI_MT700211CA.Location","MCAI_MT700212CA.Location","MCAI_MT700220CA.Location","MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","POIZ_MT030050CA.Location","POIZ_MT030060CA.Location","POIZ_MT060150CA.Location","QUQI_MT020000CA.Location","QUQI_MT020002CA.Location","REPC_MT210001CA.Location3","REPC_MT210002CA.Location3","REPC_MT210003CA.Location3","REPC_MT220001CA.Destination","REPC_MT220001CA.Location2","REPC_MT220002CA.Location2","REPC_MT220003CA.Destination","REPC_MT220003CA.Location2","REPC_MT230001CA.Location","REPC_MT230002CA.Location","REPC_MT230003CA.Location","REPC_MT410001CA.Location","REPC_MT410003CA.Location","REPC_MT420001CA.Location","REPC_MT420003CA.Location","REPC_MT500001CA.Location","REPC_MT500001CA.Location2","REPC_MT500002CA.Location","REPC_MT500002CA.Location2","REPC_MT500003CA.Location","REPC_MT500004CA.Location","REPC_MT500004CA.Location2","REPC_MT610001CA.Location","REPC_MT610002CA.Location"})
 public class OccurredAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ServiceLocationBean serviceDeliveryLocation;
     private CS contextControlCode = new CSImpl();
 

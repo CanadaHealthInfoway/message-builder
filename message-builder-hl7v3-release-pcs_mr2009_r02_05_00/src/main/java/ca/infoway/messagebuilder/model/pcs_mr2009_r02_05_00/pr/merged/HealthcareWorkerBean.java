@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
@@ -38,8 +37,6 @@ import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.PersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ResponsibleOrganizationBean;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -71,8 +68,8 @@ import java.util.List;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Recipient, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20140506L;
-    private List<II> id = new ArrayList<II>();
+    private static final long serialVersionUID = 20140507L;
+    private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PersonBean assignedPerson;
@@ -96,7 +93,7 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
-        return new RawListWrapper<II, Identifier>(id, IIImpl.class);
+        return this.id.rawList();
     }
 
 

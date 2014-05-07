@@ -35,7 +35,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private PN policyHolderPersonName = new PNImpl();
     private TS policyHolderPersonBirthTime = new TSImpl();
 

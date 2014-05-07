@@ -35,7 +35,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060080CA.PrescriptionOrderNumber","PORX_MT060180CA.PrescriptionOrderNumber","PORX_MT060280CA.PrescriptionOrderNumber"})
 public class PrescriptionOrderNumberBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private SET<II, Identifier> value = new SETImpl<II, Identifier>(IIImpl.class);
 
 

@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author","COCT_MT470012CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CV modeCode = new CVImpl();
     private ST signatureText = new STImpl();
     private RelatedPersonBean personalRelationship;

@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson;
-
 import java.util.Date;
 
 
@@ -36,7 +35,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT220001CA.Authenticator","REPC_MT220002CA.Authenticator","REPC_MT220003CA.Authenticator","REPC_MT230001CA.Authenticator","REPC_MT230002CA.Authenticator","REPC_MT230003CA.Authenticator"})
 public class AuthenticatedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private TS time = new TSImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private ActingPerson actingPerson;

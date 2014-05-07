@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Measured
 @Hl7PartTypeMapping({"REPC_IN000051CA"})
 public class RecordPatientMeasurementObsRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MeasuredObservationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
 
 }

@@ -57,7 +57,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultSta
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.WasPerformedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -83,7 +82,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportHeaderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.polb_mt001999ca.ResultChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();

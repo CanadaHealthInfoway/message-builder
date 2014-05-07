@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInformRequestType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.Choice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.ServiceDeliveryLocation_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
 
 
 
@@ -49,10 +49,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.ServiceDel
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CD code = new CDImpl();
     private CE subjectModeCode = new CEImpl();
-    private ServiceDeliveryLocation_2Bean subjectServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
 
@@ -133,7 +133,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getSubjectServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
@@ -143,7 +143,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocation_2Bean subjectServiceDeliveryLocation) {
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
@@ -167,11 +167,11 @@ public class InformRequestBean extends MessagePartBean {
         this.indirectTargetChoice = indirectTargetChoice;
     }
 
-    public ServiceDeliveryLocation_2Bean getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof ServiceDeliveryLocation_2Bean ? (ServiceDeliveryLocation_2Bean) this.indirectTargetChoice : null;
+    public ServiceDeliveryLocationBean getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof ServiceDeliveryLocationBean ? (ServiceDeliveryLocationBean) this.indirectTargetChoice : null;
     }
     public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof ServiceDeliveryLocation_2Bean);
+        return (this.indirectTargetChoice instanceof ServiceDeliveryLocationBean);
     }
 
     public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {

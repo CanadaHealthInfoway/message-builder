@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 @Hl7PartTypeMapping({"POLB_MT002000CA.Receiver","POLB_MT004000CA.Receiver","POLB_MT004100CA.Receiver","POLB_MT004200CA.Receiver"})
 public class ElectronicResultReceiverBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CS contextControlCode = new CSImpl();
     private RoleChoice roleChoice;
 

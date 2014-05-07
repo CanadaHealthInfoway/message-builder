@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.Subject","FICR_MT600201CA.Subject"})
 public class SubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ST signatureText = new STImpl();
     private BL patientConsent = new BLImpl(false);
 

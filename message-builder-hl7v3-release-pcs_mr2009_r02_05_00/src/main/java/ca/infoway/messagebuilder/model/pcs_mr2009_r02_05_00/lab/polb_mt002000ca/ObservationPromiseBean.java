@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ObservationMethod;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.merged.VersionInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ObservationResultableLabType;
@@ -50,7 +49,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ReportSec
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RoleChoice;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,7 +60,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

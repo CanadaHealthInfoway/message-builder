@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.AccessTypeBea
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.AssignedEntityBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ConsentedToByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt050202ca.PatientBean;
-
 import java.util.Date;
 
 
@@ -68,7 +67,7 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();

@@ -58,7 +58,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.RequestSortKey","POLB_MT001001CA.RequestSortKey","POLB_MT001999CA.RequestSortKey"})
 public class OrderSortKeyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private ST text = new STImpl();
 
 

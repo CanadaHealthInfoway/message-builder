@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.SusceptibilityBatteryType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.lab.merged.ResultSortKeyBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityBattery"})
 public class SusceptibilityBatteryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private CD code = new CDImpl();
     private ResultSortKeyBean component1ResultSortKey;
     private List<AntibioticSusceptibilityObservationBean> component2SensitivityObservationEvent = new ArrayList<AntibioticSusceptibilityObservationBean>();

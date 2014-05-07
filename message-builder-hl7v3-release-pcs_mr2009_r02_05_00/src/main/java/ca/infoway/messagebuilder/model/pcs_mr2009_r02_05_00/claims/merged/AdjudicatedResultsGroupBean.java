@@ -42,9 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.qucr_mt810201
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.qucr_mt810201ca.ProviderIDBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt110200ca.PayeeAccountBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInvoiceAdjudicationPaymentSummaryType;
-
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +78,7 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140506L;
+    private static final long serialVersionUID = 20140507L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -87,7 +86,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
     private ProviderIDBean performerAdjudResultsProviderRole;
     private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean locationServiceDeliveryLocation;
     private BusinessArrangementBean referenceAdjudResultsFinancialContract;
     private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
     private PayeeAccountBean creditAccount;
@@ -524,7 +523,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
 
@@ -536,7 +535,7 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+    public void setLocationServiceDeliveryLocation(ServiceDeliveryLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
