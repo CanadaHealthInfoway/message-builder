@@ -75,6 +75,8 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 
 	// TBD if this is still considered as based on MR2009
 	public static final SpecificationVersion R02_05_00_PA_AB = new SpecificationVersion("R02_05_00_PA_AB", "Alberta (R02_05_00 Pre-Adopted)", Hl7BaseVersion.MR2009);
+	
+	public static final SpecificationVersion R02_04_03_IMM_AB = new SpecificationVersion("R02_04_03_IMM_AB", "Alberta (Immunization)", Hl7BaseVersion.MR2009);
 
 	// ON Drug
 	public static final SpecificationVersion V01R04_3_ON = new SpecificationVersion("V01R04_3_ON", "ON Drug", Hl7BaseVersion.CERX);

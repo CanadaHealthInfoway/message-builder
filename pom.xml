@@ -56,6 +56,7 @@
 		<module>message-builder-hl7v3-release-pcs_mr2009_r02_04_02</module>
     		<module>message-builder-simple-xml-process-web</module>
            <module>message-builder-hl7v3-release-ab_mr2007_v02_r02</module>
+           <module>message-builder-hl7v3-release-ab_mr2009_r02_04_03_imm</module>
            <module>message-builder-hl7v3-release-ab_mr2009_r02_05_00_pa</module>
            <module>message-builder-hl7v3-release-pcs_mr2009_r02_04_03</module>
            <module>message-builder-hl7v3-release-pcs_mr2009_r02_05_00</module>
