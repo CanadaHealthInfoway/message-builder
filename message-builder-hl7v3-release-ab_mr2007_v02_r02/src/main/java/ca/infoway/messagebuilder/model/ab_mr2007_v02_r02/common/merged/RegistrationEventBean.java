@@ -62,15 +62,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700726CA.RegistrationEvent","MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private CS statusCode = new CSImpl();
+    private RegisteredItemBean<RR> subject;
     private CS custodianTypeCode = new CSImpl();
     private CS custodianContextControlCode = new CSImpl();
     private EHRRepositoryBean custodianAssignedDevice;
     private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
-    private RegisteredItemBean<RR> subject;
 
 
     /**
@@ -144,6 +144,42 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
      */
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject"})
+    public RegisteredItemBean<RR> getSubject() {
+        return this.subject;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubject(RegisteredItemBean<RR> subject) {
+        this.subject = subject;
     }
 
 
@@ -251,42 +287,6 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"replacementOf"})
     public List<ReplacesBean> getReplacementOf() {
         return this.replacementOf;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject"})
-    public RegisteredItemBean<RR> getSubject() {
-        return this.subject;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700746CA.RegistrationEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700726CA.RegistrationEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubject(RegisteredItemBean<RR> subject) {
-        this.subject = subject;
     }
 
 }

@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT470000CA.Subject3","COCT_MT470002CA.Subject3","COCT_MT470012CA.Subject3"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CV actDefinitionCode = new CVImpl();
     private CS typeCode = new CSImpl();
     private CS contextControlCode = new CSImpl();

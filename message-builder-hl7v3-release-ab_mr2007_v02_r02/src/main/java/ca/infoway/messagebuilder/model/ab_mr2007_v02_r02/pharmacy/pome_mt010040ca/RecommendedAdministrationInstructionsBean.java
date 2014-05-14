@@ -45,12 +45,32 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
+    private PatientBean subjectPatient;
     private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
     private List<Indications> reasonIndications = new ArrayList<Indications>();
-    private PatientBean subjectPatient;
+    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
+
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+
+    /**
+     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
 
 
     /**
@@ -103,18 +123,6 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * POME_MT010040CA.Precondition.observationEventCriterion</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
-    }
-
-
-    /**
      * <p>Relationship: POME_MT010040CA.Reason.indications</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -126,22 +134,14 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
+     * <p>Relationship: 
+     * POME_MT010040CA.Precondition.observationEventCriterion</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-
-    /**
-     * <p>Relationship: POME_MT010040CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
     }
 
 }

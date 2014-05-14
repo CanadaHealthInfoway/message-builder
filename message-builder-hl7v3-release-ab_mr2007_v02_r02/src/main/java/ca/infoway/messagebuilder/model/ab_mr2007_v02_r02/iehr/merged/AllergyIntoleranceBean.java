@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -90,9 +90,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
     private ReportedByBean informant;
+    private List<Records> supportRecords = new ArrayList<Records>();
     private NotesBean subjectOf1Annotation;
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private List<Records> supportRecords = new ArrayList<Records>();
     private II id = new IIImpl();
 
 
@@ -1028,6 +1028,25 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: REPC_MT000001CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000013CA.Support.records</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: REPC_MT000001CA.Subject3.annotation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -1091,25 +1110,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      */
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000001CA.Support.records</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT000013CA.Support.records</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
     }
 
 

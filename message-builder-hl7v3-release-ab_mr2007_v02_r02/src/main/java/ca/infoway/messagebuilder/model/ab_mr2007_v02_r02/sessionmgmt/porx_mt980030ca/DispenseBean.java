@@ -55,13 +55,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CausalActs {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private CreatedAtBean location;
     private Dispensed_2Bean product;
+    private CreatedAtBean location;
 
 
     /**
@@ -273,26 +273,6 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>Relationship: PORX_MT980030CA.SupplyEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT980030CA.SupplyEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
      * <p>Relationship: PORX_MT980030CA.SupplyEvent.product</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -309,6 +289,26 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
      */
     public void setProduct(Dispensed_2Bean product) {
         this.product = product;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT980030CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT980030CA.SupplyEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

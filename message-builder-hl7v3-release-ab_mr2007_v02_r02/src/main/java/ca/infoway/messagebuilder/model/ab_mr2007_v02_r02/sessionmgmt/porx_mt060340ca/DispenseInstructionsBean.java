@@ -56,13 +56,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<IncludesBean> component = new ArrayList<IncludesBean>();
+    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
-    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
+    private List<IncludesBean> component = new ArrayList<IncludesBean>();
 
 
     /**
@@ -334,13 +334,13 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060340CA.SupplyRequest.component</p>
+     * <p>Relationship: PORX_MT060340CA.Receiver.responsibleParty</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"component"})
-    public List<IncludesBean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
     }
 
 
@@ -387,13 +387,13 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PORX_MT060340CA.Receiver.responsibleParty</p>
+     * <p>Relationship: PORX_MT060340CA.SupplyRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1-5)</p>
      */
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
+    @Hl7XmlMapping({"component"})
+    public List<IncludesBean> getComponent() {
+        return this.component;
     }
 
 }

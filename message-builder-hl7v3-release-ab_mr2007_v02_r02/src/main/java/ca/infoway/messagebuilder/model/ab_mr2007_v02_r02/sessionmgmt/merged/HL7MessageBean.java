@@ -71,7 +71,7 @@ import java.util.Set;
 @Hl7RootType
 public class HL7MessageBean<CAP> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -80,12 +80,12 @@ public class HL7MessageBean<CAP> extends MessagePartBean {
     private SET<II, Identifier> profileId = new SETImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
     private CS acceptAckCode = new CSImpl();
-    private AcknowledgementBean acknowledgement;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private CAP controlActProcess;
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private AcknowledgementBean acknowledgement;
+    private CAP controlActProcess;
 
 
     /**
@@ -602,85 +602,6 @@ public class HL7MessageBean<CAP> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCCI_MT000300CA.Message.acknowledgement</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000300CA.Message.acknowledgement</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000300CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000100CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     */
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000300CA.Message.controlActProcess</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000100CA.Message.controlActProcess</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"controlActProcess"})
-    public CAP getControlActProcess() {
-        return this.controlActProcess;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000300CA.Message.controlActProcess</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MCCI_MT000100CA.Message.controlActProcess</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setControlActProcess(CAP controlActProcess) {
-        this.controlActProcess = controlActProcess;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: MCCI_MT000300CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -783,6 +704,85 @@ public class HL7MessageBean<CAP> extends MessagePartBean {
      */
     public void setSender(SenderBean sender) {
         this.sender = sender;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     */
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Message.acknowledgement</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Message.controlActProcess</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Message.controlActProcess</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"controlActProcess"})
+    public CAP getControlActProcess() {
+        return this.controlActProcess;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000300CA.Message.controlActProcess</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT000100CA.Message.controlActProcess</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setControlActProcess(CAP controlActProcess) {
+        this.controlActProcess = controlActProcess;
     }
 
 }

@@ -33,18 +33,18 @@ public interface RoleChoice {
 
 
     /**
-     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    public List<RelatedToBean> getRelatedTo();
-
-
-    /**
      * <p>Relationship: PRPM_MT303010CA.ResponsibleParty.privilege</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public List<PrivilegeBean> getResponsibleForPrivilege();
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    public List<RelatedToBean> getRelatedTo();
 
 }

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ResponsibleParty","PRPM_MT309000CA.ResponsibleParty"})
 public class ResponsiblePartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS typeCode = new CSImpl();
     private PrivilegeBean privilege;
 

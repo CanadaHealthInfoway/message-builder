@@ -80,13 +80,13 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
+    private PatientBean subject1Patient;
     private ProviderBean author1AssignedPerson;
     private ConsentedToByBean author2;
-    private PatientBean subject1Patient;
     private ControlsBean subject2;
 
 
@@ -217,6 +217,26 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject1/patient"})
+    public PatientBean getSubject1Patient() {
+        return this.subject1Patient;
+    }
+
+    /**
+     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubject1Patient(PatientBean subject1Patient) {
+        this.subject1Patient = subject1Patient;
+    }
+
+
+    /**
      * <p>Relationship: COCT_MT470000CA.Author2.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -253,26 +273,6 @@ public class ConsentBean extends MessagePartBean {
      */
     public void setAuthor2(ConsentedToByBean author2) {
         this.author2 = author2;
-    }
-
-
-    /**
-     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject1/patient"})
-    public PatientBean getSubject1Patient() {
-        return this.subject1Patient;
-    }
-
-    /**
-     * <p>Relationship: COCT_MT470000CA.Subject.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubject1Patient(PatientBean subject1Patient) {
-        this.subject1Patient = subject1Patient;
     }
 
 

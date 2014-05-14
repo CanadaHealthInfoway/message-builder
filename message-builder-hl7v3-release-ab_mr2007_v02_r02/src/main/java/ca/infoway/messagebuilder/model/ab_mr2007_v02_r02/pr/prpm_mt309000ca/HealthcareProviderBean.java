@@ -55,14 +55,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
 
 
     /**
@@ -140,6 +140,28 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
 
 
     /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT309000CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT309000CA.HealthCareProvider.healthCarePrincipalPerson</p>
      * 
@@ -180,28 +202,6 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT309000CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT309000CA.RoleChoice.responsibleFor</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
     }
 
 }

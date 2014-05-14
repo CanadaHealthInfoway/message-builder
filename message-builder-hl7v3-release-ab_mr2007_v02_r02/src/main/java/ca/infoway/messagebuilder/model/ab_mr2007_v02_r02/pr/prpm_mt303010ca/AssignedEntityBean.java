@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -84,11 +84,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean assignedPrincipalPerson;
-    private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private OrganizationBean representedOrganization;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private PrinicpalPerson_1Bean assignedPrincipalPerson;
+    private OrganizationBean representedOrganization;
+    private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
 
 
     /**
@@ -293,6 +293,28 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
+     * <p>Relationship: PRPM_MT303010CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT303010CA.AssignedEntity.assignedPrincipalPerson</p>
      * 
@@ -311,29 +333,6 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setAssignedPrincipalPerson(PrinicpalPerson_1Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PRPM_MT303010CA.PrimaryPerformer3.actDefinitionOrEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
-    public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
-        return this.performanceActDefinitionOrEvent;
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT303010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
     }
 
 
@@ -360,13 +359,14 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Relationship: PRPM_MT303010CA.ResponsibleParty.privilege</p>
+     * <p>Relationship: 
+     * PRPM_MT303010CA.PrimaryPerformer3.actDefinitionOrEvent</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
+    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
+    public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
+        return this.performanceActDefinitionOrEvent;
     }
 
 }

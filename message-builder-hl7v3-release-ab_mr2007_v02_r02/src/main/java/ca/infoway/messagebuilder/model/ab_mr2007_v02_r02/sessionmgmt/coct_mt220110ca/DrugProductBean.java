@@ -58,13 +58,13 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Medication {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CD playerCode = new CDImpl();
     private ST playerName = new STImpl();
     private ST playerDesc = new STImpl();
     private CV playerFormCode = new CVImpl();
-    private DrugDispensedInBean playerAsContent;
     private ManufacturerBean playerAsManufacturedProductManufacturer;
+    private DrugDispensedInBean playerAsContent;
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
 
 
@@ -901,26 +901,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"player/asContent"})
-    public DrugDispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-
-    /**
-     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setPlayerAsContent(DrugDispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
-    /**
      * <p>Relationship: 
      * COCT_MT220110CA.ManufacturedProduct.manufacturer</p>
      * 
@@ -939,6 +919,26 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      */
     public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
         this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    }
+
+
+    /**
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"player/asContent"})
+    public DrugDispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+
+    /**
+     * <p>Relationship: COCT_MT220110CA.Medicine.asContent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setPlayerAsContent(DrugDispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
     }
 
 

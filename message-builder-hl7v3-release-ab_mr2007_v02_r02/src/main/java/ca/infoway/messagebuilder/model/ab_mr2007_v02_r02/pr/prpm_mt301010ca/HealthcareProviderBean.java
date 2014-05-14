@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -75,10 +75,10 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private PrinicpalPerson_1Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
 
 
     /**
@@ -287,6 +287,28 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
+     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT301010CA.HealthCareProvider.healthCarePrincipalPerson</p>
      * 
@@ -327,28 +349,6 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.RoleChoice.relatedTo</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
-    }
-
-
-    /**
-     * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
     }
 
 }

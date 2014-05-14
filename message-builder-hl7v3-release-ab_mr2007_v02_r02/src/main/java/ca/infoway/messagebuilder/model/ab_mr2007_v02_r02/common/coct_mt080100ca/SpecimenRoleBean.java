@@ -53,16 +53,16 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
-    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
     private CV specimenMaterialCode = new CVImpl();
     private ST specimenMaterialDesc = new STImpl();
-    private CV specimenMaterialAsContentContainerRiskCode = new CVImpl();
     private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
+    private CV specimenMaterialAsContentContainerRiskCode = new CVImpl();
     private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
     private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
+    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
 
 
     /**
@@ -164,28 +164,6 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
-    public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
-        return this.productOfSpecimenCollectionProcedureEvent;
-    }
-
-    /**
-     * <p>Relationship: 
-     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
-        this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
-    }
-
-
-    /**
      * <p>Business Name: V:Specimen Code</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Material.code</p>
@@ -258,6 +236,17 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT080100CA.Material.asIdentifiedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     */
+    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
+    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
+        return this.specimenMaterialAsIdentifiedEntity;
+    }
+
+
+    /**
      * <p>Business Name: Y:Specimen Container Risk</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Container.riskCode</p>
@@ -294,17 +283,6 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT080100CA.Material.asIdentifiedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
-     */
-    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
-    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
-        return this.specimenMaterialAsIdentifiedEntity;
-    }
-
-
-    /**
      * <p>Relationship: 
      * COCT_MT080100CA.Subject3.transportationEvent</p>
      * 
@@ -325,6 +303,28 @@ public class SpecimenRoleBean extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
     public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
         return this.subjectOf2SpecimenObservationEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
+    public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
+        return this.productOfSpecimenCollectionProcedureEvent;
+    }
+
+    /**
+     * <p>Relationship: 
+     * COCT_MT080100CA.Product.specimenCollectionProcedureEvent</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
+        this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
     }
 
 }

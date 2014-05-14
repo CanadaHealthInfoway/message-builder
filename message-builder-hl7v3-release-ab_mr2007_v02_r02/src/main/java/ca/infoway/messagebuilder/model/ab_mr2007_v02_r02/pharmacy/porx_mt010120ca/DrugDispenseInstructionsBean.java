@@ -50,12 +50,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
     private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private FirstFillBean component2InitialSupplyRequest;
-    private DrugProductBean productMedication;
 
 
     /**
@@ -191,6 +191,26 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
+    /**
      * <p>Relationship: 
      * PORX_MT010120CA.Component8.subsequentSupplyRequest</p>
      * 
@@ -231,26 +251,6 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
      */
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT010120CA.Product1.medication</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
     }
 
 }

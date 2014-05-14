@@ -76,18 +76,18 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private QueryAckBean queryAck;
-    private QueryByParameterBean<PL> queryByParameter;
     private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
     private List<CausedBean> subjectOf1 = new ArrayList<CausedBean>();
     private AuthorizedByBean subjectOf2;
-    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
+    private QueryAckBean queryAck;
+    private QueryByParameterBean<PL> queryByParameter;
     private StoredInBean recordTarget;
+    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -405,6 +405,80 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subject</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     */
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf1</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
+     */
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<CausedBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -481,93 +555,6 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subject</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
-     */
-    @Hl7XmlMapping({"subject"})
-    public List<RefersToBean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf1</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf1</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-50)</p>
-     */
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<CausedBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"subjectOf2"})
-    public AuthorizedByBean getSubjectOf2() {
-        return this.subjectOf2;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subjectOf2</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subjectOf2</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.componentOf</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
-     */
-    @Hl7XmlMapping({"componentOf"})
-    public List<CareCompositionsBean> getComponentOf() {
-        return this.componentOf;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * QUQI_MT120006CA.ControlActEvent.recordTarget</p>
      * 
@@ -588,6 +575,19 @@ public class TriggerEvent_4Bean<ACT,PL> extends MessagePartBean {
      */
     public void setRecordTarget(StoredInBean recordTarget) {
         this.recordTarget = recordTarget;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.componentOf</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
+     */
+    @Hl7XmlMapping({"componentOf"})
+    public List<CareCompositionsBean> getComponentOf() {
+        return this.componentOf;
     }
 
 }

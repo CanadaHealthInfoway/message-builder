@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class HL7MessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private TS creationTime = new TSImpl();
     private ST securityText = new STImpl();
@@ -81,10 +81,10 @@ public class HL7MessageBean extends MessagePartBean {
     private LIST<II, Identifier> profileId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS processingCode = new CSImpl();
     private CS acceptAckCode = new CSImpl();
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
     private SenderBean sender;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private AcknowledgementBean acknowledgement;
 
 
@@ -758,19 +758,6 @@ public class HL7MessageBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
-     */
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: MCCI_MT102001CA.Message.receiver</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -873,6 +860,19 @@ public class HL7MessageBean extends MessagePartBean {
      */
     public void setSender(SenderBean sender) {
         this.sender = sender;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MCCI_MT102001CA.Message.attentionLine</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-5)</p>
+     */
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
     }
 
 

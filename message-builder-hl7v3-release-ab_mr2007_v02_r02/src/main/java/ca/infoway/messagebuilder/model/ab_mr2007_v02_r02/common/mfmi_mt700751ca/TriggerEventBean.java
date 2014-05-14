@@ -73,22 +73,22 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedByBean author;
     private EntererChoice dataEntererEntererChoice;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private QueryByParameterBean<PL> queryByParameter;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AuthorizedByBean subjectOf1;
     private List<CausedBean> subjectOf2 = new ArrayList<CausedBean>();
+    private QueryByParameterBean<PL> queryByParameter;
 
 
     /**
@@ -304,6 +304,28 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    /**
      * <p>Relationship: MFMI_MT700751CA.ControlActEvent.author</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -358,6 +380,26 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
      * <p>Relationship: 
      * MFMI_MT700751CA.DataEntryLocation.serviceDeliveryLocation</p>
      * 
@@ -380,26 +422,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
      * <p>Relationship: 
      * MFMI_MT700751CA.PertinentInformation.authorizationToken</p>
      * 
@@ -418,50 +440,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      */
     public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
         this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Relationship: 
-     * MFMI_MT700751CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -493,6 +471,28 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf2"})
     public List<CausedBean> getSubjectOf2() {
         return this.subjectOf2;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+
+    /**
+     * <p>Relationship: 
+     * MFMI_MT700751CA.ControlActEvent.queryByParameter</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 }

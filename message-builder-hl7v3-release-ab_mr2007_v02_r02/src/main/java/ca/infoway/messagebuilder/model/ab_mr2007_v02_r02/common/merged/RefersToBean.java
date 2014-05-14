@@ -76,11 +76,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersToBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private BL contextConductionInd = new BLImpl();
+    private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
     private List<ReplacesBean> registrationRequestReplacementOf = new ArrayList<ReplacesBean>();
-    private RegisteredItemBean<RR> registrationRequestSubject;
 
 
     /**
@@ -336,6 +336,42 @@ public class RefersToBean<RR> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"registrationRequest/subject"})
+    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
+        return this.registrationRequestSubject;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
+        this.registrationRequestSubject = registrationRequestSubject;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: MFMI_MT700711CA.Custodian.assignedDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -387,42 +423,6 @@ public class RefersToBean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"registrationRequest/replacementOf"})
     public List<ReplacesBean> getRegistrationRequestReplacementOf() {
         return this.registrationRequestReplacementOf;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"registrationRequest/subject"})
-    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
-        return this.registrationRequestSubject;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700711CA.RegistrationRequest.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: MFMI_MT700716CA.RegistrationRequest.subject</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
-        this.registrationRequestSubject = registrationRequestSubject;
     }
 
 }

@@ -63,11 +63,11 @@ import java.util.List;
 @Hl7RootType
 public class LogoffBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
-    private List<TransactionPermissionBean> componentTransactionPermission = new ArrayList<TransactionPermissionBean>();
     private IVL<TS, Interval<Date>> performerTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean performerAssignedEntity;
+    private List<TransactionPermissionBean> componentTransactionPermission = new ArrayList<TransactionPermissionBean>();
 
 
     /**
@@ -127,20 +127,6 @@ public class LogoffBean extends MessagePartBean {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COMT_MT900004AB.Component.transactionPermission</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"component/transactionPermission"})
-    public List<TransactionPermissionBean> getComponentTransactionPermission() {
-        return this.componentTransactionPermission;
     }
 
 
@@ -205,6 +191,20 @@ public class LogoffBean extends MessagePartBean {
      */
     public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * COMT_MT900004AB.Component.transactionPermission</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"component/transactionPermission"})
+    public List<TransactionPermissionBean> getComponentTransactionPermission() {
+        return this.componentTransactionPermission;
     }
 
 }

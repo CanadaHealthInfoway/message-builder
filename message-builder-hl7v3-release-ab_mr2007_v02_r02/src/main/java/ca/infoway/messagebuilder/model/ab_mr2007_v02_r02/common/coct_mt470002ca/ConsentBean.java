@@ -84,16 +84,16 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
+    private ConsentPertainsToBean subject1;
     private ConsentOverriddenByBean author1;
     private ConsentedToByBean author2;
-    private ConsentPertainsToBean subject1;
     private ControlsBean subject2;
 
 
@@ -288,6 +288,26 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"subject1"})
+    public ConsentPertainsToBean getSubject1() {
+        return this.subject1;
+    }
+
+    /**
+     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setSubject1(ConsentPertainsToBean subject1) {
+        this.subject1 = subject1;
+    }
+
+
+    /**
      * <p>Relationship: COCT_MT470002CA.ConsentEvent.author1</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -324,26 +344,6 @@ public class ConsentBean extends MessagePartBean {
      */
     public void setAuthor2(ConsentedToByBean author2) {
         this.author2 = author2;
-    }
-
-
-    /**
-     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"subject1"})
-    public ConsentPertainsToBean getSubject1() {
-        return this.subject1;
-    }
-
-    /**
-     * <p>Relationship: COCT_MT470002CA.ConsentEvent.subject1</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setSubject1(ConsentPertainsToBean subject1) {
-        this.subject1 = subject1;
     }
 
 

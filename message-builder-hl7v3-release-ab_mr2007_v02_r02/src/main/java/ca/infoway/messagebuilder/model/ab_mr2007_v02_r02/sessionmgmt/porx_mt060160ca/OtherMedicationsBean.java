@@ -106,19 +106,19 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
     private CV routeCode = new CVImpl();
-    private ProviderBean authorAssignedPerson;
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private DrugProductBean consumableMedication;
-    private CreatedAtBean location;
-    private ProviderBean responsiblePartyAssignedPerson;
     private PatientBean subjectPatient;
+    private DrugProductBean consumableMedication;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private ProviderBean authorAssignedPerson;
+    private CreatedAtBean location;
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
     private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
@@ -469,34 +469,22 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Subject10.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/assignedPerson"})
-    public ProviderBean getAuthorAssignedPerson() {
-        return this.authorAssignedPerson;
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
     }
 
     /**
-     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
+     * <p>Relationship: PORX_MT060160CA.Subject10.patient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
-        this.authorAssignedPerson = authorAssignedPerson;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PORX_MT060160CA.Component5.dosageInstruction</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -517,26 +505,6 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      */
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-
-    /**
-     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
     }
 
 
@@ -563,22 +531,54 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Relationship: PORX_MT060160CA.Subject10.patient</p>
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
     }
 
     /**
-     * <p>Relationship: PORX_MT060160CA.Subject10.patient</p>
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
+    }
+
+
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+
+    /**
+     * <p>Relationship: PORX_MT060160CA.OtherMedication.location</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PORX_MT060160CA.Component5.dosageInstruction</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
     }
 
 

@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.Logo
 @Hl7PartTypeMapping({"COMT_IN900020AB"})
 public class LogoffRequestBean extends HL7MessageBean<TriggerEventBean<LogoffBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
 
 }

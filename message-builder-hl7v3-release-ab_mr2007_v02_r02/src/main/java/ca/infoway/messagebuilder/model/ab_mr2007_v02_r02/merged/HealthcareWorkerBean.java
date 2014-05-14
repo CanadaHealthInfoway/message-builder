@@ -69,7 +69,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice, Recipient, Choice, ChangedBy, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthorPerson, ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.Party {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<TEL, TelecommunicationAddress> telecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

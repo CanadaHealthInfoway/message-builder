@@ -240,7 +240,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
 @Hl7PartTypeMapping({"MCAI_MT700211CA.Subject3","MCAI_MT700212CA.Subject3","MFMI_MT700751CA.Subject1","QUQI_MT020000CA.Subject3","QUQI_MT020002CA.Subject3","QUQI_MT120006CA.Subject3","QUQI_MT120008CA.Subject3"})
 public class AuthorizedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private ConsentBean consentEvent;
     private CS contextControlCode = new CSImpl();
 

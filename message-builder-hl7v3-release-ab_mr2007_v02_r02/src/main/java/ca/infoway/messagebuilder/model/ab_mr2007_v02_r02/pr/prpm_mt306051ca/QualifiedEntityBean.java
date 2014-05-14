@@ -52,11 +52,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20131210L;
+    private static final long serialVersionUID = 20140514L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
-    private OrganizationBean qualificationGrantingOrganization;
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
+    private OrganizationBean qualificationGrantingOrganization;
 
 
     /**
@@ -123,28 +123,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
     /**
      * <p>Relationship: 
-     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
-    }
-
-
-    /**
-     * <p>Relationship: 
      * PRPM_MT306051CA.QualifiedEntity.qualifiedPrincipalPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -162,6 +140,28 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT306051CA.QualifiedEntity.qualificationGrantingOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }
