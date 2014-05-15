@@ -36,6 +36,6 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HL7Message_2Be
 @Hl7PartTypeMapping({"MCCI_IN000002CA"})
 public class AcceptAckBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
 
 }

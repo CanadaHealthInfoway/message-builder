@@ -37,14 +37,13 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInvoiceDetailCode;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.AdjudicatedResultOutcomeBean;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();

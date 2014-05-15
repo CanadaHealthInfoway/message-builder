@@ -29,8 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ActingPersonBean;
-
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.PersonBean;
 import java.util.Set;
 
 
@@ -51,11 +50,11 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice, ca.infoway.messagebuilder.model.ab_r02_04_03.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_3 {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_3 {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private ActingPersonBean patientPerson;
+    private PersonBean patientPerson;
 
 
     /**
@@ -123,7 +122,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
+    public PersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
@@ -132,7 +131,7 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setPatientPerson(ActingPersonBean patientPerson) {
+    public void setPatientPerson(PersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }
 

@@ -115,9 +115,9 @@ import java.util.Set;
  * telephone number.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
-public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice {
+public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);

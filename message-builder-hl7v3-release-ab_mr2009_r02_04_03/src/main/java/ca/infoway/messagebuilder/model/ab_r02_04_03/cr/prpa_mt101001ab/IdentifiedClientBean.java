@@ -56,9 +56,8 @@ import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.merged.OtherIDsNonHealthcareIdentifiersBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.merged.PersonalRelationshipBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.LanguageCommunicationBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.PersonalRelationshipBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -84,7 +83,7 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedClientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

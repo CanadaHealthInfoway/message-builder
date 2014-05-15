@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -56,7 +55,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

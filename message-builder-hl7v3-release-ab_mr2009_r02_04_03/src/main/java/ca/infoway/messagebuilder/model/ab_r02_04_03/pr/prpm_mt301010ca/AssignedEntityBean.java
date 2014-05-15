@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ActDefinitionOrEventName_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

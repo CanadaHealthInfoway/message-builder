@@ -59,11 +59,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private TS authorTime = new TSImpl();
-    private AssignedEntityBean authorAssignedEntity;
+    private AssignedEntity_1Bean authorAssignedEntity;
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
@@ -413,7 +413,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntityBean getAuthorAssignedEntity() {
+    public AssignedEntity_1Bean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
@@ -436,7 +436,7 @@ public class IssueDescriptionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
+    public void setAuthorAssignedEntity(AssignedEntity_1Bean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 

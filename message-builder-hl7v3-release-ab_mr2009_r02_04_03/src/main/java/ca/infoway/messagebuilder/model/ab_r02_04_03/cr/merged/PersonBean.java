@@ -46,8 +46,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101991ab.ParentRoleBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101991ab.PatientBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.LanguageCommunicationBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.PersonalRelationshipBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -113,7 +111,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101002CA.Person","PRPA_MT101102CA.Person","PRPA_MT101104CA.Person","PRPA_MT101106CA.Person","PRPA_MT101991AB.Person"})
 public class PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV administrativeGenderCode = new CVImpl();

@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.domainvalue.IssueTriggerObservationValue;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.CommonCodedClinicalObservationType;
-
 import java.util.Set;
 
 
@@ -67,7 +66,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;

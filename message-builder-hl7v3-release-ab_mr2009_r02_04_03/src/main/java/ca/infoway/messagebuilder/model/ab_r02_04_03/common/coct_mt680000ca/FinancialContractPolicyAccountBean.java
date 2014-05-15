@@ -23,10 +23,12 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt680000ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInsurancePolicyType;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.PolicyUnderwriterBean;
 
 
 
@@ -39,9 +41,9 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.PolicyUnderwriterBean
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
-    private PolicyUnderwriterBean author;
+    private II authorCarrierRoleId = new IIImpl();
 
 
     /**
@@ -73,22 +75,26 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.author</p>
+     * <p>Business Name: Carrier Role Id</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public PolicyUnderwriterBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getAuthorCarrierRoleId() {
+        return this.authorCarrierRoleId.getValue();
     }
 
     /**
-     * <p>Relationship: COCT_MT680000CA.PolicyOrAccount.author</p>
+     * <p>Business Name: Carrier Role Id</p>
+     * 
+     * <p>Relationship: COCT_MT680000CA.CarrierRole.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PolicyUnderwriterBean author) {
-        this.author = author;
+    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
+        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
     }
 
 }

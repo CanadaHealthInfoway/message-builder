@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.CertifiedEntityType;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +49,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.QualifiedEntity2"})
 public class QualifiedEntity2Bean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

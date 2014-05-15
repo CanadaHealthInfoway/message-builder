@@ -38,11 +38,8 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470002ca.ConsentBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.IssuesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +49,7 @@ import java.util.List;
 /**
  * <p>Business Name: TriggerEvent</p>
  * 
- * <p>QUQI_MT020000CA.ControlActEvent: Trigger Event</p>
+ * <p>QUQI_MT120008CA.ControlActEvent: Trigger Event</p>
  * 
  * <p>Key to understanding what action a message 
  * represents.</p>
@@ -65,7 +62,7 @@ import java.util.List;
  * <p>Identifies the action that resulted in this message being 
  * sent.</p>
  * 
- * <p>QUQI_MT020002CA.ControlActEvent: Trigger Event</p>
+ * <p>QUQI_MT120006CA.ControlActEvent: Trigger Event</p>
  * 
  * <p>Key to understanding what action a message 
  * represents.</p>
@@ -78,27 +75,23 @@ import java.util.List;
  * <p>Identifies the action that resulted in this message being 
  * sent.</p>
  */
-@Hl7PartTypeMapping({"QUQI_MT020000CA.ControlActEvent","QUQI_MT020002CA.ControlActEvent"})
+@Hl7PartTypeMapping({"QUQI_MT120006CA.ControlActEvent","QUQI_MT120008CA.ControlActEvent"})
 @Hl7RootType
-public class TriggerEvent_5Bean<PL> extends MessagePartBean {
+public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
-    private Patient_3 recordTargetPatient1;
-    private AssignedEntityBean responsiblePartyAssignedEntity;
-    private CreatedBy_1Bean author;
-    private ActingPerson dataEntererActingPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
+    private List<Issues_2Bean> subjectOf1DetectedIssueEvent = new ArrayList<Issues_2Bean>();
     private ConsentBean subjectOf2ConsentEvent;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private QueryAckBean queryAck;
     private QueryByParameterBean<PL> queryByParameter;
+    private Patient_3 recordTargetPatient1;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -106,7 +99,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -126,7 +119,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.id</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -154,7 +147,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.id</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -174,7 +167,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventIdentifier</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.id</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -202,7 +195,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventType</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -213,7 +206,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventType</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.code</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -232,7 +225,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventType</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.code</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -243,7 +236,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventType</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.code</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -263,7 +256,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.effectiveTime</p>
+     * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -279,7 +272,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.effectiveTime</p>
+     * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -303,7 +296,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.effectiveTime</p>
+     * QUQI_MT120008CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -319,7 +312,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: EventEffectivePeriod</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.effectiveTime</p>
+     * QUQI_MT120006CA.ControlActEvent.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -342,7 +335,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventReason</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -360,7 +353,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventReason</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.reasonCode</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -386,7 +379,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventReason</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.reasonCode</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -404,7 +397,7 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: EventReason</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.reasonCode</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.reasonCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -431,14 +424,14 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: MessageLanguage</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.languageCode</p>
+     * QUQI_MT120008CA.ControlActEvent.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: MessageLanguage</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.languageCode</p>
+     * QUQI_MT120006CA.ControlActEvent.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -453,14 +446,14 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: MessageLanguage</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.languageCode</p>
+     * QUQI_MT120008CA.ControlActEvent.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: MessageLanguage</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.languageCode</p>
+     * QUQI_MT120006CA.ControlActEvent.languageCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
@@ -472,274 +465,37 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient_3 getRecordTargetPatient1() {
-        return this.recordTargetPatient1;
-    }
-
-    /**
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.RecordTarget.patient1</p>
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1000)</p>
      */
-    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
-        this.recordTargetPatient1 = recordTargetPatient1;
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntityBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setResponsiblePartyAssignedEntity(AssignedEntityBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
-        return this.author;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020000CA.ControlActEvent.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020002CA.ControlActEvent.author</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAuthor(CreatedBy_1Bean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020000CA.DataEnterer.actingPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020002CA.DataEnterer.actingPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"dataEnterer/actingPerson"})
-    public ActingPerson getDataEntererActingPerson() {
-        return this.dataEntererActingPerson;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020000CA.DataEnterer.actingPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020002CA.DataEnterer.actingPerson</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDataEntererActingPerson(ActingPerson dataEntererActingPerson) {
-        this.dataEntererActingPerson = dataEntererActingPerson;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.DataEntryLocation.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.Location.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.PertinentInformation.authorizationToken</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.PertinentInformation.authorizationToken</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
-    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
-        return this.pertinentInformationAuthorizationToken;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.PertinentInformation.authorizationToken</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.PertinentInformation.authorizationToken</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
-        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: QUQI_MT020000CA.Subject.detectedIssueEvent</p>
+     * <p>Relationship: QUQI_MT120008CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.Subject.detectedIssueEvent</p>
+     * <p>Relationship: QUQI_MT120006CA.Subject.detectedIssueEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+    public List<Issues_2Bean> getSubjectOf1DetectedIssueEvent() {
         return this.subjectOf1DetectedIssueEvent;
     }
 
@@ -747,13 +503,13 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.Subject3.consentEvent</p>
+     * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.Subject3.consentEvent</p>
+     * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -765,13 +521,13 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020000CA.Subject3.consentEvent</p>
+     * <p>Relationship: QUQI_MT120008CA.Subject3.consentEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: QUQI_MT020002CA.Subject3.consentEvent</p>
+     * <p>Relationship: QUQI_MT120006CA.Subject3.consentEvent</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -783,14 +539,36 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.Component.patientCareProvisionEvent</p>
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120008CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.ControlActEvent.queryAck</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
     }
 
 
@@ -798,14 +576,14 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
+     * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.queryByParameter</p>
+     * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -818,19 +596,57 @@ public class TriggerEvent_5Bean<PL> extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020000CA.ControlActEvent.queryByParameter</p>
+     * QUQI_MT120008CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * QUQI_MT020002CA.ControlActEvent.queryByParameter</p>
+     * QUQI_MT120006CA.ControlActEvent.queryByParameter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"recordTarget/patient1"})
+    public Patient_3 getRecordTargetPatient1() {
+        return this.recordTargetPatient1;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: QUQI_MT120006CA.RecordTarget.patient1</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
+        this.recordTargetPatient1 = recordTargetPatient1;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * QUQI_MT120006CA.Component.patientCareProvisionEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.MaterialEntityClassType;
-
 import java.util.Date;
 
 
@@ -51,7 +50,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private ST desc = new STImpl();
     private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();

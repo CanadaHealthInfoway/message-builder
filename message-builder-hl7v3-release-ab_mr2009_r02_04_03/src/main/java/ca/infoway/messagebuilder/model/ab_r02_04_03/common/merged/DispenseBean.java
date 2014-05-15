@@ -39,9 +39,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.DispensedBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.OccurredAtBean;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -62,13 +59,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DispensedBean product;
-    private OccurredAtBean location;
+    private DispensedAtBean location;
     private SET<II, Identifier> inFulfillmentOfSubstanceAdministrationEventId = new SETImpl<II, Identifier>(IIImpl.class);
 
 
@@ -333,7 +330,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
+    public DispensedAtBean getLocation() {
         return this.location;
     }
 
@@ -350,7 +347,7 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocation(OccurredAtBean location) {
+    public void setLocation(DispensedAtBean location) {
         this.location = location;
     }
 

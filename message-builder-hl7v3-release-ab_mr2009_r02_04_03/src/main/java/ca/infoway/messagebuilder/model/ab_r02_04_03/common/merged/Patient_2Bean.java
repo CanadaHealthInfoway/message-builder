@@ -37,8 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ActingPersonBean;
-
 import java.util.List;
 import java.util.Set;
 
@@ -71,13 +69,13 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
-public class Patient_2Bean extends MessagePartBean implements Patient_3, ActingPerson {
+public class Patient_2Bean extends MessagePartBean implements ActingPerson, Patient_3 {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ActingPersonBean patientPerson;
+    private PersonBean patientPerson;
 
 
     /**
@@ -586,7 +584,7 @@ public class Patient_2Bean extends MessagePartBean implements Patient_3, ActingP
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
+    public PersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
@@ -603,7 +601,7 @@ public class Patient_2Bean extends MessagePartBean implements Patient_3, ActingP
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setPatientPerson(ActingPersonBean patientPerson) {
+    public void setPatientPerson(PersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }
 

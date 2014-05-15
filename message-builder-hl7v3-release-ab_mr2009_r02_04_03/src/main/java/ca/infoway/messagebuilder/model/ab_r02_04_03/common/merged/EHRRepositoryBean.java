@@ -49,9 +49,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  */
 @Hl7PartTypeMapping({"COCT_MT090302CA.AssignedDevice","COCT_MT090310CA.AssignedDevice"})
 @Hl7RootType
-public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.pharmacy.merged.ChangedBy {
+public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private ST assignedRepositoryName = new STImpl();
     private ST representedRepositoryJurisdictionName = new STImpl();

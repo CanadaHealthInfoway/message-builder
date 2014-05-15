@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt960002ca.GeographicCoordinatesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +51,7 @@ import java.util.List;
 @Hl7RootType
 public class ServiceLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private ST locationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();

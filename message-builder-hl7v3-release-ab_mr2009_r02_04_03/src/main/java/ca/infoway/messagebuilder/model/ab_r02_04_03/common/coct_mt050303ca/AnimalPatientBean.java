@@ -24,18 +24,19 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
+import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.OwnerPersonBean;
-
 import java.util.Set;
 
 
@@ -54,11 +55,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private ST patientNonPersonLivingSubjectName = new STImpl();
     private AD patientNonPersonLivingSubjectContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientNonPersonLivingSubjectContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private OwnerPersonBean patientNonPersonLivingSubjectContactPartyContactPerson;
+    private PN patientNonPersonLivingSubjectContactPartyContactPersonName = new PNImpl();
 
 
     /**
@@ -254,22 +255,38 @@ public class AnimalPatientBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT050303CA.ContactParty.contactPerson</p>
+     * <p>Business Name: Owner Name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used when contacting or addressing the owner person. 
+     * Because this will be the principle means of identifying the 
+     * owner person, it is mandatory.</p>
+     * 
+     * <p>The name by which the owner person is known</p>
      */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson"})
-    public OwnerPersonBean getPatientNonPersonLivingSubjectContactPartyContactPerson() {
-        return this.patientNonPersonLivingSubjectContactPartyContactPerson;
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
+    public PersonName getPatientNonPersonLivingSubjectContactPartyContactPersonName() {
+        return this.patientNonPersonLivingSubjectContactPartyContactPersonName.getValue();
     }
 
     /**
-     * <p>Relationship: COCT_MT050303CA.ContactParty.contactPerson</p>
+     * <p>Business Name: Owner Name</p>
+     * 
+     * <p>Relationship: COCT_MT050303CA.ContactPerson.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Used when contacting or addressing the owner person. 
+     * Because this will be the principle means of identifying the 
+     * owner person, it is mandatory.</p>
+     * 
+     * <p>The name by which the owner person is known</p>
      */
-    public void setPatientNonPersonLivingSubjectContactPartyContactPerson(OwnerPersonBean patientNonPersonLivingSubjectContactPartyContactPerson) {
-        this.patientNonPersonLivingSubjectContactPartyContactPerson = patientNonPersonLivingSubjectContactPartyContactPerson;
+    public void setPatientNonPersonLivingSubjectContactPartyContactPersonName(PersonName patientNonPersonLivingSubjectContactPartyContactPersonName) {
+        this.patientNonPersonLivingSubjectContactPartyContactPersonName.setValue(patientNonPersonLivingSubjectContactPartyContactPersonName);
     }
 
 }

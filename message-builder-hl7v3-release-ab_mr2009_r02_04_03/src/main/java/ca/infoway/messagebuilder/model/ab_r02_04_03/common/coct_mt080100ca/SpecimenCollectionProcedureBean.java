@@ -32,8 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.SurgicalPathologyMethodCode;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.IncludesBean;
-
+import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.NotesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,12 +53,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV methodCode = new CVImpl();
     private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
-    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
+    private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
 
 
     /**
@@ -204,14 +203,13 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT080100CA.SpecimenCollectionProcedureEvent.subjectOf</p>
+     * <p>Relationship: COCT_MT080100CA.Subject1.annotation</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"subjectOf"})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public List<NotesBean> getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
 
 }

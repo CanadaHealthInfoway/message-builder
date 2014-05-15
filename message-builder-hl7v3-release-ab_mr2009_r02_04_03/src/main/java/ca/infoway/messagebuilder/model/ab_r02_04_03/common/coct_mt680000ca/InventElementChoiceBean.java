@@ -29,16 +29,15 @@ import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInvoiceGroupType;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
-public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.InvoiceElementChoice {
+public class InventElementChoiceBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();

@@ -63,22 +63,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Indicates the service delivery location where the event 
  * occurred.</p>
  */
-@Hl7PartTypeMapping({"MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","PRPM_MT301010CA.Location","PRPM_MT303010CA.Location","REPC_MT500001CA.Location2","REPC_MT500002CA.Location2","REPC_MT500004CA.Location2"})
+@Hl7PartTypeMapping({"MFMI_MT700711CA.Location","MFMI_MT700751CA.Location","PRPM_MT301010CA.Location","PRPM_MT303010CA.Location"})
 public class CreatedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
     private INT sequenceNumber = new INTImpl();
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500002CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -92,20 +85,6 @@ public class CreatedAtBean extends MessagePartBean {
      * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500001CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500004CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -130,13 +109,6 @@ public class CreatedAtBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * REPC_MT500002CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -147,20 +119,6 @@ public class CreatedAtBean extends MessagePartBean {
      * PRPM_MT301010CA.Location.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500001CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500004CA.Location2.serviceDeliveryLocation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 

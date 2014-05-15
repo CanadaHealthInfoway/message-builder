@@ -27,8 +27,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInformationAccessCode;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ConsentGivenToBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +54,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private ConsentGivenToBean receiver;
     private List<CV> subjectActDefinitionCode = new ArrayList<CV>();
 

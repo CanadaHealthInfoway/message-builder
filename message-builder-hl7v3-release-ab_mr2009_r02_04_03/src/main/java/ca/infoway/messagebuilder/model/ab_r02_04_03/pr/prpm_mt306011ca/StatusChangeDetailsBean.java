@@ -43,7 +43,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.StateTransitionControlActEvent"})
 public class StatusChangeDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CE reasonCode = new CEImpl();
 

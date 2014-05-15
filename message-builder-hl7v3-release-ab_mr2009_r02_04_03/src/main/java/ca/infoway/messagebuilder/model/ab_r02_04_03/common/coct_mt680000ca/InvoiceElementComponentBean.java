@@ -23,14 +23,13 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt680000ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.InvoiceElementChoice;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private InvoiceElementChoice invoiceElementChoice;
 
 

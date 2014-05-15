@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt960002ca.GeographicCoordinatesBean;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -84,9 +83,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT011001CA.ServiceDeliveryLocation","COCT_MT240003CA.ServiceDeliveryLocation","COCT_MT240007CA.ServiceDeliveryLocation"})
 @Hl7RootType
-public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.iehr.merged.Recipients, ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Recipient {
+public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();

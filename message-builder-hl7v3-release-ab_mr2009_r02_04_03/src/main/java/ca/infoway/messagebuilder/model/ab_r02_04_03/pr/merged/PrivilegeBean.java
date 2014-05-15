@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.RestrictionToPracticeType;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -94,7 +93,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.Privilege","PRPM_MT303010CA.Privilege","PRPM_MT306011CA.Privilege","PRPM_MT309000CA.Privilege"})
 public class PrivilegeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();

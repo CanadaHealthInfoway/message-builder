@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
-
 import java.util.Set;
 
 
@@ -51,9 +50,9 @@ import java.util.Set;
  * in this domain where this role is contactable.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
-public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.RoleChoice {
+public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;

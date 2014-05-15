@@ -37,8 +37,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ResponsibleOrganizationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.OtherIdentifiersRoleType;
-
 import java.util.Date;
 import java.util.List;
 
@@ -91,7 +91,7 @@ import java.util.List;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ResponsibleOrganizationBean assigningOrganization;

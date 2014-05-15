@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ActingPersonBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.PersonBean;
 
 
 
@@ -52,10 +52,10 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ActingPersonBean;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private ActingPersonBean relationshipHolder;
+    private PersonBean relationshipHolder;
 
 
     /**
@@ -281,7 +281,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"relationshipHolder"})
-    public ActingPersonBean getRelationshipHolder() {
+    public PersonBean getRelationshipHolder() {
         return this.relationshipHolder;
     }
 
@@ -291,7 +291,7 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
+    public void setRelationshipHolder(PersonBean relationshipHolder) {
         this.relationshipHolder = relationshipHolder;
     }
 

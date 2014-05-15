@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInformRequestType;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.Choice;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ServiceDeliveryLocationBean;
 
 
@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ServiceDeliveryLoc
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CD code = new CDImpl();
     private CE subjectModeCode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;

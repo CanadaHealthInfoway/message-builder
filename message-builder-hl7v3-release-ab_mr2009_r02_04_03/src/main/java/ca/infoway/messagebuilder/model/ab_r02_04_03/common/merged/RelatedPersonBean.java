@@ -75,9 +75,9 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship"})
 @Hl7RootType
-public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice, ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Consenter, ca.infoway.messagebuilder.model.ab_r02_04_03.iehr.merged.Party, ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt120600ca.AssignedPerson, ActingPerson {
+public class RelatedPersonBean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt120600ca.AssignedPerson {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PN relationshipHolderName = new PNImpl();

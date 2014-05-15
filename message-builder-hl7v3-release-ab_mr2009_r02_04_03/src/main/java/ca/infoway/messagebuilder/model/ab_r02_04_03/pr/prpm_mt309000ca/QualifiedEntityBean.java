@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

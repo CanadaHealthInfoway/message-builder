@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt309000ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
-
 import java.util.List;
 
 

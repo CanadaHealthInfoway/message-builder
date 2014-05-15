@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.OtherIdentifiersRoleType;
-
 import java.util.Date;
 
 
@@ -134,7 +133,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101001AB.OtherIDs","PRPA_MT101001CA.OtherIDs","PRPA_MT101002AB.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101102AB.OtherIDs","PRPA_MT101102CA.OtherIDs","PRPA_MT101104AB.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs","PRPA_MT101991AB.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private II assigningIdOrganizationId = new IIImpl();

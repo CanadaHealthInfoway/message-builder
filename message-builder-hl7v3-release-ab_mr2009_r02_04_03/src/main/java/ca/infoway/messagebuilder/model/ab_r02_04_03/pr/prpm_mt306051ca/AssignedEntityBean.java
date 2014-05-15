@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
-
 import java.util.List;
 import java.util.Set;
 
@@ -61,9 +60,9 @@ import java.util.Set;
  * identifier for the role.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306051CA.AssignedEntity"})
-public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.RoleChoice {
+public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

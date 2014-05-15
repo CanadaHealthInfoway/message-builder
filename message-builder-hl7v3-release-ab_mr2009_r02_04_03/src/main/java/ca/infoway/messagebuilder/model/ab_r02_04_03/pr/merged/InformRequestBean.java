@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActInformRequestType;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ServiceDeliveryLocationBean;
 
 
@@ -60,7 +59,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ServiceDeliveryLocati
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;

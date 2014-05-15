@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ObservationInjur
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
     private CV targetSiteCode = new CVImpl();

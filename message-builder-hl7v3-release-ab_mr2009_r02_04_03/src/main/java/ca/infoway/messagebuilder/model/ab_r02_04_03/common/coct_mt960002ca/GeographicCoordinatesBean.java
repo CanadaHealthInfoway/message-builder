@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ObservationCoordinateSystemType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +47,7 @@ import java.util.List;
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CV code = new CVImpl();
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
 

@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.FathersName"})
 public class FathersNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private PN value = new PNImpl();
     private ST semanticsText = new STImpl();
 

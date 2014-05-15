@@ -77,15 +77,6 @@ import java.util.Date;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  * 
- * <p>PORX_MT020050CA.ServiceDeliveryLocation: (no business 
- * name)</p>
- * 
- * <p>Allows tracking what drugs are dispensed to a 
- * facility.</p>
- * 
- * <p>The location where the supply is expected to be 
- * delivered.</p>
- * 
  * <p>PRPM_MT301010CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
@@ -127,11 +118,11 @@ import java.util.Date;
  * that can be found in the service delivery location. E.g. 
  * Pharmacy, Medical Clinic, Hospital</p>
  */
-@Hl7PartTypeMapping({"COCT_MT240012CA.ServiceDeliveryLocation","PORX_MT020050CA.ServiceDeliveryLocation","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation","REPC_MT500001CA.ServiceDeliveryLocation","REPC_MT500002CA.ServiceDeliveryLocation","REPC_MT500004CA.ServiceDeliveryLocation"})
+@Hl7PartTypeMapping({"COCT_MT240012CA.ServiceDeliveryLocation","PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
 @Hl7RootType
-public class ServiceDeliveryLocationBean extends MessagePartBean implements Choice, Recipient {
+public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Recipient, ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.Choice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private AD addr = new ADImpl();
@@ -154,31 +145,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToFacilityId</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
-     * 
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
@@ -191,30 +157,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
-     * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
-     * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
      * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 
@@ -262,31 +204,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * <p>A unique identifier for the service delivery 
      * location.</p>
      * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
-     * 
-     * <p>Un-merged Business Name: ShipToFacilityId</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
-     * 
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
@@ -299,30 +216,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
-     * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
-     * 
-     * <p>Un-merged Business Name: LocationIdReference</p>
-     * 
-     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows linking participants to locations.</p>
-     * 
-     * <p>References the location for which the participants are 
-     * being identified. This will be a location already associated 
-     * with the care composition.</p>
      * 
      * <p>Un-merged Business Name: ServiceLocationIdentifier</p>
      * 

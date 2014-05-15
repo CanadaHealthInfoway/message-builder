@@ -36,10 +36,9 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ManufacturedDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.DispensedInBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.DrugContainsBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ManufacturerBean;
-
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.DrugContainsBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.DrugDispensedInBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ManufacturerBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private CD administerableMedicineCode = new CDImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();
@@ -72,7 +71,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     private ST administerableMedicineLotNumberText = new STImpl();
     private IVL<TS, Interval<Date>> administerableMedicineExpirationTime = new IVLImpl<TS, Interval<Date>>();
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private DispensedInBean administerableMedicineAsContent;
+    private DrugDispensedInBean administerableMedicineAsContent;
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
 
 
@@ -696,7 +695,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DispensedInBean getAdministerableMedicineAsContent() {
+    public DrugDispensedInBean getAdministerableMedicineAsContent() {
         return this.administerableMedicineAsContent;
     }
 
@@ -705,7 +704,7 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
+    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
         this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 

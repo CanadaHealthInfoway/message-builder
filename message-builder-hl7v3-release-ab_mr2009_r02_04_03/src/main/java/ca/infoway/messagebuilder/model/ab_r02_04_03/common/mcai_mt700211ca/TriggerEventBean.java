@@ -38,22 +38,21 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240002ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470002ca.ConsentBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AuthenticationTokenBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.CreatedBy_1Bean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.CreatedByBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Issues_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_3;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.RefersTo_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.IssuesBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -78,22 +77,22 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
     private Patient_3 recordTargetPatient1;
-    private AssignedEntityBean responsiblePartyAssignedEntity;
-    private CreatedBy_1Bean author;
+    private AssignedEntity_1Bean responsiblePartyAssignedEntity;
+    private CreatedByBean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ServiceLocationBean locationServiceDeliveryLocation;
     private RefersTo_1Bean<ACT> subject;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
-    private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<Issues_1Bean> subjectOf2DetectedIssueEvent = new ArrayList<Issues_1Bean>();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
@@ -343,7 +342,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntityBean getResponsiblePartyAssignedEntity() {
+    public AssignedEntity_1Bean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -353,7 +352,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(AssignedEntityBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(AssignedEntity_1Bean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -364,7 +363,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -373,7 +372,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(CreatedBy_1Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 
@@ -397,18 +396,18 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
         this.dataEntererActingPerson = dataEntererActingPerson;
     }
 
-    public AssignedEntityBean getDataEntererActingPersonAsAssignedEntity1() {
-        return this.dataEntererActingPerson instanceof AssignedEntityBean ? (AssignedEntityBean) this.dataEntererActingPerson : null;
+    public AssignedEntity_1Bean getDataEntererActingPersonAsAssignedEntity1() {
+        return this.dataEntererActingPerson instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.dataEntererActingPerson : null;
     }
     public boolean hasDataEntererActingPersonAsAssignedEntity1() {
-        return (this.dataEntererActingPerson instanceof AssignedEntityBean);
+        return (this.dataEntererActingPerson instanceof AssignedEntity_1Bean);
     }
 
-    public HealthcareOrganizationBean getDataEntererActingPersonAsAssignedEntity2() {
-        return this.dataEntererActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererActingPerson : null;
+    public AssignedEntity_2Bean getDataEntererActingPersonAsAssignedEntity2() {
+        return this.dataEntererActingPerson instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.dataEntererActingPerson : null;
     }
     public boolean hasDataEntererActingPersonAsAssignedEntity2() {
-        return (this.dataEntererActingPerson instanceof HealthcareOrganizationBean);
+        return (this.dataEntererActingPerson instanceof AssignedEntity_2Bean);
     }
 
     public RelatedPersonBean getDataEntererActingPersonAsPersonalRelationship() {
@@ -531,7 +530,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
+    public List<Issues_1Bean> getSubjectOf2DetectedIssueEvent() {
         return this.subjectOf2DetectedIssueEvent;
     }
 

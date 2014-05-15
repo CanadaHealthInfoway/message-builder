@@ -50,7 +50,6 @@ import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt301010ca.OrganizationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt301010ca.RelatedToBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -82,9 +81,9 @@ import java.util.List;
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.HealthCareProvider","PRPM_MT303013AB.HealthCareProvider","PRPM_MT303014AB.HealthCareProvider"})
 @Hl7RootType
-public class ProviderLicenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.Choice, ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt301010ca.RoleChoice {
+public class ProviderLicenseBean extends MessagePartBean implements Choice, ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt301010ca.RoleChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);

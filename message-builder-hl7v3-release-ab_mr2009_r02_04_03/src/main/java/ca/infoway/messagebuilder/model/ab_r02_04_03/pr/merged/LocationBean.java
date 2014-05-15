@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Location","PRPM_MT309000CA.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private INT sequenceNumber = new INTImpl();
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
 

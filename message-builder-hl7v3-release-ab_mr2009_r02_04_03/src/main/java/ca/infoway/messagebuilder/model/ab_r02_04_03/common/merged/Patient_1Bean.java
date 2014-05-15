@@ -40,8 +40,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt050007ca.PatientIdentifyingCharacteristicsBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ActingPersonBean;
-
 import java.util.List;
 import java.util.Set;
 
@@ -76,12 +74,12 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements Patient_3 {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ST certificateText = new STImpl();
-    private ActingPersonBean patientPerson;
+    private PersonBean patientPerson;
     private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
 
 
@@ -231,7 +229,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_3 {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
+    public PersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
@@ -242,7 +240,7 @@ public class Patient_1Bean extends MessagePartBean implements Patient_3 {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPatientPerson(ActingPersonBean patientPerson) {
+    public void setPatientPerson(PersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }
 

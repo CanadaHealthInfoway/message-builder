@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240002ca.ServiceLocationBean;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -131,17 +130,17 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
     private RefersTo_1Bean<ACT> subject;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<Issues_2Bean> subjectOfDetectedIssueEvent = new ArrayList<Issues_2Bean>();
     private Patient_3 recordTargetPatient1;
-    private AssignedEntityBean responsiblePartyAssignedEntity;
-    private CreatedBy_1Bean author;
+    private AssignedEntity_1Bean responsiblePartyAssignedEntity;
+    private CreatedByBean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ServiceLocationBean locationServiceDeliveryLocation;
@@ -1214,7 +1213,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+    public List<Issues_2Bean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
     }
 
@@ -1302,7 +1301,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntityBean getResponsiblePartyAssignedEntity() {
+    public AssignedEntity_1Bean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -1328,7 +1327,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(AssignedEntityBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(AssignedEntity_1Bean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -1353,7 +1352,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -1376,7 +1375,7 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(CreatedBy_1Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 

@@ -32,9 +32,8 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Issues_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.x_ActPriorityPharmacy;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,13 +52,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV priorityCode = new CVImpl();
     private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
     private DispenseSubstitutionBean componentSubstitution;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<Issues_2Bean> subjectOfDetectedIssueEvent = new ArrayList<Issues_2Bean>();
 
 
     /**
@@ -222,7 +221,7 @@ public class ExpectedStartTimeBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+    public List<Issues_2Bean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
     }
 

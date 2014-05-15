@@ -29,9 +29,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReason"})
-public class AdjudicationResultReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.merged.AdjudicationCodeChoice {
+public class AdjudicationResultReasonBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20140501L;
+    private static final long serialVersionUID = 20140515L;
     private ST value = new STImpl();
 
 
