@@ -33,9 +33,11 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 
 public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
@@ -76,6 +78,39 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 		assertTrue(range.getLowInclusive().booleanValue());
 		assertFalse(range.getHighInclusive().booleanValue());
+	}
+
+	@Test
+	public void testParseUrg() throws Exception {
+		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.R02_04_03, null, null, null, null, null, null);
+		
+		String xml = "<value specializationType=\"URG_PQ.LAB\" unit=\"1\" xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
+						 + "<low inclusive=\"true\" nullFlavor=\"NI\" specializationType=\"PQ.LAB\">"
+						 +    "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
+						 + "</low>"
+						 + "<high inclusive=\"false\" specializationType=\"PQ.LAB\" unit=\"g/L\" value=\"124\"/>"
+				   + "</value>";
+		
+		Node node = createNode(xml);
+		
+		BareANY URG = new UrgPqElementParser().parse(context, node, this.xmlResult);
+		@SuppressWarnings("unchecked")
+		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) URG.getBareValue();
+		
+		assertNotNull("null", range);
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+		
+		assertNull("low pq", range.getLow());
+		assertTrue("low inclusive", range.getLowInclusive().booleanValue());
+		assertEquals("low NF", NullFlavor.NO_INFORMATION, range.getLowNullFlavor());
+		
+		assertEquals("high quantity", new BigDecimal("124"), range.getHigh().getQuantity());
+		// PQ.LAB units (x_LabUnitsOfMeasure) are do not have example values within MB
+		assertEquals("high units", "g/L", range.getHigh().getUnit().getCodeValue());
+		assertFalse("high inclusive", range.getHighInclusive().booleanValue());
+		assertNull("high NF", range.getHighNullFlavor());
+		//assertEquals("high OT", "<124", range.getHigh().getUnit());
 	}
 	
 	@SuppressWarnings("unchecked")
