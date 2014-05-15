@@ -8,7 +8,7 @@ Implementation-Vendor-Id: ca.infoway.messagebuilder
 Application-Name: message-builder-hl7v3-release-ab_r02_05_00_pa
 Implementation-Build-Date: 2014-05-01_12-07-06
 Implementation-Version: 1.5.8
-MBT-Message-Set: /messageSet_ab_r02_05_00_pa.xml
-MBT-Model-Version-Numbers: R02_05_00_PA_AB
+MBT-Message-Set: /messageSet_ab_r02_04_03.xml
+MBT-Model-Version-Numbers: R02_04_03_AB
 MBT-Version: 1.5.8
 
