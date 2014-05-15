@@ -113,8 +113,8 @@ public class AdValidationUtils {
     	}
     	
     	// city/state/postalCode/country mandatory for AD.FULL
-    	// new change for R02.05 onwards - these fields are now only *required*, not mandatory
-    	if (isFull && !isExactVersion(SpecificationVersion.R02_05_00_PA_AB, version)) {
+    	// new change for R02.05 (pre-adopted by R02.04.03 AB) onwards - these fields are now only *required*, not mandatory
+    	if (isFull && !isExactVersion(SpecificationVersion.R02_04_03_AB, version)) {
     		validatePartTypeProvided(PostalAddressPartType.CITY, postalAddress.getParts(), element, propertyPath, errors);
     		validatePartTypeProvided(PostalAddressPartType.STATE, postalAddress.getParts(), element, propertyPath, errors);
     		validatePartTypeProvided(PostalAddressPartType.POSTAL_CODE, postalAddress.getParts(), element, propertyPath, errors);

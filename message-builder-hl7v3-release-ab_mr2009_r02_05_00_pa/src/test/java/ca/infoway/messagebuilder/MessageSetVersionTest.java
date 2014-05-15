@@ -25,7 +25,7 @@ public class MessageSetVersionTest {
 
 	@Test
 	public void testVersionMatches() throws Exception {
-		new MessageSetVersionCheck().testVersionMatches(SpecificationVersion.R02_05_00_PA_AB);
+		new MessageSetVersionCheck().testVersionMatches(SpecificationVersion.R02_04_03_AB);
 	}
 	
 }
