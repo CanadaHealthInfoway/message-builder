@@ -34,18 +34,30 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 
 	public class VocabSummary {
+		private final String messagePart;
+		private final String relationship;
 		private final String domainSource;
 		private final String domainType;
 		private final String type;
 		private final String xpath;
 		  
-		public VocabSummary(String domainSource, String domainType, String type, String xpath) {
+		public VocabSummary(String messagePart, String relationship, String domainSource, String domainType, String type, String xpath) {
+			this.messagePart = messagePart;
+			this.relationship = relationship;
 			this.domainSource = domainSource;
 			this.domainType = domainType;
 			this.type = type;
 			this.xpath = xpath;
 		}
 		  
+		public String getMessagePart() {
+			return messagePart;
+		}
+
+		public String getRelationship() {
+			return relationship;
+		}
+
 		public String getXpath() {
 			return xpath;
 		}
@@ -61,7 +73,7 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		
 		@Override
 		public String toString() {
-			return this.xpath + ", " + this.getDomainSource() + ", " + this.getType() + ", " + this.getDomainType();
+			return this.xpath + ", " + this.getMessagePart() + "." + this.getRelationship() + ", " + this.getDomainSource() + ", " + this.getType() + ", " + this.getDomainType();
 		}
 	}
 	
@@ -78,7 +90,14 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 	public void visitRelationship(Relationship relationship, String xpath) {
 		// only interested in relationships that are marked as having a domain
 		if (StringUtils.isNotBlank(relationship.getDomainType())) {
-			this.results.add(new VocabSummary(determineDomainSource(relationship.getDomainSource()), relationship.getDomainType(), relationship.getType(), xpath));
+			this.results.add(
+					new VocabSummary(
+							relationship.getParentType(),
+							relationship.getName(),
+							determineDomainSource(relationship.getDomainSource()), 
+							relationship.getDomainType(), 
+							relationship.getType(), 
+							xpath));
 		}
 	}
 

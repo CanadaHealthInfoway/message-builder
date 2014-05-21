@@ -21,9 +21,11 @@ package ca.infoway.messagebuilder.xml.util;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -32,6 +34,23 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class InteractionWalker {
+
+	private class RelationshipMessagePartPair {
+		private final String relationship;
+		private final String messagePart;
+		public RelationshipMessagePartPair(String relationship, String messagePart) {
+			this.relationship = relationship;
+			this.messagePart = messagePart;
+		}
+		public String getRelationship() {
+			return relationship;
+		}
+		public String getMessagePart() {
+			return messagePart;
+		}
+	}
+	
+	private final Log log = LogFactory.getLog(InteractionWalker.class);
 
 	private final MessageSet messageSet;
 
@@ -45,43 +64,42 @@ public class InteractionWalker {
 	}
 	
 	public void walkInteraction(Interaction interaction, InteractionVisitor visitor) {
-		Deque<String> xpathStack = new ArrayDeque<String>();
+		Deque<RelationshipMessagePartPair> xpathStack = new ArrayDeque<RelationshipMessagePartPair>();
 		walkInteraction(interaction, xpathStack, visitor);
 	}
 	
-	private void walkInteraction(Interaction interaction, Deque<String> xpathStack, InteractionVisitor visitor) {
-		xpathStack.push(interaction.getName());
+	private void walkInteraction(Interaction interaction, Deque<RelationshipMessagePartPair> xpathStack, InteractionVisitor visitor) {
+		xpathStack.push(new RelationshipMessagePartPair(interaction.getName(), interaction.getName()));
 		
 		visitor.visitInteraction(interaction, getXpath(xpathStack));
 		
 		MessagePart messagePart = getMessagePart(interaction.getSuperTypeName());
-		walkMessagePart(messagePart, xpathStack, interaction, visitor, new HashSet<String>());
+		walkMessagePart(messagePart, xpathStack, interaction, visitor);
 		
 		xpathStack.pop();
 	}
 	
-	private String getXpath(Deque<String> xpathStack) {
+	private String getXpath(Deque<RelationshipMessagePartPair> xpathStack) {
 		StringBuilder sb = new StringBuilder();
-		Iterator<String> descendingIterator = xpathStack.descendingIterator();
+		Iterator<RelationshipMessagePartPair> descendingIterator = xpathStack.descendingIterator();
 		while (descendingIterator.hasNext()) {
-			sb.append("/").append(descendingIterator.next());
+			sb.append("/").append(descendingIterator.next().getRelationship());
 		}
 		return sb.toString();
 	}
 
-	private void walkMessagePart(MessagePart messagePart, Deque<String> xpathStack, Interaction interaction, InteractionVisitor visitor, HashSet<String> visitedMessageParts) {
+	private void walkMessagePart(MessagePart messagePart, Deque<RelationshipMessagePartPair> xpathStack, Interaction interaction, InteractionVisitor visitor) {
 
-		if (visitedMessageParts.contains(messagePart.getName())) {
+		if (recursiveLoopDetected(xpathStack, messagePart.getName())) {
+			this.log.error("Skipping recursive message part: " + messagePart.getName());
 			return;
-		} else {
-			visitedMessageParts.add(messagePart.getName());
 		}
 		
 		visitor.visitMessagePart(messagePart, getXpath(xpathStack));
 		
 		for (Relationship relationship : messagePart.getRelationships()) {
 			
-			xpathStack.push(relationship.getName());
+			xpathStack.push(new RelationshipMessagePartPair(relationship.getName(), relationship.getParentType()));
 			
 			visitor.visitRelationship(relationship, getXpath(xpathStack));
 			
@@ -91,37 +109,48 @@ public class InteractionWalker {
 				
 				// the actual xpath name at this point is the template traversal name
 				xpathStack.pop();
-				xpathStack.push(argument.getTraversalName());
+				xpathStack.push(new RelationshipMessagePartPair(argument.getTraversalName(), relationship.getParentType()));
 				
 				visitor.visitArgument(argument, getXpath(xpathStack));
 				
-				handleRelationshipMessagePart(argument.getName(), argument.getChoices(), xpathStack, interaction, visitor, visitedMessageParts);
+				handleRelationshipMessagePart(argument.getName(), argument.getChoices(), relationship.getParentType(), xpathStack, interaction, visitor);
 				
 			} else if (relationship.isAssociation()) {
-				handleRelationshipMessagePart(relationship.getType(), relationship.getChoices(), xpathStack, interaction, visitor, visitedMessageParts);
+				handleRelationshipMessagePart(relationship.getType(), relationship.getChoices(), relationship.getParentType(), xpathStack, interaction, visitor);
 			}
 			
 			xpathStack.pop();
 		} 
 	}
 
-	private void handleRelationshipMessagePart(String relationshipTypeName,	List<Relationship> choices, Deque<String> xpathStack, Interaction interaction, InteractionVisitor visitor, HashSet<String> visitedMessageParts) {
+	private void handleRelationshipMessagePart(String relationshipTypeName,	List<Relationship> choices, String parentType, Deque<RelationshipMessagePartPair> xpathStack, Interaction interaction, InteractionVisitor visitor) {
 		MessagePart relationshipMessagePart = getMessagePart(relationshipTypeName);
-		walkMessagePart(relationshipMessagePart, xpathStack, interaction, visitor, visitedMessageParts);
+		walkMessagePart(relationshipMessagePart, xpathStack, interaction, visitor);
 		
-		String currentPath = xpathStack.pop();
+		RelationshipMessagePartPair currentPath = xpathStack.pop();
 		
 		// choice names replace the current relationship name (or current choice name, if this is a nested choice)
 		for (Relationship choiceRelationship : choices) {
-			if (!visitedMessageParts.contains(choiceRelationship.getType())) {
-				xpathStack.push(choiceRelationship.getName());
+			if (recursiveLoopDetected(xpathStack, choiceRelationship.getType())) {
+				this.log.error("Skipping recursive message part: " + choiceRelationship.getType());
+			} else {
+				xpathStack.push(new RelationshipMessagePartPair(choiceRelationship.getName(), parentType));
 				visitor.visitRelationship(choiceRelationship, getXpath(xpathStack));
-				handleRelationshipMessagePart(choiceRelationship.getType(), choiceRelationship.getChoices(), xpathStack, interaction, visitor, visitedMessageParts);
+				handleRelationshipMessagePart(choiceRelationship.getType(), choiceRelationship.getChoices(), parentType, xpathStack, interaction, visitor);
 				xpathStack.pop();
 			}
 		}
 		
 		xpathStack.push(currentPath);
+	}
+	
+	private boolean recursiveLoopDetected(Deque<RelationshipMessagePartPair> xpathStack, String typeToCheck) {
+		for (RelationshipMessagePartPair relationshipMessagePartPair : xpathStack) {
+			if (typeToCheck.equals(relationshipMessagePartPair.getMessagePart())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private Interaction getInteraction(String type) {
