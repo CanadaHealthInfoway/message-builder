@@ -25,6 +25,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -40,24 +41,29 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		private final String domainType;
 		private final String type;
 		private final String xpath;
+		private final String conformance;
+		private final Relationship relationshipObject;
 		  
-		public VocabSummary(String messagePart, String relationship, String domainSource, String domainType, String type, String xpath) {
+		public VocabSummary(String messagePart, String relationship, String domainSource, String domainType, String type, String xpath, String conformance, Relationship relationshipObject) {
 			this.messagePart = messagePart;
 			this.relationship = relationship;
 			this.domainSource = domainSource;
 			this.domainType = domainType;
 			this.type = type;
 			this.xpath = xpath;
+			this.conformance = conformance;
+			this.relationshipObject = relationshipObject;
 		}
 		  
 		public String getMessagePart() {
 			return messagePart;
 		}
-
 		public String getRelationship() {
 			return relationship;
 		}
-
+		public Relationship getRelationshipObject() {
+			return relationshipObject;
+		}
 		public String getXpath() {
 			return xpath;
 		}
@@ -69,6 +75,9 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		}
 		public String getType() {
 			return type;
+		}
+		public String getConformance() {
+			return conformance;
 		}
 		
 		@Override
@@ -97,7 +106,9 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 							determineDomainSource(relationship.getDomainSource()), 
 							relationship.getDomainType(), 
 							relationship.getType(), 
-							xpath));
+							xpath,
+							determineConformance(relationship.getConformance()),
+							relationship));
 		}
 	}
 
@@ -113,6 +124,27 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		}
 		return result;
 	}
+	
+	private String determineConformance(ConformanceLevel conformance) {
+		//cd for concept domain, cs for code system, and vs for value set
+		String result = null;
+		if (conformance== ConformanceLevel.IGNORED) {
+			result = "I";
+		} else if (conformance== ConformanceLevel.MANDATORY) {
+			result = "M";
+		} else if (conformance== ConformanceLevel.NOT_ALLOWED) {
+			result = "NA";
+		} else if (conformance== ConformanceLevel.OPTIONAL) {
+			result = "O";
+		} else if (conformance== ConformanceLevel.POPULATED) {
+			result = "P";
+		} else if (conformance== ConformanceLevel.REQUIRED) {
+			result = "R";
+		}	
+		
+		return result;
+	}
+
 
 	public void visitArgument(Argument argument, String xpath) {
 		// not interested
