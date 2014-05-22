@@ -20,22 +20,31 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 @DataTypeHandler("URG<PQ>")
 class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<UncertainRange<PhysicalQuantity>> {
 	
 	IvlPqPropertyFormatter formatter = new IvlPqPropertyFormatter();	
 
-    @Override
-	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) {
-
+	@Override
+	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
+		
+		@SuppressWarnings("unchecked")
+		UncertainRange<PhysicalQuantity> value = (UncertainRange<PhysicalQuantity>) dataType.getBareValue();
+		
     	// convert URG to an IVL and use IVL formatter (loses any inclusive info; we'll pull that out later)
     	Interval<PhysicalQuantity> convertedInterval = IntervalFactory.createFromUncertainRange(value);
     	IVLImpl<PQ, Interval<PhysicalQuantity>> convertedHl7Interval = new IVLImpl<PQ, Interval<PhysicalQuantity>>(convertedInterval);
@@ -46,6 +55,8 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
     	
 		xml = changeAnyIvlRemnants(xml);
 
+		xml = addOriginalText(xml, dataType, indentLevel);
+		
 		// add in inclusive attributes if necessary
 		if (value.getLowInclusive() != null) {
 			xml = addInclusiveAttribute(xml, "low", value.getLowInclusive());
@@ -55,6 +66,25 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 		}
 		
         return xml;
+	}
+
+	private String addOriginalText(String xml, BareANY dataType, int indentLevel) {
+		// TM - RM20416: R2 URG<PQ> now has an explicit OT element (as opposed to being within the inner PQ.LAB)
+		String originalText = ((ANYMetaData) dataType).getOriginalText();
+		if (StringUtils.isNotBlank(originalText)) {
+			String otElement = createElement("originalText", null, indentLevel + 1, false, false);
+			otElement += XmlStringEscape.escape(originalText);
+			otElement += XmlRenderingUtils.createEndElement("originalText", 0, false);
+			int indexOf = xml.indexOf(">");
+			xml = xml.substring(0, indexOf + 2) + otElement + xml.substring(indexOf + 2);					
+		}
+		return xml;
+	}
+	
+    @Override
+	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) {
+    	// unused
+		throw new UnsupportedOperationException();
     }
 
 	private String addInclusiveAttribute(String xml, String elementName, Boolean inclusive) {

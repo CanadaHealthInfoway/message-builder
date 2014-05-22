@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
@@ -64,7 +65,9 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		Element element = (Element) node;
 		
-		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), element, null, xmlToModelResult);
+		boolean hasNullFlavor = hasValidNullFlavorAttribute(context, node, xmlToModelResult);
+		
+		BigDecimal value = this.pqValidationUtils.validateValue(element.getAttribute("value"), context.getVersion(), context.getType(), hasNullFlavor, element, null, xmlToModelResult);
 		
 		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
 
@@ -78,7 +81,17 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	
 	@Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		BareANY result = super.parse(context, node, xmlToModelResult);
+    	BareANY result = createDataTypeInstance(context != null ? getType(context) : null);
+        
+    	// RM20416 - some PQ specifications allow for NF to coexist with other properties
+        if (hasValidNullFlavorAttribute(context, node, xmlToModelResult)) {
+            NullFlavor nullFlavor = parseNullNode(context, node, xmlToModelResult);
+            result.setNullFlavor(nullFlavor);
+        }
+        PhysicalQuantity value = parseNonNullNode(context, node, result, getReturnType(context), xmlToModelResult);
+        if (value != null && (value.getQuantity() != null || value.getUnit() != null)) {
+        	((BareANYImpl) result).setBareValue(value);
+        }
 		
 		Element element = (Element) node;
 
@@ -90,7 +103,7 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		
 		boolean hasValues = hasAnyValues(element);
 		boolean hasNullFlavor = hasValidNullFlavorAttribute(context, node, xmlToModelResult);
-		this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasValues, hasNullFlavor, element, null, xmlToModelResult);
+		this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasValues, hasNullFlavor, context.getVersion(), element, null, xmlToModelResult);
 		
 		return result;
 	}

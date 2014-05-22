@@ -72,7 +72,7 @@ public class RtoMoPqElementParserTest extends CeRxDomainValueTestCase {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testParseValidAttributes() throws Exception {
-		Node node = createNode("<something><numerator value=\"1234.45\" currency=\"CAD\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
+		Node node = createNode("<something><numerator value=\"1234.45\" currency=\"CAD\"/><denominator value=\"2345.67\" unit=\"mL\" /></something>");
         Ratio<Money, PhysicalQuantity> ratio = (Ratio<Money, PhysicalQuantity>) new RtoMoPqElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
         assertNotNull("ratio", ratio);
         assertEquals("numerator", new BigDecimal("1234.45"), ratio.getNumerator().getAmount());

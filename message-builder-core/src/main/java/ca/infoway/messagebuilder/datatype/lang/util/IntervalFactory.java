@@ -50,7 +50,9 @@ public class IntervalFactory {
 	 * @return the constructed interval
 	 */
 	public static <T> Interval<T> createLowHigh(T low, T high, NullFlavor lowNullFlavor, NullFlavor highNullFlavor) {
-		return new Interval<T>(low, high, GenericMath.average(low, high), GenericMath.diff(low, high), Representation.LOW_HIGH, lowNullFlavor, highNullFlavor, null);
+		T average = (lowNullFlavor != null || highNullFlavor != null) ? null : GenericMath.average(low, high);
+		Diff<T> diff = (lowNullFlavor != null || highNullFlavor != null) ? null : GenericMath.diff(low, high);
+		return new Interval<T>(low, high, average, diff, Representation.LOW_HIGH, lowNullFlavor, highNullFlavor, null);
 	}
 
 	/**

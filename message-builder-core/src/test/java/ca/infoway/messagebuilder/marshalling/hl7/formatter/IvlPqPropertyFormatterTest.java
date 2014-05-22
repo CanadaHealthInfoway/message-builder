@@ -62,7 +62,7 @@ public class IvlPqPropertyFormatterTest extends FormatterTestCase {
 		Interval<PhysicalQuantity> interval = IntervalFactory.<PhysicalQuantity>createLowHigh(PHYSICAL_QUANTITY_LOW, PHYSICAL_QUANTITY_HIGH);
 		String result = this.formatter.format(getContext("name"), 
 				new IVLImpl<QTY<PhysicalQuantity>, Interval<PhysicalQuantity>>(interval));
-		assertXml("result", "<name><low unit=\"ml\" value=\"1000\"/><high unit=\"ml\" value=\"2000\"/></name>", result);
+		assertXml("result", "<name><low unit=\"mL\" value=\"1000\"/><high unit=\"mL\" value=\"2000\"/></name>", result);
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class IvlPqPropertyFormatterTest extends FormatterTestCase {
 		Interval<PhysicalQuantity> low = IntervalFactory.<PhysicalQuantity>createLow(PHYSICAL_QUANTITY_LOW);
 		String result = this.formatter.format(getContext("name"), 
 				new IVLImpl<QTY<PhysicalQuantity>, Interval<PhysicalQuantity>>(low));
-		assertXml("result", "<name><low unit=\"ml\" value=\"1000\"/></name>", result);
+		assertXml("result", "<name><low unit=\"mL\" value=\"1000\"/></name>", result);
 	}
 
 	@Test
@@ -84,6 +84,6 @@ public class IvlPqPropertyFormatterTest extends FormatterTestCase {
 		Interval<PhysicalQuantity> interval = IntervalFactory.<PhysicalQuantity>createWidth(new Diff<PhysicalQuantity>(PHYSICAL_QUANTITY_LOW));
 		String result = this.formatter.format(getContext("name"), 
 			new IVLImpl<QTY<PhysicalQuantity>, Interval<PhysicalQuantity>>(interval));
-		assertXml("result", "<name><width unit=\"ml\" value=\"1000\"/></name>", result);
+		assertXml("result", "<name><width unit=\"mL\" value=\"1000\"/></name>", result);
 	}
 }

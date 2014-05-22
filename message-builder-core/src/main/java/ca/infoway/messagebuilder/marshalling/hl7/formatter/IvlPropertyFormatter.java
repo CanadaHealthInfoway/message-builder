@@ -31,6 +31,7 @@ import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.QTY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeImplementationFactory;
 import ca.infoway.messagebuilder.datatype.impl.QTYImpl;
@@ -210,7 +211,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	}
 
 	private QTY<T> createQTY(T value, NullFlavor nullFlavor) {
-		return value != null ? new QTYImpl<T>(value) : new QTYImpl<T>(nullFlavor);
+		return new QTYImpl<T>(null, value, nullFlavor, StandardDataType.QTY);
 	}
 
 	protected String getDateDiffUnits(BareDiff diff) {

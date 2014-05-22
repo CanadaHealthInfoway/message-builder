@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -161,6 +162,23 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		
 		String result = formatter.format(context, dataType);
 		assertEquals("something in text node", addLineSeparator("<name specializationType=\"ST\" xsi:type=\"ST\"><![CDATA[something]]></name>"), result);
+		assertTrue(this.result.isValid());
+	}
+
+	@Test
+	public void testUrgPqLabForBC() throws Exception {
+		UncertainRange<PhysicalQuantity> urg = new UncertainRange<PhysicalQuantity>(
+				new PhysicalQuantity(new BigDecimal(1), null), new PhysicalQuantity(new BigDecimal(124), ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.GRAMS_PER_LITRE), null, null, Representation.LOW_HIGH, NullFlavor.NO_INFORMATION, null, null, true, false); 
+		
+		AnyPropertyFormatter formatter = new AnyPropertyFormatter();
+		FormatContext context = getContext("name", "ANY", SpecificationVersion.V02R04_BC);
+
+		ANYImpl<Object> any = new ANYImpl<Object>(urg, null, StandardDataType.URG_PQ_LAB);
+		any.setOriginalText("<124");
+		
+		String result = formatter.format(context, any);
+		
+		assertXml("result", "<name specializationType=\"URG_PQ.LAB\" xsi:type=\"URG_PQ\"><originalText>&lt;124</originalText><low inclusive=\"true\" nullFlavor=\"NI\" value=\"1\"/><high inclusive=\"false\" unit=\"g/L\" value=\"124\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
 

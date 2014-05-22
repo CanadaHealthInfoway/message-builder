@@ -65,7 +65,7 @@ public class IvlPqElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseLowHigh() throws Exception {
-		Node node = createNode("<name><low unit=\"ml\" value=\"1000\"/><high unit=\"ml\" value=\"2000\"/></name>");
+		Node node = createNode("<name><low unit=\"mL\" value=\"1000\"/><high unit=\"mL\" value=\"2000\"/></name>");
 		Interval<PhysicalQuantity> interval = parse(node);
 		assertTrue(this.result.isValid());
 		assertNotNull("null", interval);
@@ -81,7 +81,7 @@ public class IvlPqElementParserTest extends CeRxDomainValueTestCase {
 
 	@Test
 	public void testParseLow() throws Exception {
-		Node node = createNode("<name><low unit=\"ml\" value=\"1000\"/></name>");
+		Node node = createNode("<name><low unit=\"mL\" value=\"1000\"/></name>");
 		Interval<PhysicalQuantity> interval = parse(node);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size()); // high must be provided

@@ -35,6 +35,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -110,7 +111,7 @@ public class PqValidationUtils {
 		}
 	}
 
-    public BigDecimal validateValue(String value, VersionNumber version, String type, Element element, String propertyPath, Hl7Errors errors) {
+    public BigDecimal validateValue(String value, VersionNumber version, String type, boolean hasNullFlavor, Element element, String propertyPath, Hl7Errors errors) {
     	int maxIntDigits = this.getMaxIntDigits(version, type);
     	int maxFractionDigits = this.getMaxFractionDigits(version, type);
     	boolean alreadyWarnedAboutValue = false;
@@ -118,7 +119,9 @@ public class PqValidationUtils {
 		BigDecimal result = null;
 		
 		if (StringUtils.isBlank(value)) {
-			createError("No value provided for physical quantity", element, propertyPath, errors);
+			if (!hasNullFlavor) {
+				createError("No value provided for physical quantity", element, propertyPath, errors);
+			}
 		} else {
 			if (NumberUtil.isNumber(value)) {
 				String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
@@ -163,7 +166,7 @@ public class PqValidationUtils {
 		return units;
 	}
 
-	public void validateOriginalText(String typeAsString, String originalText, boolean hasAnyValues, boolean hasNullFlavor, Element element, String propertyPath, Hl7Errors errors) {
+	public void validateOriginalText(String typeAsString, String originalText, boolean hasAnyValues, boolean hasNullFlavor, VersionNumber version, Element element, String propertyPath, Hl7Errors errors) {
 		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
 		boolean hasOriginalText = StringUtils.isNotBlank(originalText);
 		if (hasOriginalText) {
@@ -178,7 +181,8 @@ public class PqValidationUtils {
 				}
 			}
 		}
-		if (PQ_LAB.equals(type) && hasNullFlavor) {
+		// TM - HACK: these restrictions don't seem to apply to the R2 datatype version of PQ.LAB; currently only BC using this (refactor when implementing R2 datatypes)
+		if (PQ_LAB.equals(type) && hasNullFlavor && !SpecificationVersion.isExactVersion(version, SpecificationVersion.V02R04_BC)) {
 			if (!hasOriginalText) {
 				createError("For PQ.LAB values, originalText is mandatory when set to a NullFlavor.", element, propertyPath, errors);
 			}

@@ -48,7 +48,7 @@ public class RatioDrugQuantityPerTimeXmlParserTest extends AbstractXmlParserTest
 				new PhysicalQuantity(new BigDecimal("5.3"), UnitsOfMeasureCaseSensitive.MILLILITRE), 
 				new PhysicalQuantity(new BigDecimal("10"), UnitsOfMeasureCaseSensitive.DAY)));
 		assertEquals(
-				 "<drugOverTime><drugQuantity unit=\"ml\" value=\"5.3\"/><time unit=\"d\" value=\"10\"/></drugOverTime>",
+				 "<drugOverTime><drugQuantity unit=\"mL\" value=\"5.3\"/><time unit=\"d\" value=\"10\"/></drugOverTime>",
 				 this.parser.parse(createContext(), rto));
 	}
 

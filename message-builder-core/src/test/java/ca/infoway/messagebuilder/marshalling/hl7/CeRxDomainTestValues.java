@@ -94,7 +94,7 @@ public class CeRxDomainTestValues {
 	public static final TelecommunicationAddressUse ANSWERING_SERVICE = new TelecommunicationUsageTypeImpl("AS");
 	
 	public static UnitsOfMeasureCaseSensitive CENTIMETRE = new UnitImpl("cm");
-	public static UnitsOfMeasureCaseSensitive ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE = new UnitImpl("U/l");
+	public static UnitsOfMeasureCaseSensitive ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE = new UnitImpl("U/L");
 	public static UnitsOfMeasureCaseSensitive FLUID_OUNCE = new UnitImpl("[foz_br]");
 	public static UnitsOfMeasureCaseSensitive KILOGRAM = new UnitImpl("kg");
     public static UnitsOfMeasureCaseSensitive MILLIMETER = new UnitImpl("mm");

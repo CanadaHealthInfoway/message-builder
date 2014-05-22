@@ -51,17 +51,17 @@ public class X_DrugUnitsOfMeasure extends EnumPattern implements x_DrugUnitsOfMe
 	public static final X_DrugUnitsOfMeasure SQUARE_METRE= new X_DrugUnitsOfMeasure("SQUARE_METRE", "m2");
 	public static final X_DrugUnitsOfMeasure MILLIEQUIVALENT= new X_DrugUnitsOfMeasure("MILLIEQUIVALENT", "meq");
 	public static final X_DrugUnitsOfMeasure MILLIGRAM= new X_DrugUnitsOfMeasure("MILLIGRAM", "mg");
-	public static final X_DrugUnitsOfMeasure MILLILITRE= new X_DrugUnitsOfMeasure("MILLILITRE", "ml");
+	public static final X_DrugUnitsOfMeasure MILLILITRE= new X_DrugUnitsOfMeasure("MILLILITRE", "mL");
 	public static final X_DrugUnitsOfMeasure SQUARE_MILLIMETRE= new X_DrugUnitsOfMeasure("SQUARE_MILLIMETRE", "mm2");
 	public static final X_DrugUnitsOfMeasure CUBIC_MILIMETER= new X_DrugUnitsOfMeasure("CUBIC_MILIMETER", "mm3");
 	public static final X_DrugUnitsOfMeasure MILLIMOLE= new X_DrugUnitsOfMeasure("MILLIMOLE", "mmol");
 	public static final X_DrugUnitsOfMeasure MOLE= new X_DrugUnitsOfMeasure("MOLE", "mol");
 	public static final X_DrugUnitsOfMeasure MILLIUNIT= new X_DrugUnitsOfMeasure("MILLIUNIT", "mU");
 	public static final X_DrugUnitsOfMeasure NANOGRAM= new X_DrugUnitsOfMeasure("NANOGRAM", "ng");
-	public static final X_DrugUnitsOfMeasure NANOLITRE= new X_DrugUnitsOfMeasure("NANOLITRE", "nl");
+	public static final X_DrugUnitsOfMeasure NANOLITRE= new X_DrugUnitsOfMeasure("NANOLITRE", "nL");
 	public static final X_DrugUnitsOfMeasure UNIT= new X_DrugUnitsOfMeasure("UNIT", "U");
 	public static final X_DrugUnitsOfMeasure MICROGRAM= new X_DrugUnitsOfMeasure("MICROGRAM", "ug");
-	public static final X_DrugUnitsOfMeasure MICROLITRE= new X_DrugUnitsOfMeasure("MICROLITRE", "ul");
+	public static final X_DrugUnitsOfMeasure MICROLITRE= new X_DrugUnitsOfMeasure("MICROLITRE", "uL");
 	public static final X_DrugUnitsOfMeasure MICROMOLE= new X_DrugUnitsOfMeasure("MICROMOLE", "umol");
 	
 	private final String codeValue;

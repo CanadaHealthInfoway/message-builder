@@ -28,6 +28,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -68,8 +69,10 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		String type = context.getType();
         ModelToXmlResult errors = context.getModelToXmlResult();
         
+        boolean hasNullFlavor = (bareANY == null || bareANY.getNullFlavor() != null);
+        
         String quantityAsString = physicalQuantity.getQuantity() == null ? null : physicalQuantity.getQuantity().toPlainString();
-		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, null, context.getPropertyPath(), errors);
+		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, hasNullFlavor, null, context.getPropertyPath(), errors);
         
 		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
 		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors);
@@ -98,10 +101,19 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		
 		if (hl7Value != null) {
 			String originalText = ((ANYMetaData) hl7Value).getOriginalText();
-			
 			boolean hasNullFlavor = hl7Value.hasNullFlavor();
 			boolean hasAnyValues = hasAnyValues(hl7Value);
-			this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasAnyValues, hasNullFlavor, null, context.getPropertyPath(), context.getModelToXmlResult());
+			this.pqValidationUtils.validateOriginalText(context.getType(), originalText, hasAnyValues, hasNullFlavor, context.getVersion(), null, context.getPropertyPath(), context.getModelToXmlResult());
+			
+			// complete hack for BC
+			if (SpecificationVersion.isExactVersion(context.getVersion(), SpecificationVersion.V02R04_BC)) {
+				if (hasNullFlavor && hasAnyValues(hl7Value)) {
+					// dump the result and rebuild, adding in NF
+	    			Map<String, String> attributeNameValuePairs = getAttributeNameValuePairs(context, (PhysicalQuantity) hl7Value.getBareValue(), hl7Value);
+	    			attributeNameValuePairs.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
+					result = createElement(context, attributeNameValuePairs, indentLevel, true, true);
+				}
+			}
 			
 			if (StringUtils.isNotBlank(originalText)) {
 				String otElement = createElement("originalText", null, indentLevel + 1, false, false);

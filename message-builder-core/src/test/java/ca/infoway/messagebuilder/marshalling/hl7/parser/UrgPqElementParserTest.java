@@ -33,10 +33,12 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.domainvalue.x_LabUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 
@@ -81,13 +83,12 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	@Test
-	public void testParseUrg() throws Exception {
-		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.R02_04_03, null, null, null, null, null, null);
+	public void testParseUrgForBC() throws Exception {
+		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null);
 		
 		String xml = "<value specializationType=\"URG_PQ.LAB\" unit=\"1\" xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
-						 + "<low inclusive=\"true\" nullFlavor=\"NI\" specializationType=\"PQ.LAB\">"
-						 +    "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
-						 + "</low>"
+						 + "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
+						 + "<low inclusive=\"true\" nullFlavor=\"NI\" specializationType=\"PQ.LAB\" value=\"1\" />"
 						 + "<high inclusive=\"false\" specializationType=\"PQ.LAB\" unit=\"g/L\" value=\"124\"/>"
 				   + "</value>";
 		
@@ -101,16 +102,18 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
 		
-		assertNull("low pq", range.getLow());
+		assertEquals("OT", "<124", ((ANYMetaData) URG).getOriginalText());
+
 		assertTrue("low inclusive", range.getLowInclusive().booleanValue());
 		assertEquals("low NF", NullFlavor.NO_INFORMATION, range.getLowNullFlavor());
+		assertEquals("low value", BigDecimal.ONE, range.getLow().getQuantity());
+		assertNull("low unit", range.getLow().getUnit());
 		
-		assertEquals("high quantity", new BigDecimal("124"), range.getHigh().getQuantity());
-		// PQ.LAB units (x_LabUnitsOfMeasure) are do not have example values within MB
-		assertEquals("high units", "g/L", range.getHigh().getUnit().getCodeValue());
 		assertFalse("high inclusive", range.getHighInclusive().booleanValue());
 		assertNull("high NF", range.getHighNullFlavor());
-		//assertEquals("high OT", "<124", range.getHigh().getUnit());
+		assertEquals("high value", new BigDecimal("124"), range.getHigh().getQuantity());
+		assertEquals("high units", "g/L", range.getHigh().getUnit().getCodeValue());
+		assertTrue(range.getHigh().getUnit() instanceof x_LabUnitsOfMeasure);
 	}
 	
 	@SuppressWarnings("unchecked")

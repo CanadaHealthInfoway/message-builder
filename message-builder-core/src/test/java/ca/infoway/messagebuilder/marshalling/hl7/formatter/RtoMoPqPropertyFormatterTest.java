@@ -49,7 +49,7 @@ public class RtoMoPqPropertyFormatterTest extends FormatterTestCase {
         ratio.setDenominator(new PhysicalQuantity(new BigDecimal("10.00"), MILLILITRE));
         
 		String result = new RtoMoPqPropertyFormatter().format(getContext("name", "RTO<MO.CAD,PQ.BASIC>"), new RTOImpl<Money, PhysicalQuantity>(ratio));
-		assertXml("result", "<name><numerator currency=\"CAD\" value=\"1.00\"/><denominator unit=\"ml\" value=\"10.00\"/></name>", result);
+		assertXml("result", "<name><numerator currency=\"CAD\" value=\"1.00\"/><denominator unit=\"mL\" value=\"10.00\"/></name>", result);
 	}
 	
 	@Test

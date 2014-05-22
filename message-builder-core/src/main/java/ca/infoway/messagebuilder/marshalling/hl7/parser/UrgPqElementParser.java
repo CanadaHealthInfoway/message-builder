@@ -20,9 +20,18 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import java.lang.reflect.Type;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 @DataTypeHandler("URG<PQ>")
 class UrgPqElementParser extends UrgElementParser<PQ, PhysicalQuantity> {
@@ -31,4 +40,15 @@ class UrgPqElementParser extends UrgElementParser<PQ, PhysicalQuantity> {
 	protected ElementParser getIvlParser() {
 		return new IvlPqElementParser(true);
 	}
+	
+	@Override
+	protected UncertainRange<PhysicalQuantity> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
+		
+		// TM - RM20416: grab any original text (pre-adopted from R2 datatype)
+		((ANYMetaData) result).setOriginalText(getOriginalText((Element) node));
+		
+		return super.parseNonNullNode(context, node, result, expectedReturnType, xmlToModelResult);
+	}
+	
+	
 }

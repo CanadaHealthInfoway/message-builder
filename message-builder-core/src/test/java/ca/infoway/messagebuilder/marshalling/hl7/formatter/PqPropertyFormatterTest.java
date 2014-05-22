@@ -142,7 +142,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         
 		String result = new PqPropertyFormatter().format(createContext("PQ.BASIC"), rawPq, 0);
 		
-		String expectedResult = "<name unit=\"U/l\" value=\"33.45\">" + SystemUtils.LINE_SEPARATOR +
+		String expectedResult = "<name unit=\"U/L\" value=\"33.45\">" + SystemUtils.LINE_SEPARATOR +
 								"  <originalText>some original text</originalText>" + SystemUtils.LINE_SEPARATOR +
 								"</name>" + SystemUtils.LINE_SEPARATOR;
         assertEquals("output", expectedResult, result);

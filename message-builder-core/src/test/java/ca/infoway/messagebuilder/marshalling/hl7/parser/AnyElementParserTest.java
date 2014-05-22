@@ -94,7 +94,7 @@ public class AnyElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseAnyAsRtoPqPq() throws Exception {
 		// only ANY (i.e. no ANY sub-variants) supports RTO
 		// note that this test is not correct in the way it specifies ST and XT
-		Node node = createNode("<something specializationType=\"RTO_PQ.DRUG_PQ.DRUG\" xsi:type=\"RTO_PQ_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"ml\" /></something>");
+		Node node = createNode("<something specializationType=\"RTO_PQ.DRUG_PQ.DRUG\" xsi:type=\"RTO_PQ_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><numerator value=\"1234.45\" unit=\"mg\"/><denominator value=\"2345.67\" unit=\"mL\" /></something>");
 		ParseContext context = ParserContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null);
 		
 		Object anyResult = new AnyElementParser().parse(context, node, this.xmlResult).getBareValue();

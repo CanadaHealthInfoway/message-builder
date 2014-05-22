@@ -46,7 +46,7 @@ public class PhysicalQuantityXmlParserTest extends AbstractXmlParserTest<PQ> {
         		ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE);
 		
 		assertEquals(
-				"<dose unit=\"U/l\" value=\"33.45\"/>",
+				"<dose unit=\"U/L\" value=\"33.45\"/>",
 				this.parser.parse(createContext(), new PQImpl(physicalQuantity)));
         
 	}

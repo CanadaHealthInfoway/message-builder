@@ -27,12 +27,15 @@ import java.math.BigDecimal;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.URGImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
+import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.UncertainRangeFactory;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
@@ -52,6 +55,20 @@ public class UrgPqPropertyFormatterTest extends FormatterTestCase {
 		String result = new UrgPqPropertyFormatter().format(getContext("name", "URG<PQ.BASIC>"), new URGImpl<PQ, PhysicalQuantity>(urg));
 		
 		assertXml("result", "<name><low inclusive=\"false\" unit=\"mm\" value=\"55\"/><high inclusive=\"true\" unit=\"mm\" value=\"60\"/></name>", result);
+		assertTrue(this.result.isValid());
+	}
+
+	@Test
+	public void testBasicForBC() throws Exception {
+		UncertainRange<PhysicalQuantity> urg = new UncertainRange<PhysicalQuantity>(
+				new PhysicalQuantity(new BigDecimal(1), null), new PhysicalQuantity(new BigDecimal(124), ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.GRAMS_PER_LITRE), null, null, Representation.LOW_HIGH, NullFlavor.NO_INFORMATION, null, null, true, false); 
+		
+		URGImpl<PQ, PhysicalQuantity> dataType = new URGImpl<PQ, PhysicalQuantity>(urg);
+		dataType.setOriginalText("<124");
+		
+		String result = new UrgPqPropertyFormatter().format(getContext("name", "URG<PQ.LAB>", SpecificationVersion.V02R04_BC), dataType);
+		
+		assertXml("result", "<name><originalText>&lt;124</originalText><low inclusive=\"true\" nullFlavor=\"NI\" value=\"1\"/><high inclusive=\"false\" unit=\"g/L\" value=\"124\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
 
