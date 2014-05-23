@@ -109,12 +109,12 @@ public class RelationshipVisitor implements InteractionVisitor {
 		return this.results;
 	}
 
-	public void visitRelationship(Relationship relationship, String xpath) {
+	public void visitRelationship(Relationship relationship, String parentType, String xpath) {
 		// only interested in relationships that are marked as having a domain
 		if (isRelationshipOfInterest(relationship, this.relationshipType)) {
 			this.results.add(
 					new RelationshipSummary(
-							relationship.getParentType(),
+							parentType,
 							relationship.getName(),
 							determineDomainSource(relationship.getDomainSource()), 
 							relationship.getDomainType(), 

@@ -104,7 +104,7 @@ public class InteractionWalker {
 			
 			xpathStack.push(new RelationshipMessagePartPair(relationship.getName(), relationship.getParentType()));
 			
-			visitor.visitRelationship(relationship, getXpath(xpathStack));
+			visitor.visitRelationship(relationship, relationship.getParentType(), getXpath(xpathStack));
 			
 			if (relationship.isTemplateRelationship()) {
 				String templateParameterName = relationship.getTemplateParameterName();
@@ -138,7 +138,7 @@ public class InteractionWalker {
 				this.log.error("Skipping recursive message part: " + choiceRelationship.getType());
 			} else {
 				xpathStack.push(new RelationshipMessagePartPair(choiceRelationship.getName(), parentType));
-				visitor.visitRelationship(choiceRelationship, getXpath(xpathStack));
+				visitor.visitRelationship(choiceRelationship, parentType, getXpath(xpathStack));
 				handleRelationshipMessagePart(choiceRelationship.getType(), choiceRelationship.getChoices(), parentType, xpathStack, interaction, visitor);
 				xpathStack.pop();
 			}

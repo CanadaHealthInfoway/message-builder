@@ -36,7 +36,7 @@ public interface InteractionVisitor {
 
 	public void visitSpecializationChild(SpecializationChild specializationChild, String xpath);
 
-	public void visitRelationship(Relationship relationship, String xpath);
+	public void visitRelationship(Relationship relationship, String parentType, String string);
 
 	public void visitArgument(Argument argument, String xpath);
 }
