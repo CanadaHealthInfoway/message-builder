@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.xml.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.DomainSource;
@@ -35,9 +33,15 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 /**
  * @sharpen.ignore - java-only utility 
  */
-public class DomainCheckingInteractionVisitor implements InteractionVisitor {
+public class RelationshipVisitor implements InteractionVisitor {
 
-	public class VocabSummary {
+	public enum RelationshipType {
+		ALL,
+		ATTRIBUTE,
+		ASSOCIATION
+	}
+	
+	public class RelationshipSummary {
 		private final String messagePart;
 		private final String relationship;
 		private final String domainSource;
@@ -47,7 +51,7 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		private final String conformance;
 		private final Relationship relationshipObject;
 		  
-		public VocabSummary(String messagePart, String relationship, String domainSource, String domainType, String type, String xpath, String conformance, Relationship relationshipObject) {
+		public RelationshipSummary(String messagePart, String relationship, String domainSource, String domainType, String type, String xpath, String conformance, Relationship relationshipObject) {
 			this.messagePart = messagePart;
 			this.relationship = relationship;
 			this.domainSource = domainSource;
@@ -85,25 +89,31 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 		
 		@Override
 		public String toString() {
-			return this.xpath + ", " + this.getMessagePart() + "." + this.getRelationship() + ", " + this.getDomainSource() + ", " + this.getType() + ", " + this.getDomainType();
+			return this.xpath + ", " + this.getMessagePart() + "." + this.getRelationship() + ", " + this.getType() + ", " + this.getConformance();
 		}
 	}
 	
-	private List<VocabSummary> results;
+	private List<RelationshipSummary> results;
+	private final RelationshipType relationshipType;
 	
-	public DomainCheckingInteractionVisitor() {
-		this.results = new ArrayList<VocabSummary>();
+	public RelationshipVisitor() {
+		this(RelationshipType.ALL);
 	}
 	
-	public List<VocabSummary> getResults() {
+	public RelationshipVisitor(RelationshipType relationshipType) {
+		this.relationshipType = relationshipType;
+		this.results = new ArrayList<RelationshipSummary>();
+	}
+	
+	public List<RelationshipSummary> getResults() {
 		return this.results;
 	}
 
 	public void visitRelationship(Relationship relationship, String xpath) {
 		// only interested in relationships that are marked as having a domain
-		if (StringUtils.isNotBlank(relationship.getDomainType())) {
+		if (isRelationshipOfInterest(relationship, this.relationshipType)) {
 			this.results.add(
-					new VocabSummary(
+					new RelationshipSummary(
 							relationship.getParentType(),
 							relationship.getName(),
 							determineDomainSource(relationship.getDomainSource()), 
@@ -113,6 +123,12 @@ public class DomainCheckingInteractionVisitor implements InteractionVisitor {
 							determineConformance(relationship.getConformance()),
 							relationship));
 		}
+	}
+
+	private boolean isRelationshipOfInterest(Relationship relationship, RelationshipType relationshipType) {
+		return relationshipType == RelationshipType.ALL
+				|| (relationshipType == RelationshipType.ASSOCIATION && relationship.isAssociation())
+				|| (relationshipType == RelationshipType.ATTRIBUTE && relationship.isAttribute());
 	}
 
 	private String determineDomainSource(DomainSource domainSource) {

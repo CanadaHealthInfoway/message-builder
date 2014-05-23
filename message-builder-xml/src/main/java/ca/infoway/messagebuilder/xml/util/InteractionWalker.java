@@ -94,7 +94,7 @@ public class InteractionWalker {
 	private void walkMessagePart(MessagePart messagePart, Deque<RelationshipMessagePartPair> xpathStack, Interaction interaction, InteractionVisitor visitor) {
 
 		if (recursiveLoopDetected(xpathStack, messagePart.getName())) {
-			this.log.error("Skipping recursive message part: " + messagePart.getName());
+			this.log.warn("Skipping recursive message part: " + messagePart.getName());
 			return;
 		}
 		
