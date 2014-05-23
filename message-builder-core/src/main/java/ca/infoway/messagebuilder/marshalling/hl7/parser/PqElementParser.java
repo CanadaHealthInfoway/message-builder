@@ -71,7 +71,7 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		
 		UnitsOfMeasureCaseSensitive unit = this.pqValidationUtils.validateUnits(context.getType(), element.getAttribute("unit"), element, null, xmlToModelResult);
 
-		PhysicalQuantity physicalQuantity = (value != null) ? new PhysicalQuantity(value, unit) : null;
+		PhysicalQuantity physicalQuantity = (value != null || unit != null) ? new PhysicalQuantity(value, unit) : null;
 		
         // this is not the usual way of doing things; this is to make validation easier
         ((BareANYImpl) result).setBareValue(physicalQuantity);

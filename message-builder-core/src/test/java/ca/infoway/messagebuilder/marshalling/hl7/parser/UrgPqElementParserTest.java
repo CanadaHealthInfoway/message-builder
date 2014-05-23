@@ -116,6 +116,41 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(range.getHigh().getUnit() instanceof x_LabUnitsOfMeasure);
 	}
 	
+	@Test
+	public void testParseUrgForBCAlt() throws Exception {
+		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null);
+		
+		String xml = "<value specializationType=\"URG_PQ.LAB\" unit=\"1\" xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
+						 + "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
+						 + "<low inclusive=\"true\" nullFlavor=\"NI\" specializationType=\"PQ.LAB\" unit=\"1\" />"
+						 + "<high inclusive=\"false\" specializationType=\"PQ.LAB\" unit=\"g/L\" value=\"124\"/>"
+				   + "</value>";
+		
+		Node node = createNode(xml);
+		
+		BareANY URG = new UrgPqElementParser().parse(context, node, this.xmlResult);
+		@SuppressWarnings("unchecked")
+		UncertainRange<PhysicalQuantity> range = (UncertainRange<PhysicalQuantity>) URG.getBareValue();
+		
+		assertNotNull("null", range);
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("representation", Representation.LOW_HIGH, range.getRepresentation());
+		
+		assertEquals("OT", "<124", ((ANYMetaData) URG).getOriginalText());
+
+		assertTrue("low inclusive", range.getLowInclusive().booleanValue());
+		assertEquals("low NF", NullFlavor.NO_INFORMATION, range.getLowNullFlavor());
+		assertNull("low value", range.getLow().getQuantity());
+		assertEquals("low unit", "1", range.getLow().getUnit().getCodeValue());
+		assertNull("low unit", range.getLow().getUnit().getCodeSystem());
+		
+		assertFalse("high inclusive", range.getHighInclusive().booleanValue());
+		assertNull("high NF", range.getHighNullFlavor());
+		assertEquals("high value", new BigDecimal("124"), range.getHigh().getQuantity());
+		assertEquals("high units", "g/L", range.getHigh().getUnit().getCodeValue());
+		assertTrue(range.getHigh().getUnit() instanceof x_LabUnitsOfMeasure);
+	}
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testReportError() throws Exception {
