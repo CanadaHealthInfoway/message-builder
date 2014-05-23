@@ -52,7 +52,7 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.3.6.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.5.8-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.5.9-SNAPSHOT.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
