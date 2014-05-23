@@ -33,6 +33,9 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 
+/**
+ * @sharpen.ignore - java-only utility 
+ */
 public class InteractionWalker {
 
 	private class RelationshipMessagePartPair {

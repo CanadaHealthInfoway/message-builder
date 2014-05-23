@@ -25,6 +25,9 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 
+/**
+ * @sharpen.ignore - java-only utility 
+ */
 public interface InteractionVisitor {
 
 	public void visitInteraction(Interaction interaction, String xpath);
