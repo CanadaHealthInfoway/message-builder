@@ -44,5 +44,18 @@ import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
  * @sharpen.ignore - datatype - translated manually 
  */
 public interface URG<T extends QTY<V>, V> extends IVL<T, UncertainRange<V>> {
+	/**
+	 * Returns the original text.
+	 * 
+	 * @return the original text
+	 */
+	public String getOriginalText();
+	
+	/**
+	 * Sets the original text.
+	 * 
+	 * @param originalText the original text
+	 */
+	public void setOriginalText(String originalText);
 	
 }
