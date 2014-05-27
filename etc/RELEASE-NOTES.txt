@@ -64,6 +64,13 @@ messagebuilder.simplexml.transportclass
 CHANGES for 1.5.8:
 =======================
 
+- added AB Immunization; removed unused interactions for AB MR2007 and AB MR2009
+20423 - created an interaction walker (Java only)
+20416 - URG changes for BC
+
+CHANGES for 1.5.8:
+=======================
+
 - created a Sample Message Generator (Java only) that uses a generated MB API to create a sample message for a specific interaction or for all interactions
 - added new official MB API releases: V01R04.4; R02.05.00; AB PA R02.05.00
 18979 - Complex relationship sorting duplicated in three places
