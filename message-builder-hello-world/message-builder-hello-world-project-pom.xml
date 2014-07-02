@@ -44,10 +44,10 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>./</sourceDirectory>
+		<sourceDirectory>./src/main/java/</sourceDirectory>
 		<resources>
 			  <resource>
-			    <directory>./</directory>
+			    <directory>./src/main/resources/</directory>
 			    <filtering>false</filtering>
 			    <includes>
 			      <include>**/*.xml</include>
