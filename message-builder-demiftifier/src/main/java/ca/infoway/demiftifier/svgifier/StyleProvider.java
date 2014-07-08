@@ -19,17 +19,22 @@
  */
 package ca.infoway.demiftifier.svgifier;
 
+import static org.apache.commons.lang.StringUtils.removeEnd;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.demiftifier.LayoutItem;
 import ca.infoway.demiftifier.VocabularyLayoutItem;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class StyleProvider {
 	
@@ -95,7 +100,7 @@ class StyleProvider {
 	}
 	
 	public TextFont getAttributeNameTextFont(Relationship attribute){
-		return attribute.isMandatory() ? TEXT_FONT_ATTRIBUTE_NAME_MANDATORY : TEXT_FONT_ATTRIBUTE_DEFAULT;
+		return ConformanceLevelUtil.isMandatory(attribute) ? TEXT_FONT_ATTRIBUTE_NAME_MANDATORY : TEXT_FONT_ATTRIBUTE_DEFAULT;
 	}
 
 	public TextFont getDefaultAttributeTextFont() {
@@ -177,5 +182,72 @@ class StyleProvider {
 		}
 		text.setBox(box);
 		return box;
+	}
+
+	public FormattedString assignTextBoundsAndMergeSegments(FormattedString text,
+			int maxWidth, Padding padding, int indent) {
+		FormattedString result = new FormattedString(); 
+		
+		BoundingBox box = new BoundingBox(0, 0, 0, 0);
+		int y = 0;
+		int x = 0;
+
+		String currentText = null;
+		TextFont currentFont = null;
+		BoundingBox currentBox = null;
+		for (FormattedString.Segment segment : text.getSegments()) {
+			if (segment.isLineBreak()) {
+				y = box.getHeight();
+				x = indent;
+				result.addSegment(currentText, currentFont, currentBox);
+				currentFont = null;
+				currentText = null;
+			} else {
+				
+				
+				if (currentFont != null && currentFont != segment.getFont()) {
+					result.addSegment(currentText, currentFont, currentBox);
+					if (StringUtils.isNotBlank(currentText)) {
+						x = currentBox.getX() + currentBox.getWidth();
+					}
+					currentFont = null;
+					currentText = null;
+				}
+				
+				
+				if (currentFont == null) {
+					currentFont = segment.getFont();
+				}
+				String tempText = (currentText == null) ? removeEnd(segment.getText(), " ") 
+						: (currentText + " " + removeEnd(segment.getText(), " "));
+				Rectangle2D temp = getBounds(tempText, currentFont);
+				
+				if (x + temp.getWidth() > maxWidth) {
+					y = box.getHeight();
+					x = indent;
+					result.addSegment(currentText, currentFont, currentBox);
+					currentText = removeEnd(segment.getText(), " ");
+					
+					temp = getBounds(currentText, currentFont);
+					currentBox = new BoundingBox(x, y, toInt(temp.getHeight()), toInt(temp.getWidth()));
+					box = new BoundingBox(0, 0, Math.max(toInt(temp.getHeight()) + y, box.getHeight()), 
+							Math.max(x + currentBox.getWidth(), box.getWidth()));
+				} else {
+					currentText = tempText;
+					temp = getBounds(currentText, currentFont);
+					currentBox = new BoundingBox(x, y, toInt(temp.getHeight()), toInt(temp.getWidth()));
+					box = new BoundingBox(0, 0, Math.max(toInt(temp.getHeight()) + y, box.getHeight()), 
+							Math.max(x + currentBox.getWidth(), box.getWidth()));
+				}
+			}
+		}
+		result.addSegment(currentText, currentFont, currentBox);
+		
+		if (padding != null) {
+			box = box.withPadding(padding);
+		}
+		text.setBox(box);
+		result.setBox(box);
+		return result;
 	}
 }

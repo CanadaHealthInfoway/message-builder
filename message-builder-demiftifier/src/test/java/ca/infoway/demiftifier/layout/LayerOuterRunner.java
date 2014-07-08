@@ -37,24 +37,25 @@ public class LayerOuterRunner {
 		LayerOuter layerOuter = new LayerOuter();
 		
 //		MessageSet messageSet = layerOuter.getMessageSet("/messageSet_r02_04_03.xml");
-		MessageSet messageSet = getMessageSet("/messageSet_r02_04_04_miftesting.xml");
+		MessageSet messageSet = getMessageSet("/messageSet_pcs_mr02_05_from_v3generator.xml");
 //		MessageSet messageSet = layerOuter.getMessageSet("/eHO-CeRxHF3-MessageSet_Jason.xml");
 		
 
 		String jurisdictionCode = "CA";
 		List<String> packageLocationNames = new ArrayList<String>();
-		packageLocationNames.add("PRPA_MT101103");
-		packageLocationNames.add("QUCR_MT810201");
-		packageLocationNames.add("REPC_MT230001");
-		packageLocationNames.add("FICR_MT600201");
-		packageLocationNames.add("PORX_MT060160");
-		packageLocationNames.add("PORX_MT010120");
-		packageLocationNames.add("COCT_MT220200");
-		packageLocationNames.add("MCCI_MT002300");
-		packageLocationNames.add("POLB_MT004000");
-		packageLocationNames.add("COCT_MT011001");
-		packageLocationNames.add("COCT_MT270010");
-		packageLocationNames.add("COMT_MT111111");
+//		packageLocationNames.add("PRPA_MT101103");
+//		packageLocationNames.add("QUCR_MT810201");
+//		packageLocationNames.add("REPC_MT230001");
+//		packageLocationNames.add("FICR_MT600201");
+//		packageLocationNames.add("PORX_MT060160");
+//		packageLocationNames.add("PORX_MT010120");
+//		packageLocationNames.add("COCT_MT220200");
+//		packageLocationNames.add("MCCI_MT002300");
+//		packageLocationNames.add("POLB_MT004000");
+//		packageLocationNames.add("COCT_MT011001");
+//		packageLocationNames.add("COCT_MT270010");
+//		packageLocationNames.add("COMT_MT111111");
+		packageLocationNames.add("POLB_MT004100");
 
 		long startDemiftify = System.currentTimeMillis();
 		System.out.println("MessageSet load took: " + (startDemiftify - start) + "ms");

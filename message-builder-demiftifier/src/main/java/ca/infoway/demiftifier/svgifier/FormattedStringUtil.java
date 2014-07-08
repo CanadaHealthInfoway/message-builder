@@ -59,5 +59,9 @@ class FormattedStringUtil {
 		}
 		return result;
 	}
-	
+
+	static FormattedString formatHtmlAndFitToSpace(String html, StyleProvider styleProvider, int maxWidth, Padding padding, int indent) {
+		FormattedString result = formatHtml(html, styleProvider);
+		return styleProvider.assignTextBoundsAndMergeSegments(result, maxWidth, padding, indent);
+	}
 }

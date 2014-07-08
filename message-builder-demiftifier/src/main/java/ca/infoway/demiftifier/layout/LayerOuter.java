@@ -202,7 +202,7 @@ public class LayerOuter {
 							// System.out.println("Cycle found: " + layoutItem.getName() + " -> " + dependent.getName() + " (" + relationship.getName() + ")");
 							dependent.setCyclic(true);
 						} else {
-							if (layoutItem.isAlreadyLayedOut() ) {
+							if (layoutItem.isAlreadyLayedOut() || layoutItem.getInboundElement() != null) {
 								layoutItem = layoutItem.createDuplicate();
 							}
 							InboundElement parentInboundAssociation = dependent.getInboundElement();
