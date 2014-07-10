@@ -362,20 +362,7 @@
       	                <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-				  <configuration>
-				    <skip>${isSkipJavadoc}</skip>
-				    <source>1.6</source>
-				    <aggregate>true</aggregate>
-				    <!-- this doclet is used to auto create class diagrams in build-time  -->
-				    <doclet>gr.spinellis.umlgraph.doclet.UmlGraphDoc</doclet>
-				    <docletArtifact>
-				    <groupId>gr.spinellis</groupId>
-				    <artifactId>UmlGraph</artifactId>
-				    <version>4.6</version>
-				    </docletArtifact>
-				    <additionalparam>-all -quiet -postfixpackage -nodefontsize 9 -nodefontpackagesize 7</additionalparam>
-		  		  </configuration>
+				<version>2.9</version>				
 				<inherited>false</inherited>
 			        <executions>
 			          <execution>
