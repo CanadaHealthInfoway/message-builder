@@ -373,6 +373,7 @@
 			            <phase>package</phase>
 				    <configuration>
 				    	<excludePackageNames>ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.comparator:ca.infoway.messagebuilder.generator:ca.infoway.messagebuilder.maven:ca.infoway.messagebuilder.terminology.loader:ca.infoway.messagebuilder.model.newfoundland:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.codeset.newfoundland:ca.infoway.messagebuilder.marshalling.newfoundland</excludePackageNames>
+						 <maxmemory>1024m</maxmemory>
 		                  <archive>
 			                  <manifest>
 			                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
