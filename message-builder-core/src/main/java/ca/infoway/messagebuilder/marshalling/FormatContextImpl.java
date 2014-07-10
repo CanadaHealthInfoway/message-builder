@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class FormatContextImpl implements FormatContext {
 
@@ -101,7 +102,8 @@ class FormatContextImpl implements FormatContext {
 	}
 
 	public boolean isFixed() {
-		return this.relationship.isFixed();
+		Relationship r = this.relationship;
+		return r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r);
 	}
 
 }

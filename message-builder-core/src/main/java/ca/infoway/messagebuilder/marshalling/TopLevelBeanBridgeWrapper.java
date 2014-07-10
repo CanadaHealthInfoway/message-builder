@@ -32,6 +32,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7StandardVersionCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class TopLevelBeanBridgeWrapper implements PartBridge {
 
@@ -69,8 +71,9 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 	public List<BaseRelationshipBridge> getRelationshipBridges() {
 		List<BaseRelationshipBridge> result = new ArrayList<BaseRelationshipBridge>();
 		for (BaseRelationshipBridge relationshipBridge : this.bridge.getRelationshipBridges()) {
+			Relationship r = relationshipBridge.getRelationship();
 			if ("versionCode".equals(relationshipBridge.getRelationship().getName())
-					&& !relationshipBridge.getRelationship().isFixed()) {
+					&& !(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
 				result.add(new FixedValueIfNotProvidedAttributeBeanBridge((AttributeBridge) relationshipBridge, 
 						new CSImpl(HL7StandardVersionCode.V3_2007_05)));
 			} else if ("interactionId".equals(relationshipBridge.getRelationship().getName())) {

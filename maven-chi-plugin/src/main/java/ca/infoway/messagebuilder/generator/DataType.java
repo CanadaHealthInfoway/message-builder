@@ -29,7 +29,7 @@ import org.apache.commons.lang.ClassUtils;
 
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class DataType {
 

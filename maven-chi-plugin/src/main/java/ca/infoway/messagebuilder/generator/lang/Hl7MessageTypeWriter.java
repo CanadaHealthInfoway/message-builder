@@ -29,17 +29,10 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 
-import ca.infoway.messagebuilder.generator.java.Association;
-import ca.infoway.messagebuilder.generator.java.BaseRelationship;
-import ca.infoway.messagebuilder.generator.java.Choice;
-import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
-import ca.infoway.messagebuilder.generator.java.MergedRelationshipSupport;
-import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
-import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
+public abstract class Hl7MessageTypeWriter extends CodeGenerator {
 	
 	protected final RenderedType type;
 	

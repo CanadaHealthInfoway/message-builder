@@ -63,11 +63,13 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 	private EdValidationUtils edValidationUtils = new EdValidationUtils();
 	
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, EncapsulatedData data, int indentLevel) {
 		throw new UnsupportedOperationException("ED uses formatNonNullDataType() method instead.");
 	}
 	
 	@Override
+	protected
 	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		
 		EncapsulatedData encapsulatedData = extractBareValue(dataType);

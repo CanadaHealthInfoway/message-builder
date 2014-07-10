@@ -274,6 +274,10 @@ public class TsFullDateTimePropertyFormatterTest {
 	@Test
 	public void testDateFormatPrecedence() throws Exception {
 		VersionNumber version = SpecificationVersion.V02R02_AB;
+		System.clearProperty(
+				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral()
+				);
+
 		String dateWithPatternPattern = "test1_mmddyy";
 		String overridePattern = "test2_MMDDYY";
 
@@ -314,6 +318,10 @@ public class TsFullDateTimePropertyFormatterTest {
 				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, SpecificationVersion.V01R04_2_SK));
 		assertEquals("Should use date with pattern always when provided even if version is NFLD", 
 				dateWithPatternPattern, formatter.determineDateFormat(StandardDataType.TS_FULLDATETIME, dateWithPattern, NEWFOUNDLAND_LEGACY_VERSION_HACK));
+		
+		System.clearProperty(
+				DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME + version.getVersionLiteral()
+				);
 	}
 	
 	private String getCurrentTimeZone(Date calendar) {

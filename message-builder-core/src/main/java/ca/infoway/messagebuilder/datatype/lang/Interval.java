@@ -24,6 +24,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 
@@ -50,6 +51,9 @@ public class Interval<T> extends SetComponent<T> {
 	private final NullFlavor highNullFlavor;
 	private final NullFlavor centreNullFlavor;
 	private final Representation representation;
+	
+	private Boolean lowInclusive;
+	private Boolean highInclusive;
 
 	/**
 	 * <p>Recommended to use the IntervalFactory class for object creation
@@ -61,7 +65,7 @@ public class Interval<T> extends SetComponent<T> {
 	 * @param representation
 	 */
 	public Interval(T low, T high, T centre, Diff<T> width, Representation representation) {
-		this(low, high, centre, width, representation, null, null, null, null);
+		this(low, high, centre, width, representation, null, null, null, null, null, null, null);
 	}
 
 	/**
@@ -77,7 +81,7 @@ public class Interval<T> extends SetComponent<T> {
 	 * @param centreNullFlavor
 	 */
 	public Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor) {
-		this(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor, null);
+		this(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor, null, null, null, null);
 	}
 
 	/**
@@ -85,12 +89,12 @@ public class Interval<T> extends SetComponent<T> {
 	 * 
 	 * @param value
 	 */
-	public Interval(T value) {
-		this(null, null, null, null, Representation.SIMPLE, null, null, null, value);
+	public Interval(T value, SetOperator operator) {
+		this(null, null, null, null, Representation.SIMPLE, null, null, null, value, operator, null, null);
 	}
 
-	private Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, T value) {
-		super(value);
+	private Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, T value, SetOperator operator, Boolean lowInclusive, Boolean highInclusive) {
+		super(value, operator);
 		this.low = low;
 		this.high = high;
 		this.centre = centre;
@@ -99,6 +103,8 @@ public class Interval<T> extends SetComponent<T> {
 		this.lowNullFlavor = lowNullFlavor;
 		this.highNullFlavor = highNullFlavor;
 		this.centreNullFlavor = centreNullFlavor;
+		this.lowInclusive = lowInclusive;
+		this.highInclusive = highInclusive;
 	}
 
 	/**
@@ -170,6 +176,22 @@ public class Interval<T> extends SetComponent<T> {
 		return this.centreNullFlavor;
 	}
 
+	public Boolean getLowInclusive() {
+		return this.lowInclusive;
+	}
+
+	public void setLowInclusive(Boolean lowInclusive) {
+		this.lowInclusive = lowInclusive;
+	}
+
+	public Boolean getHighInclusive() {
+		return this.highInclusive;
+	}
+
+	public void setHighInclusive(Boolean highInclusive) {
+		this.highInclusive = highInclusive;
+	}
+
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
@@ -182,6 +204,8 @@ public class Interval<T> extends SetComponent<T> {
                 .append(this.highNullFlavor)
                 .append(this.centreNullFlavor)
                 .append(this.representation)
+                .append(this.lowInclusive)
+                .append(this.highInclusive)
                 .toHashCode();
     }
 
@@ -207,6 +231,8 @@ public class Interval<T> extends SetComponent<T> {
                 .append(this.highNullFlavor, that.highNullFlavor)
                 .append(this.centreNullFlavor, that.centreNullFlavor)
                 .append(this.representation, that.representation)
+                .append(this.lowInclusive, that.lowInclusive)
+                .append(this.highInclusive, that.highInclusive)
                 .isEquals();
     }
     

@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.generator;
 
-import static ca.infoway.messagebuilder.generator.Namespaces.isMif1;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,6 +35,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import ca.infoway.messagebuilder.MifProcessingException;
+import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.DOMWriter;
@@ -84,22 +84,6 @@ abstract class BaseMifXPathHelper {
 		}
 	}
 
-	public static String getMifVersion(Document document) throws XPathExpressionException {
-		String mifVersion = null;
-		String namespace = getMifNamespace(document);
-		String version = new XPathHelper().getAttributeValue(document, "/mif2:staticModel/@schemaVersion", Namespaces.MIF2_NAMESPACE);
-		if (isMif1(namespace)) {
-			mifVersion = "1.x";
-		} else {
-			mifVersion = version;
-		}
-		return mifVersion;
-	}
-	
-	public static String getMifNamespace(Document document) {
-		return document.getDocumentElement().getNamespaceURI();
-	}
-	
 	protected static String getTypeAsString(Element element) {
 		String typeAsString = element.getAttribute("name");
 		// strip off .CA suffix (some jurisdictions add this to some datatypes)

@@ -27,7 +27,7 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
-import ca.infoway.messagebuilder.generator.MifProcessingException;
+import ca.infoway.messagebuilder.MifProcessingException;
 
 public class VocabularyMifMarshaller {
 	

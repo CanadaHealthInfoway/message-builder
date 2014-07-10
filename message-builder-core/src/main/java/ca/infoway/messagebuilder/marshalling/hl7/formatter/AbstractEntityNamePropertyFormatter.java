@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.lang.XmlStringEscape;
 public abstract class AbstractEntityNamePropertyFormatter<V extends EntityName> extends AbstractNullFlavorPropertyFormatter<V> {
 
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, V value, int indentLevel) {
 		
 		validateName(value, context);

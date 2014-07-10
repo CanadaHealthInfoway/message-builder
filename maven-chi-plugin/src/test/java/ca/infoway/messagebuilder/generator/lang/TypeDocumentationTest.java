@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.lang;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.C_SHARP;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.C_SHARP;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

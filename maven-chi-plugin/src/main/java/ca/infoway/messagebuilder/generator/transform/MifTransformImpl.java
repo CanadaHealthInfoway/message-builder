@@ -36,8 +36,8 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
-import ca.infoway.messagebuilder.generator.Mif2XPathHelper;
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.generator.util.MifXPathUtil;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 /**
@@ -122,7 +122,7 @@ public class MifTransformImpl implements MifTransform {
 
 	private boolean isValidVersion(Document documentToTransform) throws GeneratorException {
 		try {
-			String mifVersion = Mif2XPathHelper.getMifVersion(documentToTransform);
+			String mifVersion = MifXPathUtil.getMifVersion(documentToTransform);
 			return this.allowedVersions.contains(mifVersion);
 		} catch (XPathExpressionException e) {
 			throw new GeneratorException(e);

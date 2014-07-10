@@ -30,9 +30,10 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ClassUtils;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
 import ca.infoway.messagebuilder.generator.util.DomainType;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class DomainTypeWriter {
 

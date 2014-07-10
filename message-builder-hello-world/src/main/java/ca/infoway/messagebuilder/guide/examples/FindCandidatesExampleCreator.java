@@ -26,7 +26,7 @@ import java.util.Date;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.devtools.DefaultValueHolder;
 import ca.infoway.messagebuilder.devtools.MessageBeanFactory;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;

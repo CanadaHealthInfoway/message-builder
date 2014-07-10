@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import ca.infoway.messagebuilder.generator.FileSet;
 import ca.infoway.messagebuilder.generator.MifFileUtil;
 import ca.infoway.messagebuilder.generator.MifReference;
 import ca.infoway.messagebuilder.generator.MifSource;

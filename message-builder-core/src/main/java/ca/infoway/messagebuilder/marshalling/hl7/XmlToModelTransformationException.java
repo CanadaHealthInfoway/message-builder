@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7;
 
-import ca.infoway.messagebuilder.marshalling.MarshallingException;
+import ca.infoway.messagebuilder.MarshallingException;
 
 public class XmlToModelTransformationException extends MarshallingException {
 

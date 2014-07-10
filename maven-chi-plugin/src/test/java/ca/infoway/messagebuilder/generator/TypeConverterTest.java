@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class TypeConverterTest {

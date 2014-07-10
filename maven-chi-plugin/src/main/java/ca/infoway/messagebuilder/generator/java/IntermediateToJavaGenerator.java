@@ -20,15 +20,21 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
 
 import java.io.File;
 import java.io.IOException;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.DomainTypeWriter;
-import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.lang.Case3Simplifier;
+import ca.infoway.messagebuilder.generator.lang.IntermediateToModelConfiguration;
+import ca.infoway.messagebuilder.generator.lang.IntermediateToModelGenerator;
+import ca.infoway.messagebuilder.generator.lang.SimpleNameTranslator;
+import ca.infoway.messagebuilder.generator.lang.SimplifiableDefinitions;
+import ca.infoway.messagebuilder.generator.lang.TypeAnalysisResult;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	

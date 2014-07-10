@@ -1,0 +1,220 @@
+/**
+ * Copyright 2013 Canada Health Infoway, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2013-01-02 17:05:34 -0500 (Wed, 02 Jan 2013) $
+ * Revision:      $LastChangedRevision: 6471 $
+ */
+
+package ca.infoway.messagebuilder.generator.cda;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
+import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SchemaMetadata;
+import ca.infoway.messagebuilder.xml.TypeName;
+
+public class CdaXsdProcessor {
+
+	public void processSchema(Schema schema, MessageSet messageSet) {
+		
+		messageSet.setSchemaMetadata(parseMetadata(schema));
+
+		for (ComplexType complexType : schema.getComplexTypes()) {
+			ComplexContent complexContent = complexType.getComplexContent();
+			if (complexContent != null) {
+				ConstrainedDatatype constrainedDatatype = new ConstrainedDatatype(complexType.getName(),
+						complexContent.getChild().getBase());
+				
+				if (complexContent.getChild() instanceof Extension) {
+					constrainedDatatype.setExtension();
+				}
+				
+				List<Relationship> attributeRelationships = parseAttributes(complexContent.getChild().getAttributes());
+				
+				for (Relationship attributeRelationship : attributeRelationships) {
+					constrainedDatatype.getRelationships().add(attributeRelationship);
+				}
+				
+				messageSet.addConstrainedDatatype(constrainedDatatype);
+			}
+		}
+		
+		for (ComplexType complexType : schema.getComplexTypes()) {
+			String name = complexType.getName();
+			
+			TypeName typeName = new TypeName(name);
+			String packageName = typeName.getRootName().getName();
+			if (!messageSet.getPackageLocations().containsKey(packageName)) {
+				messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
+			}
+			
+			MessagePart messagePart = new MessagePart(complexType.getName());
+			
+			List<Relationship> attributeRelationships = parseAttributes(complexType.getAttributes());
+			
+			int sortOrder = 1;
+			for (Relationship attributeRelationship : attributeRelationships) {
+				attributeRelationship.setSortOrder(sortOrder++);
+				
+				messagePart.getRelationships().add(attributeRelationship);
+			}
+			
+			Sequence sequence = complexType.getSequence();
+			if (sequence != null) {
+				for (SequenceChild child : sequence.getChildren()) {
+					if (child instanceof XsElement) {
+						XsElement element = (XsElement) child;
+						Relationship relationship = parseElement(element, messageSet);
+						relationship.setSortOrder(sortOrder++);
+						messagePart.getRelationships().add(relationship);
+					} else if (child instanceof Choice) {
+						Choice choice = (Choice) child;
+						Relationship relationship = new Relationship();
+						String choiceName = typeName.getUnqualifiedName() + "_" + sortOrder;
+						relationship.setName(choiceName);
+						relationship.setSortOrder(sortOrder++);
+						for (XsElement choiceElement : choice.getElements()) {
+							relationship.getChoices().add(parseElement(choiceElement, messageSet));
+						}
+						messagePart.getRelationships().add(relationship);
+					}
+				}
+			}
+			
+			messageSet.addMessagePart(messagePart);
+		}
+	}
+
+	private SchemaMetadata parseMetadata(Schema schema) {
+		SchemaMetadata schemaMetadata = new SchemaMetadata();
+		schemaMetadata.setTargetNamespace(schema.getTargetNamespace());
+		schemaMetadata.setElementFormDefault(schema.getElementFormDefault());
+		
+		if (schema.getAnnotation() != null && schema.getAnnotation().getDocumentation() != null) {
+			schemaMetadata.setDocumentation(schema.getAnnotation().getDocumentation().getText());
+		}
+		
+		for (Include include : schema.getIncludes()) {
+			schemaMetadata.getSchemaLocations().add(include.getSchemaLocation());
+		}
+		
+		return schemaMetadata;
+	}
+
+	private List<Relationship> parseAttributes(List<XsAttribute> attributes) {
+		List<Relationship> attributeRelationships = new ArrayList<Relationship>();
+		for (XsAttribute attribute : attributes) {
+			Cardinality cardinality = new Cardinality(
+					isAttributeRequired(attribute) ? 1 : 0, 
+					1);
+			String typeName = attribute.getType();
+			StandardDataType standardType = StandardDataType.getByTypeNameIgnoreCase(typeName);
+			boolean isStandardType = standardType != null;
+			String dataType;
+			if (isStandardType) {
+				dataType = standardType.getName();
+			} else if (isAllLowerCase(typeName)) {
+				// an all lower case name is unlikely to be a code system name
+				dataType = typeName;
+			} else {
+				dataType = "CS";
+			}
+			
+			Relationship relationship = new Relationship(attribute.getName(), dataType, cardinality);
+			relationship.setStructural(true);
+			if (!isStandardType) {
+				relationship.setDomainSource(DomainSource.VALUE_SET);
+				relationship.setDomainType(typeName);
+			}
+			relationship.setConformance(createConformance(attribute));
+			relationship.setFixedValue(attribute.getFixed());
+			relationship.setDefaultValue(attribute.getDefaultValue());
+			attributeRelationships.add(relationship);
+		}
+		return attributeRelationships;
+	}
+
+	private boolean isAllLowerCase(String name) {
+		return StringUtils.lowerCase(name).equals(name);
+	}
+
+	private Relationship parseElement(XsElement element, MessageSet messageSet) {
+		Cardinality cardinality = new Cardinality(
+				parseLowerBound(element.getMinOccurs()), 
+				parseUpperBound(element.getMaxOccurs()));
+		String type = element.getType();
+		String baseType;
+		String constrainedType = null;
+		if (messageSet.hasConstrainedDatatype(type)) {
+			baseType = messageSet.getConstrainedDatatype(type).getBaseType();
+			constrainedType = type;
+			
+		} else {
+			baseType = type;
+		}
+		
+		if (cardinality.isMultiple() && StandardDataType.getByTypeNameIgnoreCase(baseType) != null) {
+			baseType = "LIST<" + baseType + ">";
+		}
+		
+		Relationship relationship = new Relationship(element.getName(), baseType, cardinality);
+		relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.MANDATORY : ConformanceLevel.OPTIONAL);
+		relationship.setConstrainedType(constrainedType);
+		return relationship;
+	}
+
+	private int parseLowerBound(String minOccurs) {
+		return StringUtils.isNumeric(minOccurs) ? Integer.valueOf(minOccurs) : 1;
+	}
+
+	private int parseUpperBound(String maxOccurs) {
+		int value = 1;
+		
+		if (StringUtils.isBlank(maxOccurs)) {
+			value = 1;	// standard default when the attribute is not provided
+		} else if ("unbounded".equals(maxOccurs)) {
+			value = Integer.MAX_VALUE;
+		} else if (StringUtils.isNumeric(maxOccurs)) {
+			value = Integer.valueOf(maxOccurs);
+		}
+		
+		return value; 
+	}
+
+	protected boolean isAttributeRequired(XsAttribute attribute) {
+		return "required".equals(attribute.getUse());
+	}
+
+	protected ConformanceLevel createConformance(XsAttribute attribute) {
+		if (isAttributeRequired(attribute)) {
+			return ConformanceLevel.REQUIRED;
+		} else {
+			return ConformanceLevel.OPTIONAL;
+		}
+	}
+
+}

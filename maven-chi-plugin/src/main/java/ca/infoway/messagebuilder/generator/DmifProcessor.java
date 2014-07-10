@@ -41,6 +41,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.MifProcessingException;
+import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Annotation;

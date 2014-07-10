@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BL;
+import ca.infoway.messagebuilder.datatype.BN;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CE;
 import ca.infoway.messagebuilder.datatype.COLLECTION;
@@ -87,7 +88,7 @@ import ca.infoway.messagebuilder.datatype.lang.SetComponent;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 /**
  * <p>A list of standard HL7 data types.
@@ -122,6 +123,7 @@ enum DataTypeGenerationDetails implements Typed {
 	AD_SEARCH("AD.SEARCH", AD.class.getName(), PostalAddress.class.getName(), null),
 	
 	BL("BL", BL.class.getName(), Boolean.class.getName(), "System.bool?"),
+	BN("BN", BN.class.getName(), Boolean.class.getName(), "System.bool?"),
 	
 	ON("ON", ON.class.getName(), OrganizationName.class.getName(), null),
 	
@@ -168,14 +170,17 @@ enum DataTypeGenerationDetails implements Typed {
 	PN_SEARCH("PN.SEARCH", PN.class.getName(), PersonName.class.getName(), null),
 	
 	IVL("IVL", "Interval", IVL.class.getName(), Interval.class.getName(), null),
+	IVL_INT("IVL<INT>", "IntInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_MO("IVL<MO>", "MoneyInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_PQ("IVL<PQ>", "PhysicalQuantityInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_REAL("IVL<REAL>", "RealInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_TS("IVL<TS>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_DATE("IVL<TS.DATE>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_DATETIME("IVL<TS.DATETIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_FULL_DATE("IVL<TS.FULLDATE>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_FULL_DATE_TIME("IVL<TS.FULLDATETIME>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_FULL_DATE_PART_TIME("IVL<TS.FULLDATEPARTTIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_FULL_DATE_WITH_TIME("IVL<TS.FULLDATEWITHTIME>", IVL.class.getName(), Interval.class.getName(), null), 
-	IVL_TS("IVL<TS>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null), 
-	IVL_PQ("IVL<PQ>", "PhysicalQuantityInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_HIGH_TS_FULLDATE("IVL.HIGH<TS.FULLDATE>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_WIDTH_TS_FULLDATE("IVL.WIDTH<TS.FULLDATE>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_LOW_TS_DATE("IVL.LOW<TS.DATE>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null),

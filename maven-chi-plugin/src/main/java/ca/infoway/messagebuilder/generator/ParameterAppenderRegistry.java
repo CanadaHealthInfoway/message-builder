@@ -32,7 +32,7 @@ import org.apache.commons.lang.ClassUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 import com.google.common.base.Function;
 import com.google.common.base.Functions;

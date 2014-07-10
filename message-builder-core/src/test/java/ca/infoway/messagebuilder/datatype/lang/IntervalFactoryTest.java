@@ -23,7 +23,6 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 public class IntervalFactoryTest {

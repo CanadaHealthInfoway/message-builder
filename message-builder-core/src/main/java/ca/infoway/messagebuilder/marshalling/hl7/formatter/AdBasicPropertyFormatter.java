@@ -61,6 +61,7 @@ import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
 
     @Override
+	protected
     final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
     	
     	Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();

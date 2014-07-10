@@ -40,8 +40,8 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
 	
     static final Map<String, String> EMPTY_ATTRIBUTE_MAP = new HashMap<String, String>(); 
 
-    static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
-    static final String NULL_FLAVOR_NO_INFORMATION = NullFlavor.NO_INFORMATION.getCodeValue();
+    public static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
+    public static final String NULL_FLAVOR_NO_INFORMATION = NullFlavor.NO_INFORMATION.getCodeValue();
     static final Map<String, String> NULL_FLAVOR_ATTRIBUTES = new HashMap<String, String>();
     static {
         NULL_FLAVOR_ATTRIBUTES.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);

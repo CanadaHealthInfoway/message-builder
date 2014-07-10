@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class QTYImpl<V> extends ANYImpl<V> implements QTY<V> {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -5845770716310555119L;
 
 	/**

@@ -20,8 +20,8 @@
 
 package ca.infoway.messagebuilder.generator;
 
-import static ca.infoway.messagebuilder.generator.Namespaces.HTML_NAMESPACE;
-import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
+import static ca.infoway.messagebuilder.generator.util.Namespaces.HTML_NAMESPACE;
+import static ca.infoway.messagebuilder.generator.util.Namespaces.MIF2_NAMESPACE;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +34,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;

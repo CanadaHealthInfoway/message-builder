@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 public class TnPropertyFormatter extends AbstractEntityNamePropertyFormatter<TrivialName> {
 
     @Override
+	protected
     String formatNonNullValue(FormatContext context, TrivialName value, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
         if (value != null) {

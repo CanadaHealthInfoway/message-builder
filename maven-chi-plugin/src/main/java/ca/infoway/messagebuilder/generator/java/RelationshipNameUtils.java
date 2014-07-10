@@ -22,6 +22,9 @@ package ca.infoway.messagebuilder.generator.java;
 
 import org.apache.commons.lang.WordUtils;
 
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationshipNameResolver;
+
 public class RelationshipNameUtils {
 
 	public static String getRelationshipNameCapitalized(BaseRelationshipNameResolver nameResolver, BaseRelationship relationship) {

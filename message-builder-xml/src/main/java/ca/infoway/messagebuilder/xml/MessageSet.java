@@ -61,6 +61,9 @@ public class MessageSet implements MessagePartResolver {
 	
 	@Element(required=false)
 	private Vocabulary vocabulary;
+	
+	@Element(required=false)
+	private SchemaMetadata schemaMetadata;
 
 	@ElementList(name="remixHistory",required=false,inline=true,entry="remixHistoryEntry") 
 	private List<MessageSetHistory> remixHistory = new ArrayList<MessageSetHistory>();
@@ -70,6 +73,9 @@ public class MessageSet implements MessagePartResolver {
 
 	@ElementMap(name="interaction",key="name",required=false,inline=true,attribute=true)
 	private Map<String,Interaction> interactions = new TreeMap<String,Interaction>();
+	
+	@ElementMap(name="constrainedDatatype",key="name",required=false,inline=true,attribute=true,entry="constrainedDatatype")
+	private Map<String, ConstrainedDatatype> constrainedDatatypes = new TreeMap<String, ConstrainedDatatype>();
 	
 	/**
 	 * <p>Get the version code that this message set represents.
@@ -209,7 +215,46 @@ public class MessageSet implements MessagePartResolver {
 			return null;
 		}
 	}
+	
+	/**
+	 * <p>Add a constrained datatype.
+	 * @param type - the constrained type to add
+	 */
+	public void addConstrainedDatatype(ConstrainedDatatype type) {
+		this.constrainedDatatypes.put(type.getName(), type);
+	}
 
+	/**
+	 * <p>Check whether the message set contains a constrained datatype with the specified name
+	 * 
+	 * @param typeName the name to check
+	 * @return true is a constrained datatype with that name is defined; false otherwise
+	 */
+	public boolean hasConstrainedDatatype(String typeName) {
+		return this.constrainedDatatypes.containsKey(typeName);
+	}
+
+	/**
+	 * <p>Get the list of all constrained datatypes
+	 * 
+	 * @return the list of all constrained datatypes
+	 */
+	public List<ConstrainedDatatype> getAllConstrainedDatatypes() {
+		List<ConstrainedDatatype> result = new ArrayList<ConstrainedDatatype>();
+		result.addAll(this.constrainedDatatypes.values());
+		return result;
+	}
+	
+	/**
+	 * <p>Get a constrained datatype by name
+	 * 
+	 * @param typeName the name
+	 * @return the constrained datatype
+	 */
+	public ConstrainedDatatype getConstrainedDatatype(String typeName) {
+		return this.constrainedDatatypes.get(typeName);
+	}
+	
 	/**
 	 * <p>Get the component.
 	 * @return the component
@@ -249,6 +294,13 @@ public class MessageSet implements MessagePartResolver {
 		return this.vocabulary;
 	}
 
+	/**
+	 * <p>Get the schema metadata
+	 * 
+	 * <p>Only used in the context of CDA documents
+	 * 
+	 * @return the schema metadata
+	 */
 	public String getSchemaVersion() {
 		return schemaVersion;
 	}
@@ -264,6 +316,14 @@ public class MessageSet implements MessagePartResolver {
 		return this.vocabulary != null && 
 				!(this.vocabulary.getConceptDomains().isEmpty() && 
 						this.vocabulary.getValueSets().isEmpty());
+	}
+
+	public SchemaMetadata getSchemaMetadata() {
+		return schemaMetadata;
+	}
+
+	public void setSchemaMetadata(SchemaMetadata schemaMetadata) {
+		this.schemaMetadata = schemaMetadata;
 	}
 
 	public String getGeneratedBy() {

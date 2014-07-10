@@ -99,7 +99,8 @@ public class ParserRegistryTest {
     }
 
     private boolean isParser(Class<?> classObj) {
-        return ElementParser.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj);
+        return ElementParser.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj) &&
+        	ClassUtils.getPackageName(ParserRegistry.class).equals(ClassUtils.getPackageName(classObj));
     }
 
     private List<File> getAllClasses() {

@@ -34,6 +34,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.NamingPolicy;
+import ca.infoway.messagebuilder.generator.lang.InteractionType;
+import ca.infoway.messagebuilder.generator.lang.LanguageSpecificName;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 

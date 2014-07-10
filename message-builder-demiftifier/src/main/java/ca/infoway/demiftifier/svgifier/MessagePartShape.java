@@ -128,4 +128,10 @@ abstract class MessagePartShape extends Shape {
 	MessagePartLayoutItem getMessagePartLayoutItem() {
 		return (MessagePartLayoutItem) this.item;
 	}
+
+	@Override
+	protected Fill getFillColor() {
+		Fill fillColor = super.getFillColor();
+		return (fillColor instanceof ColorFill) && this.item.isDuplicate() ? ((ColorFill) fillColor).makeGrey() : fillColor;
+	}
 }

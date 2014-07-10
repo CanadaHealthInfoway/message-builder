@@ -36,8 +36,12 @@ import org.apache.commons.lang.WordUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.generator.transform.MifTransform;
 import ca.infoway.messagebuilder.generator.transform.MifTransformImpl;
+import ca.infoway.messagebuilder.generator.util.MifXPathUtil;
+import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 /**
@@ -177,8 +181,8 @@ class MifRegistry {
 	
 	void checkVersion(Document document, File file) throws GeneratorException {
 		try {
-			String namespace = BaseMifXPathHelper.getMifNamespace(document); 
-			String version = BaseMifXPathHelper.getMifVersion(document);
+			String namespace = MifXPathUtil.getMifNamespace(document); 
+			String version = MifXPathUtil.getMifVersion(document);
 			if (this.mifVersion == null) {
 				this.namespace = namespace;
 				this.mifVersion = version;

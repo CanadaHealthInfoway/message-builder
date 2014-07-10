@@ -24,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import ca.infoway.messagebuilder.generator.maven.FileSet;
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
 /**

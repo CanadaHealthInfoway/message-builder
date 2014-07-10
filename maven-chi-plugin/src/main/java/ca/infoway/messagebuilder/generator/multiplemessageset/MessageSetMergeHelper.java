@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
+import static ca.infoway.messagebuilder.generator.lang.DifferenceHelper.EXISTS;
+import static ca.infoway.messagebuilder.generator.lang.DifferenceHelper.MISSING;
+
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -29,9 +32,6 @@ import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 
 public class MessageSetMergeHelper {
-
-	public static final String EXISTS = "[exists]";
-	public static final String MISSING = "[missing]";
 
 	String standardMerge(String primary, String secondary) {
 		String result = primary;

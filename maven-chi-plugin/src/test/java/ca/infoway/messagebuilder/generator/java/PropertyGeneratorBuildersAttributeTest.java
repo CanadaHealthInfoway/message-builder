@@ -20,11 +20,11 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createAssociation;
-import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createAttribute;
-import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createInlinedAttribute;
-import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createType;
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
+import static ca.infoway.messagebuilder.generator.lang.TypeAndRelationshipBuilder.createAssociation;
+import static ca.infoway.messagebuilder.generator.lang.TypeAndRelationshipBuilder.createAttribute;
+import static ca.infoway.messagebuilder.generator.lang.TypeAndRelationshipBuilder.createInlinedAttribute;
+import static ca.infoway.messagebuilder.generator.lang.TypeAndRelationshipBuilder.createType;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -39,6 +39,13 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.generator.lang.Attribute;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationshipNameResolver;
+import ca.infoway.messagebuilder.generator.lang.ClassNameManager;
+import ca.infoway.messagebuilder.generator.lang.InlinedAttribute;
+import ca.infoway.messagebuilder.generator.lang.PropertyGenerator;
+import ca.infoway.messagebuilder.generator.lang.PropertyGeneratorBuilders;
 import ca.infoway.messagebuilder.junit.JMockMockeryRule;
 import ca.infoway.messagebuilder.xml.Cardinality;
 

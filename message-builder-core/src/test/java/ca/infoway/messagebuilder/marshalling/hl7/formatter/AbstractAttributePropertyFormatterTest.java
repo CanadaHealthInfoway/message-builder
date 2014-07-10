@@ -36,7 +36,7 @@ public class AbstractAttributePropertyFormatterTest extends FormatterTestCase {
 		private final Map<String, String> nameValuePairs = new HashMap<String, String>();
 		
 		@Override
-		Map<String, String> getAttributeNameValuePairs(FormatContext context, String string, BareANY bareANY) {
+		protected Map<String, String> getAttributeNameValuePairs(FormatContext context, String string, BareANY bareANY) {
 			return this.nameValuePairs;
 		}
 		

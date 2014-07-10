@@ -92,6 +92,21 @@ public class IntElementParserTest extends MarshallingTestCase {
 	}
 	
 	@Test
+	public void testParseValueAttributeInvalidNegative2() throws Exception {
+		Node node = createNode("<something value=\"-1\" />");
+		assertEquals("correct value returned", new Integer("-1"), new IntElementParser().parse(createContext("INT.NONNEG"), node, this.xmlResult).getBareValue());
+		assertFalse("error", this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidNegative() throws Exception {
+		Node node = createNode("<something value=\"-1\" />");
+		assertEquals("correct value returned", new Integer("-1"), new IntElementParser().parse(createContext("INT"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+	}
+	
+	@Test
 	public void testParseValueAttributeValidPlusExtraAttribute() throws Exception {
 		Node node = createNode("<something extra=\"value\" value=\"1345\" />");
 		assertEquals("correct value returned", new Integer("1345"), new IntElementParser().parse(createContext("INT.POS"), node, this.xmlResult).getBareValue());

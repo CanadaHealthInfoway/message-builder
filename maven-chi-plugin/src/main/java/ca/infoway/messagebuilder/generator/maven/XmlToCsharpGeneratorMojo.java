@@ -33,9 +33,9 @@ import org.apache.maven.plugin.MojoFailureException;
 
 import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.dotnet.IntermediateToCsharpGenerator;
-import ca.infoway.messagebuilder.generator.java.FingerprintDuplicateRegistry;
-import ca.infoway.messagebuilder.generator.java.IntermediateToModelConfiguration;
-import ca.infoway.messagebuilder.generator.java.IntermediateToModelGenerator;
+import ca.infoway.messagebuilder.generator.lang.FingerprintDuplicateRegistry;
+import ca.infoway.messagebuilder.generator.lang.IntermediateToModelConfiguration;
+import ca.infoway.messagebuilder.generator.lang.IntermediateToModelGenerator;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;

@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.generator;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 

@@ -68,6 +68,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
  * @sharpen.ignore sample message generator is for MB Java only
@@ -391,8 +392,8 @@ public class InteractionPopulatingUtility  {
 	 * @return
 	 */
 	private boolean isConformanceAcceptable(Relationship relationship, ConformanceOption conformanceOption) {
-		boolean acceptable = relationship.isMandatory();
-		if (relationship.isOptional() || relationship.isRequired() || relationship.isPopulated()) {
+		boolean acceptable = ConformanceLevelUtil.isMandatory(relationship);
+		if (ConformanceLevelUtil.isOptional(relationship) || ConformanceLevelUtil.isRequired(relationship) || ConformanceLevelUtil.isPopulated(relationship)) {
 			acceptable = (conformanceOption == ALL);
 			if (conformanceOption == MANDATORY_INCLUDING_PAYLOAD && relationship.isTemplateRelationship()) {
 				acceptable = true;

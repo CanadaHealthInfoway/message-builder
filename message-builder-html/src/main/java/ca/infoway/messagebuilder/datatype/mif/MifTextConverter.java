@@ -124,7 +124,7 @@ public class MifTextConverter implements Converter<MifText> {
 				OutputNode child = null;
 				if (namespace != null) {
 					child = node.getChild(namespace.prefix() + ":p");
-					child.getNamespaces().put(namespace.reference(), namespace.prefix());
+					child.getNamespaces().setReference(namespace.reference(), namespace.prefix());
 				} else {
 					child = node.getChild("p");
 				}

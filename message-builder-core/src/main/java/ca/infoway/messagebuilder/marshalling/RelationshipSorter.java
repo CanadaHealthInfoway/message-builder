@@ -28,6 +28,7 @@ import java.util.Map;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.WordUtils;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.RelationshipMap.Key;

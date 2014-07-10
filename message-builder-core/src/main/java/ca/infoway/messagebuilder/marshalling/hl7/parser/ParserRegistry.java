@@ -29,7 +29,6 @@ public class ParserRegistry extends Registry<ElementParser> {
     private ParserRegistry() {
     }
 
-    @SuppressWarnings("rawtypes")
 	@Override
     protected void registerAll() {
         register(new AdElementParser());

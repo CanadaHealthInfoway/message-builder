@@ -22,16 +22,16 @@ package ca.infoway.messagebuilder.generator.dotnet;
 
 import java.io.IOException;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.generator.NamingPolicy;
-import ca.infoway.messagebuilder.generator.java.ComplexTypePackage;
-import ca.infoway.messagebuilder.generator.java.Hl7TypeWriter;
-import ca.infoway.messagebuilder.generator.java.NameTranslator;
-import ca.infoway.messagebuilder.generator.java.Type;
-import ca.infoway.messagebuilder.generator.java.TypeAnalysisResult;
-import ca.infoway.messagebuilder.generator.java.TypeWriter;
-import ca.infoway.messagebuilder.generator.java.WriterProvider;
+import ca.infoway.messagebuilder.generator.lang.ComplexTypePackage;
+import ca.infoway.messagebuilder.generator.lang.Hl7TypeWriter;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.Type;
+import ca.infoway.messagebuilder.generator.lang.TypeAnalysisResult;
+import ca.infoway.messagebuilder.generator.lang.TypeWriter;
+import ca.infoway.messagebuilder.generator.lang.WriterProvider;
 
 public class CsharpTypeWriter extends TypeWriter {
 

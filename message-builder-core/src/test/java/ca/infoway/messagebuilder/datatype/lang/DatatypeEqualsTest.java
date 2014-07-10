@@ -26,7 +26,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;

@@ -36,8 +36,8 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
@@ -214,6 +214,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	}
 
     @Override
+	protected
     Map<String, String> getAttributeNameValuePairs(FormatContext context, Code code, BareANY bareAny) {
         Map<String, String> result = new HashMap<String, String>();
         if (code != null) {

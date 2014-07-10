@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class TealBeanRenderWalker {
 	
@@ -138,7 +139,7 @@ class TealBeanRenderWalker {
 	}
 
 	private void processPartValue(PartBridge child,	Interaction interaction, AssociationBridge relationshipBridge, Visitor visitor) {
-		if (child.isEmpty() && !relationshipBridge.getRelationship().isMandatory()) {
+		if (child.isEmpty() && !ConformanceLevelUtil.isMandatory(relationshipBridge.getRelationship())) {
 		} else {
 			processAllRelationships(child, interaction, visitor);
 		}

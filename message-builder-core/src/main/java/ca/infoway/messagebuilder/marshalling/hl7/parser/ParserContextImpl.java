@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-class ParserContextImpl implements ParseContext {
+public class ParserContextImpl implements ParseContext {
 
 	private final Type expectedReturnType;
 	private final String type;
@@ -89,7 +89,7 @@ class ParserContextImpl implements ParseContext {
 		return this.length;
 	}
 
-	static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality) {
+	public static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality) {
 		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null);
 	}
 

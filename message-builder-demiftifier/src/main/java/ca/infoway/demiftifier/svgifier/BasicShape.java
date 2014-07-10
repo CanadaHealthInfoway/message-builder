@@ -39,11 +39,18 @@ abstract class BasicShape {
 		this.styleProvider = styleProvider;
 	}
 	public void render(BoundingBox box, Writer writer) throws IOException {
+		renderFullOutline(box, writer);
+		renderText(box, writer);
+	}
+	protected void renderFullOutline(BoundingBox box, Writer writer)
+			throws IOException {
 		renderOutline(box, writer);
 		
 		writeStyle(writer);
+		closeOutline(writer);
+	}
+	protected void closeOutline(Writer writer) throws IOException {
 		writer.write(" />");
-		renderText(box, writer);
 	}
 	protected void renderOutline(BoundingBox box, Writer writer)
 			throws IOException {

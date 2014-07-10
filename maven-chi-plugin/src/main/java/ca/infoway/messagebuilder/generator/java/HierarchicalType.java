@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.generator.java;
 
 import java.util.Set;
 
+import ca.infoway.messagebuilder.generator.lang.RenderedType;
+
 interface HierarchicalType {
 	public Set<RenderedType> getChildTypes();
 }

@@ -33,7 +33,7 @@ class NoteAnnotationShape extends AnnotationShape {
 	}
 
 	@Override
-	protected void renderOutline(BoundingBox box, Writer writer)
+	protected void renderFullOutline(BoundingBox box, Writer writer)
 			throws IOException {
 		List<Position> positions = new ArrayList<Position>();
 		positions.add(new PositionImpl(box.getX(), box.getY()));

@@ -26,6 +26,8 @@ package ca.infoway.messagebuilder.generator.java;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class TypeBuilder {

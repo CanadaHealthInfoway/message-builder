@@ -28,6 +28,7 @@ import ca.infoway.demiftifier.LayoutItem;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public abstract class Shape extends BasicShape {
 
@@ -137,14 +138,14 @@ public abstract class Shape extends BasicShape {
 				result.addSegment(" (" + attribute.getDocumentation().getBusinessName() + ")", this.styleProvider.getDefaultAttributeTextFont());
 			}
 		}
-		if (attribute.isFixed()) {
+		if (attribute.hasFixedValue() && ConformanceLevelUtil.isMandatory(attribute)) {
 			result.addSegment("= \"" + attribute.getFixedValue() + "\"", this.styleProvider.getDefaultItalicAttributeTextFont());
 		}
 		return result;
 	}
 	
 	private String getConformanceMarker(Relationship attribute) {
-		if (attribute.isMandatory() || (attribute.isRequired() && attribute.getCardinality().isMandatory() && attribute.getCardinality().isSingle())) {
+		if (ConformanceLevelUtil.isMandatory(attribute) || (ConformanceLevelUtil.isRequired(attribute) && attribute.getCardinality().isMandatory() && attribute.getCardinality().isSingle())) {
 			return CONFORMANCE_MARKER_MANDATORY;
 		} else {
 			return "";

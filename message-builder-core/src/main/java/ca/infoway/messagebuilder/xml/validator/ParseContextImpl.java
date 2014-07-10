@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.xml.validator;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.getReturnType;
+import static ca.infoway.messagebuilder.marshalling.DomainTypeHelper.getReturnType;
 
 import java.lang.reflect.Type;
 import java.util.TimeZone;

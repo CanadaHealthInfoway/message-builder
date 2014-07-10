@@ -6,9 +6,8 @@
 		<groupId>ca.infoway.messagebuilder</groupId>
 		<version>1.5.9-SNAPSHOT</version>
 	</parent>
-	<groupId>ca.infoway.messagebuilder</groupId>
+
 	<artifactId>message-builder-core</artifactId>
-	<version>1.5.9-SNAPSHOT</version>
 	<name>message-builder-core</name>
 	<url>http://maven.apache.org</url>
 	

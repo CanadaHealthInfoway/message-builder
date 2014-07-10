@@ -26,6 +26,7 @@ import static ca.infoway.messagebuilder.generator.NameHelper.qualifiyName;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 
 public class TypeResolver {
@@ -48,7 +49,8 @@ public class TypeResolver {
 			String unqualifiedName = MifXPathHelper.getSpecializedClass(specializationChild);
 			return NameHelper.qualifiyName(specializationChild, unqualifiedName);
 		} else {
-			throw new MifProcessingException(specializationChild, "Cannot resolve type for specialization child.  Parent = " +
+			String ownedEntryPoint = new MifXPathHelper().getOwnedEntryPoint(specializationChild.getOwnerDocument());
+			throw new MifProcessingException("Error processing " + ownedEntryPoint + ":Cannot resolve type for specialization child.  Parent = " +
 					getParentName(specializationChild));
 		}
 	}

@@ -35,6 +35,8 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.time.StopWatch;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Cardinality;

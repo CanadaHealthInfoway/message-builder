@@ -35,10 +35,4 @@ public class BoxShape extends MessagePartShape {
 			return super.getMargins();
 		}
 	}
-	
-	@Override
-	protected Fill getFillColor() {
-		Fill fillColor = super.getFillColor();
-		return (fillColor instanceof ColorFill) && this.item.isDuplicate() ? ((ColorFill) fillColor).makeGrey() : fillColor;
-	}
 }

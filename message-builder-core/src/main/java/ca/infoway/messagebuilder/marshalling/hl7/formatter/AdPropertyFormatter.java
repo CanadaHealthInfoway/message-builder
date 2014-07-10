@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class AdPropertyFormatter extends AbstractAdPropertyFormatter {
 	
     @Override
+	protected
     final String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
     	
     	AD_VALIDATION_UTILS.validatePostalAddress(postalAddress, context.getType(), context.getVersion(), null, context.getPropertyPath(), context.getModelToXmlResult());

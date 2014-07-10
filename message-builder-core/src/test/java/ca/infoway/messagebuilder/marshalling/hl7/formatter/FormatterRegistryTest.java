@@ -63,7 +63,8 @@ public class FormatterRegistryTest {
     }
 
     private boolean isFormatter(Class<?> classObj) {
-        return PropertyFormatter.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj);
+        return PropertyFormatter.class.isAssignableFrom(classObj) && !ClassUtil.isAbstract(classObj) && 
+        		ClassUtils.getPackageName(FormatterRegistry.class).equals(ClassUtils.getPackageName(classObj));
     }
 
     private List<File> getAllClasses() {

@@ -24,7 +24,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
+import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
@@ -46,6 +48,7 @@ public class XsdTypeConverter {
     protected static void addAllHl7BasicTypes(Map<String, XsdDataType> map) {
         map.put("ANY", new XsdDataType("anyType", Namespaces.XSD_NAMESPACE));
         map.put(BL, new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
+        map.put("BN", new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
         map.put("INT", new XsdDataType("integer", Namespaces.XSD_NAMESPACE));
         map.put("REAL", new XsdDataType("decimal", Namespaces.XSD_NAMESPACE));
         
@@ -55,6 +58,9 @@ public class XsdTypeConverter {
         map.put("IVL<TS>", new XsdDataType("DateInterval", Namespaces.CHI_NAMESPACE));
         map.put("PIVL<TS>", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
         map.put("IVL<PQ>", new XsdDataType("PhysicalQuantityInterval", Namespaces.CHI_NAMESPACE));
+        map.put("IVL<INT>", new XsdDataType("IntInterval", Namespaces.CHI_NAMESPACE));
+        map.put("IVL<REAL>", new XsdDataType("RealInterval", Namespaces.CHI_NAMESPACE));
+        map.put("IVL<MO>", new XsdDataType("MoneyInterval", Namespaces.CHI_NAMESPACE));
         map.put("II", new XsdDataType("InstanceIdentifier", Namespaces.CHI_NAMESPACE));
         map.put("CS", new XsdDataType("SimpleCodedType", Namespaces.CHI_NAMESPACE));
         map.put("CV", new XsdDataType("CodedValue", Namespaces.CHI_NAMESPACE));

@@ -27,9 +27,9 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
@@ -40,6 +40,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 	IvlPqPropertyFormatter formatter = new IvlPqPropertyFormatter();	
 
 	@Override
+	protected
 	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		
 		@SuppressWarnings("unchecked")
@@ -82,6 +83,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 	}
 	
     @Override
+	protected
 	String formatNonNullValue(FormatContext context, UncertainRange<PhysicalQuantity> value, int indentLevel) {
     	// unused
 		throw new UnsupportedOperationException();

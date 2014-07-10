@@ -43,8 +43,8 @@ public class Cardinality {
 	}
 
 	/**
-	 * <p>Get the miniumum value.
-	 * @return the miniumum value.
+	 * <p>Get the minimum value.
+	 * @return the minimum value.
 	 */
 	public Integer getMin() {
 		return this.min;
@@ -52,7 +52,7 @@ public class Cardinality {
 	
 	/**
 	 * <p>A flag that indicates that the cardinality is at least one.
-	 * @return true if the minium cardinality is at least one; false otherwise.
+	 * @return true if the minimum cardinality is at least one; false otherwise.
 	 */
 	public boolean isMandatory() {
 		return this.min >= 1;
@@ -83,6 +83,10 @@ public class Cardinality {
 	 */
 	public boolean isMultiple() {
 		return !isSingle();
+	}
+	
+	public boolean isUnbounded() {
+		return Integer.MAX_VALUE == this.max;
 	}
 
 	/**
@@ -144,6 +148,13 @@ public class Cardinality {
 					? Integer.MAX_VALUE
 					: Integer.parseInt(maxAsString);
 			return new Cardinality(min, max);
+		} else if (string.contains("..")) {
+			int min = Integer.parseInt(StringUtils.substringBefore(string, ".."));
+			String maxAsString = StringUtils.substringAfter(string, "..");
+			int max = ("*".equals(maxAsString)) 
+					? Integer.MAX_VALUE
+							: Integer.parseInt(maxAsString);
+			return new Cardinality(min, max);
 		} else {
 			int value = Integer.parseInt(string);
 			return new Cardinality(value, value);
@@ -160,5 +171,11 @@ public class Cardinality {
 	public boolean contains(int value) {
 		return (this.min == null || this.min <= value) && 
 			(this.max == null || this.max >= value);
+	}
+
+	public static Cardinality add(Cardinality cardinality1,	Cardinality cardinality2) {
+		int newMin = cardinality1.getMin() + cardinality2.getMin();
+		int newMax = (cardinality1.isUnbounded() || cardinality2.isUnbounded()) ? Integer.MAX_VALUE : cardinality1.getMax() + cardinality2.getMax();
+		return new Cardinality(newMin, newMax);
 	}
 }

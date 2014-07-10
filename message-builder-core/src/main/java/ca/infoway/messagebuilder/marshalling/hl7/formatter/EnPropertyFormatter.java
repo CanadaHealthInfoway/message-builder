@@ -48,6 +48,7 @@ class EnPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityName
     private final TnPropertyFormatter tnPropertyFormatter = new TnPropertyFormatter();
 
     @Override
+	protected
     String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) {
     	
     	// this code is delegating to the appropriate formatter based on the type of the

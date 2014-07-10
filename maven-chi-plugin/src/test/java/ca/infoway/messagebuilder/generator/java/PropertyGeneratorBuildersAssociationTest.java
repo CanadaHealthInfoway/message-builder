@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -32,6 +32,12 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.lang.Association;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationshipNameResolver;
+import ca.infoway.messagebuilder.generator.lang.ClassNameManager;
+import ca.infoway.messagebuilder.generator.lang.PropertyGenerator;
+import ca.infoway.messagebuilder.generator.lang.PropertyGeneratorBuilders;
 import ca.infoway.messagebuilder.junit.JMockMockeryRule;
 import ca.infoway.messagebuilder.xml.Cardinality;
 

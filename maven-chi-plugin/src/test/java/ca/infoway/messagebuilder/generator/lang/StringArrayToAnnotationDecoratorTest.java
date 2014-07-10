@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.lang;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 

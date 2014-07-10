@@ -33,7 +33,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.COLLECTION;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 
 public class DataTypeTest {

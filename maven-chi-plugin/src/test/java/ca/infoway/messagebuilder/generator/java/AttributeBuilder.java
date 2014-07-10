@@ -25,6 +25,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.generator.lang.Attribute;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;

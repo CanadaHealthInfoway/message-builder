@@ -50,6 +50,7 @@ class MoPropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	private static final int MAX_DIGITS_AFTER_DECIMAL = 2;
 
     @Override
+	protected
     Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) {
     	
     	validate(money, context);    	

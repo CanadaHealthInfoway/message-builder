@@ -58,9 +58,21 @@ class FormattedString {
 	private BoundingBox box;
 	
 	void addSegment(String text, TextFont textFont) {
-		this.segments.add(new Segment(text, textFont));
+		if (text != null && textFont != null) {
+			this.segments.add(new Segment(text, textFont));
+		}
 	}
 
+	void addSegment(String text, TextFont textFont, BoundingBox box) {
+		if (text != null && textFont != null) {
+			Segment segment = new Segment(text, textFont);
+			if (box != null) {
+				segment.setBox(box);
+			}
+			this.segments.add(segment);
+		}
+	}
+	
 	List<Segment> getSegments() {
 		return segments;
 	}
@@ -75,4 +87,5 @@ class FormattedString {
 	public void addLineBreak() {
 		this.segments.add(new Segment("\n", null));
 	}
+	
 }

@@ -23,6 +23,9 @@
  */
 package ca.infoway.messagebuilder.generator.java;
 
+import ca.infoway.messagebuilder.generator.lang.Association;
+import ca.infoway.messagebuilder.generator.lang.LanguageSpecificName;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;

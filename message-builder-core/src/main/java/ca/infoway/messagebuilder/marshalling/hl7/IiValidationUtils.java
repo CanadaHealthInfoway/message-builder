@@ -61,7 +61,13 @@ public class IiValidationUtils {
 	private static final int ROOT_MAX_LENGTH_CERX = 100;
 
 	public boolean isOid(String root) {
+		return isOid(root, false);
+	}
+	
+	public boolean isOid(String root, boolean isR2) {
 		if (StringUtils.isBlank(root) || !root.contains(".")) {
+			return false;
+		} else if (isR2 && !(root.charAt(0) == '0' || root.charAt(0) == '1' || root.charAt(0) == '2')) {
 			return false;
 		} else {
 			boolean oid = true;
@@ -88,6 +94,15 @@ public class IiValidationUtils {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	public boolean isRuid(String root) {
+		boolean result = StringUtils.isBlank(root) ? false : Character.isLetter(root.charAt(0));
+		for (int i = 0; result && i < root.length(); i++) {
+			char ch = root.charAt(i);
+			result &= (Character.isLetterOrDigit(ch) || ch == '-'); 
+		}
+		return result;
 	}
 
 	public int getMaxRootLength(StandardDataType type, VersionNumber version) {
@@ -153,6 +168,10 @@ public class IiValidationUtils {
 
 	public String getRootMustBeUuidErrorMessage(String root) {
 		return "root '" + root + "' should be a UUID.";
+	}
+
+	public String getRootMustBeUuidRuidOidErrorMessage(String root) {
+		return "root '" + root + "' must conform to be either a UUID, RUID, or OID.";
 	}
 
 	public String getInvalidRootLengthErrorMessage(String root, StandardDataType type, VersionNumber version) {

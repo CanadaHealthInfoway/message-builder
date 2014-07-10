@@ -26,8 +26,8 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifiable;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.util.Identifiable;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 @Hl7PartTypeMapping({ "PRLO_MT000002CA.IndirectAuthorithyOver", "PRLO_MT000001CA.IndirectAuthorithyOver" })

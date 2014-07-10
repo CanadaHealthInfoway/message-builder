@@ -41,9 +41,9 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
 
-import ca.infoway.messagebuilder.generator.java.NameTranslator;
-import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.lang.Indenter;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.TypeName;
 

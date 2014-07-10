@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 import com.hp.gagawa.java.Document;
 import com.hp.gagawa.java.DocumentType;
@@ -167,7 +168,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 				continue;
 			}
 			Div relationshipDiv = new Div();
-			if (relationship.isAttribute() && relationship.isFixed()) {
+			if (relationship.isAttribute() && relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
 				relationshipDiv.setCSSClass("relationshipDiv attributeDiv fixedAttribute");
 			} else if (relationship.isAttribute()){
 				relationshipDiv.setCSSClass("relationshipDiv attributeDiv");
@@ -316,7 +317,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 		if (relationship.isAttribute()) {
 			tBody.appendChild(createDataRow("Data Type:", createDatatypeLinks(relationship.getType(), getDatatypeSet()), ""));
 			
-			if (relationship.isFixed()) {
+			if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
 				tBody.appendChild(createDataRow("Fixed Value:", new Text(relationship.getFixedValue()), 
 						"This member is fixed to " + relationship.getFixedValue()));
 			} 

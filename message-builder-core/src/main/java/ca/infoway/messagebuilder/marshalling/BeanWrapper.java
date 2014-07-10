@@ -34,6 +34,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
@@ -44,10 +45,10 @@ import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class BeanWrapper {
 
@@ -86,7 +87,7 @@ class BeanWrapper {
 	}
 
 	void write(Relationship relationship, Object o) {
-		if (!relationship.isFixed()) {
+		if (!(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship))) {
 			BeanProperty property = findBeanProperty(relationship);
 			if (property != null) {
 				if (o!=null) {
@@ -165,7 +166,7 @@ class BeanWrapper {
         			this.log.info("PROPERTY NOT WRITABLE: IGNORING relationshipName=" + relationship.getName() + ", property=" + property.getName());
 				}
             }
-		} else if (relationship.isFixed()){
+		} else if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)){
 			// We don't need to map fixed value codes.
 		} else {
 			this.log.info("PROPERTY NOT FOUND - IGNORED: no relationship named " + relationship.getName() + " found on " + getWrappedType());

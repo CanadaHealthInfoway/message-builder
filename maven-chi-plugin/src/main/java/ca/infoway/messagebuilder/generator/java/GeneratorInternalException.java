@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
 
 public class GeneratorInternalException extends GeneratorException {
 

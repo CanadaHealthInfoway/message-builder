@@ -27,6 +27,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.platform.ClassUtil;
 import ca.infoway.messagebuilder.platform.GenericClassUtil;

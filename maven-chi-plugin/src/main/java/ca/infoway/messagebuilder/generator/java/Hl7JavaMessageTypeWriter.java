@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.JAVA;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 
 import java.io.IOException;
@@ -32,12 +32,25 @@ import java.util.Set;
 
 import org.apache.commons.lang.time.DateFormatUtils;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.SourceFileWriter;
-import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
+import ca.infoway.messagebuilder.generator.lang.Association;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationshipNameResolver;
+import ca.infoway.messagebuilder.generator.lang.Choice;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
+import ca.infoway.messagebuilder.generator.lang.Hl7TypeWriter;
+import ca.infoway.messagebuilder.generator.lang.ImportTypeUtil;
+import ca.infoway.messagebuilder.generator.lang.InteractionType;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.PropertyGenerator;
+import ca.infoway.messagebuilder.generator.lang.PropertyGeneratorBuilders;
+import ca.infoway.messagebuilder.generator.lang.PropertyNameResolver;
+import ca.infoway.messagebuilder.generator.lang.RenderedType;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
+import ca.infoway.messagebuilder.generator.lang.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 

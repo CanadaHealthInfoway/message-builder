@@ -58,7 +58,7 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSS0ZZZZZ";
 
     @Override
-    protected String getValue(Date date, FormatContext context, BareANY bareAny) {
+    public String getValue(Date date, FormatContext context, BareANY bareAny) {
     	// write out the date using the applicable "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);
 		StandardDataType standardDataType = StandardDataType.getByTypeName(context);

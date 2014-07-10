@@ -21,11 +21,13 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 abstract class StructuralAttributeRenderer {
 	
@@ -36,13 +38,14 @@ abstract class StructuralAttributeRenderer {
 	}
 
 	public void render(StringBuilder builder, String propertyPath, Hl7Errors errors) {
-		if (this.relationship.isFixed()) {
+		Relationship r = this.relationship;
+		if (r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r)) {
 			formatFixedValue(builder, relationship);
 		} else {
 			Object value = getValue();
 			if (value != null) {
 				formatValue(builder, relationship, value);
-			} else if (this.relationship.isMandatory()) {
+			} else if (ConformanceLevelUtil.isMandatory(this.relationship)) {
 				String errorMessage = "Relationship " + this.relationship.getName()	+ " is mandatory (and not a fixed value), but no value is specified";
 				Hl7Error error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, propertyPath);
 				errors.addHl7Error(error);

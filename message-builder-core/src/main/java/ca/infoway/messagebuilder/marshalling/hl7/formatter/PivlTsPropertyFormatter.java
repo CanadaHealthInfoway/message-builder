@@ -56,6 +56,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 	private PropertyFormatter ivlPqPropertyFormatter = new IvlPqPropertyFormatter();
 	
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, PeriodicIntervalTime value, int indentLevel) {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(createElement(context, getAttributesMap(), indentLevel, false, true));

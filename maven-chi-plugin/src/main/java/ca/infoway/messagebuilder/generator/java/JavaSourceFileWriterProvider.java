@@ -25,6 +25,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.WriterProvider;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class JavaSourceFileWriterProvider implements WriterProvider {

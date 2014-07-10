@@ -25,6 +25,7 @@ import java.util.Date;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CV;
@@ -65,7 +66,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.marshalling.MarshallingException;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 
 /**
@@ -73,7 +73,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
-class GenericDataTypeFactory {
+public class GenericDataTypeFactory {
 
 	public static BareANY create(String dataType) {
 		Hl7DataTypeName type = Hl7DataTypeName.create(dataType);

@@ -35,7 +35,11 @@ import java.util.TreeSet;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.generator.lang.ClassNameManager;
+import ca.infoway.messagebuilder.generator.lang.LanguageSpecificName;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.Type;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.TypeName;
 

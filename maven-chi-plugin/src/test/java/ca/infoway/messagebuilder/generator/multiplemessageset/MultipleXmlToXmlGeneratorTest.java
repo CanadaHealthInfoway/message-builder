@@ -33,10 +33,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.infoway.messagebuilder.generator.FileSet;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.MessageSetWriter;
 import ca.infoway.messagebuilder.generator.OutputUI;
-import ca.infoway.messagebuilder.generator.maven.FileSet;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 

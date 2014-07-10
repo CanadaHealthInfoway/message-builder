@@ -62,12 +62,9 @@
 		</dependency>
 		
 		<dependency>
-			<!-- This is a custom version of XMLUnit, which contains a custom fix 
-			Implemented by Intelliware and is not publicly available yet.  This 
-			custom JAR has been added to Infoway Maven repository -->
-			<groupId>ca.intelliware</groupId>
+			<groupId>xmlunit</groupId>
 			<artifactId>xmlunit</artifactId>
-			<version>1.5alpha~iwd1</version>
+			<version>1.5</version>
 			 <!-- "Compile" scope because we're using its underlying
 			XML-comparison functionality as part of the app itself -->
 			<scope>compile</scope>

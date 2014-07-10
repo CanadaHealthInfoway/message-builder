@@ -26,6 +26,7 @@ import java.util.TimeZone;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;

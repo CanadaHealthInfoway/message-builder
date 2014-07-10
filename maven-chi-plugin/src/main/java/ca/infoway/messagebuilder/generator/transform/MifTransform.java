@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.generator.transform;
 
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
 
 public interface MifTransform {
 

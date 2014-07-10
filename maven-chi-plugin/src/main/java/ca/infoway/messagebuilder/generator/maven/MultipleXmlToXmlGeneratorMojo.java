@@ -31,7 +31,8 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.generator.FileSet;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 
 /**

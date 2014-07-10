@@ -37,6 +37,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -52,6 +53,7 @@ import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class BridgeFactoryImpl implements BridgeFactory {
 	
@@ -82,7 +84,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		List<BaseRelationshipBridge> relationships = new ArrayList<BaseRelationshipBridge>();
 		for (Relationship relationship : currentMessagePart.getRelationships()) {
 			Object o = sorter.get(relationship);
-			if (relationship.isAttribute() && relationship.isFixed()) {
+			if (relationship.isAttribute() && relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
 				relationships.add(new FixedValueAttributeBeanBridge(relationship, (BareANY) null));
 			} else if (relationship.isAttribute()) {
 				if (o == null) {
@@ -113,7 +115,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			} else { 
 				if (o == null) {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
-					if (relationship.isMandatory() || relationship.isPopulated()) {
+					if (ConformanceLevelUtil.isMandatory(relationship) || ConformanceLevelUtil.isPopulated(relationship)) {
 						relationships.add(
 								new AssociationBridgeImpl(relationship, createNullPartBridge(relationship, interaction)));
 					}
@@ -134,13 +136,13 @@ class BridgeFactoryImpl implements BridgeFactory {
 
 	private void createWarningIfConformanceLevelIsNotAllowed(Relationship relationship) {
 		// FIXME - TM (see RM19206) - IGNORED/NOT_ALLOWED - these should log a warning in the Hl7Errors bean, not just as a log message
-		if(isIgnoredNotAllowed() && relationship.isIgnored()) {
+		if(isIgnoredNotAllowed() && ConformanceLevelUtil.isIgnored(relationship)) {
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?
 							ASSOCIATION_IS_IGNORED_AND_CAN_NOT_BE_USED:
 							ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, 
 					relationship.getName()));							
-		} else if (relationship.isNotAllowed()){
+		} else if (ConformanceLevelUtil.isNotAllowed(relationship)){
 			this.log.debug(MessageFormat.format(
 					relationship.isAssociation()?
 							ASSOCIATION_IS_NOT_ALLOWED:
@@ -161,12 +163,12 @@ class BridgeFactoryImpl implements BridgeFactory {
 	}
 
 	private boolean isIndicator(Relationship relationship) {
-		boolean result = (!relationship.isMandatory() && !relationship.isChoice() && relationship.getType() != null && !relationship.isStructural()); 
+		boolean result = (!ConformanceLevelUtil.isMandatory(relationship) && !relationship.isChoice() && relationship.getType() != null && !relationship.isStructural()); 
 		if (result) {
 			String type = relationship.getType();
 			MessagePart messagePart = this.service.getMessagePart(this.version, type);
 			for (Relationship innerRelationship : messagePart.getRelationships()) {
-				if (!innerRelationship.isFixed()) {
+				if (!(innerRelationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(innerRelationship))) {
 					result = false;
 					break;
 				}
@@ -262,7 +264,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					getMessagePart(interaction, relationship, null), new BridgeContext(true, i), false));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
-		if (list.isEmpty() && (relationship.isPopulated() || relationship.isMandatory())) {
+		if (list.isEmpty() && (ConformanceLevelUtil.isPopulated(relationship) || ConformanceLevelUtil.isMandatory(relationship))) {
 			list.add(createPartBridgeFromBean("", null, interaction, getMessagePart(interaction, relationship, null)));
 		}
 		return new AssociationBridgeImpl(relationship, list);
@@ -284,7 +286,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
-		if (list.isEmpty() && (relationship.isPopulated() || relationship.isMandatory())) {
+		if (list.isEmpty() && (ConformanceLevelUtil.isPopulated(relationship) || ConformanceLevelUtil.isMandatory(relationship))) {
 			list.add(createPartBridgeFromBean(propertyName, null, interaction, getMessagePart(interaction, relationship, value)));
 		}
 		return new AssociationBridgeImpl(relationship, list);

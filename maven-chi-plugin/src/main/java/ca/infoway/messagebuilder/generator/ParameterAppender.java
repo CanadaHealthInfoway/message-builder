@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.generator;
 
 import java.util.List;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 
 interface ParameterAppender {

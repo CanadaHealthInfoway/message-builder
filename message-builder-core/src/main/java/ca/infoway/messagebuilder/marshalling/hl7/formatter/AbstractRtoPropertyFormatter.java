@@ -29,6 +29,7 @@ public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFla
 
 	@SuppressWarnings("unchecked")
 	@Override
+	protected
     String formatNonNullValue(FormatContext context, BareRatio value, int indentLevel) {
         
         StringBuffer buffer = new StringBuffer();

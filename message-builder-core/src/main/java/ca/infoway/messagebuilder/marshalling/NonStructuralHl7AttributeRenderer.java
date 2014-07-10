@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.marshalling;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 

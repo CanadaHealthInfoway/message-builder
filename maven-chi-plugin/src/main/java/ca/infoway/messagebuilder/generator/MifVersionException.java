@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.generator;
 
 import java.io.File;
 
+import ca.infoway.messagebuilder.GeneratorException;
+
 /**
  * <p>An exception that gets thrown when trying to process more than one MIF that are
  * not all of the same version.

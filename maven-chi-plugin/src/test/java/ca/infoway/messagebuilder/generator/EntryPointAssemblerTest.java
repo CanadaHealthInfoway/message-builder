@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator;
 
-import static ca.infoway.messagebuilder.generator.Namespaces.MIF2_NAMESPACE;
+import static ca.infoway.messagebuilder.generator.util.Namespaces.MIF2_NAMESPACE;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

@@ -46,6 +46,10 @@ public class Identifier implements Serializable {
     private String extension;
 	private String version;
 
+	// R2 datatype version usage only
+	private String assigningAuthorityName;
+	private String displayable;
+	
 	/**
      * <p>Constructs an empty identifier.
      */
@@ -140,13 +144,53 @@ public class Identifier implements Serializable {
 		this.version = version;
 	}
 
+	/**
+     * <p>Returns the assigning authority name (only applicable for R2 datatype version)
+	 * 
+	 * @return the assigning authority name
+	 */
+	public String getAssigningAuthorityName() {
+		return assigningAuthorityName;
+	}
+
+	/**
+     * <p>Sets the assigning authority name (only applicable for R2 datatype version)
+	 * 
+	 * @param assigningAuthorityName
+	 */
+	public void setAssigningAuthorityName(String assigningAuthorityName) {
+		this.assigningAuthorityName = assigningAuthorityName;
+	}
+
+	/**
+     * <p>Returns the displayable value (only applicable for R2 datatype version)
+     * 
+	 * @return displayable
+	 */
+	public String getDisplayable() {
+		return displayable;
+	}
+
+	/**
+     * <p>Sets the displayable value (only applicable for R2 datatype version)
+     * 
+	 * @return displayable
+	 */
+	public void setDisplayable(String displayable) {
+		this.displayable = displayable;
+	}
+
     /**
      * <p>Formats this object as a string.
      * 
      * @return the string representation of this object
      */
     public String toString() {
-        return "root={" + this.root + "},extension={" + this.extension + "}" + (this.version == null ? "" : ",version={" + this.version + "}") ;
+        return "root={" + this.root + "},extension={" + this.extension + "}" 
+        		+ (this.version == null ? "" : ",version={" + this.version + "}") 
+        		+ (this.assigningAuthorityName == null ? "" : ",assigningAuthorityName={" + this.assigningAuthorityName + "}")
+        		+ (this.displayable == null ? "" : ",displayable={" + this.displayable + "}") 
+        		;
     }
     
     /**
@@ -159,6 +203,8 @@ public class Identifier implements Serializable {
                 .append(this.root)
                 .append(this.extension)
                 .append(this.version)
+                .append(this.assigningAuthorityName)
+                .append(this.displayable)
                 .toHashCode();
     }
 
@@ -183,6 +229,8 @@ public class Identifier implements Serializable {
                 .append(this.root, that.root)
                 .append(this.extension, that.extension)
                 .append(this.version, that.version)
+                .append(this.assigningAuthorityName, that.assigningAuthorityName)
+                .append(this.displayable, that.displayable)
                 .isEquals();
     }
 }

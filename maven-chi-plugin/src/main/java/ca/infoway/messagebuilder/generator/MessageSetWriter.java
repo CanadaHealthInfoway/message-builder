@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;

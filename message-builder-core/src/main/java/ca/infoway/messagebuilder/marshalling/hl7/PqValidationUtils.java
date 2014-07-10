@@ -87,11 +87,7 @@ public class PqValidationUtils {
 		return (int) (exceptionValue == null ? MAXIMUM_INTEGER_DIGITS : exceptionValue);
 	}
 
-	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(StandardDataType dataType, String propertyPath, Hl7Errors errors) {
-		return getUnitTypeByHl7Type(dataType == null ? null : dataType.getType(), null, propertyPath, errors);
-	}
-	
-	public Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(String typeAsString, Element element, String propertyPath, Hl7Errors errors) {
+	private Class<? extends UnitsOfMeasureCaseSensitive> getUnitTypeByHl7Type(String typeAsString, Element element, String propertyPath, Hl7Errors errors, boolean isR2) {
 		StandardDataType type = StandardDataType.getByTypeName(typeAsString);
 		if (PQ_BASIC.equals(type)) {
 			return x_BasicUnitsOfMeasure.class;
@@ -106,7 +102,9 @@ public class PqValidationUtils {
 		} else if (PQ_DISTANCE.equals(type)) {
 			return x_DistanceObservationUnitsOfMeasure.class;
 		} else {
-			createError(MessageFormat.format("Type \"{0}\" is not a valid PQ type",	typeAsString), element, propertyPath, errors);
+			if (!isR2) {
+				createError(MessageFormat.format("Type \"{0}\" is not a valid PQ type",	typeAsString), element, propertyPath, errors);
+			}
 			return UnitsOfMeasureCaseSensitive.class;
 		}
 	}
@@ -155,10 +153,24 @@ public class PqValidationUtils {
 		return result;
     }
 
-	public UnitsOfMeasureCaseSensitive validateUnits(String type, String unitsAsString, Element element, String propertyPath, Hl7Errors errors) {
+    public BigDecimal validateValueR2(String value, VersionNumber version, String type, boolean hasNullFlavor, Element element, String propertyPath, Hl7Errors errors) {
+		BigDecimal result = null;
+		
+		if (!StringUtils.isBlank(value)) {
+			try {
+				result = new BigDecimal(value);
+			} catch (NumberFormatException e) {
+				createError(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
+			}
+		}
+			
+		return result;
+    }
+
+	public UnitsOfMeasureCaseSensitive validateUnits(String type, String unitsAsString, Element element, String propertyPath, Hl7Errors errors, boolean isR2) {
 		UnitsOfMeasureCaseSensitive units = null;
 		if (StringUtils.isNotBlank(unitsAsString)) {
-			units = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.getUnitTypeByHl7Type(type, element, propertyPath, errors), unitsAsString);
+			units = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.getUnitTypeByHl7Type(type, element, propertyPath, errors, isR2), unitsAsString);
 			if (units == null) {
 				createError(MessageFormat.format("Unit \"{0}\" is not valid for type {1}", unitsAsString, type), element, propertyPath, errors);
 			}

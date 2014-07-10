@@ -22,7 +22,9 @@ package ca.infoway.messagebuilder.generator.java;
 
 import org.apache.commons.lang.WordUtils;
 
-import ca.infoway.messagebuilder.generator.java.PropertyGeneratorBuilder.PropertyNameProvider;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationshipNameResolver;
+import ca.infoway.messagebuilder.generator.lang.PropertyGeneratorBuilder.PropertyNameProvider;
 
 public class PropertyNameProviders {
 

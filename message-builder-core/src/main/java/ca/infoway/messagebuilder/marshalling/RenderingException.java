@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import ca.infoway.messagebuilder.MarshallingException;
+
 public class RenderingException extends MarshallingException {
 
 	private static final long serialVersionUID = 1300553061611883012L;

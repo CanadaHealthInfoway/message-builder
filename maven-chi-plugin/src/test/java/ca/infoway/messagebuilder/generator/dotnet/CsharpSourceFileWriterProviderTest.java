@@ -32,7 +32,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.infoway.messagebuilder.generator.java.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 

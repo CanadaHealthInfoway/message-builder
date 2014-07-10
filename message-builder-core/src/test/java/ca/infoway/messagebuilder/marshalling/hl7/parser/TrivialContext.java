@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-class TrivialContext implements ParseContext {
+public class TrivialContext implements ParseContext {
 
 	private final String type;
 

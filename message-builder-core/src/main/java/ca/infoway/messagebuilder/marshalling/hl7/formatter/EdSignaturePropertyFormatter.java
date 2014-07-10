@@ -57,6 +57,7 @@ class EdSignaturePropertyFormatter extends AbstractNullFlavorPropertyFormatter<S
     }
 
     @Override
+	protected
     String formatNonNullValue(FormatContext context, String signature, int indentLevel) {
 
         StringBuffer buffer = new StringBuffer();

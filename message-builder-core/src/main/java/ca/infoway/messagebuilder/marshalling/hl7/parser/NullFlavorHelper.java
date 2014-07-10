@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public class NullFlavorHelper {
 	
-	static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
+	public static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
 	static final String NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME = "xsi:nil";
 
 	private final Node node;

@@ -25,6 +25,7 @@ import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
 interface MifProcessor {

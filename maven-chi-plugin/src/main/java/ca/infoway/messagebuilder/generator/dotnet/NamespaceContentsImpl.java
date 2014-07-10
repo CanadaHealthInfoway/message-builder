@@ -25,9 +25,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.generator.java.NameTranslator;
-import ca.infoway.messagebuilder.generator.java.Type;
-import ca.infoway.messagebuilder.generator.java.TypeProvider;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.Type;
+import ca.infoway.messagebuilder.generator.lang.TypeProvider;
 
 class NamespaceContentsImpl implements NamespaceContents {
 

@@ -25,8 +25,6 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.List;
 
-import ca.infoway.messagebuilder.xml.service.ServiceFactory;
-
 /**
  * <p>The message defintion service factory provides a list of all message definitions
  * that are available from the classpath.

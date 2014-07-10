@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 public abstract class AbstractValueNullFlavorPropertyFormatter<V> extends AbstractAttributePropertyFormatter<V> {
 
 	@Override
-	Map<String, String> getAttributeNameValuePairs(FormatContext context, V t, BareANY bareAny) {
+	public Map<String, String> getAttributeNameValuePairs(FormatContext context, V t, BareANY bareAny) {
         Map<String, String> result = new HashMap<String, String>();
         if (t != null) {
             result.put("value", getValue(t, context, bareAny));

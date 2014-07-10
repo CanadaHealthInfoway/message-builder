@@ -39,6 +39,9 @@ public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infow
 	
 	private static final long serialVersionUID = -8960154320681947245L;
 	
+	// some implementations want to be able to specify unit="1"; this is a bit of a hack to allow this case 
+	public static final UnitsOfMeasureCaseSensitive ONE= new UnitsOfMeasureCaseSensitive("ONE", "1");
+
 	public static final UnitsOfMeasureCaseSensitive PERCENT= new UnitsOfMeasureCaseSensitive("PERCENT", "%");
 	public static final UnitsOfMeasureCaseSensitive PER_DAY= new UnitsOfMeasureCaseSensitive("PER_DAY", "1/d");
 	public static final UnitsOfMeasureCaseSensitive PER_MINUTE= new UnitsOfMeasureCaseSensitive("PER_MINUTE", "1/min");
@@ -104,6 +107,10 @@ public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infow
 	public static final UnitsOfMeasureCaseSensitive MICROMOLES_PER_LITRE= new UnitsOfMeasureCaseSensitive("MICROMOLES_PER_LITRE", "umol/L");
 	public static final UnitsOfMeasureCaseSensitive WEEK= new UnitsOfMeasureCaseSensitive("WEEK", "wk");
 
+	public static final UnitsOfMeasureCaseSensitive MILE = new UnitsOfMeasureCaseSensitive("MILE", "[mi_us]"); 
+	public static final UnitsOfMeasureCaseSensitive DEGREE = new UnitsOfMeasureCaseSensitive("DEGREE", "deg"); 
+	public static final UnitsOfMeasureCaseSensitive KILOMETER = new UnitsOfMeasureCaseSensitive("KILOMETER", "km"); 
+	public static final UnitsOfMeasureCaseSensitive METER = new UnitsOfMeasureCaseSensitive("METER", "m"); 
 
     private final String codeValue;
 	private final String description;

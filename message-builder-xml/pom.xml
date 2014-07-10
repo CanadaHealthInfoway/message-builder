@@ -6,11 +6,11 @@
 		<groupId>ca.infoway.messagebuilder</groupId>
 		<version>1.5.9-SNAPSHOT</version>
 	</parent>
-	<groupId>ca.infoway.messagebuilder</groupId>
+	
 	<artifactId>message-builder-xml</artifactId>
-	<version>1.5.9-SNAPSHOT</version>
 	<name>message-builder-xml</name>
 	<url>http://maven.apache.org</url>
+	
 	<dependencies>
 		<!-- message-builder -->
 		<dependency>
@@ -46,6 +46,17 @@
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 		</dependency>		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
    <build>
 		<plugins>

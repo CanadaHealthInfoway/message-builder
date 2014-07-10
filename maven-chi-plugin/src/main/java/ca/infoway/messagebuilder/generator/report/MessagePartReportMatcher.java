@@ -20,8 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.report;
 
-import ca.infoway.messagebuilder.generator.java.MatchType;
-import ca.infoway.messagebuilder.generator.java.MessagePartMatcher;
+import ca.infoway.messagebuilder.generator.lang.MessagePartMatcher;
+import ca.infoway.messagebuilder.generator.util.MatchType;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 

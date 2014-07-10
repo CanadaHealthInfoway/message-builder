@@ -22,9 +22,8 @@ package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyze
 
 import java.util.List;
 
-import ca.infoway.messagebuilder.generator.java.MatchType;
-import ca.infoway.messagebuilder.generator.java.NameMatcher;
-import ca.infoway.messagebuilder.generator.multiplemessageset.NamedTypeImpl;
+import ca.infoway.messagebuilder.generator.util.MatchType;
+import ca.infoway.messagebuilder.generator.util.NameMatcher;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceMatch;
 import ca.infoway.messagebuilder.xml.DifferenceValue;

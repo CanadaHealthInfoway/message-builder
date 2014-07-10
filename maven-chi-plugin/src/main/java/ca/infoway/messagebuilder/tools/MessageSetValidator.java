@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.xml.util.MessageSetUtils;
 
 
@@ -236,12 +237,12 @@ public class MessageSetValidator {
 		
 		// check conformance
 		//ConformanceLevel conformance = relationship.getConformance();
-		if (relationship.isMandatory() && min == 0 || relationship.isPopulated() && min == 0 || relationship.isRequired() && min > 0 || relationship.isOptional() && min > 0) {
+		if (ConformanceLevelUtil.isMandatory(relationship) && min == 0 || ConformanceLevelUtil.isPopulated(relationship) && min == 0 || ConformanceLevelUtil.isRequired(relationship) && min > 0 || ConformanceLevelUtil.isOptional(relationship) && min > 0) {
 			logError(results, ErrorType.INVALID_CONFORMANCE, parentType, relName, "Mandatory and Populated relationships must have minimum cardinality > 0", "cardinality: " + cardinality);
 		}
-		if (relationship.isOptional() && min > 0) {
+		if (ConformanceLevelUtil.isOptional(relationship) && min > 0) {
 			logError(results, ErrorType.INVALID_CONFORMANCE, parentType, relName, "Optional relationships must have minimum cardinality = 0", "cardinality: " + cardinality);
-		} else if (relationship.isRequired() && min > 0) {
+		} else if (ConformanceLevelUtil.isRequired(relationship) && min > 0) {
 			// MB allows for REQUIRED and min > 0, but treats it as POPULATED
 			logInfo(results, ErrorType.VERIFY_CONFORMANCE, parentType, relName, "Required generally has minimum cardinality = 0, but Message Builder allows this case and treats it as Populated", "cardinality: " + cardinality);
 		}

@@ -71,6 +71,7 @@ public class XsdTypeConverterTest {
 		Assume.assumeTrue(standardDataType.isPartOfCanadianSpec());
 
 		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()), false);
+		System.out.println(standardDataType.getType());
 		assertNotNull("type found: " + standardDataType.getType(), type);
 	}
 	

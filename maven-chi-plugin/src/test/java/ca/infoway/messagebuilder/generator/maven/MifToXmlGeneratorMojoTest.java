@@ -33,6 +33,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.infoway.messagebuilder.generator.FileSet;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 
 @RunWith(JMock.class)

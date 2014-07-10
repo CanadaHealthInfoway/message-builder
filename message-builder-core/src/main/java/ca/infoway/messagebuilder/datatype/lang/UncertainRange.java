@@ -48,9 +48,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class UncertainRange<T> extends Interval<T> {
 
-	private Boolean lowInclusive;
-	private Boolean highInclusive;
-
 	/**
 	 * 
 	 * @param interval
@@ -137,24 +134,8 @@ public class UncertainRange<T> extends Interval<T> {
 	 */
 	public UncertainRange(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, Boolean lowInclusive, Boolean highInclusive) {
 		super(low, high, centre, width, representation, lowNullFlavor, highNullFlavor, centreNullFlavor);
-		this.lowInclusive = lowInclusive;
-		this.highInclusive = highInclusive;
-	}
-
-	public Boolean getLowInclusive() {
-		return this.lowInclusive;
-	}
-
-	public void setLowInclusive(Boolean lowInclusive) {
-		this.lowInclusive = lowInclusive;
-	}
-
-	public Boolean getHighInclusive() {
-		return this.highInclusive;
-	}
-
-	public void setHighInclusive(Boolean highInclusive) {
-		this.highInclusive = highInclusive;
+		setLowInclusive(lowInclusive);
+		setHighInclusive(highInclusive);
 	}
 
 }

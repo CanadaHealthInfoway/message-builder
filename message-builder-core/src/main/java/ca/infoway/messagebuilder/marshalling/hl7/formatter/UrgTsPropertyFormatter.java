@@ -25,8 +25,8 @@ import java.util.Date;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalFactory;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -37,6 +37,7 @@ class UrgTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 	IvlTsPropertyFormatter formatter = new IvlTsPropertyFormatter();	
 
     @Override
+	protected
 	String formatNonNullValue(FormatContext context, UncertainRange<Date> value, int indentLevel) {
 
     	// convert URG to an IVL and use IVL formatter

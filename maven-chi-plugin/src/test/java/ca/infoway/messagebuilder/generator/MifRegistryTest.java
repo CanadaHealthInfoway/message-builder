@@ -38,6 +38,7 @@ import org.junit.runner.RunWith;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.transform.MifTransform;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;

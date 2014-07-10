@@ -33,7 +33,7 @@ import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import ca.infoway.messagebuilder.generator.java.BusinessNameUtil;
+import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;

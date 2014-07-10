@@ -44,6 +44,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 	public final static String GTS_BOUNDED_PIVL = "GTS.BOUNDEDPIVL";
 
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, GeneralTimingSpecification value, int indentLevel) {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append(createElement(context, createTypeAttributes(context), indentLevel, false, true));

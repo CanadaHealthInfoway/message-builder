@@ -25,6 +25,7 @@ import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;

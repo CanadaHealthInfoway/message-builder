@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * will also map to a Simple XMl datatype where appropriate.
  * 
  * <p>This enum class contains numerous helper methods for determining properties about types, and for converting
- * between type variations, eg. determining the HL7 datatype from the Simple Xm ldatatype.
+ * between type variations, eg. determining the HL7 datatype from the Simple Xml datatype.
  *
  * <p>An attempt has been made to try to consistently use the following naming standards:
  * 
@@ -70,6 +70,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType AD_SEARCH = new StandardDataType("AD_SEARCH", "AD.SEARCH");
 	
 	public static final StandardDataType BL = new StandardDataType("BL", "BL");
+	public static final StandardDataType BN = new StandardDataType("BN", "BN");
 	
 	public static final StandardDataType ON = new StandardDataType("ON", "ON");
 	
@@ -136,6 +137,9 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_PQ_LAB = new StandardDataType("IVL_PQ_LAB", "IVL<PQ.LAB>", "PhysicalQuantityInterval"); 
 	public static final StandardDataType IVL_PQ_HEIGHTWEIGHT = new StandardDataType("IVL_PQ_HEIGHTWEIGHT", "IVL<PQ.HEIGHTWEIGHT>", "PhysicalQuantityInterval");
 	public static final StandardDataType IVL_PQ_DISTANCE = new StandardDataType("IVL_PQ_DISTANCE", "IVL<PQ.DISTANCE>", "PhysicalQuantityInterval");
+	public static final StandardDataType IVL_INT = new StandardDataType("IVL_INT", "IVL<INT>"); 
+	public static final StandardDataType IVL_REAL = new StandardDataType("IVL_REAL", "IVL<REAL>"); 
+	public static final StandardDataType IVL_MO = new StandardDataType("IVL_MO", "IVL<MO>"); 
 	
 	public static final StandardDataType IVL_WIDTH = new StandardDataType("IVL_WIDTH", "IVL.WIDTH", "Interval");
 	public static final StandardDataType IVL_LOW = new StandardDataType("IVL_LOW", "IVL.LOW", "Interval");
@@ -385,6 +389,16 @@ public class StandardDataType extends EnumPattern implements Typed {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * <p>Determines the enum datatype for a given HL7 type name. Ignores the case of the input name.
+	 * 
+	 * @param name the HL7 name of the datatype
+	 * @return the type enum coresponding to the input parameter name
+	 */
+	public static StandardDataType getByTypeNameIgnoreCase(String name) {
+		return getByTypeName(name.toUpperCase());
 	}
 	
 	/**

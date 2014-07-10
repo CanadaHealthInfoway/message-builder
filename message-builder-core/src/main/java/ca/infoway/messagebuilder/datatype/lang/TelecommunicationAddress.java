@@ -24,13 +24,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 
@@ -71,6 +75,8 @@ public class TelecommunicationAddress implements Serializable {
 	private Set<TelecommunicationAddressUse> addressUses = new TreeSet<TelecommunicationAddressUse>(new AdressUsesComparator());
 	private URLScheme urlScheme;
 	private String address;
+	// added for R2 usage only
+	private Map<Date, SetOperator> useablePeriods = new LinkedHashMap<Date, SetOperator>();
 	
 	/**
 	 * <p>Constructs an empty telecom address.
@@ -149,6 +155,27 @@ public class TelecommunicationAddress implements Serializable {
 	}
 	
 	/**
+	 * Useable periods or the given telecom address. The periods will be sorted internally. 
+	 * 
+	 * @return the useable periods
+	 */
+	public Map<Date, SetOperator> getUseablePeriods() {
+		return useablePeriods;
+	}
+	
+	/**
+	 * Convenience method for adding a period and inclusive operator.
+	 * 
+	 * @param periodInTime
+	 * @param inclusive
+	 * @return whether the added period replaced an existing period 
+	 */
+	public boolean addUseablePeriod(Date periodInTime, SetOperator operator) {
+		// leave it up to the user to worry about a given time replacing an existing one
+		return this.useablePeriods.put(periodInTime, operator == null ? SetOperator.INCLUDE : operator) != null;
+	}
+
+	/**
 	 * <p>Formats the telecom address into a string.
 	 * 
 	 * @return the formatted telecom address
@@ -180,6 +207,7 @@ public class TelecommunicationAddress implements Serializable {
 		        .append(this.address)
 		        .append(this.addressUses)
 		        .append(this.urlScheme)
+		        .append(this.useablePeriods)
                 .toHashCode();
     }
 
@@ -199,6 +227,7 @@ public class TelecommunicationAddress implements Serializable {
                 .append(this.address, that.address)
                 .append(this.addressUses, that.addressUses)
                 .append(this.urlScheme, that.urlScheme)
+		        .append(this.useablePeriods, that.useablePeriods)
                 .isEquals();
     }
 	

@@ -36,16 +36,16 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
 	protected static final String EMPTY_STRING = "";
 
     @Override
-    String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
+	public String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
     	V value = extractBareValue(bareAny);
         return createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true);
     }
 
     @Override
-	String formatNonNullValue(FormatContext context, V value, int indentLevel) {
+	protected String formatNonNullValue(FormatContext context, V value, int indentLevel) {
 		throw new UnsupportedOperationException("Different formatNonNullValue handler used for AbstractAttributePropertyFormatter");
 	}
 	
-	abstract Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny);
+	protected abstract Map<String, String> getAttributeNameValuePairs(FormatContext context, V value, BareANY bareAny);
 
 }

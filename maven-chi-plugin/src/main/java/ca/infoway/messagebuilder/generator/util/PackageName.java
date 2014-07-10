@@ -19,7 +19,6 @@
  */
 package ca.infoway.messagebuilder.generator.util;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class PackageName {
 

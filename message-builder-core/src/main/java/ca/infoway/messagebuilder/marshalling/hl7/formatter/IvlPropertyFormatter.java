@@ -88,12 +88,14 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 	protected static final String VALUE = "value";
 
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, Interval<T> value, int indentLevel) {
 		// need to use the alternate format method that has the BareANY object as a parameter
 		throw new UnsupportedOperationException();
 	}
 		
 	@Override
+	protected
 	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
 		
 		Interval<T> value = extractBareValue(bareAny);

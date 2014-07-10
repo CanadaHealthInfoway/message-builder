@@ -32,9 +32,6 @@ import org.simpleframework.xml.Root;
 
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.lang.EnumPattern;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
-import ca.infoway.messagebuilder.xml.util.RelationshipComparable;
-import ca.infoway.messagebuilder.xml.util.RelationshipComparator;
 
 /**
  * <p>A message part relationship (either an attribute or an association).
@@ -59,6 +56,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String name;
 	@Attribute(required=false)
 	private String type;
+	@Attribute(required=false)
+	private String constrainedType;
 	@Attribute(required=false)
 	private Boolean structural;
 	@Attribute(required=false)
@@ -169,6 +168,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getConstrainedType() {
+		return constrainedType;
+	}
+
+	public void setConstrainedType(String constrainedType) {
+		this.constrainedType = constrainedType;
 	}
 
 	/**
@@ -351,14 +358,6 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 
 	/**
-	 * <p>Get a flag indicating whether or not the relationship is a fixed value and is mandatory.
-	 * @return true if the relationship has a fixed value and is mandatory; false otherwise
-	 */
-	public boolean isFixed() {
-		return hasFixedValue() && isMandatory();
-	}
-	
-	/**
 	 * <p>Get a flag indicating whether or not the relationship is an association.
 	 * @return true if the relationship is an association; false otherwise.
 	 */
@@ -366,54 +365,6 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		return !isAttribute();
 	}
 
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is mandatory.
-	 * @return true if the relationship is mandatory; false otherwise.
-	 */
-	public boolean isMandatory() {
-		return ConformanceLevelUtil.isMandatory(this);
-	}
-
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is populated.
-	 * @return true if the relationship is populated; false otherwise.
-	 */
-	public boolean isPopulated() {
-		return ConformanceLevelUtil.isPopulated(this);
-	}
-	
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is required.
-	 * @return true if the relationship is required; false otherwise.
-	 */
-	public boolean isRequired() {
-		return ConformanceLevelUtil.isRequired(this);
-	}
-	
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is optional.
-	 * @return true if the relationship is optional; false otherwise.
-	 */
-	public boolean isOptional() {
-		return ConformanceLevelUtil.isOptional(this);
-	}
-	
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is ignored.
-	 * @return true if the relationship is ignored; false otherwise.
-	 */
-	public boolean isIgnored() {
-		return ConformanceLevelUtil.isIgnored(this);
-	}
-	
-	/**
-	 * <p>Get a flag indicating whether or not the relationship is not allowed.
-	 * @return true if the relationship is not allowed; false otherwise.
-	 */
-	public boolean isNotAllowed() {
-		return ConformanceLevelUtil.isNotAllowed(this);
-	}
-	
 	/**
 	 * <p>Get a flag indicating whether or not the relationship is a coded type.
 	 * @return true if the relationship is a coded type; false otherwise.

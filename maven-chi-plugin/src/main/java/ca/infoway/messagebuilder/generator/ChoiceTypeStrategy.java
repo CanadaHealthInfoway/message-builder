@@ -29,6 +29,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
@@ -100,7 +101,7 @@ public abstract class ChoiceTypeStrategy {
 			if (StringUtils.isNotBlank(highLevelType)) {
 				return highLevelType;
 			} else {
-				throw new MifProcessingException(this.targetConnection, "Cannot find high level type for " + packageLocation);
+				throw new MifProcessingException("Error processing " + ownedEntryPoint + ":Cannot find high level type for " + packageLocation);
 			}
 		}
 
@@ -108,7 +109,8 @@ public abstract class ChoiceTypeStrategy {
 			
 			MessagePart part = resolver.getMessagePart(getHighLevelType(resolver));
 			if (part == null) {
-				throw new MifProcessingException(this.targetConnection, "Cannot find message part: " + getHighLevelType(resolver));
+				String ownedEntryPoint = MifXPathHelper.getOwnedEntryPoint(this.targetConnection);
+				throw new MifProcessingException("Error processing " + ownedEntryPoint + ":Cannot find message part: " + getHighLevelType(resolver));
 			} else {
 				List<Element> specializations = MifXPathHelper.getParticipantSpecializations(this.targetConnection);
 				List<SpecializationChild> specializationChilds = part.getSpecializationChilds();

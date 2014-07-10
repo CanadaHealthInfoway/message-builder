@@ -6,11 +6,9 @@
 		<version>1.5.9-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ca.infoway.messagebuilder</groupId>
-	<artifactId>message-builder-terminology
-	</artifactId>
+	<artifactId>message-builder-terminology</artifactId>
 	<name>message-builder-terminology</name>
-	<version>1.5.9-SNAPSHOT</version>
+	
 	<dependencies>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
@@ -26,10 +24,12 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-commons-annotations</artifactId>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>

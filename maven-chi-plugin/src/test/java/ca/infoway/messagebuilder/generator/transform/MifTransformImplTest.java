@@ -20,15 +20,14 @@
 
 package ca.infoway.messagebuilder.generator.transform;
 
-import org.junit.Assert;
-
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
-import ca.infoway.messagebuilder.generator.Mif2XPathHelper;
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.generator.util.MifXPathUtil;
 import ca.infoway.messagebuilder.junit.XmlAssert;
 import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
@@ -64,11 +63,11 @@ public class MifTransformImplTest {
 		
 		// confirm that the mif version is 2.1.x where x = 4, 5, 6 (in this case, 2.1.6)
 		Assert.assertTrue(mifTransform.shouldBeTransformed(mifDoc));
-		Assert.assertEquals("2.1.6", Mif2XPathHelper.getMifVersion(mifDoc));
+		Assert.assertEquals("2.1.6", MifXPathUtil.getMifVersion(mifDoc));
 		
 		Document resultDoc = mifTransform.transform(mifDoc);
 
-		Assert.assertEquals("correct converted version", "2.1.3", Mif2XPathHelper.getMifVersion(resultDoc));
+		Assert.assertEquals("correct converted version", "2.1.3", MifXPathUtil.getMifVersion(resultDoc));
 		
 		ClasspathResource expectedResource = new ClasspathResource(getClass(), "convertedFromCHI_PRPA_MT000041CA - Patient.mif");
 		Document expectedDoc = new DocumentFactory().createFromStream(expectedResource.getInputStream());
@@ -89,7 +88,7 @@ public class MifTransformImplTest {
 		
 		// confirm that the mif version is 2.1.x where x = 4, 5, 6 (in this case, 2.1.6)
 		Assert.assertFalse(mifTransform.shouldBeTransformed(mifDoc));
-		Assert.assertEquals("2.1.3", Mif2XPathHelper.getMifVersion(mifDoc));
+		Assert.assertEquals("2.1.3", MifXPathUtil.getMifVersion(mifDoc));
 		
 		@SuppressWarnings("unused")
 		Document resultDoc = mifTransform.transform(mifDoc);

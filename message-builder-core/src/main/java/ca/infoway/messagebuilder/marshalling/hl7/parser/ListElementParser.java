@@ -23,9 +23,9 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
-import ca.infoway.messagebuilder.marshalling.MarshallingException;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 @DataTypeHandler({"LIST"})

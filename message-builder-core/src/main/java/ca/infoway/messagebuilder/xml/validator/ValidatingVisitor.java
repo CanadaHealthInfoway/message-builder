@@ -77,15 +77,15 @@ public class ValidatingVisitor implements MessageVisitor {
 	public void visitAssociation(Element base, String xmlName, List<Element> elements, Relationship relationship) {
 		if (relationship == null) {
 			// shouldn't happen
-		} else if (CollectionUtils.isEmpty(elements) && relationship.isMandatory()) {
+		} else if (CollectionUtils.isEmpty(elements) && ConformanceLevelUtil.isMandatory(relationship)) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAssociationError(xmlName, base));
-		} else if (CollectionUtils.isEmpty(elements) && relationship.isPopulated()) {
+		} else if (CollectionUtils.isEmpty(elements) && ConformanceLevelUtil.isPopulated(relationship)) {
 			this.result.addHl7Error(Hl7Error.createMissingPopulatedAssociationError(xmlName, base));
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
-		} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+		} else if (ConformanceLevelUtil.isIgnored(relationship) && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(xmlName, base));
-		} else if (relationship.isNotAllowed()) {
+		} else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
 			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(xmlName, base));
 		}
 		if (relationship.getCardinality().isSingle() && elements.size() == 1) {
@@ -137,18 +137,19 @@ public class ValidatingVisitor implements MessageVisitor {
 			validateFixedValue(attr, relationship.getFixedValue());
 		} else if (attr != null) {
 			validateStructuralAttributeValue(base, attr, relationship);
-		} else if (relationship.isFixed()) {  // also implies isMandatory()
+		} else if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {  // also implies isMandatory()
 			// various people suggest that fixed values can be left out
-		} else if (relationship.isMandatory()) {
+		} else if (ConformanceLevelUtil.isMandatory(relationship)) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
-		} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+		} else if (ConformanceLevelUtil.isIgnored(relationship) && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 			this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
-		} else if (relationship.isNotAllowed()) {
+		} else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
 			this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 		}
 	}
 
 	private void validateStructuralAttributeValue(Element base, Attr attr, Relationship relationship) {
+		// FIXME - TM - R2: need to handle BN and BL for R2 here?
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
 		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
@@ -168,13 +169,13 @@ public class ValidatingVisitor implements MessageVisitor {
 		if (relationship == null && !elements.isEmpty()) {
 			this.result.addHl7Error(Hl7Error.createUnknownChildElementError(elements.get(0)));
 		} else if (relationship != null) {
-			if (CollectionUtils.isEmpty(elements) && relationship.isMandatory()) {
+			if (CollectionUtils.isEmpty(elements) && ConformanceLevelUtil.isMandatory(relationship)) {
 				this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
-			} else if (CollectionUtils.isEmpty(elements) && relationship.isPopulated()) {
+			} else if (CollectionUtils.isEmpty(elements) && ConformanceLevelUtil.isPopulated(relationship)) {
 				this.result.addHl7Error(Hl7Error.createMissingPopulatedAttributeError(relationship.getName(), base));
-			} else if (relationship.isIgnored() && ConformanceLevelUtil.isIgnoredNotAllowed()) {
+			} else if (ConformanceLevelUtil.isIgnored(relationship) && ConformanceLevelUtil.isIgnoredNotAllowed()) {
 				this.result.addHl7Error(Hl7Error.createIgnoredAsNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
-			} else if (relationship.isNotAllowed()) {
+			} else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
 				this.result.addHl7Error(Hl7Error.createNotAllowedConformanceLevelRelationshipError(relationship.getName(), base));
 			} else {
 				try {
@@ -226,7 +227,7 @@ public class ValidatingVisitor implements MessageVisitor {
 						));
 				}
 			} else {
-				valid = !relationship.isFixed();
+				valid = !(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship));
 			}
 			if (!valid) {
 				this.result.addHl7Error(

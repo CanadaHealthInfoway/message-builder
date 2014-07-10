@@ -25,9 +25,9 @@ import java.util.LinkedHashSet;
 
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
-import ca.infoway.messagebuilder.marshalling.MarshallingException;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;

@@ -380,8 +380,8 @@ public abstract class BaseHtmlGenerator {
 					} else if (AnnotationType.DEFINITION.equals(o2.getAnnotationTypeAsEnum())
 							&& !AnnotationType.DEFINITION.equals(o1.getAnnotationTypeAsEnum())) {
 						return 1;
-					} else if (AnnotationType.DESCRIPTION.equals(o2.getAnnotationTypeAsEnum())
-							&& !AnnotationType.DESCRIPTION.equals(o1.getAnnotationTypeAsEnum())) {
+					} else if (AnnotationType.DESCRIPTION.equals(o1.getAnnotationTypeAsEnum())
+							&& !AnnotationType.DESCRIPTION.equals(o2.getAnnotationTypeAsEnum())) {
 						return -1;
 					} else if (AnnotationType.DESCRIPTION.equals(o2.getAnnotationTypeAsEnum())
 							&& !AnnotationType.DESCRIPTION.equals(o1.getAnnotationTypeAsEnum())) {

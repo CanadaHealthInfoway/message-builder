@@ -55,6 +55,7 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 	private final PqValidationUtils pqValidationUtils = new PqValidationUtils();
 
     @Override
+	protected
     Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
     	
         validatePhysicalQuantity(context, physicalQuantity, bareANY);
@@ -75,7 +76,7 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		this.pqValidationUtils.validateValue(quantityAsString, context.getVersion(), type, hasNullFlavor, null, context.getPropertyPath(), errors);
         
 		String unitsAsString = (physicalQuantity.getUnit() == null ? null : physicalQuantity.getUnit().getCodeValue());
-		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors);
+		this.pqValidationUtils.validateUnits(type, unitsAsString, null, context.getPropertyPath(), errors, false);
 		
 	}
 

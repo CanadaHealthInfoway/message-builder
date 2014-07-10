@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createAttribute;
+import static ca.infoway.messagebuilder.generator.lang.TypeAndRelationshipBuilder.createAttribute;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -30,6 +30,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.generator.NamingPolicy;
+import ca.infoway.messagebuilder.generator.lang.BaseRelationship;
+import ca.infoway.messagebuilder.generator.lang.PropertyNameResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
 

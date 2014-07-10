@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.C_SHARP;
+import static ca.infoway.messagebuilder.generator.util.ProgrammingLanguage.C_SHARP;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -29,6 +29,7 @@ import org.apache.commons.lang.SystemUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.generator.NamingPolicy;
+import ca.infoway.messagebuilder.generator.lang.SimpleNameTranslator;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 

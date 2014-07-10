@@ -110,6 +110,23 @@ public class IvlValidationUtils {
 		}
 		return errors;
 	}
+	
+	public List<String> validateCorrectElementsProvidedForR2(boolean lowProvided, boolean highProvided, boolean centerProvided, boolean widthProvided) {
+		List<String> errors = new ArrayList<String>();
+		
+		int numProvidedElements = this.countProvidedElements(lowProvided, highProvided, centerProvided, widthProvided);
+		if (numProvidedElements > 2) {
+			errors.add("Too many interval properties specified. Intervals allow for at most two of low/high/center/width.");
+		}
+		
+		// not allowed according to schemas: low/center high/center
+		if (centerProvided && (lowProvided || highProvided)) {
+			errors.add("For intervals, center is only allowed on its own or with width.");
+		}
+		
+		return errors;
+	}
+
 
 	public List<String> doOtherValidations(String type, NullFlavor lowNullFlavor, NullFlavor centerNullFlavor, NullFlavor highNullFlavor, NullFlavor widthNullFlavor, UnitsOfMeasureCaseSensitive widthTimeUnits) {
 		List<String> errors = new ArrayList<String>();

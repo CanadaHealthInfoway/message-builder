@@ -24,6 +24,8 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class PartBridgeImpl implements PartBridge {
 	
@@ -67,7 +69,8 @@ class PartBridgeImpl implements PartBridge {
 	public boolean isEmpty() {
 		boolean empty = true;
 		for (BaseRelationshipBridge relationship : this.relationshipBridges) {
-			if (!relationship.getRelationship().isAttribute() || !relationship.getRelationship().isFixed()) {
+			Relationship r = relationship.getRelationship();
+			if (!relationship.getRelationship().isAttribute() || !(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
 				empty &= relationship.isEmpty();
 			}
 		}

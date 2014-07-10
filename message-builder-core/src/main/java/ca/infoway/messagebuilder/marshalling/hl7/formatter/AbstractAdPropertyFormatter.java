@@ -60,6 +60,7 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
 	protected static final AdValidationUtils AD_VALIDATION_UTILS = new AdValidationUtils();
 	
 	@Override
+	protected
     String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
         StringBuffer buffer = new StringBuffer();
         Map<String, String> useAttributeMap = getUseAttributeMap(context.getType(), postalAddress, context.getVersion().getBaseVersion());

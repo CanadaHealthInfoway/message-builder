@@ -79,6 +79,7 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 	}
 	
 	@Override
+	protected
 	String formatNonNullValue(FormatContext formatContext, Object t, int indentLevel) {
 		// getting to this point means: 
 		//    1) specializationType was not specified

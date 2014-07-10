@@ -23,6 +23,9 @@ package ca.infoway.messagebuilder.generator.java;
 import java.util.Collections;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.NamedType;
+import ca.infoway.messagebuilder.generator.lang.Type;
+import ca.infoway.messagebuilder.generator.lang.TypeNameHelper;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class TypeNameHelperImpl implements TypeNameHelper {

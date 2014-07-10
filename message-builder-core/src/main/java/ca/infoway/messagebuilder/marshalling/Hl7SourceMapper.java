@@ -40,6 +40,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
@@ -60,6 +61,7 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.xml.util.NamespaceUtil;
 
 class Hl7SourceMapper {
@@ -272,7 +274,7 @@ class Hl7SourceMapper {
 		if (relationship.isTemplateRelationship() || relationship.isChoice() || relationship.isStructural()) {
 			return false;
 		}
-		return isFullyFixedType(relationship, source) && !relationship.isMandatory();
+		return isFullyFixedType(relationship, source) && !ConformanceLevelUtil.isMandatory(relationship);
 	}
 
 	private void writeIndicator(BeanWrapper bean, Hl7Source source, List<Node> nodes, Relationship relationship, String traversalName)
@@ -361,7 +363,7 @@ class Hl7SourceMapper {
  			} else {
  	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
  			}
- 		} else if (!relationship.isOptional() && !isFullyFixedType(relationship, source)) {
+ 		} else if (!ConformanceLevelUtil.isOptional(relationship) && !isFullyFixedType(relationship, source)) {
  			this.log.info("IGNORING: HL7 type " + relationship.getType() + " with traversalName=" + traversalName + "(" 
  					+ Describer.describe(source.getMessagePartName(), relationship) 
  					+ ") cannot be mapped to any teal bean");
@@ -383,7 +385,7 @@ class Hl7SourceMapper {
 		} else {
 			int count = 0;
 			for (Relationship r : messagePart.getRelationships()) {
-				if (!r.isFixed()) {
+				if (!(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
 					count++;
 				}
 			}
@@ -430,7 +432,7 @@ class Hl7SourceMapper {
 				if (relationship.hasFixedValue()) {
 					validateNonstructuralFixedValue(relationship, object, source, nodes); // fixed means nothing to write to bean
 				}
-				if (!relationship.isFixed()) {
+				if (!(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship))) {
 					bean.write(relationship, object);
 				}
 			} catch (ClassCastException e){
@@ -523,7 +525,7 @@ class Hl7SourceMapper {
 	private void validateMandatoryAttributesExist(Hl7Source source,
 			Element element) {
 		for (Relationship relationship : getMessagePart(source).getRelationships()) {
-			if (relationship.isStructural() && relationship.isMandatory() 
+			if (relationship.isStructural() && ConformanceLevelUtil.isMandatory(relationship) 
 					&& !element.hasAttribute(relationship.getName())) {
 				
 				source.getResult().addHl7Error(new Hl7Error(SYNTAX_ERROR, 

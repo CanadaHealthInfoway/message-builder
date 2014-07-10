@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
 @DataTypeHandler("TS")
-class TsElementParser extends AbstractSingleElementParser<Date> {
+public class TsElementParser extends AbstractSingleElementParser<Date> {
 
 	public TsElementParser() {
 	}

@@ -75,6 +75,10 @@ class IntElementParser extends AbstractSingleElementParser<Integer> {
 				result = NumberUtil.parseAsInteger(unparsedInteger);
 				// using the isNumeric check to catch silly things such as passing in a hexadecimal number (0x1a, for example)
 				boolean mustBePositive = StandardDataType.INT_POS.getType().equals(context.getType());
+				if (StandardDataType.INT.getType().equals(context.getType()) && unparsedInteger.startsWith("-")) {
+					// remove negative sign to not confuse isNumeric() check
+					unparsedInteger = unparsedInteger.substring(1);
+				}
 				if (!NumberUtil.isInteger(unparsedInteger) || !StringUtils.isNumeric(unparsedInteger)) {
 					recordInvalidIntegerError(result, element, mustBePositive, xmlToModelResult);
 				} else if (mustBePositive && result.intValue() == 0) {

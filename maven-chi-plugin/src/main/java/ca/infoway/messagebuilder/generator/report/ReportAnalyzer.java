@@ -45,7 +45,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
 
-import ca.infoway.messagebuilder.generator.java.Matcher;
+import ca.infoway.messagebuilder.generator.lang.Matcher;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Documentable;
 import ca.infoway.messagebuilder.xml.Interaction;

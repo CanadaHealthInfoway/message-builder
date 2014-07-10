@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.generator;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.generator.util.Namespaces;
+
 class NameHelper {
 
 	static String qualifiyName(Element anyElement, String unqualifiedName) {

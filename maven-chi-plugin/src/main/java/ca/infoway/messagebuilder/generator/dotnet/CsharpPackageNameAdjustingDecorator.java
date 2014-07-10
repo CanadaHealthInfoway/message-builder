@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.generator.dotnet;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
 
-import ca.infoway.messagebuilder.generator.java.NameTranslator;
+import ca.infoway.messagebuilder.generator.lang.NameTranslator;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 /**

@@ -40,6 +40,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.GeneratorException;
+import ca.infoway.messagebuilder.MifProcessingException;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.MifVocabularyModel;
 import ca.infoway.messagebuilder.generator.mif2.vocabulary.VocabularyMifMarshaller;
 import ca.infoway.messagebuilder.lang.EnumPattern;

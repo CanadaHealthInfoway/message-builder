@@ -51,6 +51,7 @@ class ScPropertyFormatter extends AbstractNullFlavorPropertyFormatter<CodedStrin
 	private CodedStringValidationUtils codedStringValidationUtils = new CodedStringValidationUtils();
 	
 	@Override
+	protected
 	String formatNonNullValue(FormatContext context, CodedString<? extends Code> value, int indentLevel) {
 		
 		boolean codeProvided = value.getCode() == null ? false : StringUtils.isNotBlank(value.getCode().getCodeValue());

@@ -39,8 +39,9 @@ class AnnotationShape extends BasicShape {
 
 		int alphabetWidth = this.styleProvider.getTextWidth("abcdefghijklmnopqrstuvwxyz", this.styleProvider.getDefaultAttributeTextFont());
 		
-		FormattedString text = FormattedStringUtil.formatHtml(this.annotation.getAnnotation().getText(), this.styleProvider);
-		this.styleProvider.assignTextBounds(text, alphabetWidth * 2, null, 0);
+		FormattedString text = FormattedStringUtil.formatHtmlAndFitToSpace(
+				this.annotation.getAnnotation().getText(), this.styleProvider,
+				alphabetWidth * 2, null, 0);
 		this.labels.add(text);
 	}
 

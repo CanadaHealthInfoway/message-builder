@@ -25,7 +25,7 @@ import static ca.infoway.messagebuilder.resolver.CodeResolverRegistry.lookup;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
-import ca.infoway.messagebuilder.datatype.lang.util.IntervalUtil;
+import ca.infoway.messagebuilder.datatype.lang.IntervalUtil;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActSite;
 import ca.infoway.messagebuilder.domainvalue.AdministrableDrugForm;

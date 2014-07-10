@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifiable;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.util.Identifiable;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 @Hl7PartTypeMapping({ "MFMI_MT700746CA.Custodian" })

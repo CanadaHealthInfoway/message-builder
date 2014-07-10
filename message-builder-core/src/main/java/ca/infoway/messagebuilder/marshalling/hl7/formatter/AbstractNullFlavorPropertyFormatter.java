@@ -82,11 +82,11 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 		return (V) hl7Value.getBareValue();
 	}
 
-	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
+	protected String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		return formatNonNullValue(context, extractBareValue(dataType), indentLevel);
 	}
 
-	abstract String formatNonNullValue(FormatContext context, V t, int indentLevel);
+	protected abstract String formatNonNullValue(FormatContext context, V t, int indentLevel);
 	
 	protected boolean isEmptyCollection(V value) {
 		if (ListElementUtil.isCollection(value)) {
