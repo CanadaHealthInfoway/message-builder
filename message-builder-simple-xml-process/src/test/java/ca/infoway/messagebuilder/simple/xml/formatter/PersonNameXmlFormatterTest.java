@@ -26,12 +26,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
 import ca.infoway.messagebuilder.simple.xml.FormatterContextImpl;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
@@ -40,6 +43,11 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 public class PersonNameXmlFormatterTest {
 
 	private String ns = " xmlns=\"" + AbstractSimpleXmlFormatter.NAMESPACE + "\"";
+	
+	@Before
+	public void setUp() throws Exception {
+		CodeResolverRegistry.register(new TrivialCodeResolver());
+	}
 	
 	@Test
 	public void shouldTransformPersonSimpleXmlToPersonName() throws Exception {
