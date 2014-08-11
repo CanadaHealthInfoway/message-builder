@@ -161,7 +161,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		dataType.setCdata(true);
 		
 		String result = formatter.format(context, dataType);
-		assertEquals("something in text node", addLineSeparator("<name specializationType=\"ST\" xsi:type=\"ST\"><![CDATA[something]]></name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name xsi:type=\"ST\"><![CDATA[something]]></name>"), result);
 		assertTrue(this.result.isValid());
 	}
 

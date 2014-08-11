@@ -123,5 +123,7 @@ public abstract class Constraint implements Serializable {
 	void assignRealmCode(RealmCode realmCode) {
 		
 	}
+
+	public abstract Constraint clone(String originalPackageName, String newPackageName);
 	
 }

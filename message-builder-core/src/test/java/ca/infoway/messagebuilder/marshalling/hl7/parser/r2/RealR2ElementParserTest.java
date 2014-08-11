@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -31,8 +32,10 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.REAL;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -84,6 +87,34 @@ public class RealR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
+	@Test
+	public void testParseValueAttributeValidWithOperatorNotAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1345.67\" />");
+		BareANY intAny = new RealR2ElementParser().parse(createContext("INT"), node, this.xmlResult);
+		assertEquals("correct value returned", new BigDecimal("1345.67"), intAny.getBareValue());
+		assertNull("no operator", ((ANYMetaData) intAny).getOperator());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1345.67\" />");
+		BareANY intAny = new RealR2ElementParser().parse(createContext("SXCM<INT>"), node, this.xmlResult);
+		assertEquals("correct value returned", new BigDecimal("1345.67"), intAny.getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.PERIODIC_HULL, ((ANYMetaData) intAny).getOperator());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithDefaultOperator() throws Exception {
+		Node node = createNode("<something value=\"1345.67\" />");
+		BareANY intAny = new RealR2ElementParser().parse(createContext("SXCM<INT>"), node, this.xmlResult);
+		assertEquals("correct value returned", new BigDecimal("1345.67"), intAny.getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.INCLUDE, ((ANYMetaData) intAny).getOperator());
+	}
+
 	@Test
 	public void testParseValueAttributeValidOneWithZeroesAfterDecimal() throws Exception {
 		Node node = createNode("<something value=\"1.0000\" />");

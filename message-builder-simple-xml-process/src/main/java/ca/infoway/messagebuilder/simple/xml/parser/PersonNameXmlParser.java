@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.EntityNameUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
@@ -75,7 +76,7 @@ public class PersonNameXmlParser extends AbstractSimpleXmlParser<PN, PersonName>
         }
         String qualifier = "";
         if (namePart.getQualifier() != null) {
-            qualifier = String.format(" qualifier=\"%s\"", namePart.getQualifier());
+            qualifier = String.format(" qualifier=\"%s\"", namePart.getQualifier().getCodeValue());
         }
 
         builder.append("<namePart");
@@ -119,8 +120,8 @@ public class PersonNameXmlParser extends AbstractSimpleXmlParser<PN, PersonName>
         builder.append(closeTag);
     }
     
-    private String createQualifier(String qualifier) {
-		return StringUtils.isBlank(qualifier) ? "" : " qualifier=\"" + qualifier + "\"";
+    private String createQualifier(EntityNamePartQualifier qualifier) {
+		return qualifier == null || StringUtils.isBlank(qualifier.getCodeValue()) ? "" : " qualifier=\"" + qualifier.getCodeValue() + "\"";
 	}
 
 	private String mapPnBasicPartTypeToElementName(NamePartType namePartType, GivenNameDisambiguator disambiguator) {

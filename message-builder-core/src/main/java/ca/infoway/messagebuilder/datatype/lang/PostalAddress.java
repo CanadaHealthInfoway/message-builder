@@ -23,14 +23,18 @@ package ca.infoway.messagebuilder.datatype.lang;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 
 /**
  * <p>Java datatype for AD Hl7 datatype. 
@@ -43,16 +47,21 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
  */
 public class PostalAddress implements Serializable {
 	
-    private static final long serialVersionUID = -12550370508382374L;
-	private Set<x_BasicPostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<x_BasicPostalAddressUse>());
+	private static final long serialVersionUID = -12550370508382374L;
+    
     private final List<PostalAddressPart> parts = Collections.synchronizedList(new ArrayList<PostalAddressPart>());
+	private Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
+	
+	// added for R2 usage only
+	private Map<Date, SetOperator> useablePeriods = new LinkedHashMap<Date, SetOperator>();
+	private Boolean isNotOrdered;
 
     /**
      * <p>Obtains the postal address' set of uses.
      * 
      * @return set of postal address uses
      */
-    public Set<x_BasicPostalAddressUse> getUses() {
+    public Set<PostalAddressUse> getUses() {
         return this.uses;
     }
     
@@ -61,7 +70,7 @@ public class PostalAddress implements Serializable {
      * 
      * @param uses  set of postal address uses
      */
-    public void setUses(Set<x_BasicPostalAddressUse> uses) {
+    public void setUses(Set<PostalAddressUse> uses) {
         this.uses = uses;
     }
     
@@ -70,7 +79,7 @@ public class PostalAddress implements Serializable {
      * 
      * @param use a postal address use
      */
-    public void addUse(x_BasicPostalAddressUse use) {
+    public void addUse(PostalAddressUse use) {
         this.uses.add(use);
     }
     
@@ -92,11 +101,42 @@ public class PostalAddress implements Serializable {
         this.parts.add(postalAddressPart);
     }
     
-    @Override
+	/**
+	 * Useable periods or the given telecom address. The periods will be sorted internally. 
+	 * 
+	 * @return the useable periods
+	 */
+	public Map<Date, SetOperator> getUseablePeriods() {
+		return useablePeriods;
+	}
+	
+	/**
+	 * Convenience method for adding a period and inclusive operator.
+	 * 
+	 * @param periodInTime
+	 * @param inclusive
+	 * @return whether the added period replaced an existing period 
+	 */
+	public boolean addUseablePeriod(Date periodInTime, SetOperator operator) {
+		// leave it up to the user to worry about a given time replacing an existing one
+		return this.useablePeriods.put(periodInTime, operator == null ? SetOperator.INCLUDE : operator) != null;
+	}
+
+    public Boolean getIsNotOrdered() {
+		return isNotOrdered;
+	}
+
+	public void setIsNotOrdered(Boolean isNotOrdered) {
+		this.isNotOrdered = isNotOrdered;
+	}
+
+	@Override
     public int hashCode() {
         return new HashCodeBuilder()
 		        .append(this.uses)
 		        .append(this.parts)
+		        .append(this.useablePeriods)
+		        .append(this.isNotOrdered)
                 .toHashCode();
     }
 
@@ -115,6 +155,8 @@ public class PostalAddress implements Serializable {
         return new EqualsBuilder()
                 .append(this.uses, that.uses)
                 .append(this.parts, that.parts)
+                .append(this.useablePeriods, that.useablePeriods)
+                .append(this.isNotOrdered, that.isNotOrdered)
                 .isEquals();
     }
     

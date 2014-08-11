@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.AdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -90,8 +91,8 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
         return result;
     }
     
-	private Set<x_BasicPostalAddressUse> getNameUses(String nameUseAttribute, Node node, XmlToModelResult xmlToModelResult) {
-        Set<x_BasicPostalAddressUse> uses = new HashSet<x_BasicPostalAddressUse>();
+	private Set<PostalAddressUse> getNameUses(String nameUseAttribute, Node node, XmlToModelResult xmlToModelResult) {
+        Set<PostalAddressUse> uses = new HashSet<PostalAddressUse>();
         if (nameUseAttribute != null) {
             StringTokenizer tokenizer = new StringTokenizer(nameUseAttribute);
             while (tokenizer.hasMoreElements()) {

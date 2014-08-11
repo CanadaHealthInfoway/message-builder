@@ -124,4 +124,8 @@ public class CardinalityConstraint extends Constraint {
 	public void setOriginalMaxValue(Integer originalMaxValue) {
 		this.originalMaxValue = originalMaxValue;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new CardinalityConstraint(getOriginalCardinality(), getNewCardinality());
+	}
 }

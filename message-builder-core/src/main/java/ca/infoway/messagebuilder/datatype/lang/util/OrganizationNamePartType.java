@@ -35,7 +35,7 @@ public class OrganizationNamePartType extends EnumPattern implements NamePartTyp
 	
     private static final long serialVersionUID = -8005396643000939327L;
     
-	public static final OrganizationNamePartType DELIMETER = new OrganizationNamePartType("DELIMETER", "delimiter"); 
+	public static final OrganizationNamePartType DELIMITER = new OrganizationNamePartType("DELIMITER", "delimiter"); 
     public static final OrganizationNamePartType PREFIX = new OrganizationNamePartType("PREFIX", "prefix");
     public static final OrganizationNamePartType SUFFIX = new OrganizationNamePartType("SUFFIX", "suffix");
 

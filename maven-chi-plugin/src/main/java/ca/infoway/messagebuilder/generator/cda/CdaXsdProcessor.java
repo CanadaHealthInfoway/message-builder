@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SchemaMetadata;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class CdaXsdProcessor {
@@ -95,12 +96,26 @@ public class CdaXsdProcessor {
 						Choice choice = (Choice) child;
 						Relationship relationship = new Relationship();
 						String choiceName = typeName.getUnqualifiedName() + "_" + sortOrder;
+						String choiceClassName = typeName.getParent().getName() + "." + choiceName;
 						relationship.setName(choiceName);
+						relationship.setType(choiceClassName);
 						relationship.setSortOrder(sortOrder++);
+						int min = minimumOfMinimums(choice.getElements());
+						int max = maximumOfMaximums(choice.getElements());
+						Cardinality cardinality = new Cardinality(min, max);
+						relationship.setCardinality(cardinality);
+						relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.MANDATORY : ConformanceLevel.OPTIONAL);
+						
+						MessagePart choicePart = new MessagePart(choiceClassName);
+						choicePart.setAbstract(true);
+						
 						for (XsElement choiceElement : choice.getElements()) {
 							relationship.getChoices().add(parseElement(choiceElement, messageSet));
+							choicePart.addSpecializationChild(new SpecializationChild(choiceElement.getType()));
 						}
 						messagePart.getRelationships().add(relationship);
+						
+						messageSet.addMessagePart(choicePart);
 					}
 				}
 			}
@@ -109,6 +124,28 @@ public class CdaXsdProcessor {
 		}
 	}
 
+	private int minimumOfMinimums(List<XsElement> elements) {
+		int min = 1;
+		for (XsElement element : elements) {
+			int lowerBound = parseLowerBound(element.getMinOccurs());
+			if (lowerBound < min) {
+				min = lowerBound;
+			}
+		}
+		return min;
+	}
+
+	private int maximumOfMaximums(List<XsElement> elements) {
+		int max = 1;
+		for (XsElement element : elements) {
+			int upperBound = parseUpperBound(element.getMaxOccurs());
+			if (upperBound < max) {
+				max = upperBound;
+			}
+		}
+		return max;
+	}
+	
 	private SchemaMetadata parseMetadata(Schema schema) {
 		SchemaMetadata schemaMetadata = new SchemaMetadata();
 		schemaMetadata.setTargetNamespace(schema.getTargetNamespace());
@@ -136,7 +173,7 @@ public class CdaXsdProcessor {
 			boolean isStandardType = standardType != null;
 			String dataType;
 			if (isStandardType) {
-				dataType = standardType.getName();
+				dataType = standardType.getType();
 			} else if (isAllLowerCase(typeName)) {
 				// an all lower case name is unlikely to be a code system name
 				dataType = typeName;
@@ -172,12 +209,20 @@ public class CdaXsdProcessor {
 		if (messageSet.hasConstrainedDatatype(type)) {
 			baseType = messageSet.getConstrainedDatatype(type).getBaseType();
 			constrainedType = type;
-			
+		} else if ("StrucDoc.Text".equals(type)) {
+			// special handling - structured narrative should be handled as a BLOB
+			baseType = "ED";
+			constrainedType = type;
 		} else {
 			baseType = type;
 		}
 		
-		if (cardinality.isMultiple() && StandardDataType.getByTypeNameIgnoreCase(baseType) != null) {
+		StandardDataType standardType = StandardDataType.valueOf(StandardDataType.class, baseType);
+		if (standardType != null) {
+			baseType = standardType.getType();
+		}
+		
+		if (cardinality.isMultiple() && standardType != null) {
 			baseType = "LIST<" + baseType + ">";
 		}
 		

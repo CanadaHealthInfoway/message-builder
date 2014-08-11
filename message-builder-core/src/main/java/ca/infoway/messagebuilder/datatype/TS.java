@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.datatype;
 
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+
 /**
  * <p>HL7 datatype TS backed by a java Date.
  * 
@@ -51,6 +53,5 @@ import java.util.Date;
  *
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface TS extends QTY<Date> {
-
+public interface TS extends QTY<Date>, SetOperatorType {
 }

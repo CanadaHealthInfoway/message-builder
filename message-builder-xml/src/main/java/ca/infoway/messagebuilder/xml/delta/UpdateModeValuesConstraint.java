@@ -110,5 +110,12 @@ public class UpdateModeValuesConstraint extends Constraint {
 		}
 		return result;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		UpdateModeValuesConstraint newConstraint = new UpdateModeValuesConstraint();
+		newConstraint.getOriginalUpdateModes().addAll(originalUpdateModes);
+		newConstraint.getNewUpdateModes().addAll(newUpdateModes);
+		return null;
+	}
 	
 }

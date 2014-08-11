@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.DELIMITER;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.HOUSE_NUMBER;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.UNIT_ID;
-import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertContainsSame;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.toSet;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
@@ -146,7 +145,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private void assertXmlEquals(String string, String expected, String actual) {
-		assertEquals(string, normalizeWhitespace(expected), normalizeWhitespace(actual));
+		assertXml(string, expected, actual);
 	}
 
 	@Test

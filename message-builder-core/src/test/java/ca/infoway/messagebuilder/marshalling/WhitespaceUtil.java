@@ -26,7 +26,7 @@ import org.apache.commons.lang.StringUtils;
 
 public abstract class WhitespaceUtil {
 
-	public static String normalizeWhitespace(String xml) {
+	public static String normalizeWhitespace(String xml, boolean trimTokens) {
 		StringBuilder builder = new StringBuilder();
 		boolean text = true;
 		for (StringTokenizer tokenizer = new StringTokenizer(xml, "<>", true); tokenizer.hasMoreTokens(); ) {
@@ -39,7 +39,7 @@ public abstract class WhitespaceUtil {
 				text = true;
 				builder.append(token);
 			} else if (!text || StringUtils.isNotBlank(token)) {
-				builder.append(token);
+				builder.append(trimTokens ? token.trim() : token);
 			}
 		}
 		return builder.toString().trim();

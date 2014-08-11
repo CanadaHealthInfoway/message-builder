@@ -55,6 +55,8 @@ public enum ConstraintChangeType {
 	RETIRE_CONCEPT, 
 	ADD_CONTEXT_BINDING,
 	
+	SCHEMATRON,
+	
 	UNSUPPORTED;
 	
 	public String getKey() {

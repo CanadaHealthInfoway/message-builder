@@ -102,6 +102,10 @@ public class ParserContextImpl implements ParseContext {
 		return ParserContextImpl.create(newType, oldContext.getConformance(), oldContext.getCardinality(), oldContext);
 	}
 	
+	public static ParseContext create(String newType, Type newReturnType, ParseContext oldContext) {
+		return new ParserContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength());
+	}
+
 	public static ParseContext create(String newType, ConformanceLevel newConformance, Cardinality newCardinality, ParseContext oldContext) {
 		return new ParserContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength());
 	}

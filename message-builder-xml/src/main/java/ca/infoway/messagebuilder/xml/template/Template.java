@@ -37,6 +37,8 @@ public class Template {
 	private String templateType;
 	private String context;
 	private String impliedTemplateOid;
+	private String packageName;
+	private String entryClassName;
 	
 	private String description;
 	
@@ -99,6 +101,22 @@ public class Template {
 		this.impliedTemplateOid = impliedTemplateOid;
 	}
 
+	public String getPackageName() {
+		return packageName;
+	}
+
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
+	}
+
+	public String getEntryClassName() {
+		return entryClassName;
+	}
+
+	public void setEntryClassName(String entryClassName) {
+		this.entryClassName = entryClassName;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -136,6 +154,11 @@ public class Template {
 		reference.setOid(containedTemplateOid);
 		reference.setMaxInstances(maxInstances);
 		templateReferences.add(reference);
+	}
+
+	public void cloneDelta(Delta parentDelta) {
+		addDelta(parentDelta.clone(this.packageName));
+		
 	}
 
 }

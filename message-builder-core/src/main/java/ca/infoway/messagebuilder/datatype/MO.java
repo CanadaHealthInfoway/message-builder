@@ -31,6 +31,5 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
  *
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface MO extends QTY<Money> {
-
+public interface MO extends QTY<Money>, SetOperatorType {
 }

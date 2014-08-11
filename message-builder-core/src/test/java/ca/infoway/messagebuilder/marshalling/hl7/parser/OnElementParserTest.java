@@ -88,7 +88,7 @@ public class OnElementParserTest extends CeRxDomainValueTestCase {
         
         assertNamePartAsExpected("prefix prefix 1", organizationName.getParts().get(0), OrganizationNamePartType.PREFIX, "prefix 1");
         assertNamePartAsExpected("name", organizationName.getParts().get(1), null, "Organization name");
-        assertNamePartAsExpected("delimiter comma", organizationName.getParts().get(2), OrganizationNamePartType.DELIMETER, ",");
+        assertNamePartAsExpected("delimiter comma", organizationName.getParts().get(2), OrganizationNamePartType.DELIMITER, ",");
         assertNamePartAsExpected("suffix Inc", organizationName.getParts().get(3), OrganizationNamePartType.SUFFIX, "Inc");
     }
     

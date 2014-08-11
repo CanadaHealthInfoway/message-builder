@@ -192,6 +192,6 @@ public class PnElementParserTest extends MarshallingTestCase {
     private void assertNamePartAsExpected(String message, EntityNamePart namePart, NamePartType expectedType, String expectedValue, String expectedQualifier) {
         assertEquals(message + " type", expectedType, namePart.getType());
         assertEquals(message + " value", expectedValue, namePart.getValue());
-        assertEquals(message + " qualifier", expectedQualifier, namePart.getQualifier());
+        assertEquals(message + " qualifier", expectedQualifier, namePart.getQualifier() == null ? null : namePart.getQualifier().getCodeValue());
     }
 }

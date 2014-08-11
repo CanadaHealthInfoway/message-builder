@@ -51,6 +51,9 @@ public class CdaTemplate {
 	@Attribute
 	private String context;
 	
+	@Attribute
+	private String title;
+	
 	@Element(name="Description")
 	private TemplateDescription description;
 	
@@ -103,6 +106,14 @@ public class CdaTemplate {
 
 	public void setContext(String context) {
 		this.context = context;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public TemplateDescription getDescription() {

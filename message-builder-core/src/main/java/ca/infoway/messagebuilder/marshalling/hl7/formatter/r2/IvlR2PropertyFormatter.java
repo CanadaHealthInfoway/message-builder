@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -39,7 +40,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.RepresentationUtil;
-import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -108,7 +108,9 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 		
 		StringBuffer buffer = new StringBuffer();
 		if (value.getRepresentation() == Representation.SIMPLE) {
-			buffer.append(createElement(context, context.getElementName(), new QTYImpl<T>(value.getValue()), null, value.getOperator(), indentLevel));
+			QTYImpl<T> qty = new QTYImpl<T>(value.getValue());
+			qty.setOperator(value.getOperator());
+			buffer.append(createElement(context, context.getElementName(), qty, null, true, indentLevel));
 		} else {
 			buffer.append(createElement(context, null, indentLevel, false, true));
 			appendIntervalBounds(context, value, buffer, indentLevel + 1);
@@ -149,9 +151,9 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 	private void appendIntervalBounds(FormatContext context, Interval<T> value, StringBuffer buffer, int indentLevel) {
 		Representation rep = value.getRepresentation();
 		
-		String low = RepresentationUtil.hasLow(rep) ? createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), getInclusiveValue(value, true), null, indentLevel) : null;
-		String high = RepresentationUtil.hasHigh(rep) ? createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), getInclusiveValue(value, false), null, indentLevel) : null;
-		String centre = RepresentationUtil.hasCentre(rep) ? createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), null, null, indentLevel) : null;
+		String low = RepresentationUtil.hasLow(rep) ? createElement(context, LOW, createQTY(value.getLow(), value.getLowNullFlavor()), getInclusiveValue(value, true), false, indentLevel) : null;
+		String high = RepresentationUtil.hasHigh(rep) ? createElement(context, HIGH, createQTY(value.getHigh(), value.getHighNullFlavor()), getInclusiveValue(value, false), false, indentLevel) : null;
+		String centre = RepresentationUtil.hasCentre(rep) ? createElement(context, CENTRE, createQTY(value.getCentre(), value.getCentreNullFlavor()), null, false, indentLevel) : null;
 		String width = RepresentationUtil.hasWidth(rep) ? createWidthElement(context, WIDTH, value.getWidth(), indentLevel) : null;
 
 		switch (rep) {
@@ -278,20 +280,22 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 		return "TS".equals(Hl7DataTypeName.unqualify(Hl7DataTypeName.getParameterizedType(context.getType())));
 	}
 
-	protected String createElement(FormatContext context, String name, QTY<T> value, Boolean inclusive, SetOperator operator, int indentLevel) {
+	protected String createElement(FormatContext context, String name, QTY<T> value, Boolean inclusive, boolean isSxcm, int indentLevel) {
     	String type = Hl7DataTypeName.getParameterizedType(context.getType());
+    	if (isSxcm) {
+    		type = "SXCM<" + type + ">";
+    	}
+    	
     	PropertyFormatter formatter = FormatterR2Registry.getInstance().get(type);
     	if (formatter != null) {
     		boolean isSpecializationType = false;
     		String result = formatter.format(
     				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
-    		// TM - small hack to add in the inclusive attribute (low/high) and operator (simple)
     		if (inclusive != null) {
+    			// TM - small hack to add in the inclusive attribute (low/high) (operator, simple only, is already formatted by using the SXCM type)
     			result = result.replaceFirst(" value=", " inclusive=\"" + inclusive.toString() + "\" value=");
-    		} else if (operator != null) {
-    			result = result.replaceFirst(" value=", " operator=\"" + operator.getCodeValue() + "\" value=");
     		}
-    		return result;
+    		return result + SystemUtils.LINE_SEPARATOR;
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

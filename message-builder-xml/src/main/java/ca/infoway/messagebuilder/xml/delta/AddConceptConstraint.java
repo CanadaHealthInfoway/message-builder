@@ -83,4 +83,8 @@ public class AddConceptConstraint extends Constraint{
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.ADD_CONCEPT;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AddConceptConstraint(code, oid, printText);
+	}
 }

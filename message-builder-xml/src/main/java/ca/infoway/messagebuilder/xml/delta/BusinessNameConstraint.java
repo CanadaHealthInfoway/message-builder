@@ -44,5 +44,9 @@ public class BusinessNameConstraint extends NewStringValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_BUSINESS_NAME;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new BusinessNameConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

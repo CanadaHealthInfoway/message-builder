@@ -20,8 +20,14 @@
 
 package ca.infoway.messagebuilder.xml.template;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import ca.infoway.messagebuilder.xml.delta.Delta;
+import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 
 public class TemplateSet {
 
@@ -31,7 +37,29 @@ public class TemplateSet {
 		templates.put(template.getOid(), template);
 	}
 	
+	public Collection<Template> getAllTemplates() {
+		return templates.values();
+	}
+	
 	public Template getByOid(String oid) {
 		return templates.get(oid);
+	}
+	
+	public List<Delta> getAllDeltas() {
+		List<Delta> allDeltas = new ArrayList<Delta>();
+		
+		for (Template template : templates.values()) {
+			allDeltas.addAll(template.getDeltas());
+		}
+		
+		return allDeltas;
+	}
+
+	public Delta getDelta(DeltaChangeType changeType, String className, String relationshipName) {
+		Delta delta = null;
+		for (Template template : templates.values()) {
+			delta = template.getDelta(changeType, className, relationshipName);
+		}
+		return delta;
 	}
 }

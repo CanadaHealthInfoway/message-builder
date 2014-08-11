@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.ActSubstanceAdministrationImmunizat
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.Country;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.HL7StandardVersionCode;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.IssueFilterCode;
@@ -47,6 +48,7 @@ import ca.infoway.messagebuilder.domainvalue.MessageWaitingPriority;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.ObservationQueryMatchType;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ProcessingMode;
 import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
@@ -196,6 +198,12 @@ public class DefaultCodeResolutionConfigurator {
 		
 		CodeResolverRegistry.registerResolver(x_BasicPostalAddressUse.class, 
 				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse.class));
+
+		CodeResolverRegistry.registerResolver(PostalAddressUse.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse.class));
+		
+		CodeResolverRegistry.registerResolver(EntityNamePartQualifier.class, 
+				new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.basic.EntityNamePartQualifier.class));
 
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 	}

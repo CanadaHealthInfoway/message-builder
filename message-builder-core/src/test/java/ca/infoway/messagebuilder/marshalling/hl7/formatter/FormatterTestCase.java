@@ -63,12 +63,16 @@ public abstract class FormatterTestCase {
 	protected ModelToXmlResult result = new ModelToXmlResult();
 
 	protected void assertXml(String description, String expected, String actual) {
+		assertXml(description, expected, actual, false);
+	}
+	
+	protected void assertXml(String description, String expected, String actual, boolean ignoreWhitespace) {
 		if (actual.contains("<!--")) {
 			String first = StringUtils.substringBefore(actual, "<!--");
 			String rest = StringUtils.substringAfter(StringUtils.substringAfter(actual, "<!--"), "-->");
 			actual = first + rest;
 		}
-		assertEquals(description, normalizeWhitespace(expected), normalizeWhitespace(actual));
+		assertEquals(description, normalizeWhitespace(expected, ignoreWhitespace), normalizeWhitespace(actual, ignoreWhitespace));
 	}
 
 	protected Date parseDate(String date) throws ParseException {

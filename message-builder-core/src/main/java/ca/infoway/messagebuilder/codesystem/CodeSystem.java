@@ -119,6 +119,7 @@ public class CodeSystem extends EnumPattern implements Oid {
 	public static final CodeSystem VOCABULARY_CONFIDENTIALITY = new CodeSystem("VOCABULARY_CONFIDENTIALITY", "2.16.840.1.113883.5.25");
 	public static final CodeSystem VOCABULARY_DOCUMENT_MEDIA_TYPES = new CodeSystem("VOCABULARY_DOCUMENT_MEDIA_TYPES", "2.16.840.1.113883.5.79");
 	public static final CodeSystem VOCABULARY_ENTITY_CODE = new CodeSystem("VOCABULARY_ENTITY_CODE", "2.16.840.1.113883.5.1060");
+	public static final CodeSystem VOCABULARY_ENTITY_NAME_QUALIFIER = new CodeSystem("VOCABULARY_ENTITY_NAME_QUALIFIER", "2.16.840.1.113883.5.43");
 	public static final CodeSystem VOCABULARY_ENTITY_NAME_USE = new CodeSystem("VOCABULARY_ENTITY_NAME_USE", "2.16.840.1.113883.5.45");
 	public static final CodeSystem VOCABULARY_HL7_STANDARD_VERSION_CODE = new CodeSystem("VOCABULARY_HL7_STANDARD_VERSION_CODE", "2.16.840.1.113883.5.1092"); 
 	public static final CodeSystem VOCABULARY_HUMAN_LANGUAGE = new CodeSystem("VOCABULARY_HUMAN_LANGUAGE", "2.16.840.1.113883.6.84"); 
@@ -141,6 +142,7 @@ public class CodeSystem extends EnumPattern implements Oid {
 	public static final CodeSystem VOCABULARY_SEVERITY_OBSERVATION = new CodeSystem("VOCABULARY_SEVERITY_OBSERVATION", "2.16.840.1.113883.5.1063");
 	public static final CodeSystem VOCABULARY_SUBSTITUTION_CONDITION = new CodeSystem("VOCABULARY_SUBSTITUTION_CONDITION", "2.16.840.1.113883.5.1071");
 	public static final CodeSystem VOCABULARY_TELECOMMUNICATION_ADDRESS_USE = new CodeSystem("VOCABULARY_TELECOMMUNICATION_ADDRESS_USE", "2.16.840.1.113883.5.1011");
+	public static final CodeSystem VOCABULARY_TIMING_EVENT = new CodeSystem("VOCABULARY_TIMING_EVENT", "2.16.840.1.113883.5.139");
 	public static final CodeSystem VOCABULARY_TRIGGER_EVENT_ID = new CodeSystem("VOCABULARY_TRIGGER_EVENT_ID", "2.16.840.1.113883.1.18");
 	public static final CodeSystem VOCABULARY_UNIFORM_UNIT_OF_MEASURE = new CodeSystem("VOCABULARY_UNIFORM_UNIT_OF_MEASURE", "2.16.840.1.113883.5.141");
 	public static final CodeSystem VOCABULARY_URL_SCHEME = new CodeSystem("VOCABULARY_URL_SCHEME", "2.16.840.1.113883.5.143");

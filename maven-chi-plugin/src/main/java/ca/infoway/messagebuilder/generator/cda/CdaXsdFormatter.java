@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -89,7 +90,10 @@ public class CdaXsdFormatter {
 		}
 		
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
-			complexTypes.put(messagePart.getName(), messagePart);
+			if (messagePart.getSpecializationChilds().size() == 0) {
+				// the parts representing choice blocks do not appear as types in the output
+				complexTypes.put(messagePart.getName(), messagePart);
+			}
 		}
 		
 		for (ConstrainedDatatype datatype : messageSet.getAllConstrainedDatatypes()) {
@@ -140,13 +144,17 @@ public class CdaXsdFormatter {
 		
 		if (relationship.getConstrainedType() != null) {
 			element.setType(relationship.getConstrainedType());
-		} else if (relationship.getCardinality().isMultiple() && relationship.getType().contains("<")) {
-			int startIndex = relationship.getType().indexOf("<");
-			int lastIndex = relationship.getType().lastIndexOf(">");
-			String parameter = relationship.getType().substring(startIndex+1, lastIndex);
-			element.setType(parameter);
 		} else {
-			element.setType(relationship.getType());
+			if (relationship.getCardinality().isMultiple() && StandardDataType.isSetOrList(relationship.getType())) {
+				element.setType(StandardDataType.getTemplateArgument(relationship.getType()).getName());
+			} else {
+				StandardDataType standardType = StandardDataType.getByTypeName(relationship.getType());
+				if (standardType != null) {
+					element.setType(standardType.getName());
+				} else {
+					element.setType(relationship.getType());
+				}
+			}
 		}
 		
 		if (relationship.getCardinality().getMin() != 1) {

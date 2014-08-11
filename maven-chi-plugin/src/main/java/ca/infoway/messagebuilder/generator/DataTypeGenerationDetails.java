@@ -42,11 +42,13 @@ import ca.infoway.messagebuilder.datatype.BN;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CE;
 import ca.infoway.messagebuilder.datatype.COLLECTION;
+import ca.infoway.messagebuilder.datatype.CR;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.EN;
 import ca.infoway.messagebuilder.datatype.GTS;
+import ca.infoway.messagebuilder.datatype.HXIT;
 import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
@@ -55,6 +57,7 @@ import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.ON;
 import ca.infoway.messagebuilder.datatype.PIVL;
+import ca.infoway.messagebuilder.datatype.PIVLR2;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.QTY;
@@ -70,7 +73,9 @@ import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.URL;
+import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
@@ -80,6 +85,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.datatype.lang.ParentheticSetExpr;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
+import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
@@ -153,6 +159,8 @@ enum DataTypeGenerationDetails implements Typed {
 	CD_LAB("CD.LAB", "CodedTypeLab", CD.class.getName(), Code.class.getName(), null), 
 	CE("CE", CE.class.getName(), Code.class.getName(), null), 
 	CS("CS", "SimpleCodedType", CS.class.getName(), Code.class.getName(), null),
+	CR("CR", CR.class.getName(), CodeRole.class.getName(), null), 
+	HXIT_CE("HXIT<CE>", HXIT.class.getName(), CodedTypeR2.class.getName(), null), 
 	
 	ST("ST", ST.class.getName(), String.class.getName(), "System.String"), 
 	ST_LANG("ST.LANG", "LocalizedString", ST.class.getName(), String.class.getName(), "System.String"), 
@@ -190,10 +198,11 @@ enum DataTypeGenerationDetails implements Typed {
 	IVL_LOW("IVL.LOW", "Interval", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_HIGH("IVL.HIGH", "Interval", IVL.class.getName(), Interval.class.getName(), null),
 	
-	MO("MO", MO.class.getName(), Money.class.getName(), null), 
+	MO("MO", "Money", MO.class.getName(), Money.class.getName(), null), 
 	MO_CAD("MO.CAD", "Money", MO.class.getName(), Money.class.getName(), null), 
 	
 	PIVL("PIVL", PIVL.class.getName(), PeriodicIntervalTime.class.getName(), null),
+	PIVL_TS("PIVL<TS>", PIVLR2.class.getName(), PeriodicIntervalTimeR2.class.getName(), null),
 	PIVL_TS_DATETIME("PIVL<TS.DATETIME>", "PeriodicIntervalOfTime", PIVL.class.getName(), PeriodicIntervalTime.class.getName(), null),
 	
 	INT("INT", "integer", INT.class.getName(), Integer.class.getName(), "System.int?"), 
@@ -213,6 +222,8 @@ enum DataTypeGenerationDetails implements Typed {
 	REAL_CONF("REAL.CONF", REAL.class.getName(), BigDecimal.class.getName(), "Ca.Infoway.Messagebuilder.BigDecimal"),
 	
 	RTO("RTO", RTO.class.getName(), Ratio.class.getName(), null), 
+	RTO_PQ_PQ("RTO<PQ,PQ>", RTO.class.getName(), Ratio.class.getName(), null), 
+	RTO_MO_PQ("RTO<MO,PQ>", RTO.class.getName(), Ratio.class.getName(), null),
 	RTO_PQ_DRUG_PQ_TIME("RTO<PQ.DRUG, PQ.TIME>", RTO.class.getName(), Ratio.class.getName(), null), 
 	RTO_MO_CAD_PQ_BASIC("RTO<MO.CAD, PQ.BASIC>", RTO.class.getName(), Ratio.class.getName(), null),
 	
@@ -239,7 +250,13 @@ enum DataTypeGenerationDetails implements Typed {
 	URL("URL", URL.class.getName(), TelecommunicationAddress.class.getName(), null),
 	
 	SXPR("SXPR", SXPR.class.getName(), ParentheticSetExpr.class.getName(), null),
+	
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
+	SXCM_TS("SXCM<TS>", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	SXCM_PQ("SXCM<PQ>", "PhysicalQuantity", PQ.class.getName(), PhysicalQuantity.class.getName(), null), 
+	SXCM_MO("SXCM<MO>", "Money", MO.class.getName(), Money.class.getName(), null), 
+	SXCM_INT("SXCM<INT>", "integer", INT.class.getName(), Integer.class.getName(), "System.int?"), 
+	SXCM_REAL("SXCM<REAL>", REAL.class.getName(), BigDecimal.class.getName(), "Ca.Infoway.Messagebuilder.BigDecimal"), 
 	
 	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"), 
 

@@ -33,8 +33,11 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DistanceObservationUnitsOfMeasure;
@@ -91,6 +94,59 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("unit", CeRxDomainTestValues.KILOGRAM.getCodeValue(), physicalQuantity.getUnit().getCodeValue());
 	}
 	
+	@Test
+	public void testParseValidAttributesWithTranslation() throws Exception {
+		Node node = createNode(
+				"<something value=\"1234.45\" unit=\"kg\">" +
+					"<translation code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/>" +
+					"<translation code=\"active\" codeSystem=\"2.16.840.1.113883.5.14\"/>" +
+				"</something>");
+		PhysicalQuantity physicalQuantity = (PhysicalQuantity) new PqR2ElementParser().parse(createContext("PQ", V02R02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertNotNull("PhysicalQuantity", physicalQuantity);
+		assertEquals("quantity", new BigDecimal("1234.45"), physicalQuantity.getQuantity());
+		assertEquals("unit", CeRxDomainTestValues.KILOGRAM.getCodeValue(), physicalQuantity.getUnit().getCodeValue());
+		assertEquals(2, physicalQuantity.getTranslation().size());
+		assertEquals("M", physicalQuantity.getTranslation().get(0).getCodeValue());
+		assertEquals("2.16.840.1.113883.5.1", physicalQuantity.getTranslation().get(0).getCodeSystem());
+		assertEquals("active", physicalQuantity.getTranslation().get(1).getCodeValue());
+		assertEquals("2.16.840.1.113883.5.14", physicalQuantity.getTranslation().get(1).getCodeSystem());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorNotAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1234.45\" unit=\"kg\" />");
+		BareANY pqAny = new PqR2ElementParser().parse(createContext("PQ", V02R02), node, this.xmlResult);
+		PhysicalQuantity physicalQuantity = (PhysicalQuantity) pqAny.getBareValue();
+		assertEquals("quantity", new BigDecimal("1234.45"), physicalQuantity.getQuantity());
+		assertEquals("unit", CeRxDomainTestValues.KILOGRAM.getCodeValue(), physicalQuantity.getUnit().getCodeValue());
+		assertNull("no operator", ((ANYMetaData) pqAny).getOperator());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1234.45\" unit=\"kg\" />");
+		BareANY pqAny = new PqR2ElementParser().parse(createContext("SXCM<PQ>", V02R02), node, this.xmlResult);
+		PhysicalQuantity physicalQuantity = (PhysicalQuantity) pqAny.getBareValue();
+		assertEquals("quantity", new BigDecimal("1234.45"), physicalQuantity.getQuantity());
+		assertEquals("unit", CeRxDomainTestValues.KILOGRAM.getCodeValue(), physicalQuantity.getUnit().getCodeValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.PERIODIC_HULL, ((ANYMetaData) pqAny).getOperator());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithDefaultOperator() throws Exception {
+		Node node = createNode("<something value=\"1234.45\" unit=\"kg\" />");
+		BareANY pqAny = new PqR2ElementParser().parse(createContext("SXCM<PQ>", V02R02), node, this.xmlResult);
+		PhysicalQuantity physicalQuantity = (PhysicalQuantity) pqAny.getBareValue();
+		assertEquals("quantity", new BigDecimal("1234.45"), physicalQuantity.getQuantity());
+		assertEquals("unit", CeRxDomainTestValues.KILOGRAM.getCodeValue(), physicalQuantity.getUnit().getCodeValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.INCLUDE, ((ANYMetaData) pqAny).getOperator());
+	}
+
 	@Test
 	public void testParseValidAttributesWithDifferentUnitsAndTypes() throws Exception {
 		Node node = createNode("<something value=\"1234.45\" unit=\"kg\" />");

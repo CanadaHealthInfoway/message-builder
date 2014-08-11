@@ -55,6 +55,7 @@ public class Compression extends EnumPattern {
 	public static final Compression DEFLATE = new Compression("DEFLATE", "DF");
 	public static final Compression GZIP = new Compression("GZIP", "GZ");
 	public static final Compression ZLIB = new Compression("ZLIB", "ZL");
+	public static final Compression Z = new Compression("Z", "Z");
 
 	private final String compressionType;
 

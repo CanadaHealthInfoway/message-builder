@@ -48,5 +48,9 @@ public class DatatypeConstraint extends NewStringValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_DATATYPE;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new DatatypeConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

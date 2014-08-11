@@ -55,7 +55,7 @@ public class OnPropertyFormatterTest extends FormatterTestCase {
         OrganizationName organizationName = new OrganizationName();
         organizationName.addNamePart(new EntityNamePart("prefix", OrganizationNamePartType.PREFIX));
         organizationName.addNamePart(new EntityNamePart("Organization"));
-        organizationName.addNamePart(new EntityNamePart(",", OrganizationNamePartType.DELIMETER));
+        organizationName.addNamePart(new EntityNamePart(",", OrganizationNamePartType.DELIMITER));
         organizationName.addNamePart(new EntityNamePart("Inc", OrganizationNamePartType.SUFFIX));
         
         String result = formatter.format(getContext("name"), new ONImpl(organizationName));

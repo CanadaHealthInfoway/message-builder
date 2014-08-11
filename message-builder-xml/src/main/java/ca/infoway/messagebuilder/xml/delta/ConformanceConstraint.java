@@ -100,4 +100,9 @@ public class ConformanceConstraint extends Constraint {
 		return ConstraintChangeType.CHANGE_CONFORMANCE;
 	}
 
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new ConformanceConstraint(originalValue, newValue);
+	}
+
 }

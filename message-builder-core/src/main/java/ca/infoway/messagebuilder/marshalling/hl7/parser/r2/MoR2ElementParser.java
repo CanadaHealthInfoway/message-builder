@@ -27,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
@@ -51,16 +52,18 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * 
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-MO
  */
-@DataTypeHandler("MO")
+@DataTypeHandler({"MO", "SXCM<MO>"})
 class MoR2ElementParser extends AbstractSingleElementParser<Money> {
 
+	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
+	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new MOImpl();
 	}
 	
 	@Override
-	protected Money parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected Money parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 
 		String value = getAttributeValue(node, "value");
@@ -69,7 +72,9 @@ class MoR2ElementParser extends AbstractSingleElementParser<Money> {
         String currencyCode = getAttributeValue(node, "currency");
         Currency currency = validateCurrency(currencyCode, node, xmlToModelResult);
         
-		return amount == null && currency == null ? null : new Money(amount, currency);
+        this.sxcmHelper.handleOperator((Element) node, context, xmlToModelResult, (ANYMetaData) bareAny);
+
+        return amount == null && currency == null ? null : new Money(amount, currency);
 	}
 
 	private BigDecimal validateValue(String value, String type, XmlToModelResult xmlToModelResult, Element element) {

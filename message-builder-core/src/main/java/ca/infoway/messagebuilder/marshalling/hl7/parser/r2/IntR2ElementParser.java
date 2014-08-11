@@ -26,6 +26,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.lang.NumberUtil;
@@ -53,16 +54,18 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-INT
  * 
  */
-@DataTypeHandler("INT")
+@DataTypeHandler({"INT", "SXCM<INT>"})
 class IntR2ElementParser extends AbstractSingleElementParser<Integer> {
 
+	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
+	
 	@Override
-	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
-		return parseNonNullNode(context, (Element) node, xmlToModelResult);
+		return parseNonNullNode(context, (Element) node, bareAny, xmlToModelResult);
 	}
 
-	private Integer parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	private Integer parseNonNullNode(ParseContext context, Element element, BareANY bareAny, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		
 		Integer result = null;
 		
@@ -87,7 +90,14 @@ class IntR2ElementParser extends AbstractSingleElementParser<Integer> {
 			recordMissingValueError(element, xmlToModelResult);
 		}
 		
- 		return result;
+        this.sxcmHelper.handleOperator(element, context, xmlToModelResult, (ANYMetaData) bareAny);
+
+        if (element.hasAttribute("unsorted")) {
+        	boolean unsorted = Boolean.parseBoolean(element.getAttribute("unsorted"));
+        	((ANYMetaData) bareAny).setUnsorted(unsorted);
+        }
+        
+        return result;
 	}
 
 	private void recordMissingValueError(Element element, XmlToModelResult xmlToModelResult) {

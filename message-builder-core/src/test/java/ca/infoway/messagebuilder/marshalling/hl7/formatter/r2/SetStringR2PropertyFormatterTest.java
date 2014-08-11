@@ -48,7 +48,7 @@ public class SetStringR2PropertyFormatterTest extends FormatterTestCase {
 		String result = new SetR2PropertyFormatter().format(
 				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("1-4")), 
 				SETImpl.<ST, String>create(STImpl.class, makeSet( "Fred", "Wilma" )));
-		assertXml("non null", "<blah mediaType=\"text/plain\" representation=\"TXT\">Fred</blah><blah mediaType=\"text/plain\" representation=\"TXT\">Wilma</blah>", result);
+		assertXml("non null", "<blah>Fred</blah><blah>Wilma</blah>", result);
 	}
 
 	@Test
@@ -59,9 +59,9 @@ public class SetStringR2PropertyFormatterTest extends FormatterTestCase {
 		Assert.assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size());
 		Assert.assertEquals("Number of elements (3) is more than the specified maximum (2)", this.result.getHl7Errors().get(0).getMessage());
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Fred</blah>"));
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Wilma</blah>"));
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Barney</blah>"));
+		Assert.assertTrue(result.contains("<blah>Fred</blah>"));
+		Assert.assertTrue(result.contains("<blah>Wilma</blah>"));
+		Assert.assertTrue(result.contains("<blah>Barney</blah>"));
 	}
 
 	@Test
@@ -72,9 +72,9 @@ public class SetStringR2PropertyFormatterTest extends FormatterTestCase {
 		Assert.assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size());
 		Assert.assertEquals("Number of elements (3) is less than the specified minimum (4)", this.result.getHl7Errors().get(0).getMessage());
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Fred</blah>"));
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Wilma</blah>"));
-		Assert.assertTrue(result.contains("<blah mediaType=\"text/plain\" representation=\"TXT\">Barney</blah>"));
+		Assert.assertTrue(result.contains("<blah>Fred</blah>"));
+		Assert.assertTrue(result.contains("<blah>Wilma</blah>"));
+		Assert.assertTrue(result.contains("<blah>Barney</blah>"));
 	}
 
 }

@@ -90,4 +90,8 @@ public class CloneConstraint extends Constraint {
 		super.assignRealmCode(realmCode);
 		this.className = realmCode.substituteRealmCode(this.className);
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new CloneConstraint(StringUtils.replace(className, originalPackageName, newPackageName), relationshipName, originalClassName);
+	}
 }

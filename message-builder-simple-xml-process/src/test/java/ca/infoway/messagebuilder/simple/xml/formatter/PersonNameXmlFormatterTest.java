@@ -102,7 +102,7 @@ public class PersonNameXmlFormatterTest {
 		assertEquals("myTitle", pn.getValue().getParts().get(0).getValue());
 		assertEquals(PersonNamePartType.GIVEN, pn.getValue().getParts().get(1).getType());
 		assertEquals("myFirstName", pn.getValue().getParts().get(1).getValue());
-		assertEquals("IN", pn.getValue().getParts().get(1).getQualifier());
+		assertEquals("IN", pn.getValue().getParts().get(1).getQualifier().getCodeValue());
 		assertEquals(PersonNamePartType.GIVEN, pn.getValue().getParts().get(2).getType());
 		assertEquals("myMiddleName1", pn.getValue().getParts().get(2).getValue());
 		assertEquals(PersonNamePartType.GIVEN, pn.getValue().getParts().get(3).getType());

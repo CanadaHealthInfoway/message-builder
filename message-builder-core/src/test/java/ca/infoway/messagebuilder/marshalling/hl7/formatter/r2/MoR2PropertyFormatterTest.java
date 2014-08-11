@@ -31,6 +31,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 
@@ -97,4 +98,46 @@ public class MoR2PropertyFormatterTest extends FormatterTestCase {
 		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size()); // only digits allowed
     }
 
+	@Test
+    public void testFormatValueNonNullWithOperatorNotAllowed() throws Exception {
+        MoR2PropertyFormatter formatter = new MoR2PropertyFormatter();
+        
+        Money money = new Money(new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
+        FormatContext context = getContext("amount");
+		MOImpl dataType = new MOImpl(money);
+		dataType.setOperator(SetOperator.CONVEX_HULL);
+		
+		String result = formatter.format(context, dataType);
+        assertEquals("something in text node", "<amount currency=\"CAD\" value=\"12.00\"/>", result.trim());
+		assertFalse(context.getModelToXmlResult().isValid());
+		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size());
+		assertTrue(context.getModelToXmlResult().getHl7Errors().get(0).getMessage().toLowerCase().contains("operator"));
+	}
+	
+	@Test
+    public void testFormatSxcmValueNonNullWithOperatorAllowed() throws Exception {
+        MoR2PropertyFormatter formatter = new MoR2PropertyFormatter();
+        
+        Money money = new Money(new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
+        FormatContext context = getContext("amount", "SXCM<TS>");
+		MOImpl dataType = new MOImpl(money);
+		dataType.setOperator(SetOperator.CONVEX_HULL);
+		
+		String result = formatter.format(context, dataType);
+        assertEquals("something in text node", "<amount currency=\"CAD\" operator=\"H\" value=\"12.00\"/>", result.trim());
+		assertTrue(context.getModelToXmlResult().isValid());
+	}
+	
+	@Test
+    public void testFormatSxcmValueNonNullWithNoOperator() throws Exception {
+        MoR2PropertyFormatter formatter = new MoR2PropertyFormatter();
+        
+        Money money = new Money(new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
+        FormatContext context = getContext("amount", "SXCM<TS>");
+		MOImpl dataType = new MOImpl(money);
+		
+		String result = formatter.format(context, dataType);
+        assertEquals("something in text node", "<amount currency=\"CAD\" value=\"12.00\"/>", result.trim());
+		assertTrue(context.getModelToXmlResult().isValid());
+	}
 }

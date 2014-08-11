@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
@@ -66,6 +67,9 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	private final List<CD> translations = new ArrayList<CD>();
 	private String originalText;
 	private boolean isCdata = false;
+	private boolean isUnsorted = false;
+	
+	private SetOperator operator;
 	
 	/**
 	 * <p>Constructs an empty ANY.
@@ -391,6 +395,42 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	 */
 	public void setCdata(boolean isCdata) {
 		this.isCdata = isCdata;
+	}
+
+	/**
+	 * <p>Indicates whether an INT is unsorted (R2 INT only, not all cases)
+	 * 
+	 * @return whether an INT is unsorted
+	 */
+	public boolean isUnsorted() {
+		return this.isUnsorted;
+	}
+
+	/**
+	 * <p>Sets whether an INT is unsorted (R2 INT only, not all cases)
+	 * 
+	 * @param unsorted Sets whether an INT is unsorted
+	 */
+	public void setUnsorted(boolean isUnsorted) {
+		this.isUnsorted = isUnsorted;
+	}
+
+	/**
+	 * <p> Gets the operator.
+	 *
+	 * @return the operator
+	 */
+	public SetOperator getOperator() {
+		return this.operator;
+	}
+
+	 /**
+	  * <p>Sets the operator.
+	  * 
+	  * @param operator the operator
+	  */
+	public void setOperator(SetOperator operator) {
+		this.operator = operator;
 	}
 
 }

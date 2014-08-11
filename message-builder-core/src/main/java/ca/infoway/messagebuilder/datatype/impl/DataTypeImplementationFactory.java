@@ -51,7 +51,7 @@ public class DataTypeImplementationFactory {
 		StandardDataType dataType = StandardDataType.getByTypeName(typeName);
 		if (dataType!=null) {
 			try {
-				implementation = (Class) Class.forName(MessageFormat.format("{0}.{1}Impl", ANYImpl.class.getPackage().getName(), dataType.getRootType()));
+				implementation = (Class<? extends ANYImpl<?>>) Class.forName(MessageFormat.format("{0}.{1}Impl", ANYImpl.class.getPackage().getName(), dataType.getRootType()));
 			} catch (ClassNotFoundException e) {
 				LOG.error("Unable to find implementation for type: " + typeName, e);
 			}

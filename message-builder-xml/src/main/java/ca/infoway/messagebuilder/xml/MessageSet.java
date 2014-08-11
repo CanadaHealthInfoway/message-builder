@@ -137,6 +137,15 @@ public class MessageSet implements MessagePartResolver {
 	}
 	
 	/**
+	 * Add a new package location to the MessageSet
+	 * 
+	 * @param packageLocation the package location
+	 */
+	public void addPackageLocation(PackageLocation packageLocation) {
+		this.packageLocations.put(packageLocation.getName(), packageLocation);
+	}
+	
+	/**
 	 * <p>Get a part by part type name.
 	 * @param type - the message part type name
 	 * @return - the message part

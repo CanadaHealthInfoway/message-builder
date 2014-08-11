@@ -27,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 
@@ -72,7 +73,8 @@ public abstract class AbstractEntityNamePropertyFormatter<V extends EntityName> 
     }
     
     private String addQualifier(EntityNamePart namePart) {
-		return StringUtils.isNotBlank(namePart.getQualifier()) ? " qualifier=\"" + namePart.getQualifier() + "\"" : "";
+    	EntityNamePartQualifier qualifier = namePart.getQualifier();
+		return qualifier == null || StringUtils.isBlank(qualifier.getCodeValue()) ? "" : " qualifier=\"" + qualifier.getCodeValue() + "\"";
 	}
 
 	protected Map<String, String> getUseAttributeMap(V value) {

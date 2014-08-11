@@ -37,6 +37,6 @@ import java.math.BigDecimal;
  *
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface REAL extends QTY<BigDecimal> {
+public interface REAL extends QTY<BigDecimal>, SetOperatorType {
 
 }

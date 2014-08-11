@@ -24,6 +24,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Contains the entry to be added.
  */
@@ -107,5 +109,11 @@ public class TemplateParameterConstraint extends Constraint{
 		super.assignRealmCode(realmCode);
 		this.originalMessagePartName = realmCode.substituteRealmCode(this.originalMessagePartName);
 		this.newMessagePartName = realmCode.substituteRealmCode(this.newMessagePartName);
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new TemplateParameterConstraint(
+				templateParameterName, originalTraversalName, newTraversalName, originalMessagePartName, 
+				StringUtils.replace(newMessagePartName, originalPackageName, newPackageName));
 	}
 }

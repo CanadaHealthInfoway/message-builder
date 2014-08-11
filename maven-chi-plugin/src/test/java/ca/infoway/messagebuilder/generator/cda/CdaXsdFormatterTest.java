@@ -52,7 +52,7 @@ public class CdaXsdFormatterTest {
 		parser = new CdaXsdProcessor();
 		fixture = new CdaXsdFormatter();
 
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdFormatterTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdFormatterTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		parser.processSchema(schema, messageSet);
@@ -213,6 +213,8 @@ public class CdaXsdFormatterTest {
 		assertEquals("unsorted", helper.getAttributeValue(roiValueNode, "xs:complexContent/xs:extension/xs:attribute[1]/@name", Namespaces.XSD_NAMESPACE));
 		assertEquals("xs:boolean", helper.getAttributeValue(roiValueNode, "xs:complexContent/xs:extension/xs:attribute[1]/@type", Namespaces.XSD_NAMESPACE));
 		assertEquals("false", helper.getAttributeValue(roiValueNode, "xs:complexContent/xs:extension/xs:attribute[1]/@default", Namespaces.XSD_NAMESPACE));
+		
+		assertEquals("StrucDoc.Text", helper.getAttributeValue(schemaDocument, "//xs:complexType[@name='POCD_MT000040.Section']//xs:element[@name='text']/@type", Namespaces.XSD_NAMESPACE));
 	}
 	
 	@Test

@@ -97,5 +97,9 @@ public class UpdateModeDefaultConstraint extends Constraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_UPDATEMODE_DEFAULT;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new UpdateModeDefaultConstraint(originalValue, newValue);
+	}
 
 }

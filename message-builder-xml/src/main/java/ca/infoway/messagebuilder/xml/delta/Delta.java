@@ -21,13 +21,13 @@
 package ca.infoway.messagebuilder.xml.delta;
 
 import static javax.persistence.CascadeType.ALL;
-
-import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.CHANGE_TEMPLATE_PARAMETER;
-import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.UNSUPPORTED;
-import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.REMOVE;
-import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.ANNOTATION;
 import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.ADD_CHOICE;
+import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.ANNOTATION;
+import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.CHANGE_TEMPLATE_PARAMETER;
+import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.REMOVE;
 import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.REMOVE_CHOICE;
+import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.SCHEMATRON;
+import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.UNSUPPORTED;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -52,6 +52,9 @@ import javax.persistence.OrderBy;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.LogFactory;
+
+import ca.infoway.messagebuilder.xml.TypeName;
 
 /**
  * For one class/attribute/association provides all the information regarding to model changes.
@@ -139,6 +142,7 @@ public abstract class Delta implements Serializable {
 				&& !isRemoveChoiceConstraint(constraint)
 				&& !isTemplateParameterConstraint(constraint)
 				&& !isUnsupportedConstraint(constraint)
+				&& !isSchematronConstraint(constraint)
 				&& getConstraint(constraint.getChange()) != null) {
 			Constraint removedConstraint = removeConstraintByType(constraint.getChange());
 			if (removedConstraint != null) {
@@ -171,6 +175,9 @@ public abstract class Delta implements Serializable {
 	}
 	private boolean isRemoveChoiceConstraint(Constraint constraint) {
 		return constraint.getChange() == REMOVE_CHOICE;
+	}
+	private boolean isSchematronConstraint(Constraint constraint) {
+		return constraint.getChange() == SCHEMATRON;
 	}
 	public DeltaChangeType getDeltaChangeType() {
 		return this.deltaChangeType;
@@ -250,5 +257,25 @@ public abstract class Delta implements Serializable {
 	
 	public boolean hasConstraints() {
 		return this.constraints.size() > 0;
+	}
+	public Delta clone(String newPackageName) {
+		String originalPackageName = TypeName.determineRootName(className);
+		
+		try {
+			Delta cloneDelta = (Delta) this.getClass().newInstance();
+			cloneDelta.setClassName(StringUtils.replace(this.className, originalPackageName, newPackageName));
+			cloneDelta.setRelationshipName(relationshipName);
+			cloneDelta.setDeltaChangeType(deltaChangeType);
+			
+			for (Constraint constraint : this.constraints) {
+				cloneDelta.addConstraint(constraint.clone(originalPackageName, newPackageName));
+			}
+			
+			return cloneDelta;
+		} catch (Exception e) {
+			LogFactory.getLog(Delta.class).warn("Unable to clone delta " + className + "." + relationshipName + " [" + deltaChangeType.toString() + "]", e);
+		}
+		
+		return null;
 	}
 }

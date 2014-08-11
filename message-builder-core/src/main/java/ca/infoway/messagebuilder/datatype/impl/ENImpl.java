@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class ENImpl<V extends EntityName> extends ANYImpl<V> implements EN<V> {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -7224412497518261363L;
 
 	/**

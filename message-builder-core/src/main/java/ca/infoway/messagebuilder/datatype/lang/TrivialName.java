@@ -20,12 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import org.apache.commons.lang.StringUtils;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
  * <p>Java datatype for TN Hl7 datatypes.
@@ -38,8 +34,12 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  */
 public class TrivialName extends EntityName {
 
-    private final String name;
-   
+	/**
+	 * Construct an empty trivial name
+	 */
+    public TrivialName() {
+    }
+    
     /**
      * 
      * <p>Constructs a trivial name based on a string.
@@ -47,21 +47,9 @@ public class TrivialName extends EntityName {
      * @param name the trivial name
      */
     public TrivialName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * <p>Returns this trivial name as a list containing a single EntityNamPart.
-     * 
-     * @return this trivial name as a list of parts.
-     */
-    @Override
-    public List<EntityNamePart> getParts() {
-        if (this.name == null) {
-            return new ArrayList<EntityNamePart>();
-        } else {
-            return Arrays.asList(new EntityNamePart(this.name));
-        }
+    	if (StringUtils.isNotBlank(name)) {
+    		this.addNamePart(new EntityNamePart(name));
+    	}
     }
 
     /**
@@ -81,32 +69,7 @@ public class TrivialName extends EntityName {
      * @return the underlying string representing this trivial name.
      */
     public String getName() {
-        return this.name;
+        return this.getParts().size() > 0 ? this.getParts().get(0).getValue() : null;
     }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder()
-                .appendSuper(super.hashCode())
-                .append(this.name)
-                .toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        } else if (obj.getClass() != getClass()) {
-            return false;
-        } else {
-            return equals((TrivialName) obj);
-        }
-    }
-    
-    private boolean equals(TrivialName that) {
-        return new EqualsBuilder().appendSuper(super.equals(that))
-                .append(this.name, that.name)
-                .isEquals();
-    }
-    
 }

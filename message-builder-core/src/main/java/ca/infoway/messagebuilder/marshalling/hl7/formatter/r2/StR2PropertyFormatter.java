@@ -64,8 +64,9 @@ class StR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<String> 
         StringBuffer buffer = new StringBuffer();
         
     	Map<String, String> attributes = new HashMap<String, String>();
-    	attributes.put("representation", "TXT");
-    	attributes.put("mediaType", "text/plain");
+    	// removed the following attributes; they are fixed, but do not have to be provided
+//    	attributes.put("representation", "TXT");
+//    	attributes.put("mediaType", "text/plain");
     	
 		String language = getLanguage(dataType);
     	boolean hasLang = (language != null);

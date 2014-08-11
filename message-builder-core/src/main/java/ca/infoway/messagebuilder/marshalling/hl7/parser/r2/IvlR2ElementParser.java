@@ -29,10 +29,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
@@ -41,9 +41,7 @@ import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -109,15 +107,15 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 
 		validateCorrectElementsProvided(low != null, high != null, center != null, width != null, (Element) node, context, xmlToModelResult);
 		
-		BareANY lowAny = low == null ? null : createType(context, low, xmlToModelResult);
+		BareANY lowAny = low == null ? null : createType(context, low, xmlToModelResult, false);
 		Object lowType = lowAny == null ? null : lowAny.getBareValue();
 		Boolean lowInclusive = extractInclusive(context, low, xmlToModelResult);
 		
-		BareANY highAny = high == null ? null : createType(context, high, xmlToModelResult);
+		BareANY highAny = high == null ? null : createType(context, high, xmlToModelResult, false);
 		Object highType = highAny == null ? null : highAny.getBareValue();
 		Boolean highInclusive = extractInclusive(context, high, xmlToModelResult);
 		
-		BareANY centerAny = center == null ? null : createType(context, center, xmlToModelResult);
+		BareANY centerAny = center == null ? null : createType(context, center, xmlToModelResult, false);
 		Object centerType = centerAny == null ? null : centerAny.getBareValue();
 		
 		BareDiff widthType = width == null ? null : createDiffType(context, width, xmlToModelResult);
@@ -146,8 +144,8 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 			if (low == null && high == null && center == null && width == null) {
 				// only treat this as a "simple" interval if no other interval elements were provided (even if they were in error)
 				// try to parse a "simple" interval
-				// LATER - may be able to pull off operator from BAREAny
-				Object type = createType(context, (Element) node, xmlToModelResult).getBareValue();
+				BareANY simpleAny = createType(context, (Element) node, xmlToModelResult, true);
+				Object type = simpleAny.getBareValue();
 				if (type == null) {
 		        	xmlToModelResult.addHl7Error(
 		        			new Hl7Error(
@@ -155,8 +153,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		        					"\"Simple interval node: " + XmlDescriber.describePath(node) + " does not allow a null value\"",
 		        					(Element) node));
 				} else {
-					SetOperator operator = extractOperator(context, (Element) node, xmlToModelResult);
-					result = IntervalFactory.<T>createSimple((T) type, operator);
+					result = IntervalFactory.<T>createSimple((T) type, ((ANYMetaData) simpleAny).getOperator());
 				}
 			}
 		}
@@ -166,29 +163,6 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		}
 		
 		return result;
-	}
-
-	private SetOperator extractOperator(ParseContext context, Element element,	XmlToModelResult xmlToModelResult) {
-		SetOperator operator = SetOperator.INCLUDE;
-		if (element != null && element.hasAttribute("operator")) {
-			SetOperator matchingOperator = null;
-			String operatorString = getAttributeValue(element, "operator");
-			for (SetOperator setOperator : EnumPattern.values(SetOperator.class)) {
-				if (StringUtils.equals(setOperator.getCodeValue(), operatorString)) {
-					matchingOperator = setOperator;
-					operator = setOperator;
-					break;
-				}
-			}
-			if (matchingOperator == null) {
-	        	xmlToModelResult.addHl7Error(
-	        			new Hl7Error(
-	        					Hl7ErrorCode.DATA_TYPE_ERROR, 
-	        					"\"Simple interval 'operator' element does not appear to be an acceptable value: " + XmlDescriber.describePath(element),
-	        					element));
-			}
-		}
-		return operator;
 	}
 
 	private Boolean extractInclusive(ParseContext context, Element element,	XmlToModelResult xmlToModelResult) {
@@ -224,8 +198,11 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		return GenericDataTypeFactory.create(typeName);
 	}
 
-	private BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult) {
+	private BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult, boolean isSxcm) {
 		String type = getParameterizedType(context);
+		if (isSxcm) {
+			type = "SXCM<" + type + ">";
+		}
 		ElementParser parser = ParserR2Registry.getInstance().get(type);
 
 		if (parser != null) {
@@ -256,7 +233,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		if (isTimestampType(context)) {
 			return createDateDiff(context, width, xmlToModelResult);
 		} else {
-			BareANY bareAny = createType(context, width, xmlToModelResult);
+			BareANY bareAny = createType(context, width, xmlToModelResult, false);
 			if (bareAny.hasNullFlavor()) {
 				return new Diff<T>(bareAny.getNullFlavor());
 			} else {

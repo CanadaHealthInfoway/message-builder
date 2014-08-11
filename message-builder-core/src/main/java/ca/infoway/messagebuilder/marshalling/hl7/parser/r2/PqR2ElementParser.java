@@ -26,10 +26,15 @@ import java.math.BigDecimal;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.ANY;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -38,6 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
 
 /**
  * PQ - Physical Quantity (R2)
@@ -54,15 +60,15 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-PQ
  * 
  */
-@DataTypeHandler("PQ")
+@DataTypeHandler({"PQ", "SXCM<PQ>"})
 class PqR2ElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 
-	// translations property specified in schema but not supported here, as per comments from Andrew/Wendy
-	
-	private PqValidationUtils pqValidationUtils = new PqValidationUtils();
+	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
+	private final PqrR2ElementParser pqrParser = new PqrR2ElementParser();
+	private final PqValidationUtils pqValidationUtils = new PqValidationUtils();
 	
 	@Override
-	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		Element element = (Element) node;
 		
 		BigDecimal value = this.pqValidationUtils.validateValueR2(element.getAttribute("value"), context.getVersion(), context.getType(), false, element, null, xmlToModelResult);
@@ -77,13 +83,40 @@ class PqR2ElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		}
 
 		PhysicalQuantity physicalQuantity = (value != null || unit != null) ? new PhysicalQuantity(value, unit) : null;
+		if (physicalQuantity != null) {
+			handleTranslations(element, physicalQuantity, context, xmlToModelResult);
+		}
+		
+        this.sxcmHelper.handleOperator((Element) node, context, xmlToModelResult, (ANYMetaData) bareAny);
 		
         // this is not the usual way of doing things; this is to make validation easier
-        ((BareANYImpl) result).setBareValue(physicalQuantity);
+        ((BareANYImpl) bareAny).setBareValue(physicalQuantity);
 		
 		return physicalQuantity;
 	}
 	
+	private void handleTranslations(Element element, PhysicalQuantity pq, ParseContext context, XmlToModelResult result) {
+		// we have no knowledge of what domain the translations may belong to (I imagine code system could allow for a reverse lookup at some point)
+		ParseContext newContext = ParserContextImpl.create("PQR", ANY.class, context); 
+		NodeList translations = element.getElementsByTagName("translation");
+		for (int i = 0, length = translations.getLength(); i < length; i++) {
+			Element translationElement = (Element) translations.item(i);
+			// only want direct child node translations
+			if (translationElement.getParentNode().isSameNode(element)) {
+				CodedTypeR2<Code> parsedTranslation = parseTranslation(translationElement, newContext, result);
+				if (parsedTranslation != null) {
+					pq.getTranslation().add(parsedTranslation);
+				}
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private CodedTypeR2<Code> parseTranslation(Element translationElement, ParseContext newContext, XmlToModelResult result) {
+		BareANY anyResult = this.pqrParser.parse(newContext, translationElement, result);
+		return anyResult == null ? null : (CodedTypeR2<Code>) anyResult.getBareValue();
+	}
+
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new PQImpl();

@@ -21,7 +21,9 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractValueNullFlavorPropertyFormatter;
@@ -41,12 +43,19 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-REAL
  *
  */
-@DataTypeHandler({"REAL"})
+@DataTypeHandler({"REAL", "SXCM<REAL>"})
 public class RealR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<BigDecimal>{
+
+    private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
 
     @Override
     protected String getValue(BigDecimal bigDecimal, FormatContext context, BareANY bareAny) {
     	return bigDecimal.toString();
     }
 
+    @Override
+    protected void addOtherAttributesIfNecessary(BigDecimal v, Map<String, String> attributes, FormatContext context, BareANY bareAny) {
+    	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
+    }
+    
 }

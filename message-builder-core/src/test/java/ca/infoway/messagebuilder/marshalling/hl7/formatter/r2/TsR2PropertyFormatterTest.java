@@ -36,8 +36,10 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractPropertyFormatter;
@@ -66,6 +68,60 @@ public class TsR2PropertyFormatterTest {
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), calendar1, null);
 		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+	}
+
+	@Test
+	public void testGetAttributeNameValuePairsDateWithOperatorNotAllowed() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		TS ts = new TSImpl(calendar1);
+		ts.setOperator(SetOperator.PERIODIC_HULL);
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), calendar1, ts);
+		assertEquals("map size", 1, result.size());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		assertFalse(xmlResult.isValid());
+		assertEquals(1, xmlResult.getHl7Errors().size());
+	}
+
+	@Test
+	public void testSxcmGetAttributeNameValuePairsDateWithOperatorAllowed() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		TS ts = new TSImpl(calendar1);
+		ts.setOperator(SetOperator.PERIODIC_HULL);
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null), calendar1, ts);
+		assertEquals("map size", 2, result.size());
+		assertTrue(xmlResult.isValid());
+		
+		assertTrue("key as expected", result.containsKey("value"));
+		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);
+		assertEquals("value as expected", expectedValue, result.get("value"));
+		
+		assertTrue("key as expected", result.containsKey("operator"));
+		assertEquals("value as expected", "P", result.get("operator"));
+	}
+
+	@Test
+	public void testSxcmGetAttributeNameValuePairsDateWithNoOperator() throws Exception  {
+		// used as expected: a date object is passed in
+		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
+		TS ts = new TSImpl(calendar1);
+		
+		ModelToXmlResult xmlResult = new ModelToXmlResult();
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null), calendar1, ts);
+		assertEquals("map size", 1, result.size());
+		assertTrue(xmlResult.isValid());
 		
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "19990423101112.0000" + getCurrentTimeZone(calendar1);

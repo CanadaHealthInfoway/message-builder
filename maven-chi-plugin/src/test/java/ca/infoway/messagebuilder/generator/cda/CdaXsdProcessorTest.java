@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.generator.cda;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -37,6 +38,7 @@ import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SpecializationChild;
 
 public class CdaXsdProcessorTest {
 	
@@ -51,7 +53,7 @@ public class CdaXsdProcessorTest {
 	
 	@Test
 	public void shouldCreateMessagePart() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
@@ -68,7 +70,7 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseAttributes() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
@@ -157,7 +159,7 @@ public class CdaXsdProcessorTest {
 		assertTrue(effectiveTimeRelationship.isAttribute());
 		assertFalse(effectiveTimeRelationship.isStructural());
 		assertEquals(12, effectiveTimeRelationship.getSortOrder());
-		assertEquals("IVL_TS", effectiveTimeRelationship.getType());
+		assertEquals("IVL<TS>", effectiveTimeRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, effectiveTimeRelationship.getConformance());
 		assertEquals(0, effectiveTimeRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, effectiveTimeRelationship.getCardinality().getMax().intValue());
@@ -189,7 +191,7 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseAssociations() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
@@ -218,8 +220,8 @@ public class CdaXsdProcessorTest {
 	}
 	
 	@Test
-	public void shouldPArseChoices() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+	public void shouldParseChoices() throws Exception {
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
@@ -230,6 +232,10 @@ public class CdaXsdProcessorTest {
 		Relationship assignedChoice = assignedAuthorMessagePart.getRelationship("AssignedAuthor_10");
 		assertNotNull(assignedChoice);
 		assertTrue(assignedChoice.isChoice());
+		assertEquals("POCD_MT000040.AssignedAuthor_10", assignedChoice.getType());
+		assertEquals(ConformanceLevel.OPTIONAL, assignedChoice.getConformance());
+		assertEquals(0, assignedChoice.getCardinality().getMin().intValue());
+		assertEquals(1, assignedChoice.getCardinality().getMax().intValue());
 		assertEquals(10, assignedChoice.getSortOrder());
 		assertEquals(2, assignedChoice.getChoices().size());
 		
@@ -237,34 +243,41 @@ public class CdaXsdProcessorTest {
 		assertNotNull(assignedPersonRelationship);
 		assertEquals("assignedPerson", assignedPersonRelationship.getName());
 		assertEquals("POCD_MT000040.Person", assignedPersonRelationship.getType());
-		assertEquals(ConformanceLevel.OPTIONAL, assignedPersonRelationship.getConformance());
-		assertEquals(0, assignedPersonRelationship.getCardinality().getMin().intValue());
-		assertEquals(1, assignedPersonRelationship.getCardinality().getMax().intValue());
 		
 		Relationship assignedAuthoringDeviceRelationship = assignedChoice.getChoices().get(1);
 		assertNotNull(assignedAuthoringDeviceRelationship);
 		assertEquals("assignedAuthoringDevice", assignedAuthoringDeviceRelationship.getName());
 		assertEquals("POCD_MT000040.AuthoringDevice", assignedAuthoringDeviceRelationship.getType());
-		assertEquals(ConformanceLevel.OPTIONAL, assignedAuthoringDeviceRelationship.getConformance());
-		assertEquals(0, assignedAuthoringDeviceRelationship.getCardinality().getMin().intValue());
-		assertEquals(1, assignedAuthoringDeviceRelationship.getCardinality().getMax().intValue());
+		
+		MessagePart assignedChoicePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor_10");
+		assertNotNull(assignedChoicePart);
+		
+		SpecializationChild assignedPersonSpecializationChild = assignedChoicePart.getSpecializationChilds().get(0);
+		assertNotNull(assignedPersonSpecializationChild);
+		assertEquals("POCD_MT000040.Person", assignedPersonSpecializationChild.getName());
+		
+		SpecializationChild assignedAuthoringDeviceSpecializationChild = assignedChoicePart.getSpecializationChilds().get(1);
+		assertNotNull(assignedAuthoringDeviceSpecializationChild);
+		assertEquals("POCD_MT000040.AuthoringDevice", assignedAuthoringDeviceSpecializationChild.getName());
 		
 		MessagePart component2MessagePart = messageSet.getMessagePart("POCD_MT000040.Component2");
 		assertNotNull(component2MessagePart);
+		
 		Relationship bodyChoice = component2MessagePart.getRelationship("Component2_7");
 		assertNotNull(bodyChoice);
+		assertEquals(ConformanceLevel.MANDATORY, bodyChoice.getConformance());
+		assertEquals(1, bodyChoice.getCardinality().getMin().intValue());
+		assertEquals(1, bodyChoice.getCardinality().getMax().intValue());
+		
 		Relationship structuredBodyRelationship = bodyChoice.getChoices().get(1);
 		assertNotNull(structuredBodyRelationship);
 		assertEquals("structuredBody", structuredBodyRelationship.getName());
 		assertEquals("POCD_MT000040.StructuredBody", structuredBodyRelationship.getType());
-		assertEquals(ConformanceLevel.MANDATORY, structuredBodyRelationship.getConformance());
-		assertEquals(1, structuredBodyRelationship.getCardinality().getMin().intValue());
-		assertEquals(1, structuredBodyRelationship.getCardinality().getMax().intValue());
 	}
 
 	@Test
 	public void shouldParseConstrainedDatatypes() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("POCD_MT000040.xsd"));
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
@@ -311,5 +324,18 @@ public class CdaXsdProcessorTest {
 		assertEquals("xs:boolean", unsortedRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, unsortedRelationship.getConformance());
 		assertEquals("false", unsortedRelationship.getDefaultValue());
+		
+		MessagePart sectionMessagePart = messageSet.getMessagePart("POCD_MT000040.Section");
+		assertNotNull(sectionMessagePart);
+		
+		Relationship textRelationship = sectionMessagePart.getRelationship("text");
+		assertNotNull(textRelationship);
+		assertTrue(textRelationship.isAttribute());
+		assertFalse(textRelationship.isStructural());
+		assertEquals("ED", textRelationship.getType());
+		assertEquals("StrucDoc.Text", textRelationship.getConstrainedType());
+		
+		// We don't create a ConstrainedDatatype entry for StrucDoc.Text
+		assertNull(messageSet.getConstrainedDatatype("StrucDoc.Text"));
 	}
 }

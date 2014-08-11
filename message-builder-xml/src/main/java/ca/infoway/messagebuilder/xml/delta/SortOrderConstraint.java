@@ -48,5 +48,9 @@ public class SortOrderConstraint extends NewIntegerValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_SORT_ORDER;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new SortOrderConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

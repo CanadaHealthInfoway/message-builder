@@ -26,7 +26,7 @@ import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
@@ -90,7 +90,7 @@ class AdBasicPropertyFormatter extends AbstractAdPropertyFormatter {
 		}
     	flush(builder, basicAddress);
     	
-    	for (x_BasicPostalAddressUse use : postalAddress.getUses()) {
+    	for (PostalAddressUse use : postalAddress.getUses()) {
     		if (AD_VALIDATION_UTILS.isAllowableUse(dataType, use, baseVersion)) {
     			basicAddress.addUse(use);
     		}

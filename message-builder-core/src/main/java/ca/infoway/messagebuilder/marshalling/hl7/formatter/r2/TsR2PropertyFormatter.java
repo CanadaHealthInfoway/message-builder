@@ -22,9 +22,11 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import java.text.MessageFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -49,7 +51,7 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
-@DataTypeHandler("TS")
+@DataTypeHandler({"TS", "SXCM<TS>"})
 public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
 	public static final String DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME = "messagebuilder.date.format.override.";
@@ -57,6 +59,8 @@ public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormat
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSS0ZZZZZ";
 
+    private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
+    
     @Override
     public String getValue(Date date, FormatContext context, BareANY bareAny) {
     	// write out the date using the "full" pattern; clients can override this using a system property or a DateWithPattern date
@@ -65,6 +69,11 @@ public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormat
 		validateDatePattern(datePattern, context);
 		TimeZone timeZone = context != null && context.getDateTimeTimeZone() != null ? context.getDateTimeTimeZone() : TimeZone.getDefault();
 		return DateFormatUtil.format(date, datePattern, timeZone);
+    }
+    
+    @Override
+    protected void addOtherAttributesIfNecessary(Date v, Map<String, String> attributes, FormatContext context,	BareANY bareAny) {
+    	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
     }
 
 	private void validateDatePattern(String datePattern, FormatContext context) {

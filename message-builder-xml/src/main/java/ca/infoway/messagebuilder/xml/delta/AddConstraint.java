@@ -27,6 +27,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
 
@@ -103,5 +104,9 @@ public class AddConstraint extends Constraint{
 	void assignRealmCode(RealmCode realmCode) {
 		super.assignRealmCode(realmCode);
 		this.className = realmCode.substituteRealmCode(this.className);
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AddConstraint(StringUtils.replace(className, originalPackageName, newPackageName), rimClass, isAbstract);
 	}
 }

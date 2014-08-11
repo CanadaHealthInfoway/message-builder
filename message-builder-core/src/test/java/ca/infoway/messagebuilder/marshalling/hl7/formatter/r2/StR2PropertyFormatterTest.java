@@ -53,7 +53,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		
 		FormatContext context = getContext("name");
 		String result = formatter.format(context, new STImpl("something"));
-		assertEquals("something in text node", addLineSeparator("<name mediaType=\"text/plain\" representation=\"TXT\">something</name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name>something</name>"), result);
 		assertNoErrors(context);
 	}
 
@@ -77,7 +77,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		STImpl dataType = new STImpl("");
 		dataType.setCdata(true);
 		String result = formatter.format(context, dataType);
-		assertEquals("something in text node", addLineSeparator("<name mediaType=\"text/plain\" representation=\"TXT\"><![CDATA[]]></name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[]]></name>"), result);
 		assertEquals(1, this.result.getHl7Errors().size());
 	}
 
@@ -89,7 +89,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		STImpl dataType = new STImpl("something");
 		dataType.setCdata(true);
 		String result = formatter.format(context, dataType);
-		assertEquals("something in text node", addLineSeparator("<name mediaType=\"text/plain\" representation=\"TXT\"><![CDATA[something]]></name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[something]]></name>"), result);
 		assertNoErrors(context);
 	}
 
@@ -101,7 +101,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		STImpl dataType = new STImpl("<cats think they're > humans & dogs 99% of the time/>");
 		dataType.setCdata(true);
 		String result = formatter.format(context, dataType);
-		assertEquals("something in text node", addLineSeparator("<name mediaType=\"text/plain\" representation=\"TXT\"><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></name>"), result);
 		assertNoErrors(context);
 	}
 
@@ -111,7 +111,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		
 		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
 		String result = formatter.format(context, new STImpl("something", "fr-CA"));
-		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\" mediaType=\"text/plain\" representation=\"TXT\">something</name>"), removeErrorComments(result));
+		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\">something</name>"), removeErrorComments(result));
 		assertNoErrors(context);
 	}
 
@@ -121,7 +121,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		
 		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
 		String result = formatter.format(context, new STImpl("something", "fr-CA"));
-		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\" mediaType=\"text/plain\" representation=\"TXT\">something</name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\">something</name>"), result);
 		assertNoErrors(context);
 	}
 
@@ -131,7 +131,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		
 		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
 		String result = formatter.format(context, new STImpl("something", "en-CA"));
-		assertEquals("something in text node", addLineSeparator("<name language=\"en-CA\" mediaType=\"text/plain\" representation=\"TXT\">something</name>"), result);
+		assertEquals("something in text node", addLineSeparator("<name language=\"en-CA\">something</name>"), result);
 		assertNoErrors(context);
 	}
 
@@ -141,7 +141,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		
 		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
 		String result = formatter.format(context, new STImpl("something", "it-CA"));
-		assertEquals("something in text node", addLineSeparator("<name language=\"it-CA\" mediaType=\"text/plain\" representation=\"TXT\">something</name>"), removeErrorComments(result));
+		assertEquals("something in text node", addLineSeparator("<name language=\"it-CA\">something</name>"), removeErrorComments(result));
 		assertNoErrors(context);
 	}
 
@@ -153,7 +153,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		STImpl dataType = new STImpl("something");
 		dataType.setLanguage("");
 		String result = formatter.format(context, dataType);
-		assertEquals("something in text node", addLineSeparator("<name mediaType=\"text/plain\" representation=\"TXT\">something</name>"), removeErrorComments(result));
+		assertEquals("something in text node", addLineSeparator("<name>something</name>"), removeErrorComments(result));
 		assertEquals("error from blank language", 1, context.getModelToXmlResult().getHl7Errors().size());
 	}
 
@@ -165,7 +165,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 		String result = formatter.format(
 				context, 
 				new STImpl("<cats think they're > humans & dogs 99% of the time/>"));
-		assertEquals("something in text node", "<name mediaType=\"text/plain\" representation=\"TXT\">&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</name>".trim(), result.trim());
+		assertEquals("something in text node", "<name>&lt;cats think they&apos;re &gt; humans &amp; dogs 99% of the time/&gt;</name>".trim(), result.trim());
 		assertNoErrors(context);
 	}
 

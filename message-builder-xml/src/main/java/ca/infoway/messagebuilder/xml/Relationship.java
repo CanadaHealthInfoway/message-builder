@@ -349,8 +349,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 			return true;
 		} else if (isStructural()) {
 			return true;
-		} else if (StringUtils.isNotBlank(this.type) && 
-				(this.type.length() < 5 || this.type.charAt(4) != '_')) {
+		} else if (StringUtils.isNotBlank(this.type) &&
+				(this.type.length() < 5 || this.type.charAt(4) != '_') && this.type.toUpperCase().equals(this.type)) {
 			return true;
 		} else {
 			return false;

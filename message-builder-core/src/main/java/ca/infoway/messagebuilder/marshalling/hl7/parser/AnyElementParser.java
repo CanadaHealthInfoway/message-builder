@@ -114,11 +114,16 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				
 				// preserve all metadata (yes, also not a great side effect); this will have to be adjusted whenever new metadata is added to a data type (extremely infrequently)
 				if (hl7Result instanceof ANYMetaData && parsedValue instanceof ANYMetaData) {
-					((ANYMetaData) hl7Result).setLanguage(((ANYMetaData) parsedValue).getLanguage());
-					((ANYMetaData) hl7Result).setDisplayName(((ANYMetaData) parsedValue).getDisplayName());
-					((ANYMetaData) hl7Result).setOriginalText(((ANYMetaData) parsedValue).getOriginalText());
-					((ANYMetaData) hl7Result).getTranslations().addAll(((ANYMetaData) parsedValue).getTranslations());
-					((ANYMetaData) hl7Result).setCdata(((ANYMetaData) parsedValue).isCdata());
+					ANYMetaData anyMetaDataResult = (ANYMetaData) hl7Result;
+					ANYMetaData anyMetaDataParsed = (ANYMetaData) parsedValue;
+					
+					anyMetaDataResult.setLanguage(anyMetaDataParsed.getLanguage());
+					anyMetaDataResult.setDisplayName(anyMetaDataParsed.getDisplayName());
+					anyMetaDataResult.setOriginalText(anyMetaDataParsed.getOriginalText());
+					anyMetaDataResult.getTranslations().addAll(anyMetaDataParsed.getTranslations());
+					anyMetaDataResult.setCdata(anyMetaDataParsed.isCdata());
+					anyMetaDataResult.setOperator(anyMetaDataParsed.getOperator());
+					anyMetaDataResult.setUnsorted(anyMetaDataParsed.isUnsorted());
 				}
 			}
 		} else {

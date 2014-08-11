@@ -96,10 +96,14 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType II_BUSVER = new StandardDataType("II_BUSVER", "II.BUSVER", "InstanceIdentifier");
 	
 	public static final StandardDataType CV = new StandardDataType("CV", "CV", "CodedValue"); 
+	public static final StandardDataType CO = new StandardDataType("CO", "CO");  // R2 only 
 	public static final StandardDataType CD = new StandardDataType("CD", "CD", "CodedType"); 
 	public static final StandardDataType CD_LAB = new StandardDataType("CD_LAB", "CD.LAB", "CodedTypeLab"); 
 	public static final StandardDataType CE = new StandardDataType("CE", "CE"); 
 	public static final StandardDataType CS = new StandardDataType("CS", "CS", "SimpleCodedType");
+	public static final StandardDataType PQR = new StandardDataType("PQR", "PQR");   // R2 only
+	public static final StandardDataType CR = new StandardDataType("CR", "CR");   // R2 only
+	public static final StandardDataType HXIT_CE = new StandardDataType("HXIT_CE", "HXIT<CE>");   // R2 only
 	
 	public static final StandardDataType ST = new StandardDataType("ST", "ST"); 
 	public static final StandardDataType ST_LANG = new StandardDataType("ST_LANG", "ST.LANG", "LocalizedString"); 
@@ -140,6 +144,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_INT = new StandardDataType("IVL_INT", "IVL<INT>"); 
 	public static final StandardDataType IVL_REAL = new StandardDataType("IVL_REAL", "IVL<REAL>"); 
 	public static final StandardDataType IVL_MO = new StandardDataType("IVL_MO", "IVL<MO>"); 
+	public static final StandardDataType EIVL_TS = new StandardDataType("EIVL_TS", "EIVL<TS>"); 
 	
 	public static final StandardDataType IVL_WIDTH = new StandardDataType("IVL_WIDTH", "IVL.WIDTH", "Interval");
 	public static final StandardDataType IVL_LOW = new StandardDataType("IVL_LOW", "IVL.LOW", "Interval");
@@ -149,6 +154,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType MO_CAD = new StandardDataType("MO_CAD", "MO.CAD", "Money"); 
 	
 	public static final StandardDataType PIVL = new StandardDataType("PIVL", "PIVL");
+	public static final StandardDataType PIVL_TS = new StandardDataType("PIVL_TS", "PIVL<TS>");  // R2 only
 	public static final StandardDataType PIVL_TS_DATETIME = new StandardDataType("PIVL_TS_DATETIME", "PIVL<TS.DATETIME>", "PeriodicIntervalOfTime");
 	public static final StandardDataType PIVL_TS_FULLDATETIME = new StandardDataType("PIVL_TS_FULLDATETIME", "PIVL<TS.FULLDATETIME>", "PeriodicIntervalOfTime");
 	
@@ -169,6 +175,8 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType REAL_CONF = new StandardDataType("REAL_CONF", "REAL.CONF");
 	
 	public static final StandardDataType RTO = new StandardDataType("RTO", "RTO"); 
+	public static final StandardDataType RTO_PQ_PQ = new StandardDataType("RTO_PQ_PQ", "RTO<PQ,PQ>"); // R2 only 
+	public static final StandardDataType RTO_MO_PQ = new StandardDataType("RTO_MO_PQ", "RTO<MO,PQ>"); // R2 only
 	public static final StandardDataType RTO_PQ_DRUG_PQ_TIME = new StandardDataType("RTO_PQ_DRUG_PQ_TIME", "RTO<PQ.DRUG,PQ.TIME>"); 
 	public static final StandardDataType RTO_PQ_DRUG_PQ_DRUG = new StandardDataType("RTO_PQ_DRUG_PQ_DRUG", "RTO<PQ.DRUG,PQ.DRUG>"); 
 	public static final StandardDataType RTO_MO_CAD_PQ_BASIC = new StandardDataType("RTO_MO_CAD_PQ_BASIC", "RTO<MO.CAD,PQ.BASIC>");
@@ -201,7 +209,16 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType URL = new StandardDataType("URL", "URL");
 	
 	public static final StandardDataType SXPR = new StandardDataType("SXPR", "SXPR");
+	
 	public static final StandardDataType SXCM = new StandardDataType("SXCM", "SXCM");
+	public static final StandardDataType SXCM_CD = new StandardDataType("SXCM_CD", "SXCM<CD>");
+	public static final StandardDataType SXCM_INT = new StandardDataType("SXCM_INT", "SXCM<INT>");
+	public static final StandardDataType SXCM_MO = new StandardDataType("SXCM_MO", "SXCM<MO>");
+	public static final StandardDataType SXCM_PQ = new StandardDataType("SXCM_PQ", "SXCM<PQ>");
+	public static final StandardDataType SXCM_REAL = new StandardDataType("SXCM_REAL", "SXCM<REAL>");
+	public static final StandardDataType SXCM_TS = new StandardDataType("SXCM_TS", "SXCM<TS>");
+
+	public static final StandardDataType BXIT_CD = new StandardDataType("BXIT_CD", "BXIT<CD>");
 	
 	public static final StandardDataType SET = new StandardDataType("SET", "SET"); 
 	public static final StandardDataType LIST = new StandardDataType("LIST", "LIST"); 
@@ -298,7 +315,27 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 * @return whether or not the enum is a coded type.
 	 */
 	public boolean isCoded() {
-		return Arrays.asList("CD", "CV", "CE", "CS").contains(getRootType());
+		return isCoded(getRootType());
+	}
+
+	/**
+	 * <p>Determines if the enum represents a coded type.
+	 * 
+	 * @param type the type to test
+	 * @return whether or not the value represents a coded type.
+	 */
+	public static boolean isCoded(String type) {
+		return Arrays.asList("CD", "CV", "CE", "CS", "CO", "PQR", "SC").contains(type);
+	}
+	
+	/**
+	 * <p>Determines if the enum represents list or set whose parameter is a coded type.
+	 * 
+	 * @param type the type to test
+	 * @return whether or not the value represents a coded type.
+	 */
+	public static boolean isCodedListOrSet(String type) {
+		return isSetOrList(type) && isCoded(getTemplateArgument(type).getType());
 	}
 	
 	/**
@@ -352,6 +389,20 @@ public class StandardDataType extends EnumPattern implements Typed {
 		return dataTypeName!=null && dataTypeName.startsWith(LIST.getRootType());
 	}
 
+	/**
+	 * <p>extracts the argument from a templated type
+	 * 
+	 */
+	public static StandardDataType getTemplateArgument(String dataTypeName) {
+		int startIndex = dataTypeName.indexOf('<');
+		if (startIndex > -1) {
+			int endIndex = dataTypeName.lastIndexOf('>');
+			String innerType = dataTypeName.substring(startIndex + 1, endIndex);
+			return getByTypeName(innerType);
+		}
+		return null;
+	}
+	
 	/**
 	 * <p>Determines the enum datatype for the given type (Typed) object. 
 	 * 

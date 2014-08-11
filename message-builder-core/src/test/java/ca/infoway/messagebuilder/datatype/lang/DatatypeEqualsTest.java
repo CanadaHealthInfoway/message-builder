@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
@@ -81,11 +82,11 @@ public class DatatypeEqualsTest {
     {
         OrganizationName orgName1 = new OrganizationName();
         orgName1.addUse(EntityNameUse.LEGAL);
-        orgName1.addNamePart(new EntityNamePart("aName", OrganizationNamePartType.PREFIX, "aQualifier"));
+        orgName1.addNamePart(new EntityNamePart("aName", OrganizationNamePartType.PREFIX, EntityNamePartQualifier.LEGALSTATUS));
 
         OrganizationName orgName2 = new OrganizationName();
         orgName2.addUse(EntityNameUse.LEGAL);
-        orgName2.addNamePart(new EntityNamePart("aName", OrganizationNamePartType.PREFIX, "aQualifier"));
+        orgName2.addNamePart(new EntityNamePart("aName", OrganizationNamePartType.PREFIX, EntityNamePartQualifier.LEGALSTATUS));
 
         Assert.assertEquals(orgName1, orgName2);
     }
@@ -95,11 +96,11 @@ public class DatatypeEqualsTest {
     {
         PersonName personName1 = new PersonName();
         personName1.addUse(EntityNameUse.LEGAL);
-        personName1.addNamePart(new EntityNamePart("aName", PersonNamePartType.FAMILY, "aQualifier"));
+        personName1.addNamePart(new EntityNamePart("aName", PersonNamePartType.FAMILY, EntityNamePartQualifier.INITIAL));
 
         PersonName personName2 = new PersonName();
         personName2.addUse(EntityNameUse.LEGAL);
-        personName2.addNamePart(new EntityNamePart("aName", PersonNamePartType.FAMILY, "aQualifier"));
+        personName2.addNamePart(new EntityNamePart("aName", PersonNamePartType.FAMILY, EntityNamePartQualifier.INITIAL));
 
         Assert.assertEquals(personName1, personName2);
     }

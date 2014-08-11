@@ -20,6 +20,10 @@
 
 package ca.infoway.messagebuilder.xml;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -61,6 +65,22 @@ public class AnnotationType extends EnumPattern {
 	public static final AnnotationType STATIC_EXAMPLE = new AnnotationType("STATIC_EXAMPLE", "STATIC EXAMPLE", "staticExample");
 	public static final AnnotationType DEPRECATION_INFO = new AnnotationType("DEPRECATION_INFO", "DEPRECATION INFO", "deprecationInfo");
 	
+	private static final List<AnnotationType> _typesAllowingMultipleCardinality = new ArrayList<AnnotationType>();
+	static { 
+		_typesAllowingMultipleCardinality.add(AnnotationType.USAGE_NOTES);
+		_typesAllowingMultipleCardinality.add(AnnotationType.DESIGN_COMMENTS);
+		_typesAllowingMultipleCardinality.add(AnnotationType.OTHER_NOTES);
+		_typesAllowingMultipleCardinality.add(AnnotationType.MAPPING);
+		_typesAllowingMultipleCardinality.add(AnnotationType.CONSTRAINT);
+		_typesAllowingMultipleCardinality.add(AnnotationType.OPEN_ISSUE);
+		_typesAllowingMultipleCardinality.add(AnnotationType.USAGE_CONSTRAINT);
+		_typesAllowingMultipleCardinality.add(AnnotationType.APPENDIX);
+		_typesAllowingMultipleCardinality.add(AnnotationType.STATIC_EXAMPLE);
+		_typesAllowingMultipleCardinality.add(AnnotationType.BALLOT_COMMENT);
+		_typesAllowingMultipleCardinality.add(AnnotationType.CHANGE_REQUEST);
+	}
+	public static final List<AnnotationType> typesAllowingMultipleCardinality = Collections.unmodifiableList(_typesAllowingMultipleCardinality);
+
 	private final String[] mifElementNames;
 	private String displayName;
 

@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
@@ -114,14 +115,14 @@ public class PnValidationUtils {
     			createError("Part type " + partType.getValue() + " is not allowed for " + type, element, propertyPath, errors);
 			}
 			
-			String qualifier = personNamePart.getQualifier();
-			if (StringUtils.isNotBlank(qualifier)) {
+			EntityNamePartQualifier qualifier = personNamePart.getQualifier();
+			if (qualifier != null) {
 				if (isCeRx || (!isMr2007(baseVersion) && isBasic)) {
-					if (!"IN".equals(qualifier)) {
-		    			createError("Qualifier '" + qualifier + "' not valid. Only 'IN' is allowed.", element, propertyPath, errors);
+					if (!"IN".equals(qualifier.getCodeValue())) {
+		    			createError("Qualifier '" + qualifier.getCodeValue() + "' not valid. Only 'IN' is allowed.", element, propertyPath, errors);
 					}
-				} else if (!ALLOWABLE_NAME_PART_QUALIFIERS.contains(qualifier)) {
-	    			createError("Qualifier '" + qualifier + "' not valid.", element, propertyPath, errors);
+				} else if (!ALLOWABLE_NAME_PART_QUALIFIERS.contains(qualifier.getCodeValue())) {
+	    			createError("Qualifier '" + qualifier.getCodeValue() + "' not valid.", element, propertyPath, errors);
 				}
 			}
 		}

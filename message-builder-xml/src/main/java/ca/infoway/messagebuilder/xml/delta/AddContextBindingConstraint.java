@@ -79,4 +79,9 @@ public class AddContextBindingConstraint extends Constraint {
 		this.codingStrength = codingStrength;
 	}
 
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AddContextBindingConstraint(conceptDomainName, codingStrength);
+	}
+
 }

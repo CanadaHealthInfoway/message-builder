@@ -24,6 +24,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
+
 
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
@@ -49,5 +51,10 @@ public class AssociationTypeConstraint extends NewStringValueConstraint {
 		super.assignRealmCode(realmCode);
 		setNewValue(realmCode.substituteRealmCode(getNewValue()));
 		setOriginalValue(realmCode.substituteRealmCode(getOriginalValue()));
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AssociationTypeConstraint(getOriginalValue(), 
+				StringUtils.replace(getNewValue(), originalPackageName, newPackageName));
 	}
 }

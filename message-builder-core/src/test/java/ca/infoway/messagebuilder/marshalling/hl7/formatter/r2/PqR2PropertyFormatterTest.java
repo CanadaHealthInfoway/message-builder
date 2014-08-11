@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -29,12 +30,17 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
@@ -126,6 +132,39 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     }
     
     @Test
+    public void testFormatPhysicalQuantityValidWithTranslations() throws Exception {
+    	
+    	CodedTypeR2<Code> translation1 = new CodedTypeR2<Code>();
+    	translation1.setCode(AdministrativeGender.MALE);
+    	
+    	CodedTypeR2<Code> translation2 = new CodedTypeR2<Code>();
+    	translation2.setCode(ActStatus.ACTIVE);
+    	
+        String quantity = "33.45";
+        UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+        
+        PhysicalQuantity physicalQuantity = new PhysicalQuantity();
+        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        physicalQuantity.setUnit(unit);
+        physicalQuantity.getTranslation().add(translation1);
+        physicalQuantity.getTranslation().add(translation2);
+        
+        Map<String, String> result = new PqR2PropertyFormatter().getAttributeNameValuePairs(createContext("PQ"), physicalQuantity, null);
+        assertEquals("map size", 2, result.size());
+        
+        assertTrue("key as expected", result.containsKey("value"));
+        assertEquals("value", quantity, result.get("value"));
+        
+        assertTrue("unit key as expected", result.containsKey("unit"));
+        assertEquals("unit", unit.getCodeValue(), result.get("unit"));
+        
+		String xml = new PqR2PropertyFormatter().format(createContext("PQ"), new PQImpl(physicalQuantity), 0);
+		
+		assertXml("should see translations", "<name unit=\"U/L\" value=\"33.45\"><translation code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><translation code=\"active\" codeSystem=\"2.16.840.1.113883.5.14\"/></name>", xml);
+        
+    }
+    
+    @Test
     public void testFormatValidPhysicalQuantity() throws Exception {
         String quantity = "33.45";
         UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
@@ -175,6 +214,63 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         assertFormattingAsExpected("-33.416", "-33.416");
         assertFormattingAsExpected("-33.41223", "-33.41223");
         assertFormattingAsExpected("123456789012.99", "123456789012.99");
+    }
+    
+    @Test
+    public void testFormatValidPhysicalQuantityWithOperatorNotAllowed() throws Exception {
+        String quantity = "33.45";
+        UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+        
+        PhysicalQuantity physicalQuantity = new PhysicalQuantity();
+        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        physicalQuantity.setUnit(unit);
+        
+        PQ rawPq = new PQImpl(physicalQuantity);
+        rawPq.setOperator(SetOperator.PERIODIC_HULL);
+        
+		String result = new PqR2PropertyFormatter().format(createContext("PQ"), rawPq, 0);
+		
+		String expectedResult = "<name unit=\"U/L\" value=\"33.45\"/>";
+        assertEquals("output", expectedResult, result.trim());
+        assertFalse(this.result.isValid());
+        assertEquals(1, this.result.getHl7Errors().size());
+    }
+    
+    @Test
+    public void testFormatSxcmPhysicalQuantityWithOperator() throws Exception {
+        String quantity = "33.45";
+        UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+        
+        PhysicalQuantity physicalQuantity = new PhysicalQuantity();
+        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        physicalQuantity.setUnit(unit);
+        
+        PQ rawPq = new PQImpl(physicalQuantity);
+        rawPq.setOperator(SetOperator.PERIODIC_HULL);
+        
+		String result = new PqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
+		
+		String expectedResult = "<name operator=\"P\" unit=\"U/L\" value=\"33.45\"/>";
+        assertEquals("output", expectedResult, result.trim());
+        assertTrue(this.result.isValid());
+    }
+    
+    @Test
+    public void testFormatSxcmPhysicalQuantityWithoutOperator() throws Exception {
+        String quantity = "33.45";
+        UnitsOfMeasureCaseSensitive unit = CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE;
+        
+        PhysicalQuantity physicalQuantity = new PhysicalQuantity();
+        physicalQuantity.setQuantity(new BigDecimal(quantity));
+        physicalQuantity.setUnit(unit);
+        
+        PQ rawPq = new PQImpl(physicalQuantity);
+        
+		String result = new PqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
+		
+		String expectedResult = "<name unit=\"U/L\" value=\"33.45\"/>";
+        assertEquals("output", expectedResult, result.trim());
+        assertTrue(this.result.isValid());
     }
     
     /**

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
@@ -149,7 +149,7 @@ public class AdValidationUtils {
 		}
     	
 		if (!isSearch) {
-			for (x_BasicPostalAddressUse postalAddressUse : postalAddress.getUses()) {
+			for (PostalAddressUse postalAddressUse : postalAddress.getUses()) {
 				if (!isAllowableUse(type, postalAddressUse, version.getBaseVersion())) {
 	   				createError("PostalAddressUse is not valid: " + (postalAddressUse == null ? "null" : postalAddressUse.getCodeValue()), element, propertyPath, errors);
 				}
@@ -183,7 +183,7 @@ public class AdValidationUtils {
 		return result;
 	}
 	
-	public boolean isAllowableUse(String dataType, x_BasicPostalAddressUse use, Hl7BaseVersion baseVersion) {
+	public boolean isAllowableUse(String dataType, PostalAddressUse use, Hl7BaseVersion baseVersion) {
 		return !StandardDataType.AD_SEARCH.getType().equals(dataType)
 				&& use != null && use.getCodeValue() != null 
 				&& ALLOWABLE_ADDRESS_USES.contains(use.getCodeValue())
@@ -195,7 +195,7 @@ public class AdValidationUtils {
 		return baseVersion == Hl7BaseVersion.CERX;
 	}
 
-	private boolean isConfOrDir(x_BasicPostalAddressUse use) {
+	private boolean isConfOrDir(PostalAddressUse use) {
 		return X_BasicPostalAddressUse.CONFIDENTIAL.getCodeValue().equals(use.getCodeValue())
 				|| X_BasicPostalAddressUse.DIRECT.getCodeValue().equals(use.getCodeValue());
 	}

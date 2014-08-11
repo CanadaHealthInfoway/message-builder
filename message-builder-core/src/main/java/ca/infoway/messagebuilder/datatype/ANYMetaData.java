@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.datatype;
 
 import java.util.List;
 
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+
 /**
  * 
  * @sharpen.ignore - datatype - translated manually 
@@ -41,5 +43,11 @@ public interface ANYMetaData {
 	
 	public boolean isCdata();
 	public void setCdata(boolean isCdata);
+
+	public SetOperator getOperator();
+	public void setOperator(SetOperator operator);
 	
+	public boolean isUnsorted();
+	public void setUnsorted(boolean isUnsorted);
+
 }

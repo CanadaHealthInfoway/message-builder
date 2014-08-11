@@ -29,12 +29,20 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
+
 @Root(strict=false)
 @Namespace(reference="http://www.lantanagroup.com")
 public class CdaConstraint {
 	
+	private static final String SHALL = "SHALL";
+	private static final String SHOULD = "SHOULD";
+	private static final String MAY = "MAY";
+	
 	@Attribute(required=false,name="isPrimitive")
 	private boolean primitive;
+	
+	@Attribute(required=false)
+	private String conformance;
 	
 	@Attribute(required=false)
 	private String cardinality;
@@ -54,6 +62,15 @@ public class CdaConstraint {
 	@Element(required=false,name="SingleValueCode")
 	private SingleValueCode singleValueCode;
 	
+	@Element(required=false,name="ValueSet")
+	private ValueSet valueSet;
+	
+	@Element(required=false,name="CodeSystem")
+	private CodeSystem codeSystem;
+	
+	@Element(required=false,name="SchematronTest")
+	private SchematronTest schematronTest;
+	
 	@ElementList(required=false,inline=true,entry="Constraint")
 	private List<CdaConstraint> constraints = new ArrayList<CdaConstraint>();
 	
@@ -63,6 +80,14 @@ public class CdaConstraint {
 
 	public void setPrimitive(boolean primitive) {
 		this.primitive = primitive;
+	}
+
+	public String getConformance() {
+		return conformance;
+	}
+
+	public void setConformance(String conformance) {
+		this.conformance = conformance;
 	}
 
 	public String getCardinality() {
@@ -113,8 +138,44 @@ public class CdaConstraint {
 		this.singleValueCode = singleValueCode;
 	}
 
+	public ValueSet getValueSet() {
+		return valueSet;
+	}
+
+	public void setValueSet(ValueSet valueSet) {
+		this.valueSet = valueSet;
+	}
+
+	public CodeSystem getCodeSystem() {
+		return codeSystem;
+	}
+
+	public void setCodeSystem(CodeSystem codeSystem) {
+		this.codeSystem = codeSystem;
+	}
+
+	public SchematronTest getSchematronTest() {
+		return schematronTest;
+	}
+
+	public void setSchematronTest(SchematronTest schematronTest) {
+		this.schematronTest = schematronTest;
+	}
+
 	public List<CdaConstraint> getConstraints() {
 		return constraints;
 	}
+	
+	public boolean isConformanceShall() {
+		return SHALL.equals(this.conformance);
+	}
+	
+	public boolean isConformanceShould() {
+		return SHOULD.equals(this.conformance);
+	}
 
+	public boolean isConformanceMay() {
+		return MAY.equals(this.conformance);
+	}
+	
 }

@@ -45,5 +45,9 @@ public class LengthConstraint extends NewIntegerValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_LENGTH;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new LengthConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

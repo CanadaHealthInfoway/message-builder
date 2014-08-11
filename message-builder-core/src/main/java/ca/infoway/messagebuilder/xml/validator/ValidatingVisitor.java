@@ -149,7 +149,7 @@ public class ValidatingVisitor implements MessageVisitor {
 	}
 
 	private void validateStructuralAttributeValue(Element base, Attr attr, Relationship relationship) {
-		// FIXME - TM - R2: need to handle BN and BL for R2 here?
+		// FIXME - TM - CDA - R2: need to handle BN and BL for R2 here?
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
 		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {

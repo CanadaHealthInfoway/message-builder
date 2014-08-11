@@ -50,13 +50,16 @@ public class XsdTypeConverter {
         map.put(BL, new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
         map.put("BN", new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
         map.put("INT", new XsdDataType("integer", Namespaces.XSD_NAMESPACE));
+        map.put("SXCM<INT>", new XsdDataType("integer", Namespaces.XSD_NAMESPACE));
         map.put("REAL", new XsdDataType("decimal", Namespaces.XSD_NAMESPACE));
+        map.put("SXCM<REAL>", new XsdDataType("decimal", Namespaces.XSD_NAMESPACE));
         
         map.put("AD", new XsdDataType("PostalAddress", Namespaces.CHI_NAMESPACE));
         map.put("ON", new XsdDataType("OrganizationName", Namespaces.XSD_NAMESPACE));
         map.put("ST", new XsdDataType("string", Namespaces.XSD_NAMESPACE));
         map.put("IVL<TS>", new XsdDataType("DateInterval", Namespaces.CHI_NAMESPACE));
         map.put("PIVL<TS>", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
+        map.put("EIVL<TS>", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
         map.put("IVL<PQ>", new XsdDataType("PhysicalQuantityInterval", Namespaces.CHI_NAMESPACE));
         map.put("IVL<INT>", new XsdDataType("IntInterval", Namespaces.CHI_NAMESPACE));
         map.put("IVL<REAL>", new XsdDataType("RealInterval", Namespaces.CHI_NAMESPACE));
@@ -66,6 +69,10 @@ public class XsdTypeConverter {
         map.put("CV", new XsdDataType("CodedValue", Namespaces.CHI_NAMESPACE));
         map.put("CD", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("CE", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("CO", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("HXIT<CE>", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("BXIT<CD>", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("CR", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE)); // not a coded type, but since this is an R2-only type this should be fine
         map.put("GTS", new XsdDataType("BoundedPeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
         map.put("ED.SIGNATURE", new XsdDataType("EncapsulatedSignatureType", Namespaces.CHI_NAMESPACE));
         map.put("ED.DOC", new XsdDataType("EncapsulatedDocumentType", Namespaces.CHI_NAMESPACE));
@@ -75,13 +82,18 @@ public class XsdTypeConverter {
         map.put("ED.REF", new XsdDataType("EncapsulatedReferenceType", Namespaces.CHI_NAMESPACE));
         map.put("PN", new XsdDataType("PersonName", Namespaces.CHI_NAMESPACE));
         map.put("PQ", new XsdDataType("PhysicalQuantity", Namespaces.CHI_NAMESPACE));
+        map.put("PQR", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("SXCM<CD>", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("SXCM<PQ>", new XsdDataType("PhysicalQuantity", Namespaces.CHI_NAMESPACE));
         map.put("RTO<PQ,PQ>", new XsdDataType("RatioDrugQuantityPerTime", Namespaces.CHI_NAMESPACE));
         map.put("RTO<MO,PQ>", new XsdDataType("RatioMoneyPerUnit", Namespaces.CHI_NAMESPACE));
         map.put("PN.SIMPLE", new XsdDataType("SimpleName", Namespaces.CHI_NAMESPACE));
         map.put("MO", new XsdDataType("Money", Namespaces.CHI_NAMESPACE));
+        map.put("SXCM<MO>", new XsdDataType("Money", Namespaces.CHI_NAMESPACE));
         map.put("TN", new XsdDataType("string", Namespaces.XSD_NAMESPACE));
         // SPD: TS is not legal but it is in some releases. Just map it to the most general type
         map.put("TS", new XsdDataType("FullDateWithTime", Namespaces.CHI_NAMESPACE));
+        map.put("SXCM<TS>", new XsdDataType("FullDateWithTime", Namespaces.CHI_NAMESPACE));
         map.put("TS.DATE", new XsdDataType("PartialDate", Namespaces.CHI_NAMESPACE));
         map.put("TS.DATETIME", new XsdDataType("PartialDateTime", Namespaces.CHI_NAMESPACE));
         map.put("TS.FULLDATE", new XsdDataType("FullDate", Namespaces.CHI_NAMESPACE));

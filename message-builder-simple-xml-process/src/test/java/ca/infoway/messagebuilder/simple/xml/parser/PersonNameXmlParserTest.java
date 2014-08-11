@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
@@ -65,7 +66,7 @@ public class PersonNameXmlParserTest extends AbstractXmlParserTest<PN> {
         personName.addNamePart(new EntityNamePart("myMiddleName1", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("myMiddleName2", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("myMiddleName3", PersonNamePartType.GIVEN));
-        personName.addNamePart(new EntityNamePart("myLastName", PersonNamePartType.FAMILY, "IN"));
+        personName.addNamePart(new EntityNamePart("myLastName", PersonNamePartType.FAMILY, EntityNamePartQualifier.INITIAL));
         personName.addNamePart(new EntityNamePart("mySuffix", PersonNamePartType.SUFFIX));
         
 		assertEquals(
@@ -85,7 +86,7 @@ public class PersonNameXmlParserTest extends AbstractXmlParserTest<PN> {
         PersonName personName = new PersonName();
         personName.addNamePart(new EntityNamePart("myTitle", PersonNamePartType.PREFIX));
         personName.addNamePart(new EntityNamePart("myFirstName", PersonNamePartType.GIVEN));
-        personName.addNamePart(new EntityNamePart("myMiddleName1", PersonNamePartType.GIVEN, "IN"));
+        personName.addNamePart(new EntityNamePart("myMiddleName1", PersonNamePartType.GIVEN, EntityNamePartQualifier.INITIAL));
         personName.addNamePart(new EntityNamePart("myMiddleName2", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("myMiddleName3", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("myLastName", PersonNamePartType.FAMILY));

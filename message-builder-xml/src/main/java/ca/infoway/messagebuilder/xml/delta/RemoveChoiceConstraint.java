@@ -67,4 +67,8 @@ public class RemoveChoiceConstraint extends Constraint{
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.REMOVE_CHOICE;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new RemoveChoiceConstraint(choiceClassName);
+	}
 }

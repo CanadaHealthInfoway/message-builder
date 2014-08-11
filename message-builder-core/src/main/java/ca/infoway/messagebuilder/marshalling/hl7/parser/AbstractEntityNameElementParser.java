@@ -43,7 +43,7 @@ abstract class AbstractEntityNameElementParser extends AbstractSingleElementPars
 	@Override
 	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		EntityName result = parseNode(node, xmlToModelResult);
-        result.setUses(getNameUses(getAttributeValue(node, "use"), (Element) node, xmlToModelResult));
+        result.getUses().addAll((getNameUses(getAttributeValue(node, "use"), (Element) node, xmlToModelResult)));
         validateName(result, context, (Element) node, xmlToModelResult);
 		return result;
 	}

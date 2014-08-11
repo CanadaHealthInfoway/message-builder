@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 
 public class PnPropertyFormatterTest extends FormatterTestCase {
@@ -275,7 +276,7 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "BR"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.BIRTH));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.V02R02), new PNImpl(personName));
 		assertTrue(this.result.isValid());
@@ -345,7 +346,7 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "IN"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.INITIAL));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.R02_04_03), new PNImpl(personName));
 		assertTrue(this.result.isValid());
@@ -358,7 +359,7 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "BR"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.BIRTH));
         
         String result = formatter.format(getContext("name", "PN.FULL", SpecificationVersion.R02_04_03), new PNImpl(personName));
 		assertTrue(this.result.isValid());
@@ -371,7 +372,7 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "BR"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.BIRTH));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertFalse(this.result.isValid());
@@ -385,12 +386,12 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "XX"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.LEGALSTATUS));
         
         String result = formatter.format(getContext("name", "PN.FULL", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-        assertEquals("something in text node", "<name use=\"L\"><family qualifier=\"XX\">Shaw</family></name>", result.trim());
+        assertEquals("something in text node", "<name use=\"L\"><family qualifier=\"LS\">Shaw</family></name>", result.trim());
     }
 
 	@Test
@@ -399,7 +400,7 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, "BR"));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY, EntityNamePartQualifier.BIRTH));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.V01R04_3), new PNImpl(personName));
 		assertFalse(this.result.isValid());
@@ -531,13 +532,13 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("prefix", PersonNamePartType.PREFIX, "IN"));
+        personName.addNamePart(new EntityNamePart("prefix", PersonNamePartType.PREFIX, EntityNamePartQualifier.INITIAL));
         personName.addNamePart(new EntityNamePart("given1", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given2", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given3", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given4", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("family", PersonNamePartType.FAMILY));
-        personName.addNamePart(new EntityNamePart("suffix", PersonNamePartType.SUFFIX, "IN"));
+        personName.addNamePart(new EntityNamePart("suffix", PersonNamePartType.SUFFIX, EntityNamePartQualifier.INITIAL));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertTrue(this.result.isValid());
@@ -550,14 +551,14 @@ public class PnPropertyFormatterTest extends FormatterTestCase {
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("prefix", PersonNamePartType.PREFIX, "IN"));
+        personName.addNamePart(new EntityNamePart("prefix", PersonNamePartType.PREFIX, EntityNamePartQualifier.INITIAL));
         personName.addNamePart(new EntityNamePart("given1", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given2", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given3", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given4", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("given5", PersonNamePartType.GIVEN));
         personName.addNamePart(new EntityNamePart("family", PersonNamePartType.FAMILY));
-        personName.addNamePart(new EntityNamePart("suffix", PersonNamePartType.SUFFIX, "IN"));
+        personName.addNamePart(new EntityNamePart("suffix", PersonNamePartType.SUFFIX, EntityNamePartQualifier.INITIAL));
         
         String result = formatter.format(getContext("name", "PN.BASIC", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertFalse(this.result.isValid());

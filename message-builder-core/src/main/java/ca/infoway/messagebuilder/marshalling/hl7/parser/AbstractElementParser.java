@@ -21,11 +21,13 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -111,4 +113,17 @@ public abstract class AbstractElementParser implements ElementParser {
 	protected Type getReturnType(ParseContext context) {
 		return context == null ? null : context.getExpectedReturnType();
 	}
+	
+    protected List<Element> getNamedElements(String name, Element parentElement) {
+    	List<Element> elements = new ArrayList<Element>();
+		NodeList nodes = parentElement.getElementsByTagName(name);
+		for (int i = 0; i < nodes.getLength(); i++) {
+			Element foundElement = (Element) nodes.item(i);
+			if (foundElement.getParentNode().isSameNode(parentElement)) {
+				elements.add(foundElement);
+			}
+		}
+		return elements;
+    }
+	
 }

@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
  */
 public class PQImpl extends QTYImpl<PhysicalQuantity> implements PQ {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -2930296884400958056L;
 
 	/**

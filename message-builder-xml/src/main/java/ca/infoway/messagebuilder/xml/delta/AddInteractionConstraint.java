@@ -33,6 +33,8 @@ import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Contains the entry to be added.
  */
@@ -96,5 +98,17 @@ public class AddInteractionConstraint extends Constraint{
 		for (AddInteractionArgument argument : this.getArguments()) {
 			argument.setMessagePartName(realmCode.substituteRealmCode(argument.getMessagePartName()));
 		}
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		AddInteractionConstraint newConstraint = new AddInteractionConstraint(StringUtils.replace(baseTypeName, originalPackageName, newPackageName));
+		for (AddInteractionArgument argument : this.arguments) {
+			newConstraint.getArguments().add(new AddInteractionArgument(
+					argument.getTemplateParameterName(), 
+					argument.getTraversalName(), 
+					StringUtils.replace(argument.getMessagePartName(), originalPackageName, newPackageName)));
+		}
+		
+		return newConstraint;
 	}
 }

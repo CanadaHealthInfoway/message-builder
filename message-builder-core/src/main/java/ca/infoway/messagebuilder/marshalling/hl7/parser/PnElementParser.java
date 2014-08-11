@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -39,6 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.PnValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 
 /**
@@ -101,7 +103,9 @@ class PnElementParser extends AbstractEntityNameElementParser {
 				Element element = (Element) childNode;
 				String name = NodeUtil.getLocalOrTagName(element);
 				String value = getTextValue(element, xmlToModelResult);
-				String qualifier = getAttributeValue(element, NAME_PART_TYPE_QUALIFIER);
+				String qualifierString = getAttributeValue(element, NAME_PART_TYPE_QUALIFIER);
+				EntityNamePartQualifier qualifier = CodeResolverRegistry.lookup(EntityNamePartQualifier.class, qualifierString);
+
 				if (StringUtils.isNotBlank(value)) {
 					result.addNamePart(new EntityNamePart(value, getPersonalNamePartType(name), qualifier));
 				}

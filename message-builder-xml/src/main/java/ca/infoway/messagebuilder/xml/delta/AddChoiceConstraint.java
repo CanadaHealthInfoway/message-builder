@@ -24,6 +24,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Contains the entry to be added.
  */
@@ -72,5 +74,9 @@ public class AddChoiceConstraint extends Constraint{
 	void assignRealmCode(RealmCode realmCode) {
 		super.assignRealmCode(realmCode);
 		this.choiceClassName = realmCode.substituteRealmCode(this.choiceClassName);
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AddChoiceConstraint(StringUtils.replace(this.choiceClassName, originalPackageName, newPackageName));
 	}
 }

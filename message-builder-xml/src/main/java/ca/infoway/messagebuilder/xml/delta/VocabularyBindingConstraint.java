@@ -139,4 +139,8 @@ public class VocabularyBindingConstraint extends Constraint {
 	public boolean isCodeSystem() {
 		return DomainSource.CODE_SYSTEM.equals(newDomainSource);
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new VocabularyBindingConstraint(originalDomainSource, newDomainSource, originalDomainType, newDomainType);
+	}
 }

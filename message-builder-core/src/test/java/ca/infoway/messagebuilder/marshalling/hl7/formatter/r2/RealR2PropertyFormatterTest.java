@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -30,6 +31,7 @@ import org.junit.After;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
@@ -105,4 +107,41 @@ public class RealR2PropertyFormatterTest {
 		assertEquals("value as expected", "1.0", result.get("value"));
 		assertTrue("no errors", this.modelToXmlResult.isValid());
 	}
+	
+	@Test
+	public void testOperatorNotAllowed() throws Exception{
+		String realValue = "123.56";
+		BigDecimal bigDecimal = new BigDecimal(realValue);
+		REALImpl dataType = new REALImpl(bigDecimal);
+		dataType.setOperator(SetOperator.EXCLUDE);
+		
+		String result = new RealR2PropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", "REAL", null, null), dataType);
+		assertEquals("xml output", "<name value=\"123.56\"/>", result.trim());
+		assertFalse(this.modelToXmlResult.isValid());
+		assertEquals(1, this.modelToXmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testSxcmOperatorAllowed() throws Exception{
+		String realValue = "123.56";
+		BigDecimal bigDecimal = new BigDecimal(realValue);
+		REALImpl dataType = new REALImpl(bigDecimal);
+		dataType.setOperator(SetOperator.EXCLUDE);
+		
+		String result = new RealR2PropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", "SXCM<REAL>", null, null), dataType);
+		assertEquals("xml output", "<name operator=\"E\" value=\"123.56\"/>", result.trim());
+		assertTrue(this.modelToXmlResult.isValid());
+	}
+	
+	@Test
+	public void testSxcmNoOperator() throws Exception{
+		String realValue = "123.56";
+		BigDecimal bigDecimal = new BigDecimal(realValue);
+		REALImpl dataType = new REALImpl(bigDecimal);
+		
+		String result = new RealR2PropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", "SXCM<REAL>", null, null), dataType);
+		assertEquals("xml output", "<name value=\"123.56\"/>", result.trim());
+		assertTrue(this.modelToXmlResult.isValid());
+	}
+	
 }

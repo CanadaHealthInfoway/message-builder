@@ -20,58 +20,168 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
-import ca.infoway.messagebuilder.datatype.impl.ONImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
-import ca.infoway.messagebuilder.datatype.impl.TNImpl;
+import java.text.MessageFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
-import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.datatype.lang.TrivialName;
+import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
+import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
+import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
+import ca.infoway.messagebuilder.util.text.Indenter;
 
 /**
- * EN - EntityName
+ * EN (R2) - EntityName; also handles PN (PersonName), ON (OrganizationName), and TN (TrivialName)
  *
- * Represents an EN object as an element:
+ * Represents an EN/PN/ON/TN object as an element:
  *
  * &lt;element-name&gt;This is a trivial name&lt;/element-name&gt;
  *
- * This class makes a decision on which formatter to use based on the actual type of the object.
- *
- * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-EN
  */
-@DataTypeHandler("EN")
+@DataTypeHandler({"EN", "PN", "ON", "TN"})
 class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityName> {
 
-    private final OnR2PropertyFormatter onPropertyFormatter = new OnR2PropertyFormatter();
-    private final PnR2PropertyFormatter pnPropertyFormatter = new PnR2PropertyFormatter();
-    private final TnR2PropertyFormatter tnPropertyFormatter = new TnR2PropertyFormatter();
-
-    @Override
+	private final IvlTsR2PropertyFormatter validTimeFormatter = new IvlTsR2PropertyFormatter();
+	
+	@Override
 	protected
-    String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) {
-    	
-    	// this code is delegating to the appropriate formatter based on the type of the
-    	// object set as the value; specializationType needs to also be set, but we can infer it
-    	// (note that this is a bit different from how other formatters treat abstract types)
-    	
-        if (value == null || value.getClass().isAssignableFrom(TrivialName.class)) {
-        	context = new FormatContextImpl("TN", true, context);
-            return this.tnPropertyFormatter.format(context, new TNImpl((TrivialName) value), indentLevel);
+	String formatNonNullValue(FormatContext context, EntityName entityName, int indentLevel) {
+		
+		validateName(entityName, context);
+		
+        StringBuffer buffer = new StringBuffer();
+        if (entityName != null) {
+            buffer.append(createElement(context, getUseAttributeMap(entityName), indentLevel, false, true));
+            List<EntityNamePart> parts = entityName.getParts();
+            for (int i = 0; i < parts.size(); i++) {
+            	boolean nextPartSimple = (parts.size() == i + 1 ? false : parts.get(i + 1).getType() == null);
+            	boolean previousPartSimple = (i > 0 ? parts.get(i - 1).getType() == null : false);
+            	appendNamePart(buffer, parts.get(i), nextPartSimple, previousPartSimple, indentLevel + 1);
+			}
+            appendValidTime(buffer, entityName, context, indentLevel + 1);
+            buffer.append(createElementClosure(context, indentLevel, true));
+        }
+        return buffer.toString();
+    }
+    
+	private void appendNamePart(StringBuffer buffer, EntityNamePart namePart, boolean nextPartSimple, boolean previousPartSimple, int indentLevel) {
+        String openTag = "";
+        String closeTag = "";
+        
+        if (namePart.getType() != null) {
+            openTag = "<" + namePart.getType().getValue() + addQualifier(namePart) + ">";
+            closeTag = "</" + namePart.getType().getValue() + ">";
+        }
 
-        } else if (value.getClass().isAssignableFrom(PersonName.class)){
-        	context = new FormatContextImpl("PN", true, context);
-            return this.pnPropertyFormatter.format(context, new PNImpl((PersonName) value), indentLevel);
-
-        } else if (value.getClass().isAssignableFrom(OrganizationName.class)){
-        	context = new FormatContextImpl("ON", true, context);
-            return this.onPropertyFormatter.format(context, new ONImpl((OrganizationName) value), indentLevel);
-
-        } else {
-            throw new IllegalArgumentException("EN can not handle values of type " + value.getClass());
+        if (namePart.getType() == null && !previousPartSimple) {
+        	Indenter.indentBuffer(buffer, indentLevel);
+		}
+        buffer.append(openTag);
+        buffer.append(XmlStringEscape.escape(namePart.getValue()));
+        buffer.append(closeTag);
+        if (namePart.getType() == null && !nextPartSimple) {
+        	buffer.append("\n");
         }
     }
+    
+	private void appendValidTime(StringBuffer buffer, EntityName value, FormatContext context, int indentLevel) {
+		Interval<Date> validTime = value.getValidTime();
+		if (validTime != null) {
+			FormatContext ivlTsContext = new FormatContextImpl("IVL<TS>", "validTime", context);
+			IVLImpl<TS, Interval<Date>> ivlImpl = new IVLImpl<TS, Interval<Date>>(validTime);
+			String formattedValidTime = this.validTimeFormatter.format(ivlTsContext, ivlImpl, indentLevel);
+			buffer.append(formattedValidTime);
+		}
+	}
+
+    private String addQualifier(EntityNamePart namePart) {
+    	EntityNamePartQualifier qualifier = namePart.getQualifier();
+		return qualifier == null || StringUtils.isBlank(qualifier.getCodeValue()) ? "" : " qualifier=\"" + qualifier.getCodeValue() + "\"";
+	}
+
+	protected Map<String, String> getUseAttributeMap(EntityName value) {
+        String uses = "";
+        for (EntityNameUse entityNameUse : value.getUses()) {
+            uses += uses.length() == 0 ? "" : " ";
+            uses += entityNameUse.getCodeValue();
+        }
+        Map<String, String> result = new HashMap<String, String>();
+        
+        if (uses.length() > 0) {
+            result.put("use", uses);
+        }
+        return result;
+    }
+	
+	private void validateName(EntityName entityName, FormatContext context) {
+		// EN - no validations
+		// PN - no validations
+		// ON - part types can only be delimiter/prefix/suffix
+		// TN - only one part type allowed, with no type or qualifier; no uses
+		
+		if (StringUtils.equals("ON", context.getType())) {
+			for (EntityNamePart entityNamePart : entityName.getParts()) {
+				checkPartTypeForOn(entityNamePart.getType(), context);
+			}
+		}
+		if (StringUtils.equals("TN", context.getType())) {
+			checkNameForTn(entityName, context);
+		}
+	}
+
+	private void checkNameForTn(EntityName entityName, FormatContext context) {
+		int numParts = entityName.getParts().size();
+		if (numParts > 1) {
+			// only 1 allowed
+			recordError(context, "TN values can only have one name part. Parts found: " + numParts);
+		}
+		if (numParts >= 1) {
+			EntityNamePart tnPart = entityName.getParts().get(0);
+			if (tnPart.getType() != null) {
+				// no part types allowed
+				recordError(context, "TN values can not have a name part type. Part type found: " + tnPart.getType().getValue());
+			}
+			if (tnPart.getQualifier() != null) {
+				// no qualifier allowed
+				recordError(context, "TN values can not have any qualifiers. Qualifier found: " + tnPart.getQualifier().getCodeValue());
+			}
+		}
+		if (!entityName.getUses().isEmpty()) {
+			// uses not allowed
+			recordError(context, "TN values can not have any uses specified. Uses found: " + entityName.getUses().toString());
+		}
+		
+	}
+
+	private void checkPartTypeForOn(NamePartType type, FormatContext context) {
+		// valid types are null, delimiter, prefix, suffix
+		if (type != null) {
+			OrganizationNamePartType onType = EnumPattern.valueOf(OrganizationNamePartType.class, StringUtils.upperCase(type.getValue()));
+			if (onType == null) {
+				recordError(context, MessageFormat.format("Name parts of type {0} are not valid for ON data types. Only delimiter, prefix, suffix, and free-format text are allowed.", type.getValue()));			
+			}
+		}
+	}
+
+	private void recordError(FormatContext context, String errorMessage) {
+		context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, context.getPropertyPath()));
+	}
+
 }

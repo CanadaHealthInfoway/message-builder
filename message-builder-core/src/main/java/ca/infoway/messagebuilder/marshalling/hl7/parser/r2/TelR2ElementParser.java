@@ -33,6 +33,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
@@ -146,18 +147,9 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
                 Element useablePeriodElement = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(useablePeriodElement);
                 if ("useablePeriod".equals(name)) {
-                	BareANY ts = new TsR2ElementParser().parse(tsContext(version), useablePeriodElement, xmlToModelResult);
-                	Date date = (Date) ts.getBareValue(); 
-                	SetOperator operator = SetOperator.INCLUDE;
-                	if (useablePeriodElement.hasAttribute("operator")) {
-                		String operatorString = useablePeriodElement.getAttribute("operator");
-						operator = allOperators.get(operatorString);
-						if (operator == null) {
-		                	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
-		                			"Unknown operator found in TEL: \"" + operatorString + "\"", useablePeriodElement));
-						}
-                	}
-                	result.addUseablePeriod(date, operator);
+                	BareANY tsAny = new TsR2ElementParser().parse(tsContext(version), useablePeriodElement, xmlToModelResult);
+                	Date date = (Date) tsAny.getBareValue();
+                	result.addUseablePeriod(date, ((ANYMetaData) tsAny).getOperator());
                 } else {
                 	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
                 			"Unexpected TEL child element: \"" + useablePeriodElement.getNodeName() + "\"", useablePeriodElement));
@@ -167,7 +159,7 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
 	}
 
 	private ParseContext tsContext(VersionNumber version) {
-		return ParserContextImpl.create(StandardDataType.TS.getType(), null, version, null, null, null, null);
+		return ParserContextImpl.create(StandardDataType.SXCM_TS.getType(), null, version, null, null, null, null);
 	}
 
 	private void parseAddressUses(Node node, TelecommunicationAddress result) {

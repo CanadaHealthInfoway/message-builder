@@ -54,7 +54,7 @@ public class EnPropertyFormatterTest extends FormatterTestCase {
         
         EntityName name = new TrivialName("something");
         assertEquals("TrivialName uses TN formatter", 
-        		"<x specializationType=\"TN\" xsi:type=\"TN\">something</x>", 
+        		"<x xsi:type=\"TN\">something</x>", 
         		formatter.format(getContext("x"), new ENImpl<EntityName>(name)).trim());
     }
     
@@ -67,7 +67,7 @@ public class EnPropertyFormatterTest extends FormatterTestCase {
         name.addNamePart(new EntityNamePart("Organization"));
 
         assertEquals("OrganizationName uses ON formatter", 
-        		"<x specializationType=\"ON\" xsi:type=\"ON\"><prefix>prefix</prefix>Organization</x>", 
+        		"<x xsi:type=\"ON\"><prefix>prefix</prefix>Organization</x>", 
         		formatter.format(getContext("x"), new ENImpl<EntityName>(name)).trim());
     }
     
@@ -80,7 +80,7 @@ public class EnPropertyFormatterTest extends FormatterTestCase {
         name.addNamePart(new EntityNamePart("given", PersonNamePartType.GIVEN));
 
         assertEquals("PersonName uses PN formatter", 
-        		"<x specializationType=\"PN\" xsi:type=\"PN\"><prefix>prefix</prefix><given>given</given></x>", 
+        		"<x xsi:type=\"PN\"><prefix>prefix</prefix><given>given</given></x>", 
         		formatter.format(getContext("x"), new ENImpl<EntityName>(name)).trim());
     }
 }

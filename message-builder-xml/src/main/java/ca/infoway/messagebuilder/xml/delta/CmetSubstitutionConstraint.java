@@ -39,4 +39,13 @@ public class CmetSubstitutionConstraint extends NewStringValueConstraint {
 		return ConstraintChangeType.SUBSTITUTE_CMET;
 	}
 
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		// TODO Auto-generated method stub
+		CmetSubstitutionConstraint newConstraint = new CmetSubstitutionConstraint();
+		newConstraint.setOriginalValue(getOriginalValue());
+		newConstraint.setNewValue(getNewValue());
+		return newConstraint;
+	}
+
 }

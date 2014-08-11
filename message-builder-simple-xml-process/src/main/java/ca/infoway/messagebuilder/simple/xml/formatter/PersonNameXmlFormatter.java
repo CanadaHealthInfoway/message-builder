@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.simple.xml.FormatContext;
@@ -101,9 +102,11 @@ public class PersonNameXmlFormatter extends AbstractSimpleXmlFormatter {
 			
 			String textContent = item.getTextContent();
 			
-			// TM - should handle empty content/unknown parttype
+			EntityNamePartQualifier qualifier = CodeResolverRegistry.lookup(EntityNamePartQualifier.class, qualifierString);
 			
-			personName.getParts().add(new EntityNamePart(textContent, partType, qualifierString));
+			// TM - should handle empty content/unknown parttype (and qualifier)
+			
+			personName.getParts().add(new EntityNamePart(textContent, partType, qualifier));
 		}
 		return personName;
 	}

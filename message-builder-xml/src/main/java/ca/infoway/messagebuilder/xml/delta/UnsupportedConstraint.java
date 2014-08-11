@@ -24,6 +24,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Provides descriptions for the unsupported constraints. This type of constraint
  * captures changes that are currently not represented in the DeltaSet data
@@ -89,6 +91,10 @@ public class UnsupportedConstraint extends Constraint {
 	public String getAsString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new UnsupportedConstraint(description, originalValue, StringUtils.replace(newValue, originalPackageName, newPackageName));
 	}
 
 }

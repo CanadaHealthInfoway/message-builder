@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
+import java.util.Map;
+
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractValueNullFlavorPropertyFormatter;
@@ -39,12 +42,23 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-INT
  */
-@DataTypeHandler("INT")
+@DataTypeHandler({"INT", "SXCM<INT>"})
 class IntR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Integer> {
 
+    private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
+    
 	@Override
     protected String getValue(Integer integer, FormatContext context, BareANY bareAny) {
         return integer.toString();
+    }
+	
+    @Override
+    protected void addOtherAttributesIfNecessary(Integer integer, Map<String, String> attributes, FormatContext context, BareANY bareAny) {
+    	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
+    	// this is a hack to allow for a single known instance where the base model has extended a data type (INT, in this case) to have an exrta property 
+    	if (bareAny instanceof ANYMetaData && ((ANYMetaData) bareAny).isUnsorted()) {
+    		attributes.put("unsorted", "true");
+    	}
     }
 	
 }

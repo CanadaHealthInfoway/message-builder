@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.datatype;
 
+
 /**
  * <p>HL7 datatype INT. Backed by an Integer.
  * 
@@ -33,6 +34,5 @@ package ca.infoway.messagebuilder.datatype;
  *
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface INT extends QTY<Integer> {
-
+public interface INT extends QTY<Integer>, SetOperatorType {
 }

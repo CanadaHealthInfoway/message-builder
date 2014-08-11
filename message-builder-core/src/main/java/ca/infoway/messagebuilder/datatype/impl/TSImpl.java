@@ -24,6 +24,7 @@ import java.util.Date;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 /**
@@ -70,7 +71,18 @@ public class TSImpl extends QTYImpl<Date> implements TS {
 	 * @param date the initial value
 	 */
 	public TSImpl(Date date) {
+		this(date, null);
+	}
+
+	/**
+	 * <p>Constructs a TS using the given date and operator.
+	 * 
+	 * @param date the initial value
+	 * @param operator the initial operator
+	 */
+	public TSImpl(Date date, SetOperator operator) {
 		super(Date.class, date, null, StandardDataType.TS);
+		setOperator(operator);
 	}
 
 	/**

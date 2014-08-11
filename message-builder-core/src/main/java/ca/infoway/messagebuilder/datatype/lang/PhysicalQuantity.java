@@ -22,11 +22,14 @@ package ca.infoway.messagebuilder.datatype.lang;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 
 /**
@@ -49,8 +52,9 @@ public class PhysicalQuantity implements Serializable {
     
     private BigDecimal quantity;
     private UnitsOfMeasureCaseSensitive unit;
+    private List<CodedTypeR2<Code>> translation = new ArrayList<CodedTypeR2<Code>>();
 
-    /**
+	/**
      * <p>Constructs an empty physical quantity. 
      */
     public PhysicalQuantity() {
@@ -102,7 +106,25 @@ public class PhysicalQuantity implements Serializable {
     public void setUnit(UnitsOfMeasureCaseSensitive unit) {
         this.unit = unit;
     }
-    
+
+    /**
+     * <P>Translations for this PQ
+     * 
+     * @return the translations
+     */
+    public List<CodedTypeR2<Code>> getTranslation() {
+		return translation;
+	}
+
+    /**
+     * <P>Sets translations for this PQ
+     * 
+     * @param translations
+     */
+	public void setTranslation(List<CodedTypeR2<Code>> translations) {
+		this.translation = translations;
+	}
+
     /**
      * <p>Generates a hash code for this object based on its quantity and units.
      * 
@@ -112,6 +134,7 @@ public class PhysicalQuantity implements Serializable {
         return new HashCodeBuilder()
                 .append(this.quantity)
                 .append(this.unit)
+                .append(this.translation)
                 .toHashCode();
     }
 
@@ -135,6 +158,7 @@ public class PhysicalQuantity implements Serializable {
         return new EqualsBuilder()
         		.append(this.quantity, that.quantity)
                 .append(this.unit, that.unit)
+                .append(this.translation, that.translation)
                 .isEquals();
     }
     
@@ -144,7 +168,7 @@ public class PhysicalQuantity implements Serializable {
      * @return a string representation of this object
      */
     public String toString() {
-        return "" + this.quantity + getUnitAsString();
+        return "" + this.quantity + " " + getUnitAsString();
     }
     
     private String getUnitAsString() {

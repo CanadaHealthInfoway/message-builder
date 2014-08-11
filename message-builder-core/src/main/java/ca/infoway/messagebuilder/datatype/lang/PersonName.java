@@ -21,12 +21,9 @@
 package ca.infoway.messagebuilder.datatype.lang;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
@@ -35,6 +32,8 @@ import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
  * <p>Java datatype used to back the HL7 PN datatype.
  * 
  * <p>Covers:
+ * 
+ * <p>PN (R2): Used to express person names for general identification and communication purposes
  * 
  * <p>PN.BASIC: Used to express person names for general identification and communication purposes.
  * 
@@ -50,27 +49,6 @@ import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
  */
 public class PersonName extends EntityName {
 
-    private List<EntityNamePart> parts = Collections.synchronizedList(new ArrayList<EntityNamePart>());
-
-	/**
-	 * <p>Obtains the name parts.
-	 * 
-	 * @return list of entity name parts 
-	 */
-    @Override
-    public List<EntityNamePart> getParts() {
-        return this.parts;
-    }
-
-    /**
-     * <p>Adds a name part.
-     * 
-     * @param namePart the name part to add
-     */
-    public void addNamePart(EntityNamePart namePart) {
-        this.parts.add(namePart);
-    }
-    
     /**
      * <p>Pulls out the (first) given name from the list of parts.
      * 
@@ -93,7 +71,7 @@ public class PersonName extends EntityName {
 	
 	public List<EntityNamePart> getPartsOfType(PersonNamePartType type) {
 		List<EntityNamePart> result = new ArrayList<EntityNamePart>();
-		for (EntityNamePart part : this.parts) {
+		for (EntityNamePart part : getParts()) {
 			if (type == part.getType()) {
 				result.add(part);
 			}
@@ -120,28 +98,4 @@ public class PersonName extends EntityName {
 		return name;
 	}
 	
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder()
-                .appendSuper(super.hashCode())
-                .append(this.parts)
-                .toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        } else if (obj.getClass() != getClass()) {
-            return false;
-        } else {
-            return equals((PersonName) obj);
-        }
-    }
-    
-    private boolean equals(PersonName that) {
-        return new EqualsBuilder().appendSuper(super.equals(that))
-                .append(this.parts, that.parts)
-                .isEquals();
-    }
 }

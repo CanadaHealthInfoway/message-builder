@@ -59,4 +59,13 @@ public class StandardDataTypeTest {
 		assertEquals("TS.DATE", StandardDataType.TS_DATE, convertSimpleXmlToDataType("PartialDate"));
 	}
 	
+	@Test
+	public void shouldCalculateIsCodedListOrSet() throws Exception {
+		assertTrue("LIST<CD>", StandardDataType.isCodedListOrSet("LIST<CD>"));
+		assertTrue("SET<CD>", StandardDataType.isCodedListOrSet("SET<CD>"));
+		assertTrue("LIST<CV>", StandardDataType.isCodedListOrSet("LIST<CV>"));
+		assertFalse("SET<ST>", StandardDataType.isCodedListOrSet("SET<ST>"));
+		assertFalse("IVL<PQ>", StandardDataType.isCodedListOrSet("IVL<PQ>"));
+	}
+	
 }

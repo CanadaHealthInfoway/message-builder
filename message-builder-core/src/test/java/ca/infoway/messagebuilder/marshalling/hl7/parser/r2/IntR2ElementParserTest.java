@@ -30,7 +30,11 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.impl.INTImpl;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -75,8 +79,47 @@ public class IntR2ElementParserTest extends MarshallingTestCase {
 	@Test
 	public void testParseValueAttributeValid() throws Exception {
 		Node node = createNode("<something value=\"1345\" />");
-		assertEquals("correct value returned", new Integer("1345"), new IntR2ElementParser().parse(createContext("INT"), node, this.xmlResult).getBareValue());
+		INTImpl anyInt = (INTImpl) new IntR2ElementParser().parse(createContext("INT"), node, this.xmlResult);
 		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("correct value returned", new Integer("1345"), anyInt.getBareValue());
+		assertFalse("unsorted default", anyInt.isUnsorted());
+	}
+	
+	@Test
+	public void testParseValueWithUnsorted() throws Exception {
+		Node node = createNode("<something unsorted=\"true\" value=\"1345\" />");
+		INTImpl anyInt = (INTImpl) new IntR2ElementParser().parse(createContext("INT"), node, this.xmlResult);
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("correct value returned", new Integer("1345"), anyInt.getBareValue());
+		assertTrue("unsorted", anyInt.isUnsorted());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorNotAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1345\" />");
+		BareANY intAny = new IntR2ElementParser().parse(createContext("INT"), node, this.xmlResult);
+		assertEquals("correct value returned", new Integer("1345"), intAny.getBareValue());
+		assertNull("no operator", ((ANYMetaData) intAny).getOperator());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"1345\" />");
+		BareANY intAny = new IntR2ElementParser().parse(createContext("SXCM<INT>"), node, this.xmlResult);
+		assertEquals("correct value returned", new Integer("1345"), intAny.getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.PERIODIC_HULL, ((ANYMetaData) intAny).getOperator());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithDefaultOperator() throws Exception {
+		Node node = createNode("<something value=\"1345\" />");
+		BareANY intAny = new IntR2ElementParser().parse(createContext("SXCM<INT>"), node, this.xmlResult);
+		assertEquals("correct value returned", new Integer("1345"), intAny.getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.INCLUDE, ((ANYMetaData) intAny).getOperator());
 	}
 	
 	@Test

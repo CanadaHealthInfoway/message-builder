@@ -56,8 +56,8 @@ public class ListEnPropertyFormatterTest extends FormatterTestCase {
 		String result = new ListPropertyFormatter().format(
 				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<EN>", ConformanceLevel.OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_02, null, null, null), 
 				(BareANY) LISTImpl.<EN<EntityName>, EntityName>create(ENImpl.class, createEntityNameList()));
-		assertEquals("non null", "<name specializationType=\"PN\" xsi:type=\"PN\"><family>Flinstone</family><given>Fred</given></name>" + LINE_SEPARATOR + 
-								 "<name specializationType=\"PN\" xsi:type=\"PN\"><family>Flinstone</family><given>Wilma</given></name>" + LINE_SEPARATOR, result);
+		assertEquals("non null", "<name xsi:type=\"PN\"><family>Flinstone</family><given>Fred</given></name>" + LINE_SEPARATOR + 
+								 "<name xsi:type=\"PN\"><family>Flinstone</family><given>Wilma</given></name>" + LINE_SEPARATOR, result);
 	}
 
 	private List<EntityName> createEntityNameList() {

@@ -45,5 +45,9 @@ public class FixedConstraint extends NewStringValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_FIXED;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new FixedConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

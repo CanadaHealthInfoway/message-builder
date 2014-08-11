@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  */
 public class CVImpl extends CEImpl implements CV {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 6243037854254648829L;
 	
 	/**

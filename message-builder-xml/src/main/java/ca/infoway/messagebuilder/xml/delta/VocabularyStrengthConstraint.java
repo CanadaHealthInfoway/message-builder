@@ -97,5 +97,9 @@ public class VocabularyStrengthConstraint extends Constraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_VOCABULARY_STRENGTH;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new VocabularyStrengthConstraint(originalValue, newValue);
+	}
 
 }

@@ -105,4 +105,15 @@ public class ChoiceRelationshipNameConstraint extends Constraint {
 	public void setChoiceRelationshipNames(List<ChoiceRelationshipName> choiceRelationshipNames) {
 		this.choiceRelationshipNames = choiceRelationshipNames;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		ChoiceRelationshipNameConstraint newConstraint = new ChoiceRelationshipNameConstraint();
+		for (ChoiceRelationshipName name : this.choiceRelationshipNames) {
+			newConstraint.getChoiceRelationshipNames().add(new ChoiceRelationshipName(
+					StringUtils.replace(name.getChoicePartType(), originalPackageName, newPackageName), 
+					name.getOldName(), 
+					name.getNewName()));
+		}
+		return newConstraint;
+	}
 }

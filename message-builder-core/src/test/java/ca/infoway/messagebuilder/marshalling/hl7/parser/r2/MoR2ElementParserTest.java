@@ -34,9 +34,12 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -65,6 +68,10 @@ public class MoR2ElementParserTest extends MarshallingTestCase {
 
 	private ParseContext createContext() {
 		return ParserContextImpl.create("MO", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null);
+	}
+	
+	private ParseContext createContextSxcm() {
+		return ParserContextImpl.create("SXCM<MO>", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null);
 	}
 	
 	@Test
@@ -103,6 +110,34 @@ public class MoR2ElementParserTest extends MarshallingTestCase {
 		assertResultAsExpected(result, new BigDecimal("12.00"), Currency.CANADIAN_DOLLAR);
 	}
 	
+	@Test
+	public void testParseValueAttributeValidWithOperatorNotAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"12.00\" currency=\"CAD\" />");
+		BareANY intAny = new MoR2ElementParser().parse(createContext(), node, this.result);
+		assertEquals("correct value returned", new Money(new BigDecimal(12.00), Currency.CANADIAN_DOLLAR), intAny.getBareValue());
+		assertNull("no operator", ((ANYMetaData) intAny).getOperator());
+		assertFalse(this.result.isValid());
+		assertEquals("1 error expected", 1, this.result.getHl7Errors().size());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithOperatorAllowed() throws Exception {
+		Node node = createNode("<something operator=\"P\" value=\"12.00\" currency=\"CAD\" />");
+		BareANY intAny = new MoR2ElementParser().parse(createContextSxcm(), node, this.result);
+		assertEquals("correct value returned", new Money(new BigDecimal(12.00), Currency.CANADIAN_DOLLAR), intAny.getBareValue());
+		assertTrue("no errors", this.result.isValid());
+		assertEquals("operator", SetOperator.PERIODIC_HULL, ((ANYMetaData) intAny).getOperator());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithDefaultOperator() throws Exception {
+		Node node = createNode("<something value=\"12.00\" currency=\"CAD\" />");
+		BareANY intAny = new MoR2ElementParser().parse(createContextSxcm(), node, this.result);
+		assertEquals("correct value returned", new Money(new BigDecimal(12.00), Currency.CANADIAN_DOLLAR), intAny.getBareValue());
+		assertTrue("no errors", this.result.isValid());
+		assertEquals("operator", SetOperator.INCLUDE, ((ANYMetaData) intAny).getOperator());
+	}
+
 	@Test
 	public void testParseValidTwoAttributesMaxDigits() throws Exception {
 		Node node = createNode("<something value=\"12345678901.12\" currency=\"CAD\" />");

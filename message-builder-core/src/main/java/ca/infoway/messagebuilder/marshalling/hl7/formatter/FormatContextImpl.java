@@ -70,6 +70,10 @@ public class FormatContextImpl implements FormatContext {
 		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getCardinality(), context.getElementName(), context);
 	}
 	
+	public FormatContextImpl(String newType, String newElementName, FormatContext context) {
+		this(newType, context.isSpecializationType(), context.getConformanceLevel(), context.getCardinality(), newElementName, context);
+	}
+	
 	public FormatContextImpl(String newType, ConformanceLevel newConformanceLevel, Cardinality newCardinality, String elementName, FormatContext context) {
 		this(newType, context.isSpecializationType(), newConformanceLevel, newCardinality, elementName, context);
 	}

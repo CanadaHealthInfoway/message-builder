@@ -26,6 +26,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
@@ -45,28 +46,32 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-MO
  */
-@DataTypeHandler("MO")
+@DataTypeHandler({"MO", "SXCM<MO>"})
 class MoR2PropertyFormatter extends AbstractAttributePropertyFormatter<Money> {
 	
+    private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
+
     @Override
 	protected
     Map<String, String> getAttributeNameValuePairs(FormatContext context, Money money, BareANY bareAny) {
     	
     	validate(money, context);    	
     	
-        Map<String, String> result = new HashMap<String, String>();
+        Map<String, String> attributes = new HashMap<String, String>();
         
         BigDecimal value = money.getAmount();
         if (value != null) {
-            result.put("value", value.toString());
+            attributes.put("value", value.toString());
         }
 
         Currency currency = money.getCurrency();
         if (currency != null) {
-            result.put("currency", currency.getCodeValue());
+            attributes.put("currency", currency.getCodeValue());
         }
         
-        return result;
+    	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
+        
+        return attributes;
     }
 
 	private void validate(Money money, FormatContext context) {

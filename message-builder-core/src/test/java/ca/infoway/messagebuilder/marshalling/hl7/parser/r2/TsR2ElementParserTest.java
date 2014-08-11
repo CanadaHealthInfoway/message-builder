@@ -33,8 +33,11 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -237,26 +240,50 @@ public class TsR2ElementParserTest extends MarshallingTestCase {
     }
 	
 	@Test
-    public void testParseFullDate() throws Exception {
+	public void testParseValueAttributeValidWithOperatorNotAllowed() throws Exception {
+        ParseContext context = ParserContextImpl.create("TS", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
+
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 0, 0, 0, 0);
 		String value = "20080625";
-        Node node = createNode("<something value=\"" + value + "\" />");
-        
-        ParseContext context = ParserContextImpl.create("TS", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
-        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsR2ElementParser()).parse(context, node, this.xmlResult).getBareValue());
-        assertTrue(this.xmlResult.isValid());
-    }
+        Node node = createNode("<something operator=\"P\" value=\"" + value + "\" />");
+
+        BareANY tsAny = new TsR2ElementParser().parse(context, node, this.xmlResult);
+		assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) tsAny.getBareValue());
+
+		assertNull("no operator", ((ANYMetaData) tsAny).getOperator());
+		assertFalse(this.xmlResult.isValid());
+		assertEquals("1 error expected", 1, this.xmlResult.getHl7Errors().size());
+	}
 	
 	@Test
-    public void testParseValidFullDate() throws Exception {
+	public void testParseValueAttributeValidWithOperatorAllowed() throws Exception {
+        ParseContext context = ParserContextImpl.create("SXCM<TS>", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
+
+		Date expectedResult = DateUtil.getDate(2008, 5, 25, 0, 0, 0, 0);
+		String value = "20080625";
+        Node node = createNode("<something operator=\"P\" value=\"" + value + "\" />");
+
+        BareANY tsAny = new TsR2ElementParser().parse(context, node, this.xmlResult);
+		assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) tsAny.getBareValue());
+
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.PERIODIC_HULL, ((ANYMetaData) tsAny).getOperator());
+	}
+	
+	@Test
+	public void testParseValueAttributeValidWithDefaultOperator() throws Exception {
+        ParseContext context = ParserContextImpl.create("SXCM<TS>", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
+
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 0, 0, 0, 0);
 		String value = "20080625";
         Node node = createNode("<something value=\"" + value + "\" />");
-        
-        ParseContext context = ParserContextImpl.create("TS", Date.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.POPULATED, null);
-        assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsR2ElementParser()).parse(context, node, this.xmlResult).getBareValue());
-        assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
-    }
+
+        BareANY tsAny = new TsR2ElementParser().parse(context, node, this.xmlResult);
+		assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) tsAny.getBareValue());
+
+		assertTrue("no errors", this.xmlResult.isValid());
+		assertEquals("operator", SetOperator.INCLUDE, ((ANYMetaData) tsAny).getOperator());
+	}
 	
 	/**
 	 * @sharpen.remove

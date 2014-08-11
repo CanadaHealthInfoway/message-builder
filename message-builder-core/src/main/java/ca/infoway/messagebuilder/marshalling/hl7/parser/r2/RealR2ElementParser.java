@@ -27,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -52,11 +53,13 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-REAL
  * 
  */
-@DataTypeHandler("REAL")
-class RealR2ElementParser extends AbstractSingleElementParser<BigDecimal>{
+@DataTypeHandler({"REAL", "SXCM<REAL>"})
+class RealR2ElementParser extends AbstractSingleElementParser<BigDecimal> {
 
+	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
+	
 	@Override
-	protected BigDecimal parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected BigDecimal parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 		BigDecimal result = null;
 
@@ -68,6 +71,7 @@ class RealR2ElementParser extends AbstractSingleElementParser<BigDecimal>{
 			} catch (NumberFormatException e) {
 				recordInvalidNumberError(context, node, xmlToModelResult, unparsedReal);
 			}
+            this.sxcmHelper.handleOperator((Element) node, context, xmlToModelResult, (ANYMetaData) bareAny);
 		}
 		return result;
 	}

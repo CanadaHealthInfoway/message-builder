@@ -41,10 +41,15 @@ import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
-class CodeLookupUtils {
+public class CodeLookupUtils {
 
-    Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
+    public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
     		Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
+    	return getCorrespondingCode(code, codeSystem, expectedReturnType, element, context, xmlToModelResult, false);
+    }
+    
+    public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
+    		Element element, ParseContext context, XmlToModelResult xmlToModelResult, boolean relaxCodeSystemCheck) {
     	
     	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
     	
@@ -58,7 +63,9 @@ class CodeLookupUtils {
     		}
     	} else {
     		if (StringUtils.isNotBlank(code) && StringUtils.isBlank(codeSystem)) {
-            	xmlToModelResult.addHl7Error(createMissingCodeSystemError(element, codeType, code));
+    			if (!relaxCodeSystemCheck) {
+    				xmlToModelResult.addHl7Error(createMissingCodeSystemError(element, codeType, code));
+    			}
     		}
     	}
     	

@@ -45,5 +45,9 @@ public class DefaultValueConstraint extends NewStringValueConstraint {
 	public ConstraintChangeType getChange() {
 		return ConstraintChangeType.CHANGE_DEFAULT_VALUE;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new DefaultValueConstraint(getOriginalValue(), getNewValue());
+	}
 
 }

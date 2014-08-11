@@ -32,8 +32,15 @@ public class ParserR2Registry extends Registry<ElementParser> {
 
 	@Override
     protected void registerAll() {
+        register(new AnyR2ElementParser());
+        register(new AdR2ElementParser());
         register(new BagR2ElementParser());
         register(new BlR2ElementParser());
+        register(new BxitCdR2ElementParser());
+        register(new EdR2ElementParser());
+        register(new EivlTsR2ElementParser());
+        register(new EnR2ElementParser());
+        register(new HxitCeR2ElementParser());
         register(new IiR2ElementParser());
         register(new IntR2ElementParser());
         register(new IvlIntR2ElementParser());
@@ -43,12 +50,27 @@ public class ParserR2Registry extends Registry<ElementParser> {
         register(new IvlTsR2ElementParser());
         register(new ListR2ElementParser());
         register(new MoR2ElementParser());
+        register(new OnR2ElementParser());
+        register(new PivlTsR2ElementParser());
+        register(new PnR2ElementParser());
         register(new PqR2ElementParser());
         register(new RealR2ElementParser());
+        register(new RtoMoPqR2ElementParser());
+        register(new RtoPqPqR2ElementParser());
         register(new SetR2ElementParser());
         register(new StR2ElementParser());
         register(new TelR2ElementParser());
+        register(new TnR2ElementParser());
         register(new TsR2ElementParser());
+        
+        register(new CsR2ElementParser());
+        register(new ScR2ElementParser());
+        register(new CvR2ElementParser()); // also for CO
+        register(new CeR2ElementParser());
+        register(new CdR2ElementParser());
+        register(new SxcmCdR2ElementParser());
+        register(new PqrR2ElementParser());
+        register(new CrR2ElementParser());
     }
 
     public static ParserR2Registry getInstance() {

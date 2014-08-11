@@ -86,4 +86,8 @@ public class ImmutabilityConstraint extends Constraint {
 	public void setOriginalValue(ImmutabilityType originalValue) {
 		this.originalValue = originalValue;
 	}
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new ImmutabilityConstraint(originalValue, newValue);
+	}
 }

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
-import ca.infoway.messagebuilder.domainvalue.x_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.AdValidationUtils;
 
@@ -117,7 +117,7 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
 
 	private Map<String, String> getUseAttributeMap(String dataType, PostalAddress value, Hl7BaseVersion baseVersion) {
         String uses = "";
-        for (x_BasicPostalAddressUse postalAddressUse : value.getUses()) {
+        for (PostalAddressUse postalAddressUse : value.getUses()) {
         	if (AD_VALIDATION_UTILS.isAllowableUse(dataType, postalAddressUse, baseVersion)) {
 	            uses += uses.length() == 0 ? "" : " ";
 	            uses += postalAddressUse.getCodeValue();

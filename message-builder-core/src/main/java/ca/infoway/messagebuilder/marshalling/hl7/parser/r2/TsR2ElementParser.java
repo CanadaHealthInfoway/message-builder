@@ -29,6 +29,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
@@ -55,20 +56,19 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
-@DataTypeHandler("TS")
+@DataTypeHandler({"TS", "SXCM<TS>"})
 public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
 
+	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
+	
 	public TsR2ElementParser() {
 	}
 
 	@Override
-	protected Date parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		return parseNonNullNode(context, (Element) node, xmlToModelResult);
-	}
-
-	private Date parseNonNullNode(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
+	protected Date parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		Element element = (Element) node;
 		Date result = null;
-		String unparsedDate = getAttributeValue(element, "value");
+		String unparsedDate = getAttributeValue(node, "value");
 		if (StringUtils.isBlank(unparsedDate)) {
        		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timestamp value must be non-blank.", element));
 		} else {
@@ -79,6 +79,7 @@ public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
            			"The timestamp " + unparsedDate + " in element " +  XmlDescriber.describeSingleElement(element) + " cannot be parsed.";
             	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
             }
+            this.sxcmHelper.handleOperator(element, context, xmlToModelResult, (ANYMetaData) bareAny);
 		}
 		return result;
 	}

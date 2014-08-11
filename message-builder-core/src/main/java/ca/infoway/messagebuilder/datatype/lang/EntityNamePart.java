@@ -24,6 +24,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
+import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
 
 /**
  * <p>Class to represent an entity name part, containing a name part type and a value. 
@@ -36,7 +37,7 @@ public class EntityNamePart {
 
     private final NamePartType type;
     private final String value;
-    private final String qualifier;
+    private final EntityNamePartQualifier qualifier;
     
     /**
      * <p>Constructs an EntityNamePart using the supplied parameters.
@@ -45,7 +46,7 @@ public class EntityNamePart {
      * @param type the name part type
      * @param qualifier the name part qualifier
      */
-	public EntityNamePart(String value, NamePartType type, String qualifier) {
+	public EntityNamePart(String value, NamePartType type, EntityNamePartQualifier qualifier) {
         this.value = value;
         this.type = type;
 		this.qualifier = qualifier;
@@ -93,7 +94,7 @@ public class EntityNamePart {
      * 
      * @return the qualifier
      */
-    public String getQualifier() {
+    public EntityNamePartQualifier getQualifier() {
 		return this.qualifier;
 	}
 

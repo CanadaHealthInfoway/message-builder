@@ -36,9 +36,20 @@ public class FormatterR2Registry extends Registry<PropertyFormatter> {
 
     @Override
     protected void registerAll() {
+    	register(new AdR2PropertyFormatter());
+    	register(new AnyR2PropertyFormatter());
     	register(new BlR2PropertyFormatter());
     	register(new BagR2PropertyFormatter());
+    	register(new BxitCdR2PropertyFormatter());
+    	register(new CdR2PropertyFormatter());
+    	register(new CeR2PropertyFormatter());
+    	register(new CrR2PropertyFormatter());
+    	register(new CsR2PropertyFormatter());
+    	register(new CvR2PropertyFormatter());
+    	register(new EdR2PropertyFormatter());
+    	register(new EivlTsR2PropertyFormatter());
     	register(new EnR2PropertyFormatter());
+        register(new HxitCeR2PropertyFormatter());
         register(new IiR2PropertyFormatter());
         register(new IntR2PropertyFormatter());
         register(new IvlIntR2PropertyFormatter());
@@ -48,15 +59,20 @@ public class FormatterR2Registry extends Registry<PropertyFormatter> {
         register(new IvlTsR2PropertyFormatter());
         register(new ListR2PropertyFormatter());
         register(new MoR2PropertyFormatter());
-    	register(new OnR2PropertyFormatter());
-    	register(new PnR2PropertyFormatter());
+    	register(new PivlTsR2PropertyFormatter());
     	register(new PqR2PropertyFormatter());
+    	register(new PqrR2PropertyFormatter());
         register(new RealR2PropertyFormatter());
+        register(new RtoMoPqR2PropertyFormatter());
+        register(new RtoPqPqR2PropertyFormatter());
+        register(new ScR2PropertyFormatter());
         register(new SetR2PropertyFormatter());
         register(new StR2PropertyFormatter());
+        register(new SxcmCdR2PropertyFormatter());
         register(new TelR2PropertyFormatter());
-    	register(new TnR2PropertyFormatter());
         register(new TsR2PropertyFormatter());
+        
+
     }
 
 }

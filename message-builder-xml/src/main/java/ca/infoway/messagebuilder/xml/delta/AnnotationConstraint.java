@@ -159,4 +159,9 @@ public class AnnotationConstraint extends Constraint {
 	public void setSourceName(String sourceName) {
 		this.sourceName = sourceName;
 	}
+
+	@Override
+	public Constraint clone(String originalPackageName, String newPackageName) {
+		return new AnnotationConstraint(this);
+	}
 }

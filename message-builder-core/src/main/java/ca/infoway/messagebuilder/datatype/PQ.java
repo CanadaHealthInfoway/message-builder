@@ -36,15 +36,8 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface PQ extends QTY<PhysicalQuantity> {
+public interface PQ extends QTY<PhysicalQuantity>, SetOperatorType {
 
-// TM/AG - consider implementing the following unsupported methods
-	
-//    PQ canonical();
-//    PQ expressedIn(PQ that);
-//    INT precision();
-//    PQ withLimitedPrecision(INT precisionLimit);
-	
 	/**
 	 * Returns the original text.
 	 * 
@@ -58,5 +51,4 @@ public interface PQ extends QTY<PhysicalQuantity> {
 	 * @param originalText the original text
 	 */
 	public void setOriginalText(String originalText);
-	
 }

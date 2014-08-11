@@ -157,7 +157,6 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	}
 	
 	protected void validateUnallowedChildNode(String type, Element node, XmlToModelResult result, String childNodeName) {
-		
 		Node child = getNamedChildNode(node, childNodeName);
 		if (child != null) {
 			result.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, type + " should not include the '" +

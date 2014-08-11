@@ -140,7 +140,7 @@ public class XmlRenderingVisitorTest {
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" +
-				"<value specializationType=\"ST\" xsi:type=\"ST\">some string</value>" +
+				"<value xsi:type=\"ST\">some string</value>" +
 				"</ABCD_IN123456CA>", xml);
 	}
 	
@@ -380,6 +380,6 @@ public class XmlRenderingVisitorTest {
 	}
 
 	private void assertXmlEquals(String string, String expected, String actual) {
-		assertEquals(string, WhitespaceUtil.normalizeWhitespace(expected), WhitespaceUtil.normalizeWhitespace(actual));
+		assertEquals(string, WhitespaceUtil.normalizeWhitespace(expected, false), WhitespaceUtil.normalizeWhitespace(actual, false));
 	}
 }

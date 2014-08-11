@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
@@ -29,6 +30,7 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
@@ -117,11 +119,71 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZeroNoWarnings() throws Exception {
 		String integerValue = "0";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT.NONNEG", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
 		String output = new IntR2PropertyFormatter().format(
 				context,
 				new INTImpl(new Integer(integerValue)));
 		assertEquals("xml output as expected", "<name value=\"0\"/>", output.trim());
 		assertTrue("no errors", context.getModelToXmlResult().isValid());
+	}
+	
+	@Test
+	public void testIntegerOperatorNotAllowed() throws Exception {
+		String integerValue = "123";
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		
+		INTImpl dataType = new INTImpl(new Integer(integerValue));
+		dataType.setOperator(SetOperator.INCLUDE);
+		
+		String output = new IntR2PropertyFormatter().format(
+				context,
+				dataType);
+		assertEquals("xml output as expected", "<name value=\"123\"/>", output.trim());
+		assertFalse(context.getModelToXmlResult().isValid());
+		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size());
+	}
+	
+	@Test
+	public void testIntegerWithRegionOfInterest() throws Exception {
+		String integerValue = "123";
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		
+		INTImpl dataType = new INTImpl(new Integer(integerValue));
+		dataType.setUnsorted(true);
+		
+		String output = new IntR2PropertyFormatter().format(
+				context,
+				dataType);
+		assertEquals("xml output as expected", "<name unsorted=\"true\" value=\"123\"/>", output.trim());
+		assertTrue(context.getModelToXmlResult().isValid());
+	}
+	
+	@Test
+	public void testSxcmOperatorAllowed() throws Exception {
+		String integerValue = "123";
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null);
+		
+		INTImpl dataType = new INTImpl(new Integer(integerValue));
+		dataType.setOperator(SetOperator.INCLUDE);
+		
+		String output = new IntR2PropertyFormatter().format(
+				context,
+				dataType);
+		assertEquals("xml output as expected", "<name operator=\"I\" value=\"123\"/>", output.trim());
+		assertTrue(context.getModelToXmlResult().isValid());
+	}
+	
+	@Test
+	public void testSxcmNoOperator() throws Exception {
+		String integerValue = "123";
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null);
+		
+		INTImpl dataType = new INTImpl(new Integer(integerValue));
+		
+		String output = new IntR2PropertyFormatter().format(
+				context,
+				dataType);
+		assertEquals("xml output as expected", "<name value=\"123\"/>", output.trim());
+		assertTrue(context.getModelToXmlResult().isValid());
 	}
 }

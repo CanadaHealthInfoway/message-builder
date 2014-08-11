@@ -20,10 +20,12 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -37,16 +39,30 @@ import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public abstract class EntityName {
+public class EntityName {
 
-    private Set<EntityNameUse> uses = Collections.synchronizedSet(new HashSet<EntityNameUse>());
+	private List<EntityNamePart> parts = Collections.synchronizedList(new ArrayList<EntityNamePart>());
+    private Set<EntityNameUse> uses = Collections.synchronizedSet(new TreeSet<EntityNameUse>());
+    private Interval<Date> validTime;
     
-    /**
-     * <p>Obtains the list of name parts.
+	/**
+     * <p>Obtains the name parts.
      * 
      * @return the list of name parts
      */
-    public abstract List<EntityNamePart> getParts();
+    public List<EntityNamePart> getParts() {
+        return this.parts;
+    }
+    
+    /**
+     * <p>Adds a name part to the list of parts.
+     * 
+     * @param namePart the name part to add
+     */
+    public void addNamePart(EntityNamePart namePart) {
+        this.parts.add(namePart);
+    }
+    
     
     /**
      * <p>Obtains the set of name uses for this name.
@@ -58,15 +74,6 @@ public abstract class EntityName {
     }
     
     /**
-     * <p>Replaces the set of name uses for this name.
-     * 
-     * @param uses the set of name uses
-     */
-    public void setUses(Set<EntityNameUse> uses) {
-        this.uses = uses;
-    }
-    
-    /**
      * <p>Adds a name use to this name.
      * 
      * @param use the name use to add
@@ -75,10 +82,30 @@ public abstract class EntityName {
         this.uses.add(use);
     }
     
+    /**
+     * <p>Obtains the time interval for which this name is valid
+     * 
+     * @return the valid time interval
+     */
+    public Interval<Date> getValidTime() {
+		return validTime;
+	}
+
+    /**
+     * <p>Sets the time interval for which this name is valid
+     * 
+     * @param validTime
+     */
+	public void setValidTime(Interval<Date> validTime) {
+		this.validTime = validTime;
+	}
+
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
+                .append(this.parts)
                 .append(this.uses)
+                .append(this.validTime)
                 .toHashCode();
     }
 
@@ -95,7 +122,9 @@ public abstract class EntityName {
     
     private boolean equals(EntityName that) {
         return new EqualsBuilder()
+                .append(this.parts, that.parts)
                 .append(this.uses, that.uses)
+                .append(this.validTime, that.validTime)
                 .isEquals();
     }
     
