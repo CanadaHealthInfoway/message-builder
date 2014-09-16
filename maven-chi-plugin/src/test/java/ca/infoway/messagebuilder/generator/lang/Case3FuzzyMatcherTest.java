@@ -78,11 +78,11 @@ public class Case3FuzzyMatcherTest {
 		
 		final SimplifiableType type1 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Agent"), false);
 		final SimplifiableType organizationType = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Organization"), false);
-		organizationType.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter().convertToType("II", null)));
+		organizationType.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter(false).convertToType("II", null)));
 		type1.getRelationships().add(new SimplifiableRelationship(new Relationship("agentOrganization", "MCCI_MT102001CA.Organization", Cardinality.create("0-1")), organizationType));
 		
 		final SimplifiableType organizationType2 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Organization2"), false);
-		organizationType2.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter().convertToType("II", null)));
+		organizationType2.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter(false).convertToType("II", null)));
 		final SimplifiableType type2 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Agent2"), false);
 		type2.getRelationships().add(new SimplifiableRelationship(new Relationship("representedOrganization", "MCCI_MT102001CA.Organization2", Cardinality.create("0-1")), organizationType2));
 		

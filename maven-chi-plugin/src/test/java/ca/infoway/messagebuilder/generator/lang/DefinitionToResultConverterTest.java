@@ -55,8 +55,8 @@ public class DefinitionToResultConverterTest {
 	}
 
 	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
-	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger(), NamingPolicy.getDefaultPolicy());
-	private TypeConverter typeConverter = new TypeConverter();
+	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger(), NamingPolicy.getDefaultPolicy(), false);
+	private TypeConverter typeConverter = new TypeConverter(false);
 	
 	@Test
 	public void shouldConvertSimpleCase() throws Exception {
@@ -446,11 +446,11 @@ public class DefinitionToResultConverterTest {
 		Relationship cvRelationship3b = new Relationship("code", "CV", Cardinality.create("1"));
 		
 		SimplifiableType simplifiableType3a = new SimplifiableType(new MessagePart("COCT_MT470002CA.ActDefinition"), false);
-		simplifiableType3a.getRelationships().add(new SimplifiableRelationship(cvRelationship3a, new TypeConverter().convertToType(cvRelationship3a)));
+		simplifiableType3a.getRelationships().add(new SimplifiableRelationship(cvRelationship3a, new TypeConverter(false).convertToType(cvRelationship3a)));
 		simplifiableType3a.setInlined(true);
 
 		SimplifiableType simplifiableType3b = new SimplifiableType(new MessagePart("COCT_MT470012CA.ActDefinition"), false);
-		simplifiableType3b.getRelationships().add(new SimplifiableRelationship(cvRelationship3b, new TypeConverter().convertToType(cvRelationship3b)));
+		simplifiableType3b.getRelationships().add(new SimplifiableRelationship(cvRelationship3b, new TypeConverter(false).convertToType(cvRelationship3b)));
 		simplifiableType3b.setInlined(true);
 
 		TemporaryTypeName name3 = TemporaryTypeName.create("merged");

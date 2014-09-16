@@ -280,7 +280,7 @@ class ParameterAppenderRegistry {
 		}
 	}
 	
-	private static List<String> flatten(List<DataType> parameters, ProgrammingLanguage language) {
+	protected static List<String> flatten(List<DataType> parameters, ProgrammingLanguage language) {
 		return flatten(parameters, language, Functions.<String>identity());
 	}
 

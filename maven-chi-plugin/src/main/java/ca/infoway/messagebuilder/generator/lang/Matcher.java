@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.generator.lang;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.generator.util.MatchType;
 import ca.infoway.messagebuilder.marshalling.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;

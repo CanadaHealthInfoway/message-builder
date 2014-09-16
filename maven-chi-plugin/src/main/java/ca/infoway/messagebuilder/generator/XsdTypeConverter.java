@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.GeneratorException;
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.generator.util.Namespaces;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
@@ -60,6 +60,7 @@ public class XsdTypeConverter {
         map.put("IVL<TS>", new XsdDataType("DateInterval", Namespaces.CHI_NAMESPACE));
         map.put("PIVL<TS>", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
         map.put("EIVL<TS>", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
+        map.put("EIVL", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
         map.put("IVL<PQ>", new XsdDataType("PhysicalQuantityInterval", Namespaces.CHI_NAMESPACE));
         map.put("IVL<INT>", new XsdDataType("IntInterval", Namespaces.CHI_NAMESPACE));
         map.put("IVL<REAL>", new XsdDataType("RealInterval", Namespaces.CHI_NAMESPACE));
@@ -70,7 +71,9 @@ public class XsdTypeConverter {
         map.put("CD", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("CE", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("CO", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("HXIT", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("HXIT<CE>", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
+        map.put("BXIT", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("BXIT<CD>", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE));
         map.put("CR", new XsdDataType("CodedType", Namespaces.CHI_NAMESPACE)); // not a coded type, but since this is an R2-only type this should be fine
         map.put("GTS", new XsdDataType("BoundedPeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));

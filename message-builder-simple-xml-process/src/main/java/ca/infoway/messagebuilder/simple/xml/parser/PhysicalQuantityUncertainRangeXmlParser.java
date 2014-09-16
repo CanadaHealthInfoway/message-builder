@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.simple.xml.parser;
 
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.URG;
@@ -31,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.simple.xml.ParserException;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParser;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
 public class PhysicalQuantityUncertainRangeXmlParser extends AbstractSimpleXmlParser<URG<PQ, PhysicalQuantity>, UncertainRange<PhysicalQuantity>> implements SimpleXmlParser<URG<PQ, PhysicalQuantity>> {
 	

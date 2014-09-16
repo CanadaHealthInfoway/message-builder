@@ -21,12 +21,10 @@
 package ca.infoway.messagebuilder.generator;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,17 +37,23 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BN;
+import ca.infoway.messagebuilder.datatype.BXIT;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.CD_R2;
 import ca.infoway.messagebuilder.datatype.CE;
+import ca.infoway.messagebuilder.datatype.CE_R2;
+import ca.infoway.messagebuilder.datatype.CO;
 import ca.infoway.messagebuilder.datatype.COLLECTION;
 import ca.infoway.messagebuilder.datatype.CR;
 import ca.infoway.messagebuilder.datatype.CS;
+import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.CV_R2;
 import ca.infoway.messagebuilder.datatype.ED;
+import ca.infoway.messagebuilder.datatype.EIVL;
 import ca.infoway.messagebuilder.datatype.EN;
 import ca.infoway.messagebuilder.datatype.GTS;
 import ca.infoway.messagebuilder.datatype.HXIT;
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
@@ -57,16 +61,19 @@ import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.ON;
 import ca.infoway.messagebuilder.datatype.PIVL;
-import ca.infoway.messagebuilder.datatype.PIVLR2;
+import ca.infoway.messagebuilder.datatype.PIVL_R2;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.PQR;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.REAL;
 import ca.infoway.messagebuilder.datatype.RTO;
 import ca.infoway.messagebuilder.datatype.SC;
+import ca.infoway.messagebuilder.datatype.SC_R2;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.SXCM;
+import ca.infoway.messagebuilder.datatype.SXCM_R2;
 import ca.infoway.messagebuilder.datatype.SXPR;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TN;
@@ -77,7 +84,9 @@ import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
+import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -95,6 +104,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
+import ca.infoway.messagebuilder.xml.CodedTypeEvaluator;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
 /**
  * <p>A list of standard HL7 data types.
@@ -129,11 +140,12 @@ enum DataTypeGenerationDetails implements Typed {
 	AD_SEARCH("AD.SEARCH", AD.class.getName(), PostalAddress.class.getName(), null),
 	
 	BL("BL", BL.class.getName(), Boolean.class.getName(), "System.bool?"),
-	BN("BN", BN.class.getName(), Boolean.class.getName(), "System.bool?"),
+	BN_R2("BN", BN.class.getName(), Boolean.class.getName(), "System.bool?"),
 	
 	ON("ON", ON.class.getName(), OrganizationName.class.getName(), null),
 	
 	SC("SC", SC.class.getName(), CodedString.class.getName(), null),
+	SC_R2("SC", SC_R2.class.getName(), CodedTypeR2.class.getName(), null),
 	
 	EN("EN", EN.class.getName(), EntityName.class.getName(), null),
 	
@@ -155,12 +167,22 @@ enum DataTypeGenerationDetails implements Typed {
 	II_BUSVER("II.BUSVER", "InstanceIdentifier", II.class.getName(), Identifier.class.getName(), null),
 	
 	CV("CV", "CodedValue", CV.class.getName(), Code.class.getName(), null), 
+	CV_R2("CV", "CodedValue", CV_R2.class.getName(), CodedTypeR2.class.getName(), null), 
 	CD("CD", "CodedType", CD.class.getName(), Code.class.getName(), null), 
+	CD_R2("CD", "CodedType", CD_R2.class.getName(), CodedTypeR2.class.getName(), null), 
 	CD_LAB("CD.LAB", "CodedTypeLab", CD.class.getName(), Code.class.getName(), null), 
 	CE("CE", CE.class.getName(), Code.class.getName(), null), 
+	CE_R2("CE", CE_R2.class.getName(), CodedTypeR2.class.getName(), null), 
 	CS("CS", "SimpleCodedType", CS.class.getName(), Code.class.getName(), null),
-	CR("CR", CR.class.getName(), CodeRole.class.getName(), null), 
-	HXIT_CE("HXIT<CE>", HXIT.class.getName(), CodedTypeR2.class.getName(), null), 
+	CS_R2("CS", "SimpleCodedType", CS_R2.class.getName(), CodedTypeR2.class.getName(), null),
+	CR_R2("CR", CR.class.getName(), CodeRole.class.getName(), null), 
+	CO_R2("CO", "CodedValue", CO.class.getName(), CodedTypeR2.class.getName(), null), 
+	PQR_R2("PQR", "CodedValue", PQR.class.getName(), CodedTypeR2.class.getName(), null),
+	
+	HXIT_R2("HXIT", HXIT.class.getName(), CodedTypeR2.class.getName(), null), 
+	HXIT_CE_R2("HXIT<CE>", HXIT.class.getName(), CodedTypeR2.class.getName(), null), 
+	BXIT_R2("BXIT", BXIT.class.getName(), CodedTypeR2.class.getName(), null), 
+	BXIT_CD_R2("BXIT<CD>", BXIT.class.getName(), CodedTypeR2.class.getName(), null), 
 	
 	ST("ST", ST.class.getName(), String.class.getName(), "System.String"), 
 	ST_LANG("ST.LANG", "LocalizedString", ST.class.getName(), String.class.getName(), "System.String"), 
@@ -170,6 +192,7 @@ enum DataTypeGenerationDetails implements Typed {
 	ED_DOC("ED.DOC", "EncapsulatedDocumentType", ED.class.getName(), EncapsulatedData.class.getName(), null), 
 	ED_DOC_REF("ED.DOCREF", "EncapsulatedReferenceType", ED.class.getName(), EncapsulatedData.class.getName(), null),
 	ED_SIGNATURE("ED.SIGNATURE", "EncapsulatedSignatureType", ED.class.getName(), String.class.getName(), "System.String"),
+	ED_R2("ED", ED.class.getName(), EncapsulatedDataR2.class.getName(), null), 
 	
 	PN("PN", PN.class.getName(), PersonName.class.getName(), null), 
 	PN_BASIC("PN.BASIC", PN.class.getName(), PersonName.class.getName(), null), 
@@ -179,9 +202,9 @@ enum DataTypeGenerationDetails implements Typed {
 	
 	IVL("IVL", "Interval", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_INT("IVL<INT>", "IntInterval", IVL.class.getName(), Interval.class.getName(), null), 
-	IVL_MO("IVL<MO>", "MoneyInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_MO_R2("IVL<MO>", "MoneyInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_PQ("IVL<PQ>", "PhysicalQuantityInterval", IVL.class.getName(), Interval.class.getName(), null), 
-	IVL_REAL("IVL<REAL>", "RealInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_REAL_R2("IVL<REAL>", "RealInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_TS("IVL<TS>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_DATE("IVL<TS.DATE>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_DATETIME("IVL<TS.DATETIME>", IVL.class.getName(), Interval.class.getName(), null), 
@@ -202,7 +225,8 @@ enum DataTypeGenerationDetails implements Typed {
 	MO_CAD("MO.CAD", "Money", MO.class.getName(), Money.class.getName(), null), 
 	
 	PIVL("PIVL", PIVL.class.getName(), PeriodicIntervalTime.class.getName(), null),
-	PIVL_TS("PIVL<TS>", PIVLR2.class.getName(), PeriodicIntervalTimeR2.class.getName(), null),
+	PIVL_R2("PIVL", PIVL_R2.class.getName(), PeriodicIntervalTimeR2.class.getName(), null),
+	PIVL_TS_R2("PIVL<TS>", PIVL_R2.class.getName(), PeriodicIntervalTimeR2.class.getName(), null),
 	PIVL_TS_DATETIME("PIVL<TS.DATETIME>", "PeriodicIntervalOfTime", PIVL.class.getName(), PeriodicIntervalTime.class.getName(), null),
 	
 	INT("INT", "integer", INT.class.getName(), Integer.class.getName(), "System.int?"), 
@@ -222,8 +246,8 @@ enum DataTypeGenerationDetails implements Typed {
 	REAL_CONF("REAL.CONF", REAL.class.getName(), BigDecimal.class.getName(), "Ca.Infoway.Messagebuilder.BigDecimal"),
 	
 	RTO("RTO", RTO.class.getName(), Ratio.class.getName(), null), 
-	RTO_PQ_PQ("RTO<PQ,PQ>", RTO.class.getName(), Ratio.class.getName(), null), 
-	RTO_MO_PQ("RTO<MO,PQ>", RTO.class.getName(), Ratio.class.getName(), null),
+	RTO_PQ_PQ_R2("RTO<PQ,PQ>", RTO.class.getName(), Ratio.class.getName(), null), 
+	RTO_MO_PQ_R2("RTO<MO,PQ>", RTO.class.getName(), Ratio.class.getName(), null),
 	RTO_PQ_DRUG_PQ_TIME("RTO<PQ.DRUG, PQ.TIME>", RTO.class.getName(), Ratio.class.getName(), null), 
 	RTO_MO_CAD_PQ_BASIC("RTO<MO.CAD, PQ.BASIC>", RTO.class.getName(), Ratio.class.getName(), null),
 	
@@ -234,6 +258,9 @@ enum DataTypeGenerationDetails implements Typed {
 	TS_FULLDATEWITHTIME("TS.FULLDATEWITHTIME", "FullDateWithTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATE("TS.FULLDATE", "FullDate", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATETIME("TS.FULLDATETIME", "FullDateTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+
+	EIVL_R2("EIVL", "FullDateTime", EIVL.class.getName(), EventRelatedPeriodicIntervalTime.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),  // need to correct for .NET
+	EIVL_TS_R2("EIVL<TS>", "FullDateTime", EIVL.class.getName(), EventRelatedPeriodicIntervalTime.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),  // need to correct for .NET
 	
 	TEL("TEL", "BaseTelecommunicationAddress", TEL.class.getName(), TelecommunicationAddress.class.getName(), null), 
 	TEL_PHONEMAIL("TEL.PHONEMAIL", "PhonemailTelecommunicationAddress", TEL.class.getName(), TelecommunicationAddress.class.getName(), null), 
@@ -252,20 +279,18 @@ enum DataTypeGenerationDetails implements Typed {
 	SXPR("SXPR", SXPR.class.getName(), ParentheticSetExpr.class.getName(), null),
 	
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
-	SXCM_TS("SXCM<TS>", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
-	SXCM_PQ("SXCM<PQ>", "PhysicalQuantity", PQ.class.getName(), PhysicalQuantity.class.getName(), null), 
-	SXCM_MO("SXCM<MO>", "Money", MO.class.getName(), Money.class.getName(), null), 
-	SXCM_INT("SXCM<INT>", "integer", INT.class.getName(), Integer.class.getName(), "System.int?"), 
-	SXCM_REAL("SXCM<REAL>", REAL.class.getName(), BigDecimal.class.getName(), "Ca.Infoway.Messagebuilder.BigDecimal"), 
+	SXCM_R2("SXCM", SXCM_R2.class.getName(), Object.class.getName(), null),
+	SXCM_TS_R2("SXCM<TS>", SXCM_R2.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	SXCM_PQ_R2("SXCM<PQ>", "PhysicalQuantity", SXCM_R2.class.getName(), PhysicalQuantity.class.getName(), null), 
+	SXCM_MO_R2("SXCM<MO>", "Money", SXCM_R2.class.getName(), Money.class.getName(), null), 
+	SXCM_INT_R2("SXCM<INT>", "integer", SXCM_R2.class.getName(), Integer.class.getName(), "System.int?"), 
+	SXCM_REAL_R2("SXCM<REAL>", SXCM_R2.class.getName(), BigDecimal.class.getName(), "Ca.Infoway.Messagebuilder.BigDecimal"), 
+	SXCM_CD_R2("SXCM<CD>", SXCM_R2.class.getName(), CodedTypeR2.class.getName(), null),
 	
-	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"), 
-
-	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
-	SET_II("SET<II>", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"),
-	
-	BAG("BAG", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.IList"), 
 	LIST("LIST", LIST.class.getName(), List.class.getName(), "System.Collections.Generic.IList"), 
-	LIST_TEL_PHONEMAIL("LIST<TEL.PHONEMAIL>", LIST.class.getName(), List.class.getName(), "System.Collections.Generic.IList");
+	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
+	BAG("BAG", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.IList"), 
+	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"); 
 	
 	private static final Map<DataTypeGenerationDetails,DataTypeGenerationDetails> widthType;
 	
@@ -282,34 +307,7 @@ enum DataTypeGenerationDetails implements Typed {
 		widthType = Collections.unmodifiableMap(map);
 	}
 	
-	private static final Set<DataTypeGenerationDetails> ignorable;
-	
-	static {
-		Set<DataTypeGenerationDetails> set = new HashSet<DataTypeGenerationDetails>();
-		set.add(ED);
-		set.add(EN);
-		set.add(IVL);
-		set.add(ON);
-		set.add(QTY);
-		set.add(RTO);
-		set.add(SC);
-		set.add(TEL);
-		set.add(TS);
-		set.add(URG);
-		set.add(URL);
-		
-		set.add(IVL_WIDTH);
-		set.add(IVL_LOW);
-		set.add(IVL_HIGH);
-		set.add(PIVL);
-		set.add(SXPR);
-		set.add(SXCM);
-		
-		ignorable = Collections.unmodifiableSet(set);
-	}
-
 	private static Map<String,DataTypeGenerationDetails> simpleXmlMap;
-	
 	
 	private final String name;
 	private final String simpleXmlType;
@@ -353,8 +351,8 @@ enum DataTypeGenerationDetails implements Typed {
 	 * 
 	 * @return the root data type of this data type, as an enum.
 	 */
-	public DataTypeGenerationDetails getRootDataType() {
-		return DataTypeGenerationDetails.getByTypeName(getRootType());
+	public DataTypeGenerationDetails getRootDataType(boolean isR2) {
+		return DataTypeGenerationDetails.getByTypeName(getRootType(), isR2);
 	}
 	
 	/**
@@ -390,27 +388,18 @@ enum DataTypeGenerationDetails implements Typed {
 	 * @return whether or not the enum is a coded type.
 	 */
 	public boolean isCoded() {
-		return Arrays.asList("CD", "CV", "CE", "CS").contains(getRootType());
+		// SC (for R1) is not a coded type (though it likely should be modified to be one)
+		return SC == this ? false : CodedTypeEvaluator.isCodedType(getType());
 	}
-	
+
 	/**
 	 * <p>Determines if the given datatype shares the same root HL7 datatype.
 	 * 
 	 * @param dataType the type to compare
-	 * @return whether the datatypes are eqivalent, that is, do they share the same root HL7 datatype
+	 * @return whether the datatypes are equivalent, that is, do they share the same root HL7 datatype
 	 */
 	public boolean isEquivalent(DataTypeGenerationDetails dataType) {
 		return dataType!=null && getRootType().equals(dataType.getRootType());
-	}
-
-	/**
-	 * <p>Determines if a given HL7 datatype name is a LIST or SET. 
-	 * 
-	 * @param dataTypeName the HL7 name of the datatype to check
-	 * @return whether the supplied HL7 datatype is a collection type
-	 */
-	public static boolean isSetOrList(String dataTypeName) {
-		return dataTypeName!=null && (isSet(dataTypeName) || isList(dataTypeName));
 	}
 
 	/**
@@ -444,13 +433,23 @@ enum DataTypeGenerationDetails implements Typed {
 	}
 
 	/**
+	 * <p>Determines if a given HL7 datatype name is a BAG. 
+	 * 
+	 * @param dataTypeName the HL7 name of the datatype to check
+	 * @return whether the supplied HL7 datatype is a BAG type
+	 */
+	public static boolean isBag(String dataTypeName) {
+		return dataTypeName!=null && dataTypeName.startsWith(BAG.getRootType());
+	}
+
+	/**
 	 * <p>Determines the enum datatype for the given type (Typed) object. 
 	 * 
 	 * @param typed the object to get the type name from
 	 * @return the type enum corresponding to the input parameter type
 	 */
-	public static DataTypeGenerationDetails getByTypeName(Typed typed) {
-		return typed == null ? null : getByTypeName(typed.getType());
+	public static DataTypeGenerationDetails getByTypeName(Typed typed, boolean isR2) {
+		return typed == null ? null : getByTypeName(typed.getType(), isR2);
 	}
 	
 	/**
@@ -459,7 +458,7 @@ enum DataTypeGenerationDetails implements Typed {
 	 * @param name the HL7 name of a datatype 
 	 * @return the type enum corresponding to the input parameter name
 	 */
-	public static DataTypeGenerationDetails getByTypeName(String name) {
+	public static DataTypeGenerationDetails getByTypeName(String name, boolean isR2) {
 		DataTypeGenerationDetails result = null;
 		
 		if (isList(name)) {
@@ -469,10 +468,26 @@ enum DataTypeGenerationDetails implements Typed {
 		} else if (isCollection(name)) {
 			result = DataTypeGenerationDetails.COLLECTION;
 		} else {
-			for (DataTypeGenerationDetails type : values()) {
-				if (StringUtils.equals(name, type.getType())) {
-					result = type;
-					break;
+			// check for R2 matches first
+			if (isR2) {
+				for (DataTypeGenerationDetails type : values()) {
+					if (type.name().endsWith("_R2")) {
+						if (StringUtils.equals(name, type.getType())) {
+							result = type;
+							break;
+						}
+					}
+				}
+			}
+			if (result == null) {
+				for (DataTypeGenerationDetails type : values()) {
+					// don't compare against R2 types at this point
+					if (!type.name().endsWith("_R2")) {
+						if (StringUtils.equals(name, type.getType())) {
+							result = type;
+							break;
+						}
+					}
 				}
 			}
 		}
@@ -498,15 +513,6 @@ enum DataTypeGenerationDetails implements Typed {
 	}
 	
 	/**
-	 * <p>Checks if this enum datatype is part of the Canadian datatype specs.
-	 * 
-	 * @return whether this enum datatype is part of the current (and possibly multiple previous) Canadian specs.
-	 */
-	public boolean isPartOfCanadianSpec() {
-		return !ignorable.contains(this);
-	}
-
-	/**
 	 * <p>Returns the simple xml equivalent name for this enum.
 	 * 
 	 * @return the simple xml type name for this enum.
@@ -519,16 +525,17 @@ enum DataTypeGenerationDetails implements Typed {
 	 * <p>Obtains the datatype enum corresponding to a given simple xml type name.
 	 * 
 	 * @param simpleXmlType the simple xml type name to convert
+	 * @param isR2 
 	 * @return the corresponding enum datatype
 	 */
-	public static DataTypeGenerationDetails convertSimpleXmlToDataType(String simpleXmlType) {
+	public static DataTypeGenerationDetails convertSimpleXmlToDataType(String simpleXmlType, boolean isR2) {
 		if (simpleXmlMap == null) {
-			initializeSimpleXmlMap();
+			initializeSimpleXmlMap(isR2);
 		}
 		return simpleXmlMap.get(simpleXmlType);
 	}
 
-	private synchronized static void initializeSimpleXmlMap() {
+	private synchronized static void initializeSimpleXmlMap(boolean isR2) {
 		if (simpleXmlMap == null) {
 			Map<String, DataTypeGenerationDetails> map = new HashMap<String, DataTypeGenerationDetails>();
 			for (DataTypeGenerationDetails type : values()) {
@@ -537,7 +544,7 @@ enum DataTypeGenerationDetails implements Typed {
 					if (map.containsKey(simpleXmlType)) {
 						DataTypeGenerationDetails other = map.get(simpleXmlType);
 						if (StringUtils.equals(other.getRootType(), type.getRootType())) {
-							map.put(simpleXmlType, DataTypeGenerationDetails.getByTypeName(type.getRootType()));
+							map.put(simpleXmlType, DataTypeGenerationDetails.getByTypeName(type.getRootType(), isR2));
 						} else {
 							throw new IllegalStateException("Simple XML type " + simpleXmlType 
 									+ " is mapped to two incompatible types: " 

@@ -96,7 +96,7 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
 		try {
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
 			IntermediateToXsdGenerator generator = new IntermediateToXsdGenerator(new OutputUIImpl(this), 
-					this.xsdSourceFolder, this.basePackageName);
+					this.xsdSourceFolder, this.basePackageName, messages.isGeneratedAsR2());
 			//XsdMessageWriterUtil.setXsdSDFolder(this.xsdSimpleDataTypeLocation);
 			generator.generate(messages);
 		} catch (IOException e) {

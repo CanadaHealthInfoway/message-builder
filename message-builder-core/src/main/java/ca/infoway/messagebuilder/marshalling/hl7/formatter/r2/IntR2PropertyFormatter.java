@@ -55,7 +55,7 @@ class IntR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<In
     @Override
     protected void addOtherAttributesIfNecessary(Integer integer, Map<String, String> attributes, FormatContext context, BareANY bareAny) {
     	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
-    	// this is a hack to allow for a single known instance where the base model has extended a data type (INT, in this case) to have an exrta property 
+    	// this is a hack to allow for a single known instance where the base model has extended a data type (INT, in this case) to have an extra property 
     	if (bareAny instanceof ANYMetaData && ((ANYMetaData) bareAny).isUnsorted()) {
     		attributes.put("unsorted", "true");
     	}

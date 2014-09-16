@@ -351,7 +351,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 		
 //		tBody.appendChild(createDataRow("Cardinality:", new Text(getCardinalityValue(relationship.getCardinality())), ""));
 		
-		if (relationship.isCodedType()) {
+		if (relationship.isCodedType() && relationship.hasDomainType()) { // TM - domaintype can be null for CDA
 //			if (relationship.getCodingStrength() != null) {
 //				tBody.appendChild(createDataRow("Coding Strength:", new Text(relationship.getCodingStrength().name()), ""));
 //			} else if (relationship.getDomainSource().equals(DomainSource.CODE_SYSTEM)) {
@@ -384,7 +384,7 @@ public class MessagePartHtml extends BaseHtmlGenerator {
 		codeDetailsRow.appendChild(createDataColumn(new Text("Coding Strength:"), DETAILS_TABLE_LABEL_COL_CLASS));
 		if (relationship.getCodingStrength() != null) {
 			codeDetailsRow.appendChild(createDataColumn(new Text(relationship.getCodingStrength().name()), DETAILS_TABLE_VALUE_COL_CLASS));
-		} else if (relationship.getDomainSource().equals(DomainSource.CODE_SYSTEM)) {
+		} else if (DomainSource.CODE_SYSTEM.equals(relationship.getDomainSource())) {
 			//According to JR, code systems all have the same coding strength (Hardcoded to CNE for now)
 			codeDetailsRow.appendChild(createDataColumn(new Text(CodingStrength.CNE.name()), DETAILS_TABLE_VALUE_COL_CLASS));
 		} else if (relationship.getDomainSource().equals(DomainSource.CONCEPT_DOMAIN)) {

@@ -23,8 +23,10 @@ package ca.infoway.messagebuilder.xml.template;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 
@@ -148,17 +150,21 @@ public class Template {
 		return templateReferences;
 	}
 
-	public void addTemplateReference(String context, String containedTemplateOid, int maxInstances) {
+	public void addTemplateReference(String context, String containedTemplateOid, Cardinality cardinality) {
 		TemplateReference reference = new TemplateReference();
 		reference.setContext(context);
 		reference.setOid(containedTemplateOid);
-		reference.setMaxInstances(maxInstances);
+		reference.setCardinality(cardinality);
 		templateReferences.add(reference);
 	}
 
 	public void cloneDelta(Delta parentDelta) {
 		addDelta(parentDelta.clone(this.packageName));
 		
+	}
+
+	public boolean isDocumentTemplate() {
+		return StringUtils.equals(this.templateType, "document");
 	}
 
 }

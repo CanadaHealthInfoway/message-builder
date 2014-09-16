@@ -82,7 +82,7 @@ public class AttributeBuilder {
 	}
 
 	public AttributeBuilder setDataType(String type) {
-		this.dataType = new TypeConverter().convertToType(type, null);
+		this.dataType = new TypeConverter(false).convertToType(type, null);
 		return this;
 	}
 

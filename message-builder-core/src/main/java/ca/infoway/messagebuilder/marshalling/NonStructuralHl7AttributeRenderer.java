@@ -22,20 +22,27 @@ package ca.infoway.messagebuilder.marshalling;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class NonStructuralHl7AttributeRenderer {
 	
-	static Object getFixedValue(Relationship relationship, VersionNumber version) {
+	static Object getFixedValue(Relationship relationship, VersionNumber version, boolean isR2) {
 		if (StringUtils.equals("BL",relationship.getType())) {
 			return Boolean.TRUE.toString().equalsIgnoreCase(relationship.getFixedValue());
 		} else if (StringUtils.equals("INT.POS", relationship.getType())) {
 			return new Integer(relationship.getFixedValue());
 		} else if (relationship.isCodedType()) {
-			return CodeResolverRegistry.lookup(DomainTypeHelper.getReturnType(relationship, version), relationship.getFixedValue());
+			Class<? extends Code> codeType = DomainTypeHelper.getReturnType(relationship, version);
+			if (codeType == null) {
+				codeType = Code.class;
+			}
+			Code code = CodeResolverRegistry.lookup(codeType, relationship.getFixedValue());
+			return isR2 ? new CodedTypeR2<Code>(code): code;
 		} else {
 			throw new MarshallingException("Cannot handle a fixed relationship of type: " + relationship.getType());
 		}

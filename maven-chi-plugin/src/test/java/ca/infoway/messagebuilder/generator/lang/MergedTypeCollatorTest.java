@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class MergedTypeCollatorTest {
 
 	private MergedTypeCollator collator = new MergedTypeCollator();
-	private TypeConverter converter = new TypeConverter();
+	private TypeConverter converter = new TypeConverter(false);
 	
 	@Test
 	public void shouldMergeAttributes() throws Exception {

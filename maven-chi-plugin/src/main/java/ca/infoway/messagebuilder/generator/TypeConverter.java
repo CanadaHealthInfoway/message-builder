@@ -27,13 +27,19 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
 import ca.infoway.messagebuilder.generator.util.DomainType;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class TypeConverter {
+
+	private boolean isR2;
+	
+	public TypeConverter(boolean isR2) {
+		this.isR2 = isR2;
+	}
 
 	public DataType convertToType(Relationship relationship) {
 		return convertToType(relationship.getType(), relationship.getDomainType());
@@ -48,11 +54,11 @@ public class TypeConverter {
 		DataType dataType = null;
 		if (name!=null) {
 			List<DataType> parameters = convertAll(name.getParameters(), domainType);
-			DataType baseType = getBasicType(name.getUnparameterizedName(), domainType);
+			DataType baseType = getBasicType(name, domainType);
 			if (baseType.getParameters() != null && baseType.getParameters().length > 0) {
 				parameters.addAll(Arrays.asList(baseType.getParameters()));
 			}
-			dataType = new DataType(baseType.getType(), baseType.getTypeName(), parameters);
+			dataType = new DataType(baseType.getType(), baseType.getTypeName(), this.isR2, parameters);
 		}
 		return dataType;
 	}
@@ -65,25 +71,28 @@ public class TypeConverter {
 		return result;
 	}
 
-	private DataType getBasicType(String relationshipType, String domainType) {
-		DataTypeGenerationDetails type = DataTypeGenerationDetails.getByTypeName(relationshipType);
+	private DataType getBasicType(Hl7TypeName name, String domainType) {
+		DataTypeGenerationDetails type = DataTypeGenerationDetails.getByTypeName(name.toString(), this.isR2);
 		if (type == null) {
-			return new DataType(DataTypeGenerationDetails.ANY, Object.class.getName());
+			type = DataTypeGenerationDetails.getByTypeName(name.getUnparameterizedName(), this.isR2);
+		}
+		if (type == null) {
+			return new DataType(DataTypeGenerationDetails.ANY, Object.class.getName(), this.isR2);
+		} else if (!this.isR2 && "SC".equals(type.getRootType())) {
+			return new DataType(type, type.getJavaTypeName(), this.isR2, resolveDomainType(type, type.getHl7TypeName(), domainType));
 		} else if (type.isCoded()) {
 			return resolveDomainType(type, type.getHl7TypeName(), domainType);
-		} else if ("SC".equals(type.getRootType())) {
-			return new DataType(type, type.getJavaTypeName(), resolveDomainType(type, type.getHl7TypeName(), domainType));
 		} else {
-			return new DataType(type, type.getJavaTypeName());
+			return new DataType(type, type.getJavaTypeName(), this.isR2);
 		}
 	}
 
 	private DataType resolveDomainType(DataTypeGenerationDetails type, String dataTypeName, String domainTypeName) {
 		DomainType domainType = DomainRegistry.getInstance().getDomainType(domainTypeName);
 		if (domainType != null) {
-			return new DataType(type, domainType.getFullyQualifiedClassName());
+			return new DataType(type, domainType.getFullyQualifiedClassName(), this.isR2);
 		} else {
-			return new DataType(type, Code.class.getName());
+			return new DataType(type, Code.class.getName(), this.isR2);
 		}
 	}
 

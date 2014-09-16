@@ -67,6 +67,8 @@ public class GenericMath {
 			return (T) addPhysicalQuantity((PhysicalQuantity) low, (PhysicalQuantity) width);
 		} else if (low instanceof Date) {
 			return (T) addDate((Date) low, (Date) width);
+		} else if (low instanceof Money) {
+			return (T) addMoney((Money) low, (Money) width);
 		} else {
 			throw new IllegalArgumentException("Can't determine how to perform addition on " + low.getClass());
 		}
@@ -86,6 +88,19 @@ public class GenericMath {
 			throw new IllegalArgumentException(
 					"Can't add two quantities of different units: " + q1Units + 
 					" and " +q2Units);
+		}
+	}
+	
+	private static Money addMoney(Money m1, Money m2) {
+		// Currencies must be the same in order to be added 
+		if (ObjectUtils.equals(m1.getCurrency(), m2.getCurrency())) { // (null, null) = true
+			return new Money(add(m1.getAmount(), m2.getAmount()), m1.getCurrency());
+		} else {
+			String m1Currency = (m1.getCurrency() == null ? "" : m1.getCurrency().getCodeValue()); 
+			String m2Currency = (m2.getCurrency() == null ? "" : m2.getCurrency().getCodeValue()); 
+			throw new IllegalArgumentException(
+					"Can't add two money values of different currencies: " + m1Currency + 
+					" and " +m2Currency);
 		}
 	}
 	
@@ -125,6 +140,8 @@ public class GenericMath {
 			return (Diff<T>) diffInteger((Integer) t, (Integer) t2);
 		} else if (t instanceof PhysicalQuantity) {
 			return (Diff<T>) diffPhysicalQuantity((PhysicalQuantity) t, (PhysicalQuantity) t2);
+		} else if (t instanceof Money) {
+			return (Diff<T>) diffMoney((Money) t, (Money) t2);
 		} else {
 			throw new IllegalArgumentException("Can't determine how to perform diff on " + t.getClass());
 		}
@@ -138,6 +155,17 @@ public class GenericMath {
 			throw new IllegalArgumentException(
 					"Can't diff two quantities of different units: " + q1.getUnit() + 
 					" and " +q2.getUnit());
+		}
+	}
+
+	private static Diff<Money> diffMoney(Money q1, Money q2) {
+		if (ObjectUtils.equals(q1.getCurrency(), q2.getCurrency())) { // (null, null) = true
+			Diff<BigDecimal> diff = diff(q1.getAmount(), q2.getAmount());
+			return diff == null ? null : new Diff<Money>(new Money(diff.getValue(), q1.getCurrency()));
+		} else {
+			throw new IllegalArgumentException(
+					"Can't diff two money values of different currencies: " + q1.getCurrency() + 
+					" and " +q2.getCurrency());
 		}
 	}
 
@@ -176,6 +204,8 @@ public class GenericMath {
 			return (T) half((Date) t);
 		} else if (t instanceof PhysicalQuantity) {
 			return (T) half((PhysicalQuantity) t);
+		} else if (t instanceof Money) {
+			return (T) half((Money) t);
 		} else {
 			return null;
 		}
@@ -189,6 +219,12 @@ public class GenericMath {
 		BigDecimal quantity = value.getQuantity();
 		BigDecimal newValue = quantity == null ? null : quantity.multiply(new BigDecimal("0.5"));
 		return new PhysicalQuantity(newValue, value.getUnit());
+	}
+	
+	private static Money half(Money value) {
+		BigDecimal quantity = value.getAmount();
+		BigDecimal newValue = quantity == null ? null : quantity.multiply(new BigDecimal("0.5"));
+		return new Money(newValue, value.getCurrency());
 	}
 	
 	private static Long half(Long value) {

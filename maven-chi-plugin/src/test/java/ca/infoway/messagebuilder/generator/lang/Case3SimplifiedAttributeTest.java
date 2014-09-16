@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Case3SimplifiedAttributeTest {
 
-	private TypeConverter converter = new TypeConverter();
+	private TypeConverter converter = new TypeConverter(false);
 	
 	@Test
 	public void shouldReplaceDataType() throws Exception {

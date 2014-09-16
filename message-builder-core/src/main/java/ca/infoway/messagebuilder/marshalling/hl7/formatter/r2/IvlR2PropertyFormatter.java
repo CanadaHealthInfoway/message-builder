@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.time.DateUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -295,7 +294,7 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
     			// TM - small hack to add in the inclusive attribute (low/high) (operator, simple only, is already formatted by using the SXCM type)
     			result = result.replaceFirst(" value=", " inclusive=\"" + inclusive.toString() + "\" value=");
     		}
-    		return result + SystemUtils.LINE_SEPARATOR;
+    		return result;
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

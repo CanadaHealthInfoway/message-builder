@@ -208,6 +208,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 
 	@Deprecated
 	class Setter extends Indenter {
+		@SuppressWarnings("unused")
 		private final PropertyTypeProvider typeProvider;
 		final PropertyNameProvider nameProvider;
 		private final SetterBodyStyle style;

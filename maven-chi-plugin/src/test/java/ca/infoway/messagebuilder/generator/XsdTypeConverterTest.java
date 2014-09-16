@@ -69,9 +69,8 @@ public class XsdTypeConverterTest {
 		Assume.assumeTrue(!"COLLECTION".equals(standardDataType.getType()));
 		Assume.assumeTrue(!"BAG".equals(standardDataType.getType()));
 		Assume.assumeTrue(standardDataType.isPartOfCanadianSpec());
-
+		
 		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()), false);
-		System.out.println(standardDataType.getType());
 		assertNotNull("type found: " + standardDataType.getType(), type);
 	}
 	

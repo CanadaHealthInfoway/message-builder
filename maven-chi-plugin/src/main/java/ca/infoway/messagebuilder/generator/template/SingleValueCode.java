@@ -30,6 +30,9 @@ public class SingleValueCode {
 	
 	@Attribute
 	private String code;
+	
+	@Attribute(required=false)
+	private String displayName;
 
 	public String getCode() {
 		return code;
@@ -37,5 +40,13 @@ public class SingleValueCode {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
 }

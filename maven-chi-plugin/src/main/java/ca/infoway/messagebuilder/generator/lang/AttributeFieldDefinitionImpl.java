@@ -212,7 +212,11 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 		if (getDataType().isTypeCollection()) {
 			DataType elementDataType = getDataType().getParameters()[0];
 			if (elementDataType.isCodedType()) {
-				elementType = elementDataType.getShortName(this.language);
+				if (elementDataType.isR2()) {
+					elementType = "CodedTypeR2";
+				} else {
+					elementType = elementDataType.getUnparameterizedShortName(this.language);
+				}
 			}
 		} 
 		return elementType;

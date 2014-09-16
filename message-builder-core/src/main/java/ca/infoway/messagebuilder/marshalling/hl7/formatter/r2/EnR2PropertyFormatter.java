@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
@@ -71,9 +72,7 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
             buffer.append(createElement(context, getUseAttributeMap(entityName), indentLevel, false, true));
             List<EntityNamePart> parts = entityName.getParts();
             for (int i = 0; i < parts.size(); i++) {
-            	boolean nextPartSimple = (parts.size() == i + 1 ? false : parts.get(i + 1).getType() == null);
-            	boolean previousPartSimple = (i > 0 ? parts.get(i - 1).getType() == null : false);
-            	appendNamePart(buffer, parts.get(i), nextPartSimple, previousPartSimple, indentLevel + 1);
+            	appendNamePart(buffer, parts.get(i), indentLevel + 1);
 			}
             appendValidTime(buffer, entityName, context, indentLevel + 1);
             buffer.append(createElementClosure(context, indentLevel, true));
@@ -81,7 +80,7 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
         return buffer.toString();
     }
     
-	private void appendNamePart(StringBuffer buffer, EntityNamePart namePart, boolean nextPartSimple, boolean previousPartSimple, int indentLevel) {
+	private void appendNamePart(StringBuffer buffer, EntityNamePart namePart, int indentLevel) {
         String openTag = "";
         String closeTag = "";
         
@@ -90,15 +89,11 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
             closeTag = "</" + namePart.getType().getValue() + ">";
         }
 
-        if (namePart.getType() == null && !previousPartSimple) {
-        	Indenter.indentBuffer(buffer, indentLevel);
-		}
+       	Indenter.indentBuffer(buffer, indentLevel);
         buffer.append(openTag);
         buffer.append(XmlStringEscape.escape(namePart.getValue()));
         buffer.append(closeTag);
-        if (namePart.getType() == null && !nextPartSimple) {
-        	buffer.append("\n");
-        }
+       	buffer.append(SystemUtils.LINE_SEPARATOR);
     }
     
 	private void appendValidTime(StringBuffer buffer, EntityName value, FormatContext context, int indentLevel) {

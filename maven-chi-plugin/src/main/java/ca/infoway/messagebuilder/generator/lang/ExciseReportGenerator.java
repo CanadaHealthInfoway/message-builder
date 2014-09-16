@@ -190,7 +190,14 @@ public class ExciseReportGenerator {
 		return cell;
 	}
 
+	/**
+	 * This method only works when interactions follow a certain naming convention. CDA releases, for example, do not do this.
+	 * 
+	 * @param item
+	 * @return
+	 */
 	private boolean isInteraction(ExcisedItem item) {
+		// TODO - CDA - TM - find an alternative way to determine if an excised item is an interaction
 		return item.getName().contains("_IN");
 	}
 

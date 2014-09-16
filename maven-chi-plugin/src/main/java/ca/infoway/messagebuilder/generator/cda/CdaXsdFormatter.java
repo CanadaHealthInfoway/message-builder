@@ -20,11 +20,16 @@
 
 package ca.infoway.messagebuilder.generator.cda;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -114,7 +119,7 @@ public class CdaXsdFormatter {
 	}
 
 	private void populateComplexType(ComplexType complexType, MessagePart part) {
-		for (Relationship relationship : part.getRelationships()) {
+		for (Relationship relationship : insertNullFlavor(part)) {
 			if (relationship.isAttribute()) {
 				if (relationship.isStructural()) {
 					XsAttribute attribute = formatAttribute(relationship);
@@ -136,6 +141,23 @@ public class CdaXsdFormatter {
 				}
 			}
 		}
+	}
+
+	private List<Relationship> insertNullFlavor(MessagePart part) {
+		// During parsing, we had to filter out the attribute representing the nullFlavor
+		// When exporting an XSD, we need to restore it
+		Relationship nullFlavorRelationship = new Relationship("nullFlavor", "NullFlavor", new Cardinality(0, 1));
+		nullFlavorRelationship.setStructural(true);
+		
+		ArrayList<Relationship> result = new ArrayList<Relationship>();
+		List<Relationship> relationships = part.getRelationships();
+		result.addAll(relationships);
+		if (relationships.size() > 0 && StringUtils.equals(relationships.get(0).getName(), "ID")) {
+			result.add(1, nullFlavorRelationship);
+		} else {
+			result.add(0, nullFlavorRelationship);
+		}
+		return result;
 	}
 
 	private XsElement formatElement(Relationship relationship) {
@@ -181,6 +203,10 @@ public class CdaXsdFormatter {
 		
 		if ("CS".equals(relationship.getType())) {
 			attribute.setType(relationship.getDomainType());
+		} else if ("NullFlavor".equals(relationship.getType())) {
+			attribute.setType(relationship.getType());
+		} else if (StringUtils.isNotBlank(relationship.getConstrainedType())) {
+			attribute.setType(relationship.getConstrainedType());
 		} else {
 			attribute.setType(relationship.getType().toLowerCase());
 		}

@@ -60,8 +60,8 @@ class XsdDefinitionToResultConverter extends DefinitionToResultConverter {
 	
 	XsdDefinitionToResultConverter(SimplifiableDefinitions definitions,
 			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI,
-			NamingPolicy namingPolicy) {
-		super(definitions, basePackageName, programmingLanguage, outputUI, namingPolicy);
+			NamingPolicy namingPolicy, boolean isR2) {
+		super(definitions, basePackageName, programmingLanguage, outputUI, namingPolicy, isR2);
 	}
 
 	protected void reassessInlining(TypeAnalysisResult result) {

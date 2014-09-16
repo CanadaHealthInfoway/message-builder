@@ -279,6 +279,14 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		return new MessageSetUtils(messageSet).getAllRelatedMessageParts(messagePart);
 	}
 
+	/**
+	 * Determine if the message set for the given version has been generated for R2 data types.
+	 */
+	public boolean isR2(VersionNumber version) {
+		MessageSet messageSet = findMessageSet(version);
+		return messageSet == null ? false : messageSet.isGeneratedAsR2();
+	}
+
 	private MessageSet findMessageSet(VersionNumber version) {
 		return findMessageSet(version == null ? null : version.getVersionLiteral());
 	}

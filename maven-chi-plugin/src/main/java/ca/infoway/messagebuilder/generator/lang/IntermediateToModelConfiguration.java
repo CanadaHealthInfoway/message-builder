@@ -30,13 +30,15 @@ public class IntermediateToModelConfiguration {
 	protected final String basePackageName;
 	private final File reportDirectory;
 	private final NamingPolicy namingPolicy;
+	private boolean isR2;
 	
 	public IntermediateToModelConfiguration(File sourceFolder,
-			String basePackageName, File reportDirectory, NamingPolicy namingPolicy) {
+			String basePackageName, File reportDirectory, NamingPolicy namingPolicy, boolean isR2) {
 		this.sourceFolder = sourceFolder;
 		this.basePackageName = basePackageName;
 		this.reportDirectory = reportDirectory;
 		this.namingPolicy = namingPolicy == null ? NamingPolicy.getDefaultPolicy() : namingPolicy;
+		this.isR2 = isR2;
 	}
 	public File getSourceFolder() {
 		return sourceFolder;
@@ -49,5 +51,8 @@ public class IntermediateToModelConfiguration {
 	}
 	public NamingPolicy getNamingPolicy() {
 		return namingPolicy;
+	}
+	public boolean isR2() {
+		return this.isR2;
 	}
 }

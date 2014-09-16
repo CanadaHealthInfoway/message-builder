@@ -58,6 +58,8 @@ public class CdaXsdProcessorTest {
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
 		
+		assertTrue(messageSet.isGeneratedAsR2());
+		
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
@@ -78,23 +80,17 @@ public class CdaXsdProcessorTest {
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
+		// exception - the nullFlavor attribute is special, and should not be parsed
+		//  we already have a built-in null flavor mechanism in the legacy code to handle message models derived from MIFs
+		//  parsing this attribute when it occurs in the XSD causes a conflict
 		Relationship nullFlavorRelationship = actMessagePart.getRelationship("nullFlavor");
-		assertNotNull(nullFlavorRelationship);
-		assertTrue(nullFlavorRelationship.isAttribute());
-		assertTrue(nullFlavorRelationship.isStructural());
-		assertEquals(1, nullFlavorRelationship.getSortOrder());
-		assertEquals("CS", nullFlavorRelationship.getType());
-		assertEquals(DomainSource.VALUE_SET, nullFlavorRelationship.getDomainSource());
-		assertEquals("NullFlavor", nullFlavorRelationship.getDomainType());
-		assertEquals(ConformanceLevel.OPTIONAL, nullFlavorRelationship.getConformance());
-		assertEquals(0, nullFlavorRelationship.getCardinality().getMin().intValue());
-		assertEquals(1, nullFlavorRelationship.getCardinality().getMax().intValue());
+		assertNull(nullFlavorRelationship);
 		
 		Relationship classCodeRelationship = actMessagePart.getRelationship("classCode");
 		assertNotNull(classCodeRelationship);
 		assertTrue(classCodeRelationship.isAttribute());
 		assertTrue(classCodeRelationship.isStructural());
-		assertEquals(2, classCodeRelationship.getSortOrder());
+		assertEquals(1, classCodeRelationship.getSortOrder());
 		assertEquals("CS", classCodeRelationship.getType());
 		assertEquals(DomainSource.VALUE_SET, classCodeRelationship.getDomainSource());
 		assertEquals("x_ActClassDocumentEntryAct", classCodeRelationship.getDomainType());
@@ -106,7 +102,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(moodCodeRelationship);
 		assertTrue(moodCodeRelationship.isAttribute());
 		assertTrue(moodCodeRelationship.isStructural());
-		assertEquals(3, moodCodeRelationship.getSortOrder());
+		assertEquals(2, moodCodeRelationship.getSortOrder());
 		assertEquals("CS", moodCodeRelationship.getType());
 		assertEquals(DomainSource.VALUE_SET, moodCodeRelationship.getDomainSource());
 		assertEquals("x_DocumentActMood", moodCodeRelationship.getDomainType());
@@ -118,7 +114,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(negationIndRelationship);
 		assertTrue(negationIndRelationship.isAttribute());
 		assertTrue(negationIndRelationship.isStructural());
-		assertEquals(4, negationIndRelationship.getSortOrder());
+		assertEquals(3, negationIndRelationship.getSortOrder());
 		assertEquals("BL", negationIndRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, negationIndRelationship.getConformance());
 		assertEquals(0, negationIndRelationship.getCardinality().getMin().intValue());
@@ -128,7 +124,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(realmCodeRelationship);
 		assertTrue(realmCodeRelationship.isAttribute());
 		assertFalse(realmCodeRelationship.isStructural());
-		assertEquals(5, realmCodeRelationship.getSortOrder());
+		assertEquals(4, realmCodeRelationship.getSortOrder());
 		assertEquals("LIST<CS>", realmCodeRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, realmCodeRelationship.getConformance());
 		assertEquals(0, realmCodeRelationship.getCardinality().getMin().intValue());
@@ -138,7 +134,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(templateIdRelationship);
 		assertTrue(templateIdRelationship.isAttribute());
 		assertFalse(templateIdRelationship.isStructural());
-		assertEquals(7, templateIdRelationship.getSortOrder());
+		assertEquals(6, templateIdRelationship.getSortOrder());
 		assertEquals("LIST<II>", templateIdRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, templateIdRelationship.getConformance());
 		assertEquals(0, templateIdRelationship.getCardinality().getMin().intValue());
@@ -148,7 +144,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(codeRelationship);
 		assertTrue(codeRelationship.isAttribute());
 		assertFalse(codeRelationship.isStructural());
-		assertEquals(9, codeRelationship.getSortOrder());
+		assertEquals(8, codeRelationship.getSortOrder());
 		assertEquals("CD", codeRelationship.getType());
 		assertEquals(ConformanceLevel.MANDATORY, codeRelationship.getConformance());
 		assertEquals(1, codeRelationship.getCardinality().getMin().intValue());
@@ -158,7 +154,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(effectiveTimeRelationship);
 		assertTrue(effectiveTimeRelationship.isAttribute());
 		assertFalse(effectiveTimeRelationship.isStructural());
-		assertEquals(12, effectiveTimeRelationship.getSortOrder());
+		assertEquals(11, effectiveTimeRelationship.getSortOrder());
 		assertEquals("IVL<TS>", effectiveTimeRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, effectiveTimeRelationship.getConformance());
 		assertEquals(0, effectiveTimeRelationship.getCardinality().getMin().intValue());
@@ -171,7 +167,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(classCodeRelationship2);
 		assertTrue(classCodeRelationship2.isAttribute());
 		assertTrue(classCodeRelationship2.isStructural());
-		assertEquals(2, classCodeRelationship2.getSortOrder());
+		assertEquals(1, classCodeRelationship2.getSortOrder());
 		assertEquals("CS", classCodeRelationship2.getType());
 		assertEquals(DomainSource.VALUE_SET, classCodeRelationship2.getDomainSource());
 		assertEquals("RoleClassAssignedEntity", classCodeRelationship2.getDomainType());
@@ -186,6 +182,14 @@ public class CdaXsdProcessorTest {
 		Relationship classCodeRelationship3 = criterionMessagePart.getRelationship("classCode");
 		assertNotNull(classCodeRelationship3);
 		assertEquals("OBS", classCodeRelationship3.getDefaultValue());
+		
+		MessagePart sectionMessagePart = messageSet.getMessagePart("POCD_MT000040.Section");
+		assertNotNull(sectionMessagePart);
+		
+		Relationship sectionIdRelationship = sectionMessagePart.getRelationship("ID");
+		assertNotNull(sectionIdRelationship);
+		assertEquals("ST", sectionIdRelationship.getType());
+		assertEquals("xs:ID", sectionIdRelationship.getConstrainedType());
 		
 	}
 
@@ -202,7 +206,7 @@ public class CdaXsdProcessorTest {
 		Relationship subjectRelationship = actMessagePart.getRelationship("subject");
 		assertNotNull(subjectRelationship);
 		assertTrue(subjectRelationship.isAssociation());
-		assertEquals(15, subjectRelationship.getSortOrder());
+		assertEquals(14, subjectRelationship.getSortOrder());
 		assertEquals("POCD_MT000040.Subject", subjectRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, subjectRelationship.getConformance());
 		assertEquals(0, subjectRelationship.getCardinality().getMin().intValue());
@@ -211,7 +215,7 @@ public class CdaXsdProcessorTest {
 		Relationship specimenRelationship = actMessagePart.getRelationship("specimen");
 		assertNotNull(specimenRelationship);
 		assertTrue(specimenRelationship.isAssociation());
-		assertEquals(16, specimenRelationship.getSortOrder());
+		assertEquals(15, specimenRelationship.getSortOrder());
 		assertEquals("POCD_MT000040.Specimen", specimenRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, specimenRelationship.getConformance());
 		assertEquals(0, specimenRelationship.getCardinality().getMin().intValue());
@@ -229,14 +233,14 @@ public class CdaXsdProcessorTest {
 		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor");
 		assertNotNull(assignedAuthorMessagePart);
 		
-		Relationship assignedChoice = assignedAuthorMessagePart.getRelationship("AssignedAuthor_10");
+		Relationship assignedChoice = assignedAuthorMessagePart.getRelationship("assignedAuthorChoice");
 		assertNotNull(assignedChoice);
 		assertTrue(assignedChoice.isChoice());
-		assertEquals("POCD_MT000040.AssignedAuthor_10", assignedChoice.getType());
+		assertEquals("POCD_MT000040.AssignedAuthorChoice", assignedChoice.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, assignedChoice.getConformance());
 		assertEquals(0, assignedChoice.getCardinality().getMin().intValue());
 		assertEquals(1, assignedChoice.getCardinality().getMax().intValue());
-		assertEquals(10, assignedChoice.getSortOrder());
+		assertEquals(9, assignedChoice.getSortOrder());
 		assertEquals(2, assignedChoice.getChoices().size());
 		
 		Relationship assignedPersonRelationship = assignedChoice.getChoices().get(0);
@@ -249,7 +253,7 @@ public class CdaXsdProcessorTest {
 		assertEquals("assignedAuthoringDevice", assignedAuthoringDeviceRelationship.getName());
 		assertEquals("POCD_MT000040.AuthoringDevice", assignedAuthoringDeviceRelationship.getType());
 		
-		MessagePart assignedChoicePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor_10");
+		MessagePart assignedChoicePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthorChoice");
 		assertNotNull(assignedChoicePart);
 		
 		SpecializationChild assignedPersonSpecializationChild = assignedChoicePart.getSpecializationChilds().get(0);
@@ -263,7 +267,7 @@ public class CdaXsdProcessorTest {
 		MessagePart component2MessagePart = messageSet.getMessagePart("POCD_MT000040.Component2");
 		assertNotNull(component2MessagePart);
 		
-		Relationship bodyChoice = component2MessagePart.getRelationship("Component2_7");
+		Relationship bodyChoice = component2MessagePart.getRelationship("component2Choice");
 		assertNotNull(bodyChoice);
 		assertEquals(ConformanceLevel.MANDATORY, bodyChoice.getConformance());
 		assertEquals(1, bodyChoice.getCardinality().getMin().intValue());
@@ -282,6 +286,10 @@ public class CdaXsdProcessorTest {
 		MessageSet messageSet = new MessageSet();
 		fixture.processSchema(schema, messageSet);
 		
+		// Do not create bogus message parts for these guys
+		assertNull(messageSet.getMessagePart("POCD_MT000040.InfrastructureRoot.typeId"));
+		assertNull(messageSet.getMessagePart("POCD_MT000040.RegionOfInterest.value"));
+		
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
@@ -289,7 +297,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(typeIdRelationship);
 		assertTrue(typeIdRelationship.isAttribute());
 		assertFalse(typeIdRelationship.isStructural());
-		assertEquals(6, typeIdRelationship.getSortOrder());
+		assertEquals(5, typeIdRelationship.getSortOrder());
 		assertEquals("II", typeIdRelationship.getType());
 		assertEquals("POCD_MT000040.InfrastructureRoot.typeId", typeIdRelationship.getConstrainedType());
 		assertEquals(ConformanceLevel.OPTIONAL, typeIdRelationship.getConformance());
@@ -299,6 +307,7 @@ public class CdaXsdProcessorTest {
 		ConstrainedDatatype typeIdConstrainedType = messageSet.getConstrainedDatatype("POCD_MT000040.InfrastructureRoot.typeId");
 		assertNotNull(typeIdConstrainedType);
 		assertTrue(typeIdConstrainedType.isRestriction());
+		assertFalse(typeIdConstrainedType.isExtension());
 		assertEquals("II", typeIdConstrainedType.getBaseType());
 		assertEquals(2, typeIdConstrainedType.getRelationships().size());
 		Relationship rootRelationship = typeIdConstrainedType.getRelationships().get(0);
@@ -316,12 +325,14 @@ public class CdaXsdProcessorTest {
 		ConstrainedDatatype regionOfInterestValueConstrainedType = messageSet.getConstrainedDatatype("POCD_MT000040.RegionOfInterest.value");
 		assertNotNull(regionOfInterestValueConstrainedType);
 		assertTrue(regionOfInterestValueConstrainedType.isExtension());
+		assertFalse(regionOfInterestValueConstrainedType.isRestriction());
 		assertEquals("INT", regionOfInterestValueConstrainedType.getBaseType());
 		assertEquals(1, regionOfInterestValueConstrainedType.getRelationships().size());
 		Relationship unsortedRelationship = regionOfInterestValueConstrainedType.getRelationships().get(0);
 		assertNotNull(unsortedRelationship);
 		assertEquals("unsorted", unsortedRelationship.getName());
-		assertEquals("xs:boolean", unsortedRelationship.getType());
+		assertEquals("BL", unsortedRelationship.getType());
+		assertEquals("xs:boolean", unsortedRelationship.getConstrainedType());
 		assertEquals(ConformanceLevel.OPTIONAL, unsortedRelationship.getConformance());
 		assertEquals("false", unsortedRelationship.getDefaultValue());
 		

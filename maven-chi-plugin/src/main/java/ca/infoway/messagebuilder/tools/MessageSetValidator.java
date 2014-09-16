@@ -29,9 +29,9 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -237,7 +237,7 @@ public class MessageSetValidator {
 		
 		// check conformance
 		//ConformanceLevel conformance = relationship.getConformance();
-		if (ConformanceLevelUtil.isMandatory(relationship) && min == 0 || ConformanceLevelUtil.isPopulated(relationship) && min == 0 || ConformanceLevelUtil.isRequired(relationship) && min > 0 || ConformanceLevelUtil.isOptional(relationship) && min > 0) {
+		if ((ConformanceLevelUtil.isMandatory(relationship) && min == 0) || (ConformanceLevelUtil.isPopulated(relationship) && min == 0)) {
 			logError(results, ErrorType.INVALID_CONFORMANCE, parentType, relName, "Mandatory and Populated relationships must have minimum cardinality > 0", "cardinality: " + cardinality);
 		}
 		if (ConformanceLevelUtil.isOptional(relationship) && min > 0) {

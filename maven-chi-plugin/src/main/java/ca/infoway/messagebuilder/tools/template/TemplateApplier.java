@@ -22,10 +22,12 @@ package ca.infoway.messagebuilder.tools.template;
 import ca.infoway.messagebuilder.tools.delta.AssociationDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.AttributeDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.ClassDeltaVisitor;
+import ca.infoway.messagebuilder.tools.delta.ConstrainedDatatypeDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.ConstraintVisitor;
 import ca.infoway.messagebuilder.tools.delta.InteractionDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.PackageLocationDeltaVisitor;
 import ca.infoway.messagebuilder.tools.messageset.MessageSetCloner;
+import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -85,10 +87,21 @@ public class TemplateApplier {
 				} else if (existsInTemplateSet(delta, templateSet)){
 					apply(delta, result);
 				} else if (isConstrainedDatatype(delta, result)) {
-					applyConstrainedDatatype(delta, result);
+					applyConstrainedDatatype((AttributeDelta) delta, result);
 				} else {
 					System.out.println("couldn't apply delta - " + delta.getClassName() + (delta.getRelationshipName() != null ? "." + delta.getRelationshipName() : "") + " could not be found.");
 				}
+			}
+		}
+		
+		// Add dummy interactions to help the marshaller out
+		for (Template template : templateSet.getAllTemplates()) {
+			if (template.isDocumentTemplate()) {
+				Interaction dummyInteraction = new Interaction();
+				dummyInteraction.setName(template.getPackageName());
+				dummyInteraction.setSuperTypeName(template.getEntryClassName());
+				dummyInteraction.setCategory("document");
+				result.addInteraction(dummyInteraction);
 			}
 		}
 		
@@ -172,8 +185,8 @@ public class TemplateApplier {
 		}
 	}
 	
-	private void applyConstrainedDatatype(Delta delta, MessageSet result) {
-		// TODO: something
+	private void applyConstrainedDatatype(AttributeDelta delta, MessageSet messageSet) {
+		visit(delta, new ConstrainedDatatypeDeltaVisitor(delta, messageSet));
 	}
 	
 	private void apply(InteractionDelta delta, MessageSet messageSet) {

@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.xml.CodeSystem;
 import ca.infoway.messagebuilder.xml.CodeSystemMaintenanceOrganization;
 import ca.infoway.messagebuilder.xml.Concept;
 import ca.infoway.messagebuilder.xml.ConceptDomain;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.ContextBinding;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.ImportedPackage;
@@ -58,6 +59,8 @@ public class MessageSetCloner {
 		result.setVersion(original.getVersion());
 		result.setComponent(original.getComponent());
 		result.setGeneratedBy(original.getGeneratedBy());
+		result.setGeneratedAsR2(original.isGeneratedAsR2());
+		
 		for (MessageSetHistory historyEntry : original.getRemixHistory()) {
 			result.getRemixHistory().add(historyEntry);
 		}
@@ -68,6 +71,10 @@ public class MessageSetCloner {
 		for (Interaction interaction : original.getInteractions().values()) {
 			Interaction clone = clone(interaction, realmCode);
 			result.getInteractions().put(clone.getName(), clone);
+		}
+		for (ConstrainedDatatype constrainedDatatype : original.getAllConstrainedDatatypes()) {
+			ConstrainedDatatype clone = clone(constrainedDatatype, realmCode);
+			result.addConstrainedDatatype(clone);
 		}
 		
 		if (original.getVocabulary() != null) {
@@ -256,6 +263,21 @@ public class MessageSetCloner {
 			Relationship clone = clone(relationship, true, realmCode);
 			result.add(clone);
 		}
+		return result;
+	}
+
+	private ConstrainedDatatype clone(ConstrainedDatatype constrainedDatatype, RealmCode realmCode) {
+		ConstrainedDatatype result = new ConstrainedDatatype();
+		result.setName(constrainedDatatype.getName());
+		result.setBaseType(constrainedDatatype.getBaseType());
+		if (constrainedDatatype.isExtension()) {
+			result.setExtension();
+		}
+		
+		for (Relationship relationship : constrainedDatatype.getRelationships()) {
+			result.getRelationships().add(clone(relationship, false, realmCode));
+		}
+		
 		return result;
 	}
 

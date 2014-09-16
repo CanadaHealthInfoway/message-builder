@@ -103,4 +103,9 @@ public interface MessageDefinitionService {
 	List<MessagePart> getAllRootMessageParts(VersionNumber version);
 	
 	public Collection<MessagePart> getAllMessageParts(VersionNumber version);
+	
+	/**
+	 * Determine if the message set for the given version has been generated for R2 data types.
+	 */
+	public boolean isR2(VersionNumber version);
 }

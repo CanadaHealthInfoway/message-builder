@@ -89,6 +89,11 @@ class Case3ExactMatcher extends Case3Matcher {
 			result = MatchType.MAJOR_DIFFERENCE;
 		}
 		
+		if (result == MatchType.EXACT && (type.isRootType() || otherType.isRootType())) {
+			this.log.log(LogLevel.DEBUG, "Types would have exact merged except for one/both being root types: " + type.getName() + " " + otherType.getName());
+			result = MatchType.MAJOR_DIFFERENCE;
+		}
+		
 		return result;
 	}
 	

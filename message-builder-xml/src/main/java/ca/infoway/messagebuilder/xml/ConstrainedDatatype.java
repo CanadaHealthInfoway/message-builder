@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.xml;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
@@ -124,5 +125,15 @@ public class ConstrainedDatatype {
 	
 	public boolean isExtension() {
 		return CONSTRAINT_TYPE_EXTENSION.equals(this.constraintType);
+	}
+
+	public Relationship getRelationship(String name) {
+		for (Relationship relationship : this.relationships) {
+			if (StringUtils.equals(name, relationship.getName())) {
+				return relationship;
+			}
+		}
+		return null;
+		
 	}
 }

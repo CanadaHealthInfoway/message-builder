@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 @RunWith(JMock.class)
 public class AttributeFieldDefinitionImplTest {
 	
-	private TypeConverter converter = new TypeConverter();
+	private TypeConverter converter = new TypeConverter(false);
 
 	private Mockery jmock = new Mockery();
 	private ClassNameManager manager;
@@ -61,7 +61,7 @@ public class AttributeFieldDefinitionImplTest {
 	@Test
 	public void shouldDefineBasicAttribute() throws Exception {
 		Relationship relationship = new Relationship("text", "ST", Cardinality.create("1"));
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP);
 		field.initializeContext(this.manager, this.resolver);
@@ -75,7 +75,7 @@ public class AttributeFieldDefinitionImplTest {
 	@Test
 	public void shouldDefineInlinedAttribute() throws Exception {
 		Relationship relationship = new Relationship("text", "ST", Cardinality.create("1"));
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		InlinedAttribute outer = new InlinedAttribute(attribute, 
 				Association.createStandardAssociation(
 					new Relationship("component", "ABCD_MT123456CA.Component", Cardinality.create("0-10")), 
@@ -94,7 +94,7 @@ public class AttributeFieldDefinitionImplTest {
 	@Test
 	public void shouldDefineCollectionAttribute() throws Exception {
 		Relationship relationship = new Relationship("text", "SET<ST>", Cardinality.create("5"));
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP);
 		field.initializeContext(this.manager, this.resolver);
@@ -109,7 +109,7 @@ public class AttributeFieldDefinitionImplTest {
 	@Test
 	public void shouldDefineCollectionAttributeForJava() throws Exception {
 		Relationship relationship = new Relationship("text", "SET<ST>", Cardinality.create("5"));
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.JAVA);
 		field.initializeContext(this.manager, this.resolver);
@@ -126,7 +126,7 @@ public class AttributeFieldDefinitionImplTest {
 	public void shouldDefineCollectionOfCodesAttribute() throws Exception {
 		Relationship relationship = new Relationship("text", "SET<CV>", Cardinality.create("5"));
 		relationship.setDomainType("ActCode");
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP);
 		field.initializeContext(this.manager, this.resolver);
@@ -141,7 +141,7 @@ public class AttributeFieldDefinitionImplTest {
 	public void shouldDefineCollectionOfCodesAttributeForJava() throws Exception {
 		Relationship relationship = new Relationship("text", "SET<CV>", Cardinality.create("5"));
 		relationship.setDomainType("ActCode");
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.JAVA);
 		field.initializeContext(this.manager, this.resolver);
@@ -155,7 +155,7 @@ public class AttributeFieldDefinitionImplTest {
 	public void shouldDefineCodeAttribute() throws Exception {
 		Relationship relationship = new Relationship("text", "CV", Cardinality.create("1"));
 		relationship.setDomainType("ActCode");
-		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
+		Attribute attribute = new Attribute(relationship, new TypeConverter(false).convertToType(relationship));
 		
 		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP);
 		field.initializeContext(this.manager, this.resolver);

@@ -54,7 +54,7 @@ public class PropertyTypeProvidersTest {
 		}});
 		
 		Relationship relationship = new Relationship("text", "ST", Cardinality.create("1"));
-		DataType dataType = new TypeConverter().convertToType(relationship);
+		DataType dataType = new TypeConverter(false).convertToType(relationship);
 		
 		Attribute attribute = new Attribute(relationship, dataType);
 		PropertyTypeProviders.Attribute provider = new PropertyTypeProviders.Attribute(attribute, C_SHARP);

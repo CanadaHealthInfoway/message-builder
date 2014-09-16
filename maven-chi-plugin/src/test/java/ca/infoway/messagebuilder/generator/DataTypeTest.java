@@ -40,20 +40,20 @@ public class DataTypeTest {
 	
 	@Test
 	public void shouldGetBasicWrappedType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.ST, null);
+		DataType dataType = new DataType(DataTypeGenerationDetails.ST, null, false);
 		assertEquals("ST", "ST", dataType.getShortWrappedName());
 	}
 	
 	@Test
 	public void shouldGetNonPanCanadianType() throws Exception {
-		DataType dataType = new TypeConverter().convertToType("AD", null);
+		DataType dataType = new TypeConverter(false).convertToType("AD", null);
 		assertEquals("AD", "AD", dataType.getShortWrappedName());
 		assertEquals("AD - Java", "AD", dataType.getShortWrappedName(ProgrammingLanguage.JAVA));
 		assertEquals("AD class", AD.class.getName(), dataType.getHl7ClassName());
 		assertEquals("type", DataTypeGenerationDetails.AD, dataType.getType());
 		assertEquals("Java type", PostalAddress.class.getName(), dataType.getType().getJavaTypeName());
 		
-		dataType = new TypeConverter().convertToType("BAG<AD>", null);
+		dataType = new TypeConverter(false).convertToType("BAG<AD>", null);
 		assertEquals("BAG<AD>", "COLLECTION<AD>", dataType.getShortWrappedName());
 		assertEquals("BAG - Java", "COLLECTION<AD>", dataType.getShortWrappedName(ProgrammingLanguage.JAVA));
 		assertEquals("BAG class", COLLECTION.class.getName(), dataType.getHl7ClassName());
@@ -63,13 +63,13 @@ public class DataTypeTest {
 	
 	@Test
 	public void shouldGetParameterizedWrappedType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, null, new DataType(DataTypeGenerationDetails.ST,String.class.getName()));
+		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, null, false, new DataType(DataTypeGenerationDetails.ST,String.class.getName(), false));
 		assertEquals("LIST<ST, String>", "LIST<ST, String>", dataType.getShortWrappedName());
 	}
 	
 	@Test
 	public void shouldGetParameterizedWrappedAnyType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.ANY, null);
+		DataType dataType = new DataType(DataTypeGenerationDetails.ANY, null, false);
 		assertEquals("Wrapper", "ANY<Object>", dataType.getShortWrappedName());
 		assertEquals("Wrapper impl", "ANYImpl<Object>", dataType.getShortWrappedNameImpl());
 		assertEquals("Underlying type", "Object", dataType.getShortName(ProgrammingLanguage.JAVA));
@@ -77,28 +77,60 @@ public class DataTypeTest {
 	
 	@Test
 	public void shouldGetBasicType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.ST, String.class.getName());
+		DataType dataType = new DataType(DataTypeGenerationDetails.ST, String.class.getName(), false);
 		assertEquals("String", "String", dataType.getShortName(ProgrammingLanguage.JAVA));
 		assertEquals("String", "String", dataType.getShortName(ProgrammingLanguage.C_SHARP));
 	}
 	
 	@Test
 	public void shouldGetParameterizedType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), new DataType(DataTypeGenerationDetails.ST, String.class.getName()));
+		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), false, new DataType(DataTypeGenerationDetails.ST, String.class.getName(), false));
 		assertEquals("List<String>", "List<String>", dataType.getShortName(ProgrammingLanguage.JAVA));
 	}
 
 	@Test
 	public void shouldGetCodeType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus");
+		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", false);
 		assertEquals("CD", "CD", dataType.getShortWrappedName());
 		assertEquals("CD", "ActStatus", dataType.getShortName(ProgrammingLanguage.JAVA));
 		assertEquals("CD", "ActStatus", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}
 	
 	@Test
+	public void shouldGetCodeTypeR2() throws Exception {
+		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true);
+		assertEquals("CD", "CD", dataType.getShortWrappedName());
+		assertEquals("CD", "CodedTypeR2<ActStatus>", dataType.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("CD", "ActStatus", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
+	}
+	
+	@Test
+	public void shouldGetListCodeTypeR2() throws Exception {
+		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), true, new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true));
+		assertEquals("LIST<CD>", "LIST<CD, CodedTypeR2<? extends Code>>", dataType.getShortWrappedName());
+		assertEquals("LIST<CD>", "List<CodedTypeR2<ActStatus>>", dataType.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("LIST<CD>", "List", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
+	}
+	
+	@Test
+	public void shouldGetCodeTypeBxitR2() throws Exception {
+		DataType dataType = new DataType(DataTypeGenerationDetails.BXIT_CD_R2, "ca.infoway.messagebuilder.domainvalue.ActStatus", true, new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true));
+		assertEquals("BXIT", "BXIT<CodedTypeR2<ActStatus>>", dataType.getShortWrappedName());
+		assertEquals("BXIT", "CodedTypeR2<ActStatus>", dataType.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("BXIT", "ActStatus", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
+	}
+	
+	@Test
+	public void shouldGetListCodeTypeBxitR2() throws Exception {
+		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), true, new DataType(DataTypeGenerationDetails.BXIT_CD_R2, "ca.infoway.messagebuilder.domainvalue.ActStatus", true, new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true)));
+		assertEquals("LIST<BXIT>", "LIST<BXIT<CodedTypeR2<? extends Code>>, CodedTypeR2<? extends Code>>", dataType.getShortWrappedName());
+		assertEquals("LIST<BXIT>", "List<CodedTypeR2<ActStatus>>", dataType.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("LIST<BXIT>", "List", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
+	}
+	
+	@Test
 	public void shouldGetImportsForWrappedSimpleType() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.ST, "java.lang.String");
+		DataType dataType = new DataType(DataTypeGenerationDetails.ST, "java.lang.String", false);
 		Set<String> types = dataType.getImportTypes();
 		
 		assertThat("ST", types, hasItem("ca.infoway.messagebuilder.datatype.ST"));
@@ -109,7 +141,7 @@ public class DataTypeTest {
 	// private LIST<II, Identifier> identifiers = new LISTImpl<II, Identifier>(IIImpl.class);
 	@Test
 	public void shouldGetImportsForCollectionType() throws Exception {
-		DataType dataType = new TypeConverter().convertToType("LIST<II.OID>", null);
+		DataType dataType = new TypeConverter(false).convertToType("LIST<II.OID>", null);
 		Set<String> types = dataType.getImportTypes();
 		
 		assertThat("II", types, hasItem("ca.infoway.messagebuilder.datatype.II"));
@@ -119,7 +151,7 @@ public class DataTypeTest {
 	
 	@Test
 	public void shouldGetImportsForWrappedCd() throws Exception {
-		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus");
+		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", false);
 		Set<String> types = dataType.getImportTypes();
 		assertThat("CD", types, hasItem("ca.infoway.messagebuilder.datatype.CD"));
 		assertThat("CDImpl", types, hasItem("ca.infoway.messagebuilder.datatype.impl.CDImpl"));

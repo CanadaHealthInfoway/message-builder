@@ -28,7 +28,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.impl.PIVLR2Impl;
+import ca.infoway.messagebuilder.datatype.impl.PIVL_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -51,7 +51,7 @@ class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicInterval
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new PIVLR2Impl();
+		return new PIVL_R2Impl();
 	}
 	
 	@Override

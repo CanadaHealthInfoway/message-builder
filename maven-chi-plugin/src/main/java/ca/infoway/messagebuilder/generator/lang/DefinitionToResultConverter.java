@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 class DefinitionToResultConverter {
 	
-	private TypeConverter converter = new TypeConverter();
+	private TypeConverter converter;
 	Map<String,Type> types = new HashMap<String,Type>();
 	private final SimplifiableDefinitions definitions;
 	private final String basePackageName;
@@ -61,12 +61,13 @@ class DefinitionToResultConverter {
 
 	DefinitionToResultConverter(SimplifiableDefinitions definitions,
 			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI,
-			NamingPolicy namingPolicy) {
+			NamingPolicy namingPolicy, boolean isR2) {
 		this.definitions = definitions;
 		this.basePackageName = basePackageName;
 		this.programmingLanguage = programmingLanguage;
 		this.outputUI = outputUI;
 		this.namingPolicy = namingPolicy;
+		this.converter = new TypeConverter(isR2);
 	}
 
 	public TypeAnalysisResult convert() throws GeneratorException {
@@ -385,7 +386,8 @@ class DefinitionToResultConverter {
 		int index = type.getRelationships().indexOf(relationship);
 		Type elidedType = this.types.get(relationship.getType());
 		if (isIndicatorBean(elidedType, relationship)) {
-			Attribute newRelationship = new Attribute(relationship.getRelationship(), new TypeConverter().convertToType("BL", null), true);
+			// should be ok to fix TypeConverter to non-R2 (even if it is R2)
+			Attribute newRelationship = new Attribute(relationship.getRelationship(), new TypeConverter(false).convertToType("BL", null), true);
 			type.getRelationships().set(index, newRelationship);
 		} else {
 			handleInlining(elidedType); 
@@ -534,7 +536,9 @@ class DefinitionToResultConverter {
 	private void createInteractions(TypeAnalysisResult result) {
 		for (SimplifiableInteraction simplifiableInteraction : this.definitions.getAllInteractions()) {
 			Interaction interaction = simplifiableInteraction.getInteraction();
-			InteractionType interactionType = new InteractionType(new TypeName(interaction.getName()));
+
+			// TM - CDA - hack to pass in the fact this type name defines an interaction
+			InteractionType interactionType = new InteractionType(new TypeName(interaction.getName(), true));
 			
 			TypeName parentTypeName = getTypeNameForType(interaction.getSuperTypeName());
 			

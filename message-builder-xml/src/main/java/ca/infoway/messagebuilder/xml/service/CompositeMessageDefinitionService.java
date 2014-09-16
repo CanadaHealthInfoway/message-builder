@@ -201,4 +201,13 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 		throw new UnsupportedOperationException();
 	}
 
+	public boolean isR2(VersionNumber version) {
+		for (MessageDefinitionService service : this.services) {
+			if (service.isR2(version)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

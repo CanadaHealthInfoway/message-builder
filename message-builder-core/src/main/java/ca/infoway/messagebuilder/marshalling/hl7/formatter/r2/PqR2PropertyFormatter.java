@@ -64,7 +64,7 @@ public class PqR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<P
 		Map<String, String> attributes = getAttributeNameValuePairs(context, pq, hl7Value);
 		
 		boolean hasChildContent = !pq.getTranslation().isEmpty();
-		result.append(createElement(context, attributes, indentLevel, !hasChildContent, hasChildContent));
+		result.append(createElement(context, attributes, indentLevel, !hasChildContent, true));
 		if (hasChildContent) {
 			createChildContent(pq, context, indentLevel + 1, result);
 			result.append(createElementClosure(context, indentLevel, true));

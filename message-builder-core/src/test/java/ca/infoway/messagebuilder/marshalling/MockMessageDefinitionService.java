@@ -78,4 +78,7 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 	public List<MessagePart> getAllRootMessageParts(VersionNumber version) {
 		throw new UnsupportedOperationException();
 	}
+	public boolean isR2(VersionNumber version) {
+		return false;
+	}
 }

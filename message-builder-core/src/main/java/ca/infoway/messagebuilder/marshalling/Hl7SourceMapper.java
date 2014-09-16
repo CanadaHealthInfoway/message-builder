@@ -464,6 +464,7 @@ class Hl7SourceMapper {
 					String valueAsString = ((INT) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType() && value instanceof CD) {
+					// FIXME - CDA - TM - the above "if" check will fail on the instanceof check for CDA coded types; the rest of this code block needs refactoring as well
 					Code code = ((CD) value).getValue();
 					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
 				} else {

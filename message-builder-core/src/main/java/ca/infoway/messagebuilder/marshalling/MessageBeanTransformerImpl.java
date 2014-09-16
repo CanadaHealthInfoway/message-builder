@@ -103,7 +103,7 @@ public class MessageBeanTransformerImpl {
 		CodeResolverRegistry.setThreadLocalVersion(version);
 		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
 
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(this.service.isR2(version));
 		new TealBeanRenderWalker(messageBean, version, dateTimeZone, dateTimeTimeZone, this.service).accept(visitor);
 
 		CodeResolverRegistry.clearThreadLocalVersion();

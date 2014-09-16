@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.commons.lang.SystemUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
@@ -79,7 +80,11 @@ public class PnR2PropertyFormatterTest extends FormatterTestCase {
         
         String result = formatter.format(getContext("name", "PN", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertTrue(this.result.isValid());
-        assertXml("something in text node", "<name use=\"L\">SteveShaw</name>", result, true);
+		System.out.println(result);
+        assertEquals("something in text node", "<name use=\"L\">" + SystemUtils.LINE_SEPARATOR +
+        		"  Steve" + SystemUtils.LINE_SEPARATOR +
+        		"  Shaw" + SystemUtils.LINE_SEPARATOR +
+        		"</name>" + SystemUtils.LINE_SEPARATOR, result);
     }
 
 	@Test
@@ -97,16 +102,22 @@ public class PnR2PropertyFormatterTest extends FormatterTestCase {
     }
 
 	@Test
-    public void testFormatSimpleWithOneNonSimplePart() throws Exception {
+    public void testFormatSimpleWithTwoNonSimpleParts() throws Exception {
         EnR2PropertyFormatter formatter = new EnR2PropertyFormatter();
         
         PersonName personName = new PersonName();
         personName.addUse(EntityNameUse.LEGAL);
-        personName.addNamePart(new EntityNamePart("Steve Shaw", PersonNamePartType.FAMILY));
+        personName.addNamePart(new EntityNamePart("Steve", PersonNamePartType.GIVEN));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY));
         
         String result = formatter.format(getContext("name", "PN", SpecificationVersion.R02_04_02), new PNImpl(personName));
 		assertTrue(this.result.isValid());
-        assertXml("something in text node", "<name use=\"L\"><family>Steve Shaw</family></name>", result, true);
+
+        assertEquals("formatted text node", "<name use=\"L\">" + SystemUtils.LINE_SEPARATOR +
+        									"  <given>Steve</given>" + SystemUtils.LINE_SEPARATOR +
+        									"  <family>Shaw</family>" + SystemUtils.LINE_SEPARATOR +
+        									"</name>" + SystemUtils.LINE_SEPARATOR, result);
+        assertXml("something in text node", "<name use=\"L\"><given>Steve</given><family>Shaw</family></name>", result, true);
     }
 
 	@Test

@@ -28,7 +28,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.impl.PIVLR2Impl;
+import ca.infoway.messagebuilder.datatype.impl.PIVL_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
@@ -60,7 +60,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 		
 		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2(phase, period, CalendarCycle.DAY_OF_THE_MONTH, true);
 		
-		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVLR2Impl(pivl));
+		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl(pivl));
 		
 		assertTrue(this.result.isValid());
 		assertXml("result", "<periodicInterval alignment=\"D\" institutionSpecified=\"true\"><phase><low value=\"19990123\"/><high value=\"20130507\"/></phase><period unit=\"d\" value=\"11\"/></periodicInterval>", result);
@@ -69,7 +69,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValue() throws Exception {
 		
-		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVLR2Impl((PeriodicIntervalTimeR2) null));
+		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl((PeriodicIntervalTimeR2) null));
 		
 		assertTrue(this.result.isValid());
 		assertXml("result", "<periodicInterval nullFlavor=\"NI\"/>", result);
@@ -78,7 +78,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullFlavor() throws Exception {
 		
-		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVLR2Impl(NullFlavor.TEMPORARILY_UNAVAILABLE));
+		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl(NullFlavor.TEMPORARILY_UNAVAILABLE));
 		
 		assertTrue(this.result.isValid());
 		assertXml("result", "<periodicInterval nullFlavor=\"NAV\"/>", result);
@@ -89,7 +89,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 		
 		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2(null, null);
 		
-		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVLR2Impl(pivl));
+		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl(pivl));
 		
 		// from a strict reading of the schema, this is a perfectly valid PIVL_TS
 		assertXml("result", "<periodicInterval></periodicInterval>", result);

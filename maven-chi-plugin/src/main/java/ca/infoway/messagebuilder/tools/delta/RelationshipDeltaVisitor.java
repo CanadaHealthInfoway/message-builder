@@ -99,7 +99,7 @@ public abstract class RelationshipDeltaVisitor extends ConstraintVisitor {
 		return this.relationship;
 	}
 	
-	private Relationship getRelationshipFromMessageSet() {
+	protected Relationship getRelationshipFromMessageSet() {
 		// can getMessagePart return a null in some edge cases??
 		return this.messageSet.getMessagePart(this.delta.getClassName()).getRelationship(this.delta.getRelationshipName());
 	}

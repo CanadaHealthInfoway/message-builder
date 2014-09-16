@@ -20,12 +20,14 @@
 
 package ca.infoway.messagebuilder.xml.template;
 
+import ca.infoway.messagebuilder.xml.Cardinality;
+
 
 public class TemplateReference {
 	
 	private String context;
 	private String oid;
-	private int maxInstances;
+	private Cardinality cardinality;
 	
 	public TemplateReference() {
 		
@@ -47,12 +49,12 @@ public class TemplateReference {
 		this.context = context;
 	}
 
-	public int getMaxInstances() {
-		return maxInstances;
+	public Cardinality getCardinality() {
+		return cardinality;
 	}
 
-	public void setMaxInstances(int maxInstances) {
-		this.maxInstances = maxInstances;
+	public void setCardinality(Cardinality cardinality) {
+		this.cardinality = cardinality;
 	}
 
 }

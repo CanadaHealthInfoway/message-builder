@@ -45,6 +45,9 @@ public class MessageSet implements MessagePartResolver {
 	private String version;
 	
 	@Attribute(required=false)
+	private boolean generatedAsR2;
+
+	@Attribute(required=false)
 	private String descriptiveName;
 	
 	@Attribute(required=false)
@@ -74,7 +77,7 @@ public class MessageSet implements MessagePartResolver {
 	@ElementMap(name="interaction",key="name",required=false,inline=true,attribute=true)
 	private Map<String,Interaction> interactions = new TreeMap<String,Interaction>();
 	
-	@ElementMap(name="constrainedDatatype",key="name",required=false,inline=true,attribute=true,entry="constrainedDatatype")
+	@ElementMap(name="constrainedDatatype",key="name",required=false,inline=true,attribute=true,entry="constrainedDatatypeEntry")
 	private Map<String, ConstrainedDatatype> constrainedDatatypes = new TreeMap<String, ConstrainedDatatype>();
 	
 	/**
@@ -94,6 +97,22 @@ public class MessageSet implements MessagePartResolver {
 	}
 	
 	/**
+	 * <p> Denotes if this message set was generated for R2 data types
+	 * @return whether this message set was generated for R2 data types
+	 */
+	public boolean isGeneratedAsR2() {
+		return generatedAsR2;
+	}
+
+	/**
+	 * <p>Sets whether this message set was generated for R2 data types
+	 * @param generatedAsR2 - whether this message set was generated for R2 data types
+	 */
+	public void setGeneratedAsR2(boolean generatedAsR2) {
+		this.generatedAsR2 = generatedAsR2;
+	}
+
+	/**
 	 * <p>Get a map of all the interactions defined in the message set, keyed by 
 	 * interaction id.
 	 * @return - the map of all interactions.
@@ -108,6 +127,12 @@ public class MessageSet implements MessagePartResolver {
 	 */
 	public void setInteractions(Map<String, Interaction> interactions) {
 		this.interactions = interactions;
+	}
+	
+	public void addInteraction(Interaction interaction) {
+		if (interaction != null && interaction.getName() != null) {
+			this.interactions.put(interaction.getName(), interaction);
+		}
 	}
 
 	/**

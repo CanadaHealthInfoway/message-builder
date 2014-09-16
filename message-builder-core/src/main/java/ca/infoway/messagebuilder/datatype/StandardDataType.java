@@ -20,7 +20,6 @@
 
 package ca.infoway.messagebuilder.datatype;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +30,8 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.xml.CodedTypeEvaluator;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
 /**
  * <p>A list of standard HL7 data types.
@@ -103,6 +104,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType CS = new StandardDataType("CS", "CS", "SimpleCodedType");
 	public static final StandardDataType PQR = new StandardDataType("PQR", "PQR");   // R2 only
 	public static final StandardDataType CR = new StandardDataType("CR", "CR");   // R2 only
+	public static final StandardDataType HXIT = new StandardDataType("HXIT", "HXIT");   // R2 only
 	public static final StandardDataType HXIT_CE = new StandardDataType("HXIT_CE", "HXIT<CE>");   // R2 only
 	
 	public static final StandardDataType ST = new StandardDataType("ST", "ST"); 
@@ -144,6 +146,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType IVL_INT = new StandardDataType("IVL_INT", "IVL<INT>"); 
 	public static final StandardDataType IVL_REAL = new StandardDataType("IVL_REAL", "IVL<REAL>"); 
 	public static final StandardDataType IVL_MO = new StandardDataType("IVL_MO", "IVL<MO>"); 
+	public static final StandardDataType EIVL = new StandardDataType("EIVL", "EIVL"); 
 	public static final StandardDataType EIVL_TS = new StandardDataType("EIVL_TS", "EIVL<TS>"); 
 	
 	public static final StandardDataType IVL_WIDTH = new StandardDataType("IVL_WIDTH", "IVL.WIDTH", "Interval");
@@ -218,6 +221,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType SXCM_REAL = new StandardDataType("SXCM_REAL", "SXCM<REAL>");
 	public static final StandardDataType SXCM_TS = new StandardDataType("SXCM_TS", "SXCM<TS>");
 
+	public static final StandardDataType BXIT = new StandardDataType("BXIT", "BXIT");
 	public static final StandardDataType BXIT_CD = new StandardDataType("BXIT_CD", "BXIT<CD>");
 	
 	public static final StandardDataType SET = new StandardDataType("SET", "SET"); 
@@ -310,34 +314,14 @@ public class StandardDataType extends EnumPattern implements Typed {
 	}
 
 	/**
-	 * <p>Determines if the enum represents a coded type.
+	 * <p>Determines if the enum represents a coded type. Collection types will have their parameter checked to see if it is a coded type.
 	 * 
 	 * @return whether or not the enum is a coded type.
 	 */
 	public boolean isCoded() {
-		return isCoded(getRootType());
+		return CodedTypeEvaluator.isCodedType(getType());
 	}
 
-	/**
-	 * <p>Determines if the enum represents a coded type.
-	 * 
-	 * @param type the type to test
-	 * @return whether or not the value represents a coded type.
-	 */
-	public static boolean isCoded(String type) {
-		return Arrays.asList("CD", "CV", "CE", "CS", "CO", "PQR", "SC").contains(type);
-	}
-	
-	/**
-	 * <p>Determines if the enum represents list or set whose parameter is a coded type.
-	 * 
-	 * @param type the type to test
-	 * @return whether or not the value represents a coded type.
-	 */
-	public static boolean isCodedListOrSet(String type) {
-		return isSetOrList(type) && isCoded(getTemplateArgument(type).getType());
-	}
-	
 	/**
 	 * <p>Determines if the given datatype shares the same root HL7 datatype.
 	 * 
@@ -423,6 +407,9 @@ public class StandardDataType extends EnumPattern implements Typed {
 		StandardDataType result = null;
 		
 		name = StringUtils.deleteWhitespace(name);
+		if (name != null && name.endsWith("_R2")) {
+			name = name.substring(0, name.length() - 3);
+		}
 		
 		if (isList(name)) {
 			result = StandardDataType.LIST;

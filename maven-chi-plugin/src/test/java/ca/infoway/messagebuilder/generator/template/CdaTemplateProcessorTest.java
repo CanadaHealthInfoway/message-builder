@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.delta.AddChoiceConstraint;
+import ca.infoway.messagebuilder.xml.delta.AddConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;
 import ca.infoway.messagebuilder.xml.delta.AssociationTypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.CardinalityConstraint;
@@ -52,7 +53,6 @@ import ca.infoway.messagebuilder.xml.delta.DatatypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 import ca.infoway.messagebuilder.xml.delta.FixedConstraint;
-import ca.infoway.messagebuilder.xml.delta.RemoveChoiceConstraint;
 import ca.infoway.messagebuilder.xml.delta.SchematronConstraint;
 import ca.infoway.messagebuilder.xml.delta.VocabularyBindingConstraint;
 import ca.infoway.messagebuilder.xml.template.Template;
@@ -238,6 +238,29 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(fixedConstraint);
 				foundFixedCase = true;
 				assertEquals("US", ((FixedConstraint) fixedConstraint).getNewValue());
+			}
+		}
+		assertTrue(foundFixedCase);
+	}
+	
+	@Test
+	public void shouldParseFixedValuesForBoolean() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.16");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean foundFixedCase = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("MedicationActivity.InstructionsEntryRelationship") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("MedicationActivity.InstructionsEntryRelationship") && delta.getRelationshipName().equals("inversionInd")) {
+				
+				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
+				
+				Constraint fixedConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
+				assertNotNull(fixedConstraint);
+				foundFixedCase = true;
+				assertEquals("true", ((FixedConstraint) fixedConstraint).getNewValue());
 			}
 		}
 		assertTrue(foundFixedCase);
@@ -503,16 +526,16 @@ public class CdaTemplateProcessorTest {
 	}
 	
 	@Test
-	public void shouldNarrowChoices() throws Exception {
+	public void shouldRemoveChoiceForSingleOptionCase() throws Exception {
 		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.15.3.8");
 		assertNotNull(template);
 		List<Delta> deltas = template.getDeltas();
 		
 		boolean foundClonedObservation = false;
 		boolean foundClonedRelationship = false;
-		boolean foundClonedChoiceBlock = false;
+		boolean foundRemovedChoiceBlock = false;
 		boolean foundCardinalityConstraint = false;
-		int constraints = 0;
+		boolean foundNewAssociationConstraint = false;
 		for (Delta delta : deltas) {
 			if (delta.getClassName().equals("PregnancyObservation.Observation") && delta.getRelationshipName() == null) {
 				foundClonedObservation = true;
@@ -540,80 +563,178 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.EntryRelationship", ((CloneConstraint) cloneConstraint).getClassName());
 				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint) cloneConstraint).getOriginalClassName());
-			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship") && delta.getRelationshipName().equals("EntryRelationship_11")) {
-				Constraint associationConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
-				assertNotNull(associationConstraint);
-				assertEquals("PregnancyObservation.EntryRelationship_11", ((AssociationTypeConstraint) associationConstraint).getNewValue());
-			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship_11") && delta.getRelationshipName() == null && delta.getDeltaChangeType() == DeltaChangeType.CLONE) {
-				foundClonedChoiceBlock = true;
-			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship_11") && delta.getRelationshipName() == null && delta.getDeltaChangeType() == DeltaChangeType.CHOICE) {
+			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship") && delta.getRelationshipName().equals("entryRelationshipChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
-				Constraint addChoiceConstraint = delta.getConstraint(ConstraintChangeType.ADD_CHOICE);
-				assertNotNull(addChoiceConstraint);
-				assertEquals("EstimatedDateOfDelivery.Observation", ((AddChoiceConstraint)addChoiceConstraint).getChoiceClassName());
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				foundRemovedChoiceBlock = true;
+			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship") && delta.getRelationshipName().equals("observation")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				foundNewAssociationConstraint = true;
 				
-				for (Constraint constraint : delta.getAllConstraints(ConstraintChangeType.REMOVE_CHOICE)) {
-					assertTrue(((RemoveChoiceConstraint) constraint).getChoiceClassName().startsWith("POCD_MT000040."));
-					constraints++;
-				}
+				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(cardinalityConstraint);
+				assertEquals(1, ((CardinalityConstraint)cardinalityConstraint).getNewMinValue().intValue());
+				assertEquals(1, ((CardinalityConstraint)cardinalityConstraint).getNewMaxValue().intValue());
 				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				assertEquals("EstimatedDateOfDelivery.Observation", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
 			}
+			
 		}
 		assertTrue(foundClonedObservation);
 		assertTrue(foundClonedRelationship);
-		assertTrue(foundClonedChoiceBlock);
 		assertTrue(foundCardinalityConstraint);
-		assertEquals(9, constraints);
+		assertTrue(foundRemovedChoiceBlock);
+		assertTrue(foundNewAssociationConstraint);
 		
 		assertEquals(1, template.getTemplateReferences().size());
 		assertEquals("PregnancyObservation.EntryRelationship.observation", template.getTemplateReferences().get(0).getContext());
 		assertEquals("2.16.840.1.113883.10.20.15.3.1", template.getTemplateReferences().get(0).getOid());
-		assertEquals(1, template.getTemplateReferences().get(0).getMaxInstances());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
 	}
 	
 	@Test
-	public void shouldNotNarrowChoicesForOpenTemplateWithUnlimitedCardinality() throws Exception {
+	public void shouldHandleComplexChoicesForOpenTemplate() throws Exception {
 		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.2.7.1");
 		assertNotNull(template);
 		List<Delta> deltas = template.getDeltas();
 		
+		boolean sectionAssociationConstraintFound = false;
+		boolean choiceBlockCreateConstraintFound = false;
+		boolean procedureEntryCloneConstraintFound = false;
+		boolean procedureEntryRemoveChoiceConstraintFound = false;
+		boolean procedureEntryAssociationConstraintFound = false;
+		boolean observationEntryCloneConstraintFound = false;
+		boolean observationEntryRemoveChoiceConstraintFound = false;
+		boolean observationEntryAssociationConstraintFound = false;
+		boolean actEntryCloneConstraintFound = false;
+		boolean actEntryRemoveChoiceConstraintFound = false;
+		boolean actEntryAssociationConstraintFound = false;
 		for (Delta delta : deltas) {
 			if (delta.getClassName().equals("ProceduresSectionentriesRequired.Section") && delta.getRelationshipName() == null) {
 				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
-				
-				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
-				assertNotNull(cloneConstraint);
-				assertEquals("ProceduresSectionentriesRequired.Section", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Section", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.Section") && delta.getRelationshipName().equals("entry")) {
 				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
 				assertNotNull(cardinalityConstraint);
 				assertEquals(0, ((CardinalityConstraint) cardinalityConstraint).getNewMinValue().intValue());
 				assertEquals(Integer.MAX_VALUE, ((CardinalityConstraint) cardinalityConstraint).getNewMaxValue().intValue());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				sectionAssociationConstraintFound = true;
+				assertEquals("ProceduresSectionentriesRequired.EntryChoice", ((AssociationTypeConstraint) associationTypeConstraint).getNewValue());
 			}
 
-			if (delta.getClassName().equals("ProceduresSectionentriesRequired.SectionEntry") && delta.getRelationshipName() == null) {
+			if (delta.getClassName().equals("ProceduresSectionentriesRequired.EntryChoice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint addConstraint = delta.getConstraint(ConstraintChangeType.ADD);
+				assertNotNull(addConstraint);
+				choiceBlockCreateConstraintFound = true;
+				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
+				
+				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(3, addChoiceConstraints.size());
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+			}
+
+			if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry") && delta.getRelationshipName() == null) {
 				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
 				
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
-				assertEquals("ProceduresSectionentriesRequired.SectionEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				procedureEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry", ((CloneConstraint) cloneConstraint).getClassName());
 				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
-			} else if (delta.getClassName().equals("POCD_MT000040.Entry") && delta.getRelationshipName().equals("Entry_7")) {
-				assertEquals(0, delta.getConstraints().size());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				procedureEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("procedure")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				procedureEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityProcedure.Procedure", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				observationEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				observationEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("observation")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				observationEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityObservation.Observation", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityActEntry") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				actEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityActEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				actEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityActEntry") && delta.getRelationshipName().equals("act")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				actEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityAct.Act", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
 			}
 		}
-		
+
+		assertTrue(sectionAssociationConstraintFound);
+		assertTrue(choiceBlockCreateConstraintFound);
+		assertTrue(procedureEntryCloneConstraintFound);
+		assertTrue(procedureEntryRemoveChoiceConstraintFound);
+		assertTrue(procedureEntryAssociationConstraintFound);
+		assertTrue(observationEntryCloneConstraintFound);
+		assertTrue(observationEntryRemoveChoiceConstraintFound);
+		assertTrue(observationEntryAssociationConstraintFound);
+		assertTrue(actEntryCloneConstraintFound);
+		assertTrue(actEntryRemoveChoiceConstraintFound);
+		assertTrue(actEntryAssociationConstraintFound);
+
 		assertEquals(3, template.getTemplateReferences().size());
-		assertEquals("ProceduresSectionentriesRequired.Entry.procedure", template.getTemplateReferences().get(0).getContext());
+		assertEquals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry.procedure", template.getTemplateReferences().get(0).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.14", template.getTemplateReferences().get(0).getOid());
-		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(0).getMaxInstances());
-		assertEquals("ProceduresSectionentriesRequired.Entry.observation", template.getTemplateReferences().get(1).getContext());
+		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+		assertEquals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry.observation", template.getTemplateReferences().get(1).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.13", template.getTemplateReferences().get(1).getOid());
-		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(1).getMaxInstances());
-		assertEquals("ProceduresSectionentriesRequired.Entry.act", template.getTemplateReferences().get(2).getContext());
+		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(1).getCardinality().getMax().intValue());
+		assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry.act", template.getTemplateReferences().get(2).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.12", template.getTemplateReferences().get(2).getOid());
-		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(2).getMaxInstances());
+		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(2).getCardinality().getMax().intValue());
 	}
 	
 	@Test
@@ -622,43 +743,139 @@ public class CdaTemplateProcessorTest {
 		assertNotNull(template);
 		List<Delta> deltas = template.getDeltas();
 		
+		boolean sectionAssociationConstraintFound = false;
+		boolean choiceBlockCreateConstraintFound = false;
+		boolean procedureEntryCloneConstraintFound = false;
+		boolean procedureEntryRemoveChoiceConstraintFound = false;
+		boolean procedureEntryAssociationConstraintFound = false;
+		boolean observationEntryCloneConstraintFound = false;
+		boolean observationEntryRemoveChoiceConstraintFound = false;
+		boolean observationEntryAssociationConstraintFound = false;
+		boolean actEntryCloneConstraintFound = false;
+		boolean actEntryRemoveChoiceConstraintFound = false;
+		boolean actEntryAssociationConstraintFound = false;
 		for (Delta delta : deltas) {
 			if (delta.getClassName().equals("ProceduresSectionentriesOptional.Section") && delta.getRelationshipName() == null) {
 				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
-				
-				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
-				assertNotNull(cloneConstraint);
-				assertEquals("ProceduresSectionentriesOptional.Section", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Section", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.Section") && delta.getRelationshipName().equals("entry")) {
 				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
 				assertNotNull(cardinalityConstraint);
 				assertEquals(0, ((CardinalityConstraint) cardinalityConstraint).getNewMinValue().intValue());
 				assertEquals(Integer.MAX_VALUE, ((CardinalityConstraint) cardinalityConstraint).getNewMaxValue().intValue());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				sectionAssociationConstraintFound = true;
+				assertEquals("ProceduresSectionentriesOptional.EntryChoice", ((AssociationTypeConstraint) associationTypeConstraint).getNewValue());
 			}
-			
-			if (delta.getClassName().equals("ProceduresSectionentriesOptional.SectionEntry") && delta.getRelationshipName() == null) {
+
+			if (delta.getClassName().equals("ProceduresSectionentriesOptional.EntryChoice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint addConstraint = delta.getConstraint(ConstraintChangeType.ADD);
+				assertNotNull(addConstraint);
+				choiceBlockCreateConstraintFound = true;
+				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
+				
+				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(3, addChoiceConstraints.size());
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityActEntry", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+			}
+
+			if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry") && delta.getRelationshipName() == null) {
 				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
 				
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
-				assertEquals("ProceduresSectionentriesOptional.SectionEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				procedureEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry", ((CloneConstraint) cloneConstraint).getClassName());
 				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
-			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.SectionEntry") && delta.getRelationshipName().equals("Entry_7")) {
-				assertEquals(0, delta.getConstraints().size());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				procedureEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("procedure")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				procedureEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityProcedure.Procedure", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				observationEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				observationEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("observation")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				observationEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityObservation.Observation", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityActEntry") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				actEntryCloneConstraintFound = true;
+				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityActEntry", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityActEntry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				actEntryRemoveChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityActEntry") && delta.getRelationshipName().equals("act")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				actEntryAssociationConstraintFound = true;
+				assertEquals("ProcedureActivityAct.Act", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
 			}
 		}
+
+		assertTrue(sectionAssociationConstraintFound);
+		assertTrue(choiceBlockCreateConstraintFound);
+		assertTrue(procedureEntryCloneConstraintFound);
+		assertTrue(procedureEntryRemoveChoiceConstraintFound);
+		assertTrue(procedureEntryAssociationConstraintFound);
+		assertTrue(observationEntryCloneConstraintFound);
+		assertTrue(observationEntryRemoveChoiceConstraintFound);
+		assertTrue(observationEntryAssociationConstraintFound);
+		assertTrue(actEntryCloneConstraintFound);
+		assertTrue(actEntryRemoveChoiceConstraintFound);
+		assertTrue(actEntryAssociationConstraintFound);
 		
 		assertEquals(3, template.getTemplateReferences().size());
-		assertEquals("ProceduresSectionentriesOptional.Entry.procedure", template.getTemplateReferences().get(0).getContext());
+		assertEquals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry.procedure", template.getTemplateReferences().get(0).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.14", template.getTemplateReferences().get(0).getOid());
-		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(0).getMaxInstances());
-		assertEquals("ProceduresSectionentriesOptional.Entry.observation", template.getTemplateReferences().get(1).getContext());
+		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+		assertEquals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry.observation", template.getTemplateReferences().get(1).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.13", template.getTemplateReferences().get(1).getOid());
-		assertEquals(1, template.getTemplateReferences().get(1).getMaxInstances());
-		assertEquals("ProceduresSectionentriesOptional.Entry.act", template.getTemplateReferences().get(2).getContext());
+		assertEquals(1, template.getTemplateReferences().get(1).getCardinality().getMax().intValue());
+		assertEquals("ProceduresSectionentriesOptional.ProcedureActivityActEntry.act", template.getTemplateReferences().get(2).getContext());
 		assertEquals("2.16.840.1.113883.10.20.22.4.12", template.getTemplateReferences().get(2).getOid());
-		assertEquals(1, template.getTemplateReferences().get(2).getMaxInstances());
+		assertEquals(1, template.getTemplateReferences().get(2).getCardinality().getMax().intValue());
 	}
 	
 	@Test
@@ -704,13 +921,6 @@ public class CdaTemplateProcessorTest {
 		assertTrue(foundStructuralAttributeCase);
 		assertTrue(foundNonstructuralAttributeCase);
 		assertTrue(foundAssociationCase);
-		
-		Template openTemplate = templateSet.getByOid("2.16.840.1.113883.10.20.15.3.8");
-		for (Delta delta : openTemplate.getDeltas()) {
-			if (DeltaChangeType.REMOVE.equals(delta.getDeltaChangeType())) {
-				fail("Unexpected remove delta for " + delta.getClassName() + " " + delta.getRelationshipName());
-			}
-		}
 	}
 	
 	@Test
@@ -1179,4 +1389,535 @@ public class CdaTemplateProcessorTest {
 		assertTrue(healthCareFacilityDeltaFound);
 		assertTrue(idConstraintFound);
 	}
+	
+	@Test
+	public void shouldHandleChildrenOfDeepConstraints() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.1.10");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean assignedAuthorConstraintFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("UnstructuredDocument.AssignedAuthor") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("UnstructuredDocument.AssignedAuthor") && delta.getRelationshipName().equals("addr")) {
+				assignedAuthorConstraintFound = true;
+				
+				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(cardinalityConstraint);
+				assertEquals(1, ((CardinalityConstraint) cardinalityConstraint).getNewMinValue().intValue());
+				assertEquals(1, ((CardinalityConstraint) cardinalityConstraint).getNewMaxValue().intValue());
+			}
+		}
+		assertTrue(assignedAuthorConstraintFound);
+	}
+	
+	@Test
+	public void shouldParseLocalChoices() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.70");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean rootDeltaFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("PressureUlcerObservation.Observation") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("PressureUlcerObservation.Observation") && delta.getRelationshipName().equals("code")) {
+				rootDeltaFound = true;
+				
+				Constraint fixedConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
+				assertNotNull(fixedConstraint);
+				assertEquals("ASSERTION", ((FixedConstraint) fixedConstraint).getNewValue());
+			}
+		}
+		assertTrue(rootDeltaFound);
+	}
+	
+	
+	@Test
+	public void shouldParseDivergentLists() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.61");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean cardinalityConstraintFound = false;
+		boolean choiceBlockFound = false;
+		boolean payerPerformerFound = false;
+		boolean payerPerformerTimeRemoved = false;
+		boolean guarantorPerformerFound = false;
+		boolean payerEntityFound = false;
+		boolean payerEntityPersonRemoved = false;
+		boolean guarantorEntityFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("PolicyActivity.Act") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("PolicyActivity.Act") && delta.getRelationshipName().equals("performer")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(constraint);
+				
+				cardinalityConstraintFound = true;
+				
+				assertEquals(1, ((CardinalityConstraint)constraint).getNewMinValue().intValue());
+				assertEquals(2, ((CardinalityConstraint)constraint).getNewMaxValue().intValue());
+			}
+			
+			if (delta.getClassName().equals("PolicyActivity.Performer2Choice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				List<Constraint> constraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(2, constraints.size());
+				assertEquals("PolicyActivity.PayerPerformerPerformer2", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
+				assertEquals("PolicyActivity.GuarantorPerformerPerformer2", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
+				choiceBlockFound = true;
+			}
+			
+			if (delta.getClassName().equals("PolicyActivity.PayerPerformerPerformer2") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerPerformer2") && delta.getRelationshipName().equals("time")) {
+				assertNotNull(delta.getConstraint(ConstraintChangeType.REMOVE));
+				payerPerformerTimeRemoved = true;
+			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerPerformer2") && delta.getRelationshipName().equals("assignedEntity")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				assertEquals("PolicyActivity.PayerPerformerAssignedEntity", ((AssociationTypeConstraint)constraint).getNewValue());
+				payerPerformerFound = true;
+			}
+			
+			if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerPerformer2") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerPerformer2") && delta.getRelationshipName().equals("assignedEntity")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				assertEquals("PolicyActivity.GuarantorPerformerAssignedEntity", ((AssociationTypeConstraint)constraint).getNewValue());
+				guarantorPerformerFound = true;
+			}
+			
+			if (delta.getClassName().equals("PolicyActivity.PayerPerformerAssignedEntity") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerAssignedEntity") && delta.getRelationshipName().equals("assignedPerson")) {
+				assertNotNull(delta.getConstraint(ConstraintChangeType.REMOVE));
+				payerEntityPersonRemoved = true;
+			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerAssignedEntity") && delta.getRelationshipName().equals("code")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
+				assertNotNull(constraint);
+				assertEquals(DomainSource.VALUE_SET, ((VocabularyBindingConstraint)constraint).getNewDomainSource());
+				assertEquals("HL7FinanciallyResponsiblePartyType", ((VocabularyBindingConstraint)constraint).getNewDomainType());
+				
+				assertNull(delta.getConstraint(ConstraintChangeType.CHANGE_FIXED));
+				payerEntityFound = true;
+			}
+			
+			if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerAssignedEntity") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerAssignedEntity") && delta.getRelationshipName().equals("code")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
+				assertNotNull(constraint);
+				assertEquals("GUAR", ((FixedConstraint)constraint).getNewValue());
+				
+				assertNull(delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING));
+				guarantorEntityFound = true;
+			}
+		}
+		assertTrue(cardinalityConstraintFound);
+		assertTrue(choiceBlockFound);
+		assertTrue(payerPerformerFound);
+		assertTrue(payerPerformerTimeRemoved);
+		assertTrue(guarantorPerformerFound);
+		assertTrue(payerEntityFound);
+		assertTrue(payerEntityPersonRemoved);
+		assertTrue(guarantorEntityFound);
+	}
+
+	
+	@Test
+	public void shouldParseDivergentListsWithoutTemplateIds() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.70");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean cardinalityConstraintFound = false;
+		boolean choiceBlockFound = false;
+		boolean lengthRelationshipFound = false;
+		boolean widthRelationshipFound = false;
+		boolean depthRelationshipFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("PressureUlcerObservation.Observation") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("PressureUlcerObservation.Observation") && delta.getRelationshipName().equals("entryRelationship")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(constraint);
+				
+				cardinalityConstraintFound = true;
+				
+				assertEquals(0, ((CardinalityConstraint)constraint).getNewMinValue().intValue());
+				assertEquals(3, ((CardinalityConstraint)constraint).getNewMaxValue().intValue());
+			}
+			
+			if (delta.getClassName().equals("PressureUlcerObservation.EntryRelationshipChoice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				List<Constraint> constraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(3, constraints.size());
+				assertEquals("PressureUlcerObservation.LengthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
+				assertEquals("PressureUlcerObservation.WidthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
+				assertEquals("PressureUlcerObservation.DepthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
+				choiceBlockFound = true;
+			}
+			
+			if (delta.getClassName().equals("PressureUlcerObservation.LengthofWoundEntryRelationship") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PressureUlcerObservation.LengthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				assertEquals("PressureUlcerObservation.LengthofWoundEntryRelationshipObservation", ((AssociationTypeConstraint)constraint).getNewValue());
+				lengthRelationshipFound = true;
+			}
+			
+			if (delta.getClassName().equals("PressureUlcerObservation.WidthofWoundEntryRelationship") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PressureUlcerObservation.WidthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				assertEquals("PressureUlcerObservation.WidthofWoundEntryRelationshipObservation", ((AssociationTypeConstraint)constraint).getNewValue());
+				widthRelationshipFound = true;
+			}
+			
+			if (delta.getClassName().equals("PressureUlcerObservation.DepthofWoundEntryRelationship") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("PressureUlcerObservation.DepthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				assertEquals("PressureUlcerObservation.DepthofWoundEntryRelationshipObservation", ((AssociationTypeConstraint)constraint).getNewValue());
+				depthRelationshipFound = true;
+			}
+			
+		}
+		assertTrue (cardinalityConstraintFound);
+		assertTrue (choiceBlockFound);
+		assertTrue(lengthRelationshipFound);
+		assertTrue(widthRelationshipFound);
+		assertTrue(depthRelationshipFound);
+	}
+	
+	@Test
+	public void shouldParseDivergentListsTypeCodeDisambiguation() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.48");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean choiceBlockFound = false;
+		boolean verifierCloneFound = false;
+		boolean verifierRoleFound = false;
+		boolean custodianCloneFound = false;
+		boolean custodianRoleFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("AdvanceDirectiveObservation.Participant2Choice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				List<Constraint> constraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(2, constraints.size());
+				assertEquals("AdvanceDirectiveObservation.VerifierParticipant2", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
+				assertEquals("AdvanceDirectiveObservation.CustodianParticipant2", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
+				choiceBlockFound = true;
+			}
+			
+			if (delta.getClassName().equals("AdvanceDirectiveObservation.VerifierParticipant2") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				verifierCloneFound = true;
+				assertEquals("POCD_MT000040.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("AdvanceDirectiveObservation.VerifierParticipant2") && delta.getRelationshipName().equals("participantRole")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				verifierRoleFound = true;
+				assertEquals("AdvanceDirectiveObservation.VerifierParticipantRole", ((AssociationTypeConstraint)constraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("AdvanceDirectiveObservation.CustodianParticipant2") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(constraint);
+				custodianCloneFound = true;
+				assertEquals("POCD_MT000040.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("AdvanceDirectiveObservation.CustodianParticipant2") && delta.getRelationshipName().equals("participantRole")) {
+				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(constraint);
+				custodianRoleFound = true;
+				assertEquals("AdvanceDirectiveObservation.CustodianParticipantRole", ((AssociationTypeConstraint)constraint).getNewValue());
+			}
+		}
+		assertTrue(choiceBlockFound);
+		assertTrue(verifierCloneFound);
+		assertTrue(verifierRoleFound);
+		assertTrue(custodianCloneFound);
+		assertTrue(custodianRoleFound);
+	}
+	
+	@Test
+	public void shouldParseContextlessExternalReferenceConstraints() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.1.9");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean component2CloneFound = false;
+		boolean component2ChoiceAssociationConstraintFound = false;
+		boolean structuredBodyCloneFound = false;
+		boolean componentAssociationConstraintFound = false;
+		boolean choiceBlockCreateConstraintFound = false;
+		boolean objectiveSectionCloneConstraintFound = false;
+		boolean objectiveSectionAssociationConstraintFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("ProgressNote.Component2") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				component2CloneFound = true;
+			} else if (delta.getClassName().equals("ProgressNote.Component2") && delta.getRelationshipName().equals("component2Choice")) {
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				component2ChoiceAssociationConstraintFound = true;
+				assertEquals("POCD_MT000040.Component2Choice", ((AssociationTypeConstraint) associationTypeConstraint).getOriginalValue());
+				assertEquals("ProgressNote.Component2Choice", ((AssociationTypeConstraint) associationTypeConstraint).getNewValue());
+			}
+
+			if (delta.getClassName().equals("ProgressNote.StructuredBody") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				structuredBodyCloneFound = true;
+			} else if (delta.getClassName().equals("ProgressNote.StructuredBody") && delta.getRelationshipName().equals("component")) {
+				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(cardinalityConstraint);
+				assertEquals(1, ((CardinalityConstraint) cardinalityConstraint).getNewMinValue().intValue());
+				assertEquals(15, ((CardinalityConstraint) cardinalityConstraint).getNewMaxValue().intValue());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				componentAssociationConstraintFound = true;
+				assertEquals("ProgressNote.Component3Choice", ((AssociationTypeConstraint) associationTypeConstraint).getNewValue());
+			}
+			
+			if (delta.getClassName().equals("ProgressNote.Component3Choice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint addConstraint = delta.getConstraint(ConstraintChangeType.ADD);
+				assertNotNull(addConstraint);
+				choiceBlockCreateConstraintFound = true;
+				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
+				
+				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(15, addChoiceConstraints.size());
+				assertEquals("ProgressNote.ObjectiveSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("ProgressNote.MedicationsSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("ProgressNote.ChiefComplaintSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+				assertEquals("ProgressNote.AllergiesSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertEquals("ProgressNote.AssessmentAndPlanSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
+				assertEquals("ProgressNote.PlanOfCareSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
+				assertEquals("ProgressNote.AssessmentSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(6)).getChoiceClassName());
+				assertEquals("ProgressNote.InterventionsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(7)).getChoiceClassName());
+				assertEquals("ProgressNote.PhysicalExamSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(8)).getChoiceClassName());
+				assertEquals("ProgressNote.ResultsSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(9)).getChoiceClassName());
+				assertEquals("ProgressNote.VitalSignsSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(10)).getChoiceClassName());
+				assertEquals("ProgressNote.ProblemSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(11)).getChoiceClassName());
+				assertEquals("ProgressNote.ReviewOfSystemsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(12)).getChoiceClassName());
+				assertEquals("ProgressNote.SubjectiveSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(13)).getChoiceClassName());
+				assertEquals("ProgressNote.InstructionsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(14)).getChoiceClassName());
+			}
+
+			if (delta.getClassName().equals("ProgressNote.ObjectiveSectionComponent3") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				
+				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
+				assertNotNull(cloneConstraint);
+				objectiveSectionCloneConstraintFound = true;
+				assertEquals("ProgressNote.ObjectiveSectionComponent3", ((CloneConstraint) cloneConstraint).getClassName());
+				assertEquals("POCD_MT000040.Component3", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+			} else if (delta.getClassName().equals("ProgressNote.ObjectiveSectionComponent3") && delta.getRelationshipName().equals("section")) {
+				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				objectiveSectionAssociationConstraintFound = true;
+				assertEquals("ObjectiveSection.Section", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+		}
+		assertTrue(component2CloneFound);
+		assertTrue(component2ChoiceAssociationConstraintFound);
+		assertTrue(structuredBodyCloneFound);
+		assertTrue(componentAssociationConstraintFound);
+		assertTrue(choiceBlockCreateConstraintFound);
+		assertTrue(objectiveSectionCloneConstraintFound);
+		assertTrue(objectiveSectionAssociationConstraintFound);
+
+		assertEquals(15, template.getTemplateReferences().size());
+		assertEquals("ProgressNote.ObjectiveSectionComponent3.section", template.getTemplateReferences().get(0).getContext());
+		assertEquals("2.16.840.1.113883.10.20.21.2.1", template.getTemplateReferences().get(0).getOid());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+		assertEquals("ProgressNote.MedicationsSectionentriesOptionalComponent3.section", template.getTemplateReferences().get(1).getContext());
+		assertEquals("2.16.840.1.113883.10.20.22.2.1", template.getTemplateReferences().get(1).getOid());
+		assertEquals(1, template.getTemplateReferences().get(1).getCardinality().getMax().intValue());
+		assertEquals("ProgressNote.ChiefComplaintSectionComponent3.section", template.getTemplateReferences().get(2).getContext());
+		assertEquals("1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1", template.getTemplateReferences().get(2).getOid());
+		assertEquals(1, template.getTemplateReferences().get(2).getCardinality().getMax().intValue());
+	}
+	
+
+	@Test
+	public void shouldParseContextlessExternalReferenceConstraintsVariableCardinalities() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.1.3");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean structuredBodyCloneFound = false;
+		boolean componentAssociationConstraintFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("HistoryAndPhysical.StructuredBody") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				structuredBodyCloneFound = true;
+			} else if (delta.getClassName().equals("HistoryAndPhysical.StructuredBody") && delta.getRelationshipName().equals("component")) {
+				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(cardinalityConstraint);
+				componentAssociationConstraintFound = true;
+				assertEquals(10, ((CardinalityConstraint) cardinalityConstraint).getNewMinValue().intValue());
+				assertEquals(21, ((CardinalityConstraint) cardinalityConstraint).getNewMaxValue().intValue());
+			}
+		}
+		assertTrue(structuredBodyCloneFound);
+		assertTrue(componentAssociationConstraintFound);
+		
+		assertEquals(21, template.getTemplateReferences().size());
+		assertEquals("HistoryAndPhysical.AllergiesSectionentriesOptionalComponent3.section", template.getTemplateReferences().get(0).getContext());
+		assertEquals("2.16.840.1.113883.10.20.22.2.6", template.getTemplateReferences().get(0).getOid());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMin().intValue());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+		assertEquals("HistoryAndPhysical.AssessmentSectionComponent3.section", template.getTemplateReferences().get(1).getContext());
+		assertEquals("2.16.840.1.113883.10.20.22.2.8", template.getTemplateReferences().get(1).getOid());
+		assertEquals(0, template.getTemplateReferences().get(1).getCardinality().getMin().intValue());
+		assertEquals(1, template.getTemplateReferences().get(1).getCardinality().getMax().intValue());
+		assertEquals("HistoryAndPhysical.FamilyHistorySectionComponent3.section", template.getTemplateReferences().get(5).getContext());
+		assertEquals("2.16.840.1.113883.10.20.22.2.15", template.getTemplateReferences().get(5).getOid());
+		assertEquals(1, template.getTemplateReferences().get(5).getCardinality().getMin().intValue());
+		assertEquals(1, template.getTemplateReferences().get(5).getCardinality().getMax().intValue());
+	}
+	
+	@Test
+	public void shouldParseContextlessExternalReferenceConstraintsComplicationsSpecialCase() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.2.32");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean entryCloneFound = false;
+		boolean removeChoiceConstraintFound = false;
+		boolean addObservationDeltaFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("ComplicationsOpNote.Entry") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+				entryCloneFound = true;
+			} else if (delta.getClassName().equals("ComplicationsOpNote.Entry") && delta.getRelationshipName().equals("entryChoice")) {
+				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
+				Constraint removeConstraint = delta.getConstraint(ConstraintChangeType.REMOVE);
+				assertNotNull(removeConstraint);
+				removeChoiceConstraintFound = true;
+			} else if (delta.getClassName().equals("ComplicationsOpNote.Entry") && delta.getRelationshipName().equals("observation")) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				addObservationDeltaFound = true;
+
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				assertEquals("ProblemObservation.Observation", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+				
+				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
+				assertNotNull(cardinalityConstraint);
+				assertEquals(1, ((CardinalityConstraint)cardinalityConstraint).getNewMinValue().intValue());
+				assertEquals(1, ((CardinalityConstraint)cardinalityConstraint).getNewMaxValue().intValue());
+			}
+		}
+		assertTrue(entryCloneFound);
+		assertTrue(removeChoiceConstraintFound);
+		assertTrue(addObservationDeltaFound);
+		
+		assertEquals(1, template.getTemplateReferences().size());
+		assertEquals("ComplicationsOpNote.Entry.observation", template.getTemplateReferences().get(0).getContext());
+		assertEquals("2.16.840.1.113883.10.20.22.4.4", template.getTemplateReferences().get(0).getOid());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMin().intValue());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+	}
+	
+	
+	@Test
+	public void shouldParseContextlessExternalReferenceConstraintsDiagnosticImageCase() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.1.5");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean choiceBlockCreateConstraintFound = false;
+		boolean encounterParticipantConstraintFound = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("DiagnosticImagingReport.Component3Choice") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.ADD, delta.getDeltaChangeType());
+				
+				Constraint addConstraint = delta.getConstraint(ConstraintChangeType.ADD);
+				assertNotNull(addConstraint);
+				choiceBlockCreateConstraintFound = true;
+				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
+				
+				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertEquals(5, addChoiceConstraints.size());
+				assertEquals("DiagnosticImagingReport.ProcedureContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("DiagnosticImagingReport.FetusSubjectContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("DiagnosticImagingReport.ObserverContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+				assertEquals("DiagnosticImagingReport.FindingsSectionDIRComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertEquals("DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
+			}
+
+			if (delta.getClassName().equals("DiagnosticImagingReport.EncompassingEncounter") && delta.getRelationshipName() == null) {
+				assertEquals(DeltaChangeType.CLONE, delta.getDeltaChangeType());
+			} else if (delta.getClassName().equals("DiagnosticImagingReport.EncompassingEncounter") && delta.getRelationshipName().equals("encounterParticipant")) {
+				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
+				
+				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
+				assertNotNull(associationTypeConstraint);
+				encounterParticipantConstraintFound = true;
+				assertEquals("PhysicianOfRecordParticipant.EncounterParticipant", ((AssociationTypeConstraint)associationTypeConstraint).getNewValue());
+			}
+		}
+		assertTrue(choiceBlockCreateConstraintFound);
+		assertTrue(encounterParticipantConstraintFound);
+
+		assertEquals(6, template.getTemplateReferences().size());
+		assertEquals("DiagnosticImagingReport.EncompassingEncounter.encounterParticipant", template.getTemplateReferences().get(0).getContext());
+		assertEquals("2.16.840.1.113883.10.20.6.2.2", template.getTemplateReferences().get(0).getOid());
+		assertEquals(1, template.getTemplateReferences().get(0).getCardinality().getMax().intValue());
+		assertEquals("DiagnosticImagingReport.ProcedureContextComponent3.section", template.getTemplateReferences().get(1).getContext());
+		assertEquals("2.16.840.1.113883.10.20.6.2.5", template.getTemplateReferences().get(1).getOid());
+		assertEquals(Integer.MAX_VALUE, template.getTemplateReferences().get(1).getCardinality().getMax().intValue());
+	}
+	
 }

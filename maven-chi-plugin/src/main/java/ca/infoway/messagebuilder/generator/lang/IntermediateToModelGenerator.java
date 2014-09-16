@@ -60,7 +60,7 @@ import ca.intelliware.commons.dependency.Node;
 
 public abstract class IntermediateToModelGenerator {
 	
-	private TypeConverter converter = new TypeConverter();
+	private TypeConverter converter;
 	protected final OutputUI outputUI;
 	protected final File sourceFolder;
 	protected final String basePackageName;
@@ -73,24 +73,21 @@ public abstract class IntermediateToModelGenerator {
 
 	protected abstract ProgrammingLanguage getProgrammingLanguage();
 
-	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
-		this(outputUI, sourceFolder, basePackageName, null);
+	public IntermediateToModelGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
+		this(outputUI, configuration.getSourceFolder(), configuration.getBasePackageName(), configuration.getReportDirectory(), configuration.getNamingPolicy(), configuration.isR2());
 	}
-	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
+	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2) {
+		this(outputUI, sourceFolder, basePackageName, null, null, isR2);
+	}
+	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir, NamingPolicy namingPolicy, boolean isR2) {
 		this.outputUI = outputUI;
 		this.sourceFolder = sourceFolder;
 		this.basePackageName = basePackageName;
 		this.reportDir = reportDir;
+		this.namingPolicy = namingPolicy;
+		this.converter = new TypeConverter(isR2);
 	}
 	
-	public IntermediateToModelGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
-		this.outputUI = outputUI;
-		this.sourceFolder = configuration.getSourceFolder();
-		this.basePackageName = configuration.getBasePackageName();
-		this.reportDir = configuration.getReportDirectory();
-		this.namingPolicy = configuration.getNamingPolicy();
-	}
-
 	public TypeAnalysisResult generate(MessageSet messageSet) throws IOException, GeneratorException {
 		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 		
@@ -105,7 +102,7 @@ public abstract class IntermediateToModelGenerator {
 		
 		excise(messageSet, definitions);
 		
-		TypeAnalysisResult result = createResultFromDefinitions(definitions);
+		TypeAnalysisResult result = createResultFromDefinitions(definitions, messageSet.isGeneratedAsR2());
 		completeProcessing(result, messageSet, definitions);
 		return result;
 	}
@@ -200,12 +197,12 @@ public abstract class IntermediateToModelGenerator {
 		}
 	}
 
-	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions) {
-		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy());
+	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions, boolean isR2) {
+		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy(), isR2);
 	}
 	
-	private TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
-		return getDefinitionToResultConverter(definitions).convert();
+	private TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions, boolean isR2) throws GeneratorException {
+		return getDefinitionToResultConverter(definitions, isR2).convert();
 	}
 	
 	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {

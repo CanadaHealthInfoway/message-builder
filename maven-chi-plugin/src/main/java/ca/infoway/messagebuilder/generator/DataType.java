@@ -27,9 +27,9 @@ import java.util.Set;
 
 import org.apache.commons.lang.ClassUtils;
 
-import ca.infoway.messagebuilder.datatype.Hl7TypeName;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
 public class DataType {
 
@@ -37,15 +37,23 @@ public class DataType {
 	private final DataType[] parameters;
 	private final DataTypeGenerationDetails type;
 	
-	private final ParameterAppenderRegistry parameterAppenderRegistry = ParameterAppenderRegistry.getInstance(); 
+	private final ParameterAppenderRegistry parameterAppenderRegistry;
+	private final boolean isR2; 
 
-	DataType(DataTypeGenerationDetails type, String qualifier, DataType... parameters) {
+	DataType(DataTypeGenerationDetails type, String qualifier, boolean isR2, DataType... parameters) {
 		this.qualifier = qualifier;
+		this.isR2 = isR2;
 		this.parameters = parameters;
 		this.type = type;
+		this.parameterAppenderRegistry = new ParameterAppenderRegistryFactory().create(isR2);
 	}
-	DataType(DataTypeGenerationDetails type, String typeName, List<DataType> parameters) {
-		this(type, typeName, parameters == null ? new DataType[0] : parameters.toArray(new DataType[parameters.size()]));
+	
+	public boolean isR2() {
+		return isR2;
+	}
+
+	DataType(DataTypeGenerationDetails type, String typeName, boolean isR2, List<DataType> parameters) {
+		this(type, typeName, isR2, parameters == null ? new DataType[0] : parameters.toArray(new DataType[parameters.size()]));
 	}
 	
 	public String getShortName(ProgrammingLanguage language) {
@@ -59,7 +67,7 @@ public class DataType {
 		appendParameters(builder, language);
 	}
 
-	private void appendParameters(StringBuilder builder, ProgrammingLanguage language) {
+	public void appendParameters(StringBuilder builder, ProgrammingLanguage language) {
 		getWrappedParameterAppender().append(builder, this, Arrays.asList(this.parameters), language);
 	}
 	
@@ -215,7 +223,7 @@ public class DataType {
 		return implementationPackageName + "." + getUnparameterizedShortImplementationType(null);
 	}
 	/**
-	 * <p>Returns the type used for a field definition initialier.  Examples might
+	 * <p>Returns the type used for a field definition initializer.  Examples might
 	 * include "STImpl", "LISTImpl" or ANYImpl".
 	 * 
 	 * @param builder
@@ -252,7 +260,7 @@ public class DataType {
 	public String toString() {
 		return getShortWrappedName() + "/" + getShortName(ProgrammingLanguage.JAVA);
 	}
-	DataTypeGenerationDetails getType() {
+	public DataTypeGenerationDetails getType() {
 		return this.type;
 	}
 	public boolean isCodedType() {

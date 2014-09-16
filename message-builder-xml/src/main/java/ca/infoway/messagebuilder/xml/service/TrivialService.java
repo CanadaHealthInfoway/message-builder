@@ -78,4 +78,8 @@ class TrivialService implements MessageDefinitionService {
 		return null;
 	}
 
+	public boolean isR2(VersionNumber version) {
+		return false;
+	}
+
 }

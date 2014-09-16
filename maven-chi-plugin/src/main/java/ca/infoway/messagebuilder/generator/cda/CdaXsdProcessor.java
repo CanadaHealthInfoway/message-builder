@@ -42,8 +42,11 @@ public class CdaXsdProcessor {
 
 	public void processSchema(Schema schema, MessageSet messageSet) {
 		
+		messageSet.setGeneratedAsR2(true);	// temporary - eventually, this should be specified as a parameter.
+		
 		messageSet.setSchemaMetadata(parseMetadata(schema));
 
+		// first, parse all the constrained datatypes
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			ComplexContent complexContent = complexType.getComplexContent();
 			if (complexContent != null) {
@@ -64,63 +67,66 @@ public class CdaXsdProcessor {
 			}
 		}
 		
+		// then parse all the rest, excluding the constrained datatypes
 		for (ComplexType complexType : schema.getComplexTypes()) {
-			String name = complexType.getName();
-			
-			TypeName typeName = new TypeName(name);
-			String packageName = typeName.getRootName().getName();
-			if (!messageSet.getPackageLocations().containsKey(packageName)) {
-				messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
-			}
-			
-			MessagePart messagePart = new MessagePart(complexType.getName());
-			
-			List<Relationship> attributeRelationships = parseAttributes(complexType.getAttributes());
-			
-			int sortOrder = 1;
-			for (Relationship attributeRelationship : attributeRelationships) {
-				attributeRelationship.setSortOrder(sortOrder++);
+			if (complexType.getComplexContent() == null) {
+				String name = complexType.getName();
 				
-				messagePart.getRelationships().add(attributeRelationship);
-			}
-			
-			Sequence sequence = complexType.getSequence();
-			if (sequence != null) {
-				for (SequenceChild child : sequence.getChildren()) {
-					if (child instanceof XsElement) {
-						XsElement element = (XsElement) child;
-						Relationship relationship = parseElement(element, messageSet);
-						relationship.setSortOrder(sortOrder++);
-						messagePart.getRelationships().add(relationship);
-					} else if (child instanceof Choice) {
-						Choice choice = (Choice) child;
-						Relationship relationship = new Relationship();
-						String choiceName = typeName.getUnqualifiedName() + "_" + sortOrder;
-						String choiceClassName = typeName.getParent().getName() + "." + choiceName;
-						relationship.setName(choiceName);
-						relationship.setType(choiceClassName);
-						relationship.setSortOrder(sortOrder++);
-						int min = minimumOfMinimums(choice.getElements());
-						int max = maximumOfMaximums(choice.getElements());
-						Cardinality cardinality = new Cardinality(min, max);
-						relationship.setCardinality(cardinality);
-						relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.MANDATORY : ConformanceLevel.OPTIONAL);
-						
-						MessagePart choicePart = new MessagePart(choiceClassName);
-						choicePart.setAbstract(true);
-						
-						for (XsElement choiceElement : choice.getElements()) {
-							relationship.getChoices().add(parseElement(choiceElement, messageSet));
-							choicePart.addSpecializationChild(new SpecializationChild(choiceElement.getType()));
+				TypeName typeName = new TypeName(name);
+				String packageName = typeName.getRootName().getName();
+				if (!messageSet.getPackageLocations().containsKey(packageName)) {
+					messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
+				}
+				
+				MessagePart messagePart = new MessagePart(complexType.getName());
+				
+				List<Relationship> attributeRelationships = parseAttributes(complexType.getAttributes());
+				
+				int sortOrder = 1;
+				for (Relationship attributeRelationship : attributeRelationships) {
+					attributeRelationship.setSortOrder(sortOrder++);
+					
+					messagePart.getRelationships().add(attributeRelationship);
+				}
+				
+				Sequence sequence = complexType.getSequence();
+				if (sequence != null) {
+					for (SequenceChild child : sequence.getChildren()) {
+						if (child instanceof XsElement) {
+							XsElement element = (XsElement) child;
+							Relationship relationship = parseElement(element, messageSet);
+							relationship.setSortOrder(sortOrder++);
+							messagePart.getRelationships().add(relationship);
+						} else if (child instanceof Choice) {
+							Choice choice = (Choice) child;
+							Relationship relationship = new Relationship();
+							String choiceName = typeName.getUnqualifiedName() + "Choice";
+							String choiceClassName = typeName.getParent().getName() + "." + choiceName;
+							relationship.setName(StringUtils.uncapitalize(choiceName));
+							relationship.setType(choiceClassName);
+							relationship.setSortOrder(sortOrder++);
+							int min = minimumOfMinimums(choice.getElements());
+							int max = maximumOfMaximums(choice.getElements());
+							Cardinality cardinality = new Cardinality(min, max);
+							relationship.setCardinality(cardinality);
+							relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.MANDATORY : ConformanceLevel.OPTIONAL);
+							
+							MessagePart choicePart = new MessagePart(choiceClassName);
+							choicePart.setAbstract(true);
+							
+							for (XsElement choiceElement : choice.getElements()) {
+								relationship.getChoices().add(parseElement(choiceElement, messageSet));
+								choicePart.addSpecializationChild(new SpecializationChild(choiceElement.getType()));
+							}
+							messagePart.getRelationships().add(relationship);
+							
+							messageSet.addMessagePart(choicePart);
 						}
-						messagePart.getRelationships().add(relationship);
-						
-						messageSet.addMessagePart(choicePart);
 					}
 				}
+				
+				messageSet.addMessagePart(messagePart);
 			}
-			
-			messageSet.addMessagePart(messagePart);
 		}
 	}
 
@@ -165,14 +171,30 @@ public class CdaXsdProcessor {
 	private List<Relationship> parseAttributes(List<XsAttribute> attributes) {
 		List<Relationship> attributeRelationships = new ArrayList<Relationship>();
 		for (XsAttribute attribute : attributes) {
+			if (StringUtils.equals("nullFlavor", attribute.getName())) {
+				// exception - the nullFlavor attribute is special, and should not be parsed
+				//  we already have a built-in null flavor mechanism in the legacy code to handle message models derived from MIFs
+				//  parsing this attribute when it occurs in the XSD causes a conflict
+				continue;
+			}
+				
 			Cardinality cardinality = new Cardinality(
 					isAttributeRequired(attribute) ? 1 : 0, 
 					1);
 			String typeName = attribute.getType();
+			
 			StandardDataType standardType = StandardDataType.getByTypeNameIgnoreCase(typeName);
 			boolean isStandardType = standardType != null;
+			boolean namespaceType = typeName.contains(":");
 			String dataType;
-			if (isStandardType) {
+			if (namespaceType) {
+				// special handling for the particular cases we've seen so far
+				if (typeName.contains("boolean")) {
+					dataType = "BL";
+				} else { 
+					dataType = "ST";
+				}
+			} else if (isStandardType) {
 				dataType = standardType.getType();
 			} else if (isAllLowerCase(typeName)) {
 				// an all lower case name is unlikely to be a code system name
@@ -183,7 +205,9 @@ public class CdaXsdProcessor {
 			
 			Relationship relationship = new Relationship(attribute.getName(), dataType, cardinality);
 			relationship.setStructural(true);
-			if (!isStandardType) {
+			if (namespaceType) {
+				relationship.setConstrainedType(typeName);
+			} else if (!isStandardType) {
 				relationship.setDomainSource(DomainSource.VALUE_SET);
 				relationship.setDomainType(typeName);
 			}

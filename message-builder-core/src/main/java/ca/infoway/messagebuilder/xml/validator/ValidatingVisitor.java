@@ -215,6 +215,7 @@ public class ValidatingVisitor implements MessageVisitor {
 					String valueAsString = ((INT) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType() && value instanceof CD) {
+					// FIXME - CDA - TM - the above "if" check will fail on the instanceof check for CDA coded types; the rest of this code block needs refactoring as well
 					// removed/inlined reference to Code so that .NET does not confuse it with the xml version
 					valid = (((CD) value).getValue().getCodeValue() != null && 
 								StringUtils.equals(relationship.getFixedValue(), ((CD) value).getValue().getCodeValue()));

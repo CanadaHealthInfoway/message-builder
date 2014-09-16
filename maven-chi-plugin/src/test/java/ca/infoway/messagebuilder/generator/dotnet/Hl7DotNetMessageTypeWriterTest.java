@@ -64,8 +64,8 @@ public class Hl7DotNetMessageTypeWriterTest {
 		this.type = new Type(this.typeName);
 		this.type.setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Fred", "BatteryRequest"));
 		final String associationTypeName = "ABCD_MT123456CA.Component3";
-		this.type.getRelationships().add(new Attribute(new Relationship("id", "II.BUS", Cardinality.create("1")), new TypeConverter().convertToType("II.BUS", null)));
-		this.type.getRelationships().add(new Attribute(new Relationship("details", "ANY", Cardinality.create("1")), new TypeConverter().convertToType("ANY", null)));
+		this.type.getRelationships().add(new Attribute(new Relationship("id", "II.BUS", Cardinality.create("1")), new TypeConverter(false).convertToType("II.BUS", null)));
+		this.type.getRelationships().add(new Attribute(new Relationship("details", "ANY", Cardinality.create("1")), new TypeConverter(false).convertToType("ANY", null)));
 		final Association association = Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName)));
 		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Fred", "Component3"));
 		this.type.getRelationships().add(association);

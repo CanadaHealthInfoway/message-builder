@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
-	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
-		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, null, null));
+	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2) {
+		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, null, null, isR2));
 	}
-	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
-		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null));
+	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir, boolean isR2) {
+		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null, isR2));
 	}
 	public IntermediateToJavaGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
 		super(outputUI, configuration);

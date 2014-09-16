@@ -84,7 +84,7 @@ class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSu
 		String type = this.exemplar.getRelationship().getType();
 		type = "COLLECTION<" + StringUtils.substringAfter(type, "<");
 		String domainType = this.exemplar.getDomainType();
-		return new TypeConverter().convertToType(type, domainType);
+		return new TypeConverter(false).convertToType(type, domainType);  // should be ok to fix as non-R2 (even if it is R2) 
 	}
 
 	public void markMapByPartTypeRequired() {

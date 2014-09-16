@@ -57,6 +57,13 @@ public class CodedTypeR2<T extends Code> {
     private Interval<Date> validTime; // HXIT_CE only
     private Integer qty; // BXIT_CD only
 
+    public CodedTypeR2() {
+    	this(null);
+	}
+    
+    public CodedTypeR2(T code) {
+    	this.code = code;
+	}
     
 	public T getCode() {
 		return code;

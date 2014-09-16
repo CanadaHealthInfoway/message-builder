@@ -27,6 +27,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.xml.Hl7TypeName;
+
 /**
  * @sharpen.ignore - datatype - translated manually
  */
@@ -57,15 +59,6 @@ public class StandardDataTypeTest {
 	public void shouldResolveSimpleXmlType() throws Exception {
 		assertEquals("II", StandardDataType.II, convertSimpleXmlToDataType("InstanceIdentifier"));
 		assertEquals("TS.DATE", StandardDataType.TS_DATE, convertSimpleXmlToDataType("PartialDate"));
-	}
-	
-	@Test
-	public void shouldCalculateIsCodedListOrSet() throws Exception {
-		assertTrue("LIST<CD>", StandardDataType.isCodedListOrSet("LIST<CD>"));
-		assertTrue("SET<CD>", StandardDataType.isCodedListOrSet("SET<CD>"));
-		assertTrue("LIST<CV>", StandardDataType.isCodedListOrSet("LIST<CV>"));
-		assertFalse("SET<ST>", StandardDataType.isCodedListOrSet("SET<ST>"));
-		assertFalse("IVL<PQ>", StandardDataType.isCodedListOrSet("IVL<PQ>"));
 	}
 	
 }

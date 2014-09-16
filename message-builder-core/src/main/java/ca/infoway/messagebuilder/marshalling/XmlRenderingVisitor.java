@@ -51,9 +51,11 @@ import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapte
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registry;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -150,6 +152,17 @@ class XmlRenderingVisitor implements Visitor {
 	private final DataTypeValueAdapterProvider adapterProvider = new DataTypeValueAdapterProvider();
 	private final ModelToXmlResult result = new ModelToXmlResult();
 	private final XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
+	private final Registry<PropertyFormatter> formatterRegistry;
+	private final boolean isR2;
+	
+	public XmlRenderingVisitor() {
+		this(false);
+	}
+	
+	public XmlRenderingVisitor(boolean isR2) {
+		this.isR2 = isR2;
+		this.formatterRegistry = (isR2 ? FormatterR2Registry.getInstance() : FormatterRegistry.getInstance());
+	}
 	
 	private Buffer currentBuffer() {
 		return this.buffers.peek();
@@ -355,7 +368,9 @@ class XmlRenderingVisitor implements Visitor {
 
 	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		String type = relationship.getType();
-		PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
+		
+		PropertyFormatter formatter = this.formatterRegistry.get(type);
+		
 		if (formatter == null) {
 			throw new RenderingException("Cannot support properties of type " + type);
 		} else {
@@ -366,7 +381,7 @@ class XmlRenderingVisitor implements Visitor {
 				
 				if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
 					any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
-					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version));
+					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version, this.isR2));
 				} else {
 					any = tealBean.getHl7Value();
 					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);

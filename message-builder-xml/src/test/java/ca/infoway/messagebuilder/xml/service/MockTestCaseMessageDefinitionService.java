@@ -55,4 +55,5 @@ public class MockTestCaseMessageDefinitionService extends BaseMessageDefinitionS
 	public List<MessagePart> getUnusedMessageParts(VersionNumber version, String messagePartName) {
 		return null;
 	}
+
 }

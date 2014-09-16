@@ -214,6 +214,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 
 	/**
+	 * <p>Checks if has a domain types.  Only attributes can have domain types.
+	 * @return - whether this relationship has a domain type
+	 */
+	public boolean hasDomainType() {
+		return StringUtils.isNotBlank(this.domainType);
+	}
+
+	/**
 	 * <p>Get the conformance level.
 	 * @return the conformance level.
 	 */
@@ -345,7 +353,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	public boolean isAttribute() {
 		if (hasFixedValue()) {
 			return true;
-		} else if (isCodedType()) {
+		} else if (hasDomainType()) {
 			return true;
 		} else if (isStructural()) {
 			return true;
@@ -370,7 +378,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @return true if the relationship is a coded type; false otherwise.
 	 */
 	public boolean isCodedType() {
-		return StringUtils.isNotBlank(this.domainType) && !"ST".equals(this.type);	// JR: Sometimes, strings get bound to data types in the MIF. We generally want to ignore this.
+		// this check was originally based solely on whether the Relationship had a domainType
+		return CodedTypeEvaluator.isCodedType(this.type);
 	}
 
 	/**

@@ -26,6 +26,7 @@ import java.util.Set;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -33,6 +34,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Attribute extends BaseRelationship {
 
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = -6995768063449967900L;
 	
 	private final DataType dataType;
@@ -78,11 +80,20 @@ public class Attribute extends BaseRelationship {
 				DataType parameter = getDataType().getParameters()[0];
 				if (parameter.isCodedType()) {
 					result.add(Code.class.getName());
+					if (parameter.isR2()) {
+						result.add(CodedTypeR2.class.getName());
+					}
 				}
 			}
 		}
 		if (getDataType() != null) {
 			result.addAll(getDataType().getImportTypes());
+		}
+
+		if (getDataType().isCodedType()) {
+			if (getDataType().isR2()) {
+				result.add(CodedTypeR2.class.getName());
+			}
 		}
 		
 		if (!getDataType().isWrappedTypeListOrSet() && isCardinalityMultiple()) {

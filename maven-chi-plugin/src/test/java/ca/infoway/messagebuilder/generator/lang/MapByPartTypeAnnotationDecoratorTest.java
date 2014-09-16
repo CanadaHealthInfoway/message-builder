@@ -129,7 +129,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		
 		Association highestAssociation = Association.createStandardAssociation(relationship1, new Type(new TypeName(relationship1.getType())));
 		Association middleAssociation = Association.createStandardAssociation(relationship2, new Type(new TypeName(relationship2.getType())));
-		Attribute lowestAttribute = new Attribute(relationship3, new TypeConverter().convertToType(relationship3));
+		Attribute lowestAttribute = new Attribute(relationship3, new TypeConverter(false).convertToType(relationship3));
 		
 		Association inlinedAssociation = new InlinedAssociation(middleAssociation, highestAssociation);
 		BaseRelationship inlinedAttribute = new InlinedAttribute(lowestAttribute, inlinedAssociation);

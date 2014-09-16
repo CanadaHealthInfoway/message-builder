@@ -74,7 +74,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setType(hl7Type);
 		relationship.setDomainType(domainType);
 		relationship.setFixedValue(fixedValue);
-		DataType dataType = new TypeConverter().convertToType(relationship);
+		DataType dataType = new TypeConverter(false).convertToType(relationship);
 		if (cardinality != null) {
 			relationship.setCardinality(cardinality);
 		} else if (dataType.isTypeCollection()) {
@@ -170,7 +170,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setType(hl7Type);
 //		relationship.setDomainType(domainType);
 //		relationship.setFixedValue(fixedValue);
-		DataType dataType = new TypeConverter().convertToType(relationship);
+		DataType dataType = new TypeConverter(false).convertToType(relationship);
 		if (cardinality != null) {
 			relationship.setCardinality(cardinality);
 		} else if (dataType.isTypeCollection()) {

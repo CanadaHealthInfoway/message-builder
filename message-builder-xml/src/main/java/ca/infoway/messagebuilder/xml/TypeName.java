@@ -36,13 +36,19 @@ public class TypeName {
 
 	public static final String PART_SEPARATOR = ".";
 	private final String name;
+	private final Boolean isInteraction;
 
 	/**
 	 * <p>Standard constructor.
 	 * @param name - the name of the type
 	 */
 	public TypeName(String name) {
+		this(name, null);
+	}
+
+	public TypeName(String name, Boolean isInteraction) {
 		this.name = name!=null ? name.replace('$', '.') : name;
+		this.isInteraction = isInteraction;
 	}
 
 	/**
@@ -152,21 +158,31 @@ public class TypeName {
 	 * <p>Get a flag indicating whether or not a type name is an interaction.  
 	 * Interactions tend to have '_IN' in the middle of the name.  For example, 
 	 * "PRPA_IN101103CA" is an interaction name.
+	 *
+	 * @deprecated this naming convention is not always followed. Do NOT depend on this method to definitively determine if a type name is an interaction. 
 	 * 
 	 * @return true if the type name is an interaction; false otherwise.
 	 */
+	@Deprecated
 	public boolean isInteraction() {
+		// TM - hack to allow CDA procssing to mark some names as interactions
+		if (this.isInteraction != null && this.isInteraction) {
+			return true;
+		}
 		return getPartCount() == 1 && this.name.length() >= 7 
 			&& "_IN".equals(this.name.substring(4, 7));
 	}
 	
 	/**
+	 * @deprecated No longer applicable for CDA. Should not be used in general.
+	 * 
 	 * <p>Get a flag indicating whether or not a type name is a package location.  
 	 * Interactions tend to have '_MT' in the middle of the name.  For example, 
 	 * "PORX_MT010120CA" is a package location name.
 	 * 
 	 * @return true if the type name is a package location; false otherwise.
 	 */
+	@Deprecated
 	public boolean isPackageLocation() {
 		return getPartCount() == 1 && this.name.length() >= 7 
 				&& "_MT".equals(this.name.substring(4, 7));

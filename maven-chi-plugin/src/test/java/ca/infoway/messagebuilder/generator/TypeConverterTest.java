@@ -41,7 +41,7 @@ public class TypeConverterTest {
 	void assertTranslateTypeToShortName(TypeNameExpectation expectation) throws Exception {
 		Relationship relationship = new Relationship();
 		relationship.setType(expectation.getHl7TypeName());
-		DataType type = new TypeConverter().convertToType(relationship);
+		DataType type = new TypeConverter(false).convertToType(relationship);
 		assertEquals("returned type", expectation.getShortName(), type.getShortName(ProgrammingLanguage.JAVA));
 	}
 
@@ -56,7 +56,7 @@ public class TypeConverterTest {
 	private void assertShortWrappedName(TypeNameExpectation expectation) {
 		Relationship relationship = new Relationship();
 		relationship.setType(expectation.getHl7TypeName());
-		DataType type = new TypeConverter().convertToType(relationship);
+		DataType type = new TypeConverter(false).convertToType(relationship);
 		assertEquals("returned wrapped type", expectation.getShortWrappedName(), type.getShortWrappedName());
 	}
 	
@@ -64,7 +64,7 @@ public class TypeConverterTest {
 	public void shouldThrowExceptionOnTremendouslyIncorrectInput() throws Exception {
 		Relationship relationship = new Relationship();
 		relationship.setType("ST,II");
-		new TypeConverter().convertToType(relationship);
+		new TypeConverter(false).convertToType(relationship);
 	}
 	
 	static class TypeNameExpectation {

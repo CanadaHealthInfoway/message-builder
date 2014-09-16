@@ -98,6 +98,7 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 		TypeName name = new TypeName(className);
 		PackageLocation originPackageLocation = this.messageSet.getPackageLocations().get(name.getRootName().getName());
 		if (originPackageLocation != null) {
+			System.out.println(className);
 			MessagePart clone = new MessageSetCloner().clone(originPackageLocation.getMessageParts().get(className), RealmCode.createTrivialRealmCode());
 			clone.setName(constraint.getClassName());
 			TypeName destinationName = new TypeName(constraint.getClassName());

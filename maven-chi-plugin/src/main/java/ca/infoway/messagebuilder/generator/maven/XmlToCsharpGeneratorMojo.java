@@ -124,7 +124,7 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
 			registerFingerprintDuplicates();
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
 			IntermediateToModelGenerator generator = new IntermediateToCsharpGenerator(
-					new OutputUIImpl(this), createConfiguration());
+					new OutputUIImpl(this), createConfiguration(messages));
 			generator.generate(messages);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);
@@ -142,10 +142,10 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
 		}
 	}
 
-	private IntermediateToModelConfiguration createConfiguration() throws MojoFailureException {
+	private IntermediateToModelConfiguration createConfiguration(MessageSet messages) throws MojoFailureException {
 		return new IntermediateToModelConfiguration(
 				this.csSourceFolder, this.basePackageName, 
-				this.generatedReportsDirectory, getNamingPolicy());
+				this.generatedReportsDirectory, getNamingPolicy(), messages.isGeneratedAsR2());
 	}
 	
 	private NamingPolicy getNamingPolicy() throws MojoFailureException {

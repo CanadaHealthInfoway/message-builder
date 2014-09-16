@@ -119,6 +119,19 @@ public class CdaXsdFormatterTest {
 	}
 
 	@Test
+	public void shouldInsertNullFlavorAttributeAfterIdAttributeIfPresent() throws Exception {
+		
+		Node actNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='POCD_MT000040.Section']", Namespaces.XSD_NAMESPACE);
+		assertEquals(4, helper.getNodes(actNode, "xs:attribute", Namespaces.XSD_NAMESPACE).getLength());
+		
+		assertEquals("ID", helper.getAttributeValue(actNode, "xs:attribute[1]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("xs:ID", helper.getAttributeValue(actNode, "xs:attribute[1]/@type", Namespaces.XSD_NAMESPACE));
+		
+		assertEquals("nullFlavor", helper.getAttributeValue(actNode, "xs:attribute[2]/@name", Namespaces.XSD_NAMESPACE));
+		assertEquals("NullFlavor", helper.getAttributeValue(actNode, "xs:attribute[2]/@type", Namespaces.XSD_NAMESPACE));
+	}
+	
+	@Test
 	public void shouldFormatElements() throws Exception {
 		Node actNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='POCD_MT000040.Act']", Namespaces.XSD_NAMESPACE);
 		assertEquals(19, helper.getNodes(actNode, "xs:sequence/xs:element", Namespaces.XSD_NAMESPACE).getLength());

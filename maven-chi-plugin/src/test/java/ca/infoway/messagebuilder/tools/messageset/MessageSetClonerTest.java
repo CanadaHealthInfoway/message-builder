@@ -23,9 +23,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
@@ -35,6 +37,7 @@ import org.xml.sax.SAXException;
 import ca.infoway.messagebuilder.junit.XmlAssert;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.CodeSystem;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -124,6 +127,29 @@ public class MessageSetClonerTest {
 		assertEquals("childs", 2, messagePart.getSpecializationChilds().size());
 		assertEquals("child 1 type", "COCT_MT090102ON.AssignedEntity", messagePart.getSpecializationChilds().get(0).getName());
 		assertEquals("child 2 type", "COCT_MT090502ON.AssignedEntity", messagePart.getSpecializationChilds().get(1).getName());
+	}
+	
+	@Test
+	public void shouldCloneConstrainedDatatypes() throws Exception {
+		ConstrainedDatatype type = new ConstrainedDatatype("name", "ANY");
+		type.setExtension();
+		MessageSet set = new MessageSet();
+		set.addConstrainedDatatype(type);
+		
+		MessageSet clone = new MessageSetCloner().clone(set, null);
+		List<ConstrainedDatatype> allConstrainedDatatypes = clone.getAllConstrainedDatatypes();
+		assertEquals(1, allConstrainedDatatypes.size());
+		assertEquals("name", allConstrainedDatatypes.get(0).getName());
+		assertEquals("ANY", allConstrainedDatatypes.get(0).getBaseType());
+		assertTrue(allConstrainedDatatypes.get(0).isExtension());
+	}
+	
+	@Test
+	public void shouldCloneDatatypeIndicator() throws Exception {
+		MessageSet set = new MessageSet();
+		set.setGeneratedAsR2(true);
+		MessageSet clone = new MessageSetCloner().clone(set, null);
+		assertTrue(clone.isGeneratedAsR2());
 	}
 	
 	private Document toDocument(MessageSet clone) throws Exception, SAXException {

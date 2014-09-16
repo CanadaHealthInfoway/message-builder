@@ -78,6 +78,9 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	// BC V02R04
 	public static final SpecificationVersion V02R04_BC = new SpecificationVersion("V02R04_BC", "BC (V02R04)", Hl7BaseVersion.MR2007);
 
+	// CDA releases
+	public static final SpecificationVersion CCDA_R00_ALPHA = new SpecificationVersion("CCDA_R00_ALPHA", "CDA (CCDA_R00_ALPHA)", Hl7BaseVersion.MR2009);
+	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
 		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
 		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);

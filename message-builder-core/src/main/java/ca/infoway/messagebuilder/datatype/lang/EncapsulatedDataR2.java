@@ -60,8 +60,13 @@ public class EncapsulatedDataR2 {
 	 * <p>Constructs an empty ED.
 	 */
 	public EncapsulatedDataR2() {
+		this(null);
 	}
 	
+	public EncapsulatedDataR2(String content) {
+		this.content = content;
+	}
+
 	/**
 	 * <p>Returns the reference.
 	 * 

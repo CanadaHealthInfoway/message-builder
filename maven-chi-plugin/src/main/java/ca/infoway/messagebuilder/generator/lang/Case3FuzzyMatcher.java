@@ -61,6 +61,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			for (SimplifiableType otherType : types) {
 				if (type.getName().equals(otherType.getName())) {
 					// skip it
+				} else if (type.isRootType() || otherType.isRootType()) {
+					// skip it
+					this.log.log(LogLevel.DEBUG, "Types prohibited from fuzzy merge: one/both are root types: " + type.getName() + " " + otherType.getName());
 				} else if (!this.fuzziness.isWorthChecking(type, otherType)) {
 					// skip it
 				} else if (this.mergeResult.isUnmergeable(type, otherType)) {
@@ -106,9 +109,8 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 	
-	private boolean isSameSetOfSpecializations(SimplifiableType type,
-			SimplifiableType otherType) {
-		if (!type.getRelationships().isEmpty() || !otherType.getRelationships().isEmpty()) {
+	private boolean isSameSetOfSpecializations(SimplifiableType type, SimplifiableType otherType) {
+		if (type.getRelationships().isEmpty() || otherType.getRelationships().isEmpty()) {
 			return false;
 		} else {
 			Set<String> childTypes = getTranslatedChildTypes(type);

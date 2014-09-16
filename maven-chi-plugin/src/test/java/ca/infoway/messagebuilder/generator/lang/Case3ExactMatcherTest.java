@@ -156,7 +156,7 @@ public class Case3ExactMatcherTest {
 
 	private SimplifiableRelationship createSimplifiableAttribute(String name, String type) {
 		Relationship relationship = new Relationship(name, type, create("1"));
-		return new SimplifiableRelationship(relationship, new TypeConverter().convertToType(relationship));
+		return new SimplifiableRelationship(relationship, new TypeConverter(false).convertToType(relationship));
 	}
 	
 }
