@@ -70,7 +70,7 @@ class PartBridgeImpl implements PartBridge {
 		boolean empty = true;
 		for (BaseRelationshipBridge relationship : this.relationshipBridges) {
 			Relationship r = relationship.getRelationship();
-			if (!relationship.getRelationship().isAttribute() || !(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+			if (!relationship.getRelationship().isAttribute() || !r.hasFixedValue()) {
 				empty &= relationship.isEmpty();
 			}
 		}

@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
@@ -87,7 +88,7 @@ class BeanWrapper {
 	}
 
 	void write(Relationship relationship, Object o) {
-		if (!(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship))) {
+		if (!relationship.hasFixedValue()) {
 			BeanProperty property = findBeanProperty(relationship);
 			if (property != null) {
 				if (o!=null) {
@@ -150,7 +151,7 @@ class BeanWrapper {
 		}
 	}
 
-	public void writeNodeAttribute(Relationship relationship, String attributeValue, VersionNumber version) {
+	public void writeNodeAttribute(Relationship relationship, String attributeValue, VersionNumber version, boolean isR2) {
 		BeanProperty property = findBeanProperty(relationship);
 		if (property != null) {
             if (StringUtils.isNotBlank(attributeValue)) {
@@ -158,7 +159,7 @@ class BeanWrapper {
             		if ("BL".equals(relationship.getType())) {
             			property.set(Boolean.valueOf(attributeValue));
             		} else if ("CS".equals(relationship.getType())) {
-            			property.set(resolveCodeValue(relationship, attributeValue, version));
+            			property.set(resolveCodeValue(relationship, attributeValue, version, isR2));
             		} else {
             			this.log.info("UNSUPPORTED RimType: IGNORING relationshipName=" + relationship.getName() + ", property=" + property.getName());
             		}
@@ -166,7 +167,7 @@ class BeanWrapper {
         			this.log.info("PROPERTY NOT WRITABLE: IGNORING relationshipName=" + relationship.getName() + ", property=" + property.getName());
 				}
             }
-		} else if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)){
+		} else if (relationship.hasFixedValue()){
 			// We don't need to map fixed value codes.
 		} else {
 			this.log.info("PROPERTY NOT FOUND - IGNORED: no relationship named " + relationship.getName() + " found on " + getWrappedType());
@@ -174,8 +175,13 @@ class BeanWrapper {
 	}
 
 	@SuppressWarnings("unchecked")
-	private Code resolveCodeValue(Relationship relationship, String attributeValue, VersionNumber version) {
-		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version), attributeValue);
+	private Object resolveCodeValue(Relationship relationship, String attributeValue, VersionNumber version, boolean isR2) {
+		Code codeLookup = CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version), attributeValue);
+		Object result = codeLookup;
+		if (isR2) {
+			result = new CodedTypeR2<Code>(codeLookup);
+		}
+		return result;
 	}
 
 	public void writeNullFlavor(Hl7Source source, Relationship relationship, NullFlavor nullFlavor) {

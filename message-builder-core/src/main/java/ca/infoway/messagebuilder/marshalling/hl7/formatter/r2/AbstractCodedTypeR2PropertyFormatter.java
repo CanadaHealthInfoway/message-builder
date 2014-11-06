@@ -31,14 +31,14 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD_R2;
-import ca.infoway.messagebuilder.datatype.IVL;
-import ca.infoway.messagebuilder.datatype.QTY;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CRImpl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
@@ -58,7 +58,18 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 	
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
+    	String result = super.format(context, hl7Value, indentLevel);
+    	
+    	// if the supplied value had a null flavor we still need to handle other properties (if present)
+    	if (hl7Value != null && hl7Value.hasNullFlavor()) {
+    		result = formatNonNullDataType(context, hl7Value, indentLevel);
+    	}
+    	
+    	return result;
+    }
 
+    @Override
+    public String formatNonNullDataType(FormatContext context, BareANY hl7Value, int indentLevel) {
     	CodedTypeR2<? extends Code> codedType = extractBareValue(hl7Value);
     	
     	StringBuilder result = new StringBuilder();
@@ -76,9 +87,9 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 			}
 		}
 		
-        return result.toString();
+		return result.toString();
     }
-
+    
 	private void validateChildContent(CodedTypeR2<? extends Code> codedType, FormatContext context) {
 		if (hasTranslation(codedType) && !translationAllowed()) {
        		logValueNotAllowed("translation", context);
@@ -130,6 +141,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 				FormatContext newContext = new FormatContextImpl("CD", "translation", context);
 				for (CodedTypeR2<Code> translation : codedType.getTranslation()) {
 					CD_R2 cdAny = new CD_R2Impl(translation);
+					cdAny.setNullFlavor(translation.getNullFlavorForTranslationOnly());
 					String transationString = createTranslation(translation, cdAny, indentLevel, newContext);
 					result.append(transationString);
 				}
@@ -146,8 +158,9 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 		if (hasValidTime(codedType)) {
 			if (validTimeAllowed()) {
 				FormatContext newContext = new FormatContextImpl("IVL<TS>", "validTime", context);
-				IVL<QTY<Date>, Interval<Date>> ivlAny = new IVLImpl<QTY<Date>, Interval<Date>>(codedType.getValidTime()); 
-				String formattedValidTime = this.ivlFormatter.format(newContext, ivlAny, indentLevel);
+				Interval<Date> validTime = codedType.getValidTime();
+				IVL_TS ivlTs = new IVL_TSImpl(validTime == null ? null : new DateInterval(validTime)); 
+				String formattedValidTime = this.ivlFormatter.format(newContext, ivlTs, indentLevel);
 				result.append(formattedValidTime);
 			}
 		}

@@ -39,9 +39,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-/**
- * @sharpen.ignore - test - translated manually 
- */
+// FIXME - CDA - TM - removed sharpen ignore annotation; should be able to get these tests running in .NET (likely call to hasItem?)
+
 public class SetIiElementParserTest extends ParserTestCase {
 
 	@Test
@@ -52,7 +51,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
+				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), new XmlToModelResult());
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -71,7 +70,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
+				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), null);
 		@SuppressWarnings({ "unchecked"})
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -91,7 +90,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
+				ParserContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		@SuppressWarnings({ "unchecked"})

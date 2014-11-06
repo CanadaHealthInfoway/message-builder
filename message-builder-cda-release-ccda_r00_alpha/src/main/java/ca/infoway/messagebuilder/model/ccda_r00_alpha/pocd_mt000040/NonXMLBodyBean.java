@@ -36,65 +36,21 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActClass;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"POCD_MT000040.NonXMLBody"})
-public class NonXMLBodyBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.operativenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.continuityofcaredocumentccd.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.dischargesummary.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.historyandphysical.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component2Choice {
+public class NonXMLBodyBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.operativenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.continuityofcaredocumentccd.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.dischargesummary.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.historyandphysical.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote.Component2Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CE_R2 confidentialityCode = new CE_R2Impl();
     private CS_R2 languageCode = new CS_R2Impl();
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.NonXMLBody.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClass> getClassCode() {
-        return (CodedTypeR2<ActClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.NonXMLBody.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.NonXMLBody.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.NonXMLBody.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
 
 
     /**
@@ -142,7 +98,7 @@ public class NonXMLBodyBean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Relationship: POCD_MT000040.NonXMLBody.text</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"text"})
     public EncapsulatedDataR2 getText() {
@@ -152,7 +108,7 @@ public class NonXMLBodyBean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Relationship: POCD_MT000040.NonXMLBody.text</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setText(EncapsulatedDataR2 text) {
         this.text.setValue(text);

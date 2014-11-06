@@ -53,7 +53,8 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getDateTimeZone(),
     					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
-    					Cardinality.create("0-1")),
+    					Cardinality.create("0-1"),
+    					context.getConstraints()),
     			element, xmlToModelResult);
 	}
 
@@ -68,7 +69,8 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getDateTimeZone(),
     					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
-    					Cardinality.create("0-1")),
+    					Cardinality.create("0-1"),
+    					context.getConstraints()),
     			Arrays.asList((Node) element), xmlToModelResult).getBareValue();
 	}
 

@@ -26,10 +26,13 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -40,13 +43,37 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public class CdaXsdProcessor {
 
+	private OutputUI outputUI;
+	
+	public CdaXsdProcessor(OutputUI outputUI) {
+		this.outputUI = outputUI;
+	}
+	
 	public void processSchema(Schema schema, MessageSet messageSet) {
-		
-		messageSet.setGeneratedAsR2(true);	// temporary - eventually, this should be specified as a parameter.
+		processSchema(schema, null, messageSet);
+	}
+	
+	public void processSchema(Schema schema, Schema supplement, MessageSet messageSet) {
 		
 		messageSet.setSchemaMetadata(parseMetadata(schema));
 
-		// first, parse all the constrained datatypes
+		// first, create all the message parts
+		for (ComplexType complexType : schema.getComplexTypes()) {
+			if (complexType.getComplexContent() == null) {
+				String name = complexType.getName();
+				TypeName typeName = new TypeName(name);
+				String packageName = typeName.getRootName().getName();
+				if (!messageSet.getPackageLocations().containsKey(packageName)) {
+					messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
+					createInteractionForPackage(messageSet, packageName);
+				}
+				
+				MessagePart messagePart = new MessagePart(name);
+				messageSet.addMessagePart(messagePart);
+			}
+		}
+		
+		// then, parse all the constrained datatypes
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			ComplexContent complexContent = complexType.getComplexContent();
 			if (complexContent != null) {
@@ -71,14 +98,9 @@ public class CdaXsdProcessor {
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			if (complexType.getComplexContent() == null) {
 				String name = complexType.getName();
-				
 				TypeName typeName = new TypeName(name);
-				String packageName = typeName.getRootName().getName();
-				if (!messageSet.getPackageLocations().containsKey(packageName)) {
-					messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
-				}
 				
-				MessagePart messagePart = new MessagePart(complexType.getName());
+				MessagePart messagePart = messageSet.getMessagePart(name);
 				
 				List<Relationship> attributeRelationships = parseAttributes(complexType.getAttributes());
 				
@@ -94,9 +116,19 @@ public class CdaXsdProcessor {
 					for (SequenceChild child : sequence.getChildren()) {
 						if (child instanceof XsElement) {
 							XsElement element = (XsElement) child;
-							Relationship relationship = parseElement(element, messageSet);
-							relationship.setSortOrder(sortOrder++);
-							messagePart.getRelationships().add(relationship);
+							if (element.getName() != null) {
+								Relationship relationship = parseElement(element, messageSet);
+								relationship.setSortOrder(sortOrder++);
+								messagePart.getRelationships().add(relationship);
+							} else if (element.getRef() != null) {
+								XsElement supplementaryElement = supplement.getElement(extractBaseName(element.getRef()));
+								if (messagePart.getRelationship(supplementaryElement.getName()) == null) {
+									// for this release only - only include supplementary relationships whose names do not collide with standard relationships
+									Relationship relationship = parseElement(element, supplementaryElement, messageSet);
+									relationship.setSortOrder(sortOrder++);
+									messagePart.getRelationships().add(relationship);
+								}
+							}
 						} else if (child instanceof Choice) {
 							Choice choice = (Choice) child;
 							Relationship relationship = new Relationship();
@@ -124,10 +156,16 @@ public class CdaXsdProcessor {
 						}
 					}
 				}
-				
-				messageSet.addMessagePart(messagePart);
 			}
 		}
+	}
+
+	private void createInteractionForPackage(MessageSet messageSet, String packageName) {
+		Interaction interaction = new Interaction();
+		interaction.setName(packageName);
+		interaction.setSuperTypeName(packageName + ".ClinicalDocument");
+		interaction.setCategory("document");
+		messageSet.addInteraction(interaction);
 	}
 
 	private int minimumOfMinimums(List<XsElement> elements) {
@@ -157,8 +195,10 @@ public class CdaXsdProcessor {
 		schemaMetadata.setTargetNamespace(schema.getTargetNamespace());
 		schemaMetadata.setElementFormDefault(schema.getElementFormDefault());
 		
-		if (schema.getAnnotation() != null && schema.getAnnotation().getDocumentation() != null) {
-			schemaMetadata.setDocumentation(schema.getAnnotation().getDocumentation().getText());
+		if (schema.getAnnotation() != null && schema.getAnnotation().getDocumentation() != null ) {
+			for (Documentation documentation : schema.getAnnotation().getDocumentation()) {
+				schemaMetadata.addDocumentation(documentation.getText());
+			}
 		}
 		
 		for (Include include : schema.getIncludes()) {
@@ -198,12 +238,14 @@ public class CdaXsdProcessor {
 				dataType = standardType.getType();
 			} else if (isAllLowerCase(typeName)) {
 				// an all lower case name is unlikely to be a code system name
+				outputUI.log(LogLevel.WARN, "Data type " + typeName + " is not supported.");
 				dataType = typeName;
 			} else {
 				dataType = "CS";
 			}
-			
+	
 			Relationship relationship = new Relationship(attribute.getName(), dataType, cardinality);
+			relationship.setAttribute(true);
 			relationship.setStructural(true);
 			if (namespaceType) {
 				relationship.setConstrainedType(typeName);
@@ -224,38 +266,89 @@ public class CdaXsdProcessor {
 	}
 
 	private Relationship parseElement(XsElement element, MessageSet messageSet) {
+		String type = element.getType();
+		String name = element.getName();
+
+		return parseElement(element, type, name, messageSet);
+	}
+
+	private Relationship parseElement(XsElement element, String type, String name, MessageSet messageSet) {
 		Cardinality cardinality = new Cardinality(
 				parseLowerBound(element.getMinOccurs()), 
 				parseUpperBound(element.getMaxOccurs()));
-		String type = element.getType();
+
 		String baseType;
 		String constrainedType = null;
-		if (messageSet.hasConstrainedDatatype(type)) {
-			baseType = messageSet.getConstrainedDatatype(type).getBaseType();
-			constrainedType = type;
-		} else if ("StrucDoc.Text".equals(type)) {
-			// special handling - structured narrative should be handled as a BLOB
-			baseType = "ED";
-			constrainedType = type;
-		} else {
+		boolean attribute;
+		
+		if (messageSet.getMessagePart(type) != null) {
+			// A reference to another message part makes it an association
+			attribute = false;
 			baseType = type;
+		} else {
+			// Otherwise, it must be an attribute
+			attribute = true;
+			if (messageSet.hasConstrainedDatatype(type)) {
+				baseType = messageSet.getConstrainedDatatype(type).getBaseType();
+				constrainedType = type;
+			} else if ("StrucDoc.Text".equals(type)) {
+				// special handling - structured narrative should be handled as a BLOB
+				baseType = "ED";
+				constrainedType = type;
+			} else {
+				baseType = type;
+			}
+			
+			StandardDataType standardType = StandardDataType.valueOf(StandardDataType.class, baseType);
+			if (standardType != null) {
+				baseType = standardType.getType();
+			} else {
+				outputUI.log(LogLevel.WARN, "Data type " + baseType + " is not supported.");
+			}
+			
+			if (cardinality.isMultiple() && standardType != null) {
+				baseType = "LIST<" + baseType + ">";
+			}
 		}
 		
-		StandardDataType standardType = StandardDataType.valueOf(StandardDataType.class, baseType);
-		if (standardType != null) {
-			baseType = standardType.getType();
-		}
-		
-		if (cardinality.isMultiple() && standardType != null) {
-			baseType = "LIST<" + baseType + ">";
-		}
-		
-		Relationship relationship = new Relationship(element.getName(), baseType, cardinality);
-		relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.MANDATORY : ConformanceLevel.OPTIONAL);
+		Relationship relationship = new Relationship(name, baseType, cardinality);
+		relationship.setAttribute(attribute);
+		// The default level of conformance is POPULATED because, so far as we know at this point, nullFlavor is allowed
+		relationship.setConformance(cardinality.isMandatory() ? ConformanceLevel.POPULATED : ConformanceLevel.OPTIONAL);
 		relationship.setConstrainedType(constrainedType);
 		return relationship;
 	}
 
+	private Relationship parseElement(XsElement element, XsElement supplementaryElement, MessageSet messageSet) {
+		String type = extractBaseName(supplementaryElement.getType());
+		String name = supplementaryElement.getName();
+
+		Relationship relationship = parseElement(element, type, name, messageSet);
+		
+		relationship.setNamespace(extractNamespace(element.getRef()));
+		return relationship;
+	}
+
+	private String extractBaseName(String qualifiedName) {
+		String name = null;
+		String[] nameParts = StringUtils.split(qualifiedName, ':');
+		if (nameParts.length == 1) {
+			name = nameParts[0];
+		} else if (nameParts.length >= 2) {
+			name = nameParts[1];
+		}
+		return name;
+	}
+	
+	private String extractNamespace(String qualifiedName) {
+		String name = null;
+		String[] nameParts = StringUtils.split(qualifiedName, ':');
+		if (nameParts.length >= 2) {
+			name = nameParts[0];
+		}
+		return name;
+	}
+	
 	private int parseLowerBound(String minOccurs) {
 		return StringUtils.isNumeric(minOccurs) ? Integer.valueOf(minOccurs) : 1;
 	}
@@ -280,7 +373,7 @@ public class CdaXsdProcessor {
 
 	protected ConformanceLevel createConformance(XsAttribute attribute) {
 		if (isAttributeRequired(attribute)) {
-			return ConformanceLevel.REQUIRED;
+			return ConformanceLevel.MANDATORY;
 		} else {
 			return ConformanceLevel.OPTIONAL;
 		}

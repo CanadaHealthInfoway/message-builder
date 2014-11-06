@@ -47,8 +47,8 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
         NULL_FLAVOR_ATTRIBUTES.put(NULL_FLAVOR_ATTRIBUTE_NAME, NULL_FLAVOR_NO_INFORMATION);
     }
     
-	protected String createWarning(int indentLevel, String text) {
-		return warningRenderer.createWarning(indentLevel, text);
+	protected String createWarning(int indentLevel, String text, String logLevel) {
+		return warningRenderer.createWarning(indentLevel, text, logLevel);
 	}
 
     public String format(FormatContext formatContext, BareANY dataType) {

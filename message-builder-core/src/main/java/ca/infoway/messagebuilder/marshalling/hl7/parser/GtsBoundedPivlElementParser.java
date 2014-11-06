@@ -98,7 +98,8 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
 				MANDATORY,
-				Cardinality.create("1"));
+				Cardinality.create("1"),
+				context.getConstraints());
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlResult)
 						.getBareValue();
@@ -112,7 +113,8 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
 				MANDATORY,
-				Cardinality.create("1"));
+				Cardinality.create("1"),
+				context.getConstraints());
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlToModelResult)
 						.getBareValue();

@@ -89,7 +89,7 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 			}
 			
 		} else if (isValidSpecializationType(specializationType)) {
-			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), context.getCardinality(), null, null);
+			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), context.getCardinality(), null, null, null);
 		} else {
 			// log error - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 		    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
@@ -169,7 +169,7 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 	private String[] getDateFormatsForOtherType(StandardDataType type, ParseContext context) {
 		ParseContext newContext;
 		if (context == null) {
-			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null, null, null);
+			newContext = ParserContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null, null, null, null);
 		} else {
 			newContext =  ParserContextImpl.create(
 					type == null ? null : type.getType(),
@@ -178,7 +178,8 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 					context.getDateTimeZone(),
 					context.getDateTimeTimeZone(),
 					context.getConformance(),
-					context.getCardinality());
+					context.getCardinality(),
+					context.getConstraints());
 		}
 		return getAllDateFormats(newContext);
 	}

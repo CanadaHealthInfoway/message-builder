@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.immunizationmedicationinformation.ManufacturedProductBean;
 import java.util.List;
@@ -41,52 +40,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"MedicationDispense.ImmunizationMedicationInformationProduct","MedicationSupplyOrder.ImmunizationMedicationInformationProduct"})
 public class ImmunizationMedicationInformationProductBean extends MessagePartBean implements ProductChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ManufacturedProductBean manufacturedProduct;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationDispense.ImmunizationMedicationInformationProduct.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationSupplyOrder.ImmunizationMedicationInformationProduct.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationDispense.ImmunizationMedicationInformationProduct.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationSupplyOrder.ImmunizationMedicationInformationProduct.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**
@@ -177,14 +135,14 @@ public class ImmunizationMedicationInformationProductBean extends MessagePartBea
      * <p>Relationship: 
      * MedicationDispense.ImmunizationMedicationInformationProduct.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MedicationSupplyOrder.ImmunizationMedicationInformationProduct.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"manufacturedProduct"})
     public ManufacturedProductBean getManufacturedProduct() {
@@ -197,14 +155,14 @@ public class ImmunizationMedicationInformationProductBean extends MessagePartBea
      * <p>Relationship: 
      * MedicationDispense.ImmunizationMedicationInformationProduct.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * MedicationSupplyOrder.ImmunizationMedicationInformationProduct.manufacturedProduct</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setManufacturedProduct(ManufacturedProductBean manufacturedProduct) {
         this.manufacturedProduct = manufacturedProduct;

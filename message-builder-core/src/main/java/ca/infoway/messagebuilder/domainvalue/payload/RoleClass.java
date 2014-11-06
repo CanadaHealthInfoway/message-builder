@@ -35,6 +35,7 @@ public class RoleClass extends EnumPattern implements ca.infoway.messagebuilder.
 	private static final long serialVersionUID = -4129204171430176848L;
 
 	public static final RoleClass ROLE = new RoleClass("ROLE", "ROL");
+	public static final RoleClass PAT = new RoleClass("PAT", "PAT");
 	
 	private final String codeValue;
 

@@ -43,7 +43,7 @@ enum FuzzQuotient implements Fuzziness {
 	private static final Predicate DIFFERENCE_PREDICATE = PredicateUtils.equalPredicate(MAJOR_DIFFERENCE);
 	private static final Predicate REMOVED_PREDICATE = PredicateUtils.equalPredicate(REMOVED);
 	private static final Predicate ADDED_PREDICATE = PredicateUtils.equalPredicate(ADDED);
-	private static final Predicate EXACT_OR_MINOR_OR_RENAMED_PREDICATE = PredicateUtils.orPredicate(
+	protected static final Predicate EXACT_OR_MINOR_OR_RENAMED_PREDICATE = PredicateUtils.orPredicate(
 			PredicateUtils.orPredicate(
 				PredicateUtils.equalPredicate(EXACT),
 				PredicateUtils.equalPredicate(RENAMED)),

@@ -35,6 +35,7 @@ import org.simpleframework.xml.Root;
 public class CdaConstraint {
 	
 	private static final String SHALL = "SHALL";
+	private static final String SHALL_NOT = "SHALL NOT";
 	private static final String SHOULD = "SHOULD";
 	private static final String MAY = "MAY";
 	
@@ -50,8 +51,11 @@ public class CdaConstraint {
 	@Attribute(required=false)
 	private String context;
 	
-	@Attribute
+	@Attribute(required=false)
 	private String number;
+
+	@Attribute(required=false,name="isBranch")
+	private boolean branch;
 	
 	@Attribute(required=false)
 	private String dataType;
@@ -114,6 +118,14 @@ public class CdaConstraint {
 		this.number = number;
 	}
 
+	public boolean isBranch() {
+		return branch;
+	}
+
+	public void setBranch(boolean branch) {
+		this.branch = branch;
+	}
+
 	public String getDataType() {
 		return dataType;
 	}
@@ -168,6 +180,10 @@ public class CdaConstraint {
 	
 	public boolean isConformanceShall() {
 		return SHALL.equals(this.conformance);
+	}
+	
+	public boolean isConformanceShallNot() {
+		return SHALL_NOT.equals(this.conformance);
 	}
 	
 	public boolean isConformanceShould() {

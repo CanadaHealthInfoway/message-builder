@@ -103,7 +103,7 @@ public class PqValidationUtils {
 			return x_DistanceObservationUnitsOfMeasure.class;
 		} else {
 			if (!isR2) {
-				createError(MessageFormat.format("Type \"{0}\" is not a valid PQ type",	typeAsString), element, propertyPath, errors);
+				createWarning(MessageFormat.format("Type \"{0}\" is not a valid PQ type",	typeAsString), element, propertyPath, errors);
 			}
 			return UnitsOfMeasureCaseSensitive.class;
 		}
@@ -118,7 +118,7 @@ public class PqValidationUtils {
 		
 		if (StringUtils.isBlank(value)) {
 			if (!hasNullFlavor) {
-				createError("No value provided for physical quantity", element, propertyPath, errors);
+				createWarning("No value provided for physical quantity", element, propertyPath, errors);
 			}
 		} else {
 			if (NumberUtil.isNumber(value)) {
@@ -128,16 +128,16 @@ public class PqValidationUtils {
 				String errorMessage = "PhysicalQuantity for {0}/{1} can contain a maximum of {2} {3} places";
 				
 				if (StringUtils.length(decimalPart) > maxFractionDigits) {
-					createError(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxFractionDigits, "decimal"), element, propertyPath, errors);
+					createWarning(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxFractionDigits, "decimal"), element, propertyPath, errors);
 		        }
 				
 				if (StringUtils.length(integerPart) > maxIntDigits) {
-					createError(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxIntDigits, "integer"), element, propertyPath, errors);
+					createWarning(MessageFormat.format(errorMessage, version.getBaseVersion(), type, maxIntDigits, "integer"), element, propertyPath, errors);
 		        }
 	
 				if (!StringUtils.isNumeric(integerPart) || !StringUtils.isNumeric(decimalPart)) {
 					alreadyWarnedAboutValue = true;
-					createError(MessageFormat.format("value \"{0}\" must contain digits only", value), element, propertyPath, errors);
+					createWarning(MessageFormat.format("value \"{0}\" must contain digits only", value), element, propertyPath, errors);
 				}
 			}
 			
@@ -145,7 +145,7 @@ public class PqValidationUtils {
 				result = new BigDecimal(value);
 			} catch (NumberFormatException e) {
 				if (!alreadyWarnedAboutValue) {
-					createError(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
+					createWarning(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
 				}
 			}
 		}
@@ -160,7 +160,7 @@ public class PqValidationUtils {
 			try {
 				result = new BigDecimal(value);
 			} catch (NumberFormatException e) {
-				createError(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
+				createWarning(MessageFormat.format("value \"{0}\" is not a valid decimal value", value), element, propertyPath, errors);
 			}
 		}
 			
@@ -172,7 +172,7 @@ public class PqValidationUtils {
 		if (StringUtils.isNotBlank(unitsAsString)) {
 			units = (UnitsOfMeasureCaseSensitive) CodeResolverRegistry.lookup(this.getUnitTypeByHl7Type(type, element, propertyPath, errors, isR2), unitsAsString);
 			if (units == null) {
-				createError(MessageFormat.format("Unit \"{0}\" is not valid for type {1}", unitsAsString, type), element, propertyPath, errors);
+				createWarning(MessageFormat.format("Unit \"{0}\" is not valid for type {1}", unitsAsString, type), element, propertyPath, errors);
 			}
 		}
 		return units;
@@ -184,36 +184,38 @@ public class PqValidationUtils {
 		if (hasOriginalText) {
 			// only PQ.LAB is allowed to have originalText
 			if (!PQ_LAB.equals(type)) {
-				createError(MessageFormat.format("Type {0} not allowed to have originalText. For physical quantity types, originalText is only allowed for PQ.LAB.", typeAsString), element, propertyPath, errors);
+				createWarning(MessageFormat.format("Type {0} not allowed to have originalText. For physical quantity types, originalText is only allowed for PQ.LAB.", typeAsString), element, propertyPath, errors);
 			} else {
 				// no more than 150 characters
 				int length = originalText.length();
 				if (length > MAX_ORIGINAL_TEXT_LENGTH) {
-					createError(MessageFormat.format("PQ.LAB originalText has {0} characters, but only {1} are allowed.", length, MAX_ORIGINAL_TEXT_LENGTH), element, propertyPath, errors);
+					createWarning(MessageFormat.format("PQ.LAB originalText has {0} characters, but only {1} are allowed.", length, MAX_ORIGINAL_TEXT_LENGTH), element, propertyPath, errors);
 				}
 			}
 		}
 		// TM - HACK: these restrictions don't seem to apply to the R2 datatype version of PQ.LAB; currently only BC using this (refactor when implementing R2 datatypes)
 		if (PQ_LAB.equals(type) && hasNullFlavor && !SpecificationVersion.isExactVersion(version, SpecificationVersion.V02R04_BC)) {
 			if (!hasOriginalText) {
-				createError("For PQ.LAB values, originalText is mandatory when set to a NullFlavor.", element, propertyPath, errors);
+				createWarning("For PQ.LAB values, originalText is mandatory when set to a NullFlavor.", element, propertyPath, errors);
 			}
 			if (hasAnyValues) {
-				createError("PQ.LAB can not have quantity or units specified when set to a NullFlavor.", element, propertyPath, errors);
+				createWarning("PQ.LAB can not have quantity or units specified when set to a NullFlavor.", element, propertyPath, errors);
 			}
 		}
 	}
 	
-	private void createError(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
+	private void createWarning(String errorMessage, Element element, String propertyPath, Hl7Errors errors) {
 		Hl7Error error = null;
 		if (element != null) {
 			error = new Hl7Error(
-					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					Hl7ErrorCode.DATA_TYPE_ERROR,
+					Hl7ErrorLevel.ERROR,
 					errorMessage + 	" (" + XmlDescriber.describeSingleElement(element) + ")", 
 					element);		
 		} else { // assuming this has a property path
 			error = new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR, 
+					Hl7ErrorLevel.ERROR,
 					errorMessage, 
 					propertyPath);		
 		}

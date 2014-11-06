@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.ageobservation.ObservationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import java.util.List;
 
 
@@ -45,8 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.AgeObservationEntryRelationship","FamilyHistoryObservation.AgeObservationEntryRelationship","FunctionalStatusProblemObservation.AgeObservationEntryRelationship","ProblemObservation.AgeObservationEntryRelationship"})
 public class AgeObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.familyhistoryobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
@@ -55,74 +53,6 @@ public class AgeObservationEntryRelationshipBean extends MessagePartBean impleme
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FamilyHistoryObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FamilyHistoryObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemObservation.AgeObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

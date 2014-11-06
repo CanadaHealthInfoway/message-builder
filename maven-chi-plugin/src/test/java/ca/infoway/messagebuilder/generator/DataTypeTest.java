@@ -158,4 +158,19 @@ public class DataTypeTest {
 		assertThat("String", types, hasItem("ca.infoway.messagebuilder.domainvalue.ActStatus"));
 	}
 	
+	@Test
+	public void shouldGetIvlR2Type() throws Exception {
+		DataType tsDataType = new DataType(DataTypeGenerationDetails.TS, DataTypeGenerationDetails.TS.getJavaTypeName(), true);
+		DataType dataType = new DataType(DataTypeGenerationDetails.IVL_TS_R2, DataTypeGenerationDetails.IVL_TS_R2.getJavaTypeName(), true, tsDataType);
+		assertEquals("DateInterval", dataType.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("IVL_TSImpl", dataType.getShortWrappedNameImpl());
+		assertEquals("IVL_TS", dataType.getUnparameterizedShortWrappedName());
+		assertEquals("IVL_TSImpl", dataType.getParameterizedImplementationType(ProgrammingLanguage.JAVA));
+		assertEquals("ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl", dataType.getUnparameterizedImplementationType());
+		assertEquals("ca.infoway.messagebuilder.datatype.lang.DateInterval", dataType.getTypeName());
+		assertEquals(DataTypeGenerationDetails.IVL_TS_R2, dataType.getType());
+		
+		Set<String> importTypes = dataType.getImportTypes();
+//		assertEquals(3, importTypes.size()); // IVL_TSImpl, IVL_TS, DateInterval (specifically, there should not be TS or Date)
+	}
 }

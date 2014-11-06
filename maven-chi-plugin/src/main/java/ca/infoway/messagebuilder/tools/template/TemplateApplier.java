@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.tools.template;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.tools.delta.AssociationDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.AttributeDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.ClassDeltaVisitor;
@@ -101,6 +103,7 @@ public class TemplateApplier {
 				dummyInteraction.setName(template.getPackageName());
 				dummyInteraction.setSuperTypeName(template.getEntryClassName());
 				dummyInteraction.setCategory("document");
+				dummyInteraction.setTemplateId(template.getOid());
 				result.addInteraction(dummyInteraction);
 			}
 		}
@@ -146,7 +149,12 @@ public class TemplateApplier {
 			} else if (DeltaChangeType.ADD.equals(delta.getDeltaChangeType())) {
 				exists = true;
 			} else {
-				exists = (messagePart.getRelationship(delta.getRelationshipName()) != null);
+				if (StringUtils.contains(delta.getRelationshipName(), ':')) {
+					String[] parts = StringUtils.split(delta.getRelationshipName(), ':');
+					exists = (messagePart.getRelationship(parts[1], parts[0]) != null);
+				} else {
+					exists = (messagePart.getRelationship(delta.getRelationshipName()) != null);
+				}
 			}
 		} else if (MessagePartType.INTERACTION.equals(delta.getType())) {
 			exists = (messageSet.getInteractions().containsKey(delta.getClassName()));

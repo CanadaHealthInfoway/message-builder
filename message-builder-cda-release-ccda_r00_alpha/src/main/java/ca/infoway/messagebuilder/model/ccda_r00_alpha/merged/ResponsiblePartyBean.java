@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -40,62 +39,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.ResponsibleParty","HistoryAndPhysical.ResponsibleParty","POCD_MT000040.ResponsibleParty"})
 public class ResponsiblePartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private AssignedEntity_1Bean assignedEntity;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ConsultationNote.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ConsultationNote.ResponsibleParty.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**
@@ -205,21 +153,21 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Relationship: 
      * POCD_MT000040.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedEntity"})
     public AssignedEntity_1Bean getAssignedEntity() {
@@ -232,21 +180,21 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Relationship: 
      * POCD_MT000040.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.ResponsibleParty.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedEntity(AssignedEntity_1Bean assignedEntity) {
         this.assignedEntity = assignedEntity;

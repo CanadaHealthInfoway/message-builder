@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
@@ -52,6 +53,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
  * Parses an TEL element into a String. (R2) The element looks like this:
@@ -72,6 +74,8 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 @DataTypeHandler("TEL")
 class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
+	private static TsR2ElementParser tsR2ElementParser = new TsR2ElementParser();
+
 	private static Map<String, SetOperator> allOperators = new HashMap<String, SetOperator>();
 	static {
 		List<SetOperator> operatorValues = SetOperator.values(SetOperator.class);
@@ -84,21 +88,21 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
 	
 	@Override
 	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult, context.getVersion());
+		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult, context.getVersion(), context);
 		
 		// any validations for R2 to do here?
 		
 		return telecomAddress;
 	}
 
-	private TelecommunicationAddress parseTelecommunicationAddress(Node node, XmlToModelResult xmlToModelResult, VersionNumber version) {
+	private TelecommunicationAddress parseTelecommunicationAddress(Node node, XmlToModelResult xmlToModelResult, VersionNumber version, ParseContext context) {
 		TelecommunicationAddress result = parseValue(node, xmlToModelResult);
 
 		// handle address uses
 		parseAddressUses(node, result);
 
 		// handle useable periods
-		parseUseablePeriods(node, xmlToModelResult, result, version);
+		parseUseablePeriods(node, xmlToModelResult, result, version, context);
 		
 		return result;
 	}
@@ -121,7 +125,6 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
 		URLScheme urlScheme = null;
 		if (colonIndex == -1) {
 			address = value;
-			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "TEL values must provide a URL scheme (i.e. mailto:)", (Element) node));
 		} else {
 			address = value.substring(colonIndex + 1);
 			String urlSchemeString = value.substring(0, colonIndex);
@@ -139,7 +142,7 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
 		return result;
 	}
 
-	private void parseUseablePeriods(Node node,	XmlToModelResult xmlToModelResult, TelecommunicationAddress result, VersionNumber version) {
+	private void parseUseablePeriods(Node node,	XmlToModelResult xmlToModelResult, TelecommunicationAddress result, VersionNumber version, ParseContext context) {
 		NodeList childNodes = node.getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node childNode = childNodes.item(i);
@@ -147,9 +150,9 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
                 Element useablePeriodElement = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(useablePeriodElement);
                 if ("useablePeriod".equals(name)) {
-                	BareANY tsAny = new TsR2ElementParser().parse(tsContext(version), useablePeriodElement, xmlToModelResult);
-                	Date date = (Date) tsAny.getBareValue();
-                	result.addUseablePeriod(date, ((ANYMetaData) tsAny).getOperator());
+					BareANY tsAny = tsR2ElementParser.parse(tsContext(version, context.getConstraints()), useablePeriodElement, xmlToModelResult);
+                	MbDate mbDate = (MbDate) tsAny.getBareValue();
+                	result.addUseablePeriod(mbDate == null ? null : mbDate.getValue(), ((ANYMetaData) tsAny).getOperator());
                 } else {
                 	xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
                 			"Unexpected TEL child element: \"" + useablePeriodElement.getNodeName() + "\"", useablePeriodElement));
@@ -158,8 +161,8 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
         }
 	}
 
-	private ParseContext tsContext(VersionNumber version) {
-		return ParserContextImpl.create(StandardDataType.SXCM_TS.getType(), null, version, null, null, null, null);
+	private ParseContext tsContext(VersionNumber version, ConstrainedDatatype constraints) {
+		return ParserContextImpl.create(StandardDataType.SXCM_TS.getType(), null, version, null, null, null, null, constraints);
 	}
 
 	private void parseAddressUses(Node node, TelecommunicationAddress result) {

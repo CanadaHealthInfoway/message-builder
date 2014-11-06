@@ -27,28 +27,24 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.ContextControl;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.RoleClassMutualRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PersonBean;
-import java.util.Date;
 import java.util.List;
 
 
@@ -56,9 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.RelatedEntityInformant12","ContinuityOfCareDocumentCCD.RelatedEntityInformant12","DiagnosticImagingReport.RelatedEntityInformant12","DischargeSummary.RelatedEntityInformant12","HistoryAndPhysical.RelatedEntityInformant12","OperativeNote.RelatedEntityInformant12","ProcedureNote.RelatedEntityInformant12","ProgressNote.RelatedEntityInformant12","USRealmHeader.RelatedEntityInformant12","UnstructuredDocument.RelatedEntityInformant12"})
 public class RelatedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CS_R2 contextControlCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -69,312 +63,8 @@ public class RelatedEntityInformant12Bean extends MessagePartBean implements Inf
     private CE_R2 relatedEntityCode = new CE_R2Impl();
     private LIST<AD, PostalAddress> relatedEntityAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> relatedEntityTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private IVL<TS, Interval<Date>> relatedEntityEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS relatedEntityEffectiveTime = new IVL_TSImpl();
     private PersonBean relatedEntityRelatedPerson;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.RelatedEntityInformant12.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextControlCode"})
-    public CodedTypeR2<ContextControl> getContextControlCode() {
-        return (CodedTypeR2<ContextControl>) this.contextControlCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.RelatedEntityInformant12.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextControlCode(CodedTypeR2<ContextControl> contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
-    }
 
 
     /**
@@ -689,70 +379,70 @@ public class RelatedEntityInformant12Bean extends MessagePartBean implements Inf
      * <p>Relationship: 
      * ProcedureNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"relatedEntity/classCode"})
     public CodedTypeR2<RoleClassMutualRelationship> getRelatedEntityClassCode() {
@@ -765,70 +455,70 @@ public class RelatedEntityInformant12Bean extends MessagePartBean implements Inf
      * <p>Relationship: 
      * ProcedureNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.RelatedEntityRelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setRelatedEntityClassCode(CodedTypeR2<RoleClassMutualRelationship> relatedEntityClassCode) {
         this.relatedEntityClassCode.setValue(relatedEntityClassCode);
@@ -1519,7 +1209,7 @@ public class RelatedEntityInformant12Bean extends MessagePartBean implements Inf
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"relatedEntity/effectiveTime"})
-    public Interval<Date> getRelatedEntityEffectiveTime() {
+    public DateInterval getRelatedEntityEffectiveTime() {
         return this.relatedEntityEffectiveTime.getValue();
     }
 
@@ -1594,7 +1284,7 @@ public class RelatedEntityInformant12Bean extends MessagePartBean implements Inf
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setRelatedEntityEffectiveTime(Interval<Date> relatedEntityEffectiveTime) {
+    public void setRelatedEntityEffectiveTime(DateInterval relatedEntityEffectiveTime) {
         this.relatedEntityEffectiveTime.setValue(relatedEntityEffectiveTime);
     }
 

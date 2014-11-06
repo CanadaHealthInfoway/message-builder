@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.mifcomparer;
 
 import java.io.File;
-import java.io.IOException;
 
 public abstract class FileComparer {
 

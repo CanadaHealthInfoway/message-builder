@@ -24,6 +24,7 @@ import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -32,7 +33,7 @@ interface Visitor {
 	public void visitRootStart(PartBridge tealBean, Interaction interaction);
 	public void visitRootEnd(PartBridge tealBean, Interaction interaction);
 	
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone);
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone);
 	
 	public void visitAssociationStart(PartBridge tealBean, Relationship relationship);
 	public void visitAssociationEnd(PartBridge tealBean, Relationship relationship);

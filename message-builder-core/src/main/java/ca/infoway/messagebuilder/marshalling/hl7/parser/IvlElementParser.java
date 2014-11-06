@@ -37,6 +37,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
@@ -212,9 +213,10 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 						element));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return GenericDataTypeFactory.create(typeName);
+		return new IVLImpl();
 	}
 
 	private BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult) {
@@ -229,7 +231,8 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 					context.getDateTimeZone(),
 					context.getDateTimeTimeZone(),
 					POPULATED, 
-					Cardinality.create("1")),
+					Cardinality.create("1"),
+					context.getConstraints()),
 					Arrays.asList((Node) element), parseResult);
 		} else {
 			parseResult.addHl7Error(new Hl7Error(
@@ -277,7 +280,8 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
 							POPULATED, 
-							Cardinality.create("1"));
+							Cardinality.create("1"),
+							context.getConstraints());
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

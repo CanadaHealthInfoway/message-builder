@@ -57,6 +57,19 @@ public interface MessageSetGenerator {
 	public void processAllMessageSets(List<FileSet> inputMessageSets) throws GeneratorException, IOException;
 
 	/**
+	 * <p>Process CDA input files files, putting the information into a 
+	 * format that's ready to write to a message set XML file.</p>
+	 * 
+	 * @param schema - a definition of the base CDA schema.
+	 * @param supplementarySchema - an optional extension of the base CDA schema.
+	 * @param template - a definition of the CDA templates.
+	 * @param schema - a file defining mappings from OIDs to value set and code system names.
+	 * @throws GeneratorException - if the generator encounters a problem
+	 * @throws IOException - if there's a problem reading any of the files
+	 */
+	public MessageSet processAllCdaFiles(File schema, File supplementarySchema, File template, File vocabulary) throws GeneratorException, IOException;
+	
+	/**
 	 * <p>Write all processed complex types to a message set XML file.
 	 * 
 	 * @param outputFile - the location to write the message set XML document.
@@ -64,5 +77,5 @@ public interface MessageSetGenerator {
 	 * @throws IOException - if an error occurs writing to the file.
 	 */
 	public void writeToMessageSet(File outputFile) throws GeneratorException, IOException;
-	
+
 }

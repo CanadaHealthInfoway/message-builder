@@ -65,7 +65,7 @@ public class TelR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, TelecommunicationAddress.class, version, null, null, ConformanceLevel.POPULATED, null);
+		return ParserContextImpl.create(type, TelecommunicationAddress.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class TelR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something/>");
 		new TelR2ElementParser().parse(createContext("TEL", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
-		assertEquals(2, this.xmlResult.getHl7Errors().size());  // missing scheme; missing address
+		assertEquals(1, this.xmlResult.getHl7Errors().size());  //missing address
 	}
 
 	@Test
@@ -81,19 +81,15 @@ public class TelR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something notvalue=\"\" />");
 		new TelR2ElementParser().parse(createContext("TEL", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
-		assertEquals(2, this.xmlResult.getHl7Errors().size());  // missing scheme; missing address
+		assertEquals(1, this.xmlResult.getHl7Errors().size());  // missing address
 	}
 	
 	@Test
-	public void testParseInvalidValueAttributeNode() throws Exception {
+	public void testParseValidValueAttributeNodeMinimumSpecified() throws Exception {
 		Node node = createNode("<something value=\"1234\" />");
 		new TelR2ElementParser().parse(createContext("TEL", SpecificationVersion.V02R02), node, this.xmlResult);
 		
-		assertFalse(this.xmlResult.isValid());
-		assertEquals("HL7 error count", 1, this.xmlResult.getHl7Errors().size());
-		
-		Hl7Error hl7Error = this.xmlResult.getHl7Errors().get(0);
-		assertEquals("error message", "TEL values must provide a URL scheme (i.e. mailto:)", hl7Error.getMessage());
+		assertTrue(this.xmlResult.isValid());
 	}
 	
 	@Test

@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.PqValidationUtils;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 /**
  * PQ - Physical Quantity
@@ -119,11 +118,11 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 			if (StringUtils.isNotBlank(originalText)) {
 				String otElement = createElement("originalText", null, indentLevel + 1, false, false);
 				otElement += XmlStringEscape.escape(originalText);
-				otElement += XmlRenderingUtils.createEndElement("originalText", 0, true);
+				otElement += createElementClosure("originalText", 0, true);
 				// pulling off the end "/>" is not the most elegant solution, but superclass would need significant refactoring otherwise
 				result = result.substring(0, result.indexOf("/>")) + ">" + LINE_SEPARATOR 
 						+ otElement 
-						+ XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, true);
+						+ createElementClosure(context.getElementName(), indentLevel, true);
 			}
 		}
 

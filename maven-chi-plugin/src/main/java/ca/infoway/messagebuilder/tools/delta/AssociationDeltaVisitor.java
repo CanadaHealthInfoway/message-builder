@@ -29,8 +29,10 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;
+import ca.infoway.messagebuilder.xml.delta.AssociationSortOrderConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationTypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.Constraint;
+import ca.infoway.messagebuilder.xml.delta.SortOrderConstraint;
 
 public class AssociationDeltaVisitor extends RelationshipDeltaVisitor {
 
@@ -43,6 +45,10 @@ public class AssociationDeltaVisitor extends RelationshipDeltaVisitor {
 		super.visit(constraint);
 		if (constraint instanceof AssociationTypeConstraint) {
 			visitAssociationTypeConstraint((AssociationTypeConstraint) constraint);
+		} else if (constraint instanceof SortOrderConstraint) {
+			visitSortOrderConstraint((SortOrderConstraint) constraint);
+		} else if (constraint instanceof AssociationSortOrderConstraint) {
+			visitAssociationSortOrderConstraint((AssociationSortOrderConstraint) constraint);
 		}
 	}
 
@@ -79,6 +85,13 @@ public class AssociationDeltaVisitor extends RelationshipDeltaVisitor {
 				relationship.getChoices().add(childRelationship);
 			}
 		}
+	}
+
+	protected void visitAssociationSortOrderConstraint(AssociationSortOrderConstraint constraint) {
+		Relationship relationship = getRelationship();
+//		Warning not enforceable for new relationships, because generation in ADD scenario is dependent on other constraints
+//		logWarning("association sort key", constraint.getOriginalValue(), relationship.getAssociationSortKey());
+		relationship.setAssociationSortKey(constraint.getNewValue());
 	}
 
 	@Override

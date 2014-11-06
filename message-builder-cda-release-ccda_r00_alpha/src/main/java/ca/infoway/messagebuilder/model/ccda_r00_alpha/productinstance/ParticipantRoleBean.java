@@ -43,8 +43,6 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.DeviceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntityBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PlayingEntity_2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ParticipantRoleChoice;
 import java.util.List;
 
 
@@ -53,15 +51,15 @@ import java.util.List;
 @Hl7RootType
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ParticipantRoleChoice participantRoleChoice;
+    private DeviceBean playingDevice;
     private EntityBean scopingEntity;
 
 
@@ -99,27 +97,18 @@ public class ParticipantRoleBean extends MessagePartBean {
     /**
      * <p>Relationship: ProductInstance.ParticipantRole.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProductInstance.ParticipantRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
     /**
      * <p>Relationship: ProductInstance.ParticipantRole.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -171,37 +160,23 @@ public class ParticipantRoleBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
-     * ProductInstance.ParticipantRole.participantRoleChoice</p>
+     * ProductInstance.ParticipantRole.playingDevice</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"participantRoleChoice"})
-    public ParticipantRoleChoice getParticipantRoleChoice() {
-        return this.participantRoleChoice;
+    @Hl7XmlMapping({"playingDevice"})
+    public DeviceBean getPlayingDevice() {
+        return this.playingDevice;
     }
 
     /**
      * <p>Relationship: 
-     * ProductInstance.ParticipantRole.participantRoleChoice</p>
+     * ProductInstance.ParticipantRole.playingDevice</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setParticipantRoleChoice(ParticipantRoleChoice participantRoleChoice) {
-        this.participantRoleChoice = participantRoleChoice;
-    }
-
-    public DeviceBean getParticipantRoleChoiceAsPlayingDevice() {
-        return this.participantRoleChoice instanceof DeviceBean ? (DeviceBean) this.participantRoleChoice : null;
-    }
-    public boolean hasParticipantRoleChoiceAsPlayingDevice() {
-        return (this.participantRoleChoice instanceof DeviceBean);
-    }
-
-    public PlayingEntity_2Bean getParticipantRoleChoiceAsPlayingEntity() {
-        return this.participantRoleChoice instanceof PlayingEntity_2Bean ? (PlayingEntity_2Bean) this.participantRoleChoice : null;
-    }
-    public boolean hasParticipantRoleChoiceAsPlayingEntity() {
-        return (this.participantRoleChoice instanceof PlayingEntity_2Bean);
+    public void setPlayingDevice(DeviceBean playingDevice) {
+        this.playingDevice = playingDevice;
     }
 
 

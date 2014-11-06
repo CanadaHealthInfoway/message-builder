@@ -38,11 +38,9 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActClass;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component4Bean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component5Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,10 +50,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private ST iD = new STImpl();
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -69,7 +65,7 @@ public class SectionBean extends MessagePartBean {
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
     private List<EntryBean> entry = new ArrayList<EntryBean>();
-    private List<Component4Bean> component = new ArrayList<Component4Bean>();
+    private List<Component5Bean> component = new ArrayList<Component5Bean>();
 
 
     /**
@@ -89,46 +85,6 @@ public class SectionBean extends MessagePartBean {
      */
     public void setID(String iD) {
         this.iD.setValue(iD);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Section.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClass> getClassCode() {
-        return (CodedTypeR2<ActClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Section.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Section.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Section.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
     }
 
 
@@ -353,7 +309,7 @@ public class SectionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"component"})
-    public List<Component4Bean> getComponent() {
+    public List<Component5Bean> getComponent() {
         return this.component;
     }
 

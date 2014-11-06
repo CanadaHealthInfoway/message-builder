@@ -28,23 +28,20 @@ import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PN;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.domainvalue.EntityClass;
-import ca.infoway.messagebuilder.domainvalue.EntityDeterminer;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.BirthplaceBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.GuardianBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -52,16 +49,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 determinerCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CE_R2 administrativeGenderCode = new CE_R2Impl();
-    private TS birthTime = new TSImpl();
+    private TS_R2 birthTime = new TS_R2Impl();
     private CE_R2 maritalStatusCode = new CE_R2Impl();
     private CE_R2 religiousAffiliationCode = new CE_R2Impl();
     private CE_R2 raceCode = new CE_R2Impl();
@@ -69,46 +64,6 @@ public class PatientBean extends MessagePartBean {
     private List<GuardianBean> guardian = new ArrayList<GuardianBean>();
     private BirthplaceBean birthplace;
     private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Patient.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<EntityClass> getClassCode() {
-        return (CodedTypeR2<EntityClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Patient.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<EntityClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Patient.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"determinerCode"})
-    public CodedTypeR2<EntityDeterminer> getDeterminerCode() {
-        return (CodedTypeR2<EntityDeterminer>) this.determinerCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Patient.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setDeterminerCode(CodedTypeR2<EntityDeterminer> determinerCode) {
-        this.determinerCode.setValue(determinerCode);
-    }
 
 
     /**
@@ -212,7 +167,7 @@ public class PatientBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"birthTime"})
-    public Date getBirthTime() {
+    public MbDate getBirthTime() {
         return this.birthTime.getValue();
     }
 
@@ -221,7 +176,7 @@ public class PatientBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setBirthTime(Date birthTime) {
+    public void setBirthTime(MbDate birthTime) {
         this.birthTime.setValue(birthTime);
     }
 

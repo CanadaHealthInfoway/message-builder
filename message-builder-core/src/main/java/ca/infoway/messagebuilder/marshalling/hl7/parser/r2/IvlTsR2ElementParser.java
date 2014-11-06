@@ -21,17 +21,43 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.util.Date;
+import java.util.List;
 
+import org.w3c.dom.Node;
+
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 @DataTypeHandler("IVL<TS>")
-class IvlTsR2ElementParser extends IvlR2ElementParser<Date> {
+class IvlTsR2ElementParser implements ElementParser {
+
+	private static IvlR2ElementParser<Date> actualIvlTsParser = new IvlR2ElementParser<Date>() {
+		protected Object extractValue(BareANY any) {
+			Object value = any == null ? null : any.getBareValue();
+			return value == null ? null : ((MbDate) value).getValue();
+		}
+	};
 	
 	public IvlTsR2ElementParser() {
-		this(false);
 	}
 
-	public IvlTsR2ElementParser(boolean isUncertainRange) {
-		super(isUncertainRange);
+	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		BareANY parsedValue = actualIvlTsParser.parse(context, nodes, xmlToModelResult);
+		// need to wrap result in a DateInterval
+		Object bareValue = parsedValue.getBareValue();
+		if (bareValue != null && bareValue instanceof Interval<?>) {
+			@SuppressWarnings("unchecked")
+			DateInterval newValue = new DateInterval((Interval<Date>) bareValue);
+			parsedValue.setBareValue(newValue);
+		}
+		return parsedValue;
 	}
+
 }

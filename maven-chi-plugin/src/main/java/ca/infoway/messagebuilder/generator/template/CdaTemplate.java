@@ -54,7 +54,7 @@ public class CdaTemplate {
 	@Attribute
 	private String title;
 	
-	@Element(name="Description")
+	@Element(name="Description",required=false)
 	private TemplateDescription description;
 	
 	@ElementList(inline=true,entry="Constraint")

@@ -40,13 +40,27 @@ class ConversionContext {
 	private final TimeZone dateTimeTimeZone;
 	private final TimeZone dateTimeZone;
 	
-	ConversionContext(MessageDefinitionService service,
-			VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, String messageId) {
+	ConversionContext(MessageDefinitionService service, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, String messageId, String templateId) {
 		this.service = service;
 		this.version = version;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.dateTimeZone = dateTimeZone;
-		this.interaction = service.getInteraction(version, messageId);
+		this.interaction = determineInteraction(messageId, templateId, version, service);
+	}
+	
+	private Interaction determineInteraction(String messageId, String templateId, VersionNumber version, MessageDefinitionService service) {
+		Interaction result = null;
+		if (service.isCda(version)) {
+			for (Interaction interaction : service.getAllInteractions(version)) {
+				if (StringUtils.equals(interaction.getTemplateId(), templateId)) {
+					result = interaction;
+					break;
+				}
+			}
+		} else {
+			result = service.getInteraction(version, messageId);
+		}
+		return result;
 	}
 
 	public MessageDefinitionService getService() {

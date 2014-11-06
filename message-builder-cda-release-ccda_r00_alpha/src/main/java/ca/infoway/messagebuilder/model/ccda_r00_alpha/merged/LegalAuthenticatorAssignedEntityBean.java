@@ -39,9 +39,8 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.RoleClassAssignedEntity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HealthcareProviderTaxonomyHIPAA;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HealthcareProviderTaxonomy;
 import java.util.List;
 
 
@@ -49,8 +48,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.LegalAuthenticatorAssignedEntity","ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity","DiagnosticImagingReport.LegalAuthenticatorAssignedEntity","DischargeSummary.LegalAuthenticatorAssignedEntity","HistoryAndPhysical.LegalAuthenticatorAssignedEntity","OperativeNote.LegalAuthenticatorAssignedEntity","ProcedureNote.LegalAuthenticatorAssignedEntity","ProgressNote.LegalAuthenticatorAssignedEntity","USRealmHeader.LegalAuthenticatorAssignedEntity","UnstructuredDocument.LegalAuthenticatorAssignedEntity"})
 public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -60,158 +58,6 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private LegalAuthenticatorPersonBean assignedPerson;
     private Organization_1Bean representedOrganization;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClassAssignedEntity> getClassCode() {
-        return (CodedTypeR2<RoleClassAssignedEntity>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * OperativeNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ConsultationNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DischargeSummary.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProgressNote.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DiagnosticImagingReport.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * UnstructuredDocument.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * USRealmHeader.LegalAuthenticatorAssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClassAssignedEntity> classCode) {
-        this.classCode.setValue(classCode);
-    }
 
 
     /**
@@ -669,8 +515,8 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
-    public CodedTypeR2<HealthcareProviderTaxonomyHIPAA> getCode() {
-        return (CodedTypeR2<HealthcareProviderTaxonomyHIPAA>) this.code.getValue();
+    public CodedTypeR2<HealthcareProviderTaxonomy> getCode() {
+        return (CodedTypeR2<HealthcareProviderTaxonomy>) this.code.getValue();
     }
 
     /**
@@ -744,7 +590,7 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setCode(CodedTypeR2<HealthcareProviderTaxonomyHIPAA> code) {
+    public void setCode(CodedTypeR2<HealthcareProviderTaxonomy> code) {
         this.code.setValue(code);
     }
 
@@ -755,70 +601,70 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.LegalAuthenticatorAssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -832,70 +678,70 @@ public class LegalAuthenticatorAssignedEntityBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.LegalAuthenticatorAssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {

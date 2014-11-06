@@ -100,7 +100,7 @@ public class Case1Simplifier extends InlineableSimplifier {
 		List<SimplifiableRelationship> allRelationships = inlineableType.getRelationships();
 		for (SimplifiableRelationship baseRelationship : allRelationships) {
 			Relationship r = baseRelationship.getRelationship();
-			if (!(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+			if (!r.hasFixedValue()) {
 				nonFixedRelationships.add(baseRelationship);
 			}
 		}

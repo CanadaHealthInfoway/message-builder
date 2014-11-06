@@ -22,9 +22,37 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 
 @DataTypeHandler("IVL<TS>")
-class IvlTsR2PropertyFormatter extends IvlR2PropertyFormatter<Date> {
+class IvlTsR2PropertyFormatter implements PropertyFormatter { 
+
+	private static IvlR2PropertyFormatter<Date> actualFormatter = new IvlR2PropertyFormatter<Date>() {
+		protected Object convertValueIfNecessary(Date date) {
+			return date == null ? null : new MbDate(date);
+		}
+	};
+
+	public String format(FormatContext formatContext, BareANY dataType) {
+		return format(formatContext, dataType, 0);
+	}
+
+	public String format(FormatContext formatContext, BareANY value, int indentLevel) {
+		Object bareValue = value.getBareValue();
+		Interval<Date> innerDateInterval = null;
+		if (bareValue != null && bareValue instanceof DateInterval) {
+			innerDateInterval = ((DateInterval) bareValue).getInterval();
+		}
+		BareANY newValue = new IVLImpl<TS, Interval<Date>>(Interval.class, innerDateInterval, value.getNullFlavor(), value.getDataType());
+		return actualFormatter.format(formatContext, newValue, indentLevel);
+	}
 
 }

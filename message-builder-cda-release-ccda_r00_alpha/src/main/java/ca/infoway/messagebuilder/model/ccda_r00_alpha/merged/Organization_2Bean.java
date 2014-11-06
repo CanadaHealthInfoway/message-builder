@@ -42,27 +42,23 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.EntityClassOrganization;
-import ca.infoway.messagebuilder.domainvalue.EntityDeterminer;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.OrganizationPartOfBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"PhysicianOfRecordParticipant.Organization","PolicyActivity.Organization"})
+@Hl7PartTypeMapping({"ProcedureActivityAct.Organization","ProcedureActivityObservation.Organization","ProcedureActivityProcedure.Organization"})
 public class Organization_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private ON name = new ONImpl();
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 determinerCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private LIST<ON, OrganizationName> name = new LISTImpl<ON, OrganizationName>(ONImpl.class);
+    private TEL telecom = new TELImpl();
+    private AD addr = new ADImpl();
     private CE_R2 standardIndustryClassCode = new CE_R2Impl();
     private OrganizationPartOfBean asOrganizationPartOf;
 
@@ -70,98 +66,21 @@ public class Organization_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PolicyActivity.Organization.name</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.realmCode</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public OrganizationName getName() {
-        return this.name.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PolicyActivity.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setName(OrganizationName name) {
-        this.name.setValue(name);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<EntityClassOrganization> getClassCode() {
-        return (CodedTypeR2<EntityClassOrganization>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<EntityClassOrganization> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"determinerCode"})
-    public CodedTypeR2<EntityDeterminer> getDeterminerCode() {
-        return (CodedTypeR2<EntityDeterminer>) this.determinerCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setDeterminerCode(CodedTypeR2<EntityDeterminer> determinerCode) {
-        this.determinerCode.setValue(determinerCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.realmCode</p>
+     * ProcedureActivityObservation.Organization.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -175,7 +94,20 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.typeId</p>
+     * ProcedureActivityProcedure.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -188,7 +120,20 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.typeId</p>
+     * ProcedureActivityProcedure.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -201,7 +146,21 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.templateId</p>
+     * ProcedureActivityProcedure.Organization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Organization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -214,8 +173,20 @@ public class Organization_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: ProcedureActivityProcedure.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.id</p>
+     * ProcedureActivityObservation.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -229,13 +200,78 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.telecom</p>
+     * ProcedureActivityProcedure.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<OrganizationName> getName() {
+        return this.name.rawList();
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getTelecom() {
-        return this.telecom.rawList();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
@@ -243,13 +279,51 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.addr</p>
+     * ProcedureActivityProcedure.Organization.addr</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getAddr() {
-        return this.addr.rawList();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
@@ -257,7 +331,21 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.standardIndustryClassCode</p>
+     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -270,7 +358,21 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.standardIndustryClassCode</p>
+     * ProcedureActivityProcedure.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Organization.standardIndustryClassCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -283,7 +385,21 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.asOrganizationPartOf</p>
+     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -296,7 +412,21 @@ public class Organization_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.Organization.asOrganizationPartOf</p>
+     * ProcedureActivityProcedure.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityAct.Organization.asOrganizationPartOf</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

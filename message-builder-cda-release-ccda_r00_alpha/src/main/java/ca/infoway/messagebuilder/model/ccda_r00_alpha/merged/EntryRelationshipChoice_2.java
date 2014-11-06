@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"CodeObservations.EntryRelationshipChoice","TextObservation.EntryRelationshipChoice"})
+@Hl7PartTypeMapping({"AllergyIntoleranceObservation.EntryRelationshipChoice","SubstanceOrDeviceAllergyIntoleranceObservation.EntryRelationshipChoice"})
 public interface EntryRelationshipChoice_2 {
 
 }

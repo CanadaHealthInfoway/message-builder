@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.generator.template;
 
+import static ca.infoway.messagebuilder.generator.LogLevel.WARN;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -32,6 +34,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodedTypeEvaluator;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -44,6 +48,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.delta.AddChoiceConstraint;
 import ca.infoway.messagebuilder.xml.delta.AddConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;
+import ca.infoway.messagebuilder.xml.delta.AssociationSortOrderConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationTypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.AttributeDelta;
 import ca.infoway.messagebuilder.xml.delta.CardinalityConstraint;
@@ -58,6 +63,7 @@ import ca.infoway.messagebuilder.xml.delta.FixedConstraint;
 import ca.infoway.messagebuilder.xml.delta.RemoveChoiceConstraint;
 import ca.infoway.messagebuilder.xml.delta.RemoveConstraint;
 import ca.infoway.messagebuilder.xml.delta.SchematronConstraint;
+import ca.infoway.messagebuilder.xml.delta.SortOrderConstraint;
 import ca.infoway.messagebuilder.xml.delta.VocabularyBindingConstraint;
 import ca.infoway.messagebuilder.xml.template.Template;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
@@ -68,22 +74,20 @@ public class CdaTemplateProcessor {
 	private Map<String, String> valueSetMap = new HashMap<String, String>();
 	private Map<String, String> codeSystemMap = new HashMap<String, String>();
 	
+	private OutputUI outputUI;
+	
 	private TemplateSet templateSet;
 	
-	public CdaTemplateProcessor(ValueSetDefinition valueSets) {
-		for (ValueSetDefinitionSystem system : valueSets.getSystems()) {
-			valueSetMap.put(system.getValueSetOid(), normalizeValueSetName(system.getValueSetName()));
-		}
+	public CdaTemplateProcessor(ValueSetDefinition valueSets, OutputUI outputUI) {
+		this.outputUI = outputUI;
 		
-		// TODO: externalize these
-		codeSystemMap.put("1.2.840.10008.2.16.4", "DCM");
-		codeSystemMap.put("2.16.840.1.113883.5.4", "ActCode");
-		codeSystemMap.put("2.16.840.1.113883.5.6", "HL7ActClass");
-		codeSystemMap.put("2.16.840.1.113883.5.88", "participationFunction");
-		codeSystemMap.put("2.16.840.1.113883.5.90", "HL7ParticipationType");
-		codeSystemMap.put("2.16.840.1.113883.6.1", "LOINC");
-		codeSystemMap.put("2.16.840.1.113883.6.96", "snomedCt");
-		codeSystemMap.put("2.16.840.1.113883.6.101", "NUCCProviderTaxonomy");
+		for (ValueSetDefinitionSystem system : valueSets.getSystems()) {
+			if (StringUtils.isNotBlank(system.getValueSetOid())) {
+				valueSetMap.put(system.getValueSetOid(), system.getValueSetName());
+			} else if (StringUtils.isNotBlank(system.getCodeSystemOid())) {
+				codeSystemMap.put(system.getCodeSystemOid(), system.getCodeSystemName());
+			}
+		}
 	}
 
 	private String normalize(String rawName) {
@@ -101,17 +105,6 @@ public class CdaTemplateProcessor {
 		return buf.toString();
 	}
 	
-	private String normalizeValueSetName(String rawName) {
-		StringBuffer buf = new StringBuffer(normalize(rawName));
-		
-		int valueSetIndex = buf.indexOf("ValueSet");
-		if (valueSetIndex > 0) {
-			buf.delete(valueSetIndex, valueSetIndex + 8);
-		}
-		
-		return buf.toString();
-	}
-
 	public void parseTemplate(TemplateExport templateExport, MessageSet baseModel, TemplateSet templateSet) {
 		
 		// Warning: by making the class stateful, we have made it not thread safe
@@ -125,6 +118,8 @@ public class CdaTemplateProcessor {
 			if (entryPart != null) {
 				TypeName typeName = new TypeName(entryPart.getName());
 				template.setEntryClassName(template.getPackageName() + "." + typeName.getUnqualifiedName());
+			} else {
+				outputUI.log(LogLevel.ERROR, "Template [" + cdaTemplate.getTitle() + "] defines an unknown context " + cdaTemplate.getContext());
 			}
 			
 			this.templateSet.addTemplate(template);
@@ -141,6 +136,7 @@ public class CdaTemplateProcessor {
 				rootNode.disambiguateTree(templateSet);
 				
 				createMessageParts(template, entryPart, rootNode, cdaTemplate.getConstraints(), baseModel);
+				parseSimpleChoicesAtRoot(entryPart, template, rootNode, baseModel);
 				handleChoices(template, entryPart, rootNode, baseModel);
 				handleContextFreeTemplateReferences(template, cdaTemplate, baseModel);
 				if (!cdaTemplate.isOpen()) {
@@ -161,8 +157,6 @@ public class CdaTemplateProcessor {
 					Delta delta = template.getDelta(parentDelta.getDeltaChangeType(), targetClassName, parentDelta.getRelationshipName());
 					if (delta == null) {
 						template.cloneDelta(parentDelta);
-					} else {
-						
 					}
 				}
 			}
@@ -215,7 +209,7 @@ public class CdaTemplateProcessor {
 					String associationType = relationship.getType();
 					MessagePart childPart = baseModel.getMessagePart(associationType);
 
-					if (nodeList.size() > 1) {
+					if (nodeList.size() >= 1 && nodeList.get(0).getConstraint().isBranch()) {
 						Delta delta = getOrCreateDefinitionDelta(nodeList.get(0).getConstraint(), relationship, node.getQualifiedName(), template);
 						TypeName originalPartName = new TypeName(childPart.getName());
 						String choiceBlockName = template.getPackageName() + "." + originalPartName.getUnqualifiedName() + "Choice";
@@ -224,27 +218,28 @@ public class CdaTemplateProcessor {
 						Delta choiceBlockDelta = createDelta(choiceBlockName, null, DeltaChangeType.ADD);
 						choiceBlockDelta.addConstraint(new AddConstraint(choiceBlockName, childPart.getRimClass(), true));
 						
-						Cardinality listCardinality = null;
+						Cardinality listCardinality = relationship.getCardinality();
 						for (TemplateNode childNode : nodeList) {
 							choiceBlockDelta.addConstraint(new AddChoiceConstraint(childNode.getQualifiedName()));
 
 							Cardinality constraintCardinality = Cardinality.create(childNode.getConstraint().getCardinality());
-							if (listCardinality == null) {
-								listCardinality = constraintCardinality;
-							} else {
-								listCardinality = Cardinality.add(listCardinality, constraintCardinality, relationship.getCardinality().getMax());
+							if (!listCardinality.isMandatory() && constraintCardinality.isMandatory()) {
+								delta.addConstraint(new CardinalityConstraint(relationship.getCardinality(), new Cardinality(1, relationship.getCardinality().getMax())));
 							}
 						}
-						delta.addConstraint(new CardinalityConstraint(relationship.getCardinality(), listCardinality));
+						
+						choiceBlockDelta.addConstraint(new AddChoiceConstraint(relationship.getType()));
 						
 						template.addDelta(choiceBlockDelta);
 					}
 					
 					for (TemplateNode childNode : nodeList) {
-						parseSimpleChoices(childPart, template, childNode);
+						parseSimpleChoices(childPart, template, childNode, baseModel);
 
 						handleChoices(template, childPart, childNode, baseModel);
 					}
+				} else {
+					outputUI.log(WARN, "Context " + nodeKey + " cannot be interpreted in the context of " + messagePart.getName());
 				}
 			}
 		}
@@ -270,29 +265,90 @@ public class CdaTemplateProcessor {
 		}
 	}
 	
-	private void parseSimpleChoices(MessagePart messagePart, Template template, TemplateNode node) {
+	private void parseSimpleChoicesAtRoot(MessagePart messagePart, Template template, TemplateNode node, MessageSet baseModel) {
+		for (List<TemplateNode> childNodeList : node.getChildren().values()) {
+			for (TemplateNode childNode : childNodeList) {
+				CdaConstraint childConstraint = childNode.getConstraint();
+				Relationship relationship = findRelationship(messagePart, childConstraint.getContext());
+				if (relationship != null && relationship.isAssociation() && relationship.isChoice()) {
+					if (Cardinality.create(childConstraint.getCardinality()).isMandatory() || childConstraint.isBranch() || !template.isOpen()) {
+						// remove existing choice blocks - we'll be recreating these elsewhere
+						createRemoveDelta(relationship, node.getQualifiedName(), template);
+		
+						Delta delta = addNewAssociationDelta(childConstraint, new Relationship(), node.getQualifiedName(), template);
+						List<TemplateNode> childNodes = node.getChildren().get(childConstraint.getContext());
+						if (childNodes != null && childNodes.size() == 1) {
+							delta.addConstraint(new AssociationTypeConstraint(null, childNodes.get(0).getQualifiedName()));
+							delta.addConstraint(new SortOrderConstraint(null, relationship.getSortOrder()));
+							delta.addConstraint(new AssociationSortOrderConstraint(null, relationship.getAssociationSortKey()));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private void parseSimpleChoices(MessagePart messagePart, Template template, TemplateNode node, MessageSet baseModel) {
 		for (CdaConstraint childConstraint : node.getConstraint().getConstraints()) {
 			Relationship relationship = findRelationship(messagePart, childConstraint.getContext());
 			if (relationship != null && relationship.isAssociation() && relationship.isChoice()) {
-				// remove existing choice blocks - we'll be recreating these elsewhere
-				createRemoveDelta(relationship, node.getQualifiedName(), template);
-
-				Delta delta = addNewAssociationDelta(childConstraint, new Relationship(), node.getQualifiedName(), template);
-				if (childConstraint.getContainedTemplateOid() != null) {
-					Template targetTemplate = this.templateSet.getByOid(childConstraint.getContainedTemplateOid());
-					delta.addConstraint(new AssociationTypeConstraint(null, targetTemplate.getEntryClassName()));
-					template.addTemplateReference(node.getQualifiedName() + "." + childConstraint.getContext(), childConstraint.getContainedTemplateOid(), Cardinality.create(node.getConstraint().getCardinality()));
+				if (Cardinality.create(childConstraint.getCardinality()).isMandatory() || childConstraint.isBranch() || !template.isOpen()) {
+					// remove existing choice blocks - we'll be recreating these elsewhere
+					createRemoveDelta(relationship, node.getQualifiedName(), template);
+					
+					Delta delta = addNewAssociationDelta(childConstraint, new Relationship(), node.getQualifiedName(), template);
+					if (childConstraint.getContainedTemplateOid() != null) {
+						Template targetTemplate = this.templateSet.getByOid(childConstraint.getContainedTemplateOid());
+						delta.addConstraint(new AssociationTypeConstraint(null, targetTemplate.getEntryClassName()));
+						template.addTemplateReference(node.getQualifiedName() + "." + childConstraint.getContext(), childConstraint.getContainedTemplateOid(), Cardinality.create(node.getConstraint().getCardinality()));
+					} else {
+						List<TemplateNode> childNodes = node.getChildren().get(childConstraint.getContext());
+						if (childNodes != null && childNodes.size() == 1) {
+							TemplateNode childNode = childNodes.get(0);
+							delta.addConstraint(new AssociationTypeConstraint(null, childNode.getQualifiedName()));
+						}
+					}
 				} else {
+					Delta choiceBlockDelta = getOrCreateChoiceBlockDelta(relationship, baseModel, template, node);
+					
+					Relationship option = relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(childConstraint.getContext()));
+					choiceBlockDelta.addConstraint(new RemoveChoiceConstraint(option.getType()));
+					
 					List<TemplateNode> childNodes = node.getChildren().get(childConstraint.getContext());
 					if (childNodes != null && childNodes.size() == 1) {
 						TemplateNode childNode = childNodes.get(0);
-						delta.addConstraint(new AssociationTypeConstraint(null, childNode.getQualifiedName()));
+						AddChoiceConstraint addChoiceConstraint = new AddChoiceConstraint(childNode.getQualifiedName());
+						addChoiceConstraint.setOptionName(childConstraint.getContext());
+						choiceBlockDelta.addConstraint(addChoiceConstraint);
 					}
 				}
 			}
 		}
 	}
 	
+	private Delta getOrCreateChoiceBlockDelta(Relationship relationship, MessageSet baseModel, Template template, TemplateNode node) {
+		String choiceBlockName = template.getPackageName() + relationship.getType().substring(relationship.getType().lastIndexOf('.'));
+		Delta choiceBlockDelta = template.getDelta(DeltaChangeType.CHOICE, choiceBlockName, null);
+		if (choiceBlockDelta == null) {
+			// do stuff to create and hook it up
+			MessagePart originalPart = baseModel.getMessagePart(relationship.getType());
+			createCloneDelta(template, originalPart, choiceBlockName);
+
+			Delta delta = template.getDelta(DeltaChangeType.DEFINITION, node.getQualifiedName(), relationship.getQualifiedName());
+			if (delta == null) {
+				delta = createDelta(node.getQualifiedName(), relationship, DeltaChangeType.DEFINITION);
+				template.addDelta(delta);
+			}
+			
+			delta.addConstraint(new AssociationTypeConstraint(relationship.getType(), choiceBlockName));
+			
+			choiceBlockDelta = createDelta(choiceBlockName, null, DeltaChangeType.CHOICE);
+			template.addDelta(choiceBlockDelta);
+			
+		}
+		return choiceBlockDelta;
+	}
+
 	private void parseDeepContextConstraints(MessagePart messagePart, Template template, TemplateNode node, MessageSet baseModel,
 			List<CdaConstraint> cdaConstraints) {
 		for (CdaConstraint cdaConstraint : cdaConstraints) {
@@ -328,6 +384,8 @@ public class CdaTemplateProcessor {
 					} else if (relationship.isAssociation()) {
 						parseConstraintAsAssociation(cdaConstraint, relationship, template, baseModel, nextNode);
 					}
+				} else {
+					outputUI.log(WARN, "Context " + cdaConstraint.getContext() + " is invalid in constraint " + cdaConstraint.getNumber());
 				}
 			}
 		}		
@@ -346,7 +404,18 @@ public class CdaTemplateProcessor {
 
 	private void constrainSectionChoiceForClinicalDocument(Template template,
 			List<CdaConstraint> contextFreeConstraints) {
+		
+		String clinicalDocumentName = template.getPackageName() + ".ClinicalDocument";
 		String component2ClassName = template.getPackageName() + ".Component2";
+		if (template.getDelta(DeltaChangeType.DEFINITION, clinicalDocumentName, "component") == null) {
+			// some templates provide partial context that creates this part for us. If not, do it ourselves.
+			Delta clinicalDocumentDelta = getOrCreatePlainAssociationDelta(template, clinicalDocumentName, "component", DeltaChangeType.DEFINITION);
+			clinicalDocumentDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Component2", component2ClassName));
+			
+			Delta component2CloneDelta = getOrCreatePlainClassDelta(template, component2ClassName, DeltaChangeType.CLONE);
+			component2CloneDelta.addConstraint(new CloneConstraint(component2ClassName, null, "POCD_MT000040.Component2"));
+		}
+		
 		Delta component2Delta = getOrCreatePlainAssociationDelta(template,	component2ClassName, "component2Choice", DeltaChangeType.DEFINITION);
 		
 		String component2ChoiceClassName = template.getPackageName() + ".Component2Choice";
@@ -371,7 +440,6 @@ public class CdaTemplateProcessor {
 		Delta choiceBlockDelta = createDelta(choiceBlockName, null, DeltaChangeType.ADD);
 		choiceBlockDelta.addConstraint(new AddConstraint(choiceBlockName, RimClass.ACT_RELATIONSHIP, true));
 		
-		Cardinality listCardinality = null;
 		for (CdaConstraint cdaConstraint : contextFreeConstraints) {
 			Cardinality constraintCardinality = Cardinality.create(cdaConstraint.getCardinality());
 			if (isEncounterParticipantSpecialCase(cdaConstraint)) {
@@ -383,41 +451,42 @@ public class CdaTemplateProcessor {
 
 				template.addTemplateReference(messagePartName + ".encounterParticipant", cdaConstraint.getContainedTemplateOid(), constraintCardinality);
 			} else {
-				Template targetTemplate = templateSet.getByOid(cdaConstraint.getContainedTemplateOid());
-				String choiceOptionName = template.getPackageName() + "." + targetTemplate.getPackageName() + "Component3";
-				choiceBlockDelta.addConstraint(new AddChoiceConstraint(choiceOptionName));
-	
-				Delta choiceOptionDelta = createDelta(choiceOptionName, null, DeltaChangeType.CLONE);
-				choiceOptionDelta.addConstraint(new CloneConstraint(choiceOptionName, null, "POCD_MT000040.Component3"));
-				template.addDelta(choiceOptionDelta);
-				
-				Delta sectionDelta = getOrCreatePlainAssociationDelta(template, choiceOptionName, "section", DeltaChangeType.DEFINITION);
-				sectionDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Section", targetTemplate.getEntryClassName()));
-				
-	
-				if (constraintCardinality == null) {
-					if (StringUtils.equals(cdaConstraint.getConformance(), "SHALL")) {
-						constraintCardinality = new Cardinality(1, 1);
-					} else {
-						constraintCardinality = new Cardinality(0, 1);
+				List<Template> targetAndDescendantTemplates = getDescendantTemplates(cdaConstraint.getContainedTemplateOid());
+				for (Template targetTemplate : targetAndDescendantTemplates) {
+					String choiceOptionName = template.getPackageName() + "." + targetTemplate.getPackageName() + "Component3";
+					choiceBlockDelta.addConstraint(new AddChoiceConstraint(choiceOptionName));
+		
+					Delta choiceOptionDelta = createDelta(choiceOptionName, null, DeltaChangeType.CLONE);
+					choiceOptionDelta.addConstraint(new CloneConstraint(choiceOptionName, null, "POCD_MT000040.Component3"));
+					template.addDelta(choiceOptionDelta);
+					
+					Delta sectionDelta = getOrCreatePlainAssociationDelta(template, choiceOptionName, "section", DeltaChangeType.DEFINITION);
+					sectionDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Section", targetTemplate.getEntryClassName()));
+					
+		
+					if (constraintCardinality == null) {
+						if (StringUtils.equals(cdaConstraint.getConformance(), "SHALL")) {
+							constraintCardinality = new Cardinality(1, 1);
+						} else {
+							constraintCardinality = new Cardinality(0, 1);
+						}
 					}
+					
+					template.addTemplateReference(choiceOptionName + ".section", targetTemplate.getOid(), constraintCardinality);
 				}
-				if (listCardinality == null) {
-					listCardinality = constraintCardinality;
-				} else {
-					listCardinality = Cardinality.add(listCardinality, constraintCardinality, Integer.MAX_VALUE);
-				}
-				
-				template.addTemplateReference(choiceOptionName + ".section", cdaConstraint.getContainedTemplateOid(), constraintCardinality);
 			}
 		}
-		if (listCardinality.getMin() < 1) {
-			// There must be at least one component, even if all of the individual options are optional
-			listCardinality = new Cardinality(1, listCardinality.getMax());
-		}
-		structuredBodyComponentDelta.addConstraint(new CardinalityConstraint(new Cardinality(1, Integer.MAX_VALUE), listCardinality));
+		structuredBodyComponentDelta.addConstraint(new CardinalityConstraint(new Cardinality(1, Integer.MAX_VALUE), new Cardinality(1, Integer.MAX_VALUE)));
 		
 		template.addDelta(choiceBlockDelta);
+	}
+
+	private List<Template> getDescendantTemplates(String containedTemplateOid) {
+		List<Template> templates = new ArrayList<Template>();
+		Template targetTemplate = templateSet.getByOid(containedTemplateOid);
+		templates.add(targetTemplate);
+		templates.addAll(templateSet.getChildTemplates(containedTemplateOid));
+		return templates;
 	}
 
 	private boolean isEncounterParticipantSpecialCase(CdaConstraint cdaConstraint) {
@@ -501,9 +570,7 @@ public class CdaTemplateProcessor {
 	private void removeUnreferencedRelationships(CdaTemplate cdaTemplate, Template template, MessagePart messagePart, String className) {
 		for (Relationship relationship : messagePart.getRelationships()) {
 			if (!allRelationshipContexts(cdaTemplate.getConstraints()).contains(relationship.getName())) {
-				Delta delta = createDelta(className, relationship, DeltaChangeType.REMOVE);
-				delta.addConstraint(new RemoveConstraint(className, relationship.getName()));
-				template.addDelta(delta);
+				createRemoveDelta(relationship, className, template);
 			}
 		}
 	}
@@ -523,9 +590,7 @@ public class CdaTemplateProcessor {
 	private void removeUnreferencedRelationships(TemplateNode node, Template template, MessagePart messagePart) {
 		for (Relationship relationship : messagePart.getRelationships()) {
 			if (!allRelationshipContexts(node.getConstraint().getConstraints()).contains(relationship.getName())) {
-				Delta delta = createDelta(node.getQualifiedName(), relationship, DeltaChangeType.REMOVE);
-				delta.addConstraint(new RemoveConstraint(node.getQualifiedName(), relationship.getName()));
-				template.addDelta(delta);
+				createRemoveDelta(relationship, node.getQualifiedName(), template);
 			}
 		}
 	}
@@ -633,7 +698,7 @@ public class CdaTemplateProcessor {
 		
 		delta.setClassName(className);
 		if (relationship != null) {
-			delta.setRelationshipName(relationship.getName());
+			delta.setRelationshipName(relationship.getQualifiedName());
 		}
 		delta.setDeltaChangeType(changeType);
 		
@@ -651,26 +716,30 @@ public class CdaTemplateProcessor {
 		Delta delta = getOrCreateDefinitionDelta(cdaConstraint, relationship, className, template);
 		
 		Cardinality constrainedCardinality = Cardinality.create(cdaConstraint.getCardinality());
-		if (relationship.getConformance().equals(ConformanceLevel.OPTIONAL) && constrainedCardinality.isMandatory()) {
-			delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+		if (relationship.getConformance().equals(ConformanceLevel.OPTIONAL) && constrainedCardinality.isMandatory() && !relationship.isStructural()) {
+			delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.POPULATED));
 		}
 		if (constrainedCardinality.getMax() == 0) {
 			delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.NOT_ALLOWED));
 		}
-		if (cdaConstraint.getSingleValueCode() != null) {
-			delta.addConstraint(new FixedConstraint(relationship.getFixedValue(), cdaConstraint.getSingleValueCode().getCode()));
-		}
-		if (cdaConstraint.getDataType() != null) {
-			String dataTypeName = cdaConstraint.getDataType();
-			StandardDataType standardType = StandardDataType.valueOf(StandardDataType.class, cdaConstraint.getDataType());
-			if (!StandardDataType.isSetOrList(dataTypeName) && standardType != null) {
-				dataTypeName = standardType.getType();
+		if (!cdaConstraint.isBranch()) {
+			// If the constraint represents a branch, these categories of constraint should not be applied to the entire collection
+			if (cdaConstraint.getSingleValueCode() != null) {
+				addFixedValueToAttribute(delta, cdaConstraint, relationship);
 			}
-			if (constrainedCardinality.isMultiple() && !StandardDataType.isSetOrList(dataTypeName)) {
-				dataTypeName = "LIST<" + dataTypeName + ">";
-			}
-			if (!dataTypeName.equals(relationship.getType())) {
-				delta.addConstraint(new DatatypeConstraint(relationship.getType(), dataTypeName));
+			if (cdaConstraint.getDataType() != null) {
+				String dataTypeName = StringUtils.deleteWhitespace(cdaConstraint.getDataType());
+				
+				StandardDataType standardType = StandardDataType.valueOf(StandardDataType.class, cdaConstraint.getDataType());
+				if (!StandardDataType.isSetOrList(dataTypeName) && standardType != null) {
+					dataTypeName = standardType.getType();
+				}
+				if (constrainedCardinality.isMultiple() && !StandardDataType.isSetOrList(dataTypeName)) {
+					dataTypeName = "LIST<" + dataTypeName + ">";
+				}
+				if (!dataTypeName.equals(relationship.getType())) {
+					delta.addConstraint(new DatatypeConstraint(relationship.getType(), dataTypeName));
+				}
 			}
 		}
 		if (CodedTypeEvaluator.isCodedType(relationship.getType())) {
@@ -688,8 +757,10 @@ public class CdaTemplateProcessor {
 				// assume the nested constraints actually represent a fixed value and/or code system binding
 				if ("@code".equals(subconstraint.getContext())) {
 					if (subconstraint.getSingleValueCode() != null) {
-						delta.addConstraint(new FixedConstraint(relationship.getFixedValue(), subconstraint.getSingleValueCode().getCode()));
-					} else if (subconstraint.getCodeSystem() != null) {
+						addFixedValueToAttribute(delta, subconstraint, relationship);
+					} 
+					
+					if (subconstraint.getCodeSystem() != null) {
 						delta.addConstraint(new VocabularyBindingConstraint(relationship.getDomainSource(), DomainSource.CODE_SYSTEM, relationship.getDomainType(), lookupCodeSystem(subconstraint.getCodeSystem().getOid())));
 					} else if (subconstraint.getValueSet() != null) {
 						delta.addConstraint(new VocabularyBindingConstraint(relationship.getDomainSource(), DomainSource.VALUE_SET, relationship.getDomainType(), lookupValueSet(subconstraint.getValueSet().getOid())));
@@ -703,7 +774,28 @@ public class CdaTemplateProcessor {
 			} else {
 				parseNestedAttributeConstraint(template, subconstraint, className, relationship.getName());
 			}
+			
+			if ("@nullFlavor".equals(subconstraint.getContext()) && subconstraint.isConformanceShallNot()) {
+				// if the constraint prohibits nullFlavor, promote P to M
+				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+			} else if ("@root".equals(subconstraint.getContext()) && subconstraint.getSingleValueCode() != null) {
+				// templateId case - a sort of fixed value
+				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+			}
+
 		}
+	}
+
+	private void addFixedValueToAttribute(Delta delta, CdaConstraint constraint, Relationship relationship) {
+		delta.addConstraint(new FixedConstraint(relationship.getFixedValue(), constraint.getSingleValueCode().getCode()));
+		ConformanceConstraint conformanceConstraint = (ConformanceConstraint) delta.getConstraint(ConstraintChangeType.CHANGE_CONFORMANCE);
+		if (conformanceConstraint != null && conformanceConstraint.getNewValue().equals(ConformanceLevel.POPULATED)) {
+			conformanceConstraint.setNewValue(ConformanceLevel.MANDATORY);
+		} else if (relationship.getConformance().equals(ConformanceLevel.POPULATED)) {
+			// It doesn't really make sense for POPULATED and fixed value to go together
+			// If we have a fixed value, we'll never have a nullFlavor, so promote this to MANDATORY
+			delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+		} 
 	}
 
 	private void ensureCardinalityConsistency(Relationship relationship,
@@ -730,11 +822,15 @@ public class CdaTemplateProcessor {
 	}
 	
 	private Delta getOrCreateDefinitionDelta(CdaConstraint cdaConstraint, Relationship relationship, String className, Template template) {
-		String rootName = relationship.getName();
+		String rootName = relationship.getQualifiedName();
 		
 		Cardinality constrainedCardinality = Cardinality.create(cdaConstraint.getCardinality());
 		if (relationship.getCardinality() != null && relationship.getCardinality().getMin() > constrainedCardinality.getMin()) {
 			constrainedCardinality = new Cardinality(relationship.getCardinality().getMin(), constrainedCardinality.getMax());
+		}
+		
+		if (cdaConstraint.isBranch() && relationship.getCardinality().isMultiple()) {
+			constrainedCardinality = new Cardinality(constrainedCardinality.getMin(), relationship.getCardinality().getMax());
 		}
 
 		Delta delta = template.getDelta(DeltaChangeType.DEFINITION, className, rootName);
@@ -749,12 +845,18 @@ public class CdaTemplateProcessor {
 			if (constrainedCardinality.getMax() == 0) {
 				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.NOT_ALLOWED));
 			}
+			for (CdaConstraint subConstraint : cdaConstraint.getConstraints()) {
+				if (StringUtils.equals(parseContext(subConstraint), "nullFlavor") && subConstraint.isConformanceShallNot()) {
+					delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+				}
+			}
 			
 			template.addDelta(delta);
-		} else if (relationship.isAttribute()){
+		} else if (cdaConstraint.isBranch()){
 			CardinalityConstraint cardinalityConstraint = (CardinalityConstraint) delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
-			constrainedCardinality = Cardinality.add(constrainedCardinality, cardinalityConstraint.getNewCardinality(), relationship.getCardinality().getMax());
-			cardinalityConstraint.setNewCardinality(constrainedCardinality);
+			if (constrainedCardinality.isMandatory()) {
+				cardinalityConstraint.setNewCardinality(constrainedCardinality);
+			}
 		}
 
 		return delta;
@@ -794,7 +896,7 @@ public class CdaTemplateProcessor {
 			template.addDelta(delta);
 		}
 	}
-	
+
 	private void parseConstraintAsAssociation(CdaConstraint cdaConstraint,
 			Relationship relationship, Template template, MessageSet baseModel, TemplateNode templateNode) {
 
@@ -805,7 +907,7 @@ public class CdaTemplateProcessor {
 			delta.addConstraint(new AssociationTypeConstraint(relationship.getType(), targetTemplate.getEntryClassName()));
 		} else {
 			List<TemplateNode> childNodes = templateNode.getChildren().get(relationship.getName());
-			if (childNodes != null && childNodes.size() == 1) {
+			if (childNodes != null && childNodes.size() == 1 && !cdaConstraint.isBranch()) {
 				MessagePart targetPart = baseModel.getMessagePart(relationship.getType());
 				if (targetPart != null) {
 					TemplateNode childNode = childNodes.get(0);
@@ -843,7 +945,7 @@ public class CdaTemplateProcessor {
 	}
 
 	private void parseNestedAttributeConstraint(Template template, CdaConstraint constraint, String className, String attributeRootName) {
-		if (!constraint.isPrimitive()) {
+		if (!constraint.isPrimitive() && !StringUtils.equals("nullFlavor", parseContext(constraint)) && (constraint.isConformanceShall() || constraint.getSingleValueCode() == null)) {
 			String relationshipName = attributeRootName + "." + parseContext(constraint);
 
 			Delta subdelta = new AttributeDelta();
@@ -872,7 +974,14 @@ public class CdaTemplateProcessor {
 	}
 
 	private Relationship findRelationship(MessagePart messagePart, String context) {
-		return messagePart.getRelationship(parseContext(context));
+		String parsedContext = parseContext(context);
+		if (StringUtils.contains(parsedContext, ':')) {
+			String[] contextParts = StringUtils.split(parsedContext, ':');
+			Relationship relationship = messagePart.getRelationship(contextParts[1], contextParts[0]);
+			return relationship;
+		} else {
+			return messagePart.getRelationship(parsedContext);
+		}
 	}
 	
 	private String parseContext(CdaConstraint cdaConstraint) {
@@ -900,18 +1009,28 @@ public class CdaTemplateProcessor {
 		template.setTemplateType(cdaTemplate.getTemplateType());
 		template.setContext(cdaTemplate.getContext());
 		template.setImpliedTemplateOid(cdaTemplate.getImpliedTemplateOid());
-		template.setDescription(cdaTemplate.getDescription().getText());
+		if (cdaTemplate.getDescription() != null) {
+			template.setDescription(cdaTemplate.getDescription().getText());
+		}
 		template.setPackageName(normalize(cdaTemplate.getTitle()));
 
 		return template;
 	}
 	
 	private String lookupValueSet(String oid) {
-		return this.valueSetMap.get(oid);
+		String string = this.valueSetMap.get(oid);
+		if (string == null) {
+			this.outputUI.log(WARN, "No value set defined for " + oid);
+		}
+		return string;
 	}
 
 	private String lookupCodeSystem(String oid) {
-		return this.codeSystemMap.get(oid);
+		String string = this.codeSystemMap.get(oid);
+		if (string == null) {
+			this.outputUI.log(WARN, "No code system defined for " + oid);
+		}
+		return string;
 	}
 	
 }

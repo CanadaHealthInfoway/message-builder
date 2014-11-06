@@ -33,6 +33,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
@@ -70,7 +71,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 	public void testTs() throws Exception {
 		Date date = DateUtil.getDate(2003, 2, 27);
 		DateWithPattern dateWithPattern = new DateWithPattern(date, "yyyyMMdd");
-		ANYImpl<Object> tsImpl = new ANYImpl<Object>(dateWithPattern, null, StandardDataType.TS);
+		ANYImpl<Object> tsImpl = new ANYImpl<Object>(new MbDate(dateWithPattern), null, StandardDataType.TS);
 		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), tsImpl, 0);
 		assertXml("result", "<name value=\"20030327\" xsi:type=\"TS\"/>", result);
 		

@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -74,7 +73,7 @@ public class CrR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<C
 	        if (codeRole.getValue() != null) {
 	        	buffer.append(formatValue(context, codeRole.getValue(), indentLevel + 1));
 	        }
-        	buffer.append(XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, true));
+        	buffer.append(createElementClosure(context.getElementName(), indentLevel, true));
         }
         return buffer.toString();
     }

@@ -106,12 +106,13 @@ public class DomainTypeHelper {
 			// TM - could also try walking up each code's hierarchy looking for a compatible domain type
 			//    - this only affects one group of types in MR2009, so I'll leave this as an enhancement
 		} else if (code1 != code2) {
-			if (StringUtils.isBlank(relationship1.getDomainType())) {
-				System.out.println("WARNING: relationship seems to be missing a domainType (" + relationship1.getParentType() + "." + relationship1.getName() + ")");
-			}
-			if (StringUtils.isBlank(relationship2.getDomainType())) {
-				System.out.println("WARNING: relationship seems to be missing a domainType (" + relationship2.getParentType() + "." + relationship2.getName() + ")");
-			}
+			// the following code was causing more noise than signal; should be logged properly if later deemed necessary to report
+//			if (StringUtils.isBlank(relationship1.getDomainType())) {
+//				System.out.println("WARNING: relationship seems to be missing a domainType (" + relationship1.getParentType() + "." + relationship1.getName() + ")");
+//			}
+//			if (StringUtils.isBlank(relationship2.getDomainType())) {
+//				System.out.println("WARNING: relationship seems to be missing a domainType (" + relationship2.getParentType() + "." + relationship2.getName() + ")");
+//			}
 		}
 		return result;
 	}

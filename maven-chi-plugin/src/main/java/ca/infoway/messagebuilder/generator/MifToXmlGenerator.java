@@ -148,4 +148,10 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 		throw new UnsupportedOperationException("Must use processAllMifs() method instead.");
 	}
 
+
+	@Override
+	public MessageSet processAllCdaFiles(File schema, File supplementarySchema, File template, File vocabulary) throws GeneratorException, IOException {
+		throw new UnsupportedOperationException("Must use processAllMifs() method instead.");
+	}
+
 }

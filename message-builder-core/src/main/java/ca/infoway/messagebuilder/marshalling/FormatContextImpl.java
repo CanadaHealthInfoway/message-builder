@@ -28,8 +28,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class FormatContextImpl implements FormatContext {
 
@@ -39,18 +39,20 @@ class FormatContextImpl implements FormatContext {
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
 	private final String propertyPath;
+	private final ConstrainedDatatype constraints;
 
-	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.relationship = relationship;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
+		this.constraints = constraints;
 	}
 
-	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone);
+	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints) {
+		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints);
 	}
 
 	public ModelToXmlResult getModelToXmlResult() {
@@ -78,7 +80,7 @@ class FormatContextImpl implements FormatContext {
 	}
 
 	public boolean isSpecializationType() {
-		return false;
+		return this.relationship.getPrintDatatype();
 	}
 
 	public VersionNumber getVersion() {
@@ -102,8 +104,11 @@ class FormatContextImpl implements FormatContext {
 	}
 
 	public boolean isFixed() {
-		Relationship r = this.relationship;
-		return r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r);
+		return this.relationship.hasFixedValue();
+	}
+
+	public ConstrainedDatatype getConstraints() {
+		return this.constraints;
 	}
 
 }

@@ -73,7 +73,7 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 		for (BaseRelationshipBridge relationshipBridge : this.bridge.getRelationshipBridges()) {
 			Relationship r = relationshipBridge.getRelationship();
 			if ("versionCode".equals(relationshipBridge.getRelationship().getName())
-					&& !(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+					&& !r.hasFixedValue()) {
 				result.add(new FixedValueIfNotProvidedAttributeBeanBridge((AttributeBridge) relationshipBridge, 
 						new CSImpl(HL7StandardVersionCode.V3_2007_05)));
 			} else if ("interactionId".equals(relationshipBridge.getRelationship().getName())) {

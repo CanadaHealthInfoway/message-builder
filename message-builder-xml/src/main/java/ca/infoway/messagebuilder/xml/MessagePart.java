@@ -238,21 +238,30 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * @return - the relationship
 	 */
 	public Relationship getRelationship(String name) {
-		return getRelationship(name, null);
+		return getRelationship(name, null, null);
 	}
 
+	/**
+	 * <p>Get a specific relationship by name.
+	 * @param name - the name of the relationship
+	 * @return - the relationship
+	 */
+	public Relationship getRelationship(String name, String namespace) {
+		return getRelationship(name, namespace, null);
+	}
+	
 	/**
 	 * <p>Get a specific relationship by name.
 	 * @param name - the name of the relationship
 	 * @param interaction - the interaction (used to resolve names of template parameters) or null
 	 * @return - the relationship
 	 */
-	public Relationship getRelationship(String name, Interaction interaction) {
+	public Relationship getRelationship(String name, String namespace, Interaction interaction) {
 		
 		Relationship result = null;
 		//First look for children matching 'name'
 		for (Relationship relationship : this.relationships) {
-			if (matchesRelationshipByName(name, relationship) 
+			if (matchesRelationshipByName(name, namespace, relationship) 
 					|| matchesRelationshipByTraversalName(name, relationship, interaction)) {
 				result = relationship;
 				break;
@@ -278,8 +287,10 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	private boolean matchesRelationshipByChoiceOptionName(String name, Relationship relationship) {
 		return relationship.isChoice() && relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(name)) != null;
 	}
-	private boolean matchesRelationshipByName(String name, Relationship relationship) {
-		return isNotBlank(name) && name.equals(relationship.getName());
+	private boolean matchesRelationshipByName(String name, String namespace, Relationship relationship) {
+		// TM - removing check against namespace; this may eventually be reinstated
+		return isNotBlank(name) && name.equals(relationship.getName()); 
+				// && (StringUtils.equals(namespace, relationship.getNamespace()));
 	}
 	private boolean matchesRelationshipByTraversalName(String name,	Relationship relationship, Interaction interaction) {
 		if (interaction != null && relationship.isTemplateRelationship()){

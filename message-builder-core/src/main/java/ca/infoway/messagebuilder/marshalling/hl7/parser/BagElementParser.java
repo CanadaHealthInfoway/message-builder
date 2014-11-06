@@ -28,9 +28,11 @@ import org.apache.commons.collections.CollectionUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.MarshallingException;
+import com.sun.corba.se.impl.corba.AnyImpl;
+
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
+import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -52,15 +54,12 @@ class BagElementParser extends SetOrListElementParser {
 	
 	@Override
 	protected BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection) {
-		try {
-			CollectionHelper result = (CollectionHelper) GenericDataTypeFactory.create(type);
-			for (BareANY bareANY : collection) {
-				result.add(bareANY);
-			}
-			return (BareANY) result;
-		} catch (MarshallingException e) {
-			return null;
+		@SuppressWarnings({ "rawtypes", "unchecked" })
+		CollectionHelper result = new LISTImpl(AnyImpl.class);
+		for (BareANY bareANY : collection) {
+			result.add(bareANY);
 		}
+		return (BareANY) result;
 	}
 
 	@Override

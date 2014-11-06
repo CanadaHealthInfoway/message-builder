@@ -50,11 +50,16 @@ interface Hl7Source {
 	public XmlToModelResult getResult();
 	
 	public Hl7PartSource createPartSource(Relationship relationship, Element currentElement);
+
+	public Hl7PartSource createPartSourceForSpecificType(Relationship relationship, Element currentElement, String type);
 	
 	public Relationship getRelationship(String name);
 	
 	public List<Relationship> getAllRelationships();
 	
 	public Interaction getInteraction();
+	
+	public boolean isR2();
+	public boolean isCda();
 	
 }

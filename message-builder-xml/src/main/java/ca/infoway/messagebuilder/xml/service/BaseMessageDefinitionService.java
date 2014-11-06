@@ -35,6 +35,7 @@ import org.apache.commons.io.IOUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.platform.ResourceLoader;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -287,6 +288,24 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		return messageSet == null ? false : messageSet.isGeneratedAsR2();
 	}
 
+	/**
+	 * Determine if the message set for the given version defines CDA documents.
+	 */
+	public boolean isCda(VersionNumber version) {
+		MessageSet messageSet = findMessageSet(version);
+		return messageSet == null ? false : messageSet.isCda();
+	}
+
+	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType) {
+		if (constrainedType != null) {
+			MessageSet messageSet = findMessageSet(version);
+			if (messageSet != null) {
+				return messageSet.getConstrainedDatatype(constrainedType);
+			}
+		}
+		return null;
+	}
+	
 	private MessageSet findMessageSet(VersionNumber version) {
 		return findMessageSet(version == null ? null : version.getVersionLiteral());
 	}

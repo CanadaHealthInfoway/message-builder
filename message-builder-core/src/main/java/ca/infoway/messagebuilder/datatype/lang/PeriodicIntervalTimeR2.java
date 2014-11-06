@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.CalendarCycle;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class PeriodicIntervalTimeR2 implements Serializable {
+public class PeriodicIntervalTimeR2 extends MbDate implements Serializable {
 
 	private static final long serialVersionUID = -7334434139857699836L;
 	

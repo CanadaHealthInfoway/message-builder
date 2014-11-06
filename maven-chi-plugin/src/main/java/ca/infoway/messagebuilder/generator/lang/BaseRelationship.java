@@ -95,8 +95,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
     }
 
     public boolean isFixed() {
-        Relationship r = this.relationship;
-		return r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r);
+        return this.relationship.hasFixedValue();
     }
 
     public int getSortKey() {

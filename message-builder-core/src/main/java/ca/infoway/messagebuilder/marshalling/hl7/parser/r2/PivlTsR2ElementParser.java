@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.Date;
 
 import org.apache.commons.lang.StringUtils;
@@ -29,6 +30,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.PIVL_R2Impl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -78,14 +80,14 @@ class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicInterval
 		return (PhysicalQuantity) pqAny.getBareValue();
 	}
 
-	@SuppressWarnings("unchecked")
 	protected Interval<Date> createPhaseType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
 		if (element == null) {
 			return null;
 		}
 		ParseContext ivlTsContext = ParserContextImpl.create("IVL<TS>", context);
-		BareANY periodAny = this.ivlTsParser.parse(ivlTsContext, element, xmlToModelResult);
-		return (Interval<Date>) periodAny.getBareValue();
+		BareANY periodAny = this.ivlTsParser.parse(ivlTsContext, Arrays.asList((Node) element), xmlToModelResult);
+		DateInterval dateInterval = (DateInterval) periodAny.getBareValue();
+		return dateInterval == null ? null : dateInterval.getInterval();
 	}
 
 	private CalendarCycle obtainAlignment(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {

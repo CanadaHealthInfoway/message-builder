@@ -26,21 +26,18 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.RoleClass;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_1Bean;
-import java.util.Date;
 import java.util.List;
 
 
@@ -48,36 +45,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.OrganizationPartOf"})
 public class OrganizationPartOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private CS_R2 statusCode = new CS_R2Impl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS effectiveTime = new IVL_TSImpl();
     private Organization_1Bean wholeOrganization;
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.OrganizationPartOf.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClass> getClassCode() {
-        return (CodedTypeR2<RoleClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.OrganizationPartOf.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
 
 
     /**
@@ -180,7 +156,7 @@ public class OrganizationPartOfBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
+    public DateInterval getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -190,7 +166,7 @@ public class OrganizationPartOfBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
+    public void setEffectiveTime(DateInterval effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 

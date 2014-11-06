@@ -32,7 +32,6 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 @DataTypeHandler("URG<PQ>")
 class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<UncertainRange<PhysicalQuantity>> {
@@ -50,7 +49,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
     	Interval<PhysicalQuantity> convertedInterval = IntervalFactory.createFromUncertainRange(value);
     	IVLImpl<PQ, Interval<PhysicalQuantity>> convertedHl7Interval = new IVLImpl<PQ, Interval<PhysicalQuantity>>(convertedInterval);
     	
-    	FormatContext ivlContext = new FormatContextImpl(context.getType().replace("URG", "IVL"), context);
+    	FormatContext ivlContext = new FormatContextImpl(context.getType().replace("URG", "IVL"), context.isSpecializationType(), context);
     	
 		String xml = this.formatter.format(ivlContext, convertedHl7Interval, indentLevel);
     	
@@ -75,7 +74,7 @@ class UrgPqPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
 		if (StringUtils.isNotBlank(originalText)) {
 			String otElement = createElement("originalText", null, indentLevel + 1, false, false);
 			otElement += XmlStringEscape.escape(originalText);
-			otElement += XmlRenderingUtils.createEndElement("originalText", 0, false);
+			otElement += createElementClosure("originalText", 0, false);
 			int indexOf = xml.indexOf(">");
 			xml = xml.substring(0, indexOf + 2) + otElement + xml.substring(indexOf + 2);					
 		}

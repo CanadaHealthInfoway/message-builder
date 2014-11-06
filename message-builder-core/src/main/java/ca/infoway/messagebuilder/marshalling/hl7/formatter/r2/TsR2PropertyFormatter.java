@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -52,7 +53,7 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
 @DataTypeHandler({"TS", "SXCM<TS>"})
-public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
+public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<MbDate> {
 
 	public static final String DATE_FORMAT_OVERRIDE_BASE_PROPERTY_NAME = "messagebuilder.date.format.override.";
 	
@@ -62,7 +63,8 @@ public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormat
     private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
     
     @Override
-    public String getValue(Date date, FormatContext context, BareANY bareAny) {
+    public String getValue(MbDate mbDate, FormatContext context, BareANY bareAny) {
+    	Date date = (mbDate == null ? null : mbDate.getValue());
     	// write out the date using the "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);
     	String datePattern = determineDateFormat(date, version);
@@ -72,7 +74,7 @@ public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormat
     }
     
     @Override
-    protected void addOtherAttributesIfNecessary(Date v, Map<String, String> attributes, FormatContext context,	BareANY bareAny) {
+    protected void addOtherAttributesIfNecessary(MbDate v, Map<String, String> attributes, FormatContext context, BareANY bareAny) {
     	this.sxcmHelper.handleOperator(attributes, context, (ANYMetaData) bareAny);
     }
 

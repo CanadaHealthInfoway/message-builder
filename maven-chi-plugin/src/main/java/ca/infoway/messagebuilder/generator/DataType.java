@@ -43,7 +43,11 @@ public class DataType {
 	DataType(DataTypeGenerationDetails type, String qualifier, boolean isR2, DataType... parameters) {
 		this.qualifier = qualifier;
 		this.isR2 = isR2;
-		this.parameters = parameters;
+		if (DataTypeGenerationDetails.IVL_TS_R2 == type) {
+			this.parameters = new DataType[0];
+		} else {
+			this.parameters = parameters;
+		}
 		this.type = type;
 		this.parameterAppenderRegistry = new ParameterAppenderRegistryFactory().create(isR2);
 	}

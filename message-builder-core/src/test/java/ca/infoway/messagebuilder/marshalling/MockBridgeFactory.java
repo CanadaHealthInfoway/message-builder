@@ -21,7 +21,9 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 class MockBridgeFactory implements BridgeFactory {
 
@@ -34,5 +36,9 @@ class MockBridgeFactory implements BridgeFactory {
 
 	public Interaction getInteraction(InteractionBean tealBean) {
 		return this.interaction;
+	}
+
+	public ConstrainedDatatype getConstraints(Relationship relationship) {
+		return null;
 	}
 }

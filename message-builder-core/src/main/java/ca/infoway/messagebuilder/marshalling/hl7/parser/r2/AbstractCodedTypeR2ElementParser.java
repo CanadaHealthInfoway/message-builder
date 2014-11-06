@@ -24,7 +24,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.text.MessageFormat;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -33,15 +33,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.HXIT;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -293,7 +292,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 	private void handleTranslation(Element element, CodedTypeR2<Code> codedType, ParseContext context, XmlToModelResult result) {
 		if (translationAllowed()) {
 			// we have no knowledge of what domain the translation may belong to (I imagine code system could allow for a reverse lookup at some point)
-			ParseContext newContext = ParserContextImpl.create("CD", ANY.class, context); 
+			ParseContext newContext = ParserContextImpl.create("CD", Code.class, context); 
 			NodeList translations = element.getElementsByTagName("translation");
 			for (int i = 0, length = translations.getLength(); i < length; i++) {
 				Element translationElement = (Element) translations.item(i);
@@ -315,7 +314,6 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void handleValidTime(Element element, CodedTypeR2<Code> codedType, ParseContext context, XmlToModelResult result) {
 		if (validTimeAllowed()) {
 			List<Element> validTimes = getNamedElements("validTime", element);			
@@ -325,9 +323,10 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 				}
 				Node validTimeNode = validTimes.get(0);
 				ParseContext newContext = ParserContextImpl.create("IVL<TS>", HXIT.class, context); 
-				BareANY parsedValidTime = this.validTimeParser.parse(newContext, validTimeNode, result);
+				BareANY parsedValidTime = this.validTimeParser.parse(newContext, Arrays.asList(validTimeNode), result);
 				if (parsedValidTime != null) {
-					codedType.setValidTime((Interval<Date>) parsedValidTime.getBareValue());
+					DateInterval dateInterval = (DateInterval) parsedValidTime.getBareValue();
+					codedType.setValidTime(dateInterval == null ? null : dateInterval.getInterval());
 				}
 			}
 		}

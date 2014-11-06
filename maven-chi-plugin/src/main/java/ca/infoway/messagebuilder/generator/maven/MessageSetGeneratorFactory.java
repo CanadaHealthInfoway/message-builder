@@ -30,4 +30,5 @@ import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 interface MessageSetGeneratorFactory {
 	public MessageSetGenerator create(Mojo mojo, String version, String realmCode, String descriptiveName, File mifTransformer, File reportDir) throws GeneratorException;
 	public MessageSetGenerator create(Mojo mojo, String version, String realmCode, String descriptiveName, File reportDir) throws GeneratorException;
+	public MessageSetGenerator createForCda(Mojo mojo, boolean useR2Datatypes) throws GeneratorException;
 }

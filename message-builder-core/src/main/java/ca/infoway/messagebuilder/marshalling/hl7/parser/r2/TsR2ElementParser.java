@@ -32,7 +32,8 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -57,7 +58,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-TS
  */
 @DataTypeHandler({"TS", "SXCM<TS>"})
-public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
+public class TsR2ElementParser extends AbstractSingleElementParser<MbDate> {
 
 	private final SxcmR2ElementParserHelper sxcmHelper = new SxcmR2ElementParserHelper();
 	
@@ -65,15 +66,16 @@ public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
 	}
 
 	@Override
-	protected Date parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected MbDate parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		Element element = (Element) node;
-		Date result = null;
+		MbDate result = null;
 		String unparsedDate = getAttributeValue(node, "value");
 		if (StringUtils.isBlank(unparsedDate)) {
        		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timestamp value must be non-blank.", element));
 		} else {
             try {
-                result = parseDate(unparsedDate, getAllDateFormats(context), context);
+                Date parsedDate = parseDate(unparsedDate, getAllDateFormats(context), context);
+				result = (parsedDate == null ? null : new MbDate(parsedDate));
             } catch (IllegalArgumentException e) {
            		String message =
            			"The timestamp " + unparsedDate + " in element " +  XmlDescriber.describeSingleElement(element) + " cannot be parsed.";
@@ -94,11 +96,12 @@ public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
      */
     private Date parseDate(String str, String[] parsePatterns, ParseContext context) {
     	String dateString = standardizeDate(str);
+    	boolean dateModified = !StringUtils.equals(str, dateString);
         for (int i = 0; i < parsePatterns.length; i++) {
         	String pattern = parsePatterns[i];
 			if (DateFormatUtil.isMatchingPattern(dateString, pattern)) {
 				Date date = DateFormatUtil.parse(dateString, pattern, getTimeZone(context));
-				pattern = expandPatternIfNecessary(pattern);
+				pattern = expandPatternIfNecessary(pattern, dateModified);
 				// SPD: wrap the date in our own Date to remember the chosen parsePattern with the Date
             	return new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(date, pattern);
         	}
@@ -106,8 +109,12 @@ public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
         throw new IllegalArgumentException("Unable to parse the date: " + str);
     }
 
-	private String expandPatternIfNecessary(String pattern) {
-		return TsDateFormats.expandedFormats.containsKey(pattern) ? TsDateFormats.expandedFormats.get(pattern) : pattern;
+	private String expandPatternIfNecessary(String pattern, boolean dateModified) {
+		// TM - do not expand the date pattern if it was not changed
+		if (dateModified) {
+			pattern = (TsDateFormats.expandedFormats.containsKey(pattern) ? TsDateFormats.expandedFormats.get(pattern) : pattern);
+		}
+		return pattern;
 	}
 
 	private TimeZone getTimeZone(ParseContext context) {
@@ -158,6 +165,6 @@ public class TsR2ElementParser extends AbstractSingleElementParser<Date> {
 
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new TSImpl();
+		return new TS_R2Impl();
 	}
 }

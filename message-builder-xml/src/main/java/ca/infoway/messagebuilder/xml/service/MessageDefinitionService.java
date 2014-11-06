@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -108,4 +109,20 @@ public interface MessageDefinitionService {
 	 * Determine if the message set for the given version has been generated for R2 data types.
 	 */
 	public boolean isR2(VersionNumber version);
+
+	/**
+	 * Determine if the message set for the given version defines CDA documents
+	 */
+	public boolean isCda(VersionNumber version);
+
+	/**
+	 * Returns constraints for a given relationship. Null is returned if no constraints are found.
+	 * 
+	 * @param version
+	 * @param type
+	 * @param relationship
+	 * @return the constraints
+	 */
+	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType);
+
 }

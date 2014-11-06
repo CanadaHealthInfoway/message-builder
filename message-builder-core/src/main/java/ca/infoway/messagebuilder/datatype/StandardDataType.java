@@ -494,4 +494,14 @@ public class StandardDataType extends EnumPattern implements Typed {
 		}		
 	}
 
+	public boolean isValidForR2() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public boolean isValidForPCS() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
 }

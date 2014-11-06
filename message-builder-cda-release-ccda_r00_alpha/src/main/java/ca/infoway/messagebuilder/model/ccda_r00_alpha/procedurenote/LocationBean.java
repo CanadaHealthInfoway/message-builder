@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationTargetLocation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.HealthCareFacilityBean;
 import java.util.ArrayList;
@@ -42,32 +41,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureNote.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private List<HealthCareFacilityBean> healthCareFacility = new ArrayList<HealthCareFacilityBean>();
-
-
-    /**
-     * <p>Relationship: ProcedureNote.Location.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationTargetLocation> getTypeCode() {
-        return (CodedTypeR2<ParticipationTargetLocation>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProcedureNote.Location.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationTargetLocation> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**
@@ -115,7 +93,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Relationship: ProcedureNote.Location.healthCareFacility</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"healthCareFacility"})
     public List<HealthCareFacilityBean> getHealthCareFacility() {

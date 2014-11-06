@@ -24,32 +24,18 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.RoleClassAssignedEntity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_EncounterParticipant;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PersonBean;
-import java.util.Date;
 import java.util.List;
 
 
@@ -58,44 +44,12 @@ import java.util.List;
 @Hl7RootType
 public class EncounterParticipantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
-    private CS_R2 assignedEntityClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> assignedEntityRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II assignedEntityTypeId = new IIImpl();
-    private LIST<II, Identifier> assignedEntityTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<II, Identifier> assignedEntityId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 assignedEntityCode = new CE_R2Impl();
-    private LIST<AD, PostalAddress> assignedEntityAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> assignedEntityTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PersonBean assignedEntityAssignedPerson;
-    private Organization_2Bean assignedEntityRepresentedOrganization;
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.EncounterParticipant.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_EncounterParticipant> getTypeCode() {
-        return (CodedTypeR2<x_EncounterParticipant>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.EncounterParticipant.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_EncounterParticipant> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private IVL_TS time = new IVL_TSImpl();
+    private AssignedEntityBean assignedEntity;
 
 
     /**
@@ -136,7 +90,7 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: 
      * PhysicianOfRecordParticipant.EncounterParticipant.templateId</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (*)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -151,7 +105,7 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getTime() {
+    public DateInterval getTime() {
         return this.time.getValue();
     }
 
@@ -161,178 +115,30 @@ public class EncounterParticipantBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setTime(Interval<Date> time) {
+    public void setTime(DateInterval time) {
         this.time.setValue(time);
     }
 
 
     /**
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.classCode</p>
+     * PhysicianOfRecordParticipant.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"assignedEntity/classCode"})
-    public CodedTypeR2<RoleClassAssignedEntity> getAssignedEntityClassCode() {
-        return (CodedTypeR2<RoleClassAssignedEntity>) this.assignedEntityClassCode.getValue();
+    @Hl7XmlMapping({"assignedEntity"})
+    public AssignedEntityBean getAssignedEntity() {
+        return this.assignedEntity;
     }
 
     /**
      * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.classCode</p>
+     * PhysicianOfRecordParticipant.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAssignedEntityClassCode(CodedTypeR2<RoleClassAssignedEntity> assignedEntityClassCode) {
-        this.assignedEntityClassCode.setValue(assignedEntityClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/realmCode"})
-    public List<CodedTypeR2<Code>> getAssignedEntityRealmCode() {
-        return this.assignedEntityRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/typeId"})
-    public Identifier getAssignedEntityTypeId() {
-        return this.assignedEntityTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityTypeId(Identifier assignedEntityTypeId) {
-        this.assignedEntityTypeId.setValue(assignedEntityTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/templateId"})
-    public List<Identifier> getAssignedEntityTemplateId() {
-        return this.assignedEntityTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/id"})
-    public List<Identifier> getAssignedEntityId() {
-        return this.assignedEntityId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/code"})
-    public CodedTypeR2<Code> getAssignedEntityCode() {
-        return (CodedTypeR2<Code>) this.assignedEntityCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAssignedEntityCode(CodedTypeR2<Code> assignedEntityCode) {
-        this.assignedEntityCode.setValue(assignedEntityCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/addr"})
-    public List<PostalAddress> getAssignedEntityAddr() {
-        return this.assignedEntityAddr.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/telecom"})
-    public List<TelecommunicationAddress> getAssignedEntityTelecom() {
-        return this.assignedEntityTelecom.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/assignedPerson"})
-    public PersonBean getAssignedEntityAssignedPerson() {
-        return this.assignedEntityAssignedPerson;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityAssignedPerson(PersonBean assignedEntityAssignedPerson) {
-        this.assignedEntityAssignedPerson = assignedEntityAssignedPerson;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/representedOrganization"})
-    public Organization_2Bean getAssignedEntityRepresentedOrganization() {
-        return this.assignedEntityRepresentedOrganization;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PhysicianOfRecordParticipant.AssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityRepresentedOrganization(Organization_2Bean assignedEntityRepresentedOrganization) {
-        this.assignedEntityRepresentedOrganization = assignedEntityRepresentedOrganization;
+    public void setAssignedEntity(AssignedEntityBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

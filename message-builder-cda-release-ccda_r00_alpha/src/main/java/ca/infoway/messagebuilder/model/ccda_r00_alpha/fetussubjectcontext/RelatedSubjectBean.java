@@ -48,11 +48,11 @@ import java.util.List;
 @Hl7RootType
 public class RelatedSubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 classCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private SubjectPersonBean subject;
@@ -116,21 +116,11 @@ public class RelatedSubjectBean extends MessagePartBean {
      * <p>Relationship: 
      * FetusSubjectContext.RelatedSubject.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * FetusSubjectContext.RelatedSubject.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 

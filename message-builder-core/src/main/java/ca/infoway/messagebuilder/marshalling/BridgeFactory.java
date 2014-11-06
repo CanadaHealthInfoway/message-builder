@@ -21,9 +21,12 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 interface BridgeFactory {
 	public PartBridge createInteractionBridge(InteractionBean tealBean);
 	public Interaction getInteraction(InteractionBean tealBean);
+	public ConstrainedDatatype getConstraints(Relationship relationship);
 }

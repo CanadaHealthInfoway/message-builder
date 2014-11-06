@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
@@ -86,18 +87,17 @@ class TealBeanRenderWalker {
 		return this.factory.createInteractionBridge(this.tealBean);
 	}
 
-	void processAllRelationships(PartBridge bridge, Interaction interaction,
-			Visitor visitor) {
+	void processAllRelationships(PartBridge bridge, Interaction interaction, Visitor visitor) {
 		for (BaseRelationshipBridge relationship : bridge.getRelationshipBridges()) {
 			processRelationship(interaction, relationship, visitor);
 		}
 	}
-	void processRelationship(Interaction interaction, 
-			BaseRelationshipBridge relationship, Visitor visitor) {
+	void processRelationship(Interaction interaction, BaseRelationshipBridge relationship, Visitor visitor) {
 		if (relationship.isAssociation()) {
 			processAllRelationshipValues(interaction, (AssociationBridge) relationship, visitor);
 		} else {
-			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), this.version, this.dateTimeZone, this.dateTimeTimeZone);
+			ConstrainedDatatype constraints = this.factory.getConstraints(relationship.getRelationship());
+			visitor.visitAttribute((AttributeBridge) relationship, relationship.getRelationship(), constraints, this.version, this.dateTimeZone, this.dateTimeTimeZone);
 		}
 	}
 
@@ -128,7 +128,7 @@ class TealBeanRenderWalker {
 		} else if (size != 0 && size < cardinality.getMin()) {
 			// cases where at least 1 association is required are handled elsewhere (under mandatory checks)
 			String errorMessage = "Expected at least " + cardinality.getMin() + " entries for association " + relationship.getParentType() + "." + relationship.getName() + " but only found " + size;
-			visitor.logError(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, errorMessage, visitor.getCurrentPropertyPath() + "." + relationship.getName()));
+			visitor.logError(new Hl7Error(Hl7ErrorCode.MANDATORY_ASSOCIATION_NOT_PROVIDED, errorMessage, visitor.getCurrentPropertyPath() + "." + relationship.getName()));
 		}
 	}
 	

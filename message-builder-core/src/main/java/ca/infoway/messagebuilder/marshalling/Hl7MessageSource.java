@@ -20,11 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.TimeZone;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
@@ -44,21 +46,32 @@ class Hl7MessageSource implements Hl7Source {
 	private final Document document;
 	private final XmlToModelResult result; 
 	private MessagePart messagePart;
+	private final boolean isR2;
+	private final boolean isCda;
+	
 
 	public Hl7MessageSource(VersionNumber version, Document document, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, MessageDefinitionService service) {
 		this.document = document;
-		this.context = new ConversionContext(service, version, dateTimeZone, dateTimeTimeZone, getMessageIdFromDocument());
+		this.isR2 = service.isR2(version);
+		this.isCda = service.isCda(version);
+		
+		String messageIdFromDocument = getMessageIdFromDocument();
+		String templateIdFromDocument = getTemplateIdFromDocument();
+		
+		this.context = new ConversionContext(service, version, dateTimeZone, dateTimeTimeZone, messageIdFromDocument, templateIdFromDocument);
 		this.result = new XmlToModelResult();
 		if (this.context.getInteraction() == null){
+			String message = MessageFormat.format("The interaction {0} for version {1} could not be found (and is possibly not supported). For CDA, please confirm an appropriate templateId has been provided.", messageIdFromDocument, version);
 			result.addHl7Error(
 					new Hl7Error(
 							Hl7ErrorCode.UNSUPPORTED_INTERACTION,
-							"The interaction " + getMessageTypeKey() + " is not supported",
+							message,
 							document == null ? null : document.getDocumentElement()
 							));
 		} else {
 			this.messagePart = initMessagePart();
 		}
+		
 	}
 
 	public MessageDefinitionService getService() {
@@ -99,10 +112,14 @@ class Hl7MessageSource implements Hl7Source {
 	}
 	
 	public Hl7PartSource createPartSource(Relationship relationship, Element currentElement) {
-		String type = this.context.resolveType(relationship, NodeUtil.getLocalOrTagName(currentElement));
-		return new Hl7PartSource(this, type, currentElement, relationship.getType());
+		return createPartSourceForSpecificType(relationship, currentElement, null);
 	}
 	
+	public Hl7PartSource createPartSourceForSpecificType(Relationship relationship, Element currentElement, String type) {
+		String resolvedType = (type == null ? this.context.resolveType(relationship, NodeUtil.getLocalOrTagName(currentElement)) : type);
+		return new Hl7PartSource(this, resolvedType, currentElement, relationship.getType());
+	}
+
 	public ConversionContext getConversionContext(){
 		return this.context;
 	}
@@ -112,15 +129,31 @@ class Hl7MessageSource implements Hl7Source {
 	}
 
 	public MessageTypeKey getMessageTypeKey() {
-		return new MessageTypeKey(getVersion(), getMessageIdFromDocument());
+		return new MessageTypeKey(getVersion(), getInteraction().getName());
 	}
 
 	private String getMessageIdFromDocument() {
 		return NodeUtil.getLocalOrTagName(this.document.getDocumentElement());
 	}
 
+	private String getTemplateIdFromDocument() {
+		String result = null;
+		// iterate templateIds in reverse order (it appears like they are supplied in order of least to most specific)
+		List<Node> childNodes = NodeUtil.getChildNodes(this.document.getDocumentElement(), "templateId");
+		for (int i = childNodes.size(); --i >= 0; ) {
+			Element element = (Element) childNodes.get(i);
+			if (element.getParentNode() == this.document.getDocumentElement()) {
+				if (element.hasAttribute("root")) {
+					result = element.getAttribute("root");
+					break;
+				}
+			}
+		}
+		return result;
+	}
+
 	public Relationship getRelationship(String name) {
-		return this.messagePart.getRelationship(name, getInteraction());
+		return this.messagePart.getRelationship(name, null, getInteraction());
 	}
 
 	public List<Relationship> getAllRelationships() {
@@ -129,6 +162,14 @@ class Hl7MessageSource implements Hl7Source {
 
 	public String getMessagePartName() {
 		return this.messagePart.getName();
+	}
+
+	public boolean isR2() {
+		return this.isR2;
+	}
+
+	public boolean isCda() {
+		return this.isCda;
 	}
 
 }

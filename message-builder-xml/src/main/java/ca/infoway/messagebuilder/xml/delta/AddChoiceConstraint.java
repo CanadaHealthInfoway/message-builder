@@ -37,6 +37,7 @@ public class AddChoiceConstraint extends Constraint{
 	private static final long serialVersionUID = 7839474523548026273L;
 	
 	private String choiceClassName;
+	private String optionName;
 	
 	public AddChoiceConstraint() {
 	}
@@ -49,6 +50,12 @@ public class AddChoiceConstraint extends Constraint{
 	}
 	public void setChoiceClassName(String choiceClassName) {
 		this.choiceClassName = choiceClassName;
+	}
+	public String getOptionName() {
+		return optionName;
+	}
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
 	}
 	@Override
 	public boolean hasChange() {
@@ -77,6 +84,8 @@ public class AddChoiceConstraint extends Constraint{
 	}
 	@Override
 	public Constraint clone(String originalPackageName, String newPackageName) {
-		return new AddChoiceConstraint(StringUtils.replace(this.choiceClassName, originalPackageName, newPackageName));
+		AddChoiceConstraint addChoiceConstraint = new AddChoiceConstraint(StringUtils.replace(this.choiceClassName, originalPackageName, newPackageName));
+		addChoiceConstraint.setOptionName(this.optionName);
+		return addChoiceConstraint;
 	}
 }

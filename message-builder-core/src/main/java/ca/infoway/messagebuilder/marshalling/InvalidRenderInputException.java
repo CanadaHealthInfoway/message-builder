@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.List;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
 
 /**
  * <p>An exception indicating that the application tried to marshall a message
@@ -46,6 +47,13 @@ public class InvalidRenderInputException extends RenderingException {
 	
 	@Override
 	public String getMessage() {
-		return this.hl7Errors.isEmpty() ? null : this.hl7Errors.get(0).toString();
+		Hl7Error firstError = null;
+		for (Hl7Error hl7Error : this.hl7Errors) {
+			if (hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.ERROR) {
+				firstError = hl7Error;
+				break;
+			}
+		}
+		return firstError == null ? "" : firstError.toString();
 	}
 }

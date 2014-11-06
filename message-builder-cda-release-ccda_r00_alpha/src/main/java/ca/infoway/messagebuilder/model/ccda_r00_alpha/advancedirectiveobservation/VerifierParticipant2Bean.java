@@ -26,21 +26,17 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ContextControl;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Date;
 import java.util.List;
 
 
@@ -48,59 +44,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdvanceDirectiveObservation.VerifierParticipant2"})
 public class VerifierParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CS_R2 contextControlCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private II templateId = new IIImpl();
-    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS time = new IVL_TSImpl();
     private CE_R2 awarenessCode = new CE_R2Impl();
     private VerifierParticipantRoleBean participantRole;
-
-
-    /**
-     * <p>Relationship: 
-     * AdvanceDirectiveObservation.VerifierParticipant2.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * AdvanceDirectiveObservation.VerifierParticipant2.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * AdvanceDirectiveObservation.VerifierParticipant2.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextControlCode"})
-    public CodedTypeR2<ContextControl> getContextControlCode() {
-        return (CodedTypeR2<ContextControl>) this.contextControlCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * AdvanceDirectiveObservation.VerifierParticipant2.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextControlCode(CodedTypeR2<ContextControl> contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
-    }
 
 
     /**
@@ -166,7 +116,7 @@ public class VerifierParticipant2Bean extends MessagePartBean implements Partici
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getTime() {
+    public DateInterval getTime() {
         return this.time.getValue();
     }
 
@@ -176,7 +126,7 @@ public class VerifierParticipant2Bean extends MessagePartBean implements Partici
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setTime(Interval<Date> time) {
+    public void setTime(DateInterval time) {
         this.time.setValue(time);
     }
 
@@ -207,7 +157,7 @@ public class VerifierParticipant2Bean extends MessagePartBean implements Partici
      * <p>Relationship: 
      * AdvanceDirectiveObservation.VerifierParticipant2.participantRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"participantRole"})
     public VerifierParticipantRoleBean getParticipantRole() {
@@ -218,7 +168,7 @@ public class VerifierParticipant2Bean extends MessagePartBean implements Partici
      * <p>Relationship: 
      * AdvanceDirectiveObservation.VerifierParticipant2.participantRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setParticipantRole(VerifierParticipantRoleBean participantRole) {
         this.participantRole = participantRole;

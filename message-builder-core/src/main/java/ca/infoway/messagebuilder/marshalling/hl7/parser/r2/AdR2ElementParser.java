@@ -37,6 +37,7 @@ import org.w3c.dom.NodeList;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
@@ -125,8 +126,8 @@ class AdR2ElementParser extends AbstractSingleElementParser<PostalAddress> {
                 	BareANY tsAny = this.tsParser.parse(newContext, childElement, xmlToModelResult);
                 	if (tsAny != null && tsAny.getBareValue() != null) {
 	                	SetOperator operator = ((ANYMetaData) tsAny).getOperator();
-	                	Date ts = (Date) tsAny.getBareValue();
-	                	useablePeriods.put(ts, operator);
+	                	MbDate ts = (MbDate) tsAny.getBareValue();
+	                	useablePeriods.put(ts.getValue(), operator);
                 	}
                 }
             }

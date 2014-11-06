@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -46,9 +45,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.ExternalObservation"})
 public class ExternalObservationBean extends MessagePartBean implements ReferenceChoice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -74,26 +72,6 @@ public class ExternalObservationBean extends MessagePartBean implements Referenc
      */
     public void setClassCode(CodedTypeR2<ActClassObservation> classCode) {
         this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ExternalObservation.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.ExternalObservation.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
     }
 
 

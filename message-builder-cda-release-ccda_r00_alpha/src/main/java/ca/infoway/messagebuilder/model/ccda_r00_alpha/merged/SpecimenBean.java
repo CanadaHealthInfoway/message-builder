@@ -31,8 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
-import ca.infoway.messagebuilder.domainvalue.RoleClassSpecimen;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -41,55 +39,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Specimen","ProcedureActivityProcedure.Specimen"})
 public class SpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 specimenRoleClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> specimenRoleRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II specimenRoleTypeId = new IIImpl();
-    private LIST<II, Identifier> specimenRoleTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<II, Identifier> specimenRoleId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private PlayingEntity_2Bean specimenRoleSpecimenPlayingEntity;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Specimen.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Specimen.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private SpecimenRoleBean specimenRole;
 
 
     /**
@@ -172,174 +126,37 @@ public class SpecimenBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.classCode</p>
+     * ProcedureActivityProcedure.Specimen.specimenRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.classCode</p>
+     * <p>Relationship: POCD_MT000040.Specimen.specimenRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"specimenRole/classCode"})
-    public CodedTypeR2<RoleClassSpecimen> getSpecimenRoleClassCode() {
-        return (CodedTypeR2<RoleClassSpecimen>) this.specimenRoleClassCode.getValue();
+    @Hl7XmlMapping({"specimenRole"})
+    public SpecimenRoleBean getSpecimenRole() {
+        return this.specimenRole;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.classCode</p>
+     * ProcedureActivityProcedure.Specimen.specimenRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.classCode</p>
+     * <p>Relationship: POCD_MT000040.Specimen.specimenRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setSpecimenRoleClassCode(CodedTypeR2<RoleClassSpecimen> specimenRoleClassCode) {
-        this.specimenRoleClassCode.setValue(specimenRoleClassCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"specimenRole/realmCode"})
-    public List<CodedTypeR2<Code>> getSpecimenRoleRealmCode() {
-        return this.specimenRoleRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"specimenRole/typeId"})
-    public Identifier getSpecimenRoleTypeId() {
-        return this.specimenRoleTypeId.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setSpecimenRoleTypeId(Identifier specimenRoleTypeId) {
-        this.specimenRoleTypeId.setValue(specimenRoleTypeId);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"specimenRole/templateId"})
-    public List<Identifier> getSpecimenRoleTemplateId() {
-        return this.specimenRoleTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityProcedure.SpecimenRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"specimenRole/id"})
-    public List<Identifier> getSpecimenRoleId() {
-        return this.specimenRoleId.rawList();
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.SpecimenRole.specimenPlayingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"specimenRole/specimenPlayingEntity"})
-    public PlayingEntity_2Bean getSpecimenRoleSpecimenPlayingEntity() {
-        return this.specimenRoleSpecimenPlayingEntity;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.SpecimenRole.specimenPlayingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.SpecimenRole.specimenPlayingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setSpecimenRoleSpecimenPlayingEntity(PlayingEntity_2Bean specimenRoleSpecimenPlayingEntity) {
-        this.specimenRoleSpecimenPlayingEntity = specimenRoleSpecimenPlayingEntity;
+    public void setSpecimenRole(SpecimenRoleBean specimenRole) {
+        this.specimenRole = specimenRole;
     }
 
 }

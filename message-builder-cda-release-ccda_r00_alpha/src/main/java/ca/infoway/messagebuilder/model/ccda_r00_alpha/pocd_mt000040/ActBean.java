@@ -29,33 +29,28 @@ import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActClassDocumentEntryAct;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_DocumentActMood;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntryRelationship_3Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -63,7 +58,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Act"})
 public class ActBean extends MessagePartBean implements EntryChoice, EntryRelationshipChoice, Component4Choice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 classCode = new CS_R2Impl();
     private CS_R2 moodCode = new CS_R2Impl();
     private BL negationInd = new BLImpl();
@@ -74,7 +69,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 statusCode = new CS_R2Impl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS effectiveTime = new IVL_TSImpl();
     private CE_R2 priorityCode = new CE_R2Impl();
     private CS_R2 languageCode = new CS_R2Impl();
     private SubjectBean subject;
@@ -82,8 +77,8 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
-    private List<EntryRelationship_3Bean> entryRelationship = new ArrayList<EntryRelationship_3Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
+    private List<EntryRelationshipBean> entryRelationship = new ArrayList<EntryRelationshipBean>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
 
@@ -91,7 +86,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"classCode"})
     public CodedTypeR2<x_ActClassDocumentEntryAct> getClassCode() {
@@ -101,7 +96,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setClassCode(CodedTypeR2<x_ActClassDocumentEntryAct> classCode) {
         this.classCode.setValue(classCode);
@@ -111,7 +106,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public CodedTypeR2<x_DocumentActMood> getMoodCode() {
@@ -121,7 +116,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setMoodCode(CodedTypeR2<x_DocumentActMood> moodCode) {
         this.moodCode.setValue(moodCode);
@@ -204,7 +199,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CodedTypeR2<Code> getCode() {
@@ -214,7 +209,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
     /**
      * <p>Relationship: POCD_MT000040.Act.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(CodedTypeR2<Code> code) {
         this.code.setValue(code);
@@ -267,7 +262,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
+    public DateInterval getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -276,7 +271,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
+    public void setEffectiveTime(DateInterval effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
@@ -391,7 +386,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 
@@ -402,7 +397,7 @@ public class ActBean extends MessagePartBean implements EntryChoice, EntryRelati
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
-    public List<EntryRelationship_3Bean> getEntryRelationship() {
+    public List<EntryRelationshipBean> getEntryRelationship() {
         return this.entryRelationship;
     }
 

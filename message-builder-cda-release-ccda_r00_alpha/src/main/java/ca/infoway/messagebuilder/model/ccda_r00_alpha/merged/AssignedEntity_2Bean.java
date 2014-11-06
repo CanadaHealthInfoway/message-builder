@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.RoleClassAssignedEntity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ProviderRole;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PersonBean;
@@ -50,8 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"OperativeNote.AssignedEntity","ProcedureNote.AssignedEntity"})
 public class AssignedEntity_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -61,42 +59,6 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PersonBean assignedPerson;
     private Organization_1Bean representedOrganization;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: OperativeNote.AssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClassAssignedEntity> getClassCode() {
-        return (CodedTypeR2<RoleClassAssignedEntity>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: OperativeNote.AssignedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClassAssignedEntity> classCode) {
-        this.classCode.setValue(classCode);
-    }
 
 
     /**
@@ -178,13 +140,13 @@ public class AssignedEntity_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: ProcedureNote.AssignedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: OperativeNote.AssignedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -203,7 +165,7 @@ public class AssignedEntity_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: OperativeNote.AssignedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CodedTypeR2<ProviderRole> getCode() {
@@ -221,7 +183,7 @@ public class AssignedEntity_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: OperativeNote.AssignedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(CodedTypeR2<ProviderRole> code) {
         this.code.setValue(code);

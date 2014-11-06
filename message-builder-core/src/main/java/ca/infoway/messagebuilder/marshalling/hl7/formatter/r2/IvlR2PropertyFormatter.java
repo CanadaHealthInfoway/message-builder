@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.QTYImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.RepresentationUtil;
@@ -107,7 +108,7 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 		
 		StringBuffer buffer = new StringBuffer();
 		if (value.getRepresentation() == Representation.SIMPLE) {
-			QTYImpl<T> qty = new QTYImpl<T>(value.getValue());
+			QTYImpl<T> qty = (QTYImpl<T>) createQTY(value.getValue(), null);
 			qty.setOperator(value.getOperator());
 			buffer.append(createElement(context, context.getElementName(), qty, null, true, indentLevel));
 		} else {
@@ -203,8 +204,14 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 		return isLow ? value.getLowInclusive() : value.getHighInclusive();
 	}
 
+	@SuppressWarnings("unchecked")
 	private QTY<T> createQTY(T value, NullFlavor nullFlavor) {
+		value = (T) convertValueIfNecessary(value);
 		return new QTYImpl<T>(null, value, nullFlavor, StandardDataType.QTY);
+	}
+
+	protected Object convertValueIfNecessary(T value) {
+		return value;
 	}
 
 	protected String getDateDiffUnits(BareDiff diff) {
@@ -288,8 +295,8 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
     	PropertyFormatter formatter = FormatterR2Registry.getInstance().get(type);
     	if (formatter != null) {
     		boolean isSpecializationType = false;
-    		String result = formatter.format(
-    				new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null), value, indentLevel);
+    		FormatContextImpl newContext = new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), name, type, ConformanceLevel.POPULATED, Cardinality.create("1"), isSpecializationType, context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), null);
+			String result = formatter.format(newContext, value, indentLevel);
     		if (inclusive != null) {
     			// TM - small hack to add in the inclusive attribute (low/high) (operator, simple only, is already formatted by using the SXCM type)
     			result = result.replaceFirst(" value=", " inclusive=\"" + inclusive.toString() + "\" value=");

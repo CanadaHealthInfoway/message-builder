@@ -37,16 +37,14 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.assessmentscaleobservation.ObservationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.AssessmentScaleObservationEntryRelationship","CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship","FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship","FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship"})
-public class AssessmentScaleObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_3 {
+public class AssessmentScaleObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,74 +54,6 @@ public class AssessmentScaleObservationEntryRelationshipBean extends MessagePart
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusResultObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.AssessmentScaleObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

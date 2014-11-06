@@ -40,7 +40,12 @@ public class ModelToXmlResult implements Hl7Errors {
 	}
 
 	public boolean isValid() {
-		return this.hl7Errors.size() == 0;
+		for (Hl7Error hl7Error : this.hl7Errors) {
+			if (hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.ERROR) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void addHl7Error(Hl7Error hl7Error) {

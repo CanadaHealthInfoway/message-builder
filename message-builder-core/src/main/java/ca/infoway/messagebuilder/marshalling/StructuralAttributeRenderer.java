@@ -40,14 +40,18 @@ abstract class StructuralAttributeRenderer {
 
 	public void render(StringBuilder builder, String propertyPath, Hl7Errors errors) {
 		Relationship r = this.relationship;
-		if (r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r)) {
-			formatFixedValue(builder, relationship);
+		if (r.hasFixedValue()) {
+			formatFixedValue(builder, r);
 		} else {
 			Object value = getValue();
+			// structural attributes should never have a conformance of populated, and should never have a nullFlavor (no need to check these cases)
+			if (value == null && ConformanceLevelUtil.isMandatory(r) && r.hasDefaultValue()) {
+				value = r.getDefaultValue();
+			}
 			if (value != null) {
-				formatValue(builder, relationship, value);
+				formatValue(builder,r, value);
 			} else if (ConformanceLevelUtil.isMandatory(this.relationship)) {
-				String errorMessage = "Relationship " + this.relationship.getName()	+ " is mandatory (and not a fixed value), but no value is specified";
+				String errorMessage = "Relationship " + r.getName()	+ " is mandatory (and not a fixed value), but no value is specified";
 				Hl7Error error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, errorMessage, propertyPath);
 				errors.addHl7Error(error);
 			}
@@ -77,6 +81,8 @@ abstract class StructuralAttributeRenderer {
             return ((Code)value).getCodeValue();
         } else if ("BL".equals(type)) {
             return Boolean.TRUE.equals(value) ? "true" : "false";
+        } else if ("ST".equals(type)) {
+            return (String) value;
         } else {
             throw new MarshallingException("Cannot handle structural attribute string of type " 
             		+ type + " (" + relationship.getName() + ")");
@@ -84,10 +90,13 @@ abstract class StructuralAttributeRenderer {
     }
 
 	private void formatFixedValue(StringBuilder builder, Relationship relationship) {
-		builder.append(" ")
-				.append(relationship.getName())
-				.append("=\"")
-				.append(XmlStringEscape.escape(relationship.getFixedValue()))
-				.append("\"");
+		// suppress rendering of required or optional fixed values
+		if (ConformanceLevelUtil.isMandatory(relationship) || ConformanceLevelUtil.isPopulated(relationship)) {
+			builder.append(" ")
+					.append(relationship.getName())
+					.append("=\"")
+					.append(XmlStringEscape.escape(relationship.getFixedValue()))
+					.append("\"");
+		}
 	}
 }

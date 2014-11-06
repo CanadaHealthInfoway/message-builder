@@ -111,7 +111,6 @@ public class AnnotationMatcher {
 	}
 
 	private boolean typeAllowedOnce(AnnotationType annotationType) {
-		System.out.println(AnnotationType.typesAllowingMultipleCardinality.size());
 		return !AnnotationType.typesAllowingMultipleCardinality.contains(annotationType);
 	}
 

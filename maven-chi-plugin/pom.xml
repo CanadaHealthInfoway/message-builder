@@ -70,6 +70,7 @@
 		    <groupId>com.google.collections</groupId>
 		    <artifactId>google-collections</artifactId>
 		</dependency>
+		<!-- 
 		<dependency>
 		    <groupId>net.sf.saxon</groupId>
 		    <artifactId>saxon</artifactId>
@@ -80,6 +81,7 @@
 		    <artifactId>saxon-dom</artifactId>
 		    <version>8.7</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
@@ -106,6 +108,20 @@
 					<artifactId>stax-api</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<!-- Support for Schematron -->
+		  <groupId>com.helger</groupId>
+		  <artifactId>ph-schematron</artifactId>
+		  <version>2.8.3</version>
+		  <!-- 
+		  <exclusions>
+		  	<exclusion>
+		  		<artifactId>Saxon-HE</artifactId>
+		  		<groupId>net.sf.saxon</groupId>
+		  	</exclusion>
+		  </exclusions>
+		   -->
 		</dependency>
 	</dependencies>
 	<build>

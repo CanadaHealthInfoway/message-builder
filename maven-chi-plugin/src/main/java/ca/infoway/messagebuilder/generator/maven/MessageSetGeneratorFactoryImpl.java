@@ -27,6 +27,7 @@ import org.apache.maven.plugin.Mojo;
 import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 import ca.infoway.messagebuilder.generator.MifToXmlGenerator;
+import ca.infoway.messagebuilder.generator.cda.CdaToXmlGenerator;
 import ca.infoway.messagebuilder.generator.multiplemessageset.MultipleXmlToXmlGenerator;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 
@@ -43,6 +44,11 @@ class MessageSetGeneratorFactoryImpl implements MessageSetGeneratorFactory {
 
 	public MessageSetGenerator create(Mojo mojo, String version, String realmCode, String descriptiveName, File reportDir) throws GeneratorException {
 		return new MultipleXmlToXmlGenerator(new OutputUIImpl(mojo), version, reportDir);
+	}
+
+	@Override
+	public MessageSetGenerator createForCda(Mojo mojo, boolean useR2Datatypes) throws GeneratorException {
+		return new CdaToXmlGenerator(new OutputUIImpl(mojo), useR2Datatypes);
 	}
 
 }

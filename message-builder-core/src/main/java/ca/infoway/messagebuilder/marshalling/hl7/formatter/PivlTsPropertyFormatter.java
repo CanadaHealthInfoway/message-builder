@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -106,7 +105,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 			StringBuffer buffer = new StringBuffer();
 			buffer.append(createElement(name, null, indentLevel, false, true));
 			appendSk(buffer, repetitions, quantity, indentLevel + 1, context);
-			buffer.append(XmlRenderingUtils.createEndElement(name, indentLevel, true));
+			buffer.append(createElementClosure(name, indentLevel, true));
 			result = buffer.toString();
 		} else {
 			createMissingFrequencyFieldsError(context);
@@ -143,7 +142,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 			StringBuffer buffer = new StringBuffer();
 			buffer.append(createElement(FREQUENCY, null, indentLevel, false, true));
 			formatFrequency(buffer, repetitions, quantity, indentLevel + 1, context);
-			buffer.append(XmlRenderingUtils.createEndElement(FREQUENCY, indentLevel, true));
+			buffer.append(createElementClosure(FREQUENCY, indentLevel, true));
 			result = buffer.toString();
 		} else {
 			createMissingFrequencyFieldsError(context);

@@ -41,24 +41,32 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
+import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.r2.ParserR2Registry;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
@@ -71,8 +79,8 @@ class Hl7SourceMapper {
 	public XmlToModelResult mapToTeal(Hl7MessageSource hl7MessageSource) {
 	
 		if (hl7MessageSource.getInteraction() != null) {
-			Class<? extends InteractionBean> messsageBeanType = MessageBeanRegistry.getInstance().getInteractionBeanType(hl7MessageSource.getMessageTypeKey());
-			Object messageBean = BeanUtil.<Object>instantiate(messsageBeanType);
+			Class<? extends InteractionBean> messageBeanType = MessageBeanRegistry.getInstance().getInteractionBeanType(hl7MessageSource.getMessageTypeKey());
+			Object messageBean = BeanUtil.<Object>instantiate(messageBeanType);
 			BeanWrapper wrapper = new BeanWrapper(messageBean);
 			mapToTeal(hl7MessageSource, wrapper, null);
 			hl7MessageSource.getResult().setMessageObject(messageBean);
@@ -136,6 +144,7 @@ class Hl7SourceMapper {
             	
     	    	Relationship xmlRelationship = source.getRelationship(nodeName);
     	    	if (xmlRelationship != null) {
+    	    		validateNamespace(element, xmlRelationship, source);
     	    		// since we have a match we know that the xml name is correct; all we need the xmlRelationship for is sorting purposes
     	    		// however, for choice and template relationships, there will be an apparent mismatch between relationship names 
     	    		xmlElementNamesInProvidedOrder.add(nodeName);
@@ -151,7 +160,15 @@ class Hl7SourceMapper {
 		Collections.sort(sortedRelationshipsMatchingUpToXmlElementNames);
 		validateElementOrder(source, xmlElementNamesInProvidedOrder, sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
 		validateMissingMandatoryNonStructuralRelationships(source, resolvedRelationshipNames);
+	}
 
+	private void validateNamespace(Node node, Relationship xmlRelationship, Hl7Source source) {
+		if (!NamespaceUtil.isNamespaceCorrect(node, xmlRelationship)) {
+			String message = MessageFormat.format("Expected relationship {0}.{1} to have namespace {2} but was {3}", 
+					xmlRelationship.getParentType(), xmlRelationship.getName(), NamespaceUtil.getExpectedNamespace(xmlRelationship), NamespaceUtil.getActualNamespace(node));
+			Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.UNEXPECTED_NAMESPACE, Hl7ErrorLevel.ERROR, message, node);
+			source.getResult().addHl7Error(hl7Error);
+		}
 	}
 
 	private void validateMissingMandatoryNonStructuralRelationships(Hl7Source source, Map<String, String> resolvedRelationshipNames) {
@@ -162,10 +179,24 @@ class Hl7SourceMapper {
 			if (!relationship.isStructural() && relationship.getCardinality().getMin() > 0) {
 				if (!resolvedRelationshipNames.containsKey(generateRelationshipKey(relationship))) {
 					Hl7Error error = new Hl7Error(
-							Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
+							relationship.isAssociation() ? Hl7ErrorCode.MANDATORY_ASSOCIATION_NOT_PROVIDED : Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, 
 							"Relationship '" + relationship.getName() + "' has a minimum cardinality greater than zero, but no value was provided.", 
 							source.getCurrentElement());
 					source.getResult().addHl7Error(error);
+
+					// check for missing fixed constraints
+					ConstrainedDatatype constraints = source.getService().getConstraints(source.getVersion(), relationship.getConstrainedType());
+					if (constraints != null) {
+						boolean isTemplateId = constraints.getName().endsWith("templateId");
+						for (Relationship constraint : constraints.getRelationships()) {
+							if (constraint.hasFixedValue()) {
+								String msg = MessageFormat.format("{0}.{1} property constrained to {2} but no value was provided.", relationship.getName(), constraint.getName(), constraint.getFixedValue());
+								Hl7ErrorCode errorCode = (isTemplateId ? Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING : Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING);
+								source.getResult().addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, source.getCurrentElement()));
+							}
+						}
+					}
+					
 				}
 			}
 			
@@ -255,6 +286,7 @@ class Hl7SourceMapper {
         	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
 			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), element));
     	} catch (Exception e) {
+    		e.printStackTrace();
     		// RM18422 - unexpected (and thus unhandled) exception; still, likely best to log it rather than kill entire process
         	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
 			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Unexpected error: " + e.getMessage(), element));
@@ -339,6 +371,23 @@ class Hl7SourceMapper {
 			BeanWrapper childBeanWrapper = new BeanWrapper(beanWrapper.getInitializedReadOnlyAssociation(relationship));
 			writeSpecialAssociation(childBeanWrapper, source, nodes, relationship);
 			
+	 	// 3a. non-collapsed, multiple-cardinality choice or single-cardinality choice with node name same as choice name
+ 		} else if (isCdaChoice(nodes, relationship, source)) {
+ 			
+ 			List<Object> convertedBeans = handleCdaChoice(nodes, traversalName, relationship, source);
+ 			
+ 			if (relationship.getCardinality().isMultiple()) {
+ 				this.log.debug("Special choice handling: WRITING MULTIPLE-CARDINALITY CHOICE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - values=" + convertedBeans);
+ 				beanWrapper.write(relationship, convertedBeans);
+ 			} else if (relationship.getCardinality().isSingle() && convertedBeans.isEmpty()) {
+ 	 			throw new MarshallingException("Special choice handling: Why is this empty? : " + relationship.getName() + " on " + source.getType());
+ 			} else if (relationship.getCardinality().isSingle() && convertedBeans.size() == 1) {
+ 				this.log.debug("Special choice handling: WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
+ 				beanWrapper.write(relationship, convertedBeans.get(0));
+ 			} else {
+ 	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
+ 			}
+
  		// 3. non-collapsed (including choice, specializationChild, and template type, handling for which is encapsulated in
 		//			Source.createChildSource())
  		} else if (relationship.isTemplateRelationship() || relationship.isChoice() ||
@@ -370,6 +419,96 @@ class Hl7SourceMapper {
  		}
 	}
 
+	private List<Object> handleCdaChoice(List<Node> nodes, String traversalName, Relationship relationship, Hl7Source source) {
+		List<Object> convertedBeans = new ArrayList<Object>();
+		for (Node node : nodes) {
+			Element childNode = (Element) node;
+			
+			int currentNodeDepth = XmlDescriber.getDepth(childNode);
+			
+			int currentErrorCount = source.getResult().getHl7Errors().size();
+			List<String> allChoiceTypes = determineAllChoiceTypes(relationship.getChoices());
+			Hl7SourceMapperChoiceCandidate choiceCandidate = null;
+			boolean foundMultipleChoiceCandidates = false;
+			
+			for (String choiceType : allChoiceTypes) {
+				Hl7PartSource childSource = source.createPartSourceForSpecificType(relationship, childNode, choiceType);
+				this.log.debug("RECURSE for node=" + source.getCurrentElement().getNodeName() + " - relationship=" + relationship.getName() + ", tarversalName=" + traversalName + ", of type: " + childSource.getType());
+				
+				// after creating tealChild for each choiceType
+				// - store tealChild
+				// - store all new errors, removing them from the main error container
+
+				Object tealChild = mapPartSourceToTeal(childSource, relationship);
+				
+				Hl7SourceMapperChoiceCandidate newChoiceCandidate = new Hl7SourceMapperChoiceCandidate(tealChild);
+				
+				int newErrorsCount = (source.getResult().getHl7Errors().size() - currentErrorCount);
+				for (int i = 0; i < newErrorsCount; i++) {
+					Hl7Error removedError = source.getResult().getHl7Errors().remove(currentErrorCount);
+					newChoiceCandidate.addError(removedError);
+				}
+				
+				if (newChoiceCandidate.isAcceptableChoiceCandidate(currentNodeDepth)) {
+					if (newChoiceCandidate.hasTemplateIdMatch(currentNodeDepth)) {
+						// we'll take the first one that has a template id match
+						choiceCandidate = newChoiceCandidate;
+						foundMultipleChoiceCandidates = false;
+						break;
+					} else {
+						if (choiceCandidate != null) {
+							foundMultipleChoiceCandidates = true;
+						}
+						choiceCandidate = newChoiceCandidate;
+					}
+				}
+			}
+			
+			if (choiceCandidate != null && !foundMultipleChoiceCandidates) { 
+				convertedBeans.add(choiceCandidate.getParsedBean());
+				source.getResult().getHl7Errors().addAll(choiceCandidate.getStoredErrors());
+			} else {
+				source.getResult().addHl7Error(
+						new Hl7Error(
+							Hl7ErrorCode.COULD_NOT_DETERMINE_CHOICE_OPTION,
+							Hl7ErrorLevel.WARNING,
+							"Could not determine an appropriate match for a choice element: " + XmlDescriber.describePath(node),
+							childNode
+						)
+				);
+			}
+		}
+		return convertedBeans;
+	}
+
+	private boolean isCdaChoice(List<Node> nodes, Relationship relationship, Hl7Source source) {
+		boolean result = relationship.isChoice();
+		if (result) {
+			// a multiple cardinality choice is automatically considered a "cda choice"
+			result = relationship.getCardinality().isMultiple();
+			// TM - all multiple-cardinality choices should now be a "CDA choice"
+//			if (!result && nodes.size() == 1) {
+//				// this is a "cda choice" if the element name matches the choice name *and* does not have a match in the choice options (including nested options)
+//				List<String> allOptionNames = relationship.getAllBottomMostOptionNames();
+//				String nodeName = nodes.get(0).getNodeName();
+//				result = StringUtils.equals(nodeName, relationship.getName()) && !allOptionNames.contains(nodeName);
+//			}
+		}
+		return result;
+	}
+
+	private List<String> determineAllChoiceTypes(List<Relationship> choices) {
+		ArrayList<String> results = new ArrayList<String>();
+		for (Relationship rel : choices) {
+			if (rel.getChoices().isEmpty()) {
+				results.add(rel.getType());
+			} else {
+				results.addAll(determineAllChoiceTypes(rel.getChoices()));
+			}
+		}
+		return results;
+	}
+
 	private boolean isTypeWithSingleNonFixedRelationship(Relationship relationship, Hl7Source source) {
 		return isTypeWithSpecificNumberOfNonFixedRelationships(relationship, source, 1);
 	}
@@ -385,7 +524,7 @@ class Hl7SourceMapper {
 		} else {
 			int count = 0;
 			for (Relationship r : messagePart.getRelationships()) {
-				if (!(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+				if (!r.hasFixedValue()) {
 					count++;
 				}
 			}
@@ -424,18 +563,23 @@ class Hl7SourceMapper {
 			);
 		}
 		
-		String type = relationship.getType();
-		ElementParser parser = ParserRegistry.getInstance().get(type);
+		String type = determineType(nodes, relationship, source.isCda());
+		
+		ElementParser parser = (source.isR2() ? ParserR2Registry.getInstance().get(type): ParserRegistry.getInstance().get(type));
 		if (parser != null) {
 			try {
-				BareANY object = parser.parse(ParseContextImpl.create(relationship, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone()), nodes, source.getResult());
+				ConstrainedDatatype constraints = source.getService().getConstraints(source.getVersion(), relationship.getConstrainedType());
+				BareANY object = parser.parse(ParseContextImpl.create(relationship, constraints, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone()), nodes, source.getResult());
+				
+				changeDatatypeIfNecessary(type, relationship, object);
+				
 				if (relationship.hasFixedValue()) {
 					validateNonstructuralFixedValue(relationship, object, source, nodes); // fixed means nothing to write to bean
-				}
-				if (!(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship))) {
+				} else {
 					bean.write(relationship, object);
 				}
 			} catch (ClassCastException e){
+				e.printStackTrace();
 				this.log.info("Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 
 						" [" +  e.getMessage() + "]");
 			}
@@ -453,20 +597,63 @@ class Hl7SourceMapper {
 		}
 	}
 
+	private void changeDatatypeIfNecessary(String type,	Relationship relationship, BareANY object) {
+		// if the type parsed was different from the relationship type, preserve that info in the parsed object
+		if (object != null && !relationship.getType().equals(type)) {
+			StandardDataType newDataType = StandardDataType.valueOf(StandardDataType.class, type);
+			if (newDataType != null) {
+				object.setDataType(newDataType);
+			}
+		}
+	}
+
+	private String determineType(List<Node> nodes, Relationship relationship, boolean cda) {
+		String type = relationship.getType();
+		if (cda && relationship.getCardinality().isSingle() && !relationship.isStructural() && nodes.size() == 1) {
+			if (!StandardDataType.ANY.getName().equals(type)) {
+				String newType = ((Element) nodes.get(0)).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
+				if (StringUtils.isNotBlank(newType)) {
+					StandardDataType newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
+					newType = (newTypeEnum == null ? type : newTypeEnum.getType());
+					if (!newType.equals(type)) {
+						// TODO - CDA - TM - validate for illegal type switching (e.g. PQ to CD)
+						type = (newTypeEnum == null ? type : newTypeEnum.getType());
+					}
+				}
+			}
+		}
+		return type;
+	}
+
 	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source, List<Node> nodes) {
 		if (relationship.hasFixedValue()) {
-			boolean valid = (value != null && value.getBareValue() != null);
-			if (valid) {
+			boolean valueProvided = (value != null && value.getBareValue() != null);
+			boolean valid = valueProvided || (!ConformanceLevelUtil.isMandatory(relationship) && !ConformanceLevelUtil.isPopulated(relationship));
+			// optional and required fixed values do not have to provide a value, but if they do they must conform to specified value
+			if (valueProvided) {
 				if ("BL".equals(relationship.getType()) && value instanceof BL) {
 					String valueAsString = ((BL) value).getValue().toString();
+					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
+				} else if ("ST".equals(relationship.getType()) && value instanceof ST) {
+					String valueAsString = ((ST) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if ("INT.POS".equals(relationship.getType()) && value instanceof INT) {
 					String valueAsString = ((INT) value).getValue().toString();
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
-				} else if (relationship.isCodedType() && value instanceof CD) {
-					// FIXME - CDA - TM - the above "if" check will fail on the instanceof check for CDA coded types; the rest of this code block needs refactoring as well
-					Code code = ((CD) value).getValue();
-					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
+				} else if (relationship.isCodedType()) {
+					if (source.isR2()) {
+						if (value instanceof ANY) {
+							Object value2 = ((ANY<?>) value).getValue();
+							@SuppressWarnings("unchecked")
+							Code code = value2 == null ? null : ((CodedTypeR2<Code>) value2).getCode();
+							valid = (code != null && code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
+						}
+					} else {
+						if (value instanceof CD) {
+							Code code = ((CD) value).getValue();
+							valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
+						}
+					}
 				} else {
 					source.getResult().addHl7Error(
 						new Hl7Error(
@@ -512,10 +699,11 @@ class Hl7SourceMapper {
     			} else if (attributeRelationship == null) {
     				this.log.info("Can't find NodeAttribute relationship named: " + attributeNode.getNodeName());
     			} else {
+    	    		validateNamespace(attributeNode, attributeRelationship, source);
     				if (attributeRelationship.hasFixedValue()) {
     					validateFixedValue(source, currentElement, (Attr) attributeNode, attributeRelationship);
     				}
-    				wrapper.writeNodeAttribute(attributeRelationship, attributeNode.getNodeValue(), source.getVersion());
+    				wrapper.writeNodeAttribute(attributeRelationship, attributeNode.getNodeValue(), source.getVersion(), source.isR2());
     			}
     			validateMandatoryAttributesExist(source, currentElement);	
     		}

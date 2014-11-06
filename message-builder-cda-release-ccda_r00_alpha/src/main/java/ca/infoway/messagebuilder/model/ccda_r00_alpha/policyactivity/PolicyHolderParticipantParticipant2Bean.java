@@ -22,59 +22,23 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.policyactivity;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
-import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Date;
-import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"PolicyActivity.PolicyHolderParticipantParticipant2"})
 public class PolicyHolderParticipantParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private II templateId = new IIImpl();
-    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
-    private LIST<II, Identifier> participantRoleId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private AD participantRoleAddr = new ADImpl();
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PolicyHolderParticipantParticipant2.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PolicyHolderParticipantParticipant2.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private IVL_TS time = new IVL_TSImpl();
+    private PolicyHolderParticipantParticipantRoleBean participantRole;
 
 
     /**
@@ -106,7 +70,7 @@ public class PolicyHolderParticipantParticipant2Bean extends MessagePartBean imp
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getTime() {
+    public DateInterval getTime() {
         return this.time.getValue();
     }
 
@@ -116,42 +80,30 @@ public class PolicyHolderParticipantParticipant2Bean extends MessagePartBean imp
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setTime(Interval<Date> time) {
+    public void setTime(DateInterval time) {
         this.time.setValue(time);
     }
 
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.PolicyHolderParticipantParticipantRole.id</p>
+     * PolicyActivity.PolicyHolderParticipantParticipant2.participantRole</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"participantRole/id"})
-    public List<Identifier> getParticipantRoleId() {
-        return this.participantRoleId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PolicyHolderParticipantParticipantRole.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"participantRole/addr"})
-    public PostalAddress getParticipantRoleAddr() {
-        return this.participantRoleAddr.getValue();
+    @Hl7XmlMapping({"participantRole"})
+    public PolicyHolderParticipantParticipantRoleBean getParticipantRole() {
+        return this.participantRole;
     }
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.PolicyHolderParticipantParticipantRole.addr</p>
+     * PolicyActivity.PolicyHolderParticipantParticipant2.participantRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setParticipantRoleAddr(PostalAddress participantRoleAddr) {
-        this.participantRoleAddr.setValue(participantRoleAddr);
+    public void setParticipantRole(PolicyHolderParticipantParticipantRoleBean participantRole) {
+        this.participantRole = participantRole;
     }
 
 }

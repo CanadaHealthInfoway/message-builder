@@ -37,6 +37,7 @@ public class ActClass extends EnumPattern implements ca.infoway.messagebuilder.d
 	public static final ActClass ACT = new ActClass("ACT"); 
 	public static final ActClass ALRT = new ActClass("ALRT"); 
 	public static final ActClass CACT = new ActClass("CACT"); 
+	public static final ActClass CONC = new ActClass("CONC"); 
 	public static final ActClass COND = new ActClass("COND"); 
 	public static final ActClass CONS = new ActClass("CONS"); 
 	public static final ActClass COV = new ActClass("COV"); 

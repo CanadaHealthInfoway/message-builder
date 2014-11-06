@@ -26,17 +26,16 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssignedEntity_1Bean;
-import java.util.Date;
 import java.util.List;
 
 
@@ -44,34 +43,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Authenticator"})
 public class AuthenticatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private TS time = new TSImpl();
+    private TS_R2 time = new TS_R2Impl();
     private CS_R2 signatureCode = new CS_R2Impl();
     private AssignedEntity_1Bean assignedEntity;
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Authenticator.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Authenticator.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**
@@ -119,19 +97,19 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.time</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Date getTime() {
+    public MbDate getTime() {
         return this.time.getValue();
     }
 
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.time</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setTime(Date time) {
+    public void setTime(MbDate time) {
         this.time.setValue(time);
     }
 
@@ -139,7 +117,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.signatureCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"signatureCode"})
     public CodedTypeR2<Code> getSignatureCode() {
@@ -149,7 +127,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.signatureCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSignatureCode(CodedTypeR2<Code> signatureCode) {
         this.signatureCode.setValue(signatureCode);
@@ -159,7 +137,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedEntity"})
     public AssignedEntity_1Bean getAssignedEntity() {
@@ -169,7 +147,7 @@ public class AuthenticatorBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Authenticator.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedEntity(AssignedEntity_1Bean assignedEntity) {
         this.assignedEntity = assignedEntity;

@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public class TrivialContext implements ParseContext {
 
@@ -69,6 +70,10 @@ public class TrivialContext implements ParseContext {
 	}
 
 	public Cardinality getCardinality() {
+		return null;
+	}
+
+	public ConstrainedDatatype getConstraints() {
 		return null;
 	}
 

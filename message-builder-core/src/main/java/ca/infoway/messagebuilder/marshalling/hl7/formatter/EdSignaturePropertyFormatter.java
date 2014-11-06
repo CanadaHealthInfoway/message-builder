@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 /**
  * ED.SIGNATURE - Encapsulated Data (Signature)
@@ -68,7 +67,7 @@ class EdSignaturePropertyFormatter extends AbstractNullFlavorPropertyFormatter<S
         if (signature != null) {
             buffer.append(signature);
         }
-        buffer.append(XmlRenderingUtils.createEndElement("signature", 0, true));
+        buffer.append(createElementClosure("signature", 0, true));
 
         buffer.append(createElementClosure(context, indentLevel, true));
         return buffer.toString();

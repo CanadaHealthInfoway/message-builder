@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 
@@ -61,5 +63,16 @@ public class TemplateSet {
 			delta = template.getDelta(changeType, className, relationshipName);
 		}
 		return delta;
+	}
+
+	public List<Template> getChildTemplates(String oid) {
+		List<Template> children = new ArrayList<Template>();
+		for (Template template : templates.values()) {
+			if (template.getImpliedTemplateOid() != null && template.getImpliedTemplateOid().equals(oid)) {
+				children.add(template);
+				children.addAll(getChildTemplates(template.getOid()));
+			}
+		}
+		return children;
 	}
 }

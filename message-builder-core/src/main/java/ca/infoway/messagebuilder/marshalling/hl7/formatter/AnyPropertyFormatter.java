@@ -70,7 +70,9 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 								true, 
 								formatContext.getVersion(), 
 								formatContext.getDateTimeZone(), 
-								formatContext.getDateTimeTimeZone(), null), 
+								formatContext.getDateTimeTimeZone(),
+								null,
+								formatContext.getConstraints()), 
 						hl7Value, 
 						indentLevel);
 			}

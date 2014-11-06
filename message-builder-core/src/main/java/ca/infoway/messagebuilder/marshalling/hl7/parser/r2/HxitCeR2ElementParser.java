@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("HXIT<CE>")
 class HxitCeR2ElementParser extends CeR2ElementParser {
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new HXITImpl();

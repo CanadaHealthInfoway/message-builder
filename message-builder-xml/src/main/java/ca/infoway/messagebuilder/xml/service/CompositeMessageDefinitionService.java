@@ -31,6 +31,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -208,6 +209,25 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 			}
 		}
 		return false;
+	}
+
+	public boolean isCda(VersionNumber version) {
+		for (MessageDefinitionService service : this.services) {
+			if (service.isCda(version)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType) {
+		for (MessageDefinitionService service : this.services) {
+			ConstrainedDatatype constraints = service.getConstraints(version, constrainedType);
+			if (constraints != null) {
+				return constraints;
+			}
+		}
+		return null;
 	}
 
 }

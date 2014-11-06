@@ -46,7 +46,7 @@ public class ListTelR2ElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-519-555-2345;ext=1\"/>" + 
 				                    "<telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-416-555-2345;ext=2\"/></top>");
 
-		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("0-4")), 
+		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("0-4"), null), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
@@ -65,7 +65,7 @@ public class ListTelR2ElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-519-555-2345;ext=1\"/>" + 
 				                    "<telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-416-555-2345;ext=2\"/></top>");
 
-		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("3-5")), 
+		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("3-5"), null), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		assertFalse(this.xmlResult.isValid());
@@ -89,7 +89,7 @@ public class ListTelR2ElementParserTest extends ParserTestCase {
 									"<telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-519-555-2345;ext=3\"/>" +
 				                    "<telecom specializationType=\"TEL.PHONE\" value=\"tel:+1-416-555-2345;ext=4\"/></top>");
 
-		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-2")), 
+		BareANY result = new ListR2ElementParser().parse(ParserContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-2"), null), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		assertFalse(this.xmlResult.isValid());

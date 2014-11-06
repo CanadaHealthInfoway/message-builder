@@ -30,6 +30,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>Java datatype backing the R2 coded types.
@@ -44,8 +45,10 @@ public class CodedTypeR2<T extends Code> {
     
     private T code;
     private String codeSystemName;
-    private String codeSystemVersion;
+	private String codeSystemVersion;
     private String displayName;
+
+    private NullFlavor nullFlavorForTranslationOnly; 
     
     private EncapsulatedDataR2 originalText;
     private List<CodeRole> qualifier = new ArrayList<CodeRole>();
@@ -169,6 +172,20 @@ public class CodedTypeR2<T extends Code> {
 		this.qty = qty;
 	}
 
+	/**
+	 * @return the nullFlavor of this coded type - only used if this instance is a translation
+	 */
+    public NullFlavor getNullFlavorForTranslationOnly() {
+		return this.nullFlavorForTranslationOnly;
+	}
+
+    /**
+     * @param nullFlavorForTranslationOnly the nullFlavor of this coded type - only used if this instance is a translation
+     */
+	public void setNullFlavorForTranslationOnly(NullFlavor nullFlavorForTranslationOnly) {
+		this.nullFlavorForTranslationOnly = nullFlavorForTranslationOnly;
+	}
+
 	public boolean isEmpty() {
 		return this.code == null
 			&& this.codeSystemName == null
@@ -182,6 +199,7 @@ public class CodedTypeR2<T extends Code> {
 			&& (this.qualifier == null || this.qualifier.isEmpty())
 			&& this.validTime == null
 			&& this.qty == null
+			&& this.nullFlavorForTranslationOnly == null
 			;
 	}
 	
@@ -200,6 +218,7 @@ public class CodedTypeR2<T extends Code> {
 		        .append(this.value)
 		        .append(this.validTime)
 		        .append(this.qty)
+		        .append(this.nullFlavorForTranslationOnly)
                 .toHashCode();
     }
 
@@ -229,6 +248,7 @@ public class CodedTypeR2<T extends Code> {
 		        .append(this.value, that.value)
 		        .append(this.validTime, that.validTime)
 		        .append(this.qty, that.qty)
+		        .append(this.nullFlavorForTranslationOnly, that.nullFlavorForTranslationOnly)
                 .isEquals();
     }
 }

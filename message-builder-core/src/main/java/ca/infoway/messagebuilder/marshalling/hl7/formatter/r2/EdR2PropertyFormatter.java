@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +39,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPro
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.platform.Base64;
-import ca.infoway.messagebuilder.util.text.Indenter;
 
 
 /**
@@ -67,23 +64,28 @@ public class EdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<E
 		Map<String, String> attributes = createAttributes(encapsulatedData, context);
 
 		boolean hasContent = hasContent(encapsulatedData);
+		boolean hasReferenceOrThumbnail = hasReferenceOrThumbnail(encapsulatedData);
 		
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(createElement(context, attributes, indentLevel, !hasContent, true));
+		buffer.append(createElement(context, attributes, indentLevel, !hasContent, hasReferenceOrThumbnail));
 		if (hasContent) {
 			writeReference(encapsulatedData, buffer, indentLevel + 1, context);
 			writeThumbnail(encapsulatedData, buffer, indentLevel + 1, context);
 			writeContent(encapsulatedData, buffer, indentLevel + 1, context);
-			buffer.append(createElementClosure(context, indentLevel, true));
+			buffer.append(createElementClosure(context, hasReferenceOrThumbnail ? indentLevel : 0, true));
 		}
 		
 		return buffer.toString();
 	}
 
 	private boolean hasContent(EncapsulatedDataR2 encapsulatedData) {
-		return encapsulatedData.getReference() != null || 
-			   encapsulatedData.getThumbnail() != null || 
+		return hasReferenceOrThumbnail(encapsulatedData) || 
 			   encapsulatedData.getContent() != null;
+	}
+
+	private boolean hasReferenceOrThumbnail(EncapsulatedDataR2 encapsulatedData) {
+		return encapsulatedData.getReference() != null || 
+			   encapsulatedData.getThumbnail() != null;
 	}
 
 	private void writeReference(EncapsulatedDataR2 encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context) {
@@ -115,16 +117,14 @@ public class EdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<E
 	}
 	
 	private void writeContent(EncapsulatedDataR2 encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context) {
-		if (StringUtils.isNotBlank(encapsulatedData.getContent())) {
+		String content = encapsulatedData.getContent();
+		if (StringUtils.isNotBlank(content)) {
 			
 			if (EdRepresentation.B64.equals(encapsulatedData.getRepresentation())) {
-				validateBase64Encoded("content", encapsulatedData.getContent(), context);
+				validateBase64Encoded("content", content, context);
 			}
 			
-			// may need to make sure *not* to add any whitespace to content
-			Indenter.indentBuffer(buffer, indentLevel);
-			buffer.append(encapsulatedData.getContent());
-	        buffer.append(LINE_SEPARATOR);
+			buffer.append(content);
 		}
 	}
 

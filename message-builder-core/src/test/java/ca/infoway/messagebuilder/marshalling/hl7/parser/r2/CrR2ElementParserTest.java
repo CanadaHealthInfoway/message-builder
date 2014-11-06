@@ -52,7 +52,7 @@ public class CrR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParserContextImpl.create("CR", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null);
+		return ParserContextImpl.create("CR", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test

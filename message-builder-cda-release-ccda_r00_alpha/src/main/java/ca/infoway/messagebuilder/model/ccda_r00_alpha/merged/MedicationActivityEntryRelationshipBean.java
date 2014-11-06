@@ -36,17 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationactivity.SubstanceAdministrationBean;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"ProcedureActivityAct.MedicationActivityEntryRelationship","ProcedureActivityObservation.MedicationActivityEntryRelationship","ProcedureActivityProcedure.MedicationActivityEntryRelationship","ReactionObservation.MedicationActivityEntryRelationship"})
-public class MedicationActivityEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.reactionobservation.EntryRelationshipChoice, EntryRelationshipChoice_4, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedureactivityobservation.EntryRelationshipChoice {
+public class MedicationActivityEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.reactionobservation.EntryRelationshipChoice, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,74 +54,6 @@ public class MedicationActivityEntryRelationshipBean extends MessagePartBean imp
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private SubstanceAdministrationBean substanceAdministration;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ReactionObservation.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.MedicationActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

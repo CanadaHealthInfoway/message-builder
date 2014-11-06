@@ -30,8 +30,9 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.TS_R2;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
@@ -105,7 +106,8 @@ class AdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<PostalAd
 
     private void appendUseablePeriod(StringBuffer buffer, Date date, SetOperator operator, int indentLevel, FormatContext outerContext) {
     	FormatContext context = new FormatContextImpl("SXCM<TS>", "useablePeriod", outerContext);
-    	TS tsAny = new TSImpl(date, operator);
+    	MbDate mbDate = (date == null ? null : new MbDate(date));
+    	TS_R2 tsAny = new TS_R2Impl(mbDate, operator);
 		buffer.append(this.tsFormatter.format(context, tsAny, indentLevel));
 	}
 

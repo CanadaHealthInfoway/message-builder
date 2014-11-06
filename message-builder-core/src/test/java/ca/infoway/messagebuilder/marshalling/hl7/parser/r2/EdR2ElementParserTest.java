@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -59,7 +60,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, EncapsulatedDataR2.class, version, null, null, ConformanceLevel.POPULATED, null);
+		return ParserContextImpl.create(type, EncapsulatedDataR2.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test
@@ -100,7 +101,8 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedDataR2 data = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid()); // this will eventually change
-		assertNull(data);
+		assertNotNull(data);
+		assertXml("content", "<monkey/><shines/><through/>", data.getContent());
 	}
 	
 	@Test
@@ -223,7 +225,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertTrue("proper text returned", value.getContent().startsWith("Since this is a CDATA"));
+		assertTrue("proper text returned", value.getContent().startsWith("<![CDATA[Since this is a CDATA"));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference().getAddress());
 		assertEquals("proper reference returned", "https", value.getReference().getUrlScheme().getCodeValue());
@@ -257,7 +259,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("proper thumbnail reference returned", "https", value.getThumbnail().getReference().getUrlScheme().getCodeValue());
 		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getContent());
 		
-		assertTrue("proper text returned", value.getContent().startsWith("Since this is a CDATA"));
+		assertTrue("proper text returned", value.getContent().startsWith("<![CDATA[Since this is a CDATA"));
 	}
 }
 

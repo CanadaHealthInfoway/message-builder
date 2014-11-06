@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -52,12 +53,14 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registry;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Predicate;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -154,13 +157,15 @@ class XmlRenderingVisitor implements Visitor {
 	private final XmlWarningRenderer xmlWarningRenderer = new XmlWarningRenderer();
 	private final Registry<PropertyFormatter> formatterRegistry;
 	private final boolean isR2;
+	private final boolean isCda;
 	
 	public XmlRenderingVisitor() {
-		this(false);
+		this(false, false);
 	}
 	
-	public XmlRenderingVisitor(boolean isR2) {
+	public XmlRenderingVisitor(boolean isR2, boolean isCda) {
 		this.isR2 = isR2;
+		this.isCda = isCda;
 		this.formatterRegistry = (isR2 ? FormatterR2Registry.getInstance() : FormatterRegistry.getInstance());
 	}
 	
@@ -190,7 +195,11 @@ class XmlRenderingVisitor implements Visitor {
 			pushPropertyPathName(determinePropertyName(part.getPropertyName(), relationship), part.isCollapsed());
 			String propertyPath = buildPropertyPath();
 			
-			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
+			String xmlElementName = determineXmlName(part, relationship);
+			if (StringUtils.isNotBlank(relationship.getNamespace())) {
+				xmlElementName = relationship.getNamespace() + ":" + xmlElementName;
+			}
+			this.buffers.push(new Buffer(xmlElementName, this.buffers.size()));
 			
 			addChoiceAnnotation(part, relationship);
 			
@@ -263,7 +272,7 @@ class XmlRenderingVisitor implements Visitor {
 		boolean trivial = true;
 		for (BaseRelationshipBridge relationship : part.getRelationshipBridges()) {
 			Relationship r = relationship.getRelationship();
-			if (relationship.getRelationship().isAssociation() || !(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+			if (relationship.getRelationship().isAssociation() || !r.hasFixedValue()) {
 				trivial = false;
 				break;
 			}
@@ -300,8 +309,13 @@ class XmlRenderingVisitor implements Visitor {
 		} else if (tealBean.isEmpty()) {
 			return relationship.getChoices().get(0).getName();
 		} else {
+			if (relationship.getCardinality().isMultiple()) {
+				return relationship.getName();
+			}
+			 
 			Relationship option = resolveChoice(tealBean, relationship);
 			if (option == null) {
+				// log an error instead?
 				throw new RenderingException("Cannot determine the choice type of relationship : " + relationship.getName());
 			} else {
 				return option.getName();
@@ -309,27 +323,17 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
-	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	public void visitAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		pushPropertyPathName(determinePropertyName(tealBean.getPropertyName(), relationship), false);
 		if (relationship.isStructural()) {
 			String propertyPath = buildPropertyPath();
 			
-			String warningForIncorrectUseOfIgnore = null;
-			if (ConformanceLevelUtil.isIgnored(relationship)) {
-				warningForIncorrectUseOfIgnore = MessageFormat.format(isIgnoredNotAllowed() ? 
-						ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
-						ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
-			}  else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
-				warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
-			}
-			if (warningForIncorrectUseOfIgnore != null) {
-				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningForIncorrectUseOfIgnore, propertyPath));
-			}
-			
+			handleNotAllowedAndIgnored(relationship, propertyPath);
+			// TODO - CDA - TM - may need to handle constraints for structural attributes
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder(), propertyPath, this.result);
 			addNewErrorsToList(currentBuffer().getWarnings());
 		} else {
-			renderNonStructuralAttribute(tealBean, relationship, version, dateTimeZone, dateTimeTimeZone);
+			renderNonStructuralAttribute(tealBean, relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
 		}
 		this.propertyPathNames.pop();
 	}
@@ -366,8 +370,22 @@ class XmlRenderingVisitor implements Visitor {
 		return isInlined(propertyName) ? propertyName.substring(0, propertyName.length() - INLINED_PROPERTY_SUFFIX.length()) : propertyName;
 	}
 
-	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		String type = relationship.getType();
+		BareANY hl7Value = tealBean.getHl7Value();
+		String rootType = StandardDataType.getByTypeName(type).getRootType();
+		String alternateType = (hl7Value == null ? type : hl7Value.getDataType().getType());
+		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
+		boolean typeSwitched = false;
+		
+		// TODO - CDA - TM - need a more solid check on datatype being changed (add to bareany a getDefaultType and see if that has been changed?)
+		if (this.isR2 && !"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
+			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
+				// TODO - CDA - TM - need to validate non-allowed type-switching
+				type = alternateType;
+				typeSwitched = true;
+			}
+		}
 		
 		PropertyFormatter formatter = this.formatterRegistry.get(type);
 		
@@ -377,37 +395,48 @@ class XmlRenderingVisitor implements Visitor {
 			String propertyPath = buildPropertyPath();
 			String xmlFragment = "";
 			try {
-				BareANY any;
+				BareANY any = null;
 				
-				if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
-					any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
-					((BareANYImpl) any).setBareValue(NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version, this.isR2));
-				} else {
-					any = tealBean.getHl7Value();
-					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
-				}
-				
-				String warningForIncorrectUseOfIgnore = null;
-				if (ConformanceLevelUtil.isIgnored(relationship)) {
-					if (isIgnoredNotAllowed()){
-						warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED, relationship.getName());
-					} else {
-						warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+				boolean isMandatoryOrPopulated = ConformanceLevelUtil.isMandatory(relationship) || ConformanceLevelUtil.isPopulated(relationship);
+				if (relationship.hasFixedValue()) {
+					// suppress rendering fixed values for optional or required
+					if (isMandatoryOrPopulated) {
+						any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
+						Object fixedValue = NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version, this.isR2, this.result, propertyPath);
+						((BareANYImpl) any).setBareValue(fixedValue);
 					}
-				} else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
-					warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
-				}
-				if (warningForIncorrectUseOfIgnore != null) {
-					Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningForIncorrectUseOfIgnore, propertyPath);
-					this.result.addHl7Error(hl7Error);
+				} else {
+					any = hl7Value;
+					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
+
+					// TODO - CDA - TM - implement default value handling
+//					boolean valueNotProvided = (any.getBareValue() == null && !any.hasNullFlavor());
+//					if (valueNotProvided && relationship.hasDefaultValue() && isMandatoryOrPopulated) {
+//						// FIXME - CDA - TM - this doesn't work - will have a class cast exception (put Object convert(Object/String?) on ANY, implement trivial in ANYImpl, implement where necessary?)
+//						
+//						any.setBareValue(relationship.getDefaultValue());
+//					}
+					
 				}
 				
-				// TM - need to allow for specialization type to be set here???
+				handleNotAllowedAndIgnored(relationship, propertyPath);
 				
+				FormatContext context = FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints);
+				if (typeSwitched) {
+					context = new ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl(context.getType(), true, context);
+				}
 				xmlFragment += formatter.format(
-						FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone), 
+						context, 
 						any, 
 						getIndent());
+				
+				// if relationship specifies a namespace, need to add it to xml
+				if (StringUtils.isNotBlank(xmlFragment) & StringUtils.isNotBlank(relationship.getNamespace())) {
+					xmlFragment = xmlFragment.replaceAll("<" + relationship.getName() + " ", "<" + relationship.getNamespace() + ":" + relationship.getName() + " ");
+					xmlFragment = xmlFragment.replaceAll("<" + relationship.getName() + ">", "<" + relationship.getNamespace() + ":" + relationship.getName() + ">");
+					xmlFragment = xmlFragment.replaceAll("</" + relationship.getName() + ">", "</" + relationship.getNamespace() + ":" + relationship.getName() + ">");
+				}
+				
 			} catch (ModelToXmlTransformationException e) {
 				Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), propertyPath);
 				this.result.addHl7Error(hl7Error);
@@ -417,10 +446,25 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
+	private void handleNotAllowedAndIgnored(Relationship relationship,	String propertyPath) {
+		String warningForIncorrectUseOfIgnore = null;
+		if (ConformanceLevelUtil.isIgnored(relationship)) {
+			warningForIncorrectUseOfIgnore = MessageFormat.format(isIgnoredNotAllowed() ? 
+					ATTRIBUTE_IS_IGNORED_AND_CAN_NOT_BE_USED :
+					ATTRIBUTE_IS_IGNORED_AND_WILL_NOT_BE_USED, relationship.getName());
+		}  else if (ConformanceLevelUtil.isNotAllowed(relationship)) {
+			warningForIncorrectUseOfIgnore = MessageFormat.format(ATTRIBUTE_IS_NOT_ALLOWED, relationship.getName());
+		}
+		if (warningForIncorrectUseOfIgnore != null) {
+			this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, warningForIncorrectUseOfIgnore, propertyPath));
+		}
+	}
+
+
 	private void renderNewErrorsToXml(StringBuilder stringBuilder) {
 		for (Hl7Error hl7Error : this.result.getHl7Errors()) {
 			if (!hl7Error.isRenderedToXml()) {
-				stringBuilder.append(this.xmlWarningRenderer.createWarning(getIndent(), hl7Error.toString()));
+				stringBuilder.append(this.xmlWarningRenderer.createWarning(getIndent(), hl7Error.toString(), ""));
 				hl7Error.markAsRenderedToXml();
 			}
 		}
@@ -447,11 +491,15 @@ class XmlRenderingVisitor implements Visitor {
 		this.propertyPathNames.push(determinePropertyName(tealBean.getPropertyName(), interaction));
 		this.interaction = interaction;
 		this.buffers.clear();
-		this.buffers.push(new Buffer(interaction.getName(), 0));
-		currentBuffer().getStructuralBuilder()
-				.append(" xmlns=\"urn:hl7-org:v3\" ")
-				.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\"");
+		this.buffers.push(new Buffer(this.isCda ? "ClinicalDocument" : interaction.getName(), 0));
 		
+		currentBuffer().getStructuralBuilder().append(" xmlns=\"urn:hl7-org:v3\" ");
+		currentBuffer().getStructuralBuilder().append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ");
+		if (this.isCda) {
+			currentBuffer().getStructuralBuilder().append("xmlns:sdtc=\"urn:hl7-org:sdtc\" xmlns:cda=\"urn:hl7-org:v3\"");
+		} else {
+			currentBuffer().getStructuralBuilder().append("ITSVersion=\"XML_1.0\"");
+		}
 	}
 	
 	public ModelToXmlResult toXml() {

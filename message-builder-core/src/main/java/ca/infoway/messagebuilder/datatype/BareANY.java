@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
  */
 public interface BareANY extends NullFlavorSupport {
 	public Object getBareValue();
+	public void setBareValue(Object value);
 	
 	/**
 	 * <p>Represents the fact that every data value implicitly carries information about its own data type. 

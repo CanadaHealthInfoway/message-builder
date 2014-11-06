@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.PQ;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
@@ -37,13 +38,14 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.EntityClassRoot;
-import ca.infoway.messagebuilder.domainvalue.EntityDeterminer;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -52,68 +54,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.PlayingEntity","POCD_MT000040.PlayingEntity","SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity"})
 public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 determinerCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private LIST<PQ, PhysicalQuantity> quantity = new LISTImpl<PQ, PhysicalQuantity>(PQImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private TS_R2 birthTime = new TS_R2Impl();
     private ED<EncapsulatedDataR2> desc = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 classCode = new CS_R2Impl();
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AllergyIntoleranceObservation.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"determinerCode"})
-    public CodedTypeR2<EntityDeterminer> getDeterminerCode() {
-        return (CodedTypeR2<EntityDeterminer>) this.determinerCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AllergyIntoleranceObservation.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setDeterminerCode(CodedTypeR2<EntityDeterminer> determinerCode) {
-        this.determinerCode.setValue(determinerCode);
-    }
 
 
     /**
@@ -228,14 +178,14 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.PlayingEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -254,14 +204,14 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.PlayingEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -325,6 +275,58 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
         return this.name.rawList();
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * AllergyIntoleranceObservation.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POCD_MT000040.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"birthTime"})
+    public MbDate getBirthTime() {
+        return this.birthTime.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * AllergyIntoleranceObservation.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: POCD_MT000040.PlayingEntity.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setBirthTime(MbDate birthTime) {
+        this.birthTime.setValue(birthTime);
     }
 
 

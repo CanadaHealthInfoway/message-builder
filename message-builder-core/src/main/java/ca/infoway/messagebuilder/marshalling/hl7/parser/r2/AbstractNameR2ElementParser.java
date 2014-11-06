@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -34,6 +35,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -41,6 +43,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -64,6 +67,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
 	private static final String VALID_TIME_ELEMENT = "validTime";
 	private static final String ORGANIZATION_NAME_TYPE = "ON";
 	private static final String QUALIFIER_ATTRIBUTE = "qualifier";
+	private static final String NULLFLAVOR_ATTRIBUTE = "nullFlavor";
 	
 	private final IvlTsR2ElementParser ivlTsParser = new IvlTsR2ElementParser();
 
@@ -99,12 +103,13 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
 					if (StringUtils.equals("TN", context.getType())) {
 						recordError("TN fields only support text and a single (optional) validTime element. Found element: " + name, element, xmlToModelResult);
 					} else {
+						NullFlavor nullFlavor = getNullFlavor(element, xmlToModelResult);
 						String value = getTextValue(element, xmlToModelResult);
 						EntityNamePartQualifier qualifier = getQualifier(context, element, xmlToModelResult);
-						if (StringUtils.isNotBlank(value)) {
-							NamePartType personaNamePartType = getNamePartType(name, context.getType(), element, xmlToModelResult);
-							if (personaNamePartType != null) {
-								parts.add(new EntityNamePart(value, personaNamePartType, qualifier));
+						if (StringUtils.isNotBlank(value) || nullFlavor != null) {
+							NamePartType namePartType = getNamePartType(name, context.getType(), element, xmlToModelResult);
+							if (namePartType != null) {
+								parts.add(new EntityNamePart(value, namePartType, qualifier, nullFlavor));
 							}
 						}
 					}
@@ -114,6 +119,23 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
 			}
 		}
 		return parts;
+	}
+
+	private NullFlavor getNullFlavor(Element element, XmlToModelResult xmlToModelResult) {
+		NullFlavor result = null;
+		if (element.hasAttribute(NULLFLAVOR_ATTRIBUTE)) {
+			String nullFlavorString = getAttributeValue(element, NULLFLAVOR_ATTRIBUTE);
+			if (StringUtils.isNotBlank(nullFlavorString)) {
+				NullFlavor nullFlavor = CodeResolverRegistry.lookup(NullFlavor.class, nullFlavorString);
+				if (nullFlavor == null) {
+					recordError("Invalid nullFlavor detected in name part: " + nullFlavorString, element, xmlToModelResult);
+				}
+				result = nullFlavor;
+			} else {
+				recordError("NullFlavor may not be blank.", element, xmlToModelResult);
+			}
+		}
+		return result;
 	}
 
 	private EntityNamePartQualifier getQualifier(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
@@ -146,7 +168,10 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
     private String getTextValue(Element element, XmlToModelResult xmlToModelResult) {
     	String result = NodeUtil.getTextValue(element, true);
         if (StringUtils.isBlank(result)) {
-        	recordError("Expected PN child node \"" + element.getNodeName() + "\" to have a text node", element, xmlToModelResult);
+        	result = null;
+        	if (!element.hasAttribute(NULLFLAVOR_ATTRIBUTE)) {
+        		recordError("Expected PN child node \"" + element.getNodeName() + "\" to have a text node", element, xmlToModelResult);
+        	}
         }
         return result;
     }
@@ -178,7 +203,6 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
         return uses;
     }
 	
-	@SuppressWarnings("unchecked")
 	private Interval<Date> parseValidTime(Element node, ParseContext context, XmlToModelResult xmlToModelResult) {
 		Interval<Date> validTime = null;
 
@@ -197,14 +221,13 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
             }
             
             if (childNode instanceof Element) {
-                Element childElement = (Element) childNode;
-                
 				if (isValidTime) {
                 	foundValidTime = true;
                 	ParseContext newContext = ParserContextImpl.create("IVL<TS>", context);
-                	BareANY ivlTsAny = this.ivlTsParser.parse(newContext, childElement, xmlToModelResult);
+                	BareANY ivlTsAny = this.ivlTsParser.parse(newContext, Arrays.asList(childNode), xmlToModelResult);
                 	if (ivlTsAny != null && ivlTsAny.getBareValue() != null) {
-						validTime = (Interval<Date>) ivlTsAny.getBareValue();
+                		DateInterval dateInterval = (DateInterval) ivlTsAny.getBareValue();
+						validTime = dateInterval == null ? null : dateInterval.getInterval();
                 	}
                 }
             }

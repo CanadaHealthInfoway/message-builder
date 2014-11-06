@@ -46,8 +46,8 @@ public class BlR2ElementParserTest extends CeRxDomainValueTestCase {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		this.contextBL = ParserContextImpl.create("BL", Boolean.class, SpecificationVersion.V02R02, null, null, null, null);
-		this.contextBN = ParserContextImpl.create("BN", Boolean.class, SpecificationVersion.R02_04_03, null, null, null, null);
+		this.contextBL = ParserContextImpl.create("BL", Boolean.class, SpecificationVersion.V02R02, null, null, null, null, null);
+		this.contextBN = ParserContextImpl.create("BN", Boolean.class, SpecificationVersion.R02_04_03, null, null, null, null, null);
 		this.result = new XmlToModelResult();
 		this.parser = new BlR2ElementParser();
 	}

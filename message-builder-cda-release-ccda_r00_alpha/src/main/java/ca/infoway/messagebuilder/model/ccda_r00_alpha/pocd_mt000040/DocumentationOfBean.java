@@ -23,68 +23,27 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ActClassRoot;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
-import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"POCD_MT000040.DocumentationOf"})
-public class DocumentationOfBean extends MessagePartBean {
+public class DocumentationOfBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.DocumentationOfChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport.DocumentationOfChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 serviceEventClassCode = new CS_R2Impl();
-    private CS_R2 serviceEventMoodCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> serviceEventRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II serviceEventTypeId = new IIImpl();
-    private LIST<II, Identifier> serviceEventTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<II, Identifier> serviceEventId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 serviceEventCode = new CE_R2Impl();
-    private IVL<TS, Interval<Date>> serviceEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<Performer2_1Bean> serviceEventPerformer = new ArrayList<Performer2_1Bean>();
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.DocumentationOf.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ActRelationshipType> getTypeCode() {
-        return (CodedTypeR2<ActRelationshipType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.DocumentationOf.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ActRelationshipType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private ServiceEventBean serviceEvent;
 
 
     /**
@@ -130,146 +89,22 @@ public class DocumentationOfBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.classCode</p>
+     * <p>Relationship: POCD_MT000040.DocumentationOf.serviceEvent</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"serviceEvent/classCode"})
-    public CodedTypeR2<ActClassRoot> getServiceEventClassCode() {
-        return (CodedTypeR2<ActClassRoot>) this.serviceEventClassCode.getValue();
+    @Hl7XmlMapping({"serviceEvent"})
+    public ServiceEventBean getServiceEvent() {
+        return this.serviceEvent;
     }
 
     /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.classCode</p>
+     * <p>Relationship: POCD_MT000040.DocumentationOf.serviceEvent</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setServiceEventClassCode(CodedTypeR2<ActClassRoot> serviceEventClassCode) {
-        this.serviceEventClassCode.setValue(serviceEventClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/moodCode"})
-    public CodedTypeR2<ActMood> getServiceEventMoodCode() {
-        return (CodedTypeR2<ActMood>) this.serviceEventMoodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setServiceEventMoodCode(CodedTypeR2<ActMood> serviceEventMoodCode) {
-        this.serviceEventMoodCode.setValue(serviceEventMoodCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/realmCode"})
-    public List<CodedTypeR2<Code>> getServiceEventRealmCode() {
-        return this.serviceEventRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/typeId"})
-    public Identifier getServiceEventTypeId() {
-        return this.serviceEventTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setServiceEventTypeId(Identifier serviceEventTypeId) {
-        this.serviceEventTypeId.setValue(serviceEventTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/templateId"})
-    public List<Identifier> getServiceEventTemplateId() {
-        return this.serviceEventTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/id"})
-    public List<Identifier> getServiceEventId() {
-        return this.serviceEventId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/code"})
-    public CodedTypeR2<Code> getServiceEventCode() {
-        return (CodedTypeR2<Code>) this.serviceEventCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setServiceEventCode(CodedTypeR2<Code> serviceEventCode) {
-        this.serviceEventCode.setValue(serviceEventCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/effectiveTime"})
-    public Interval<Date> getServiceEventEffectiveTime() {
-        return this.serviceEventEffectiveTime.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setServiceEventEffectiveTime(Interval<Date> serviceEventEffectiveTime) {
-        this.serviceEventEffectiveTime.setValue(serviceEventEffectiveTime);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.ServiceEvent.performer</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"serviceEvent/performer"})
-    public List<Performer2_1Bean> getServiceEventPerformer() {
-        return this.serviceEventPerformer;
+    public void setServiceEvent(ServiceEventBean serviceEvent) {
+        this.serviceEvent = serviceEvent;
     }
 
 }

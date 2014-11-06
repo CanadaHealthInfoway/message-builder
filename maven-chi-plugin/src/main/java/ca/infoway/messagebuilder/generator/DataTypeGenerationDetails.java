@@ -57,6 +57,7 @@ import ca.infoway.messagebuilder.datatype.HXIT;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.ON;
@@ -78,11 +79,13 @@ import ca.infoway.messagebuilder.datatype.SXPR;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.URL;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
@@ -90,6 +93,7 @@ import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.datatype.lang.ParentheticSetExpr;
@@ -206,6 +210,7 @@ enum DataTypeGenerationDetails implements Typed {
 	IVL_PQ("IVL<PQ>", "PhysicalQuantityInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_REAL_R2("IVL<REAL>", "RealInterval", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_TS("IVL<TS>", "DateInterval", IVL.class.getName(), Interval.class.getName(), null), 
+	IVL_TS_R2("IVL<TS>", "DateInterval", IVL_TS.class.getName(), DateInterval.class.getName(), null), 
 	IVL_DATE("IVL<TS.DATE>", IVL.class.getName(), Interval.class.getName(), null),
 	IVL_DATETIME("IVL<TS.DATETIME>", IVL.class.getName(), Interval.class.getName(), null), 
 	IVL_FULL_DATE("IVL<TS.FULLDATE>", IVL.class.getName(), Interval.class.getName(), null),
@@ -252,6 +257,7 @@ enum DataTypeGenerationDetails implements Typed {
 	RTO_MO_CAD_PQ_BASIC("RTO<MO.CAD, PQ.BASIC>", RTO.class.getName(), Ratio.class.getName(), null),
 	
 	TS("TS", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	TS_R2("TS", TS_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"), // need to correct for .NET
 	TS_DATE("TS.DATE", "PartialDate", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_DATETIME("TS.DATETIME", "PartialDateTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATEPARTTIME("TS.FULLDATEPARTTIME", "FullDatePartTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),

@@ -23,8 +23,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
@@ -94,7 +97,7 @@ public class MessageSetValidator {
 		}
 	}
 	
-	private final MessageSet messageSet;
+	protected final MessageSet messageSet;
 	private MessageSetUtils messageSetUtils;
 	private Map<String, MessagePart> messagePartsByName;
 	private MessageSetValidatorErrorComparator comparator = new MessageSetValidatorErrorComparator();
@@ -109,11 +112,18 @@ public class MessageSetValidator {
 	}
 	
 	public List<MessageSetValidatorError> validate() {
+		return validate(ErrorLevel.WARNING);
+	}
+	
+	public List<MessageSetValidatorError> validate(ErrorLevel logLevelMinimumToReport) {
 		
 		List<MessageSetValidatorError> results = new ArrayList<MessageSetValidatorError>();
 		
-		for (Interaction interaction : this.messageSetUtils.getAllInteractions()) {
-			validateInteraction(interaction, results);
+		if (!this.messageSet.isCda()) {
+			// Don't do this for CDA message sets - they contain cycles, so the recursion never stops
+			for (Interaction interaction : this.messageSetUtils.getAllInteractions()) {
+				validateInteraction(interaction, results);
+			}
 		}
 		
 		for (MessagePart messagePart : this.messageSetUtils.getAllMessageParts()) {
@@ -123,6 +133,16 @@ public class MessageSetValidator {
 		checkForOrphanedParts(results);
 		
 		Collections.sort(results, this.comparator);
+		
+		Iterator<MessageSetValidatorError> iterator = results.iterator();
+		while (iterator.hasNext()) {
+			MessageSetValidatorError errorLog = iterator.next();
+			if (errorLog.errorLevel == ErrorLevel.WARNING && logLevelMinimumToReport == ErrorLevel.ERROR) {
+				iterator.remove();
+			} else if (errorLog.errorLevel == ErrorLevel.INFO && logLevelMinimumToReport != ErrorLevel.INFO) {
+				iterator.remove();
+			}
+		}
 		
 		return results;
 	}
@@ -149,6 +169,15 @@ public class MessageSetValidator {
 	}
 
 	private int countTemplates(String messagePartName) {
+		Set<String> partsAlreadyChecked = new HashSet<String>();
+		return countTemplates(messagePartName, partsAlreadyChecked);
+	}
+	
+	private int countTemplates(String messagePartName, Set<String> partsAlreadyChecked) {
+		if (partsAlreadyChecked.contains(messagePartName)) {
+			return 0;
+		}
+		partsAlreadyChecked.add(messagePartName);
 		int count = 0;
 		MessagePart messagePart = this.messageSetUtils.getMessagePart(messagePartName);
 		for (Relationship relationship : messagePart.getRelationships()) {
@@ -156,7 +185,7 @@ public class MessageSetValidator {
 				if (relationship.isTemplateRelationship()) {
 					count++;
 				} else {
-					count += countTemplates(relationship.getType());
+					count += countTemplates(relationship.getType(), partsAlreadyChecked);
 				}
 			}
 		}
@@ -229,10 +258,10 @@ public class MessageSetValidator {
 		Integer max = relationship.getCardinality().getMax();
 		String cardinality = relationship.getCardinality().toString();
 		
-		if (min > max || min < 0 || max < 0 || max == 0 || cardinality.trim().equals("*")) {
+		if (min > max || min < 0 || max < 0 || max == 0) {
 			logError(results, ErrorType.INVALID_CARDINALITY, parentType, relName, "invalid cardinality detected", "cardinality: " + cardinality);
 		} else if (cardinality.contains("*")) {
-			logWarning(results, ErrorType.CHECK_WILDCARD_CARDINALITY, parentType, relName, "while valid, use of wildcards for cardinality should be avoided", "cardinality: " + cardinality);
+			logInfo(results, ErrorType.CHECK_WILDCARD_CARDINALITY, parentType, relName, "while valid, use of wildcards for cardinality should be avoided", "cardinality: " + cardinality);
 		}
 		
 		// check conformance
@@ -280,9 +309,13 @@ public class MessageSetValidator {
 			}
 		}
 		
-		if (validType && isCoded(relationship.getType()) && StringUtils.isBlank(domain)) {
+		if (!isCda() && validType && isCoded(relationship.getType()) && StringUtils.isBlank(domain)) {
 			logError(results, ErrorType.DOMAIN_MUST_BE_PROVIDED, parentType, relName, "Domains must be provided for coded types", "Type: " + relationship.getType());
 		}
+	}
+
+	private boolean isCda() {
+		return this.messageSet.isCda();
 	}
 
 	private void validateAssociation(Relationship relationship, List<MessageSetValidatorError> results) {
@@ -311,10 +344,12 @@ public class MessageSetValidator {
 	}
 
 	private boolean isSuspectDomainType(String domain) {
-		return (Character.isLowerCase(domain.charAt(0)) && !domain.startsWith("x_")) || domain.equals(StringUtils.upperCase(domain));
+		return (Character.isLowerCase(domain.charAt(0)) && !domain.startsWith("x_")) 
+				|| domain.equals(StringUtils.upperCase(domain))
+				|| domain.contains(" ");
 	}
 
-	private boolean isTypeValid(String type) {
+	protected boolean isTypeValid(String type) {
 		boolean result = (StandardDataType.getByTypeName(type) != null);
 		if (result && isCollection(type)) {
 			// also check the parameter type
@@ -337,7 +372,7 @@ public class MessageSetValidator {
 		return actualType.isCoded();
 	}
 
-	private boolean isCollection(String type) {
+	protected boolean isCollection(String type) {
 		return StandardDataType.isSetOrList(type) || StandardDataType.isCollection(type);
 	}
 

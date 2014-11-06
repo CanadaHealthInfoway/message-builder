@@ -37,16 +37,14 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.allergystatusobservation.ObservationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship","SubstanceOrDeviceAllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship"})
-public class AllergyStatusObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_1 {
+public class AllergyStatusObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_2 {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
@@ -55,46 +53,6 @@ public class AllergyStatusObservationEntryRelationshipBean extends MessagePartBe
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * SubstanceOrDeviceAllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * AllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

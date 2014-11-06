@@ -24,11 +24,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -81,7 +82,7 @@ class PivlTsR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<Peri
 	
 	private String createPhase(PeriodicIntervalTimeR2 value, FormatContext context, int indentLevel) {
 		Interval<Date> phase = value.getPhase();
-		IVL<TS, Interval<Date>> phaseWrapper = new IVLImpl<TS, Interval<Date>>(phase);
+		IVL_TS phaseWrapper = new IVL_TSImpl(phase == null ? null : new DateInterval(phase));
 		FormatContext phaseContext = new FormatContextImpl("IVL<TS>", PHASE, context); 
 		return this.ivlTsFormatter.format(phaseContext, phaseWrapper, indentLevel);
 	}

@@ -81,7 +81,7 @@ public class Attribute extends BaseRelationship {
 				if (parameter.isCodedType()) {
 					result.add(Code.class.getName());
 					if (parameter.isR2()) {
-						result.add(CodedTypeR2.class.getName());
+						result.add(CodedTypeR2.class.getName());  // FIXME - CDA - TM this won't work for .NET (or will it???)				
 					}
 				}
 			}
@@ -92,7 +92,7 @@ public class Attribute extends BaseRelationship {
 
 		if (getDataType().isCodedType()) {
 			if (getDataType().isR2()) {
-				result.add(CodedTypeR2.class.getName());
+				result.add(CodedTypeR2.class.getName());  // FIXME - CDA - this won't work for .NET (or will it???)
 			}
 		}
 		

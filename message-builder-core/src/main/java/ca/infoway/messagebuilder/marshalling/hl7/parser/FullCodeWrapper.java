@@ -41,7 +41,7 @@ public class FullCodeWrapper {
 		private final NullFlavor nullFlavor;
 		private final String codeSystem;
 
-		public FullCodeHandler(String codeSystem,	NullFlavor nullFlavor) {
+		public FullCodeHandler(String codeSystem, NullFlavor nullFlavor) {
 			this.code = null;
 			this.codeSystem = codeSystem;
 			this.nullFlavor = nullFlavor;
@@ -78,5 +78,11 @@ public class FullCodeWrapper {
 		return type.cast(Proxy.newProxyInstance(type.getClassLoader(), 
 				new Class[] { type },
 				new FullCodeHandler(code, codeSystem)));
+	}
+	
+	public static <T extends Code> T wrap(Class<T> type, String codeSystem,	NullFlavor nullFlavor) {
+		return type.cast(Proxy.newProxyInstance(type.getClassLoader(), 
+				new Class[] { type },
+				new FullCodeHandler(codeSystem, nullFlavor)));
 	}
 }

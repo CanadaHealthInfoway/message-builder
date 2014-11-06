@@ -94,21 +94,20 @@ public class MessageWalker {
 	private void processUnknownChildElements(Set<String> knownItems, Element element, MessageVisitor visitor) {
 		List<Element> children = NodeUtil.toElementList(element);
 		for (Element child : children) {
-			if (!NamespaceUtil.isHl7Node(child)) {
+			if (!NamespaceUtil.isHl7Node(child)) { 
 				// ignore it
 			} else {
 				String localOrTagName = NodeUtil.getLocalOrTagName(child);
 				if (!knownItems.contains(localOrTagName)) {
 					knownItems.add(localOrTagName);
+					// this call will intentionally fail fast with an error (since relationship is null)
 					visitor.visitNonStructuralAttribute(element, Arrays.asList(child), null);
 				}
 			}
 		}
 	}
 
-	private void processUnknownStructuralAttributes(Set<String> knownItems,
-			Element element, MessageVisitor visitor) {
-		
+	private void processUnknownStructuralAttributes(Set<String> knownItems,	Element element, MessageVisitor visitor) {
 		NamedNodeMap attrs = element.getAttributes();
 		int length = attrs == null ? 0 : attrs.getLength();
 		for (int i = 0; i < length; i++) {  
@@ -119,6 +118,7 @@ public class MessageWalker {
 				// skip it
 			} else if (!knownItems.contains(item.getName())) {
 				knownItems.add(item.getName());
+				// this call will intentionally fail fast with an error (since relationship is null)
 				visitor.visitStructuralAttribute(element, item, null);
 			}
 		}

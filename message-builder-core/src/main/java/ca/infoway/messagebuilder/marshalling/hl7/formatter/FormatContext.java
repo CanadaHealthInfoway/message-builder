@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public interface FormatContext extends Typed {
 	public ModelToXmlResult getModelToXmlResult();
@@ -43,4 +44,5 @@ public interface FormatContext extends Typed {
 	public VersionNumber getVersion();
 	public TimeZone getDateTimeZone();
 	public TimeZone getDateTimeTimeZone();
+	public ConstrainedDatatype getConstraints();
 }

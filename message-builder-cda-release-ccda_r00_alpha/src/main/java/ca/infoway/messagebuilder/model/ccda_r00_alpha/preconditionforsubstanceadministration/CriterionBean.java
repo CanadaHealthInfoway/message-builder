@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -48,12 +47,11 @@ import java.util.List;
 @Hl7RootType
 public class CriterionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CD_R2 value = new CD_R2Impl();
@@ -78,28 +76,6 @@ public class CriterionBean extends MessagePartBean {
      */
     public void setClassCode(CodedTypeR2<ActClassObservation> classCode) {
         this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PreconditionForSubstanceAdministration.Criterion.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PreconditionForSubstanceAdministration.Criterion.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
     }
 
 
@@ -141,21 +117,11 @@ public class CriterionBean extends MessagePartBean {
      * <p>Relationship: 
      * PreconditionForSubstanceAdministration.Criterion.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PreconditionForSubstanceAdministration.Criterion.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 

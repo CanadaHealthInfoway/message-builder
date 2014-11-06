@@ -88,6 +88,17 @@ public class SimplifiableType implements Named, NamedType {
 	public List<SimplifiableRelationship> getRelationships() {
 		return this.relationships;
 	}
+	
+	public int getNumberOfAssociations() {
+		int numAssociations = 0;
+		for (SimplifiableRelationship relationship : this.getRelationships()) {
+			if (relationship.isAssociation()) {
+				numAssociations++;
+			}
+		} 
+		return numAssociations;
+	}
+	
 	public SimplifiableRelationship getRelationship(String name) {
 		SimplifiableRelationship result = null;
 		for (SimplifiableRelationship relationship : this.relationships) {

@@ -23,24 +23,16 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_InformationRecipient;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_InformationRecipientRole;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_1Bean;
 import java.util.List;
 
 
@@ -48,20 +40,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.InformationRecipient"})
 public class InformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 intendedRecipientClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> intendedRecipientRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II intendedRecipientTypeId = new IIImpl();
-    private LIST<II, Identifier> intendedRecipientTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<II, Identifier> intendedRecipientId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<AD, PostalAddress> intendedRecipientAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> intendedRecipientTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PersonBean intendedRecipientInformationRecipient;
-    private Organization_1Bean intendedRecipientReceivedOrganization;
+    private IntendedRecipientBean intendedRecipient;
 
 
     /**
@@ -129,141 +113,24 @@ public class InformationRecipientBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/classCode"})
-    public CodedTypeR2<x_InformationRecipientRole> getIntendedRecipientClassCode() {
-        return (CodedTypeR2<x_InformationRecipientRole>) this.intendedRecipientClassCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setIntendedRecipientClassCode(CodedTypeR2<x_InformationRecipientRole> intendedRecipientClassCode) {
-        this.intendedRecipientClassCode.setValue(intendedRecipientClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/realmCode"})
-    public List<CodedTypeR2<Code>> getIntendedRecipientRealmCode() {
-        return this.intendedRecipientRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/typeId"})
-    public Identifier getIntendedRecipientTypeId() {
-        return this.intendedRecipientTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setIntendedRecipientTypeId(Identifier intendedRecipientTypeId) {
-        this.intendedRecipientTypeId.setValue(intendedRecipientTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/templateId"})
-    public List<Identifier> getIntendedRecipientTemplateId() {
-        return this.intendedRecipientTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/id"})
-    public List<Identifier> getIntendedRecipientId() {
-        return this.intendedRecipientId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/addr"})
-    public List<PostalAddress> getIntendedRecipientAddr() {
-        return this.intendedRecipientAddr.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.IntendedRecipient.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/telecom"})
-    public List<TelecommunicationAddress> getIntendedRecipientTelecom() {
-        return this.intendedRecipientTelecom.rawList();
-    }
-
-
-    /**
      * <p>Relationship: 
-     * POCD_MT000040.IntendedRecipient.informationRecipient</p>
+     * POCD_MT000040.InformationRecipient.intendedRecipient</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"intendedRecipient/informationRecipient"})
-    public PersonBean getIntendedRecipientInformationRecipient() {
-        return this.intendedRecipientInformationRecipient;
+    @Hl7XmlMapping({"intendedRecipient"})
+    public IntendedRecipientBean getIntendedRecipient() {
+        return this.intendedRecipient;
     }
 
     /**
      * <p>Relationship: 
-     * POCD_MT000040.IntendedRecipient.informationRecipient</p>
+     * POCD_MT000040.InformationRecipient.intendedRecipient</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setIntendedRecipientInformationRecipient(PersonBean intendedRecipientInformationRecipient) {
-        this.intendedRecipientInformationRecipient = intendedRecipientInformationRecipient;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * POCD_MT000040.IntendedRecipient.receivedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"intendedRecipient/receivedOrganization"})
-    public Organization_1Bean getIntendedRecipientReceivedOrganization() {
-        return this.intendedRecipientReceivedOrganization;
-    }
-
-    /**
-     * <p>Relationship: 
-     * POCD_MT000040.IntendedRecipient.receivedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setIntendedRecipientReceivedOrganization(Organization_1Bean intendedRecipientReceivedOrganization) {
-        this.intendedRecipientReceivedOrganization = intendedRecipientReceivedOrganization;
+    public void setIntendedRecipient(IntendedRecipientBean intendedRecipient) {
+        this.intendedRecipient = intendedRecipient;
     }
 
 }

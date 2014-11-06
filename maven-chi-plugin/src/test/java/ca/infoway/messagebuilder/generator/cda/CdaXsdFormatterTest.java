@@ -27,17 +27,22 @@ import static org.junit.Assert.assertNull;
 import org.codehaus.plexus.util.StringOutputStream;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.util.Namespaces;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
+@RunWith(MockitoJUnitRunner.class)
 public class CdaXsdFormatterTest {
 	
 	private CdaXsdProcessor parser;
@@ -47,9 +52,12 @@ public class CdaXsdFormatterTest {
 
 	private Serializer serializer = new Persister(new AnnotationStrategy());
 	
+	@Mock
+	private OutputUI outputUI;
+	
 	@Before
 	public void setUp() throws Exception {
-		parser = new CdaXsdProcessor();
+		parser = new CdaXsdProcessor(outputUI);
 		fixture = new CdaXsdFormatter();
 
 		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdFormatterTest.class.getResourceAsStream("/POCD_MT000040.xsd"));

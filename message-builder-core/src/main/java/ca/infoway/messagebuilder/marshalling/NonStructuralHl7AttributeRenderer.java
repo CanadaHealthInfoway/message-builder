@@ -20,29 +20,42 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.text.MessageFormat;
+
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class NonStructuralHl7AttributeRenderer {
 	
-	static Object getFixedValue(Relationship relationship, VersionNumber version, boolean isR2) {
+	static Object getFixedValue(Relationship relationship, VersionNumber version, boolean isR2, Hl7Errors errors, String propertyPath) {
+		String fixedValue = relationship.getFixedValue();
 		if (StringUtils.equals("BL",relationship.getType())) {
-			return Boolean.TRUE.toString().equalsIgnoreCase(relationship.getFixedValue());
+			return Boolean.TRUE.toString().equalsIgnoreCase(fixedValue);
 		} else if (StringUtils.equals("INT.POS", relationship.getType())) {
-			return new Integer(relationship.getFixedValue());
+			return new Integer(fixedValue);
+		} else if (StringUtils.equals("ST", relationship.getType())) {
+			return fixedValue;
 		} else if (relationship.isCodedType()) {
 			Class<? extends Code> codeType = DomainTypeHelper.getReturnType(relationship, version);
 			if (codeType == null) {
 				codeType = Code.class;
 			}
-			Code code = CodeResolverRegistry.lookup(codeType, relationship.getFixedValue());
-			return isR2 ? new CodedTypeR2<Code>(code): code;
+			Code code = CodeResolverRegistry.lookup(codeType, fixedValue);
+			if (code == null) {
+				String message = MessageFormat.format("Fixed code lookup could not find match for {0}.{1}", relationship.getDomainType(), fixedValue);
+				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, Hl7ErrorLevel.WARNING, message, propertyPath));
+			}
+			return isR2 ? (code == null ? null : new CodedTypeR2<Code>(code)) : code;
 		} else {
 			throw new MarshallingException("Cannot handle a fixed relationship of type: " + relationship.getType());
 		}

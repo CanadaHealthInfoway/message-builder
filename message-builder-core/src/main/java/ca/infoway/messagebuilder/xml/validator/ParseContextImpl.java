@@ -30,20 +30,23 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class ParseContextImpl implements ParseContext {
 
 	private final Relationship relationship;
 	private final VersionNumber version;
+	private final ConstrainedDatatype constraints;
 
-	private ParseContextImpl(Relationship relationship, VersionNumber version) {
+	private ParseContextImpl(Relationship relationship, VersionNumber version, ConstrainedDatatype constraints) {
 		this.relationship = relationship;
 		this.version = version;
+		this.constraints = constraints;
 	}
 
-	public static ParseContext create(Relationship relationship, VersionNumber version) {
-		return new ParseContextImpl(relationship, version);
+	public static ParseContext create(Relationship relationship, VersionNumber version, ConstrainedDatatype constraints) {
+		return new ParseContextImpl(relationship, version, constraints);
 	}
 
 	public Type getExpectedReturnType() {
@@ -75,5 +78,9 @@ class ParseContextImpl implements ParseContext {
 
 	public Cardinality getCardinality() {
 		return this.relationship.getCardinality();
+	}
+
+	public ConstrainedDatatype getConstraints() {
+		return this.constraints;
 	}
 }

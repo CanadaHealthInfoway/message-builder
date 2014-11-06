@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.lang.reflect.Type;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -30,19 +31,28 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.j5goodies.Generics;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler.ConstraintResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.schema.XmlSchemas;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 abstract class SetOrListR2ElementParser extends AbstractElementParser {
 
+	// only checking II constraints for now
+	private IiConstraintHandler constraintHandler = new IiConstraintHandler();
+	
 	@Override
 	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
  		String subType = getSubType(context);
@@ -51,6 +61,22 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 		validateCardinality(context, nodes, xmlToModelResult);
 		
 		for (Node node : nodes) {
+			
+			StandardDataType newTypeEnum = null;
+			if (!StandardDataType.ANY.getName().equals(subType)) {
+				String newType = ((Element) nodes.get(0)).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
+				if (StringUtils.isNotBlank(newType)) {
+					newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
+					newType = (newTypeEnum == null ? subType : newTypeEnum.getType());
+					if (!newType.equals(subType)) {
+						// TODO - CDA - TM - validate for illegal type switching (e.g. PQ to CD)
+						subType = (newTypeEnum == null ? subType : newTypeEnum.getType());
+					} else {
+						newTypeEnum = null;
+					}
+				}
+			}
+			
 			ElementParser parser = ParserR2Registry.getInstance().get(subType);
 			if (parser != null) {
 				BareANY result = parser.parse(
@@ -61,10 +87,14 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 								context.getDateTimeZone(),
 								context.getDateTimeTimeZone(),
 								context.getConformance(),
-								context.getCardinality()),
+								context.getCardinality(),
+								null),  // constraints are *not* passed down with collections
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {
+					if (newTypeEnum != null) {
+						result.setDataType(newTypeEnum);
+					}
 					if (list.contains(result)) {
 						resultAlreadyExistsInCollection(result, (Element) node, xmlToModelResult);
 					}
@@ -76,7 +106,27 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 				break;
 			}
 		}
+		
+		handleConstraints(subType, list, context.getConstraints(), nodes, xmlToModelResult);
+		
 		return wrapWithHl7DataType(context.getType(), subType, list);
+	}
+
+	private void handleConstraints(String type, Collection<BareANY> parsedItems, ConstrainedDatatype constraints, List<Node> nodes, XmlToModelResult xmlToModelResult) {
+		ConstraintResult constraintResult = this.constraintHandler.checkConstraints(type, constraints, parsedItems);
+		if (constraintResult != null) {
+			boolean isTemplateId = constraintResult.isTemplateId();
+			if (constraintResult.isFoundMatch()) {
+				if (isTemplateId) {
+					String msg = MessageFormat.format("Found match for templateId fixed constraint: {0}", constraintResult.getIdentifer());
+					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, Hl7ErrorLevel.INFO, msg, nodes.size() > 0 ? nodes.get(0) : null));
+				}
+			} else {
+				Hl7ErrorCode errorCode = (isTemplateId ? Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING : Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING);
+				String msg = "Expected to find an identifier with: " + constraintResult.getIdentifer();
+				xmlToModelResult.addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, nodes.size() > 0 ? nodes.get(0) : null));
+			}
+		}
 	}
 
 	protected void resultAlreadyExistsInCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {
@@ -121,10 +171,6 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 
 	private List<Node> toList(Node node) {
 		return Arrays.asList(node);
-	}
-
-	protected String getChildType() {
-		return null;
 	}
 
 	private String getSubType(ParseContext context) throws XmlToModelTransformationException {

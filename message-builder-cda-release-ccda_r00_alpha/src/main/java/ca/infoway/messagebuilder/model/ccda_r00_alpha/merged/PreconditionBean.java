@@ -38,9 +38,9 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"ImmunizationActivity.Precondition","MedicationActivity.Precondition"})
-public class PreconditionBean extends MessagePartBean {
+public class PreconditionBean extends MessagePartBean implements PreconditionChoice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -127,13 +127,13 @@ public class PreconditionBean extends MessagePartBean {
      * 
      * <p>Relationship: MedicationActivity.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ImmunizationActivity.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"criterion"})
     public CriterionBean getCriterion() {
@@ -145,13 +145,13 @@ public class PreconditionBean extends MessagePartBean {
      * 
      * <p>Relationship: MedicationActivity.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ImmunizationActivity.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCriterion(CriterionBean criterion) {
         this.criterion = criterion;

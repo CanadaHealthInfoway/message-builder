@@ -56,7 +56,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
 		CD acknowledgementCondition = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue(this.xmlResult.isValid());
 		assertTrue(acknowledgementCondition.hasNullFlavor());
@@ -67,7 +67,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseContainsCodeSystem() throws Exception {
 		Node node = createNode("<something code=\"ER\" codeSystem=\"1.2.3.4\" />");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		
 		assertFalse("valid", this.xmlResult.isValid());
@@ -79,7 +79,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseContainsDisplayName() throws Exception {
 		Node node = createNode("<something code=\"ER\" displayName=\"Error\" />");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertFalse("valid", this.xmlResult.isValid());
 		assertNotNull("cs", cs);
@@ -90,7 +90,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseContainsCodeSystemName() throws Exception {
 		Node node = createNode("<something code=\"ER\" codeSystemName=\"My code system\" />");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertFalse("valid", this.xmlResult.isValid());
 		assertNotNull("cs", cs);
@@ -101,7 +101,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseContainsOriginalText() throws Exception {
 		Node node = createNode("<something code=\"ER\"><originalText>My original text</originalText></something>");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		
 		assertFalse("valid", this.xmlResult.isValid());
@@ -113,7 +113,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
 		assertNull("empty node returns null", cs.getValue());
@@ -123,7 +123,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseNoCodeAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
 		assertNull("node with no code attribute returns null", cs.getValue());
@@ -133,7 +133,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 	public void testParseValid() throws Exception {
 		Node node = createNode("<something code=\"ER\" />");
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCode.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("node with code attribute returns value", "ER", cs.getValue().getCodeValue());
@@ -144,7 +144,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"FRED\" />");
 		
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cs.getValue());
@@ -156,7 +156,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"ER\" />");
 		
 		CD cs = (CD) new CvElementParser().parse(
-				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null), 
+				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
 		assertNull("bogus enum not found", cs.getValue());
@@ -177,7 +177,7 @@ public class CsElementParserTest extends MarshallingTestCase {
 				"</something>");
 
         CD cs = (CD) new CvElementParser().parse(
-        		ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null), 
+        		ParserContextImpl.create("CS", MockCode.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
         assertNull("empty node with children returns null", cs.getValue());

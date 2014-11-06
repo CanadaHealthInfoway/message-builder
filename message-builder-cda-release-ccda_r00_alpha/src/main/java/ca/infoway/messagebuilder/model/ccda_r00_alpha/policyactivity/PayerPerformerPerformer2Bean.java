@@ -22,37 +22,19 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.policyactivity;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
-import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
-import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HL7FinanciallyResponsiblePartyType;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_2Bean;
-import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"PolicyActivity.PayerPerformerPerformer2"})
 public class PayerPerformerPerformer2Bean extends MessagePartBean implements Performer2Choice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private II templateId = new IIImpl();
-    private LIST<II, Identifier> assignedEntityId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 assignedEntityCode = new CE_R2Impl();
-    private AD assignedEntityAddr = new ADImpl();
-    private TEL assignedEntityTelecom = new TELImpl();
-    private Organization_2Bean assignedEntityRepresentedOrganization;
+    private PayerPerformerAssignedEntityBean assignedEntity;
 
 
     /**
@@ -79,101 +61,23 @@ public class PayerPerformerPerformer2Bean extends MessagePartBean implements Per
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.id</p>
+     * PolicyActivity.PayerPerformerPerformer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"assignedEntity/id"})
-    public List<Identifier> getAssignedEntityId() {
-        return this.assignedEntityId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/code"})
-    public CodedTypeR2<HL7FinanciallyResponsiblePartyType> getAssignedEntityCode() {
-        return (CodedTypeR2<HL7FinanciallyResponsiblePartyType>) this.assignedEntityCode.getValue();
+    @Hl7XmlMapping({"assignedEntity"})
+    public PayerPerformerAssignedEntityBean getAssignedEntity() {
+        return this.assignedEntity;
     }
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.code</p>
+     * PolicyActivity.PayerPerformerPerformer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAssignedEntityCode(CodedTypeR2<HL7FinanciallyResponsiblePartyType> assignedEntityCode) {
-        this.assignedEntityCode.setValue(assignedEntityCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/addr"})
-    public PostalAddress getAssignedEntityAddr() {
-        return this.assignedEntityAddr.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityAddr(PostalAddress assignedEntityAddr) {
-        this.assignedEntityAddr.setValue(assignedEntityAddr);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/telecom"})
-    public TelecommunicationAddress getAssignedEntityTelecom() {
-        return this.assignedEntityTelecom.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityTelecom(TelecommunicationAddress assignedEntityTelecom) {
-        this.assignedEntityTelecom.setValue(assignedEntityTelecom);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/representedOrganization"})
-    public Organization_2Bean getAssignedEntityRepresentedOrganization() {
-        return this.assignedEntityRepresentedOrganization;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.PayerPerformerAssignedEntity.representedOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityRepresentedOrganization(Organization_2Bean assignedEntityRepresentedOrganization) {
-        this.assignedEntityRepresentedOrganization = assignedEntityRepresentedOrganization;
+    public void setAssignedEntity(PayerPerformerAssignedEntityBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

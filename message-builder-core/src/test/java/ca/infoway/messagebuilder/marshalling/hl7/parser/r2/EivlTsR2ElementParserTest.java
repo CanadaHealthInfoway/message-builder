@@ -52,7 +52,7 @@ public class EivlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, EventRelatedPeriodicIntervalTime.class, version, null, null, ConformanceLevel.POPULATED, null);
+		return ParserContextImpl.create(type, EventRelatedPeriodicIntervalTime.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test

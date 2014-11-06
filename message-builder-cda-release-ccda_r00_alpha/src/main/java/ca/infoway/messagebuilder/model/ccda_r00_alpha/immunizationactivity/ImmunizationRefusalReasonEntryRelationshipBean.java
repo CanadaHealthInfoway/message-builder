@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.immunizationrefusalreason.ObservationBean;
 import java.util.List;
 
@@ -45,8 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.ImmunizationRefusalReasonEntryRelationship"})
 public class ImmunizationRefusalReasonEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,28 +54,6 @@ public class ImmunizationRefusalReasonEntryRelationshipBean extends MessagePartB
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
-
-
-    /**
-     * <p>Relationship: 
-     * ImmunizationActivity.ImmunizationRefusalReasonEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ImmunizationActivity.ImmunizationRefusalReasonEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

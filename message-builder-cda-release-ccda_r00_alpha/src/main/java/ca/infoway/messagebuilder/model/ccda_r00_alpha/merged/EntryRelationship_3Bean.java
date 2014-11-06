@@ -36,19 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.numberofpressureulcersobservation.EntryRelationshipObservationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.EntryRelationshipChoice;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.seriesact.ActBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.sopinstanceobservation.ObservationBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"NumberOfPressureUlcersObservation.EntryRelationship","POCD_MT000040.EntryRelationship","StudyAct.EntryRelationship"})
-public class EntryRelationship_3Bean extends MessagePartBean {
+@Hl7PartTypeMapping({"QuantityMeasurementObservation.EntryRelationship","SeriesAct.EntryRelationship"})
+public class EntryRelationship_3Bean extends MessagePartBean implements EntryRelationshipChoice_7 {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -57,79 +53,20 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
-    private EntryRelationshipObservationBean observation;
-    private EntryRelationshipChoice entryRelationshipChoice;
-    private ActBean act;
+    private ObservationBean observation;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -141,21 +78,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.inversionInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -168,21 +98,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
+     * SeriesAct.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * StudyAct.EntryRelationship.contextConductionInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -195,21 +118,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.contextConductionInd</p>
+     * SeriesAct.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * StudyAct.EntryRelationship.contextConductionInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -221,20 +137,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -246,20 +156,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.negationInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -271,20 +175,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.realmCode</p>
+     * QuantityMeasurementObservation.EntryRelationship.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -297,20 +195,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
+     * QuantityMeasurementObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -322,20 +214,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.typeId</p>
+     * QuantityMeasurementObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -347,20 +233,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.templateId</p>
+     * QuantityMeasurementObservation.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -373,21 +253,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
+     * QuantityMeasurementObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -399,21 +272,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.sequenceNumber</p>
+     * QuantityMeasurementObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -425,21 +291,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -451,21 +310,14 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: SeriesAct.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.seperatableInd</p>
+     * QuantityMeasurementObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -477,76 +329,38 @@ public class EntryRelationship_3Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.observation</p>
+     * QuantityMeasurementObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"observation"})
-    public EntryRelationshipObservationBean getObservation() {
+    public ObservationBean getObservation() {
         return this.observation;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: SeriesAct.EntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
-     * NumberOfPressureUlcersObservation.EntryRelationship.observation</p>
+     * QuantityMeasurementObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(EntryRelationshipObservationBean observation) {
+    public void setObservation(ObservationBean observation) {
         this.observation = observation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.entryRelationshipChoice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"entryRelationshipChoice"})
-    public EntryRelationshipChoice getEntryRelationshipChoice() {
-        return this.entryRelationshipChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.EntryRelationship.entryRelationshipChoice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setEntryRelationshipChoice(EntryRelationshipChoice entryRelationshipChoice) {
-        this.entryRelationshipChoice = entryRelationshipChoice;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"act"})
-    public ActBean getAct() {
-        return this.act;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: StudyAct.EntryRelationship.act</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAct(ActBean act) {
-        this.act = act;
     }
 
 }

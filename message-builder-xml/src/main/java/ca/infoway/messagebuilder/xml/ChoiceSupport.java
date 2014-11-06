@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.xml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -40,6 +41,22 @@ public abstract class ChoiceSupport {
 	 */
 	public Relationship findChoiceOption(Predicate<Relationship> predicate) {
 		return findChoiceOption(predicate, getChoices());
+	}
+	
+	public List<String> getAllBottomMostOptionNames() {
+		return getAllBottomMostOptionNames(getChoices(), new ArrayList<String>());
+	}
+	
+	private List<String> getAllBottomMostOptionNames(List<Relationship> optionRelationships, List<String> optionsResult) {
+		for (Relationship option : optionRelationships) {
+			if (option.isChoice()) {
+				// ignore this option since it is itself a choice, but add in its options
+				getAllBottomMostOptionNames(option.getChoices(), optionsResult);
+			} else {
+				optionsResult.add(option.getName());
+			}
+		}
+		return optionsResult;
 	}
 	
 	private static Relationship findChoiceOption(Predicate<Relationship> predicate, List<Relationship> choices) {

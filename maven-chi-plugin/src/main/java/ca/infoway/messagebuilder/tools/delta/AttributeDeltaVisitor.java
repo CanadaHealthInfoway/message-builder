@@ -21,6 +21,8 @@ package ca.infoway.messagebuilder.tools.delta;
 
 import java.util.List;
 
+import org.codehaus.plexus.util.StringUtils;
+
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.UpdateMode;
@@ -131,16 +133,14 @@ public class AttributeDeltaVisitor extends RelationshipDeltaVisitor {
 
 	void visitDatatypeConstraint(DatatypeConstraint constraint) {
 		Relationship relationship = getRelationship();
-		logWarning("data type", constraint.getOriginalValue(), relationship.getType());
+		String originalType = relationship.getType();
+		logWarning("data type", constraint.getOriginalValue(), originalType);
 		relationship.setType(constraint.getNewValue());
+		if (this.messageSet.isCda() && (StringUtils.equals(originalType, "ANY") || StringUtils.equals(originalType, "LIST<ANY>"))) {
+			relationship.setPrintDatatype(true);
+		}
 	}
 
-	void visitSortOrderConstraint(SortOrderConstraint constraint) {
-		Relationship relationship = getRelationship();
-		logWarning("sort order", constraint.getOriginalValue(), relationship.getSortOrder());
-		relationship.setSortOrder(constraint.getNewValue());
-	}
-	
 	@Override
 	public void assignSortKey(Relationship newRelationship, List<Relationship> relationships) {
 		// assign a reasonable default, in case there is no sort order constraint

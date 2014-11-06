@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import java.lang.reflect.Type;
+import java.text.MessageFormat;
 
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
@@ -32,11 +33,14 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
  * II - Installer Identifier
@@ -67,22 +71,56 @@ class IiR2ElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 	@Override
-	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) {
+	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type returnType, XmlToModelResult result) {
 		
 		Element element = (Element) node;
 		
-		String root = getMandatoryAttributeValue(element, "root", xmlToModelResult);
+		String root = getMandatoryAttributeValue(element, "root", result);
 		String extension = getAttributeValue(element, "extension");
 		String assigningAuthorityName = getAttributeValue(element, "assigningAuthorityName");
 		String displayable = getAttributeValue(element, "displayable");
 		
-		validateII(xmlToModelResult, element, root, extension, assigningAuthorityName, displayable);
+		validateII(result, element, root, extension, assigningAuthorityName, displayable);
+		
+		handleConstraints(context, result, element, root, extension);
 		
 		Identifier identifier = new Identifier(root, extension);
 		identifier.setAssigningAuthorityName(assigningAuthorityName);
 		identifier.setDisplayable(displayable);
 		
 		return identifier;
+	}
+
+	private void handleConstraints(ParseContext context, XmlToModelResult result, Element element, String root,	String extension) {
+		
+		// FIXME - CDA - TM - implementing bare minimum to get choice handling working for now; this will need to be significantly refactored
+		
+		ConstrainedDatatype constraints = context.getConstraints();
+
+		if (constraints != null) {
+			boolean isTemplateId = constraints.getName().endsWith("templateId");
+			Hl7ErrorCode errorCode = (isTemplateId ? Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING : Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING);
+			boolean fixedConstraintsCorrect = true;
+			
+			Relationship rootConstraint = constraints.getRelationship("root");
+			if (rootConstraint != null && rootConstraint.hasFixedValue() && !StringUtils.equals(root, rootConstraint.getFixedValue())) {
+				String msg = MessageFormat.format("Root value constrained to {0} but was {1}", rootConstraint.getFixedValue(), root);
+				result.addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, element));
+				fixedConstraintsCorrect = false;
+			}
+			
+			Relationship extensionConstraint = constraints.getRelationship("extension");
+			if (extensionConstraint != null && extensionConstraint.hasFixedValue() && !StringUtils.equals(extension, extensionConstraint.getFixedValue())) {
+				String msg = MessageFormat.format("Extension value constrained to {0} but was {1}", extensionConstraint.getFixedValue(), extension);
+				result.addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, element));
+				fixedConstraintsCorrect = false;
+			}
+			
+			if (isTemplateId && fixedConstraintsCorrect) {
+				String msg = MessageFormat.format("Found match for templateId fixed constraint - root: {0} extension: {1}", root, extension);
+				result.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, Hl7ErrorLevel.INFO, msg, element));
+			}
+		}
 	}
 
 	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String assigningAuthorityName, String displayable) {

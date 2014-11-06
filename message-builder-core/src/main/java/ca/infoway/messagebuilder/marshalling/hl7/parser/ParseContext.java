@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public interface ParseContext extends Typed {
 	public Type getExpectedReturnType();
@@ -38,4 +39,6 @@ public interface ParseContext extends Typed {
 	public CodingStrength getCodingStrength();
 	public ConformanceLevel getConformance();
 	public Cardinality getCardinality();
+	public ConstrainedDatatype getConstraints();
+	
 }

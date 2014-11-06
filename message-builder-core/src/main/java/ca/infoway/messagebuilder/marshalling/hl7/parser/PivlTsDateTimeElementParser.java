@@ -116,7 +116,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
-				Cardinality.create("1"));
+				Cardinality.create("1"),
+				context.getConstraints());
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -129,7 +130,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
-				Cardinality.create("1"));
+				Cardinality.create("1"),
+				context.getConstraints());
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -144,7 +146,8 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeZone(),
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
-				Cardinality.create("1"));
+				Cardinality.create("1"),
+				context.getConstraints());
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 

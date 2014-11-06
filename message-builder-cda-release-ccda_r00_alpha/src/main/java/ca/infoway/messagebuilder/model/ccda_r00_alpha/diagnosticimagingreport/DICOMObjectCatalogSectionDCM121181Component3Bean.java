@@ -23,17 +23,14 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActRelationshipHasComponent;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.dicomobjectcatalogsectiondcm121181.SectionBean;
 import java.util.List;
@@ -43,57 +40,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3"})
 public class DICOMObjectCatalogSectionDCM121181Component3Bean extends MessagePartBean implements Component3Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private BL contextConductionInd = new BLImpl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private SectionBean section;
-
-
-    /**
-     * <p>Relationship: 
-     * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ActRelationshipHasComponent> getTypeCode() {
-        return (CodedTypeR2<ActRelationshipHasComponent>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ActRelationshipHasComponent> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getContextConductionInd() {
-        return this.contextConductionInd.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextConductionInd(Boolean contextConductionInd) {
-        this.contextConductionInd.setValue(contextConductionInd);
-    }
 
 
     /**
@@ -146,7 +97,7 @@ public class DICOMObjectCatalogSectionDCM121181Component3Bean extends MessagePar
      * <p>Relationship: 
      * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.section</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"section"})
     public SectionBean getSection() {
@@ -157,7 +108,7 @@ public class DICOMObjectCatalogSectionDCM121181Component3Bean extends MessagePar
      * <p>Relationship: 
      * DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3.section</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSection(SectionBean section) {
         this.section = section;

@@ -206,7 +206,7 @@ public class MessageBeanRegistry {
 		if (messageBean != null && messageBean.getClass().isAnnotationPresent(Hl7PartTypeMapping.class)) {
 			return getTypeFromPartTypeMapping(version, messageBean);
 		} else {
-			throw new MarshallingException("Cannot find a type for " + ClassUtils.getShortClassName(messageBean.getClass()));
+			throw new MarshallingException("Cannot find a type for interaction " + (messageBean == null ? "" : ClassUtils.getShortClassName(messageBean.getClass())));
 		}
 	}
 

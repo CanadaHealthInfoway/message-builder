@@ -54,10 +54,10 @@ import java.util.List;
 @Hl7RootType
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
@@ -104,21 +104,11 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * ServiceDeliveryLocation.ParticipantRole.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ServiceDeliveryLocation.ParticipantRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
@@ -137,7 +127,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * ServiceDeliveryLocation.ParticipantRole.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CodedTypeR2<HealthcareServiceLocation> getCode() {
@@ -148,7 +138,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * ServiceDeliveryLocation.ParticipantRole.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(CodedTypeR2<HealthcareServiceLocation> code) {
         this.code.setValue(code);

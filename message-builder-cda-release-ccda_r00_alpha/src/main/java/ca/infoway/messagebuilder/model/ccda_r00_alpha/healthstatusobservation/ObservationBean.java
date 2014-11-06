@@ -25,19 +25,18 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CD_R2;
-import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
-import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActMoodDocumentObservation;
+import java.util.List;
 
 
 
@@ -45,77 +44,21 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActMoodDocum
 @Hl7RootType
 public class ObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
-    private II templateId = new IIImpl();
+    private static final long serialVersionUID = 20141104L;
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CD_R2 value = new CD_R2Impl();
 
 
     /**
      * <p>Relationship: 
-     * HealthStatusObservation.Observation.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClassObservation> getClassCode() {
-        return (CodedTypeR2<ActClassObservation>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * HealthStatusObservation.Observation.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClassObservation> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * HealthStatusObservation.Observation.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<x_ActMoodDocumentObservation> getMoodCode() {
-        return (CodedTypeR2<x_ActMoodDocumentObservation>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * HealthStatusObservation.Observation.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<x_ActMoodDocumentObservation> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
      * HealthStatusObservation.Observation.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * HealthStatusObservation.Observation.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
@@ -142,7 +85,7 @@ public class ObservationBean extends MessagePartBean {
     /**
      * <p>Relationship: HealthStatusObservation.Observation.value</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public CodedTypeR2<Code> getValue() {
@@ -152,7 +95,7 @@ public class ObservationBean extends MessagePartBean {
     /**
      * <p>Relationship: HealthStatusObservation.Observation.value</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setValue(CodedTypeR2<Code> value) {
         this.value.setValue(value);

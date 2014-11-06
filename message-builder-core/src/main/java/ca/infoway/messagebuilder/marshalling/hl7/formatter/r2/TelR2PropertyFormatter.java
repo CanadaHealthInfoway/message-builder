@@ -25,7 +25,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.TS_R2;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
@@ -98,8 +100,9 @@ public class TelR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<
     	FormatContextImpl tsFormatContext = new FormatContextImpl("SXCM<TS>", context);
     	Map<Date, SetOperator> useablePeriods = value.getUseablePeriods();
     	for (Date period : useablePeriods.keySet()) {
-    		TSImpl ts = new TSImpl(period, useablePeriods.get(period));
-			Map<String, String> attributes = new TsR2PropertyFormatter().getAttributeNameValuePairs(tsFormatContext, period, ts);
+    		MbDate mbDate = new MbDate(period);
+			TS_R2 ts = new TS_R2Impl(mbDate, useablePeriods.get(period));
+			Map<String, String> attributes = new TsR2PropertyFormatter().getAttributeNameValuePairs(tsFormatContext, mbDate, ts);
 			buffer.append(createElement("useablePeriod", attributes, indentLevel, true, true));
 		}
 	}

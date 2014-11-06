@@ -80,7 +80,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
 		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
 		return (Interval<Date>) this.parser.parse(
-				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null), 
+				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null, null), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}

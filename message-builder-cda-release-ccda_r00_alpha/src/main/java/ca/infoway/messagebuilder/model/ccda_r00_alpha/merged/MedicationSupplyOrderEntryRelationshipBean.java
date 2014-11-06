@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationsupplyorder.SupplyBean;
 import java.util.List;
 
@@ -45,8 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.MedicationSupplyOrderEntryRelationship","MedicationActivity.MedicationSupplyOrderEntryRelationship"})
 public class MedicationSupplyOrderEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,46 +54,6 @@ public class MedicationSupplyOrderEntryRelationshipBean extends MessagePartBean 
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private SupplyBean supply;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationActivity.MedicationSupplyOrderEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ImmunizationActivity.MedicationSupplyOrderEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * MedicationActivity.MedicationSupplyOrderEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ImmunizationActivity.MedicationSupplyOrderEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

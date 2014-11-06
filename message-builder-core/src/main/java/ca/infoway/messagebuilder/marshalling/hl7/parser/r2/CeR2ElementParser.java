@@ -50,7 +50,11 @@ class CeR2ElementParser extends CvR2ElementParser {
 	@Override
 	protected CodedTypeR2<Code> parseTranslation(Element translationElement, ParseContext newContext, XmlToModelResult result) {
 		BareANY anyResult = new CdR2ElementParser().parse(newContext, translationElement, result);
-		return anyResult == null ? null : (CodedTypeR2<Code>) anyResult.getBareValue();
+		CodedTypeR2<Code> translation = anyResult == null ? null : (CodedTypeR2<Code>) anyResult.getBareValue();
+		if (translation != null) {
+			translation.setNullFlavorForTranslationOnly(anyResult == null ? null : anyResult.getNullFlavor());
+		}
+		return translation;
 	}
 	
 }

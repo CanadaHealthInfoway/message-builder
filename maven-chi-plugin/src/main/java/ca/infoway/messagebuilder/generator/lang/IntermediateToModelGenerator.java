@@ -273,8 +273,8 @@ public abstract class IntermediateToModelGenerator {
 
 	private void createRelationships(MessagePart messagePart, SimplifiableType simplifiableType, SimplifiableDefinitions definitions) throws GeneratorException {
 		for (Relationship relationship : messagePart.getRelationships()) {
-			if (relationship.isAttribute() && relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
-				// skip it
+			if (relationship.isAttribute() && relationship.hasFixedValue()) {
+				// skip all attributes with fixed values, regardless of conformance
 			} else {
 				TemplateVariableGenerator generator = new TemplateVariableGenerator();
 				simplifiableType.getRelationships().add(

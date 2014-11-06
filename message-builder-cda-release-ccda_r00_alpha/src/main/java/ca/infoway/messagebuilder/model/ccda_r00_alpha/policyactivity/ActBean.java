@@ -24,21 +24,15 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CD_R2;
-import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
-import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HealthInsuranceType;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActClassDocumentEntryAct;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_DocumentActMood;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,81 +42,30 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
-    private II templateId = new IIImpl();
+    private static final long serialVersionUID = 20141104L;
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
     private List<Performer2Choice> performer = new ArrayList<Performer2Choice>();
     private List<Participant2Choice> participant = new ArrayList<Participant2Choice>();
-    private List<CS_R2> entryRelationshipTypeCode = new ArrayList<CS_R2>();
-
-
-    /**
-     * <p>Relationship: PolicyActivity.Act.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<x_ActClassDocumentEntryAct> getClassCode() {
-        return (CodedTypeR2<x_ActClassDocumentEntryAct>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: PolicyActivity.Act.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<x_ActClassDocumentEntryAct> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: PolicyActivity.Act.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<x_DocumentActMood> getMoodCode() {
-        return (CodedTypeR2<x_DocumentActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: PolicyActivity.Act.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<x_DocumentActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
+    private List<EntryRelationshipChoice> entryRelationship = new ArrayList<EntryRelationshipChoice>();
 
 
     /**
      * <p>Relationship: PolicyActivity.Act.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: PolicyActivity.Act.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
     /**
      * <p>Relationship: PolicyActivity.Act.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -133,7 +76,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public CodedTypeR2<HealthInsuranceType> getCode() {
@@ -143,7 +86,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(CodedTypeR2<HealthInsuranceType> code) {
         this.code.setValue(code);
@@ -153,7 +96,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.performer</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"performer"})
     public List<Performer2Choice> getPerformer() {
@@ -164,7 +107,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.participant</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"participant"})
     public List<Participant2Choice> getParticipant() {
@@ -173,13 +116,13 @@ public class ActBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: PolicyActivity.EntryRelationship.typeCode</p>
+     * <p>Relationship: PolicyActivity.Act.entryRelationship</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
-    @Hl7XmlMapping({"entryRelationship/typeCode"})
-    public List<CodedTypeR2<x_ActRelationshipEntryRelationship>> getEntryRelationshipTypeCode() {
-        return new RawListWrapper<CS_R2, CodedTypeR2<x_ActRelationshipEntryRelationship>>(entryRelationshipTypeCode, CS_R2Impl.class);
+    @Hl7XmlMapping({"entryRelationship"})
+    public List<EntryRelationshipChoice> getEntryRelationship() {
+        return this.entryRelationship;
     }
 
 }

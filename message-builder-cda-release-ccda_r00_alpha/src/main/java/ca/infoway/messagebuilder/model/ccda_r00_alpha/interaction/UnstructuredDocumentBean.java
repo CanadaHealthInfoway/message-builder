@@ -34,6 +34,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.unstructureddocument.Clini
 @Hl7PartTypeMapping({"UnstructuredDocument"})
 public class UnstructuredDocumentBean extends ClinicalDocumentBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
 
 }

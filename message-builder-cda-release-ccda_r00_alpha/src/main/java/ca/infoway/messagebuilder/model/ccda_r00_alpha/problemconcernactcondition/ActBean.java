@@ -29,35 +29,31 @@ import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ProblemActStatusCode;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActClassDocumentEntryAct;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_DocumentActMood;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntryRelationship_2Bean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntryRelationshipChoice_5;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.Participant2Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -66,17 +62,15 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 statusCode = new CS_R2Impl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS effectiveTime = new IVL_TSImpl();
     private CE_R2 priorityCode = new CE_R2Impl();
     private CS_R2 languageCode = new CS_R2Impl();
     private SubjectBean subject;
@@ -84,50 +78,10 @@ public class ActBean extends MessagePartBean {
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
-    private List<EntryRelationship_2Bean> entryRelationship = new ArrayList<EntryRelationship_2Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
+    private List<EntryRelationshipChoice_5> entryRelationship = new ArrayList<EntryRelationshipChoice_5>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
-
-
-    /**
-     * <p>Relationship: ProblemConcernActCondition.Act.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<x_ActClassDocumentEntryAct> getClassCode() {
-        return (CodedTypeR2<x_ActClassDocumentEntryAct>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProblemConcernActCondition.Act.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<x_ActClassDocumentEntryAct> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: ProblemConcernActCondition.Act.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<x_DocumentActMood> getMoodCode() {
-        return (CodedTypeR2<x_DocumentActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProblemConcernActCondition.Act.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<x_DocumentActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
 
 
     /**
@@ -184,27 +138,18 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: ProblemConcernActCondition.Act.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProblemConcernActCondition.Act.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
     /**
      * <p>Relationship: ProblemConcernActCondition.Act.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -235,7 +180,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: ProblemConcernActCondition.Act.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public CodedTypeR2<ProblemActStatusCode> getStatusCode() {
@@ -245,7 +190,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: ProblemConcernActCondition.Act.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setStatusCode(CodedTypeR2<ProblemActStatusCode> statusCode) {
         this.statusCode.setValue(statusCode);
@@ -256,10 +201,10 @@ public class ActBean extends MessagePartBean {
      * <p>Relationship: 
      * ProblemConcernActCondition.Act.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
+    public DateInterval getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -267,9 +212,9 @@ public class ActBean extends MessagePartBean {
      * <p>Relationship: 
      * ProblemConcernActCondition.Act.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
+    public void setEffectiveTime(DateInterval effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
@@ -384,7 +329,7 @@ public class ActBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 
@@ -396,7 +341,7 @@ public class ActBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
-    public List<EntryRelationship_2Bean> getEntryRelationship() {
+    public List<EntryRelationshipChoice_5> getEntryRelationship() {
         return this.entryRelationship;
     }
 

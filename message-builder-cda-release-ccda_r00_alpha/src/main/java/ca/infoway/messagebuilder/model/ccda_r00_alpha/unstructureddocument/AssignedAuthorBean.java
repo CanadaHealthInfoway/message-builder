@@ -39,9 +39,9 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.RoleClassAssignedEntity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HealthcareProviderTaxonomyHIPAA;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HealthcareProviderTaxonomy;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssignedAuthorChoice;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssignedAuthorPersonBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AuthoringDeviceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_1Bean;
@@ -52,8 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"UnstructuredDocument.AssignedAuthor"})
 public class AssignedAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -61,31 +60,8 @@ public class AssignedAuthorBean extends MessagePartBean {
     private CE_R2 code = new CE_R2Impl();
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
+    private AssignedAuthorChoice assignedAuthorChoice;
     private Organization_1Bean representedOrganization;
-    private AuthoringDeviceBean assignedAuthoringDevice;
-    private AssignedAuthorPersonBean assignedPerson;
-
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClassAssignedEntity> getClassCode() {
-        return (CodedTypeR2<RoleClassAssignedEntity>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClassAssignedEntity> classCode) {
-        this.classCode.setValue(classCode);
-    }
 
 
     /**
@@ -135,7 +111,7 @@ public class AssignedAuthorBean extends MessagePartBean {
     /**
      * <p>Relationship: UnstructuredDocument.AssignedAuthor.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -149,8 +125,8 @@ public class AssignedAuthorBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
-    public CodedTypeR2<HealthcareProviderTaxonomyHIPAA> getCode() {
-        return (CodedTypeR2<HealthcareProviderTaxonomyHIPAA>) this.code.getValue();
+    public CodedTypeR2<HealthcareProviderTaxonomy> getCode() {
+        return (CodedTypeR2<HealthcareProviderTaxonomy>) this.code.getValue();
     }
 
     /**
@@ -158,7 +134,7 @@ public class AssignedAuthorBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setCode(CodedTypeR2<HealthcareProviderTaxonomyHIPAA> code) {
+    public void setCode(CodedTypeR2<HealthcareProviderTaxonomy> code) {
         this.code.setValue(code);
     }
 
@@ -166,7 +142,7 @@ public class AssignedAuthorBean extends MessagePartBean {
     /**
      * <p>Relationship: UnstructuredDocument.AssignedAuthor.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -176,7 +152,7 @@ public class AssignedAuthorBean extends MessagePartBean {
     /**
      * <p>Relationship: UnstructuredDocument.AssignedAuthor.addr</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);
@@ -186,7 +162,7 @@ public class AssignedAuthorBean extends MessagePartBean {
     /**
      * <p>Relationship: UnstructuredDocument.AssignedAuthor.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -196,10 +172,46 @@ public class AssignedAuthorBean extends MessagePartBean {
     /**
      * <p>Relationship: UnstructuredDocument.AssignedAuthor.telecom</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * UnstructuredDocument.AssignedAuthor.assignedAuthorChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"assignedAuthorChoice"})
+    public AssignedAuthorChoice getAssignedAuthorChoice() {
+        return this.assignedAuthorChoice;
+    }
+
+    /**
+     * <p>Relationship: 
+     * UnstructuredDocument.AssignedAuthor.assignedAuthorChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setAssignedAuthorChoice(AssignedAuthorChoice assignedAuthorChoice) {
+        this.assignedAuthorChoice = assignedAuthorChoice;
+    }
+
+    public AssignedAuthorPersonBean getAssignedAuthorChoiceAsAssignedPerson() {
+        return this.assignedAuthorChoice instanceof AssignedAuthorPersonBean ? (AssignedAuthorPersonBean) this.assignedAuthorChoice : null;
+    }
+    public boolean hasAssignedAuthorChoiceAsAssignedPerson() {
+        return (this.assignedAuthorChoice instanceof AssignedAuthorPersonBean);
+    }
+
+    public AuthoringDeviceBean getAssignedAuthorChoiceAsAssignedAuthoringDevice() {
+        return this.assignedAuthorChoice instanceof AuthoringDeviceBean ? (AuthoringDeviceBean) this.assignedAuthorChoice : null;
+    }
+    public boolean hasAssignedAuthorChoiceAsAssignedAuthoringDevice() {
+        return (this.assignedAuthorChoice instanceof AuthoringDeviceBean);
     }
 
 
@@ -222,50 +234,6 @@ public class AssignedAuthorBean extends MessagePartBean {
      */
     public void setRepresentedOrganization(Organization_1Bean representedOrganization) {
         this.representedOrganization = representedOrganization;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.assignedAuthoringDevice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedAuthoringDevice"})
-    public AuthoringDeviceBean getAssignedAuthoringDevice() {
-        return this.assignedAuthoringDevice;
-    }
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.assignedAuthoringDevice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedAuthoringDevice(AuthoringDeviceBean assignedAuthoringDevice) {
-        this.assignedAuthoringDevice = assignedAuthoringDevice;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedPerson"})
-    public AssignedAuthorPersonBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.AssignedAuthor.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedPerson(AssignedAuthorPersonBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
     }
 
 }

@@ -30,12 +30,17 @@ import java.io.StringWriter;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.cda.CdaXsdProcessor;
 import ca.infoway.messagebuilder.generator.cda.Schema;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessor;
@@ -47,6 +52,7 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TemplateApplierTest {
 
 	private static Serializer serializer = new Persister(new AnnotationStrategy());
@@ -57,16 +63,21 @@ public class TemplateApplierTest {
 	
 	@BeforeClass
 	public static void setUp() throws Exception {
-		Schema schema = (Schema) serializer.read(Schema.class, CdaTemplateProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
+		OutputUI outputUI = Mockito.mock(OutputUI.class);
+		
+		Schema schema = (Schema) serializer.read(Schema.class, CdaTemplateProcessorTest.class.getResourceAsStream("/POCD_MT000040_SDTC.xsd"));
+		Schema supplementalSchema = (Schema) serializer.read(Schema.class, CdaTemplateProcessorTest.class.getResourceAsStream("/SDTC.xsd"));
 		
 		MessageSet messageSet = new MessageSet();
-		new CdaXsdProcessor().processSchema(schema, messageSet);
+		messageSet.setCda(true);
+		messageSet.setGeneratedAsR2(true);
+		new CdaXsdProcessor(outputUI).processSchema(schema, supplementalSchema, messageSet);
 		
 		TemplateExport templateExport = (TemplateExport) serializer.read(TemplateExport.class, CdaTemplateProcessorTest.class.getResourceAsStream("/Consolidation.xml"));
 		ValueSetDefinition valueSetDefinition = (ValueSetDefinition) serializer.read(ValueSetDefinition.class, CdaTemplateProcessorTest.class.getResourceAsStream("/voc.xml"));
 		
 		TemplateSet templateSet = new TemplateSet();
-		new CdaTemplateProcessor(valueSetDefinition).parseTemplate(templateExport, messageSet, templateSet);
+		new CdaTemplateProcessor(valueSetDefinition, outputUI).parseTemplate(templateExport, messageSet, templateSet);
 		
 		TemplateApplier applier = new TemplateApplier();
 		derivedMessageSet = applier.resolveToMessageSet(messageSet, templateSet, "");
@@ -117,13 +128,14 @@ public class TemplateApplierTest {
 
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"templateId\"]");
 		assertNotNull("non-structural attribute constrained", relationshipNode);
-		assertEquals("type retained", "II", xpathHelper.getAttributeValue(relationshipNode, "@type"));	// will change
-		assertEquals("cardinality changed", "1", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
+		assertEquals("type retained", "LIST<II>", xpathHelper.getAttributeValue(relationshipNode, "@type"));	// will change
+		assertEquals("cardinality changed", "*", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"value\"]");
 		assertNotNull("non-structural attribute constrained", relationshipNode);
 		assertEquals("type changed", "TS", xpathHelper.getAttributeValue(relationshipNode, "@type"));
 		assertEquals("cardinality changed", "1", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
+		assertEquals("mark for datatype output", "true", xpathHelper.getAttributeValue(relationshipNode, "@printDatatype"));
 
 		assertNull("association deleted", xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"subject\"]"));
 	}
@@ -160,8 +172,8 @@ public class TemplateApplierTest {
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"templateId\"]");
 		assertNotNull("non-structural attribute constrained", relationshipNode);
-		assertEquals("type retained", "II", xpathHelper.getAttributeValue(relationshipNode, "@type"));	// will change
-		assertEquals("cardinality changed", "1", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
+		assertEquals("type retained", "LIST<II>", xpathHelper.getAttributeValue(relationshipNode, "@type"));	// will change
+		assertEquals("cardinality changed", "*", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"value\"]");
 		assertNotNull("non-structural attribute constrained", relationshipNode);
@@ -176,9 +188,15 @@ public class TemplateApplierTest {
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"entryRelationship\"]");
 		assertNotNull("association constrained", relationshipNode);
-		assertEquals("type changed", "PregnancyObservation.EntryRelationship", xpathHelper.getAttributeValue(relationshipNode, "@type"));
-		assertEquals("cardinality changed", "0-1", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
+		assertEquals("type changed", "PregnancyObservation.EntryRelationshipChoice", xpathHelper.getAttributeValue(relationshipNode, "@type"));
+		assertEquals("cardinality changed", "0-*", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
 
+		Node entryChoiceNode = xpathHelper.getSingleNode(packageEntryNode, "//entry[@name=\"PregnancyObservation.EntryRelationshipChoice\"]");
+		assertNotNull("the choice does not exist", entryChoiceNode);
+		assertEquals(2, xpathHelper.getNodes(entryChoiceNode, "messagePart/specializationChild").getLength());
+		assertEquals("PregnancyObservation.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[1]/@name"));
+		assertEquals("POCD_MT000040.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@name"));
+		
 		entryNode = xpathHelper.getSingleNode(packageEntryNode, "//entry[@name=\"PregnancyObservation.EntryRelationship\"]");
 		assertNotNull("the entry does not exist", entryNode);
 		
@@ -225,6 +243,11 @@ public class TemplateApplierTest {
 		assertEquals("1", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.RelatedEntityInformant12\"]/relationship[@name=\"relatedEntity\"]/@cardinality"));
 		assertEquals("USRealmHeader.RelatedEntityRelatedEntity", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.RelatedEntityInformant12\"]/relationship[@name=\"relatedEntity\"]/@type"));
 		assertNull(xpathHelper.getSingleNode(document, "//messagePart[@name=\"USRealmHeader.RelatedEntityInformant12\"]/relationship[@name=\"assignedEntity\"]"));
+		
+		assertEquals("assignedPerson", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ContinuityOfCareDocumentCCD.AssignedAuthor\"]/relationship[@name=\"assignedAuthorChoice\"]/choice[1]/@name"));
+		assertEquals("ContinuityOfCareDocumentCCD.AssignedAuthorPerson", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ContinuityOfCareDocumentCCD.AssignedAuthor\"]/relationship[@name=\"assignedAuthorChoice\"]/choice[1]/@type"));
+		assertEquals("assignedAuthoringDevice", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ContinuityOfCareDocumentCCD.AssignedAuthor\"]/relationship[@name=\"assignedAuthorChoice\"]/choice[2]/@name"));
+		assertEquals("ContinuityOfCareDocumentCCD.AuthoringDevice", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ContinuityOfCareDocumentCCD.AssignedAuthor\"]/relationship[@name=\"assignedAuthorChoice\"]/choice[2]/@type"));
 	}
 	
 	@Test
@@ -274,15 +297,15 @@ public class TemplateApplierTest {
 		assertEquals("1", xpathHelper.getAttributeValue(newRelationshipNode, "@cardinality"));
 		
 		// vocabulary binding
-		assertEquals("vocabulary binding base", "LIST<TEL>", xpathHelper.getAttributeValue(newConstrainedDatatypeNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/@baseType"));
+		assertEquals("vocabulary binding base", "TEL", xpathHelper.getAttributeValue(newConstrainedDatatypeNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/@baseType"));
 		assertEquals("new constrained datatype type", "RES", xpathHelper.getAttributeValue(newConstrainedDatatypeNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/@constraintType"));
 		assertEquals("VALUE_SET", xpathHelper.getAttributeValue(newRelationshipNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/relationship[@name=\"use\"]/@domainSource"));
-		assertEquals("TelecomUseUSRealmHeader", xpathHelper.getAttributeValue(newRelationshipNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/relationship[@name=\"use\"]/@domainType"));
+		assertEquals("TelecomUse", xpathHelper.getAttributeValue(newRelationshipNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/relationship[@name=\"use\"]/@domainType"));
 	}
 	
 	@Test
 	public void shouldCorrectCardinalityAndConformanceBugs() throws Exception {
-		assertEquals("substance administration effective time cardinality", "1-2", 
+		assertEquals("substance administration effective time cardinality", "*", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"MedicationActivity.SubstanceAdministration\"]/relationship[@name=\"effectiveTime\"]/@cardinality"));
 		assertEquals("substance administration effective time datatype", "LIST<SXCM<TS>>", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"MedicationActivity.SubstanceAdministration\"]/relationship[@name=\"effectiveTime\"]/@type"));
@@ -296,22 +319,44 @@ public class TemplateApplierTest {
 		assertEquals("service event performer assigned entity cardinality", "1", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ContinuityOfCareDocumentCCD.Performer1\"]/relationship[@name=\"assignedEntity\"]/@cardinality"));
 
-		assertEquals("progress note component conformance", "MANDATORY", 
+		assertEquals("progress note component conformance", "POPULATED", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ProgressNote.StructuredBody\"]/relationship[@name=\"component\"]/@conformance"));
-		assertEquals("progress note component cardinality", "1-15", 
+		assertEquals("progress note component cardinality", "*", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"ProgressNote.StructuredBody\"]/relationship[@name=\"component\"]/@cardinality"));
 
-		assertEquals("medication supply order effective time datatype", "IVL<TS>", 
-				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"MedicationSupplyOrder.Supply\"]/relationship[@name=\"effectiveTime\"]/@type"));
-		
 		assertEquals("boundary observation datatype", "LIST<INT>", 
 				xpathHelper.getAttributeValue(document, "//messagePart[@name=\"BoundaryObservation.Observation\"]/relationship[@name=\"value\"]/@type"));
 	}
 	
 	@Test
 	public void shouldCreateMockInteractions() throws Exception {
-		assertEquals(10, xpathHelper.getNodes(document, "//interaction").getLength());
+		assertEquals(11, xpathHelper.getNodes(document, "//interaction").getLength());
 		assertEquals("USRealmHeader.ClinicalDocument", xpathHelper.getAttributeValue(document, "//interaction[@name=\"USRealmHeader\"]/@superTypeName"));
+		assertEquals("2.16.840.1.113883.10.20.22.1.1", xpathHelper.getAttributeValue(document, "//interaction[@name=\"USRealmHeader\"]/@templateId"));
 		assertEquals("ProgressNote.ClinicalDocument", xpathHelper.getAttributeValue(document, "//interaction[@name=\"ProgressNote\"]/@superTypeName"));
+		assertEquals("2.16.840.1.113883.10.20.22.1.9", xpathHelper.getAttributeValue(document, "//interaction[@name=\"ProgressNote\"]/@templateId"));
+	}
+	
+	@Test
+	public void shouldHandleExtendedModel() throws Exception {
+		NodeList raceCodeNodes = xpathHelper.getNodes(document, "//messagePart[@name=\"USRealmHeader.Patient\"]/relationship[@name=\"raceCode\"]");
+		assertEquals(1, raceCodeNodes.getLength());
+		
+		Node baseNode = raceCodeNodes.item(0);
+		assertNotNull(baseNode);
+		assertNull(xpathHelper.getAttributeValue(baseNode, "@namespace"));
+		assertEquals("CE", xpathHelper.getAttributeValue(baseNode, "@type"));
+		assertEquals("0-1", xpathHelper.getAttributeValue(baseNode, "@cardinality"));
+		assertEquals("Race", xpathHelper.getAttributeValue(baseNode, "@domainType"));
+		
+		/* 
+		// Temporarily suppress production of duplicate node, will restore in a future phase
+		Node extendedNode = raceCodeNodes.item(1);
+		assertNotNull(extendedNode);
+		assertEquals("sdtc", xpathHelper.getAttributeValue(extendedNode, "@namespace"));
+		assertEquals("LIST<CE>", xpathHelper.getAttributeValue(extendedNode, "@type"));
+		assertEquals("0-*", xpathHelper.getAttributeValue(extendedNode, "@cardinality"));
+		assertEquals("Race", xpathHelper.getAttributeValue(extendedNode, "@domainType"));
+		 */
 	}
 }

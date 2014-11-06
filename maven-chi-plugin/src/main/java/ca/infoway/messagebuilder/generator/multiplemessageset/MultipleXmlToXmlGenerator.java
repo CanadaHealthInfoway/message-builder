@@ -139,4 +139,9 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 		}
 	}
 
+	@Override
+	public MessageSet processAllCdaFiles(File schema, File supplementarySchema, File template, File vocabulary) throws GeneratorException, IOException {
+		throw new UnsupportedOperationException("Must use processAllMessageSets() method instead.");
+	}
+
 }

@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncounterActivities.EncounterDiagnosisEntryRelationship"})
 public class EncounterDiagnosisEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 typeCode = new CS_R2Impl();
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
@@ -62,7 +62,7 @@ public class EncounterDiagnosisEntryRelationshipBean extends MessagePartBean imp
      * <p>Relationship: 
      * EncounterActivities.EncounterDiagnosisEntryRelationship.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"typeCode"})
     public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
@@ -73,7 +73,7 @@ public class EncounterDiagnosisEntryRelationshipBean extends MessagePartBean imp
      * <p>Relationship: 
      * EncounterActivities.EncounterDiagnosisEntryRelationship.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
         this.typeCode.setValue(typeCode);

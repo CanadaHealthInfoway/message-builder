@@ -25,32 +25,30 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_EncounterParticipant;
-import java.util.Date;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant","POCD_MT000040.EncounterParticipant","ProcedureNote.EncounterParticipant"})
-public class EncounterParticipantBean extends MessagePartBean {
+@Hl7PartTypeMapping({"ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant","POCD_MT000040.EncounterParticipant"})
+public class EncounterParticipantBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.EncounterParticipantChoice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS time = new IVL_TSImpl();
     private AssignedEntity_1Bean assignedEntity;
 
 
@@ -60,26 +58,20 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POCD_MT000040.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"typeCode"})
     public CodedTypeR2<x_EncounterParticipant> getTypeCode() {
@@ -92,26 +84,20 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: POCD_MT000040.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.typeCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setTypeCode(CodedTypeR2<x_EncounterParticipant> typeCode) {
         this.typeCode.setValue(typeCode);
@@ -137,13 +123,6 @@ public class EncounterParticipantBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.EncounterParticipant.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -173,12 +152,6 @@ public class EncounterParticipantBean extends MessagePartBean {
      * ConsultationNote.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"typeId"})
     public Identifier getTypeId() {
@@ -203,12 +176,6 @@ public class EncounterParticipantBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -238,13 +205,6 @@ public class EncounterParticipantBean extends MessagePartBean {
      * ConsultationNote.EncounterParticipant.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.EncounterParticipant.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -271,15 +231,9 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getTime() {
+    public DateInterval getTime() {
         return this.time.getValue();
     }
 
@@ -302,14 +256,8 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureNote.EncounterParticipant.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setTime(Interval<Date> time) {
+    public void setTime(DateInterval time) {
         this.time.setValue(time);
     }
 
@@ -320,28 +268,21 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POCD_MT000040.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.EncounterParticipant.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedEntity"})
     public AssignedEntity_1Bean getAssignedEntity() {
@@ -354,28 +295,21 @@ public class EncounterParticipantBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * POCD_MT000040.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.EncounterParticipant.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureNote.EncounterParticipant.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedEntity(AssignedEntity_1Bean assignedEntity) {
         this.assignedEntity = assignedEntity;

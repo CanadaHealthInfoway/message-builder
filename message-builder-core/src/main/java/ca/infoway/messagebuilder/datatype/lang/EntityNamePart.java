@@ -25,6 +25,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>Class to represent an entity name part, containing a name part type and a value. 
@@ -38,20 +39,17 @@ public class EntityNamePart {
     private final NamePartType type;
     private final String value;
     private final EntityNamePartQualifier qualifier;
+    private final NullFlavor nullFlavor;
     
-    /**
-     * <p>Constructs an EntityNamePart using the supplied parameters.
+	/**
+     * <p>Constructs an EntityNamePart using only a value.
      * 
      * @param value the name part value
-     * @param type the name part type
-     * @param qualifier the name part qualifier
      */
-	public EntityNamePart(String value, NamePartType type, EntityNamePartQualifier qualifier) {
-        this.value = value;
-        this.type = type;
-		this.qualifier = qualifier;
+    public EntityNamePart(String value) {
+        this(value, null);
     }
-
+    
     /**
      * <p>Constructs an EntityNamePart using the supplied parameters.
      * 
@@ -63,14 +61,43 @@ public class EntityNamePart {
     }
     
     /**
-     * <p>Constructs an EntityNamePart using only a value.
+     * <p>Constructs an EntityNamePart using the supplied parameters.
      * 
      * @param value the name part value
+     * @param type the name part type
+     * @param qualifier the name part qualifier
      */
-    public EntityNamePart(String value) {
-        this(value, null);
+	public EntityNamePart(String value, NamePartType type, EntityNamePartQualifier qualifier) {
+		this(value, type, qualifier, null);
     }
-    
+
+    /**
+     * <p>Constructs an EntityNamePart using the supplied parameters.
+     * 
+     * @param value the name part value
+     * @param type the name part type
+     * @param qualifier the name part qualifier
+     */
+	public EntityNamePart(NamePartType type, NullFlavor nullFlavor) {
+		this(null, type, null, nullFlavor);
+    }
+
+    /**
+     * <p>Constructs an EntityNamePart using the supplied parameters.
+     * 
+     * This constructor may not make sense to have as public. May become private in a later release.
+     * 
+     * @param value the name part value
+     * @param type the name part type
+     * @param qualifier the name part qualifier
+     */
+	public EntityNamePart(String value, NamePartType type, EntityNamePartQualifier qualifier, NullFlavor nullFlavor) {
+        this.value = value;
+        this.type = type;
+		this.qualifier = qualifier;
+		this.nullFlavor = nullFlavor;
+    }
+
     /**
      * <p>Returns the name part type.
      * 
@@ -90,6 +117,15 @@ public class EntityNamePart {
     }
     
     /**
+     * <p>Returns the name part nullFlavor.
+     * 
+     * @return the name part nullFlavor
+     */
+    public NullFlavor getNullFlavor() {
+		return nullFlavor;
+	}
+
+    /**
      * Returns the qualifier value.
      * 
      * @return the qualifier
@@ -104,6 +140,7 @@ public class EntityNamePart {
 			    .append(this.type)
 			    .append(this.value)
 			    .append(this.qualifier)
+			    .append(this.nullFlavor)
                 .toHashCode();
     }
 
@@ -123,6 +160,7 @@ public class EntityNamePart {
                 .append(this.type, that.type)
                 .append(this.value, that.value)
                 .append(this.qualifier, that.qualifier)
+                .append(this.nullFlavor, that.nullFlavor)
                 .isEquals();
     }
 }

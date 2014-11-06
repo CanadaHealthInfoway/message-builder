@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -36,6 +37,7 @@ import ca.infoway.messagebuilder.xml.delta.ConformanceConstraint;
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 import ca.infoway.messagebuilder.xml.delta.RemoveConstraint;
+import ca.infoway.messagebuilder.xml.delta.SortOrderConstraint;
 
 public abstract class RelationshipDeltaVisitor extends ConstraintVisitor {
 
@@ -84,6 +86,13 @@ public abstract class RelationshipDeltaVisitor extends ConstraintVisitor {
 		relationship.setCardinality(constraint.getNewCardinality());
 	}
 
+	protected void visitSortOrderConstraint(SortOrderConstraint constraint) {
+		Relationship relationship = getRelationship();
+//		Warning not enforceable for new relationships, because generation in ADD scenario is dependent on other constraints
+//		logWarning("sort order", constraint.getOriginalValue(), relationship.getSortOrder());
+		relationship.setSortOrder(constraint.getNewValue());
+	}
+
 	void logWarning(String name, Object originalValue, Object newValue) {
 		if (!ObjectUtils.equals(originalValue, newValue)) {
 			this.log.warn(describeDelta() + "Original " +
@@ -101,7 +110,12 @@ public abstract class RelationshipDeltaVisitor extends ConstraintVisitor {
 	
 	protected Relationship getRelationshipFromMessageSet() {
 		// can getMessagePart return a null in some edge cases??
-		return this.messageSet.getMessagePart(this.delta.getClassName()).getRelationship(this.delta.getRelationshipName());
+		if (StringUtils.contains(this.delta.getRelationshipName(), ':')) {
+			String[] relationshipNameParts = StringUtils.split(this.delta.getRelationshipName(), ':');
+			return this.messageSet.getMessagePart(this.delta.getClassName()).getRelationship(relationshipNameParts[1], relationshipNameParts[0]);
+		} else {
+			return this.messageSet.getMessagePart(this.delta.getClassName()).getRelationship(this.delta.getRelationshipName());
+		}
 	}
 	
 	@Override

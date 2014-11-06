@@ -23,26 +23,26 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.familyhistoryorganizer;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PN;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
+import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.domainvalue.EntityClass;
-import ca.infoway.messagebuilder.domainvalue.EntityDeterminer;
+import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.AdministrativeGenderHL7V3;
-import java.util.Date;
 import java.util.List;
 
 
@@ -50,59 +50,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"FamilyHistoryOrganizer.SubjectPerson"})
 public class SubjectPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 determinerCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
+    private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CE_R2 administrativeGenderCode = new CE_R2Impl();
-    private TS birthTime = new TSImpl();
-
-
-    /**
-     * <p>Relationship: 
-     * FamilyHistoryOrganizer.SubjectPerson.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<EntityClass> getClassCode() {
-        return (CodedTypeR2<EntityClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * FamilyHistoryOrganizer.SubjectPerson.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<EntityClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * FamilyHistoryOrganizer.SubjectPerson.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"determinerCode"})
-    public CodedTypeR2<EntityDeterminer> getDeterminerCode() {
-        return (CodedTypeR2<EntityDeterminer>) this.determinerCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * FamilyHistoryOrganizer.SubjectPerson.determinerCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setDeterminerCode(CodedTypeR2<EntityDeterminer> determinerCode) {
-        this.determinerCode.setValue(determinerCode);
-    }
+    private TS_R2 birthTime = new TS_R2Impl();
+    private BL deceasedInd = new BLImpl();
+    private TS_R2 deceasedTime = new TS_R2Impl();
 
 
     /**
@@ -150,6 +107,17 @@ public class SubjectPersonBean extends MessagePartBean {
 
 
     /**
+     * <p>Relationship: FamilyHistoryOrganizer.SubjectPerson.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public List<Identifier> getId() {
+        return this.id.rawList();
+    }
+
+
+    /**
      * <p>Relationship: FamilyHistoryOrganizer.SubjectPerson.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -164,20 +132,20 @@ public class SubjectPersonBean extends MessagePartBean {
      * <p>Relationship: 
      * FamilyHistoryOrganizer.SubjectPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"administrativeGenderCode"})
-    public CodedTypeR2<AdministrativeGenderHL7V3> getAdministrativeGenderCode() {
-        return (CodedTypeR2<AdministrativeGenderHL7V3>) this.administrativeGenderCode.getValue();
+    public CodedTypeR2<AdministrativeGender> getAdministrativeGenderCode() {
+        return (CodedTypeR2<AdministrativeGender>) this.administrativeGenderCode.getValue();
     }
 
     /**
      * <p>Relationship: 
      * FamilyHistoryOrganizer.SubjectPerson.administrativeGenderCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAdministrativeGenderCode(CodedTypeR2<AdministrativeGenderHL7V3> administrativeGenderCode) {
+    public void setAdministrativeGenderCode(CodedTypeR2<AdministrativeGender> administrativeGenderCode) {
         this.administrativeGenderCode.setValue(administrativeGenderCode);
     }
 
@@ -189,7 +157,7 @@ public class SubjectPersonBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"birthTime"})
-    public Date getBirthTime() {
+    public MbDate getBirthTime() {
         return this.birthTime.getValue();
     }
 
@@ -199,8 +167,52 @@ public class SubjectPersonBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setBirthTime(Date birthTime) {
+    public void setBirthTime(MbDate birthTime) {
         this.birthTime.setValue(birthTime);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * FamilyHistoryOrganizer.SubjectPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"deceasedInd"})
+    public Boolean getDeceasedInd() {
+        return this.deceasedInd.getValue();
+    }
+
+    /**
+     * <p>Relationship: 
+     * FamilyHistoryOrganizer.SubjectPerson.deceasedInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setDeceasedInd(Boolean deceasedInd) {
+        this.deceasedInd.setValue(deceasedInd);
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * FamilyHistoryOrganizer.SubjectPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"deceasedTime"})
+    public MbDate getDeceasedTime() {
+        return this.deceasedTime.getValue();
+    }
+
+    /**
+     * <p>Relationship: 
+     * FamilyHistoryOrganizer.SubjectPerson.deceasedTime</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setDeceasedTime(MbDate deceasedTime) {
+        this.deceasedTime.setValue(deceasedTime);
     }
 
 }

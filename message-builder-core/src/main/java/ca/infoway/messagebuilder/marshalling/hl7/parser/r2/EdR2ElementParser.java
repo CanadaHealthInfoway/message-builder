@@ -24,8 +24,11 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.CDATASection;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
@@ -42,7 +45,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
 
 /**
  * ED (R2)- Encapsulated Data
@@ -91,19 +93,67 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 
 	private void handleContent(EncapsulatedDataR2 ed, Element element, XmlToModelResult result, ParseContext context) {
 		
-//		DOMImplementationLS lsImpl = (DOMImplementationLS)element.getOwnerDocument().getImplementation().getFeature("LS", "3.0");
-//		LSSerializer serializer = lsImpl.createLSSerializer();
-//		serializer.getDomConfig().setParameter("xml-declaration", false); //by default its true, so set it to false to get String without xml-declaration
-//		String str = serializer.writeToString(element);
-//		System.out.println(str);
+		// FIXME - TM - CDA - validate that there is only one "extra" element (ignoring blank text nodes) after reference and thumbnail; could be a non-blank text node, or document content
 		
-		// FIXME - TM - CDA - need to expand on this 
-		//                  - validate that there is only one "extra" element (ignoring blank text nodes) after reference and thumbnail; could be a non-blank text node, or document content
+		// skip reference
+		// skip thumbnail
+		// should only be 1 element remaining (of any name)
+		// grab this last element and all of its content, and convert to String
 		
-		String content = NodeUtil.getTextValue(element, false);
+		NodeList childNodes = element.getChildNodes();
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName())) {
+				String serializeNode = serializeNode(node);
+				sb.append(serializeNode);
+			}
+		}
+		String content = sb.toString();
 		if (!StringUtils.isBlank(content)) {
 			ed.setContent(content);
 		}
+	}
+	
+    private String serializeNode(Node node){
+        if (node.getNodeName().equals("#text")) {
+        	return node.getTextContent();
+        }
+        if (node instanceof org.w3c.dom.CDATASection) {
+        	return serializeCDATA((org.w3c.dom.CDATASection) node);
+        }
+        
+        StringBuffer s = new StringBuffer();
+       	s.append("<").append(node.getNodeName());
+       	
+        NamedNodeMap attributes = node.getAttributes();
+        if (attributes != null && attributes.getLength() > 0){
+            for( int i = 0; i < attributes.getLength(); i++) {
+            	s.append(" ");
+                s.append(attributes.item(i).getNodeName()).append("=\"").append(attributes.item(i).getNodeValue()).append("\"");
+            }
+        }
+        
+        NodeList childs = node.getChildNodes();
+        if (childs == null || childs.getLength() == 0) {
+          	s.append("/>");
+            return s.toString();
+        }
+        
+        s.append(">");
+        for (int i = 0; i < childs.getLength(); i++) {
+            s.append(serializeNode(childs.item(i)));
+        }
+        s.append("</").append(node.getNodeName()).append(">");
+        return s.toString();
+    }
+    
+	private String serializeCDATA(CDATASection node) {
+        StringBuffer s = new StringBuffer();
+    	s.append("<![CDATA[");
+    	s.append(((org.w3c.dom.CDATASection)node).getData());
+    	s.append("]]>");
+		return s.toString();
 	}
 
 	private void handleIntegrityCheckAlgorithm(EncapsulatedDataR2 ed, Element element, ParseContext context, XmlToModelResult result) {

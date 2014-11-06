@@ -20,7 +20,10 @@
 
 package ca.infoway.messagebuilder.generator.cda;
 
-import org.simpleframework.xml.Element;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
@@ -28,14 +31,14 @@ import org.simpleframework.xml.Root;
 @Namespace(prefix="xs",reference="http://www.w3.org/2001/XMLSchema")
 public class Annotation {
 	
-	@Element
-	private Documentation documentation;
+	@ElementList(inline=true, entry="documentation")
+	private List<Documentation> documentation = new ArrayList<Documentation>();
 
-	public Documentation getDocumentation() {
+	public List<Documentation> getDocumentation() {
 		return documentation;
 	}
 
-	public void setDocumentation(Documentation documentation) {
+	public void setDocumentation(List<Documentation> documentation) {
 		this.documentation = documentation;
 	}
 

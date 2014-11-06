@@ -55,6 +55,10 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	@Attribute
 	private String name;
 	@Attribute(required=false)
+	private boolean attribute;
+	@Attribute(required=false)
+	private String namespace;
+	@Attribute(required=false)
 	private String type;
 	@Attribute(required=false)
 	private String constrainedType;
@@ -96,6 +100,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String cmetDerivationClassName;
 	@Attribute(required=false)
 	private String nonFixedVocabularyBinding;
+	@Attribute(required=false)
+	private Boolean printDatatype;
 	
 	
 	@ElementList(inline=true, required=false)
@@ -145,6 +151,22 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getNamespace() {
+		return namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
+	public String getQualifiedName() {
+		if (this.namespace == null) {
+			return this.name;
+		} else {
+			return this.namespace + ":" + this.name;
+		}
 	}
 
 	/**
@@ -345,13 +367,24 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		this.documentation = documentation;
 	}
 	
+	
+	/**
+	 * <p>Set the flag indicating whether the relationship represents an attribute;
+	 */
+	public void setAttribute(boolean attribute) {
+		this.attribute = attribute;
+	}
+	
 	/**
 	 * <p>Get a flag indicating whether or not the relationship is an attribute.
 	 * @return true if the relationship is an attribute; false otherwise.
 	 */
 	// BCH/TM: This might not be the best algorithm...
 	public boolean isAttribute() {
-		if (hasFixedValue()) {
+		if (this.attribute) {
+			return true;
+		// everything below this point should be considered deprecated, but must be maintained for now to support legacy message sets
+		} else if (hasFixedValue()) {
 			return true;
 		} else if (hasDomainType()) {
 			return true;
@@ -456,6 +489,16 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setCodingStrength(CodingStrength codingStrength) {
 		this.codingStrength = codingStrength == null ? null : codingStrength.name();
+	}
+
+	/**
+	 * <p>Checks if has default value.  Only attributes can have default values.  Typically,
+	 * default values are for code values (e.g. classCode="SBJ") or booleans ("true" or
+	 * "false").
+	 * @return - whether this relationship has a default value
+	 */
+	public boolean hasDefaultValue() {
+		return StringUtils.isNotBlank(this.defaultValue);
 	}
 
 	/**
@@ -609,6 +652,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 
 	public void setNonFixedVocabularyBinding(String nonFixedVocabularyBinding) {
 		this.nonFixedVocabularyBinding = nonFixedVocabularyBinding;
+	}
+
+	public Boolean getPrintDatatype() {
+		return this.printDatatype == null ? false : this.printDatatype.booleanValue();
+	}
+
+	public void setPrintDatatype(Boolean printDatatype) {
+		this.printDatatype = printDatatype;
 	}
 
 	public int compareTo(Relationship rel) {

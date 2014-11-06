@@ -23,65 +23,27 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.ANY;
-import ca.infoway.messagebuilder.datatype.CD_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
-import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
-import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
-import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
-import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"POCD_MT000040.Precondition"})
-public class PreconditionBean extends MessagePartBean {
+public class PreconditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PreconditionChoice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 criterionClassCode = new CS_R2Impl();
-    private CS_R2 criterionMoodCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> criterionRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II criterionTypeId = new IIImpl();
-    private LIST<II, Identifier> criterionTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CD_R2 criterionCode = new CD_R2Impl();
-    private ED<EncapsulatedDataR2> criterionText = new EDImpl<EncapsulatedDataR2>();
-    private ANY<Object> criterionValue = new ANYImpl<Object>();
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Precondition.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ActRelationshipType> getTypeCode() {
-        return (CodedTypeR2<ActRelationshipType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Precondition.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ActRelationshipType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private CriterionBean criterion;
 
 
     /**
@@ -127,144 +89,22 @@ public class PreconditionBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POCD_MT000040.Criterion.classCode</p>
+     * <p>Relationship: POCD_MT000040.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"criterion/classCode"})
-    public CodedTypeR2<ActClassObservation> getCriterionClassCode() {
-        return (CodedTypeR2<ActClassObservation>) this.criterionClassCode.getValue();
+    @Hl7XmlMapping({"criterion"})
+    public CriterionBean getCriterion() {
+        return this.criterion;
     }
 
     /**
-     * <p>Relationship: POCD_MT000040.Criterion.classCode</p>
+     * <p>Relationship: POCD_MT000040.Precondition.criterion</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setCriterionClassCode(CodedTypeR2<ActClassObservation> criterionClassCode) {
-        this.criterionClassCode.setValue(criterionClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"criterion/moodCode"})
-    public CodedTypeR2<ActMood> getCriterionMoodCode() {
-        return (CodedTypeR2<ActMood>) this.criterionMoodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setCriterionMoodCode(CodedTypeR2<ActMood> criterionMoodCode) {
-        this.criterionMoodCode.setValue(criterionMoodCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"criterion/realmCode"})
-    public List<CodedTypeR2<Code>> getCriterionRealmCode() {
-        return this.criterionRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"criterion/typeId"})
-    public Identifier getCriterionTypeId() {
-        return this.criterionTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setCriterionTypeId(Identifier criterionTypeId) {
-        this.criterionTypeId.setValue(criterionTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"criterion/templateId"})
-    public List<Identifier> getCriterionTemplateId() {
-        return this.criterionTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"criterion/code"})
-    public CodedTypeR2<Code> getCriterionCode() {
-        return (CodedTypeR2<Code>) this.criterionCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setCriterionCode(CodedTypeR2<Code> criterionCode) {
-        this.criterionCode.setValue(criterionCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.text</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"criterion/text"})
-    public EncapsulatedDataR2 getCriterionText() {
-        return this.criterionText.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.text</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setCriterionText(EncapsulatedDataR2 criterionText) {
-        this.criterionText.setValue(criterionText);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"criterion/value"})
-    public Object getCriterionValue() {
-        return this.criterionValue.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Criterion.value</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setCriterionValue(Object criterionValue) {
-        this.criterionValue.setValue(criterionValue);
+    public void setCriterion(CriterionBean criterion) {
+        this.criterion = criterion;
     }
 
 }

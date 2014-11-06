@@ -47,6 +47,7 @@ import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ChoiceSupport;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Predicate;
@@ -84,7 +85,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		List<BaseRelationshipBridge> relationships = new ArrayList<BaseRelationshipBridge>();
 		for (Relationship relationship : currentMessagePart.getRelationships()) {
 			Object o = sorter.get(relationship);
-			if (relationship.isAttribute() && relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {
+			if (relationship.isAttribute() && relationship.hasFixedValue()) {
 				relationships.add(new FixedValueAttributeBeanBridge(relationship, (BareANY) null));
 			} else if (relationship.isAttribute()) {
 				if (o == null) {
@@ -168,7 +169,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			String type = relationship.getType();
 			MessagePart messagePart = this.service.getMessagePart(this.version, type);
 			for (Relationship innerRelationship : messagePart.getRelationships()) {
-				if (!(innerRelationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(innerRelationship))) {
+				if (!innerRelationship.hasFixedValue()) {
 					result = false;
 					break;
 				}
@@ -221,7 +222,6 @@ class BridgeFactoryImpl implements BridgeFactory {
 			BeanProperty property = (BeanProperty) o;
 			Object value = property.get();
 			
-			MessagePartHolder part = getMessagePart(interaction, relationship, value);
 			if (relationship.getCardinality().isMultiple() && value instanceof Iterable) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to collection property " + Describer.describe(sorter.getBeanType(), property));
@@ -233,7 +233,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 				Object elementValue = ListElementUtil.getElement(value, context.getIndex()); 
 				
 				// use the indexed object's part instead
-				part = getMessagePart(interaction, relationship, elementValue);
+				MessagePartHolder part = getMessagePart(interaction, relationship, elementValue);
 				
 				return new AssociationBridgeImpl(relationship, 
 						createPartBridgeFromBean(property.getName() + "[" + context.getIndex() + "]", elementValue, interaction, part));
@@ -245,6 +245,8 @@ class BridgeFactoryImpl implements BridgeFactory {
 				if (ListElementUtil.isCollection(value)) {
 					value = ListElementUtil.isEmpty(value) ? null : ListElementUtil.getElement(value, 0); 
 				}
+				
+				MessagePartHolder part = getMessagePart(interaction, relationship, value);
 				
 				return new AssociationBridgeImpl(relationship, 
 						createPartBridgeFromBean(property.getName(), value, interaction, part));
@@ -283,7 +285,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {
-			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));
+			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, object)));
 		}
 		// bug 13240 - if empty collection and pop/mand, add a placeholder bridge - this will output a nullflavor element, and a warning for mandatory
 		if (list.isEmpty() && (ConformanceLevelUtil.isPopulated(relationship) || ConformanceLevelUtil.isMandatory(relationship))) {
@@ -366,5 +368,12 @@ class BridgeFactoryImpl implements BridgeFactory {
 	public Interaction getInteraction(InteractionBean tealBean) {
 		MessageTypeKey type = MessageBeanRegistry.getInstance().getType(this.version, tealBean);
 		return this.service.getInteraction(this.version, type.getMessageId());
+	}
+
+	public ConstrainedDatatype getConstraints(Relationship relationship) {
+		if (StringUtils.isNotBlank(relationship.getConstrainedType())) {
+			return this.service.getConstraints(this.version, relationship.getConstrainedType());
+		}
+		return null;
 	}
 }

@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdvanceDirectiveObservation.CustodianParticipantRole"})
 public class CustodianParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

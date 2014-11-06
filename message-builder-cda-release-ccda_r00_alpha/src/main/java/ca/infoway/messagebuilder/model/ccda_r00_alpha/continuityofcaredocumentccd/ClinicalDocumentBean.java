@@ -27,36 +27,36 @@ import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
+import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ActClinicalDocument;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.HL7BasicConfidentialityKind;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.Language;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AuthenticatorBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AuthorizationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component4Bean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AuthorizationChoice;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component1_2Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.CustodianBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.DataEntererBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.InFulfillmentOfBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Choice;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.InformationRecipientBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.LegalAuthenticatorBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Choice;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.RecordTargetBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.RelatedDocumentBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.RelatedDocumentBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -65,19 +65,17 @@ import java.util.List;
 @Hl7RootType
 public class ClinicalDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
     private ST title = new STImpl();
-    private TS effectiveTime = new TSImpl();
+    private TS_R2 effectiveTime = new TS_R2Impl();
     private CE_R2 confidentialityCode = new CE_R2Impl();
     private CS_R2 languageCode = new CS_R2Impl();
     private II setId = new IIImpl();
     private INT versionNumber = new INTImpl();
-    private TS copyTime = new TSImpl();
+    private TS_R2 copyTime = new TS_R2Impl();
     private List<RecordTargetBean> recordTarget = new ArrayList<RecordTargetBean>();
     private List<Author_2Bean> author = new ArrayList<Author_2Bean>();
     private DataEntererBean dataEnterer;
@@ -86,57 +84,13 @@ public class ClinicalDocumentBean extends MessagePartBean {
     private List<InformationRecipientBean> informationRecipient = new ArrayList<InformationRecipientBean>();
     private LegalAuthenticatorBean legalAuthenticator;
     private List<AuthenticatorBean> authenticator = new ArrayList<AuthenticatorBean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
+    private List<Participant1Choice> participant = new ArrayList<Participant1Choice>();
     private List<InFulfillmentOfBean> inFulfillmentOf = new ArrayList<InFulfillmentOfBean>();
     private DocumentationOfBean documentationOf;
     private List<RelatedDocumentBean> relatedDocument = new ArrayList<RelatedDocumentBean>();
-    private List<AuthorizationBean> authorization = new ArrayList<AuthorizationBean>();
-    private Component4Bean componentOf;
-    private Component4Bean component;
-
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.ClinicalDocument.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClinicalDocument> getClassCode() {
-        return (CodedTypeR2<ActClinicalDocument>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.ClinicalDocument.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClinicalDocument> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.ClinicalDocument.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.ClinicalDocument.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
+    private List<AuthorizationChoice> authorization = new ArrayList<AuthorizationChoice>();
+    private Component1_2Bean componentOf;
+    private Component2Bean component;
 
 
     /**
@@ -165,21 +119,11 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.ClinicalDocument.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
@@ -187,7 +131,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -198,7 +142,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
@@ -209,7 +153,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.title</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"title"})
     public String getTitle() {
@@ -220,7 +164,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.title</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setTitle(String title) {
         this.title.setValue(title);
@@ -231,10 +175,10 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getEffectiveTime() {
+    public MbDate getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -242,9 +186,9 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setEffectiveTime(Date effectiveTime) {
+    public void setEffectiveTime(MbDate effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 
@@ -253,20 +197,20 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.confidentialityCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"confidentialityCode"})
-    public CodedTypeR2<HL7BasicConfidentialityKind> getConfidentialityCode() {
-        return (CodedTypeR2<HL7BasicConfidentialityKind>) this.confidentialityCode.getValue();
+    public CodedTypeR2<BasicConfidentialityKind> getConfidentialityCode() {
+        return (CodedTypeR2<BasicConfidentialityKind>) this.confidentialityCode.getValue();
     }
 
     /**
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.confidentialityCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setConfidentialityCode(CodedTypeR2<HL7BasicConfidentialityKind> confidentialityCode) {
+    public void setConfidentialityCode(CodedTypeR2<BasicConfidentialityKind> confidentialityCode) {
         this.confidentialityCode.setValue(confidentialityCode);
     }
 
@@ -275,7 +219,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.languageCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"languageCode"})
     public CodedTypeR2<Language> getLanguageCode() {
@@ -286,7 +230,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.languageCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setLanguageCode(CodedTypeR2<Language> languageCode) {
         this.languageCode.setValue(languageCode);
@@ -344,7 +288,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"copyTime"})
-    public Date getCopyTime() {
+    public MbDate getCopyTime() {
         return this.copyTime.getValue();
     }
 
@@ -354,7 +298,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setCopyTime(Date copyTime) {
+    public void setCopyTime(MbDate copyTime) {
         this.copyTime.setValue(copyTime);
     }
 
@@ -363,7 +307,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.recordTarget</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"recordTarget"})
     public List<RecordTargetBean> getRecordTarget() {
@@ -375,7 +319,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.author</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"author"})
     public List<Author_2Bean> getAuthor() {
@@ -421,7 +365,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.custodian</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"custodian"})
     public CustodianBean getCustodian() {
@@ -432,7 +376,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.custodian</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCustodian(CustodianBean custodian) {
         this.custodian = custodian;
@@ -492,7 +436,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant1Choice> getParticipant() {
         return this.participant;
     }
 
@@ -550,7 +494,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"authorization"})
-    public List<AuthorizationBean> getAuthorization() {
+    public List<AuthorizationChoice> getAuthorization() {
         return this.authorization;
     }
 
@@ -562,7 +506,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"componentOf"})
-    public Component4Bean getComponentOf() {
+    public Component1_2Bean getComponentOf() {
         return this.componentOf;
     }
 
@@ -572,7 +516,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setComponentOf(Component4Bean componentOf) {
+    public void setComponentOf(Component1_2Bean componentOf) {
         this.componentOf = componentOf;
     }
 
@@ -581,10 +525,10 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"component"})
-    public Component4Bean getComponent() {
+    public Component2Bean getComponent() {
         return this.component;
     }
 
@@ -592,9 +536,9 @@ public class ClinicalDocumentBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setComponent(Component4Bean component) {
+    public void setComponent(Component2Bean component) {
         this.component = component;
     }
 

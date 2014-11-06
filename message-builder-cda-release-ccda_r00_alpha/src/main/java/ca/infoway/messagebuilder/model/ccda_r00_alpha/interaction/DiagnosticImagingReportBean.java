@@ -34,6 +34,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport.Cl
 @Hl7PartTypeMapping({"DiagnosticImagingReport"})
 public class DiagnosticImagingReportBean extends ClinicalDocumentBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
 
 }

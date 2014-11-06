@@ -41,6 +41,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
@@ -80,13 +81,13 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 		return parse(node, type, null);
 	}
 	
-	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
 		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
-		return (Interval<Date>) this.parser.parse(
-				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null), 
+		DateInterval dateInterval = (DateInterval) this.parser.parse(
+				ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null, null), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
+		return dateInterval == null ? null : dateInterval.getInterval();
 	}
 	
 	@Test

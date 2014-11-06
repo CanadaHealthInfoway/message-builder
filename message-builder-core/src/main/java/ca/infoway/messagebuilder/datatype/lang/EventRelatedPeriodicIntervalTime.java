@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.datatype.lang;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -34,7 +35,7 @@ import ca.infoway.messagebuilder.domainvalue.TimingEvent;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class EventRelatedPeriodicIntervalTime implements Serializable {
+public class EventRelatedPeriodicIntervalTime extends MbDate implements Serializable {
 
 	private static final long serialVersionUID = -7334434139857699836L;
 	

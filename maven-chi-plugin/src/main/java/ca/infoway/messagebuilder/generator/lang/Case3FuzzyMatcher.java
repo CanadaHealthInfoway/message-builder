@@ -230,17 +230,22 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	
 	private boolean isOverlappingSetOfRelationships(SimplifiableType type, SimplifiableType otherType) {
 		List<MatchType> matchTypes = new ArrayList<MatchType>();
-		checkRelationships(type, otherType, matchTypes, MatchType.ADDED);
+		int matchingAssociations = checkRelationships(type, otherType, matchTypes, MatchType.ADDED);
 		checkRelationships(otherType, type, matchTypes, MatchType.REMOVED);
 		
-		return this.fuzziness.isSufficientOverlap(matchTypes);
+		boolean typeHasNoAssociations = (type.getNumberOfAssociations() == 0);
+		boolean otherTypeHasNoAssociations = (otherType.getNumberOfAssociations() == 0);
+		
+		// TM  - to improve quality of merge candidates, must have at least one association matching (or both types must not have any associations)
+		return this.fuzziness.isSufficientOverlap(matchTypes) && (matchingAssociations > 0 || (typeHasNoAssociations && otherTypeHasNoAssociations));
 	}
 	
 	private String describe(NamedType type, Named relationship) {
 		return type.getTypeName().getName() + "." + (relationship == null ? "?" : relationship.getName());
 	}
 	
-	private void checkRelationships(SimplifiableType type, SimplifiableType otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
+	private int checkRelationships(SimplifiableType type, SimplifiableType otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
+		int countMatchingAssociations = 0;
 		for (SimplifiableRelationship relationship : type.getRelationships()) {
 			MatchType matchType = MatchType.EXACT;
 			SimplifiableRelationship otherRelationship = otherType.getRelationshipByFingerprint(relationship.getFingerprint(type.getTypeName()));
@@ -249,12 +254,15 @@ class Case3FuzzyMatcher extends Case3Matcher {
 				if (!StringUtils.equals(relationship.getName(), otherRelationship.getName())) {
 					this.log.log(LogLevel.DEBUG, "Relationship " + describe(type, relationship) + 
 							" and " + describe(otherType, otherRelationship) + " looks like a renamed relationship");
-					matchTypes.add(MatchType.RENAMED);
+					matchTypes.add(matchType = MatchType.RENAMED);
 				} else if (relationship.isTemplateParameterPresent() && otherRelationship.isTemplateParameterPresent()) {
-					matchTypes.add(MatchType.EXACT);
+					matchTypes.add(matchType = MatchType.EXACT);
 				} else {
 					matchTypes.add(matchType =
 						this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
+				}
+				if (relationship.isAssociation() && FuzzQuotient.EXACT_OR_MINOR_OR_RENAMED_PREDICATE.evaluate(matchType)) {
+					countMatchingAssociations++;
 				}
 			} else if (hasNameCollision(otherType, relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
@@ -268,6 +276,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					" with " + describe(otherType, otherRelationship) + " : match type = " 
 					+ matchType);
 		}
+		return countMatchingAssociations;
 	}
 
 	boolean hasNameCollision(SimplifiableType otherType, SimplifiableRelationship relationship) {

@@ -91,7 +91,12 @@ class Hl7PartSource implements Hl7Source {
 	}
 	
 	public Hl7PartSource createPartSource(Relationship relationship, Element currentElement) {
-		return new Hl7PartSource(this.hl7InteractionSource,	resolveType(relationship, currentElement), currentElement, resolveTopmostType(relationship, currentElement));
+		return createPartSourceForSpecificType(relationship, currentElement, null);
+	}
+
+	public Hl7PartSource createPartSourceForSpecificType(Relationship relationship, Element currentElement, String type) {
+		String resolvedType = (type == null ? resolveType(relationship, currentElement) : type);
+		return new Hl7PartSource(this.hl7InteractionSource,	resolvedType, currentElement, resolveTopmostType(relationship, currentElement));
 	}
 
 	private String resolveType(Relationship relationship, Element currentElement) {
@@ -103,7 +108,7 @@ class Hl7PartSource implements Hl7Source {
 	}
 
 	public Relationship getRelationship(String name) {
-		Relationship result = this.messagePart.getRelationship(name, this.hl7InteractionSource.getInteraction());
+		Relationship result = this.messagePart.getRelationship(name, null, this.hl7InteractionSource.getInteraction());
 		if (result == null && !StringUtils.equals(this.messagePart.getName(), this.originalMessagePart.getName())) {
 			result = getNestedRelationship(this.originalMessagePart, name);
 		}
@@ -112,7 +117,7 @@ class Hl7PartSource implements Hl7Source {
 
 	// looks for a matching relationship within "supertype"/abstract message parts 
 	private Relationship getNestedRelationship(MessagePart part, String name) {
-		Relationship relationship = part.getRelationship(name, this.hl7InteractionSource.getInteraction());
+		Relationship relationship = part.getRelationship(name, null, this.hl7InteractionSource.getInteraction());
 		if (relationship == null) {
 			for (SpecializationChild childType : part.getSpecializationChilds()) {
 				if (typeIsAssignable(childType.getName())) {
@@ -173,5 +178,13 @@ class Hl7PartSource implements Hl7Source {
 
 	public Interaction getInteraction() {
 		return this.hl7InteractionSource.getConversionContext().getInteraction();
+	}
+
+	public boolean isR2() {
+		return this.hl7InteractionSource.isR2();
+	}
+	
+	public boolean isCda() {
+		return this.hl7InteractionSource.isCda();
 	}
 }

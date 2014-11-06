@@ -35,6 +35,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
@@ -50,7 +51,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.GenericDataTypeFactory;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
@@ -108,15 +108,15 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		validateCorrectElementsProvided(low != null, high != null, center != null, width != null, (Element) node, context, xmlToModelResult);
 		
 		BareANY lowAny = low == null ? null : createType(context, low, xmlToModelResult, false);
-		Object lowType = lowAny == null ? null : lowAny.getBareValue();
+		Object lowType = extractValue(lowAny);
 		Boolean lowInclusive = extractInclusive(context, low, xmlToModelResult);
 		
 		BareANY highAny = high == null ? null : createType(context, high, xmlToModelResult, false);
-		Object highType = highAny == null ? null : highAny.getBareValue();
+		Object highType = extractValue(highAny);
 		Boolean highInclusive = extractInclusive(context, high, xmlToModelResult);
 		
 		BareANY centerAny = center == null ? null : createType(context, center, xmlToModelResult, false);
-		Object centerType = centerAny == null ? null : centerAny.getBareValue();
+		Object centerType = extractValue(centerAny);
 		
 		BareDiff widthType = width == null ? null : createDiffType(context, width, xmlToModelResult);
 
@@ -145,7 +145,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 				// only treat this as a "simple" interval if no other interval elements were provided (even if they were in error)
 				// try to parse a "simple" interval
 				BareANY simpleAny = createType(context, (Element) node, xmlToModelResult, true);
-				Object type = simpleAny.getBareValue();
+				Object type = extractValue(simpleAny);
 				if (type == null) {
 		        	xmlToModelResult.addHl7Error(
 		        			new Hl7Error(
@@ -163,6 +163,11 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		}
 		
 		return result;
+	}
+
+	// subclasses may want to override this functionality
+	protected Object extractValue(BareANY any) {
+		return any == null ? null : any.getBareValue();
 	}
 
 	private Boolean extractInclusive(ParseContext context, Element element,	XmlToModelResult xmlToModelResult) {
@@ -193,9 +198,10 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 						element));
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return GenericDataTypeFactory.create(typeName);
+		return new IVLImpl();
 	}
 
 	private BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult, boolean isSxcm) {
@@ -206,15 +212,17 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		ElementParser parser = ParserR2Registry.getInstance().get(type);
 
 		if (parser != null) {
-			return parser.parse(ParserContextImpl.create(
+			ParseContext newContext = ParserContextImpl.create(
 					type,
 					null,
 					context.getVersion(),
 					context.getDateTimeZone(),
 					context.getDateTimeTimeZone(),
 					POPULATED, 
-					Cardinality.create("1")),
-					Arrays.asList((Node) element), parseResult);
+					Cardinality.create("1"),
+					context.getConstraints());
+			BareANY parsedValue = parser.parse(newContext,	Arrays.asList((Node) element), parseResult);
+			return parsedValue;
 		} else {
 			parseResult.addHl7Error(new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR,
@@ -261,7 +269,8 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
 							POPULATED, 
-							Cardinality.create("1"));
+							Cardinality.create("1"),
+							context.getConstraints());
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

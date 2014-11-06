@@ -36,17 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.nonmedicinalsupplyactivity.SupplyBean;
 import java.util.List;
 
 
 
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship","CognitiveStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship","FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship","FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship"})
-public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_3 {
+public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,74 +54,6 @@ public class NonMedicinalSupplyActivityEntryRelationshipBean extends MessagePart
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private SupplyBean supply;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CognitiveStatusResultObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**

@@ -26,40 +26,51 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 
+@RunWith(MockitoJUnitRunner.class)
 public class CdaXsdProcessorTest {
+	
+	@Mock
+	private OutputUI outputUI;
 	
 	private CdaXsdProcessor fixture;
 
 	private Serializer serializer = new Persister(new AnnotationStrategy());
+	private MessageSet messageSet;
 	
 	@Before
 	public void setUp() throws Exception {
-		fixture = new CdaXsdProcessor();
+		fixture = new CdaXsdProcessor(outputUI);
+		
+		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040_SDTC.xsd"));
+		Schema supplementarySchema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/SDTC.xsd"));
+		
+		messageSet = new MessageSet();
+		fixture.processSchema(schema, supplementarySchema, messageSet);
 	}
 	
 	@Test
 	public void shouldCreateMessagePart() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
-		
-		MessageSet messageSet = new MessageSet();
-		fixture.processSchema(schema, messageSet);
-		
-		assertTrue(messageSet.isGeneratedAsR2());
-		
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
@@ -72,11 +83,6 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseAttributes() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
-		
-		MessageSet messageSet = new MessageSet();
-		fixture.processSchema(schema, messageSet);
-		
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
@@ -94,7 +100,7 @@ public class CdaXsdProcessorTest {
 		assertEquals("CS", classCodeRelationship.getType());
 		assertEquals(DomainSource.VALUE_SET, classCodeRelationship.getDomainSource());
 		assertEquals("x_ActClassDocumentEntryAct", classCodeRelationship.getDomainType());
-		assertEquals(ConformanceLevel.REQUIRED, classCodeRelationship.getConformance());
+		assertEquals(ConformanceLevel.MANDATORY, classCodeRelationship.getConformance());
 		assertEquals(1, classCodeRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, classCodeRelationship.getCardinality().getMax().intValue());
 		
@@ -106,7 +112,7 @@ public class CdaXsdProcessorTest {
 		assertEquals("CS", moodCodeRelationship.getType());
 		assertEquals(DomainSource.VALUE_SET, moodCodeRelationship.getDomainSource());
 		assertEquals("x_DocumentActMood", moodCodeRelationship.getDomainType());
-		assertEquals(ConformanceLevel.REQUIRED, moodCodeRelationship.getConformance());
+		assertEquals(ConformanceLevel.MANDATORY, moodCodeRelationship.getConformance());
 		assertEquals(1, moodCodeRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, moodCodeRelationship.getCardinality().getMax().intValue());
 		
@@ -146,7 +152,7 @@ public class CdaXsdProcessorTest {
 		assertFalse(codeRelationship.isStructural());
 		assertEquals(8, codeRelationship.getSortOrder());
 		assertEquals("CD", codeRelationship.getType());
-		assertEquals(ConformanceLevel.MANDATORY, codeRelationship.getConformance());
+		assertEquals(ConformanceLevel.POPULATED, codeRelationship.getConformance());
 		assertEquals(1, codeRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, codeRelationship.getCardinality().getMax().intValue());
 		
@@ -195,11 +201,6 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseAssociations() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
-		
-		MessageSet messageSet = new MessageSet();
-		fixture.processSchema(schema, messageSet);
-		
 		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
 		assertNotNull(actMessagePart);
 		
@@ -225,11 +226,6 @@ public class CdaXsdProcessorTest {
 	
 	@Test
 	public void shouldParseChoices() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
-		
-		MessageSet messageSet = new MessageSet();
-		fixture.processSchema(schema, messageSet);
-		
 		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor");
 		assertNotNull(assignedAuthorMessagePart);
 		
@@ -281,11 +277,6 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseConstrainedDatatypes() throws Exception {
-		Schema schema = (Schema) this.serializer.read(Schema.class, CdaXsdProcessorTest.class.getResourceAsStream("/POCD_MT000040.xsd"));
-		
-		MessageSet messageSet = new MessageSet();
-		fixture.processSchema(schema, messageSet);
-		
 		// Do not create bogus message parts for these guys
 		assertNull(messageSet.getMessagePart("POCD_MT000040.InfrastructureRoot.typeId"));
 		assertNull(messageSet.getMessagePart("POCD_MT000040.RegionOfInterest.value"));
@@ -314,13 +305,13 @@ public class CdaXsdProcessorTest {
 		assertNotNull(rootRelationship);
 		assertEquals("root", rootRelationship.getName());
 		assertEquals("uid", rootRelationship.getType());
-		assertEquals(ConformanceLevel.REQUIRED, rootRelationship.getConformance());
+		assertEquals(ConformanceLevel.MANDATORY, rootRelationship.getConformance());
 		assertEquals("2.16.840.1.113883.1.3", rootRelationship.getFixedValue());
 		Relationship extensionRelationship = typeIdConstrainedType.getRelationships().get(1);
 		assertNotNull(extensionRelationship);
 		assertEquals("extension", extensionRelationship.getName());
 		assertEquals("ST", extensionRelationship.getType());
-		assertEquals(ConformanceLevel.REQUIRED, extensionRelationship.getConformance());
+		assertEquals(ConformanceLevel.MANDATORY, extensionRelationship.getConformance());
 		
 		ConstrainedDatatype regionOfInterestValueConstrainedType = messageSet.getConstrainedDatatype("POCD_MT000040.RegionOfInterest.value");
 		assertNotNull(regionOfInterestValueConstrainedType);
@@ -348,5 +339,58 @@ public class CdaXsdProcessorTest {
 		
 		// We don't create a ConstrainedDatatype entry for StrucDoc.Text
 		assertNull(messageSet.getConstrainedDatatype("StrucDoc.Text"));
+	}
+	
+	@Test
+	public void shouldParseExtendedAttributes() throws Exception {
+		MessagePart encounterMessagePart = messageSet.getMessagePart("POCD_MT000040.Encounter");
+		assertNotNull(encounterMessagePart);
+		Relationship dischargeDispositionCode = encounterMessagePart.getRelationship("dischargeDispositionCode", "sdtc");
+		assertNotNull(dischargeDispositionCode);
+		assertTrue(dischargeDispositionCode.isAttribute());
+		assertFalse(dischargeDispositionCode.isStructural());
+		assertEquals("CE", dischargeDispositionCode.getType());
+		assertEquals(ConformanceLevel.OPTIONAL, dischargeDispositionCode.getConformance());
+		assertEquals(0, dischargeDispositionCode.getCardinality().getMin().intValue());
+		assertEquals(1, dischargeDispositionCode.getCardinality().getMax().intValue());
+		assertEquals("sdtc", dischargeDispositionCode.getNamespace());
+
+		MessagePart patientMessagePart = messageSet.getMessagePart("POCD_MT000040.Patient");
+		assertNotNull(patientMessagePart);
+		Relationship baseRaceCode = patientMessagePart.getRelationship("raceCode");
+		assertNotNull(baseRaceCode);
+		assertTrue(baseRaceCode.isAttribute());
+		assertFalse(baseRaceCode.isStructural());
+		assertEquals("CE", baseRaceCode.getType());
+		assertEquals(ConformanceLevel.OPTIONAL, baseRaceCode.getConformance());
+		assertEquals(0, baseRaceCode.getCardinality().getMin().intValue());
+		assertEquals(1, baseRaceCode.getCardinality().getMax().intValue());
+		assertNull(baseRaceCode.getNamespace());
+
+		// TM - removed namespace check on MessagePart.getRelationship - this may be reinstated at some point
+//		Relationship extendedRaceCode = patientMessagePart.getRelationship("raceCode", "sdtc");
+//		// Suppress extended attributes whose names would collide with standard attributes
+//		// They aren't in scope for this release, and they're causing problems downstream
+//		assertNull(extendedRaceCode);
+		
+//		assertNotNull(extendedRaceCode);
+//		assertTrue(extendedRaceCode.isAttribute());
+//		assertFalse(extendedRaceCode.isStructural());
+//		assertEquals("LIST<CE>", extendedRaceCode.getType());
+//		assertEquals(ConformanceLevel.OPTIONAL, extendedRaceCode.getConformance());
+//		assertEquals(0, extendedRaceCode.getCardinality().getMin().intValue());
+//		assertEquals(Integer.MAX_VALUE, extendedRaceCode.getCardinality().getMax().intValue());
+//		assertEquals("sdtc", extendedRaceCode.getNamespace());
+	}
+	
+	@Test
+	public void shouldCreateDefaultInteraction() throws Exception {
+		Map<String, Interaction> allInteractions = messageSet.getInteractions();
+		assertEquals(1, allInteractions.size());
+		Interaction interaction = allInteractions.get("POCD_MT000040");
+		assertNotNull(interaction);
+		assertEquals("POCD_MT000040", interaction.getName());
+		assertEquals("POCD_MT000040.ClinicalDocument", interaction.getSuperTypeName());
+		assertEquals("document", interaction.getCategory());
 	}
 }

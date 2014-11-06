@@ -50,7 +50,7 @@ public class SetStringR2ElementParserTest extends ParserTestCase {
 				"</top>");
 		
 		BareANY result = new SetR2ElementParser().parse(
-				ParserContextImpl.create("SET<ST>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5")), 
+				ParserContextImpl.create("SET<ST>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<String> set = ((SET<ST,String>) result).rawSet();

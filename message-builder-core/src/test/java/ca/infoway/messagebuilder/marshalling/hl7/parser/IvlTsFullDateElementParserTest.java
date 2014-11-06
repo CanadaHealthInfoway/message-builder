@@ -65,7 +65,7 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type) throws XmlToModelTransformationException {
-		return (Interval<Date>) this.parser.parse(ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, null, null), 
+		return (Interval<Date>) this.parser.parse(ParserContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, null, null, null), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}

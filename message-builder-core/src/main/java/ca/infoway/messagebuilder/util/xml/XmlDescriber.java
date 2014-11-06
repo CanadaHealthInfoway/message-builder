@@ -60,6 +60,11 @@ public class XmlDescriber {
 	    }
 	}
 
+	public static int getDepth(Node node) {
+		String path = describePath(node);
+		return path.split("/").length - 1;
+	}
+	
 	/**
 	 * <p>A utility to provide an element name, with an index number if it is a 
 	 * repeating element.

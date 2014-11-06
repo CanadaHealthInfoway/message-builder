@@ -23,11 +23,9 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.merged;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
@@ -41,11 +39,10 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"EncountersSectionentriesOptional.Entry","EncountersSectionentriesRequired.Entry"})
-public class Entry_4Bean extends MessagePartBean {
+public class Entry_4Bean extends MessagePartBean implements EntryChoice_4 {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 typeCode = new CS_R2Impl();
-    private BL contextConductionInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -89,46 +86,6 @@ public class Entry_4Bean extends MessagePartBean {
      */
     public void setTypeCode(CodedTypeR2<x_ActRelationshipEntry> typeCode) {
         this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncountersSectionentriesOptional.Entry.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncountersSectionentriesRequired.Entry.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getContextConductionInd() {
-        return this.contextConductionInd.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncountersSectionentriesOptional.Entry.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncountersSectionentriesRequired.Entry.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextConductionInd(Boolean contextConductionInd) {
-        this.contextConductionInd.setValue(contextConductionInd);
     }
 
 

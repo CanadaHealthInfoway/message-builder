@@ -47,7 +47,7 @@ import org.w3c.dom.Node;
  *
  * (Later) Add fields for line/col numbers and xpaths.  Probably in a subclass, to make it easier to vary the output format (by overloading asText() etc.)
  */
-class Message {
+public class Message {
 	
 	private static final String NEWLINE = System.getProperty("line.separator");
 	

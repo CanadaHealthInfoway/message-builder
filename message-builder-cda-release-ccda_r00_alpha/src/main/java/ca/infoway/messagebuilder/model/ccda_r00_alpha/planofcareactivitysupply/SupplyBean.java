@@ -32,10 +32,11 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.SXCM_R2;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
@@ -43,27 +44,29 @@ import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.impl.SXCM_R2Impl;
-import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.ActClassSupply;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.PlanOfCareMoodCodeSubstanceAdministrationSupply;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.PlanOfCareSupplyMoodCode;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntryRelationship_3Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.EntryRelationshipBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.Participant2Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PreconditionBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ProductBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -75,12 +78,11 @@ import java.util.List;
 @Hl7RootType
 public class SupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 moodCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
@@ -90,55 +92,35 @@ public class SupplyBean extends MessagePartBean {
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
     private BL independentInd = new BLImpl();
     private PQ quantity = new PQImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS expectedUseTime = new IVL_TSImpl();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();
     private ProductBean product;
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
-    private List<EntryRelationship_3Bean> entryRelationship = new ArrayList<EntryRelationship_3Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
+    private List<EntryRelationshipBean> entryRelationship = new ArrayList<EntryRelationshipBean>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
 
 
     /**
-     * <p>Relationship: PlanOfCareActivitySupply.Supply.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClassSupply> getClassCode() {
-        return (CodedTypeR2<ActClassSupply>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: PlanOfCareActivitySupply.Supply.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClassSupply> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
      * <p>Relationship: PlanOfCareActivitySupply.Supply.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<PlanOfCareMoodCodeSubstanceAdministrationSupply> getMoodCode() {
-        return (CodedTypeR2<PlanOfCareMoodCodeSubstanceAdministrationSupply>) this.moodCode.getValue();
+    public CodedTypeR2<PlanOfCareSupplyMoodCode> getMoodCode() {
+        return (CodedTypeR2<PlanOfCareSupplyMoodCode>) this.moodCode.getValue();
     }
 
     /**
      * <p>Relationship: PlanOfCareActivitySupply.Supply.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setMoodCode(CodedTypeR2<PlanOfCareMoodCodeSubstanceAdministrationSupply> moodCode) {
+    public void setMoodCode(CodedTypeR2<PlanOfCareSupplyMoodCode> moodCode) {
         this.moodCode.setValue(moodCode);
     }
 
@@ -177,27 +159,18 @@ public class SupplyBean extends MessagePartBean {
     /**
      * <p>Relationship: PlanOfCareActivitySupply.Supply.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: PlanOfCareActivitySupply.Supply.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
     /**
      * <p>Relationship: PlanOfCareActivitySupply.Supply.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -360,7 +333,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getExpectedUseTime() {
+    public DateInterval getExpectedUseTime() {
         return this.expectedUseTime.getValue();
     }
 
@@ -370,7 +343,7 @@ public class SupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+    public void setExpectedUseTime(DateInterval expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
@@ -465,7 +438,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 
@@ -477,7 +450,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
-    public List<EntryRelationship_3Bean> getEntryRelationship() {
+    public List<EntryRelationshipBean> getEntryRelationship() {
         return this.entryRelationship;
     }
 

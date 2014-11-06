@@ -24,6 +24,7 @@ import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -51,7 +52,7 @@ class MockVisitor implements Visitor {
 	}
 
 	public void visitAttribute(AttributeBridge tealBean,
-			Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+			Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.attributeVisited = true;
 	}
 

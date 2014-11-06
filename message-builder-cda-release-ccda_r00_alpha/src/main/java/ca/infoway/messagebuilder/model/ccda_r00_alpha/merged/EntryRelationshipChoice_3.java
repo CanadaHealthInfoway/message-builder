@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"CognitiveStatusProblemObservation.EntryRelationshipChoice","CognitiveStatusResultObservation.EntryRelationshipChoice","FunctionalStatusProblemObservation.EntryRelationshipChoice","FunctionalStatusResultObservation.EntryRelationshipChoice"})
+@Hl7PartTypeMapping({"CodeObservations.EntryRelationshipChoice","TextObservation.EntryRelationshipChoice"})
 public interface EntryRelationshipChoice_3 {
 
 }

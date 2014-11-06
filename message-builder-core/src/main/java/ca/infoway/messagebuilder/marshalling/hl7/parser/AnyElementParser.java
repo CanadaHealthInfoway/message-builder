@@ -103,7 +103,8 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 							context.getDateTimeZone(),
 							context.getDateTimeTimeZone(),
 							context.getConformance(), 
-							context.getCardinality()),
+							context.getCardinality(),
+							context.getConstraints()),
 						Arrays.asList(node), 
 						xmlToModelResult);
 				result = parsedValue.getBareValue();

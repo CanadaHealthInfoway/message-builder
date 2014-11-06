@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.datatype;
 
 import java.util.Date;
 
-import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
-
 /**
  * <p>HL7 datatype TS backed by a java Date.
  * 

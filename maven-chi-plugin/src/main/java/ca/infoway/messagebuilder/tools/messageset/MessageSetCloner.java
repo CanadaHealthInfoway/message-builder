@@ -60,6 +60,7 @@ public class MessageSetCloner {
 		result.setComponent(original.getComponent());
 		result.setGeneratedBy(original.getGeneratedBy());
 		result.setGeneratedAsR2(original.isGeneratedAsR2());
+		result.setCda(original.isCda());
 		
 		for (MessageSetHistory historyEntry : original.getRemixHistory()) {
 			result.getRemixHistory().add(historyEntry);
@@ -410,6 +411,8 @@ public class MessageSetCloner {
 		Relationship result = new Relationship();
 		result.setDocumentation(clone(relationship.getDocumentation()));
 		result.setName(relationship.getName());
+		result.setNamespace(relationship.getNamespace());
+		result.setAttribute(relationship.isAttribute());
 		if (relationship.isTemplateRelationship() || relationship.isAttribute()) {
 			result.setType(relationship.getType());
 		} else {

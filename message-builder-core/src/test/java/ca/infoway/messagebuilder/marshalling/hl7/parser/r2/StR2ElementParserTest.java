@@ -57,7 +57,7 @@ public class StR2ElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createStContext(String type, int length) {
-		return ParserContextImpl.create(type, String.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null, length);
+		return ParserContextImpl.create(type, String.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.OPTIONAL, null, null, length, null);
 	}
 
 	@Test

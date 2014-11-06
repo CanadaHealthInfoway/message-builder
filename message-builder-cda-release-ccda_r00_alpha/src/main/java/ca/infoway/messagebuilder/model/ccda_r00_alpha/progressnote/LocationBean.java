@@ -23,21 +23,15 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ParticipationTargetLocation;
-import ca.infoway.messagebuilder.domainvalue.RoleClassServiceDeliveryLocation;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Organization_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PlaceBean;
 import java.util.List;
 
 
@@ -45,39 +39,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProgressNote.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 healthCareFacilityClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> healthCareFacilityRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II healthCareFacilityTypeId = new IIImpl();
-    private LIST<II, Identifier> healthCareFacilityTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private II healthCareFacilityId = new IIImpl();
-    private CE_R2 healthCareFacilityCode = new CE_R2Impl();
-    private PlaceBean healthCareFacilityLocation;
-    private Organization_1Bean healthCareFacilityServiceProviderOrganization;
-
-
-    /**
-     * <p>Relationship: ProgressNote.Location.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationTargetLocation> getTypeCode() {
-        return (CodedTypeR2<ParticipationTargetLocation>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProgressNote.Location.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationTargetLocation> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
+    private HealthCareFacilityBean healthCareFacility;
 
 
     /**
@@ -123,146 +89,22 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.classCode</p>
+     * <p>Relationship: ProgressNote.Location.healthCareFacility</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"healthCareFacility/classCode"})
-    public CodedTypeR2<RoleClassServiceDeliveryLocation> getHealthCareFacilityClassCode() {
-        return (CodedTypeR2<RoleClassServiceDeliveryLocation>) this.healthCareFacilityClassCode.getValue();
+    @Hl7XmlMapping({"healthCareFacility"})
+    public HealthCareFacilityBean getHealthCareFacility() {
+        return this.healthCareFacility;
     }
 
     /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.classCode</p>
+     * <p>Relationship: ProgressNote.Location.healthCareFacility</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setHealthCareFacilityClassCode(CodedTypeR2<RoleClassServiceDeliveryLocation> healthCareFacilityClassCode) {
-        this.healthCareFacilityClassCode.setValue(healthCareFacilityClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/realmCode"})
-    public List<CodedTypeR2<Code>> getHealthCareFacilityRealmCode() {
-        return this.healthCareFacilityRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/typeId"})
-    public Identifier getHealthCareFacilityTypeId() {
-        return this.healthCareFacilityTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setHealthCareFacilityTypeId(Identifier healthCareFacilityTypeId) {
-        this.healthCareFacilityTypeId.setValue(healthCareFacilityTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/templateId"})
-    public List<Identifier> getHealthCareFacilityTemplateId() {
-        return this.healthCareFacilityTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/id"})
-    public Identifier getHealthCareFacilityId() {
-        return this.healthCareFacilityId.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setHealthCareFacilityId(Identifier healthCareFacilityId) {
-        this.healthCareFacilityId.setValue(healthCareFacilityId);
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/code"})
-    public CodedTypeR2<Code> getHealthCareFacilityCode() {
-        return (CodedTypeR2<Code>) this.healthCareFacilityCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setHealthCareFacilityCode(CodedTypeR2<Code> healthCareFacilityCode) {
-        this.healthCareFacilityCode.setValue(healthCareFacilityCode);
-    }
-
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/location"})
-    public PlaceBean getHealthCareFacilityLocation() {
-        return this.healthCareFacilityLocation;
-    }
-
-    /**
-     * <p>Relationship: ProgressNote.HealthCareFacility.location</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setHealthCareFacilityLocation(PlaceBean healthCareFacilityLocation) {
-        this.healthCareFacilityLocation = healthCareFacilityLocation;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * ProgressNote.HealthCareFacility.serviceProviderOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"healthCareFacility/serviceProviderOrganization"})
-    public Organization_1Bean getHealthCareFacilityServiceProviderOrganization() {
-        return this.healthCareFacilityServiceProviderOrganization;
-    }
-
-    /**
-     * <p>Relationship: 
-     * ProgressNote.HealthCareFacility.serviceProviderOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setHealthCareFacilityServiceProviderOrganization(Organization_1Bean healthCareFacilityServiceProviderOrganization) {
-        this.healthCareFacilityServiceProviderOrganization = healthCareFacilityServiceProviderOrganization;
+    public void setHealthCareFacility(HealthCareFacilityBean healthCareFacility) {
+        this.healthCareFacility = healthCareFacility;
     }
 
 }

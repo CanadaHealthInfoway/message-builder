@@ -30,8 +30,11 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
@@ -69,16 +72,28 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testCustomUnit() throws Exception {
         Interval<Date> interval = IntervalFactory.<Date>createWidth(new DateDiff(1, CustomUnit.SANDWICH));
+        
+        DateInterval dateInterval = new DateInterval(interval);
+        
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
+		hl7DataType.setDataType(StandardDataType.IVL_TS);
+		
         String result = new IvlTsR2PropertyFormatter().format(getContext("name"), 
-        		new IVLImpl<QTY<Date>, Interval<Date>>(interval));
+        		hl7DataType);
         assertXml("result", "<name><width unit=\"SANDWICH\" value=\"1\"/></name>", result);
     }
     
 	@Test
 	public void testNullable() throws Exception {
         Interval<Date> interval = IntervalFactory.<Date>createWidth(new DateDiff(NullFlavor.OTHER));
-        String result = new IvlTsR2PropertyFormatter().format(getContext("name"), 
-        		new IVLImpl<QTY<Date>, Interval<Date>>(interval));
+
+        DateInterval dateInterval = new DateInterval(interval);
+        
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
+		hl7DataType.setDataType(StandardDataType.IVL_TS);
+
+		String result = new IvlTsR2PropertyFormatter().format(getContext("name"), 
+        		hl7DataType);
         assertXml("result", "<name><width nullFlavor=\"OTH\"/></name>", result);
     }
     
@@ -93,9 +108,11 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
 				
-		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
+        DateInterval dateInterval = new DateInterval(interval);
+        
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
 		hl7DataType.setDataType(StandardDataType.IVL_TS);
-		
+
 		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
@@ -115,7 +132,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 				lowDate,
 				highDate);
 				
-		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
+		DateInterval dateInterval = new DateInterval(interval);
+		
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
 		hl7DataType.setDataType(StandardDataType.IVL_TS);
 		
 		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
@@ -134,8 +153,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
-		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
-		hl7DataType.setDataType(StandardDataType.TS);
+		DateInterval dateInterval = new DateInterval(interval);
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
+		hl7DataType.setDataType(StandardDataType.IVL_TS);
 		
 		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
 				hl7DataType);

@@ -49,13 +49,17 @@ public class XmlWarningRenderer {
 	}
 	
 	public String createWarning(int indentLevel, String text) {
-		return createLog("WARNING", indentLevel, text); 
+		return createWarning(indentLevel, text, "WARNING"); 
+	}
+	
+	public String createWarning(int indentLevel, String text, String errorLevel) {
+		return createLog(errorLevel, indentLevel, text); 
 	}
 	
 	public String createLog(String logLevel, int indentLevel, String text) {
 		return this.outputWarnings ? 
 				Indenter.indent(
-				"<!-- " + logLevel + ": " + XmlStringEscape.escape(text) 
+				"<!-- " + logLevel + (StringUtils.isBlank(logLevel) ? "" : ": ") + XmlStringEscape.escape(text) 
 				+ " -->" + LINE_SEPARATOR, indentLevel)
 			:
 				StringUtils.EMPTY;

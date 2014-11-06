@@ -25,9 +25,10 @@ import java.util.LinkedHashSet;
 
 import org.w3c.dom.Element;
 
-import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
+import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -38,15 +39,12 @@ class SetElementParser extends SetOrListElementParser {
 
 	@Override
 	protected BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection) {
-		try {
-			CollectionHelper result = (CollectionHelper) GenericDataTypeFactory.create(type);
-			for (BareANY bareANY : collection) {
-				result.add(bareANY);
-			}
-			return (BareANY) result;
-		} catch (MarshallingException e) {
-			return null;
+		@SuppressWarnings({ "unchecked", "rawtypes" })
+		CollectionHelper result = new SETImpl(ANYImpl.class);
+		for (BareANY bareANY : collection) {
+			result.add(bareANY);
 		}
+		return (BareANY) result;
 	}
 
 	protected void resultAlreadyExistsInCollection(BareANY result, Element node, XmlToModelResult xmlToModelResult) {

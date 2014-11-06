@@ -114,6 +114,6 @@ public class TsFullDatePropertyFormatterTest {
 	}
 
 	private FormatContextImpl createFormatContextWithTimeZone(TimeZone timeZone) {
-		return new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, null, false, null, timeZone, null, null);
+		return new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, null, false, null, timeZone, null, null, null);
 	}
 }

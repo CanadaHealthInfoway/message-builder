@@ -32,9 +32,11 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.SXCM_R2;
+import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
@@ -42,26 +44,30 @@ import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.impl.SXCM_R2Impl;
+import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.ActClassSupply;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_DocumentSubstanceMood;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ImmunizationMedicationInformationProductBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.MedicationInformationProductBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ProductChoice;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.Participant2Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ProductBean;
+import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,72 +79,30 @@ import java.util.List;
 @Hl7RootType
 public class SupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
-    private II templateId = new IIImpl();
+    private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 statusCode = new CS_R2Impl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private LIST<SXCM_R2<Date>, Date> effectiveTime = new LISTImpl<SXCM_R2<Date>, Date>(SXCM_R2Impl.class);
     private LIST<CE_R2, CodedTypeR2<? extends Code>> priorityCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
     private BL independentInd = new BLImpl();
     private PQ quantity = new PQImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS expectedUseTime = new IVL_TSImpl();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();
     private ProductChoice product;
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private Author_1Bean author;
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
     private EntryRelationshipBean entryRelationship;
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
-
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClassSupply> getClassCode() {
-        return (CodedTypeR2<ActClassSupply>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClassSupply> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<x_DocumentSubstanceMood> getMoodCode() {
-        return (CodedTypeR2<x_DocumentSubstanceMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<x_DocumentSubstanceMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
 
 
     /**
@@ -175,27 +139,18 @@ public class SupplyBean extends MessagePartBean {
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.templateId</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      */
     @Hl7XmlMapping({"templateId"})
-    public Identifier getTemplateId() {
-        return this.templateId.getValue();
-    }
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setTemplateId(Identifier templateId) {
-        this.templateId.setValue(templateId);
+    public List<Identifier> getTemplateId() {
+        return this.templateId.rawList();
     }
 
 
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -246,7 +201,7 @@ public class SupplyBean extends MessagePartBean {
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"statusCode"})
     public CodedTypeR2<Code> getStatusCode() {
@@ -256,7 +211,7 @@ public class SupplyBean extends MessagePartBean {
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.statusCode</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setStatusCode(CodedTypeR2<Code> statusCode) {
         this.statusCode.setValue(statusCode);
@@ -266,20 +221,11 @@ public class SupplyBean extends MessagePartBean {
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.effectiveTime</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-
-    /**
-     * <p>Relationship: MedicationSupplyOrder.Supply.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
+    public List<Date> getEffectiveTime() {
+        return this.effectiveTime.rawList();
     }
 
 
@@ -361,7 +307,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getExpectedUseTime() {
+    public DateInterval getExpectedUseTime() {
         return this.expectedUseTime.getValue();
     }
 
@@ -371,7 +317,7 @@ public class SupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+    public void setExpectedUseTime(DateInterval expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
     }
 
@@ -440,6 +386,13 @@ public class SupplyBean extends MessagePartBean {
         return (this.product instanceof ImmunizationMedicationInformationProductBean);
     }
 
+    public ProductBean getProductAsProduct() {
+        return this.product instanceof ProductBean ? (ProductBean) this.product : null;
+    }
+    public boolean hasProductAsProduct() {
+        return (this.product instanceof ProductBean);
+    }
+
 
     /**
      * <p>Relationship: MedicationSupplyOrder.Supply.performer</p>
@@ -489,7 +442,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 

@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.generator.cda;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
@@ -35,7 +36,8 @@ import org.simpleframework.xml.Root;
 @NamespaceList({
 	@Namespace(prefix="mif",reference="urn:hl7-org:v3/mif"),
 	@Namespace(reference="urn:hl7-org:v3"),
-	@Namespace(prefix="xs",reference="http://www.w3.org/2001/XMLSchema")
+	@Namespace(prefix="xs",reference="http://www.w3.org/2001/XMLSchema"),
+	@Namespace(prefix="sdtc",reference="urn:hl7-org:sdtc")
 })
 public class Schema {
 	
@@ -53,6 +55,9 @@ public class Schema {
 
 	@ElementList(entry="complexType",required=false,inline=true)
 	private List<ComplexType> complexTypes = new ArrayList<ComplexType>();
+	
+	@ElementList(required=false,inline=true,entry="element")
+	private List<XsElement> elements = new ArrayList<XsElement>();
 
 	public String getTargetNamespace() {
 		return targetNamespace;
@@ -84,5 +89,15 @@ public class Schema {
 
 	public List<ComplexType> getComplexTypes() {
 		return complexTypes;
+	}
+	
+	public XsElement getElement(String name) {
+		XsElement result = null;
+		for (XsElement element : elements) {
+			if (StringUtils.equals(element.getName(), name)) {
+				result = element;
+			}
+		}
+		return result;
 	}
 }

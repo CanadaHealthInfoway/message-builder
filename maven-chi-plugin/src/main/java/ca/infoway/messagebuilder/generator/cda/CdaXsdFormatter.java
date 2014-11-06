@@ -84,10 +84,14 @@ public class CdaXsdFormatter {
 		if (messageSet.getSchemaMetadata() != null) {
 			schema.setTargetNamespace(messageSet.getSchemaMetadata().getTargetNamespace());
 			schema.setElementFormDefault(messageSet.getSchemaMetadata().getElementFormDefault());
-			if (messageSet.getSchemaMetadata().getDocumentation() != null) {
+			List<String> documentationList = messageSet.getSchemaMetadata().getDocumentation();
+			if (documentationList != null) {
 				schema.setAnnotation(new Annotation());
-				schema.getAnnotation().setDocumentation(new Documentation());
-				schema.getAnnotation().getDocumentation().setText(messageSet.getSchemaMetadata().getDocumentation());
+				for (String documentationEntry : documentationList) {
+					Documentation documentation = new Documentation();
+					documentation.setText(documentationEntry);
+					schema.getAnnotation().getDocumentation().add(documentation);
+				}
 			}
 			for (String schemaLocation : messageSet.getSchemaMetadata().getSchemaLocations()) {
 				schema.getIncludes().add(new Include(schemaLocation));

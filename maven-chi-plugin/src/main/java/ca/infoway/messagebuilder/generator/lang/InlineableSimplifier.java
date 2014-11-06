@@ -73,7 +73,7 @@ public abstract class InlineableSimplifier {
 		List<SimplifiableRelationship> allRelationships = inlineableType.getRelationships();
 		for (SimplifiableRelationship simplifiableRelationship : allRelationships) {
 			Relationship r = simplifiableRelationship.getRelationship();
-			if (!(r.hasFixedValue() && ConformanceLevelUtil.isMandatory(r))) {
+			if (!r.hasFixedValue()) {
 				nonFixedRelationships.add(simplifiableRelationship);
 			}
 		}

@@ -97,7 +97,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setHl7Value(new IIImpl(NullFlavor.MASKED));
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -108,13 +108,31 @@ public class XmlRenderingVisitorTest {
 	}
 
 	@Test
+	public void shouldRenderNonStructuralAttributeWithNullFlavorForCDA() throws Exception {
+		
+		this.visitor = new XmlRenderingVisitor(true, true);
+		
+		this.attributeBridge.setHl7Value(new IIImpl(NullFlavor.MASKED));
+
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null, null);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ClinicalDocument xmlns=\"urn:hl7-org:v3\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:sdtc=\"urn:hl7-org:sdtc\" xmlns:cda=\"urn:hl7-org:v3\"" +
+				">" +
+				"<id nullFlavor=\"MSK\"/>" +
+				"</ClinicalDocument>", xml);
+	}
+
+	@Test
 	public void shouldRenderNonStructuralAttribute() throws Exception {
 		IIImpl iiImpl = new IIImpl(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
 		iiImpl.setDataType(StandardDataType.II_TOKEN);
 		this.attributeBridge.setHl7Value(iiImpl);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -133,7 +151,7 @@ public class XmlRenderingVisitorTest {
 		Relationship relationship = new Relationship();
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
-		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, relationship, null, null, null, null);
 		
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
@@ -153,7 +171,7 @@ public class XmlRenderingVisitorTest {
 		relationship.setName("value");
 		relationship.setType(StandardDataType.ANY_LAB.getType());
 
-		this.visitor.visitAttribute(attributeBridge, relationship, null, null, null);
+		this.visitor.visitAttribute(attributeBridge, relationship, null, null, null, null);
 		
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
@@ -171,7 +189,7 @@ public class XmlRenderingVisitorTest {
 	@Test
 	public void shouldRenderFixedValueNonStructuralAttribute() throws Exception {
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), SpecificationVersion.V01R04_3, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createFixedValueNonStructuralRelationship(), null, SpecificationVersion.V01R04_3, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -202,7 +220,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setValue(Boolean.FALSE);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -215,7 +233,7 @@ public class XmlRenderingVisitorTest {
 		this.attributeBridge.setValue(Boolean.FALSE);
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAttribute(this.attributeBridge, createFixedValueStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createFixedValueStructuralRelationship(), null, null, null, null);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		
 		String xml = this.visitor.toXml().getXmlMessage();
@@ -337,8 +355,8 @@ public class XmlRenderingVisitorTest {
 
 		this.visitor.visitRootStart(this.partBridge, this.interation);
 		this.visitor.visitAssociationStart(this.partBridge, relationship);
-		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null);
-		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createNonStructuralRelationship(), null, null, null, null);
+		this.visitor.visitAttribute(this.attributeBridge, createStructuralRelationship(), null, null, null, null);
 		this.visitor.visitAssociationEnd(this.partBridge, relationship);
 		this.visitor.visitRootEnd(this.partBridge, this.interation);
 		

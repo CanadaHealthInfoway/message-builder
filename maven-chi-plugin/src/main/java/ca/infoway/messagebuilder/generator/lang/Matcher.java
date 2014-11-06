@@ -93,8 +93,6 @@ public class Matcher {
 			return DomainTypeHelper.isCompatibleDomainType(base, other) ?
 						MatchType.MINOR_DIFFERENCE
 						: MatchType.MAJOR_DIFFERENCE;
-		} else if ((base.hasFixedValue() && ConformanceLevelUtil.isMandatory(base)) != (other.hasFixedValue() && ConformanceLevelUtil.isMandatory(other))) {
-			return MatchType.MINOR_DIFFERENCE;
 		} else if (base.hasFixedValue() != other.hasFixedValue()) {
 			return MatchType.MINOR_DIFFERENCE;
 		} else if (base.hasFixedValue() && !StringUtils.equals(base.getFixedValue(), other.getFixedValue())) {

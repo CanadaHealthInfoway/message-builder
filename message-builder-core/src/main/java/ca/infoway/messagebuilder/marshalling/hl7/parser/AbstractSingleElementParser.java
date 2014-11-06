@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
@@ -57,10 +58,13 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
         if (nodes == null || nodes.size() == 0) {
             return null;
-        } else if (nodes.size() == 1) {
-            return parse(context, nodes.get(0), xmlToModelResult);
         } else {
-            throw new XmlToModelTransformationException("Expected a single element and found " + nodes.size());
+    		// if more than 1, arbitrarily choose the last one provided
+        	if (nodes.size() > 1) {
+        		xmlToModelResult.addHl7Error(
+        				new Hl7Error(Hl7ErrorCode.NUMBER_OF_ATTRIBUTES_EXCEEDS_LIMIT, "Expected a single element and found " + nodes.size() + ". Only the last element will be processed.", (Element) nodes.get(0)));
+        	}
+            return parse(context, nodes.get(nodes.size() - 1), xmlToModelResult);
         }
     }
 

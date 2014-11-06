@@ -98,7 +98,6 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 		TypeName name = new TypeName(className);
 		PackageLocation originPackageLocation = this.messageSet.getPackageLocations().get(name.getRootName().getName());
 		if (originPackageLocation != null) {
-			System.out.println(className);
 			MessagePart clone = new MessageSetCloner().clone(originPackageLocation.getMessageParts().get(className), RealmCode.createTrivialRealmCode());
 			clone.setName(constraint.getClassName());
 			TypeName destinationName = new TypeName(constraint.getClassName());
@@ -163,7 +162,7 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 			
 			getMessagePart().getSpecializationChilds().add(child);
 			for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
-				addChoiceToAllRelationships(messagePart.getRelationships(), getMessagePart().getName(), constraint.getChoiceClassName());
+				addChoiceToAllRelationships(messagePart.getRelationships(), getMessagePart().getName(), constraint);
 			}
 		}
 	}
@@ -200,11 +199,11 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 	 * @param parentMessagePartName	the abstract message part that is being modified
 	 * @param newChildMessagePartName the new choice to be added
 	 */
-	private void addChoiceToAllRelationships(List<Relationship> relationships, String parentMessagePartName, String newChildMessagePartName) {
+	private void addChoiceToAllRelationships(List<Relationship> relationships, String parentMessagePartName, AddChoiceConstraint constraint) {
 		for (Relationship relationship : relationships) {
 			NameAssigner nameAssigner = createInitializedNameAssigner(relationship.getChoices());
 			
-			addChoiceToRelationship(relationship, parentMessagePartName, newChildMessagePartName, nameAssigner);
+			addChoiceToRelationship(relationship, parentMessagePartName, constraint, nameAssigner);
 		}
 	}
 
@@ -216,11 +215,11 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 	 * @param newChildMessagePartName the new choice to be added
 	 * @param nameAssigner a name assigner
 	 */
-	private void addChoiceToRelationship(Relationship relationship,	String parentMessagePartName, String newChildMessagePartName, NameAssigner nameAssigner) {
+	private void addChoiceToRelationship(Relationship relationship,	String parentMessagePartName, AddChoiceConstraint constraint, NameAssigner nameAssigner) {
 		if (relationship.getType() != null && relationship.getType().equals(parentMessagePartName)) {
-			relationship.getChoices().add(createChoice(newChildMessagePartName, nameAssigner));
+			relationship.getChoices().add(createChoice(constraint.getOptionName(), constraint.getChoiceClassName(), nameAssigner));
 		} else {
-			addChoiceToAllRelationships(relationship.getChoices(), parentMessagePartName, newChildMessagePartName, nameAssigner);
+			addChoiceToAllRelationships(relationship.getChoices(), parentMessagePartName, constraint, nameAssigner);
 		}
 	}
 
@@ -232,22 +231,26 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 	 * @param parentMessagePartName	the abstract message part that is being modified
 	 * @param newChildMessagePartName the new choice to be added
 	 */
-	private void addChoiceToAllRelationships(List<Relationship> relationships, String parentMessagePartName, String choiceName, NameAssigner nameAssigner) {
+	private void addChoiceToAllRelationships(List<Relationship> relationships, String parentMessagePartName, AddChoiceConstraint constraint, NameAssigner nameAssigner) {
 		for (Relationship relationship : relationships) {
-			addChoiceToRelationship(relationship, parentMessagePartName, choiceName, nameAssigner);
+			addChoiceToRelationship(relationship, parentMessagePartName, constraint, nameAssigner);
 		}
 	}
 	
-	private Relationship createChoice(String choiceName, NameAssigner nameAssigner) {
-		MessagePart choiceMessagePart = this.messageSet.getMessagePart(choiceName);
+	private Relationship createChoice(String choiceName, String choiceType, NameAssigner nameAssigner) {
+		MessagePart choiceMessagePart = this.messageSet.getMessagePart(choiceType);
 		
 		Relationship choice = new Relationship();
-		choice.setType(choiceName);
-		choice.setName(nameAssigner.determineName(choiceName));
+		choice.setType(choiceType);
+		if (choiceName != null) {
+			choice.setName(choiceName);
+		} else {
+			choice.setName(nameAssigner.determineName(choiceType));
+		}
 		
 		if (choiceMessagePart.isAbstract()) {
 			for (SpecializationChild nestedChoice : choiceMessagePart.getSpecializationChilds()) {
-				choice.getChoices().add(createChoice(nestedChoice.getName(), nameAssigner));
+				choice.getChoices().add(createChoice(null, nestedChoice.getName(), nameAssigner));
 			}
 		}
 		

@@ -33,8 +33,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ContextControl;
-import ca.infoway.messagebuilder.domainvalue.ParticipationTargetSubject;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
@@ -43,54 +41,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Subject"})
 public class SubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CS_R2 contextControlCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 awarenessCode = new CE_R2Impl();
     private RelatedSubjectBean relatedSubject;
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Subject.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationTargetSubject> getTypeCode() {
-        return (CodedTypeR2<ParticipationTargetSubject>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Subject.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationTargetSubject> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Relationship: POCD_MT000040.Subject.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextControlCode"})
-    public CodedTypeR2<ContextControl> getContextControlCode() {
-        return (CodedTypeR2<ContextControl>) this.contextControlCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: POCD_MT000040.Subject.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextControlCode(CodedTypeR2<ContextControl> contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
-    }
 
 
     /**
@@ -158,7 +114,7 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Subject.relatedSubject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"relatedSubject"})
     public RelatedSubjectBean getRelatedSubject() {
@@ -168,7 +124,7 @@ public class SubjectBean extends MessagePartBean {
     /**
      * <p>Relationship: POCD_MT000040.Subject.relatedSubject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setRelatedSubject(RelatedSubjectBean relatedSubject) {
         this.relatedSubject = relatedSubject;

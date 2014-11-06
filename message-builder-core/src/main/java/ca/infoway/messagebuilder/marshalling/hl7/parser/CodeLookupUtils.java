@@ -109,7 +109,8 @@ public class CodeLookupUtils {
 			// this case should only happen if the original property was inlined
 			return (Class<Code>) Generics.getParameterType(type);
 		} else {
-			throw new IllegalArgumentException("Can't determine the domain type of " + type);
+			// this used to throw an exception, but now we can often have no domain types for coded types
+			return Code.class;
 		}
 	}
 	

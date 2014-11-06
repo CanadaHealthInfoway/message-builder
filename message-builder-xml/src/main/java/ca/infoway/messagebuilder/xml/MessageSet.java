@@ -45,6 +45,9 @@ public class MessageSet implements MessagePartResolver {
 	private String version;
 	
 	@Attribute(required=false)
+	private boolean cda;
+	
+	@Attribute(required=false)
 	private boolean generatedAsR2;
 
 	@Attribute(required=false)
@@ -96,6 +99,14 @@ public class MessageSet implements MessagePartResolver {
 		this.version = version;
 	}
 	
+	public boolean isCda() {
+		return cda;
+	}
+
+	public void setCda(boolean cda) {
+		this.cda = cda;
+	}
+
 	/**
 	 * <p> Denotes if this message set was generated for R2 data types
 	 * @return whether this message set was generated for R2 data types

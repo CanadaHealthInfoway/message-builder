@@ -29,14 +29,15 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
 import ca.infoway.messagebuilder.domainvalue.EntityNamePartQualifier;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
@@ -84,15 +85,19 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
         String openTag = "";
         String closeTag = "";
         
+        boolean valueProvided = namePart.getValue() != null;
+        
         if (namePart.getType() != null) {
-            openTag = "<" + namePart.getType().getValue() + addQualifier(namePart) + ">";
+            openTag = "<" + namePart.getType().getValue() + addQualifier(namePart) + addNullFlavor(namePart) + (valueProvided ? "" : "/") + ">";
             closeTag = "</" + namePart.getType().getValue() + ">";
         }
 
        	Indenter.indentBuffer(buffer, indentLevel);
         buffer.append(openTag);
-        buffer.append(XmlStringEscape.escape(namePart.getValue()));
-        buffer.append(closeTag);
+		if (valueProvided) {
+	        buffer.append(XmlStringEscape.escape(namePart.getValue()));
+	        buffer.append(closeTag);
+        }
        	buffer.append(SystemUtils.LINE_SEPARATOR);
     }
     
@@ -100,7 +105,7 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
 		Interval<Date> validTime = value.getValidTime();
 		if (validTime != null) {
 			FormatContext ivlTsContext = new FormatContextImpl("IVL<TS>", "validTime", context);
-			IVLImpl<TS, Interval<Date>> ivlImpl = new IVLImpl<TS, Interval<Date>>(validTime);
+			IVL_TSImpl ivlImpl = new IVL_TSImpl(new DateInterval(validTime));
 			String formattedValidTime = this.validTimeFormatter.format(ivlTsContext, ivlImpl, indentLevel);
 			buffer.append(formattedValidTime);
 		}
@@ -109,6 +114,11 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
     private String addQualifier(EntityNamePart namePart) {
     	EntityNamePartQualifier qualifier = namePart.getQualifier();
 		return qualifier == null || StringUtils.isBlank(qualifier.getCodeValue()) ? "" : " qualifier=\"" + qualifier.getCodeValue() + "\"";
+	}
+
+    private String addNullFlavor(EntityNamePart namePart) {
+    	NullFlavor nullFlavor = namePart.getNullFlavor();
+		return nullFlavor == null || StringUtils.isBlank(nullFlavor.getCodeValue()) ? "" : " nullFlavor=\"" + nullFlavor.getCodeValue() + "\"";
 	}
 
 	protected Map<String, String> getUseAttributeMap(EntityName value) {

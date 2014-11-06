@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.util.PersonNamePartType;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNamePartQualifier;
 import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 
 public class PnR2PropertyFormatterTest extends FormatterTestCase {
@@ -118,6 +119,25 @@ public class PnR2PropertyFormatterTest extends FormatterTestCase {
         									"  <family>Shaw</family>" + SystemUtils.LINE_SEPARATOR +
         									"</name>" + SystemUtils.LINE_SEPARATOR, result);
         assertXml("something in text node", "<name use=\"L\"><given>Steve</given><family>Shaw</family></name>", result, true);
+    }
+
+	@Test
+    public void testFormatSimpleWithNullFlavorPart() throws Exception {
+        EnR2PropertyFormatter formatter = new EnR2PropertyFormatter();
+        
+        PersonName personName = new PersonName();
+        personName.addUse(EntityNameUse.LEGAL);
+        personName.addNamePart(new EntityNamePart(PersonNamePartType.GIVEN, NullFlavor.MASKED));
+        personName.addNamePart(new EntityNamePart("Shaw", PersonNamePartType.FAMILY));
+        
+        String result = formatter.format(getContext("name", "PN", SpecificationVersion.R02_04_02), new PNImpl(personName));
+		assertTrue(this.result.isValid());
+
+        assertEquals("formatted text node", "<name use=\"L\">" + SystemUtils.LINE_SEPARATOR +
+        									"  <given nullFlavor=\"MSK\"/>" + SystemUtils.LINE_SEPARATOR +
+        									"  <family>Shaw</family>" + SystemUtils.LINE_SEPARATOR +
+        									"</name>" + SystemUtils.LINE_SEPARATOR, result);
+        assertXml("something in text node", "<name use=\"L\"><given nullFlavor=\"MSK\"/><family>Shaw</family></name>", result, true);
     }
 
 	@Test

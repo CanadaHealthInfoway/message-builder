@@ -27,25 +27,23 @@ import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.RoleClassMutualRelationship;
-import java.util.Date;
 import java.util.List;
 
 
@@ -53,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.RelatedEntity"})
 public class RelatedEntityBean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private CS_R2 classCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
@@ -61,14 +59,14 @@ public class RelatedEntityBean extends MessagePartBean implements Informant12Cho
     private CE_R2 code = new CE_R2Impl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IVL_TS effectiveTime = new IVL_TSImpl();
     private PersonBean relatedPerson;
 
 
     /**
      * <p>Relationship: POCD_MT000040.RelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"classCode"})
     public CodedTypeR2<RoleClassMutualRelationship> getClassCode() {
@@ -78,7 +76,7 @@ public class RelatedEntityBean extends MessagePartBean implements Informant12Cho
     /**
      * <p>Relationship: POCD_MT000040.RelatedEntity.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setClassCode(CodedTypeR2<RoleClassMutualRelationship> classCode) {
         this.classCode.setValue(classCode);
@@ -175,7 +173,7 @@ public class RelatedEntityBean extends MessagePartBean implements Informant12Cho
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
+    public DateInterval getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -184,7 +182,7 @@ public class RelatedEntityBean extends MessagePartBean implements Informant12Cho
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
+    public void setEffectiveTime(DateInterval effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 

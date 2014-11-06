@@ -172,24 +172,4 @@ public class Cardinality {
 		return (this.min == null || this.min <= value) && 
 			(this.max == null || this.max >= value);
 	}
-
-	public static Cardinality add(Cardinality cardinality1,	Cardinality cardinality2) {
-		return add(cardinality1, cardinality2, Integer.MAX_VALUE);
-	}
-	
-	/**
-	 * <p>A utility method for combining two cardinalities.
-	 * 
-	 * @param cardinality1
-	 * @param cardinality2
-	 * @param limit - the upper bound that the new cardinality cannot exceed. Usually the upper bound of the cardinality of the relationship in the base model.
-	 * @return a new cardinality
-	 */
-	public static Cardinality add(Cardinality cardinality1,	Cardinality cardinality2, Integer limit) {
-		int newMin = cardinality1.getMin() + cardinality2.getMin();
-		newMin = Math.min(newMin, limit);
-		int newMax = (cardinality1.isUnbounded() || cardinality2.isUnbounded()) ? Integer.MAX_VALUE : cardinality1.getMax() + cardinality2.getMax();
-		newMax = Math.min(newMax, limit);
-		return new Cardinality(newMin, newMax);
-	}
 }

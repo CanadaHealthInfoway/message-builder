@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
@@ -80,6 +81,14 @@ class TrivialService implements MessageDefinitionService {
 
 	public boolean isR2(VersionNumber version) {
 		return false;
+	}
+
+	public boolean isCda(VersionNumber version) {
+		return false;
+	}
+
+	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType) {
+		return null;
 	}
 
 }

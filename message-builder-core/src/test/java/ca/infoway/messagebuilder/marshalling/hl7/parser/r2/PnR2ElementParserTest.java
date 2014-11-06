@@ -59,7 +59,7 @@ public class PnR2ElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, PersonName.class, version, null, null, ConformanceLevel.POPULATED, null);
+		return ParserContextImpl.create(type, PersonName.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test
@@ -152,6 +152,26 @@ public class PnR2ElementParserTest extends MarshallingTestCase {
 	}
 	
 	@Test
+    public void testParsePartWithNullFlavor() throws Exception {
+		Node node = createNode(
+				  "<something use=\"L\">"
+				+ "  <prefix>Mr.</prefix>" 
+				+ "  <given nullFlavor=\"NA\"/>" 
+				+ "  <family qualifier=\"IN\">Jones</family>" 
+				+ "</something>");
+		
+		PersonName personName = (PersonName) new PnR2ElementParser().parse(createContext("PN", SpecificationVersion.R02_04_02), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+        assertEquals("number of name uses", 1, personName.getUses().size());
+        assertEquals("number of name parts", 3, personName.getParts().size());
+        assertNull(personName.getValidTime());
+        
+        assertNamePartAsExpected("prefix Mr", personName.getParts().get(0), PersonNamePartType.PREFIX, "Mr.", null);
+        assertNamePartAsExpected("given nullFlavor", personName.getParts().get(1), PersonNamePartType.GIVEN, null, null, "NA");
+        assertNamePartAsExpected("family Jones", personName.getParts().get(2), PersonNamePartType.FAMILY, "Jones", "IN");
+	}
+	
+	@Test
     public void testParseAllPlusUntypedValue() throws Exception {
 		Node node = createNode(
 				"<name use=\"L\">Prime Minister of Canada" +
@@ -220,8 +240,13 @@ public class PnR2ElementParserTest extends MarshallingTestCase {
 	}
 
     private void assertNamePartAsExpected(String message, EntityNamePart namePart, NamePartType expectedType, String expectedValue, String expectedQualifier) {
+    	assertNamePartAsExpected(message, namePart, expectedType, expectedValue, expectedQualifier, null);
+    }
+    
+    private void assertNamePartAsExpected(String message, EntityNamePart namePart, NamePartType expectedType, String expectedValue, String expectedQualifier, String expectedNullFlavor) {
         assertEquals(message + " type", expectedType, namePart.getType());
         assertEquals(message + " value", expectedValue, namePart.getValue());
         assertEquals(message + " qualifier", expectedQualifier, namePart.getQualifier() == null ? null : namePart.getQualifier().getCodeValue());
+        assertEquals(message + " nullFlavor", expectedNullFlavor, namePart.getNullFlavor() == null ? null : namePart.getNullFlavor().getCodeValue());
     }
 }

@@ -21,6 +21,7 @@ package ca.infoway.messagebuilder.tools.delta;
 
 import java.util.List;
 
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -33,7 +34,6 @@ import ca.infoway.messagebuilder.xml.delta.DatatypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.DefaultValueConstraint;
 import ca.infoway.messagebuilder.xml.delta.FixedConstraint;
 import ca.infoway.messagebuilder.xml.delta.LengthConstraint;
-import ca.infoway.messagebuilder.xml.delta.SortOrderConstraint;
 import ca.infoway.messagebuilder.xml.delta.UpdateModeDefaultConstraint;
 import ca.infoway.messagebuilder.xml.delta.UpdateModeValuesConstraint;
 import ca.infoway.messagebuilder.xml.delta.VocabularyBindingConstraint;
@@ -50,7 +50,11 @@ public class ConstrainedDatatypeDeltaVisitor extends RelationshipDeltaVisitor {
 		this.constrainedTypeName = this.delta.getClassName() + "." + getBaseName(this.delta.getRelationshipName());
 		this.datatype = messageSet.getConstrainedDatatype(constrainedTypeName);
 		if (this.datatype == null) {
-			this.datatype = new ConstrainedDatatype(this.constrainedTypeName, getRelationship().getType());
+			String type = getRelationship().getType();
+			if (StandardDataType.isSetOrList(type)) {
+				type = StandardDataType.getTemplateArgument(type).getType();
+			}
+			this.datatype = new ConstrainedDatatype(this.constrainedTypeName, type);
 			messageSet.addConstrainedDatatype(this.datatype);
 		}
 	}
@@ -194,12 +198,6 @@ public class ConstrainedDatatypeDeltaVisitor extends RelationshipDeltaVisitor {
 		relationship.setType(constraint.getNewValue());
 	}
 
-	void visitSortOrderConstraint(SortOrderConstraint constraint) {
-		Relationship relationship = getRelationship();
-		logWarning("sort order", constraint.getOriginalValue(), relationship.getSortOrder());
-		relationship.setSortOrder(constraint.getNewValue());
-	}
-	
 	@Override
 	public void assignSortKey(Relationship newRelationship, List<Relationship> relationships) {
 		// assign a reasonable default, in case there is no sort order constraint

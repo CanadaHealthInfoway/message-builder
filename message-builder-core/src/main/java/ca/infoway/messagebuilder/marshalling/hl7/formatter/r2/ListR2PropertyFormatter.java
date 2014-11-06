@@ -32,7 +32,7 @@ class ListR2PropertyFormatter extends BaseCollectionR2PropertyFormatter {
     @Override
 	protected
     String formatNonNullValue(FormatContext context, Collection<BareANY> list, int indentLevel) {
-    	return formatAllElements(createSubContext(context), list, indentLevel);
+    	return formatAllElements(context, createSubContext(context), list, indentLevel);
     }
 
 }

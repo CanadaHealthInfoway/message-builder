@@ -40,11 +40,8 @@ import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EntryRelationship_3Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.ObservationMedia"})
 public class ObservationMediaBean extends MessagePartBean implements EntryChoice, EntryRelationshipChoice, Component4Choice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private ST iD = new STImpl();
     private CS_R2 classCode = new CS_R2Impl();
     private CS_R2 moodCode = new CS_R2Impl();
@@ -69,8 +66,8 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
-    private List<EntryRelationship_3Bean> entryRelationship = new ArrayList<EntryRelationship_3Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
+    private List<EntryRelationshipBean> entryRelationship = new ArrayList<EntryRelationshipBean>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
 
@@ -98,7 +95,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"classCode"})
     public CodedTypeR2<ActClassObservation> getClassCode() {
@@ -108,7 +105,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.classCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setClassCode(CodedTypeR2<ActClassObservation> classCode) {
         this.classCode.setValue(classCode);
@@ -118,7 +115,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"moodCode"})
     public CodedTypeR2<ActMood> getMoodCode() {
@@ -128,7 +125,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.moodCode</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
         this.moodCode.setValue(moodCode);
@@ -211,7 +208,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.value</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"value"})
     public EncapsulatedDataR2 getValue() {
@@ -221,7 +218,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     /**
      * <p>Relationship: POCD_MT000040.ObservationMedia.value</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setValue(EncapsulatedDataR2 value) {
         this.value.setValue(value);
@@ -298,7 +295,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 
@@ -310,7 +307,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
-    public List<EntryRelationship_3Bean> getEntryRelationship() {
+    public List<EntryRelationshipBean> getEntryRelationship() {
         return this.entryRelationship;
     }
 

@@ -38,29 +38,48 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class Hl7Error {
 	private final Hl7ErrorCode hl7ErrorCode;
+	private final Hl7ErrorLevel hl7ErrorLevel;
 	private final String message;
 	private final String path;
 	private String beanPath; // must be set explicitly - later - when passing in an xpath
 	
 	private transient boolean renderedToXml = false;
 	
-//	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message) {
-//		this(hl7ErrorCode, message, (String) null);
-//	}
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, String beanPath) {
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, String beanPath) {
 		this.hl7ErrorCode = hl7ErrorCode;
+		this.hl7ErrorLevel = hl7ErrorLevel;
 		this.message = message;
 		this.path = null;
 		this.beanPath = beanPath;
 	}
+	
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, String beanPath) {
+		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, beanPath);
+	}
+	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Element element) {
-		this(hl7ErrorCode, message, (Node) element);
+		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, (Node) element);
 	}
+	
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Element element) {
+		this(hl7ErrorCode, hl7ErrorLevel, message, (Node) element);
+	}
+	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Attr attr) {
-		this(hl7ErrorCode, message, (Node) attr);
+		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, (Node) attr);
 	}
+	
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Attr attr) {
+		this(hl7ErrorCode, hl7ErrorLevel, message, (Node) attr);
+	}
+	
 	private Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Node node) {
+		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, node);
+	}
+	
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Node node) {
 		this.hl7ErrorCode = hl7ErrorCode;
+		this.hl7ErrorLevel = hl7ErrorLevel;
 		this.message = message;
 		this.path = XmlDescriber.describePath(node);
 	}
@@ -68,6 +87,11 @@ public class Hl7Error {
 	public Hl7ErrorCode getHl7ErrorCode() {
 		return hl7ErrorCode;
 	}
+	
+	public Hl7ErrorLevel getHl7ErrorLevel() {
+		return hl7ErrorLevel;
+	}
+	
 	public String getMessage() {
 		return message;
 	}
@@ -89,6 +113,15 @@ public class Hl7Error {
 	public void markAsRenderedToXml() {
 		this.renderedToXml = true;
 	}
+	
+	public int getErrorDepth() {
+		if (StringUtils.isNotBlank(this.path)) {
+			return this.path.split("/").length - 1;
+		} else if (StringUtils.isNotBlank(this.beanPath)) {
+			return this.path.split("\\.").length;
+		}
+		return 0;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -100,6 +133,7 @@ public class Hl7Error {
 			Hl7Error that = (Hl7Error) obj;
 			return new EqualsBuilder()
 					.append(this.hl7ErrorCode, that.hl7ErrorCode)
+					.append(this.hl7ErrorLevel, that.hl7ErrorLevel)
 					.append(this.message, that.message)
 					.append(this.path, that.path)
 					.isEquals();
@@ -110,6 +144,7 @@ public class Hl7Error {
 	public int hashCode() {
 		return new HashCodeBuilder()
 			.append(this.hl7ErrorCode)
+			.append(this.hl7ErrorLevel)
 			.append(this.message)
 			.append(this.path)
 			.toHashCode();
@@ -118,6 +153,8 @@ public class Hl7Error {
     @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder();
+    	sb.append(this.hl7ErrorLevel);
+    	sb.append(" - ");
     	sb.append(this.hl7ErrorCode);
     	sb.append(" : ");
     	sb.append(this.message);

@@ -22,32 +22,23 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.policyactivity;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Date;
 
 
 
 @Hl7PartTypeMapping({"PolicyActivity.GuarantorPerformerPerformer2"})
 public class GuarantorPerformerPerformer2Bean extends MessagePartBean implements Performer2Choice {
 
-    private static final long serialVersionUID = 20140915L;
+    private static final long serialVersionUID = 20141104L;
     private II templateId = new IIImpl();
-    private IVL<TS, Interval<Date>> time = new IVLImpl<TS, Interval<Date>>();
-    private AD assignedEntityAddr = new ADImpl();
-    private TEL assignedEntityTelecom = new TELImpl();
+    private IVL_TS time = new IVL_TSImpl();
+    private GuarantorPerformerAssignedEntityBean assignedEntity;
 
 
     /**
@@ -79,7 +70,7 @@ public class GuarantorPerformerPerformer2Bean extends MessagePartBean implements
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"time"})
-    public Interval<Date> getTime() {
+    public DateInterval getTime() {
         return this.time.getValue();
     }
 
@@ -89,52 +80,30 @@ public class GuarantorPerformerPerformer2Bean extends MessagePartBean implements
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setTime(Interval<Date> time) {
+    public void setTime(DateInterval time) {
         this.time.setValue(time);
     }
 
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.GuarantorPerformerAssignedEntity.addr</p>
+     * PolicyActivity.GuarantorPerformerPerformer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"assignedEntity/addr"})
-    public PostalAddress getAssignedEntityAddr() {
-        return this.assignedEntityAddr.getValue();
+    @Hl7XmlMapping({"assignedEntity"})
+    public GuarantorPerformerAssignedEntityBean getAssignedEntity() {
+        return this.assignedEntity;
     }
 
     /**
      * <p>Relationship: 
-     * PolicyActivity.GuarantorPerformerAssignedEntity.addr</p>
+     * PolicyActivity.GuarantorPerformerPerformer2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAssignedEntityAddr(PostalAddress assignedEntityAddr) {
-        this.assignedEntityAddr.setValue(assignedEntityAddr);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.GuarantorPerformerAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"assignedEntity/telecom"})
-    public TelecommunicationAddress getAssignedEntityTelecom() {
-        return this.assignedEntityTelecom.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * PolicyActivity.GuarantorPerformerAssignedEntity.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setAssignedEntityTelecom(TelecommunicationAddress assignedEntityTelecom) {
-        this.assignedEntityTelecom.setValue(assignedEntityTelecom);
+    public void setAssignedEntity(GuarantorPerformerAssignedEntityBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

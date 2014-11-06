@@ -23,26 +23,15 @@ package ca.infoway.messagebuilder.model.ccda_r00_alpha.unstructureddocument;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CS_R2;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.LIST;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CS_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.ContextControl;
-import ca.infoway.messagebuilder.domainvalue.ParticipationType;
-import ca.infoway.messagebuilder.domainvalue.RoleClass;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientRoleOrganizationBean;
 import java.util.List;
 
 
@@ -50,63 +39,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"UnstructuredDocument.RecordTarget"})
 public class RecordTargetBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CS_R2 contextControlCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 patientRoleClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> patientRoleRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
-    private II patientRoleTypeId = new IIImpl();
-    private LIST<II, Identifier> patientRoleTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<II, Identifier> patientRoleId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<AD, PostalAddress> patientRoleAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> patientRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PatientBean patientRolePatient;
-    private PatientRoleOrganizationBean patientRoleProviderOrganization;
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.RecordTarget.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<ParticipationType> getTypeCode() {
-        return (CodedTypeR2<ParticipationType>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: UnstructuredDocument.RecordTarget.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<ParticipationType> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.RecordTarget.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"contextControlCode"})
-    public CodedTypeR2<ContextControl> getContextControlCode() {
-        return (CodedTypeR2<ContextControl>) this.contextControlCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * UnstructuredDocument.RecordTarget.contextControlCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setContextControlCode(CodedTypeR2<ContextControl> contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
-    }
+    private PatientRoleBean patientRole;
 
 
     /**
@@ -153,139 +90,24 @@ public class RecordTargetBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"patientRole/classCode"})
-    public CodedTypeR2<RoleClass> getPatientRoleClassCode() {
-        return (CodedTypeR2<RoleClass>) this.patientRoleClassCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setPatientRoleClassCode(CodedTypeR2<RoleClass> patientRoleClassCode) {
-        this.patientRoleClassCode.setValue(patientRoleClassCode);
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"patientRole/realmCode"})
-    public List<CodedTypeR2<Code>> getPatientRoleRealmCode() {
-        return this.patientRoleRealmCode.rawList(CodedTypeR2.class);
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"patientRole/typeId"})
-    public Identifier getPatientRoleTypeId() {
-        return this.patientRoleTypeId.getValue();
-    }
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setPatientRoleTypeId(Identifier patientRoleTypeId) {
-        this.patientRoleTypeId.setValue(patientRoleTypeId);
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     */
-    @Hl7XmlMapping({"patientRole/templateId"})
-    public List<Identifier> getPatientRoleTemplateId() {
-        return this.patientRoleTemplateId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"patientRole/id"})
-    public List<Identifier> getPatientRoleId() {
-        return this.patientRoleId.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.addr</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     */
-    @Hl7XmlMapping({"patientRole/addr"})
-    public List<PostalAddress> getPatientRoleAddr() {
-        return this.patientRoleAddr.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     */
-    @Hl7XmlMapping({"patientRole/telecom"})
-    public List<TelecommunicationAddress> getPatientRoleTelecom() {
-        return this.patientRoleTelecom.rawList();
-    }
-
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"patientRole/patient"})
-    public PatientBean getPatientRolePatient() {
-        return this.patientRolePatient;
-    }
-
-    /**
-     * <p>Relationship: UnstructuredDocument.PatientRole.patient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setPatientRolePatient(PatientBean patientRolePatient) {
-        this.patientRolePatient = patientRolePatient;
-    }
-
-
-    /**
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRole.providerOrganization</p>
+     * UnstructuredDocument.RecordTarget.patientRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"patientRole/providerOrganization"})
-    public PatientRoleOrganizationBean getPatientRoleProviderOrganization() {
-        return this.patientRoleProviderOrganization;
+    @Hl7XmlMapping({"patientRole"})
+    public PatientRoleBean getPatientRole() {
+        return this.patientRole;
     }
 
     /**
      * <p>Relationship: 
-     * UnstructuredDocument.PatientRole.providerOrganization</p>
+     * UnstructuredDocument.RecordTarget.patientRole</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setPatientRoleProviderOrganization(PatientRoleOrganizationBean patientRoleProviderOrganization) {
-        this.patientRoleProviderOrganization = patientRoleProviderOrganization;
+    public void setPatientRole(PatientRoleBean patientRole) {
+        this.patientRole = patientRole;
     }
 
 }

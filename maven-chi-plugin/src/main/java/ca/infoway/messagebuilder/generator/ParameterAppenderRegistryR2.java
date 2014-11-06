@@ -51,13 +51,13 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 			map.put(StandardDataType.SET, new ParameterAppenderForListOrSetR2());
 			map.put(StandardDataType.COLLECTION, new ParameterAppenderForCollection());
 			map.put(StandardDataType.RTO, new ParameterAppenderForRto());
-			map.put(StandardDataType.IVL, new ParameterAppenderForIvl());
+			map.put(StandardDataType.IVL, new ParameterAppenderForIvlR2());
 			map.put(StandardDataType.ANY, new ParameterAppenderForAny());
 			map.put(StandardDataType.PIVL, new ParameterAppenderForPivl());
 			map.put(StandardDataType.ED, new ParameterAppenderForEd());
 			map.put(StandardDataType.EN, new ParameterAppenderForEn());
 			map.put(StandardDataType.URG, new ParameterAppenderForUrg());
-
+			
 			map.put(StandardDataType.CD, new ParameterAppenderForCodeR2());
 			map.put(StandardDataType.CE, new ParameterAppenderForCodeR2());
 			map.put(StandardDataType.CV, new ParameterAppenderForCodeR2());
@@ -139,6 +139,33 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 		}
 	}
 	
+	static class ParameterAppenderForIvlR2 extends ca.infoway.messagebuilder.generator.ParameterAppenderRegistry.ParameterAppenderForIvl {
+		@Override
+		public void append(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
+			if (isIvlTs(dataType)) {
+				// do nothing
+			} else {
+				super.append(builder, dataType, parameters, language);
+			}
+		}
+
+		@Override
+		public void appendWrapped(StringBuilder builder, DataType dataType,	List<DataType> parameters, ProgrammingLanguage language) {
+			if (isIvlTs(dataType)) {
+				// do nothing
+			} else {
+				super.appendWrapped(builder, dataType, parameters, language);
+			}
+		}
+		
+		private boolean isIvlTs(DataType dataType) {
+			if (dataType != null && dataType.getType() != null) {
+				return "IVL<TS>".equals(dataType.getType().getType());
+			}
+			return false;
+		}
+	}
+	
 	static class ParameterAppenderForEivl extends DefaultWrappedParameterAppender {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
@@ -156,11 +183,6 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
 			if (dataType.isCodedType()) {
-//				builder.append("<");
-//				builder.append(dataType.getUnparameterizedShortName(language));
-//				builder.append("<");
-//				builder.append(parameters.get(0).getUnparameterizedShortName(language));
-//				builder.append(">>");
 				builder.append("<");
 				dataType.appendParameters(builder, language);
 				builder.append(">");
@@ -174,9 +196,6 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 		@Override
 		public void append(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
 			if (dataType.isCodedType()) {
-//				builder.append("<");
-//				builder.append(parameters.get(0).getUnparameterizedShortName(language));
-//				builder.append(">");
 				String unparameterizedShortName = dataType.getUnparameterizedShortName(language);
 				int lastIndexOf = builder.lastIndexOf(unparameterizedShortName);
 				if (lastIndexOf >= 0) {

@@ -33,8 +33,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.ActClass;
-import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,59 +42,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD.StructuredBody"})
 public class StructuredBodyBean extends MessagePartBean implements Component2Choice {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 confidentialityCode = new CE_R2Impl();
     private CS_R2 languageCode = new CS_R2Impl();
     private List<Component3Choice> component = new ArrayList<Component3Choice>();
-
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.StructuredBody.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<ActClass> getClassCode() {
-        return (CodedTypeR2<ActClass>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.StructuredBody.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<ActClass> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.StructuredBody.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public CodedTypeR2<ActMood> getMoodCode() {
-        return (CodedTypeR2<ActMood>) this.moodCode.getValue();
-    }
-
-    /**
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.StructuredBody.moodCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setMoodCode(CodedTypeR2<ActMood> moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
 
 
     /**
@@ -193,7 +145,7 @@ public class StructuredBodyBean extends MessagePartBean implements Component2Cho
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.StructuredBody.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (4-15)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"component"})
     public List<Component3Choice> getComponent() {

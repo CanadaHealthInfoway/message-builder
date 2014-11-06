@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class ParseContextImpl implements ParseContext {
@@ -36,16 +37,18 @@ class ParseContextImpl implements ParseContext {
 	private final VersionNumber version;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
+	private final ConstrainedDatatype constraints;
 
-	private ParseContextImpl(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	private ParseContextImpl(Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.relationship = relationship;
+		this.constraints = constraints;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 	}
 
-	public static ParseContext create(Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new ParseContextImpl(relationship, version, dateTimeZone, dateTimeTimeZone);
+	public static ParseContext create(Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		return new ParseContextImpl(relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
 	}
 
 	public Type getExpectedReturnType() {
@@ -81,4 +84,9 @@ class ParseContextImpl implements ParseContext {
 	public Cardinality getCardinality() {
 		return this.relationship.getCardinality();
 	}
+	
+	public ConstrainedDatatype getConstraints() {
+		return this.constraints;
+	}
+
 }

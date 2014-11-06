@@ -43,8 +43,8 @@ public class SchemaMetadata {
 	@Attribute
 	private String elementFormDefault;
 	
-	@Attribute
-	private String documentation;
+	@ElementList(inline=true,entry="documentation")
+	private List<String> documentation = new ArrayList<String>();
 	
 	@ElementList(inline=true,entry="includeSchemaLocation")
 	private List<String> schemaLocations = new ArrayList<String>();
@@ -72,12 +72,12 @@ public class SchemaMetadata {
 		this.elementFormDefault = elementFormDefault;
 	}
 
-	public String getDocumentation() {
+	public List<String> getDocumentation() {
 		return documentation;
 	}
 
-	public void setDocumentation(String documentation) {
-		this.documentation = documentation;
+	public void addDocumentation(String documentation) {
+		this.documentation.add(documentation);
 	}
 
 	public List<String> getSchemaLocations() {

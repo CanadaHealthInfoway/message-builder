@@ -34,7 +34,6 @@ public class ParserR2Registry extends Registry<ElementParser> {
     protected void registerAll() {
         register(new AnyR2ElementParser());
         register(new AdR2ElementParser());
-        register(new BagR2ElementParser());
         register(new BlR2ElementParser());
         register(new BxitCdR2ElementParser());
         register(new EdR2ElementParser());

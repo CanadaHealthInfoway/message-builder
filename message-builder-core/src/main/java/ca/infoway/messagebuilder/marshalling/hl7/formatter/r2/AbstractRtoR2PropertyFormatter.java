@@ -25,7 +25,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
-import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 
 public abstract class AbstractRtoR2PropertyFormatter<T, U> extends AbstractNullFlavorPropertyFormatter<BareRatio> {
 
@@ -49,7 +48,7 @@ public abstract class AbstractRtoR2PropertyFormatter<T, U> extends AbstractNullF
 		buffer.append(formatNumerator(context, bareNumerator, indentLevel + 1));
 		buffer.append(formatDenominator(context, bareDenominator, indentLevel + 1));
         
-        buffer.append(XmlRenderingUtils.createEndElement(context.getElementName(), indentLevel, true));
+        buffer.append(createElementClosure(context.getElementName(), indentLevel, true));
         return buffer.toString();
     }
     

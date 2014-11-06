@@ -41,7 +41,7 @@ public class MessageBeanTransformerImpl {
 	private final TimeZone dateTimeTimeZone;
 
 	public MessageBeanTransformerImpl() {
-		this(new MessageDefinitionServiceFactory().create(), RenderMode.STRICT);
+		this(new MessageDefinitionServiceFactory().create(), RenderMode.PERMISSIVE);
 	}
 	public MessageBeanTransformerImpl(RenderMode renderMode) {
 		this(new MessageDefinitionServiceFactory().create(), renderMode);
@@ -103,7 +103,7 @@ public class MessageBeanTransformerImpl {
 		CodeResolverRegistry.setThreadLocalVersion(version);
 		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
 
-		XmlRenderingVisitor visitor = new XmlRenderingVisitor(this.service.isR2(version));
+		XmlRenderingVisitor visitor = new XmlRenderingVisitor(this.service.isR2(version), this.service.isCda(version));
 		new TealBeanRenderWalker(messageBean, version, dateTimeZone, dateTimeTimeZone, this.service).accept(visitor);
 
 		CodeResolverRegistry.clearThreadLocalVersion();

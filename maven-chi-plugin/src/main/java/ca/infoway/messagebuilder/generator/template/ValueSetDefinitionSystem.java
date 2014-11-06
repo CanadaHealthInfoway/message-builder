@@ -26,12 +26,18 @@ import org.simpleframework.xml.Root;
 @Root(strict=false)
 public class ValueSetDefinitionSystem {
 	
-	@Attribute
+	@Attribute(required=false)
 	private String valueSetOid;
 	
-	@Attribute
+	@Attribute(required=false)
 	private String valueSetName;
 
+	@Attribute(required=false)
+	private String codeSystemOid;
+	
+	@Attribute(required=false)
+	private String codeSystemName;
+	
 	public String getValueSetOid() {
 		return valueSetOid;
 	}
@@ -46,5 +52,21 @@ public class ValueSetDefinitionSystem {
 
 	public void setValueSetName(String valueSetName) {
 		this.valueSetName = valueSetName;
+	}
+
+	public String getCodeSystemOid() {
+		return codeSystemOid;
+	}
+
+	public void setCodeSystemOid(String codeSystemOid) {
+		this.codeSystemOid = codeSystemOid;
+	}
+
+	public String getCodeSystemName() {
+		return codeSystemName;
+	}
+
+	public void setCodeSystemName(String codeSystemName) {
+		this.codeSystemName = codeSystemName;
 	}
 }

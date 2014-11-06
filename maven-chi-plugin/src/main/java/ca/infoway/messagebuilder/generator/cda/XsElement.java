@@ -28,10 +28,13 @@ import org.simpleframework.xml.Root;
 @Namespace(prefix="xs",reference="http://www.w3.org/2001/XMLSchema")
 public class XsElement implements SequenceChild {
 
-	@Attribute
+	@Attribute(required=false)
 	private String name;
 	
-	@Attribute
+	@Attribute(required=false)
+	private String ref;
+	
+	@Attribute(required=false)
 	private String type;
 	
 	@Attribute(required=false)
@@ -46,6 +49,14 @@ public class XsElement implements SequenceChild {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRef() {
+		return ref;
+	}
+
+	public void setRef(String ref) {
+		this.ref = ref;
 	}
 
 	public String getType() {

@@ -39,6 +39,8 @@ import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.CodeLookupUtils;
+import ca.infoway.messagebuilder.platform.CodeUtil;
 
 public class CeR2PropertyFormatterTest extends FormatterTestCase {
 
@@ -57,6 +59,17 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 		
 		CodedTypeR2<Code> translation2 = new CodedTypeR2<Code>();
 		translation2.setCode(CeRxDomainTestValues.FLUID_OUNCE);
+
+		CodedTypeR2<Code> translation3 = new CodedTypeR2<Code>();
+		translation3.setCode(new Code() {
+			public String getCodeValue() {
+				return null;
+			}
+			public String getCodeSystem() {
+				return CeRxDomainTestValues.FLUID_OUNCE.getCodeSystem();
+			}
+		});
+		translation3.setNullFlavorForTranslationOnly(NullFlavor.OTHER);
 		
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		codedType.setCode(CeRxDomainTestValues.CENTIMETRE);
@@ -65,6 +78,7 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setDisplayName("aDisplayName");
 		codedType.getTranslation().add(translation1);	
 		codedType.getTranslation().add(translation2);
+		codedType.getTranslation().add(translation3);
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
 		originalText.setContent("some original text");
@@ -78,6 +92,7 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 				"<originalText>some original text</originalText>" +
 				"<translation code=\"kg\" codeSystem=\"1.2.3.4\"/>" +
 				"<translation code=\"[foz_br]\" codeSystem=\"1.2.3.4\"/>" +
+				"<translation codeSystem=\"1.2.3.4\" nullFlavor=\"OTH\"/>" +
 				"</name>", StringUtils.trim(result), true);
 	}
 	

@@ -36,17 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.x_ActRelationshipEntryRelationship;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.problemobservation.ObservationBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"EncounterDiagnosis.EntryRelationship","HospitalAdmissionDiagnosis.EntryRelationship","HospitalDischargeDiagnosis.EntryRelationship","PostprocedureDiagnosis.EntryRelationship","PreoperativeDiagnosis.EntryRelationship","ProblemConcernActCondition.EntryRelationship"})
-public class EntryRelationship_2Bean extends MessagePartBean {
+@Hl7PartTypeMapping({"DeceasedObservation.EntryRelationship","EncounterDiagnosis.EntryRelationship","HospitalAdmissionDiagnosis.EntryRelationship","HospitalDischargeDiagnosis.EntryRelationship","PostprocedureDiagnosis.EntryRelationship","PreoperativeDiagnosis.EntryRelationship","ProblemConcernActCondition.EntryRelationship"})
+public class EntryRelationship_2Bean extends MessagePartBean implements EntryRelationshipChoice_5 {
 
-    private static final long serialVersionUID = 20140915L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20141104L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -56,102 +54,6 @@ public class EntryRelationship_2Bean extends MessagePartBean {
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"typeCode"})
-    public CodedTypeR2<x_ActRelationshipEntryRelationship> getTypeCode() {
-        return (CodedTypeR2<x_ActRelationshipEntryRelationship>) this.typeCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.typeCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setTypeCode(CodedTypeR2<x_ActRelationshipEntryRelationship> typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
 
     /**
@@ -194,6 +96,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -244,6 +153,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.inversionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setInversionInd(Boolean inversionInd) {
         this.inversionInd.setValue(inversionInd);
@@ -290,6 +206,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -340,6 +263,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.contextConductionInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
@@ -386,6 +316,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -436,6 +373,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.negationInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
@@ -482,6 +426,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -532,6 +483,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"typeId"})
     public Identifier getTypeId() {
@@ -577,6 +535,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -625,6 +590,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -676,6 +648,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -722,6 +701,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.sequenceNumber</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -772,6 +758,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"seperatableInd"})
     public Boolean getSeperatableInd() {
@@ -818,6 +811,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.seperatableInd</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -868,6 +868,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * PreoperativeDiagnosis.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"observation"})
     public ObservationBean getObservation() {
@@ -914,6 +921,13 @@ public class EntryRelationship_2Bean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PreoperativeDiagnosis.EntryRelationship.observation</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DeceasedObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

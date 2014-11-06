@@ -80,7 +80,8 @@ public class RecordDispenseProcessingTransformationTest extends BaseTransformerT
 	public void shouldFormatAcceptedResponse() throws Exception {
 		RecordDispenseProcessingRequestAcceptedMessageBean model = createAcceptedResponseBean();
 		String xml = this.transformer.transformToHl7(BaseTransformerTestCase.NEWFOUNDLAND_LEGACY_VERSION_HACK, model).getXmlMessage();
-		Document actual = this.factory.createFromString(xml);
+		//Document actual = 
+				this.factory.createFromString(xml);
 	}
 
 	private RecordDispenseProcessingRequestMessageBean createRequestBean() {

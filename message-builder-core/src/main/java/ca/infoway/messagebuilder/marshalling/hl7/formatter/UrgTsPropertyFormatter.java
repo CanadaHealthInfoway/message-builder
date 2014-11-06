@@ -44,7 +44,7 @@ class UrgTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Uncerta
     	Interval<Date> convertedInterval = IntervalFactory.createFromUncertainRange(value);
     	IVLImpl<TS, Interval<Date>> convertedHl7Interval = new IVLImpl<TS, Interval<Date>>(convertedInterval);
     	
-    	FormatContext ivlContext = new FormatContextImpl(context.getType().replace("URG", "IVL"), context);
+    	FormatContext ivlContext = new FormatContextImpl(context.getType().replace("URG", "IVL"), context.isSpecializationType(), context);
     	
 		String xml = this.formatter.format(ivlContext, convertedHl7Interval, indentLevel);
 

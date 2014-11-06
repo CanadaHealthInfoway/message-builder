@@ -137,7 +137,7 @@ public class ValidatingVisitor implements MessageVisitor {
 			validateFixedValue(attr, relationship.getFixedValue());
 		} else if (attr != null) {
 			validateStructuralAttributeValue(base, attr, relationship);
-		} else if (relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship)) {  // also implies isMandatory()
+		} else if (relationship.hasFixedValue()) {  // also implies isMandatory()
 			// various people suggest that fixed values can be left out
 		} else if (ConformanceLevelUtil.isMandatory(relationship)) {
 			this.result.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(relationship.getName(), base));
@@ -153,7 +153,8 @@ public class ValidatingVisitor implements MessageVisitor {
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
 		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
-			new CvElementParser().doParse(ParseContextImpl.create(relationship, this.version), base, this.result, false, attr.getLocalName());
+			// FIXME - CDA - TM - need to get the validator working for R2 handling
+			new CvElementParser().doParse(ParseContextImpl.create(relationship, this.version, null), base, this.result, false, attr.getLocalName());
 		} else {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralTypeError(relationship.getType(), relationship.getName(), base, attr));
 		}
@@ -181,7 +182,8 @@ public class ValidatingVisitor implements MessageVisitor {
 				try {
 					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
 					if (parser != null) {
-						BareANY value = parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
+						// FIXME - CDA - TM - need to get the validator working for R2 handling
+						BareANY value = parser.parse(ParseContextImpl.create(relationship, this.version, null), toNodeList(elements), this.result);
 						validateNonstructuralFixedValue(relationship, value, elements);
 					} else {
 						this.result.addHl7Error(
@@ -227,8 +229,6 @@ public class ValidatingVisitor implements MessageVisitor {
 							CollectionUtils.isEmpty(elements) ? null : elements.get(0)
 						));
 				}
-			} else {
-				valid = !(relationship.hasFixedValue() && ConformanceLevelUtil.isMandatory(relationship));
 			}
 			if (!valid) {
 				this.result.addHl7Error(
