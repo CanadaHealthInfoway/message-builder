@@ -87,7 +87,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation2);
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), new CD_R2Impl(codedType));
@@ -110,7 +110,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text allowed for CD");
+		originalText.setTextContent("original text allowed for CD");
 		codedType.setOriginalText(originalText);
 
 		
@@ -159,7 +159,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation2);	
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 
 		CD_R2 cd = new CD_R2Impl(codedType);

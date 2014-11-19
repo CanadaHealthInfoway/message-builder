@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 @DataTypeHandler("PIVL<TS>")
 class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicIntervalTimeR2> {
@@ -75,7 +75,7 @@ class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicInterval
 		if (element == null) {
 			return null;
 		}
-		ParseContext pqContext = ParserContextImpl.create("PQ", context);
+		ParseContext pqContext = ParseContextImpl.create("PQ", context);
 		BareANY pqAny = this.pqParser.parse(pqContext, element, xmlToModelResult);
 		return (PhysicalQuantity) pqAny.getBareValue();
 	}
@@ -84,7 +84,7 @@ class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicInterval
 		if (element == null) {
 			return null;
 		}
-		ParseContext ivlTsContext = ParserContextImpl.create("IVL<TS>", context);
+		ParseContext ivlTsContext = ParseContextImpl.create("IVL<TS>", context);
 		BareANY periodAny = this.ivlTsParser.parse(ivlTsContext, Arrays.asList((Node) element), xmlToModelResult);
 		DateInterval dateInterval = (DateInterval) periodAny.getBareValue();
 		return dateInterval == null ? null : dateInterval.getInterval();

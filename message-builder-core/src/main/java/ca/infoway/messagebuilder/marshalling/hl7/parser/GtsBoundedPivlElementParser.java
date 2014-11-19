@@ -91,7 +91,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parseDuration(ParseContext context, XmlToModelResult xmlResult, Element durationElement) {
-		ParseContext subContext = ParserContextImpl.create(
+		ParseContext subContext = ParseContextImpl.create(
 				"IVL<TS.FULLDATE>",
 				Interval.class,
 				context.getVersion(),
@@ -99,14 +99,14 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeTimeZone(),
 				MANDATORY,
 				Cardinality.create("1"),
-				context.getConstraints());
+				null);
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlResult)
 						.getBareValue();
 	}
 
 	private PeriodicIntervalTime parseFrequency(ParseContext context, XmlToModelResult xmlToModelResult, Element durationElement) {
-		ParseContext subContext = ParserContextImpl.create(
+		ParseContext subContext = ParseContextImpl.create(
 				"PIVL<TS.DATETIME>",
 				PeriodicIntervalTime.class,
 				context.getVersion(),
@@ -114,7 +114,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 				context.getDateTimeTimeZone(),
 				MANDATORY,
 				Cardinality.create("1"),
-				context.getConstraints());
+				null);
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlToModelResult)
 						.getBareValue();

@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.TrivialContext;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -57,7 +57,7 @@ public class IntR2ElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext(String hl7Type) {
-		return ParserContextImpl.create(hl7Type, Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(hl7Type, Integer.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 	
 	@Test

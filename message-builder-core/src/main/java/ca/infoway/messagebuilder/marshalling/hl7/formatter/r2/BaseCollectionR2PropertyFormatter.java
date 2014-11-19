@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 
 import org.apache.commons.lang.StringUtils;
@@ -29,12 +30,14 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareCollection;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.marshalling.PolymorphismHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler.ConstraintResult;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler.ConstraintResult;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
@@ -46,7 +49,9 @@ import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 public abstract class BaseCollectionR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<Collection<BareANY>> {
 
 	// only checking II constraints for now
-	private IiConstraintHandler constraintHandler = new IiConstraintHandler();
+	private IiCollectionConstraintHandler constraintHandler = new IiCollectionConstraintHandler();
+	
+	private PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
 	
 	protected FormatContext createSubContext(FormatContext context) {
 		return new FormatContextImpl(
@@ -96,29 +101,36 @@ public abstract class BaseCollectionR2PropertyFormatter extends AbstractNullFlav
     		builder.append(formatter.format(subContext, null, indentLevel));
     	} else {
 	        for (BareANY hl7Value : EmptyIterable.<BareANY>nullSafeIterable(collection)) {
-	        	PropertyFormatter actualFormatter = formatter;
-	        	FormatContext newContext = subContext;
-	        	
-	    		String type = subContext.getType();
-	    		String rootType = StandardDataType.getByTypeName(type).getRootType();
-	    		String alternateType = (hl7Value == null ? type : hl7Value.getDataType().getType());
-	    		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
+	    		String type = determineActualType(subContext.getType(), hl7Value, originalContext.getModelToXmlResult(), originalContext.getPropertyPath());
 	    		
-	    		// TODO - CDA - TM - need a more solid check on datatype being changed (add to bareany a getDefaultType and see if that has been changed?)
-	    		if (!"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
-	    			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
-	    				// TODO - CDA - TM - need to validate non-allowed type-switching
-	    				newContext = new FormatContextImpl(alternateType, true, subContext);
-	    				type = alternateType;
-	    				actualFormatter = FormatterR2Registry.getInstance().get(alternateType);
-	    			}
+	    		if (!StringUtils.equals(type, subContext.getType())) {
+	    			subContext = new FormatContextImpl(type, true, subContext);
+	    			formatter = FormatterR2Registry.getInstance().get(type);
 	    		}
 	        	
-	        	
-				builder.append(actualFormatter.format(newContext, hl7Value, indentLevel));
+				builder.append(formatter.format(subContext, hl7Value, indentLevel));
 	        }
     	}
         return builder.toString();
+	}
+
+	private String determineActualType(String type, BareANY hl7Value, Hl7Errors errors, String propertyPath) {
+		String rootType = StandardDataType.getByTypeName(type).getRootType();
+		String alternateType = (hl7Value == null || hl7Value.getDataType() == null ? type : hl7Value.getDataType().getType());
+		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
+		
+		if (!"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
+			// any better way to detect a type change? no guarantee that the standard/unchanged type in hl7Value will directly match the model type 
+			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
+				if (this.polymorphismHandler.isValidTypeChange(type, alternateType)) {
+					type = alternateType;
+				} else {
+					String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", type, alternateType);
+					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, propertyPath));
+				}
+			}
+		}
+		return type;
 	}
 
 	private void handleConstraints(String type, ConstrainedDatatype constraints, Collection<BareANY> collection, FormatContext context) {

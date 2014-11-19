@@ -44,16 +44,16 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 public class CodeLookupUtils {
 
     public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
-    		Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
-    	return getCorrespondingCode(code, codeSystem, expectedReturnType, element, context, xmlToModelResult, false);
+    		Element element, String type, XmlToModelResult xmlToModelResult) {
+    	return getCorrespondingCode(code, codeSystem, expectedReturnType, element, type, xmlToModelResult, false);
     }
     
     public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
-    		Element element, ParseContext context, XmlToModelResult xmlToModelResult, boolean relaxCodeSystemCheck) {
+    		Element element, String type, XmlToModelResult xmlToModelResult, boolean relaxCodeSystemCheck) {
     	
     	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
     	
-    	if (StandardDataType.CS.getType().equals(context.getType())) {
+    	if (StandardDataType.CS.getType().equals(type)) {
     		if (codeSystem != null) {
     			xmlToModelResult.addHl7Error(
     					new Hl7Error(

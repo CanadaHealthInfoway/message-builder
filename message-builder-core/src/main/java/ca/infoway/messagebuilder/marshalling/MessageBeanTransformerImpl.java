@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
+import ca.infoway.messagebuilder.xml.validator.SchematronValidator;
 
 public class MessageBeanTransformerImpl {
 	
@@ -110,6 +111,10 @@ public class MessageBeanTransformerImpl {
 		CodeResolverRegistry.clearThreadLocalCodeResolverRegistryOverride();
 		
 		ModelToXmlResult result = visitor.toXml();
+		
+		SchematronValidator schematronValidator = new SchematronValidator(this.service.getAllSchematronContexts(version));
+		schematronValidator.validate(result.getXmlMessage(), result);
+		
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());
 		}

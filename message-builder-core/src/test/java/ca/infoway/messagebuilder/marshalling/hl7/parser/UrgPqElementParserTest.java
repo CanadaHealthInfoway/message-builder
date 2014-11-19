@@ -84,7 +84,7 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 
 	@Test
 	public void testParseUrgForBC() throws Exception {
-		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null, null);
+		ParseContext context = ParseContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null, null);
 		
 		String xml = "<value specializationType=\"URG_PQ.LAB\" unit=\"1\" xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
 						 + "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
@@ -118,7 +118,7 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
 	public void testParseUrgForBCAlt() throws Exception {
-		ParseContext context = ParserContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null, null);
+		ParseContext context = ParseContextImpl.create("URG<PQ.LAB>", null, SpecificationVersion.V02R04_BC, null, null, null, null, null, null, null);
 		
 		String xml = "<value specializationType=\"URG_PQ.LAB\" unit=\"1\" xsi:type=\"URG_PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
 						 + "<originalText mediaType=\"text/plain\" representation=\"TXT\">&lt;124</originalText>"
@@ -173,7 +173,7 @@ public class UrgPqElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParserContextImpl.create("URG<PQ.BASIC>", null, SpecificationVersion.R02_04_02, null, null, null, null, null, null, null);
+		return ParseContextImpl.create("URG<PQ.BASIC>", null, SpecificationVersion.R02_04_02, null, null, null, null, null, null, null);
 	}
 	
 }

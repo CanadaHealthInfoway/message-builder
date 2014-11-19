@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 /**
  * ANY (R2)
@@ -90,7 +90,7 @@ public class AnyR2ElementParser extends AbstractSingleElementParser<Object> {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(actualType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
-						ParserContextImpl.create(
+						ParseContextImpl.create(
 							actualType,
 							determineReturnType(actualType, getReturnType(context)),
 							context.getVersion(),

@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 /**
  * PQ - Physical Quantity (R2)
@@ -97,7 +97,7 @@ class PqR2ElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	
 	private void handleTranslations(Element element, PhysicalQuantity pq, ParseContext context, XmlToModelResult result) {
 		// we have no knowledge of what domain the translations may belong to (I imagine code system could allow for a reverse lookup at some point)
-		ParseContext newContext = ParserContextImpl.create("PQR", ANY.class, context); 
+		ParseContext newContext = ParseContextImpl.create("PQR", ANY.class, context); 
 		NodeList translations = element.getElementsByTagName("translation");
 		for (int i = 0, length = translations.getLength(); i < length; i++) {
 			Element translationElement = (Element) translations.item(i);

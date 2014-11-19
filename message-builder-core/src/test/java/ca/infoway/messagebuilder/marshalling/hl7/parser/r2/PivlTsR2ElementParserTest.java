@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 	
@@ -131,7 +131,7 @@ public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParserContextImpl.create("PIVL<TS>", null, SpecificationVersion.R02_04_02, null, null, null, null, null, null, null);
+		return ParseContextImpl.create("PIVL<TS>", null, SpecificationVersion.R02_04_02, null, null, null, null, null, null, null);
 	}
 	
 }

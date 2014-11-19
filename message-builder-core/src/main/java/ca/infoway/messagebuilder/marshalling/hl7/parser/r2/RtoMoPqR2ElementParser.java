@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -55,7 +55,7 @@ class RtoMoPqR2ElementParser extends AbstractRtoR2ElementParser<Money, PhysicalQ
     	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
+    	ParseContext innerContext = ParseContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
     	return (Money) moParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();
@@ -66,7 +66,7 @@ class RtoMoPqR2ElementParser extends AbstractRtoR2ElementParser<Money, PhysicalQ
     	// inner types (numerator and denominator) are guaranteed to be of type MO.x and PQ.x due to the DataTypeHandler annotation; no need to validate this is a MO or PQ
     	
     	// create new (mandatory) context
-    	ParseContext innerContext = ParserContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
+    	ParseContext innerContext = ParseContextImpl.create(type, ConformanceLevel.MANDATORY, Cardinality.create("1"), context);
     	
     	// this loses any null flavor info; however, since both numerator and denominator are mandatory this is not a problem
     	return (PhysicalQuantity) pqParser.parse(innerContext, (Node) element, xmlToModelResult).getBareValue();

@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 
@@ -61,7 +61,7 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null);
+		return ParseContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null);
 	}
 
 	@Test

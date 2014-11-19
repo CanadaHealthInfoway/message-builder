@@ -23,10 +23,11 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.commons.lang.StringUtils;
-import org.w3c.dom.CDATASection;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -38,13 +39,19 @@ import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.EdConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
+import ca.infoway.messagebuilder.util.xml.XmlRenderer;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
  * ED (R2)- Encapsulated Data
@@ -59,7 +66,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
 @DataTypeHandler("ED")
 class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> {
 
-	private TelR2ElementParser telParser = new TelR2ElementParser();
+	private final TelR2ElementParser telParser = new TelR2ElementParser();
+	private final EdConstraintsHandler constraintsHandler = new EdConstraintsHandler();
 
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
@@ -80,9 +88,12 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 		handleIntegrityCheck(ed, element, context, result);
 		handleIntegrityCheckAlgorithm(ed, element, context, result);
 		
+		validateInnerNodes(element, result);
 		handleContent(ed, element, result, context);
 		handleReference(ed, element, result, context);
 		handleThumbnail(ed, element, result, context);
+		
+		handleConstraints(ed, context.getConstraints(), element, result);
 		
 		if (ed.isEmpty()) {
 			ed = null;
@@ -91,69 +102,92 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 		return ed;
 	}
 
-	private void handleContent(EncapsulatedDataR2 ed, Element element, XmlToModelResult result, ParseContext context) {
-		
-		// FIXME - TM - CDA - validate that there is only one "extra" element (ignoring blank text nodes) after reference and thumbnail; could be a non-blank text node, or document content
-		
-		// skip reference
-		// skip thumbnail
-		// should only be 1 element remaining (of any name)
-		// grab this last element and all of its content, and convert to String
-		
-		NodeList childNodes = element.getChildNodes();
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node node = childNodes.item(i);
-			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName())) {
-				String serializeNode = serializeNode(node);
-				sb.append(serializeNode);
+	private void handleConstraints(EncapsulatedDataR2 ed, ConstrainedDatatype constraints, final Element element, final Hl7Errors errors) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
 			}
-		}
-		String content = sb.toString();
-		if (!StringUtils.isBlank(content)) {
-			ed.setContent(content);
+		};
+		this.constraintsHandler.handleConstraints(constraints, ed, logger);
+	}
+
+	private void handleContent(EncapsulatedDataR2 ed, Element element, XmlToModelResult result, ParseContext context) {
+		Node contentNode = determineContentNode(element, result);
+		if (contentNode != null) {
+	        if (contentNode.getNodeName().equals("#text")) {
+	        	// debatable whether the text content should be trimmed or not; trimming for now
+	        	ed.setTextContent(StringUtils.trim(contentNode.getTextContent()));
+	        } else if (contentNode.getNodeType() == Node.CDATA_SECTION_NODE) {
+	        	ed.setCdataContent(contentNode.getNodeValue());
+	        } else {
+	        	try {
+					Document doc = XmlRenderer.obtainDocumentFromNode(contentNode, true);
+					ed.setDocumentContent(doc);
+				} catch (ParserConfigurationException e) {
+					result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content: " + e.getMessage(), element));
+				}
+	        }
 		}
 	}
+
+	private void validateInnerNodes(Element element, Hl7Errors errors) {
+		// should come in the following order (ignoring empty text nodes)
+		// at most one reference
+		// at most one thumbnail
+		// at most one content node (text, CDATA, element)
+		int referenceCount = 0;
+		int thumbnailCount = 0;
+		int contentCount = 0;
+		boolean nodesOutOfOrder = false;
+		
+		NodeList childNodes = element.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if ("reference".equals(node.getNodeName())) {
+				if (thumbnailCount > 0 || contentCount > 0) {
+					nodesOutOfOrder = true;
+				}
+				referenceCount++;
+			} else if ("thumbnail".equals(node.getNodeName())) {
+				if (contentCount > 0) {
+					nodesOutOfOrder = true;
+				}
+				thumbnailCount++;
+			} else if (!isEmptyTextNode(node)) {
+				contentCount++;
+			}
+		}
+		
+		if (referenceCount > 1) {
+			recordError("ED types only allow a single reference. Found: " + referenceCount, element, errors);
+		}
+		if (thumbnailCount > 1) {
+			recordError("ED types only allow a single thumbnail. Found: " + thumbnailCount, element, errors);
+		}
+		if (contentCount > 1) {
+			recordError("ED only supports a single content node. Found: " + contentCount, element, errors);
+		}
+		if (nodesOutOfOrder) {
+			recordError("ED properties appear to be out of order. If provided, order must be (reference element, thumbnail element, content).", element, errors);
+		}
+	}
+
+	private Node determineContentNode(Element element, Hl7Errors errors) {
+		// skip reference element, thumbnail element, blank text nodes
+		Node firstContentNode = null;
+		NodeList childNodes = element.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName()) && !isEmptyTextNode(node)) {
+				firstContentNode = node;
+				break;
+			}
+		}
+		return firstContentNode;
+	}
 	
-    private String serializeNode(Node node){
-        if (node.getNodeName().equals("#text")) {
-        	return node.getTextContent();
-        }
-        if (node instanceof org.w3c.dom.CDATASection) {
-        	return serializeCDATA((org.w3c.dom.CDATASection) node);
-        }
-        
-        StringBuffer s = new StringBuffer();
-       	s.append("<").append(node.getNodeName());
-       	
-        NamedNodeMap attributes = node.getAttributes();
-        if (attributes != null && attributes.getLength() > 0){
-            for( int i = 0; i < attributes.getLength(); i++) {
-            	s.append(" ");
-                s.append(attributes.item(i).getNodeName()).append("=\"").append(attributes.item(i).getNodeValue()).append("\"");
-            }
-        }
-        
-        NodeList childs = node.getChildNodes();
-        if (childs == null || childs.getLength() == 0) {
-          	s.append("/>");
-            return s.toString();
-        }
-        
-        s.append(">");
-        for (int i = 0; i < childs.getLength(); i++) {
-            s.append(serializeNode(childs.item(i)));
-        }
-        s.append("</").append(node.getNodeName()).append(">");
-        return s.toString();
-    }
-    
-	private String serializeCDATA(CDATASection node) {
-        StringBuffer s = new StringBuffer();
-    	s.append("<![CDATA[");
-    	s.append(((org.w3c.dom.CDATASection)node).getData());
-    	s.append("]]>");
-		return s.toString();
+    private boolean isEmptyTextNode(Node node) {
+        return node.getNodeName().equals("#text") && StringUtils.isBlank(node.getTextContent());
 	}
 
 	private void handleIntegrityCheckAlgorithm(EncapsulatedDataR2 ed, Element element, ParseContext context, XmlToModelResult result) {
@@ -163,7 +197,7 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 				IntegrityCheckAlgorithm ica = IntegrityCheckAlgorithm.valueOf(icaString);
 				ed.setIntegrityCheckAlgorithm(ica);
 			} catch (Exception e) {
-				recordError("Unknown value for integrityCheckAlgorithm: " + icaString, element, context, result);
+				recordError("Unknown value for integrityCheckAlgorithm: " + icaString, element, result);
 			}
 		}
 	}
@@ -178,11 +212,8 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 	private void handleReference(EncapsulatedDataR2 ed, Element element, XmlToModelResult xmlToModelResult, ParseContext context) {
 		List<Element> references = getNamedElements("reference", element);
 		if (!references.isEmpty()) {
-			if (references.size() > 1) {
-				recordError("ED types only allow a single reference. Found: " + references.size(), element, context, xmlToModelResult);
-			}
 			Element referenceElement = references.get(0);
-			ParseContext newContext = ParserContextImpl.create("TEL", context);
+			ParseContext newContext = ParseContextImpl.create("TEL", context);
 			BareANY parsedRef = this.telParser.parse(newContext, referenceElement, xmlToModelResult);
 			if (parsedRef != null && parsedRef.getBareValue() != null) {
 				ed.setReference((TelecommunicationAddress) parsedRef.getBareValue());
@@ -197,7 +228,7 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 				EdRepresentation representation = EdRepresentation.valueOf(representationString);
 				ed.setRepresentation(representation);
 			} catch (Exception e) {
-				recordError("Unknown value for representation: " + representationString, element, context, result);
+				recordError("Unknown value for representation: " + representationString, element, result);
 			}
 		}
 	}
@@ -206,16 +237,13 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 		List<Element> thumbnails = getNamedElements("thumbnail", element);
 		
 		if (!thumbnails.isEmpty()) {
-			if (thumbnails.size() > 1) {
-				recordError("ED types only allow a single thumbnail. Found: " + thumbnails.size(), element, context, xmlToModelResult);
-			}
 			Element thumbnailElement = thumbnails.get(0);
-			ParseContext newContext = ParserContextImpl.create("ED", context);
+			ParseContext newContext = ParseContextImpl.create("ED", context);
 			BareANY parsedThumbnail = this.parse(newContext, thumbnailElement, xmlToModelResult);
 			EncapsulatedDataR2 edThumbnail = (EncapsulatedDataR2) parsedThumbnail.getBareValue();
 			ed.setThumbnail(edThumbnail);
 			if (edThumbnail.getThumbnail() != null) {
-				recordError("ED thumbnail properties should not themselves also have a thumbnail." + thumbnails.size(), element, context, xmlToModelResult);
+				recordError("ED thumbnail properties should not themselves also have a thumbnail." + thumbnails.size(), element, xmlToModelResult);
 			}
 		}
 	}
@@ -238,8 +266,8 @@ class EdR2ElementParser extends AbstractSingleElementParser<EncapsulatedDataR2> 
 		}
 	}
 
-	private void recordError(String message, Element element, ParseContext context, XmlToModelResult result) {
-		result.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
+	private void recordError(String message, Element element, Hl7Errors errors) {
+		errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
 	}
 	
 }

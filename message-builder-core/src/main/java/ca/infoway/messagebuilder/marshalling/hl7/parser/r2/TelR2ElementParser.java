@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -150,7 +150,7 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
                 Element useablePeriodElement = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(useablePeriodElement);
                 if ("useablePeriod".equals(name)) {
-					BareANY tsAny = tsR2ElementParser.parse(tsContext(version, context.getConstraints()), useablePeriodElement, xmlToModelResult);
+					BareANY tsAny = tsR2ElementParser.parse(tsContext(version), useablePeriodElement, xmlToModelResult);
                 	MbDate mbDate = (MbDate) tsAny.getBareValue();
                 	result.addUseablePeriod(mbDate == null ? null : mbDate.getValue(), ((ANYMetaData) tsAny).getOperator());
                 } else {
@@ -161,8 +161,8 @@ class TelR2ElementParser extends AbstractSingleElementParser<TelecommunicationAd
         }
 	}
 
-	private ParseContext tsContext(VersionNumber version, ConstrainedDatatype constraints) {
-		return ParserContextImpl.create(StandardDataType.SXCM_TS.getType(), null, version, null, null, null, null, constraints);
+	private ParseContext tsContext(VersionNumber version) {
+		return ParseContextImpl.create(StandardDataType.SXCM_TS.getType(), null, version, null, null, null, null, null);
 	}
 
 	private void parseAddressUses(Node node, TelecommunicationAddress result) {

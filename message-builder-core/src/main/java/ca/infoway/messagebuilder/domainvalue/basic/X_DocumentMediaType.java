@@ -55,6 +55,8 @@ public class X_DocumentMediaType extends EnumPattern implements x_DocumentMediaT
 	public static final X_DocumentMediaType XML_TEXT = new X_DocumentMediaType("XML_TEXT", "text/xml");
 	public static final X_DocumentMediaType HL7_CDA = new X_DocumentMediaType("HL7_CDA", "multipart/x-hl7-cda-level-one");
 	
+	public static final X_DocumentMediaType DICOM = new X_DocumentMediaType("DICOM", "application/dicom");
+	
 	private final String mimeType;
 
 	private X_DocumentMediaType(String name, String mimeType) {

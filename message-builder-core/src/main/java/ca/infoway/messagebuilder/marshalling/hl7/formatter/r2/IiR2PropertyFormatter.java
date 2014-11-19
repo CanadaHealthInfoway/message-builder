@@ -28,10 +28,14 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractAttributePropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 
@@ -55,6 +59,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 class IiR2PropertyFormatter extends AbstractAttributePropertyFormatter<Identifier> {
 
 	private static final IiValidationUtils iiValidationUtils = new IiValidationUtils();
+	private final IiConstraintsHandler constraintsHandler = new IiConstraintsHandler();
 	
     @Override
     protected Map<String,String> getAttributeNameValuePairs(FormatContext context, Identifier ii, BareANY bareAny) {
@@ -63,13 +68,13 @@ class IiR2PropertyFormatter extends AbstractAttributePropertyFormatter<Identifie
         Map<String, String> result = new HashMap<String, String>();
         
     	String typeFromContext = context.getType();
-    	validate(ii, typeFromContext, version, context);
+    	ii = validate(ii, typeFromContext, version, context);
     	addStandardAttributes(ii, result);
         
         return result;
     }
 
-	private void validate(Identifier ii, String type, VersionNumber version, FormatContext context) {
+	private Identifier validate(Identifier identifier, String type, VersionNumber version, FormatContext context) {
 		
 		// must have root or NF, not both (if has NF, will follow different path)
 		// extension/assigningAuthorityName/displayable are optional
@@ -78,7 +83,21 @@ class IiR2PropertyFormatter extends AbstractAttributePropertyFormatter<Identifie
 		//   uuid: "[0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12}"
 		//   ruid: "[A-Za-z][A-Za-z0-9\-]*"
 		
-    	validateRoot(ii, type, context);
+		handleConstraints(identifier, context);
+    	validateRoot(identifier, type, context);
+    	return identifier;
+	}
+
+	private void handleConstraints(Identifier identifier, final FormatContext context) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				Hl7Errors errors = context.getModelToXmlResult();
+				String propertyPath = context.getPropertyPath();
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+		
+		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
 	}
 
 	private void validateRoot(Identifier ii, String type, FormatContext context) {

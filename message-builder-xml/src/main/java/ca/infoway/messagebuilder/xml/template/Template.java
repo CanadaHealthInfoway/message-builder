@@ -35,6 +35,7 @@ public class Template {
 	private String oid;
 	
 	private boolean open;
+	private String title;
 	private String contextType;
 	private String templateType;
 	private String context;
@@ -69,6 +70,14 @@ public class Template {
 
 	public void setOpen(boolean open) {
 		this.open = open;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContextType() {

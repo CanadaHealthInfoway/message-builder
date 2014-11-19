@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementPar
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -212,7 +212,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 		ElementParser parser = ParserR2Registry.getInstance().get(type);
 
 		if (parser != null) {
-			ParseContext newContext = ParserContextImpl.create(
+			ParseContext newContext = ParseContextImpl.create(
 					type,
 					null,
 					context.getVersion(),
@@ -262,7 +262,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 				ElementParser parser = ParserR2Registry.getInstance().get(diffType);
 
 				if (parser != null) {
-					ParseContext subContext = ParserContextImpl.create(
+					ParseContext subContext = ParseContextImpl.create(
 							diffType.getType(),
 							PhysicalQuantity.class,
 							context.getVersion(),
@@ -270,7 +270,7 @@ abstract class IvlR2ElementParser<T> extends AbstractSingleElementParser<Interva
 							context.getDateTimeTimeZone(),
 							POPULATED, 
 							Cardinality.create("1"),
-							context.getConstraints());
+							null);
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

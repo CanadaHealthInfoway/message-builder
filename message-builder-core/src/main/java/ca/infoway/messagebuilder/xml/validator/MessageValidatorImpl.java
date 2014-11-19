@@ -23,21 +23,23 @@ package ca.infoway.messagebuilder.xml.validator;
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
+import ca.infoway.messagebuilder.marshalling.RenderMode;
+import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
 public class MessageValidatorImpl implements MessageValidator {
 	
-	private final MessageDefinitionService service;
-
+	private final MessageBeanTransformerImpl messageTransformer;
+	
 	public MessageValidatorImpl() {
 		this(new MessageDefinitionServiceFactory().create());
 	}
 	
 	public MessageValidatorImpl(MessageDefinitionService service) {
-		this.service = service;
+		this.messageTransformer = new MessageBeanTransformerImpl(service, RenderMode.PERMISSIVE);
 	}
 
 	public MessageValidatorResult validate(Document message, VersionNumber version) {
@@ -45,14 +47,7 @@ public class MessageValidatorImpl implements MessageValidator {
 	}
 	
 	public MessageValidatorResult validate(Document message, VersionNumber version, GenericCodeResolverRegistry codeResolverRegistryOverride) {
-		CodeResolverRegistry.setThreadLocalVersion(version);
-		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
-		
-		MessageValidatorResult results = new Validator(this.service, message, version).validate();
-		
-		CodeResolverRegistry.clearThreadLocalVersion();
-		CodeResolverRegistry.clearThreadLocalCodeResolverRegistryOverride();
-		
-		return results;
+		XmlToModelResult transformResults = this.messageTransformer.transformFromHl7(version, message, codeResolverRegistryOverride);
+		return new MessageValidatorResult(transformResults.getHl7Errors());
 	}
 }

@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -223,7 +223,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
             if (childNode instanceof Element) {
 				if (isValidTime) {
                 	foundValidTime = true;
-                	ParseContext newContext = ParserContextImpl.create("IVL<TS>", context);
+                	ParseContext newContext = ParseContextImpl.create("IVL<TS>", context);
                 	BareANY ivlTsAny = this.ivlTsParser.parse(newContext, Arrays.asList(childNode), xmlToModelResult);
                 	if (ivlTsAny != null && ivlTsAny.getBareValue() != null) {
                 		DateInterval dateInterval = (DateInterval) ivlTsAny.getBareValue();

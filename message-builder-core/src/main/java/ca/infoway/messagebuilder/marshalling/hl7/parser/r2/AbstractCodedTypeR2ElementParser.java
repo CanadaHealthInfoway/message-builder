@@ -43,13 +43,18 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.CodeLookupUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
  * CodedType parser for R2
@@ -70,6 +75,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 	private SxcmR2ElementParserHelper operatorHelper = new SxcmR2ElementParserHelper();
 	private IvlTsR2ElementParser validTimeParser = new IvlTsR2ElementParser();
 	private EdR2ElementParser edParser = new EdR2ElementParser();
+	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
 	@Override
 	protected CodedTypeR2<Code> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
@@ -100,6 +106,8 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
     	handleQualifier(element, codedType, context, result);
     	handleTranslation(element, codedType, context, result);
     	handleValidTime(element, codedType, context, result);
+
+    	handleConstraints(codedType, context.getConstraints(), element, result);
     	
     	// want to return null if no attributes or elements are present
     	if (codedType.isEmpty()) {
@@ -110,9 +118,19 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
         return codedTypeAny;
     }
 
+	private void handleConstraints(CodedTypeR2<Code> codedType, ConstrainedDatatype constraints, final Element element, final Hl7Errors errors) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
+			}
+		};
+
+		this.constraintsHandler.handleConstraints(constraints, codedType, logger);
+	}
+
 	private void handleQualifier(Element element, CodedTypeR2<Code> codedType, ParseContext context, XmlToModelResult result) {
 		if (qualifierAllowed()) {
-			ParseContext newContext = ParserContextImpl.create("CR", Code.class, context);
+			ParseContext newContext = ParseContextImpl.create("CR", Code.class, context);
 			
 			NodeList qualifiers = element.getElementsByTagName("qualifier");
 			for (int i = 0, length = qualifiers.getLength(); i < length; i++) {
@@ -148,7 +166,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
     		}
     	}
 		
-		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, context.getExpectedReturnType(), element, context, result, true);
+		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, context.getExpectedReturnType(), element, context.getType(), result, true);
 		codedType.setCode(actualCode);
 	}
 
@@ -269,7 +287,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 				if (originalTextElements.size() > 1) {
 					recordError("Only one original text element is allowed.", element, context, result);
 				}
-				ParseContext newContext = ParserContextImpl.create("ED", context);
+				ParseContext newContext = ParseContextImpl.create("ED", context);
 				BareANY parsedOriginalText = this.edParser.parse(newContext, originalTextElements.get(0), result);
 				if (parsedOriginalText != null) {
 					codedType.setOriginalText((EncapsulatedDataR2) parsedOriginalText.getBareValue());
@@ -292,7 +310,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 	private void handleTranslation(Element element, CodedTypeR2<Code> codedType, ParseContext context, XmlToModelResult result) {
 		if (translationAllowed()) {
 			// we have no knowledge of what domain the translation may belong to (I imagine code system could allow for a reverse lookup at some point)
-			ParseContext newContext = ParserContextImpl.create("CD", Code.class, context); 
+			ParseContext newContext = ParseContextImpl.create("CD", Code.class, context); 
 			NodeList translations = element.getElementsByTagName("translation");
 			for (int i = 0, length = translations.getLength(); i < length; i++) {
 				Element translationElement = (Element) translations.item(i);
@@ -322,7 +340,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 					recordError("Only one validTime is allowed", element, context, result);
 				}
 				Node validTimeNode = validTimes.get(0);
-				ParseContext newContext = ParserContextImpl.create("IVL<TS>", HXIT.class, context); 
+				ParseContext newContext = ParseContextImpl.create("IVL<TS>", HXIT.class, context); 
 				BareANY parsedValidTime = this.validTimeParser.parse(newContext, Arrays.asList(validTimeNode), result);
 				if (parsedValidTime != null) {
 					DateInterval dateInterval = (DateInterval) parsedValidTime.getBareValue();

@@ -45,7 +45,7 @@ import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class AdR2ElementParserTest extends MarshallingTestCase {
@@ -59,7 +59,7 @@ public class AdR2ElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, PostalAddress.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, PostalAddress.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test

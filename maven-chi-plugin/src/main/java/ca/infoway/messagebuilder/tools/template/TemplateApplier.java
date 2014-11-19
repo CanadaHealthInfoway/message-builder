@@ -33,16 +33,20 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.SchematronContext;
+import ca.infoway.messagebuilder.xml.SchematronRule;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;
 import ca.infoway.messagebuilder.xml.delta.AttributeDelta;
 import ca.infoway.messagebuilder.xml.delta.ClassDelta;
 import ca.infoway.messagebuilder.xml.delta.Constraint;
+import ca.infoway.messagebuilder.xml.delta.ConstraintChangeType;
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 import ca.infoway.messagebuilder.xml.delta.InteractionDelta;
 import ca.infoway.messagebuilder.xml.delta.MessagePartType;
 import ca.infoway.messagebuilder.xml.delta.PackageLocationDelta;
 import ca.infoway.messagebuilder.xml.delta.RealmCode;
+import ca.infoway.messagebuilder.xml.delta.SchematronConstraint;
 import ca.infoway.messagebuilder.xml.template.Template;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
@@ -104,7 +108,23 @@ public class TemplateApplier {
 				dummyInteraction.setSuperTypeName(template.getEntryClassName());
 				dummyInteraction.setCategory("document");
 				dummyInteraction.setTemplateId(template.getOid());
+				dummyInteraction.setParentTemplateId(template.getImpliedTemplateOid());
 				result.addInteraction(dummyInteraction);
+			}
+		}
+		
+		for (Template template : templateSet.getAllTemplates()) {
+			SchematronContext context = new SchematronContext(formatRuleContext(template));
+			for (Delta delta : template.getDeltas()) {
+				for (Constraint constraint : delta.getAllConstraints(ConstraintChangeType.SCHEMATRON)) {
+					SchematronConstraint schematronConstraint = (SchematronConstraint)constraint;
+					if (!schematronConstraint.isWarning()) {
+						context.addRule(new SchematronRule(schematronConstraint.getTest(), schematronConstraint.getDescription()));
+					}
+				}
+			}
+			if (!context.getRules().isEmpty()) {
+				result.addSchematronContext(context);
 			}
 		}
 		
@@ -129,6 +149,10 @@ public class TemplateApplier {
 		Delta addClassDelta = templateSet.getDelta(DeltaChangeType.ADD, className, null);
 		exists = (addClassDelta != null);
 		return exists;
+	}
+
+	private String formatRuleContext(Template template) {
+		return "//cda:" + template.getContext() + "[cda:templateId/@root='" + template.getOid() + "']";
 	}
 
 	/**

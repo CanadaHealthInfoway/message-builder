@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 /**
  * CR (R2)
@@ -89,7 +89,7 @@ class CrR2ElementParser extends AbstractSingleElementParser<CodeRole> {
 			Element valueElement = values.get(0);
 			
 			// run through cd parser
-			ParseContext newContext = ParserContextImpl.create("ANY", Code.class, context);
+			ParseContext newContext = ParseContextImpl.create("ANY", Code.class, context);
 			BareANY cdAny = this.cdParser.parse(newContext, valueElement, xmlToModelResult);
 			result.setValue(cdAny == null ? null : (CodedTypeR2<Code>) cdAny.getBareValue());
 		} else {
@@ -107,7 +107,7 @@ class CrR2ElementParser extends AbstractSingleElementParser<CodeRole> {
 			Element nameElement = names.get(0);
 			
 			// run through cv parser
-			ParseContext newContext = ParserContextImpl.create("ANY", Code.class, context);
+			ParseContext newContext = ParseContextImpl.create("ANY", Code.class, context);
 			BareANY cvAny = this.cvParser.parse(newContext, nameElement, xmlToModelResult);
 			result.setName(cvAny == null ? null : (CodedTypeR2<Code>) cvAny.getBareValue());
 		}

@@ -46,7 +46,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 	@Test
 	public void shouldParseNullFlavor() throws Exception {
 		Node node = createNode("<effectiveTime nullFlavor=\"NI\"></effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
 		GTS gts = (GTS) new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult);
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, gts.getNullFlavor());
 	}
@@ -65,7 +65,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 				"    </frequency>" +
 				"  </comp>" +
 				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
 		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult).getBareValue();
 		
 		assertNotNull("result", result);
@@ -95,7 +95,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 		 		"    </frequency>" +
 				"  </comp>" +
 				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V01R04_2_SK, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V01R04_2_SK, null, null, ConformanceLevel.MANDATORY, null, null);
 		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult).getBareValue();
 		
 		assertNotNull("result", result);
@@ -125,7 +125,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 				"    </frequency>" +
 				"  </comp>" +
 				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
 		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult).getBareValue();
 		
 		assertNotNull("result", result);
@@ -152,7 +152,7 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 				"    </frequency>" +
 				"  </fred>" +
 				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02, null, null, ConformanceLevel.MANDATORY, null, null);
 		new GtsBoundedPivlElementParser().parse(context, node, this.xmlResult);
 		
 		assertFalse("valid", this.xmlResult.isValid());

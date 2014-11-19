@@ -75,6 +75,9 @@ public class CdaConstraint {
 	@Element(required=false,name="SchematronTest")
 	private SchematronTest schematronTest;
 	
+	@Element(required=false,name="NarrativeText")
+	private NarrativeText narrativeText;
+	
 	@ElementList(required=false,inline=true,entry="Constraint")
 	private List<CdaConstraint> constraints = new ArrayList<CdaConstraint>();
 	
@@ -172,6 +175,14 @@ public class CdaConstraint {
 
 	public void setSchematronTest(SchematronTest schematronTest) {
 		this.schematronTest = schematronTest;
+	}
+
+	public NarrativeText getNarrativeText() {
+		return narrativeText;
+	}
+
+	public void setNarrativeText(NarrativeText narrativeText) {
+		this.narrativeText = narrativeText;
 	}
 
 	public List<CdaConstraint> getConstraints() {

@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SchematronContext;
 
 /**
  * <p>A service for looking up defintions of components of a message.
@@ -124,5 +125,13 @@ public interface MessageDefinitionService {
 	 * @return the constraints
 	 */
 	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType);
+	
+	/**
+	 * Returns all the schematron test definitions for a specific message set
+	 * 
+	 * @param version
+	 * @return the schematron context definitions
+	 */
+	public List<SchematronContext> getAllSchematronContexts(VersionNumber version);
 
 }

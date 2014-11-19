@@ -81,7 +81,7 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 
 	private ParseContext convertContext(ParseContext context) {
 		String newType = "IVL<" + Hl7DataTypeName.getParameterizedType(context.getType()) + ">";
-		return ParserContextImpl.create(newType, context);
+		return ParseContextImpl.createWithConstraints(newType, context);
 	}
 
 	private UncertainRange<V> convertIntervalToUncertainRange(Interval<V> parsedInterval, Boolean lowInclusive, Boolean highInclusive) {

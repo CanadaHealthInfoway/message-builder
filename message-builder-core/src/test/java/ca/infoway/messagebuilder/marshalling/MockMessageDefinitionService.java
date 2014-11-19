@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
 class MockMessageDefinitionService implements MessageDefinitionService {
@@ -86,6 +87,9 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 		return false;
 	}
 	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType) {
+		return null;
+	}
+	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
 		return null;
 	}
 }

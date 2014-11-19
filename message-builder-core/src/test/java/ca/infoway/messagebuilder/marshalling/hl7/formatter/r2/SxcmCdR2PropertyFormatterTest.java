@@ -88,7 +88,7 @@ public class SxcmCdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation2);	
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 
 		String result = new SxcmCdR2PropertyFormatter().format(getContext("name", "SXCM<CD>"), new SXCM_R2Impl<CodedTypeR2<Code>>(codedType));
@@ -111,7 +111,7 @@ public class SxcmCdR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text allowed for CD");
+		originalText.setTextContent("original text allowed for CD");
 		codedType.setOriginalText(originalText);
 
 		SXCM_R2<CodedTypeR2<Code>> sxcmCd = new SXCM_R2Impl<CodedTypeR2<Code>>(codedType);
@@ -161,7 +161,7 @@ public class SxcmCdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation2);	
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 
 		SXCM_R2<CodedTypeR2<Code>> sxcm_cd = new SXCM_R2Impl<CodedTypeR2<Code>>(codedType);

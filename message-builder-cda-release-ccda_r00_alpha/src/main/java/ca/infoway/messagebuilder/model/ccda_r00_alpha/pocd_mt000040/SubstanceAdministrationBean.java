@@ -61,7 +61,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SpecimenBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -79,7 +78,7 @@ public class SubstanceAdministrationBean extends MessagePartBean implements Entr
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 statusCode = new CS_R2Impl();
-    private LIST<SXCM_R2<Date>, Date> effectiveTime = new LISTImpl<SXCM_R2<Date>, Date>(SXCM_R2Impl.class);
+    private LIST<SXCM_R2<MbDate>, MbDate> effectiveTime = new LISTImpl<SXCM_R2<MbDate>, MbDate>(SXCM_R2Impl.class);
     private CE_R2 priorityCode = new CE_R2Impl();
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
     private CE_R2 routeCode = new CE_R2Impl();
@@ -270,7 +269,7 @@ public class SubstanceAdministrationBean extends MessagePartBean implements Entr
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public List<Date> getEffectiveTime() {
+    public List<MbDate> getEffectiveTime() {
         return this.effectiveTime.rawList();
     }
 

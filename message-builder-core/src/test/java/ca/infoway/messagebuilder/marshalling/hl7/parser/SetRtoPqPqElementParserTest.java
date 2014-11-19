@@ -54,7 +54,7 @@ public class SetRtoPqPqElementParserTest extends ParserTestCase {
 								"</top>");
 
 		BareANY result = new SetElementParser().parse(
-				ParserContextImpl.create("SET<RTO<PQ.DRUG,PQ.TIME>>", null, SpecificationVersion.V01R04_2_SK, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null),
+				ParseContextImpl.create("SET<RTO<PQ.DRUG,PQ.TIME>>", null, SpecificationVersion.V01R04_2_SK, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null),
 				asList(node.getChildNodes()),
 				null);
 		@SuppressWarnings("unchecked")

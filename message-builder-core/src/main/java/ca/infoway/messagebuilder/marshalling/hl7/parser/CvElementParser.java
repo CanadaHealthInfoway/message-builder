@@ -86,7 +86,7 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
     	
         String code = getAttributeValue(element, codeAttributeName);
 		String codeSystem = getAttributeValue(element, CODE_SYSTEM_ATTRIBUTE_NAME);
-		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, element, context, xmlToModelResult);
+		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, element, context.getType(), xmlToModelResult);
 		
         populateOriginalText(result, context, (Element) node, xmlToModelResult);
     	addTranslations(context, element, (CD) result, xmlToModelResult);

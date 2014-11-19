@@ -35,12 +35,14 @@ public class SchematronConstraint extends Constraint{
 	private static final long serialVersionUID = -2139285871543711303L;
 
 	private String test;
+	private String description;
 	private boolean warning = false;
 	
 	public SchematronConstraint() {
 	}
-	public SchematronConstraint(String test) {
+	public SchematronConstraint(String test, String description) {
 		this.test = test;
+		this.description = description;
 	}
 	
 	public String getTest() {
@@ -50,6 +52,12 @@ public class SchematronConstraint extends Constraint{
 		this.test = test;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public boolean isWarning() {
 		return warning;
 	}
@@ -77,7 +85,7 @@ public class SchematronConstraint extends Constraint{
 	}
 	@Override
 	public Constraint clone(String originalPackageName, String newPackageName) {
-		SchematronConstraint newConstraint = new SchematronConstraint(test);
+		SchematronConstraint newConstraint = new SchematronConstraint(test, description);
 		newConstraint.setWarning(warning);
 		return newConstraint;
 	}

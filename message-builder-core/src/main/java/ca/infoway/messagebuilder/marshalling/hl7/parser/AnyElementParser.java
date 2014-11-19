@@ -96,7 +96,7 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
-						ParserContextImpl.create(
+						ParseContextImpl.create(
 							specializationType,
 							determineReturnType(specializationType, getReturnType(context)),
 							context.getVersion(),

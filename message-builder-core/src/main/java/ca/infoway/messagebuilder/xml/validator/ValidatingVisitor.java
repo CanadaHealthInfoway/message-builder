@@ -56,6 +56,11 @@ import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.infoway.messagebuilder.xml.visitor.MessageVisitor;
 
+/**
+ * @deprecated
+ * This validation approach is no longer being used.
+ */
+@Deprecated
 public class ValidatingVisitor implements MessageVisitor {
 
 	private static final String ITS_VERSION_VALUE = "XML_1.0";
@@ -153,7 +158,6 @@ public class ValidatingVisitor implements MessageVisitor {
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
 		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
-			// FIXME - CDA - TM - need to get the validator working for R2 handling
 			new CvElementParser().doParse(ParseContextImpl.create(relationship, this.version, null), base, this.result, false, attr.getLocalName());
 		} else {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralTypeError(relationship.getType(), relationship.getName(), base, attr));
@@ -182,7 +186,7 @@ public class ValidatingVisitor implements MessageVisitor {
 				try {
 					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
 					if (parser != null) {
-						// FIXME - CDA - TM - need to get the validator working for R2 handling
+						// not a concern that constraints not passed in - validator will eventually be removed (replaced with a call to the unmarshaller)
 						BareANY value = parser.parse(ParseContextImpl.create(relationship, this.version, null), toNodeList(elements), this.result);
 						validateNonstructuralFixedValue(relationship, value, elements);
 					} else {

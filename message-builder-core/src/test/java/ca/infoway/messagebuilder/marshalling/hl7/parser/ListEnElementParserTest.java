@@ -44,7 +44,7 @@ public class ListEnElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><name><family>Flinstone</family><given>Fred</given></name>" + 
 				                    "<name><family>Flinstone</family><given>Wilma</given></name></top>");
 		BareANY result = new ListElementParser().parse(
-				ParserContextImpl.create("LIST<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+				ParseContextImpl.create("LIST<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();

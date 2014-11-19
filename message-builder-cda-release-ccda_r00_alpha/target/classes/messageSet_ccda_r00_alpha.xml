@@ -18812,37 +18812,37 @@
       </packageLocation>
    </packageEntry>
    <entry name="ConsultationNote">
-      <interaction name="ConsultationNote" superTypeName="ConsultationNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.4"/>
+      <interaction name="ConsultationNote" superTypeName="ConsultationNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.4" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="ContinuityOfCareDocumentCCD">
-      <interaction name="ContinuityOfCareDocumentCCD" superTypeName="ContinuityOfCareDocumentCCD.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.2"/>
+      <interaction name="ContinuityOfCareDocumentCCD" superTypeName="ContinuityOfCareDocumentCCD.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.2" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="DiagnosticImagingReport">
-      <interaction name="DiagnosticImagingReport" superTypeName="DiagnosticImagingReport.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.5"/>
+      <interaction name="DiagnosticImagingReport" superTypeName="DiagnosticImagingReport.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.5" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="DischargeSummary">
-      <interaction name="DischargeSummary" superTypeName="DischargeSummary.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.8"/>
+      <interaction name="DischargeSummary" superTypeName="DischargeSummary.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.8" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="HistoryAndPhysical">
-      <interaction name="HistoryAndPhysical" superTypeName="HistoryAndPhysical.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.3"/>
+      <interaction name="HistoryAndPhysical" superTypeName="HistoryAndPhysical.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.3" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="OperativeNote">
-      <interaction name="OperativeNote" superTypeName="OperativeNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.7"/>
+      <interaction name="OperativeNote" superTypeName="OperativeNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.7" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="POCD_MT000040">
       <interaction name="POCD_MT000040" superTypeName="POCD_MT000040.ClinicalDocument" category="document"/>
    </entry>
    <entry name="ProcedureNote">
-      <interaction name="ProcedureNote" superTypeName="ProcedureNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.6"/>
+      <interaction name="ProcedureNote" superTypeName="ProcedureNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.6" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="ProgressNote">
-      <interaction name="ProgressNote" superTypeName="ProgressNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.9"/>
+      <interaction name="ProgressNote" superTypeName="ProgressNote.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.9" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="USRealmHeader">
       <interaction name="USRealmHeader" superTypeName="USRealmHeader.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <entry name="UnstructuredDocument">
-      <interaction name="UnstructuredDocument" superTypeName="UnstructuredDocument.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.10"/>
+      <interaction name="UnstructuredDocument" superTypeName="UnstructuredDocument.ClinicalDocument" category="document" templateId="2.16.840.1.113883.10.20.22.1.10" parentTemplateId="2.16.840.1.113883.10.20.22.1.1"/>
    </entry>
    <constrainedDatatypeEntry name="AdmissionMedication.Act.templateId">
       <constrainedDatatype name="AdmissionMedication.Act.templateId" baseType="II" constraintType="RES">
@@ -20668,4 +20668,1552 @@
          <relationship name="root" attribute="false" cardinality="1" fixedValue="2.16.840.1.113883.10.20.22.2.4.1"/>
       </constrainedDatatype>
    </constrainedDatatypeEntry>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.6.2.8&apos;]">
+      <schematronRule>
+         <test>not(cda:low)</test>
+         <description>The effectiveTime, if present, SHALL NOT contain [0..0] low (CONF:9252).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:high)</test>
+         <description>The effectiveTime, if present, SHALL NOT contain [0..0] high (CONF:9253).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:performer[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.6.2.1&apos;]">
+      <schematronRule>
+         <test>not(cda:time) or string-length(cda:time//@value) &gt;= 8</test>
+         <description>The content of time SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.3)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:assignedPerson | cda:representedOrganization</test>
+         <description>Every assignedEntity element SHALL have at least one assignedPerson or representedOrganization.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>@root=&apos;2.16.840.1.113883.4.6&apos;</test>
+         <description>The id SHOULD include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:encounterParticipant[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.6.2.2&apos;]">
+      <schematronRule>
+         <test>@root =&apos;2.16.840.1.113883.4.6&apos;</test>
+         <description>	The id SHOULD include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.6.2.6&apos;]">
+      <schematronRule>
+         <test>not(cda:id[@extension])</test>
+         <description>Such ids SHALL NOT contain [0..0] @extension (CONF:9211).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.7&apos;]">
+      <schematronRule>
+         <test>cda:statusCode/@code=&apos;completed&apos;</test>
+         <description>This statusCode SHALL contain exactly one [1..1] @code=&quot;completed&quot; Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19085).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:organizer[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.1&apos;]">
+      <schematronRule>
+         <test>../cda:organizer/@classCode=&apos;CLUSTER&apos; or ../cda:organizer/@classCode=&apos;BATTERY&apos;</test>
+         <description>	SHOULD contain zero or one [0..1] @classCode=&quot;CLUSTER&quot; Cluster (CodeSystem: 2.16.840.1.113883.5.6 HL7ActClass) OR SHOULD contain zero or one [0..1] @classCode=&quot;BATTERY&quot; Battery (CodeSystem: 2.16.840.1.113883.5.6 HL7ActClass)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.2&apos;]">
+      <schematronRule>
+         <test>not(cda:referenceRange/cda:observationRange/cda:code)</test>
+         <description>This observationRange SHALL NOT contain [0..0] code (CONF:7152).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.24.3.90&apos;]">
+      <schematronRule>
+         <test>cda:value[@code]</test>
+         <description>This value SHALL contain exactly one [1..1] @code, which SHALL be selected from ValueSet Allergy/Adverse Event Type 2.16.840.1.113883.3.88.12.3221.6.2 DYNAMIC (CONF:16317).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.70&apos;]">
+      <schematronRule>
+         <test>not(cda:targetSiteCode) or cda:targetSiteCode[@code and @code=document(&apos;voc.xml&apos;)/voc:systems/voc:system[@valueSetOid=&apos;2.16.840.1.113883.11.20.9.36&apos;]/voc:code/@value]</test>
+         <description>The targetSiteCode, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet Pressure Point  2.16.840.1.113883.11.20.9.36 STATIC (CONF:14798).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.74&apos;]">
+      <schematronRule>
+         <test>not(cda:referenceRange/cda:observationRange/cda:code)</test>
+         <description>This observationRange SHALL NOT contain [0..0] code (CONF:14269).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.60&apos;]">
+      <schematronRule>
+         <test>not(cda:entryRelationship[@typeCode=&apos;COMP&apos;][cda:sequenceNumber]) or cda:entryRelationship[@typeCode=&apos;COMP&apos;][cda:sequenceNumber][@value]</test>
+         <description>The sequenceNumber, if present, SHALL contain exactly one [1..1] @value (CONF:17175).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:observation[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.67&apos;]">
+      <schematronRule>
+         <test>not(cda:referenceRange/cda:observationRange/cda:code)</test>
+         <description>This observationRange SHALL NOT contain [0..0] code </description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.64&apos;]">
+      <schematronRule>
+         <test>cda:assignedPerson/cda:name or cda:representedOrganization/cda:name</test>
+         <description>SHALL include assignedPerson/name or representedOrganization/name</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:assignedPerson/cda:name[cda:given and cda:family] or (count(cda:assignedPerson/cda:name[*])=0 and string-length(cda:assignedPerson/cda:name)!=0)</test>
+         <description>An  assignedPerson/name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.63&apos;]">
+      <schematronRule>
+         <test>not(cda:id[@extension])</test>
+         <description>Such ids SHALL NOT contain [0..0] @extension (CONF:9226).</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.61&apos;]">
+      <schematronRule>
+         <test>cda:participant[@typeCode=&apos;COV&apos;]/cda:participantRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country!=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:participant[@typeCode=&apos;HLD&apos;][cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.90&apos;]]/cda:participantRole/cda:addr) or cda:participant[@typeCode=&apos;HLD&apos;][cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.90&apos;]]/cda:participantRole/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:performer/cda:assignedEntity[cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.87&apos;]]/cda:code) or cda:performer/cda:assignedEntity[cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.87&apos;]]/cda:code[@code]</test>
+         <description>The code, if present, SHALL contain exactly one [1..1] @code, which SHOULD be selected from ValueSet HL7FinanciallyResponsiblePartyType 2.16.840.1.113883.1.11.10416 DYNAMIC (CONF:15992).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:performer[@typeCode][cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.87&apos;]]/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not (cda:performer[cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.88&apos;]]/cda:assignedEntity/cda:addr) or cda:performer[cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.4.88&apos;]]/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:act[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.30&apos;]">
+      <schematronRule>
+         <test>((../cda:statusCode[@code=&apos;active&apos;]) and (cda:low)) or not(../cda:statusCode[@code=&apos;active&apos;])</test>
+         <description>If statusCode/@code=&quot;active&quot; Active, then effectiveTime SHALL contain [1..1] low</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:statusCode[@code=&apos;completed&apos;])=0 or (count(cda:statusCode[@code=&apos;completed&apos;])=1 and count(cda:effectiveTime[cda:high])=1)</test>
+         <description>If statusCode/@code=&quot;completed&quot; Completed, then effectiveTime SHALL contain [1..1] high</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.8&apos;]">
+      <schematronRule>
+         <test>cda:associatedEntity[cda:associatedPerson | cda:scopingOrganization]</test>
+         <description>If present, the participant/associatedEntity element SHALL have an associatedPerson or scopingOrganization element.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:structuredBody | //cda:nonXMLBody)=1</test>
+         <description>A Discharge Summary can have either a structuredBody or a nonXMLBody.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:componentOf/cda:encompassingEncounter[count(cda:effectiveTime/cda:low)=1]</test>
+         <description>This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime/low (CONF:8473).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:componentOf/cda:encompassingEncounter[count(cda:effectiveTime/cda:high)=1]</test>
+         <description>This encompassingEncounter SHALL contain exactly one [1..1] effectiveTime/high (CONF:8475).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.6&apos;]</test>
+         <description>SHALL contain [1..1] Allergies Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.6) (CONF:9542).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;1.3.6.1.4.1.19376.1.5.3.1.3.5&apos;]</test>
+         <description>SHALL contain [1..1] Hospital Course Section(templateId:1.3.6.1.4.1.19376.1.5.3.1.3.5) (CONF:9544).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.24&apos;]</test>
+         <description>SHALL contain [1..1] Hospital Discharge Diagnosis Section(templateId:2.16.840.1.113883.10.20.22.2.24) (CONF:9546).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.11&apos;]</test>
+         <description>SHALL contain [1..1] Hospital Discharge Medications Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.11) (CONF:9548).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.10&apos;]</test>
+         <description>SHALL contain [1..1] Plan of Care Section(templateId:2.16.840.1.113883.10.20.22.2.10) (CONF:9550).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.9&apos;]">
+      <schematronRule>
+         <test>count(//cda:structuredBody | //cda:nonXMLBody)=1</test>
+         <description>A Progress Note can have either a structuredBody or a nonXMLBody</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:componentOf/cda:encompassingEncounter/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:documentationOf/cda:serviceEvent) or cda:documentationOf/cda:serviceEvent[@classCode=&apos;PCPR&apos;][count(cda:templateId[@root=&apos;2.16.840.1.113883.10.20.21.3.1&apos;])=1]</test>
+         <description>SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.10.20.21.3.1&quot; (CONF:10068).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:width)=1</test>
+         <description>	If a width element is not present, the serviceEvent SHALL include effectiveTime/high</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:documentationOf/cda:serviceEvent/cda:effectiveTime) or string-length(cda:documentationOf/cda:serviceEvent/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.1&apos;]">
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.2&apos;]">
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson | cda:author/cda:assignedAuthor/cda:representedOrganization)=1</test>
+         <description>	SHALL contain exactly one [1..1] assignedPerson or exactly one [1..1]  representedOrganization</description>
+      </schematronRule>
+      <schematronRule>
+         <test> (count(cda:author/cda:assignedAuthor/cda:representedOrganization[cda:assignedPerson | cda:assignedAuthoringDevice])=0 and (//ClinicalDocument/cda:author/cda:assignedAuthor/cda:id/@nullFlavor=&apos;NA&apos;)) or  (count(cda:representedOrganization[cda:assignedPerson | cda:assignedAuthoringDevice])&gt;0) or  (count(cda:representedOrganization)=0)</test>
+         <description>If assignedAuthor has an associated representedOrganization with no assignedPerson or assignedAuthoringDevice, then the value for â€œClinicalDocument/author/assignedAuthor/id/@NullFlavorâ€ SHALL be â€œNAâ€ â€œNot applicableâ€ 2.16.840.1.113883.5.1008 NullFlavor STATIC.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:documentationOf/cda:serviceEvent/cda:performer/cda:assignedEntity) or cda:documentationOf/cda:serviceEvent/cda:performer/cda:assignedEntity/cda:id/@root=&apos;2.16.840.1.113883.4.6&apos;</test>
+         <description>	SHOULD include zero or one [0..1] id where id/@root =&quot;2.16.840.1.113883.4.6&quot; National Provider Identifier</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.6.1&apos;]</test>
+         <description>SHALL contain [1..1] Allergies Section (entries required)(templateId:2.16.840.1.113883.10.20.22.2.6.1) (CONF:9445).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.1.1&apos;]</test>
+         <description>SHALL contain [1..1] Medications Section (entries required)(templateId:2.16.840.1.113883.10.20.22.2.1.1) (CONF:9447).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.5.1&apos;]</test>
+         <description>SHALL contain [1..1] Problem Section (entries required)(templateId:2.16.840.1.113883.10.20.22.2.5.1) (CONF:9449).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.3.1&apos;]</test>
+         <description>SHALL contain [1..1] Results Section (entries required)(templateId:2.16.840.1.113883.10.20.22.2.3.1) (CONF:9453).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.3&apos;]">
+      <schematronRule>
+         <test>cda:associatedEntity[cda:associatedPerson | cda:scopingOrganization]</test>
+         <description>A participant element, if present, SHALL contain an associatedEntity element which SHALL contain either an associatedPerson or scopingOrganization element.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:component/cda:structuredBody | cda:component/cda:nonXMLBody)=1</test>
+         <description>A History and Physical document can have either a structuredBody or a nonXMLBody.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:componentOf/cda:encompassingEncounter/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:componentOf/cda:encompassingEncounter/cda:responsibleParty) or cda:componentOf/cda:encompassingEncounter/cda:responsibleParty/cda:assignedEntity[cda:assignedPerson | cda:representedOrganization]</test>
+         <description>The responsibleParty element, if present, SHALL contain an assignedEntity element, which SHALL contain an assignedPerson element, a representedOrganization element, or both.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:componentOf/cda:encompassingEncounter/cda:encounterParticipant) or cda:componentOf/cda:encompassingEncounter/cda:encounterParticipant/cda:assignedEntity[cda:assignedPerson | cda:representedOrganization]</test>
+         <description>An encounterParticipant element, if present, SHALL contain an assignedEntity element, which SHALL contain an assignedPerson element, a representedOrganization element, or both.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.6&apos;])=1</test>
+         <description>SHALL contain [1..1] Allergies Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.6) (CONF:9602).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.15&apos;])=1</test>
+         <description>SHALL contain [1..1] Family History Section(templateId:2.16.840.1.113883.10.20.22.2.15) (CONF:9615).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.2.5&apos;])=1</test>
+         <description>SHALL contain [1..1] General Status Section(templateId:2.16.840.1.113883.10.20.2.5) (CONF:9617).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.20&apos;])=1</test>
+         <description>SHALL contain [1..1] History of Past Illness Section(templateId:2.16.840.1.113883.10.20.22.2.20) (CONF:9619).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.1&apos;])=1</test>
+         <description>SHALL contain [1..1] Medications Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.1) (CONF:9623).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.2.10&apos;])=1</test>
+         <description>SHALL contain [1..1] Physical Exam Section(templateId:2.16.840.1.113883.10.20.2.10) (CONF:9625).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.3&apos;])=1</test>
+         <description>SHALL contain [1..1] Results Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.3) (CONF:9629).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;1.3.6.1.4.1.19376.1.5.3.1.3.18&apos;])=1</test>
+         <description>SHALL contain [1..1] Review of Systems Section(templateId:1.3.6.1.4.1.19376.1.5.3.1.3.18) (CONF:9631).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.17&apos;])=1</test>
+         <description>SHALL contain [1..1] Social History Section(templateId:2.16.840.1.113883.10.20.22.2.17) (CONF:9633).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section/cda:templateId[@root=&apos;2.16.840.1.113883.10.20.22.2.4&apos;])=1</test>
+         <description>SHALL contain [1..1] Vital Signs Section (entries optional)(templateId:2.16.840.1.113883.10.20.22.2.4) (CONF:9635).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:supply[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.4.18&apos;]">
+      <schematronRule>
+         <test>cda:performer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>	The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.4&apos;]">
+      <schematronRule>
+         <test>count(cda:component/cda:structuredBody | cda:component/cda:nonXMLBody)=1</test>
+         <description>A Consultation Note can have either a structuredBody or a nonXMLBody.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:componentOf/cda:encompassingEncounter/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:componentOf/cda:encompassingEncounter/cda:responsibleParty) or cda:componentOf/cda:encompassingEncounter/cda:responsibleParty/cda:assignedEntity[cda:assignedPerson or cda:representedOrganization]</test>
+         <description>The responsibleParty element, if present, SHALL contain an assignedEntity element which SHALL contain an assignedPerson element, a representedOrganization element, or both.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:componentOf/cda:encompassingEncounter/cda:encounterParticipant) or cda:componentOf/cda:encompassingEncounter/cda:encounterParticipant/cda:assignedEntity[cda:assignedPerson or cda:representedOrganization]</test>
+         <description>An encounterParticipant element, if present, SHALL contain an assignedEntity element which SHALL contain an assignedPerson element,  a representedOrganization element, or both.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>//cda:section[cda:templateId/@root=&apos;1.3.6.1.4.1.19376.1.5.3.1.3.4&apos;]</test>
+         <description>SHALL contain [1..1] History of Present Illness Section(templateId:1.3.6.1.4.1.19376.1.5.3.1.3.4) (CONF:9493).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.5&apos;]">
+      <schematronRule>
+         <test>count(cda:component/cda:structuredBody | cda:component/cda:nonXMLBody) =1</test>
+         <description>A Diagnostic Imaging Report can have either a structuredBody or a nonXMLBody. </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:*[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.6.1.2&apos;])=1</test>
+         <description>SHALL contain [1..1] Findings Section (DIR)(templateId:2.16.840.1.113883.10.20.6.1.2) (CONF:9484).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.6&apos;]">
+      <schematronRule>
+         <test>count(cda:component/cda:structuredBody | cda:component/cda:nonXMLBody) = 1</test>
+         <description>A Procedure Note can have either a structuredBody or a nonXMLBody</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:participant[@typeCode=&apos;IND&apos;][@classCode=&apos;PROV&apos;]/cda:associatedEntity[cda:functionCode]) or cda:participant[@typeCode=&apos;IND&apos;][@classCode=&apos;PROV&apos;]/cda:associatedEntity[cda:functionCode][count(cda:associatedPerson)=1]</test>
+         <description>This associatedEntity/@classCode SHALL contain exactly one [1..1] associatedPerson (CONF:8508).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:documentationOf/cda:serviceEvent/cda:code[@codeSystem=&apos;2.16.840.1.113883.6.96&apos; or @codeSystem=&apos;2.16.840.1.113883.6.12&apos; or @codeSystem=&apos;2.16.840.1.113883.6.104&apos;]</test>
+         <description>The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD9 CM Procedures (codeSystem 2.16.840.1.113883.6.104), CPT-4 (codeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (codeSystem 2.16.840.1.113883.6.96) ValueSet 2.16.840.1.113883.3.88.12.80.28 Procedure DYNAMIC.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low</test>
+         <description>	The serviceEvent/effectiveTime SHALL be present with effectiveTime/low</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:width)=1</test>
+         <description>	If a width is not present, the serviceEvent/effectiveTime SHALL include effectiveTime/high</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:width)=1</test>
+         <description>	When only the date and the length of the procedure are known a width element SHALL be present and the serviceEvent/effectiveTime/high SHALL not be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:documentationOf/cda:serviceEvent/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.37&apos;])</test>
+         <description>SHALL contain [1..1] Complications Section(templateId:2.16.840.1.113883.10.20.22.2.37) (CONF:9802).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.27&apos;])</test>
+         <description>SHALL contain [1..1] Procedure Description Section(templateId:2.16.840.1.113883.10.20.22.2.27) (CONF:9805).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.29&apos;])</test>
+         <description>SHALL contain [1..1] Procedure Indications Section(templateId:2.16.840.1.113883.10.20.22.2.29) (CONF:9807).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.36&apos;])</test>
+         <description>SHALL contain [1..1] Postprocedure Diagnosis Section(templateId:2.16.840.1.113883.10.20.22.2.36) (CONF:9850).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.7&apos;]">
+      <schematronRule>
+         <test>count(//cda:structuredBody | //cda:nonXMLBody)=1</test>
+         <description>An Operative Note can have either a structuredBody or a nonXMLBody</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:documentationOf/cda:serviceEvent/cda:code[@codeSystem=&apos;2.16.840.1.113883.6.96&apos; or @codeSystem=&apos;2.16.840.1.113883.6.12&apos; or @codeSystem=&apos;2.16.840.1.113883.6.104&apos;]</test>
+         <description>i.	The value of Clinical Document /documentationOf/serviceEvent/code SHALL be from ICD9 CM Procedures (CodeSystem 2.16.840.1.113883.6.104), CPT-4 (CodeSystem 2.16.840.1.113883.6.12), or values descending from 71388002 (Procedure) from the SNOMED CT (CodeSystem 2.16.840.1.113883.6.96) ValueSet Procedure 2.16.840.1.113883.3.88.12.80.28 DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:low</test>
+         <description>The serviceEvent/effectiveTime SHALL be present with effectiveTime/low.</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:width) = 1</test>
+         <description>If a width is not present, the serviceEvent/effectiveTime SHALL include effectiveTime/high</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:high | cda:documentationOf/cda:serviceEvent/cda:effectiveTime/cda:width) = 1</test>
+         <description>	When only the date and the length of the procedure are known a width element SHALL be present and the serviceEvent/effectiveTime/high SHALL not be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:documentationOf/cda:serviceEvent/cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content of effectiveTime SHALL be a conformant US Realm Date and Time (DT.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.25&apos;])=1</test>
+         <description>SHALL contain [1..1] Anesthesia Section(templateId:2.16.840.1.113883.10.20.22.2.25) (CONF:9883).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.37&apos;])=1</test>
+         <description>SHALL contain [1..1] Complications Section(templateId:2.16.840.1.113883.10.20.22.2.37) (CONF:9885).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.34&apos;])=1</test>
+         <description>SHALL contain [1..1] Preoperative Diagnosis Section(templateId:2.16.840.1.113883.10.20.22.2.34) (CONF:9888).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.18.2.9&apos;])=1</test>
+         <description>SHALL contain [1..1] Procedure Estimated Blood Loss Section(templateId:2.16.840.1.113883.10.20.18.2.9) (CONF:9890).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.28&apos;])=1</test>
+         <description>SHALL contain [1..1] Procedure Findings Section(templateId:2.16.840.1.113883.10.20.22.2.28) (CONF:9892).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.31&apos;])=1</test>
+         <description>SHALL contain [1..1] Procedure Specimens Taken Section(templateId:2.16.840.1.113883.10.20.22.2.31) (CONF:9894).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.27&apos;])=1</test>
+         <description>SHALL contain [1..1] Procedure Description Section(templateId:2.16.840.1.113883.10.20.22.2.27) (CONF:9896).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:section[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.2.35&apos;])=1</test>
+         <description>SHALL contain [1..1] Postoperative Diagnosis Section(templateId:2.16.840.1.113883.10.20.22.2.35) (CONF:9913).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:author/cda:assignedAuthor/cda:assignedPerson)=1 or count(cda:author/cda:assignedAuthor/cda:assignedAuthoringDevice)=1</test>
+         <description>There SHALL be exactly one assignedAuthor/assignedPerson or exactly one assignedAuthor/assignedAuthoringDevice</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:author/cda:assignedAuthor/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.10.20.22.1.10&apos;]">
+      <schematronRule>
+         <test>string-length(cda:effectiveTime//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	 </description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(../cda:versionNumber |../cda:setId)=2 or count(../cda:versionNumber | ../cda:setId)=0</test>
+         <description>If  setId is present versionNumber SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(//cda:versionNumber | //cda:setId)=2 or count(//cda:versionNumber | //cda:setId)=0</test>
+         <description>If versionNumber is present setId SHALL be present</description>
+      </schematronRule>
+      <schematronRule>
+         <test>cda:recordTarget/cda:patientRole/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>(count(cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:name/cda:family)</test>
+         <description>The content of name SHALL be a conformant US Realm Patient Name (PTN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:birthTime/@value) &gt;= 4</test>
+         <description>SHALL be precise to year</description>
+      </schematronRule>
+      <schematronRule>
+         <test>count(cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr[cda:country=&apos;US&apos; or cda:country=&apos;USA&apos;][count(cda:state)!=1])=0</test>
+         <description>If country is US, this addr SHALL contain exactly one [1..1] state, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.1 StateValueSet DYNAMIC</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr) or (cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))])</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:given) &gt; 0 and cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name/cda:family) or (count(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name[*])=0 and string-length(cda:recordTarget/cda:patientRole/cda:patient/cda:guardian/cda:guardianPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:recordTarget/cda:patientRole/cda:providerOrganization) or cda:recordTarget/cda:patientRole/cda:providerOrganization/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or cda:dataEnterer/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:dataEnterer) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:dataEnterer/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or string-length(cda:authenticator/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or cda:authenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:authenticator) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family)
+or
+(count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:authenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:*/cda:addr[cda:streetAddressLine and cda:city and (cda:country!=&apos;US&apos; or ((not(cda:country) or cda:country=&apos;US&apos;) and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name or cda:informant/cda:relatedEntity/cda:relatedPerson/cda:name</test>
+         <description>This assignedPerson SHALL contain at least one [1..*] name (CONF:8222).</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informant) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:informant/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>string-length(cda:author/cda:time//@value)&gt;=8</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:author/cda:assignedAuthor/cda:assignedPerson) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name/cda:family) or (count(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name[*])=0 and string-length(cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family)
+or
+(count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:given) &gt; 0 and cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name/cda:family) or (count(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name[*])=0 and string-length(cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (string-length(cda:legalAuthenticator/cda:time//@value)&gt;=8)</test>
+         <description>The content SHALL be a conformant US Realm Date and Time (DTM.US.FIELDED) (2.16.840.1.113883.10.20.22.5.4)	</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or cda:legalAuthenticator/cda:assignedEntity/cda:addr[cda:streetAddressLine and cda:city and ((not(cda:country) or cda:country!=&apos;US&apos;) or (cda:country=&apos;US&apos; and cda:state and cda:postalCode))]</test>
+         <description>The content of addr SHALL be a conformant US Realm Address (AD.US.FIELDED) (2.16.840.1.113883.10.20.22.5.2)</description>
+      </schematronRule>
+      <schematronRule>
+         <test>not(cda:legalAuthenticator) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or
+(count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:given) &gt; 0 and cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name/cda:family) or (count(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name[*])=0 and string-length(cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/cda:name)!=0)</test>
+         <description>The content of name SHALL be a conformant US Realm Person Name (PN.US.FIELDED) (2.16.840.1.113883.10.20.22.5.1.1)</description>
+      </schematronRule>
+   </schematronContext>
 </messageSet>

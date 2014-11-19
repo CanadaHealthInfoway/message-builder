@@ -77,7 +77,7 @@ public class FormatContextImpl implements FormatContext {
 			 context.getDateTimeZone(), 
 			 context.getDateTimeTimeZone(),
 			 context.getCodingStrength(),
-			 context.getConstraints());
+			 null); // constraints not automatically passed on
 	}
 
 	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality) {

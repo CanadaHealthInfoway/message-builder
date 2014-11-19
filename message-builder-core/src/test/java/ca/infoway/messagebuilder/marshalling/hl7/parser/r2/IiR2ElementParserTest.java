@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IiR2ElementParserTest extends CeRxDomainValueTestCase {
@@ -70,7 +70,7 @@ public class IiR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, SpecificationVersion version) {
-		return ParserContextImpl.create(type, null, version, null, null, ConformanceLevel.OPTIONAL, null, null);
+		return ParseContextImpl.create(type, null, version, null, null, ConformanceLevel.OPTIONAL, null, null);
 	}
 
 	@Test

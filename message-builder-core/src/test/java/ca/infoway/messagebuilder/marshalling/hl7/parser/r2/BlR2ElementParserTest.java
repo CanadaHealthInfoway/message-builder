@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 public class BlR2ElementParserTest extends CeRxDomainValueTestCase {
 	
@@ -46,8 +46,8 @@ public class BlR2ElementParserTest extends CeRxDomainValueTestCase {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		this.contextBL = ParserContextImpl.create("BL", Boolean.class, SpecificationVersion.V02R02, null, null, null, null, null);
-		this.contextBN = ParserContextImpl.create("BN", Boolean.class, SpecificationVersion.R02_04_03, null, null, null, null, null);
+		this.contextBL = ParseContextImpl.create("BL", Boolean.class, SpecificationVersion.V02R02, null, null, null, null, null);
+		this.contextBN = ParseContextImpl.create("BN", Boolean.class, SpecificationVersion.R02_04_03, null, null, null, null, null);
 		this.result = new XmlToModelResult();
 		this.parser = new BlR2ElementParser();
 	}

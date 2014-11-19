@@ -62,6 +62,8 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	private String category;
 	@Attribute(required=false)
 	private String templateId;
+	@Attribute(required=false)
+	private String parentTemplateId;
 	@ElementList(inline=true, required=false)
 	private List<ReceiverResponsibility> receiverResponsibilities = new ArrayList<ReceiverResponsibility>(); 
 	
@@ -203,6 +205,12 @@ public class Interaction implements Categorizable, HasDifferences, Named, Docume
 	}
 	public void setTemplateId(String templateId) {
 		this.templateId = templateId;
+	}
+	public String getParentTemplateId() {
+		return parentTemplateId;
+	}
+	public void setParentTemplateId(String parentTemplateId) {
+		this.parentTemplateId = parentTemplateId;
 	}
 	/**
 	 * Tracks an interaction difference for regen 

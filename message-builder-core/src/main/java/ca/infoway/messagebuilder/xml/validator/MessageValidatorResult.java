@@ -27,8 +27,16 @@ import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 
 public class MessageValidatorResult {
 
-	private final List<Hl7Error> hl7Errors = new ArrayList<Hl7Error>();
+	private final List<Hl7Error> hl7Errors;
 
+	public MessageValidatorResult() {
+		this(new ArrayList<Hl7Error>()); 
+	}
+	
+	public MessageValidatorResult(List<Hl7Error> hl7Errors) {
+		this.hl7Errors = hl7Errors; 
+	}
+	
 	public List<Hl7Error> getHl7Errors() {
 		return hl7Errors;
 	}

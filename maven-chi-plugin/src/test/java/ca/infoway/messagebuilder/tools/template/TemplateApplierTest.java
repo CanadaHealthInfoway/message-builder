@@ -333,8 +333,10 @@ public class TemplateApplierTest {
 		assertEquals(11, xpathHelper.getNodes(document, "//interaction").getLength());
 		assertEquals("USRealmHeader.ClinicalDocument", xpathHelper.getAttributeValue(document, "//interaction[@name=\"USRealmHeader\"]/@superTypeName"));
 		assertEquals("2.16.840.1.113883.10.20.22.1.1", xpathHelper.getAttributeValue(document, "//interaction[@name=\"USRealmHeader\"]/@templateId"));
+		assertNull(xpathHelper.getAttributeValue(document, "//interaction[@name=\"USRealmHeader\"]/@parentTemplateId"));
 		assertEquals("ProgressNote.ClinicalDocument", xpathHelper.getAttributeValue(document, "//interaction[@name=\"ProgressNote\"]/@superTypeName"));
 		assertEquals("2.16.840.1.113883.10.20.22.1.9", xpathHelper.getAttributeValue(document, "//interaction[@name=\"ProgressNote\"]/@templateId"));
+		assertEquals("2.16.840.1.113883.10.20.22.1.1", xpathHelper.getAttributeValue(document, "//interaction[@name=\"ProgressNote\"]/@parentTemplateId"));
 	}
 	
 	@Test

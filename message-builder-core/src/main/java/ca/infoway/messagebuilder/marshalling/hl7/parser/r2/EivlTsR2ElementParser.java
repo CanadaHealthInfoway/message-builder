@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 /**
  * Parses an EIVL<TS> element into a String. (R2)
@@ -72,7 +72,7 @@ class EivlTsR2ElementParser extends AbstractSingleElementParser<EventRelatedPeri
 	private void handleOffset(Node node, EventRelatedPeriodicIntervalTime event, ParseContext context, XmlToModelResult result) {
 		Node offsetNode = getNamedChildNode(node, "offset");
 		if (offsetNode != null) {
-			ParseContext newContext = ParserContextImpl.create("IVL<PQ>", context);
+			ParseContext newContext = ParseContextImpl.create("IVL<PQ>", context);
 			BareANY parsedOffset = this.ivlPqR2ElementParser.parse(newContext, offsetNode, result);
 			if (parsedOffset != null) {
 				event.setOffset((Interval<PhysicalQuantity>) parsedOffset.getBareValue());
@@ -84,7 +84,7 @@ class EivlTsR2ElementParser extends AbstractSingleElementParser<EventRelatedPeri
 	private void handleEvent(Node node, EventRelatedPeriodicIntervalTime event,	ParseContext context, XmlToModelResult result) {
 		Node eventNode = getNamedChildNode(node, "event");
 		if (eventNode != null) {
-			ParseContext newContext = ParserContextImpl.create("CE", TimingEvent.class, context);
+			ParseContext newContext = ParseContextImpl.create("CE", TimingEvent.class, context);
 			BareANY parsedEvent = this.ceR2ElementParser.parse(newContext, eventNode, result);
 			if (parsedEvent != null) {
 				event.setEvent(((CodedTypeR2<TimingEvent>) parsedEvent.getBareValue()).getCode());

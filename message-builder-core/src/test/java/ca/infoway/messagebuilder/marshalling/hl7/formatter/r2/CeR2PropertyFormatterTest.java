@@ -81,7 +81,7 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation3);
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new CeR2PropertyFormatter().format(getContext("name", "CE"), new CE_R2Impl(codedType));
@@ -101,7 +101,7 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text allowed for CE");
+		originalText.setTextContent("original text allowed for CE");
 		codedType.setOriginalText(originalText);
 		
 		CE_R2 ce = new CE_R2Impl(codedType);
@@ -134,7 +134,7 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		CE_R2 ce = new CE_R2Impl(codedType);

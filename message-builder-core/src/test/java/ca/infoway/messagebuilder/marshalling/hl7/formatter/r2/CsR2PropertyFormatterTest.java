@@ -67,7 +67,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text not allowed for CS");
+		originalText.setTextContent("original text not allowed for CS");
 		codedType.setOriginalText(originalText);
 		
 		CS_R2 cs = new CS_R2Impl(codedType);
@@ -95,7 +95,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text not allowed for CS");
+		originalText.setTextContent("original text not allowed for CS");
 		codedType.setOriginalText(originalText);
 		
 		CS_R2 cs = new CS_R2Impl(codedType);

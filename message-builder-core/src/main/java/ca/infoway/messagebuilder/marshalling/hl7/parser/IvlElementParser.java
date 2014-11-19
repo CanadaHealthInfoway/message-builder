@@ -172,7 +172,7 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 
 		if (!StringUtils.equals(type, newType)) {
 			// replace the context with one using the specialization type
-			context = ParserContextImpl.create(newType, context);
+			context = ParseContextImpl.createWithConstraints(newType, context);
 		}
 		
 		return context;
@@ -224,7 +224,7 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 		ElementParser parser = ParserRegistry.getInstance().get(type);
 
 		if (parser != null) {
-			return parser.parse(ParserContextImpl.create(
+			return parser.parse(ParseContextImpl.create(
 					type,
 					null,
 					context.getVersion(),
@@ -273,7 +273,7 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 				ElementParser parser = ParserRegistry.getInstance().get(diffType);
 
 				if (parser != null) {
-					ParseContext subContext = ParserContextImpl.create(
+					ParseContext subContext = ParseContextImpl.create(
 							diffType.getType(),
 							PhysicalQuantity.class,
 							context.getVersion(),
@@ -281,7 +281,7 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 							context.getDateTimeTimeZone(),
 							POPULATED, 
 							Cardinality.create("1"),
-							context.getConstraints());
+							null);
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

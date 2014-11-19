@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 
 public class IvlIntR2ElementParserTest extends CeRxDomainValueTestCase {
 
@@ -56,7 +56,7 @@ public class IvlIntR2ElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Integer> parse(Node node) throws XmlToModelTransformationException {
-		BareANY ivl = this.parser.parse(ParserContextImpl.create("IVL<INT>", Interval.class, SpecificationVersion.V02R02, null, null, null, null, null), 
+		BareANY ivl = this.parser.parse(ParseContextImpl.create("IVL<INT>", Interval.class, SpecificationVersion.V02R02, null, null, null, null, null), 
 				Arrays.asList(node), 
 				this.result);
 		return (Interval<Integer>) (ivl.getBareValue());

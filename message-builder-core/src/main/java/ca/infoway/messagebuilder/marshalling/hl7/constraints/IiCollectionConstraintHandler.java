@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision: 6878 $
  */
 
-package ca.infoway.messagebuilder.marshalling.hl7;
+package ca.infoway.messagebuilder.marshalling.hl7.constraints;
 
 import java.util.Collection;
 
@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public class IiConstraintHandler {
+public class IiCollectionConstraintHandler {
 
 	public class ConstraintResult {
 		private final Identifier identifer;
@@ -81,12 +81,9 @@ public class IiConstraintHandler {
 					boolean foundMatch = (matchingIdentifier != null);
 					boolean isTemplateId = (constraints.getName() == null ? false : constraints.getName().endsWith(".templateId"));
 					Identifier identifer = (foundMatch ? matchingIdentifier : new Identifier(fixedRootValue, fixedExtensionValue));
+					
 					return new ConstraintResult(foundMatch, isTemplateId, identifer);
 				}
-			} else {
-				// unsure if this warrants an error/warning or nothing
-//				String msg = "An unsupported constraint was found for a collection of type: " + subType;
-//				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_UNSUPPORTED_CONSTRAINT, Hl7ErrorLevel.ERROR, msg, nodes.size() > 0 ? nodes.get(0) : null));
 			}
 		}
 		return null;

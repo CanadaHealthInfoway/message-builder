@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: root
+Build-Jdk: 1.6.0_34
+Implementation-Version: 1.5.9
+MBT-Message-Set: /messageSet_mock_r02_04_02.xml
+MBT-Model-Version-Numbers: MOCK_MR2009
+MBT-Version: 1.5.9
+

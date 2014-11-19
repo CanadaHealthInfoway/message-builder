@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SchematronContext;
 
 /**
  * @sharpen.ignore - xml.service - translated manually
@@ -88,6 +89,10 @@ class TrivialService implements MessageDefinitionService {
 	}
 
 	public ConstrainedDatatype getConstraints(VersionNumber version, String constrainedType) {
+		return null;
+	}
+
+	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
 		return null;
 	}
 

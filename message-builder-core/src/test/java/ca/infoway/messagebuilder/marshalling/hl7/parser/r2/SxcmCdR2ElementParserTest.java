@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 
@@ -63,7 +63,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -74,7 +74,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -85,7 +85,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -96,7 +96,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -107,7 +107,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals(SetOperator.INCLUDE, cd.getValue().getOperator());
@@ -117,7 +117,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals(SetOperator.INCLUDE, cd.getValue().getOperator());
@@ -127,7 +127,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -138,7 +138,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -150,7 +150,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -160,7 +160,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -178,14 +178,14 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
 							   "</something>");
 		
 		SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-				ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cd.getValue().getCode());
 		assertEquals("aCsName", cd.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", cd.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", cd.getValue().getDisplayName());
-		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());
@@ -214,7 +214,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
 				"</something>");
 		
 		SXCM_R2<CodedTypeR2<? extends Code>> cd = (SXCM_R2<CodedTypeR2<? extends Code>>) this.parser.parse(
-				ParserContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("SXCM<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, 
 				this.xmlResult);
 		
@@ -229,7 +229,7 @@ public class SxcmCdR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aDisplayName", cd.getValue().getDisplayName());
 		assertNull(cd.getValue().getValue());
 		assertNull(cd.getValue().getSimpleValue());
-		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());

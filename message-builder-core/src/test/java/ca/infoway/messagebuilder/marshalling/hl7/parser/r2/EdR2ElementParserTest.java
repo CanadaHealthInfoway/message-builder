@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.platform.Base64;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -60,7 +60,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, EncapsulatedDataR2.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, EncapsulatedDataR2.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedDataR2 data = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", TEXT_SIMPLE_B64, data.getContent());
+		assertEquals("content", TEXT_SIMPLE_B64, data.getTextContent());
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 
@@ -87,7 +87,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		"</something>");
 		EncapsulatedDataR2 data = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", TEXT_SIMPLE_B64, data.getContent());
+		assertEquals("content", TEXT_SIMPLE_B64, data.getTextContent());
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 	
@@ -100,9 +100,11 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"<through/>" +
 				"</something>");
 		EncapsulatedDataR2 data = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertTrue(this.xmlResult.isValid()); // this will eventually change
+		assertFalse(this.xmlResult.isValid());
 		assertNotNull(data);
-		assertXml("content", "<monkey/><shines/><through/>", data.getContent());
+		assertNull(data.getTextContent());
+		assertNotNull(data.getDocumentContent());
+		assertXml("content", "<monkey/>", data.getDocumentContentAsString(-1));
 	}
 	
 	@Test
@@ -115,7 +117,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertEquals("content", "H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==", data.getContent());
+		assertEquals("content", "H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==", data.getTextContent());
 	}
 	
 	@Test
@@ -128,7 +130,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertEquals("content", "H4sIAAAAAAAAAAMAAAAAAAAAAAA=", data.getContent());
+		assertEquals("content", "H4sIAAAAAAAAAAMAAAAAAAAAAAA=", data.getTextContent());
 	}
 	
 	@Test
@@ -140,7 +142,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertNull("content", data.getContent());
+		assertNull("content", data.getTextContent());
 	}
 
 	@Test
@@ -150,7 +152,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("signature", 
 				"this is a text node", 
-				value.getContent());
+				value.getTextContent());
 	}
 	
 	@Test
@@ -158,7 +160,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>text value</text>");
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("text returned", "text value", new String(value.getContent()));
+		assertEquals("text returned", "text value", new String(value.getTextContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference().getAddress());
 		assertEquals("proper reference returned", "https", value.getReference().getUrlScheme().getCodeValue());
@@ -170,7 +172,8 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("text returned", "text value", new String(value.getContent()));
+		assertEquals("ED types only allow a single reference. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("text returned", "text value", new String(value.getTextContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference().getAddress());
 		assertEquals("proper reference returned", "https", value.getReference().getUrlScheme().getCodeValue());
@@ -182,7 +185,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("proper text returned", "text value", value.getContent());
+		assertEquals("proper text returned", "text value", value.getTextContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -192,7 +195,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value", value.getContent());
+		assertEquals("proper text returned", "text value", value.getTextContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -203,7 +206,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" + content + "</something>");
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value should be b64 encoded", value.getContent());
+		assertEquals("proper text returned", "text value should be b64 encoded", value.getTextContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -225,7 +228,9 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertTrue("proper text returned", value.getContent().startsWith("<![CDATA[Since this is a CDATA"));
+		assertNull(value.getTextContent());
+		assertNull(value.getDocumentContent());
+		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference().getAddress());
 		assertEquals("proper reference returned", "https", value.getReference().getUrlScheme().getCodeValue());
@@ -257,9 +262,46 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("proper thumbnail representation returned", EdRepresentation.TXT, value.getThumbnail().getRepresentation());
 		assertEquals("proper thumbnail reference returned", "thumbnail.ca/monograph/WPDM00002197.html", value.getThumbnail().getReference().getAddress());
 		assertEquals("proper thumbnail reference returned", "https", value.getThumbnail().getReference().getUrlScheme().getCodeValue());
-		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getContent());
+		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getTextContent());
 		
-		assertTrue("proper text returned", value.getContent().startsWith("<![CDATA[Since this is a CDATA"));
+		assertNull(value.getTextContent());
+		assertNull(value.getDocumentContent());
+		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
+	}
+	
+	@Test
+	public void testParseFullWithCdataAndThumbnailOutOfOrder() throws Exception {
+		Node node = createNode(
+				"<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" +
+				"<thumbnail representation=\"TXT\" mediaType=\"text/html\"><reference value=\"https://thumbnail.ca/monograph/WPDM00002197.html\"/>thumbnail text value</thumbnail>" +				
+				"<reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>" +
+				"<![CDATA[" +
+				         "Since this is a CDATA section" +
+				         "I can use all sorts of reserved characters" +
+				         "like > < \" and &" +
+				         "or write things like" +
+				         "<foo></bar>" +
+				         "but my document is still well formed!" +
+				     "]]>" +				
+				"</something>");
+		EncapsulatedDataR2 value = (EncapsulatedDataR2) new EdR2ElementParser().parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertTrue(this.xmlResult.getHl7Errors().get(0).getMessage().contains("ED properties appear to be out of order"));
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertEquals("proper representation returned", EdRepresentation.B64, value.getRepresentation());
+		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference().getAddress());
+		assertEquals("proper reference returned", "https", value.getReference().getUrlScheme().getCodeValue());
+		
+		assertEquals("proper thumbnail media type returned", X_DocumentMediaType.HTML_TEXT, value.getThumbnail().getMediaType());
+		assertEquals("proper thumbnail representation returned", EdRepresentation.TXT, value.getThumbnail().getRepresentation());
+		assertEquals("proper thumbnail reference returned", "thumbnail.ca/monograph/WPDM00002197.html", value.getThumbnail().getReference().getAddress());
+		assertEquals("proper thumbnail reference returned", "https", value.getThumbnail().getReference().getUrlScheme().getCodeValue());
+		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getTextContent());
+		
+		assertNull(value.getTextContent());
+		assertNull(value.getDocumentContent());
+		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
 	}
 }
 

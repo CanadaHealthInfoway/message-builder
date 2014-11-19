@@ -46,7 +46,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 		Node node = createNode("<top><name><family>Flinstone</family><given>Fred</given></name>" + 
 				                    "<name><family>Flinstone</family><given>Wilma</given></name></top>");
 		BareANY result = new BagElementParser().parse(
-				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
@@ -66,7 +66,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 	public void shouldParseEmptyBag() throws Exception {
 		Node node = createNode("<top></top>");
 		BareANY result = new BagElementParser().parse(
-				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
@@ -80,7 +80,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 	public void shouldParseNullFlavor() throws Exception {
 		Node node = createNode("<top><name nullFlavor=\"NI\"/></top>");
 		BareANY result = new BagElementParser().parse(
-				ParserContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		

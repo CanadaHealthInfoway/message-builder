@@ -54,6 +54,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
@@ -75,6 +76,8 @@ import ca.infoway.messagebuilder.xml.util.NamespaceUtil;
 class Hl7SourceMapper {
 
 	private final Log log = LogFactory.getLog(Hl7SourceMapper.class);
+	
+	private PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
 	
 	public XmlToModelResult mapToTeal(Hl7MessageSource hl7MessageSource) {
 	
@@ -286,7 +289,6 @@ class Hl7SourceMapper {
         	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
 			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, e.getMessage(), element));
     	} catch (Exception e) {
-    		e.printStackTrace();
     		// RM18422 - unexpected (and thus unhandled) exception; still, likely best to log it rather than kill entire process
         	Element element = nodes == null || nodes.isEmpty() ? null : (Element) nodes.get(0);
 			source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Unexpected error: " + e.getMessage(), element));
@@ -563,7 +565,7 @@ class Hl7SourceMapper {
 			);
 		}
 		
-		String type = determineType(nodes, relationship, source.isCda());
+		String type = determineType(nodes, relationship, source.isCda(), source.getResult());
 		
 		ElementParser parser = (source.isR2() ? ParserR2Registry.getInstance().get(type): ParserRegistry.getInstance().get(type));
 		if (parser != null) {
@@ -579,9 +581,14 @@ class Hl7SourceMapper {
 					bean.write(relationship, object);
 				}
 			} catch (ClassCastException e){
-				e.printStackTrace();
-				this.log.info("Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 
-						" [" +  e.getMessage() + "]");
+				source.getResult().addHl7Error(
+						new Hl7Error(
+							Hl7ErrorCode.INTERNAL_ERROR, 
+							"Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 
+							" [" +  e.getMessage() + "]",
+							CollectionUtils.isEmpty(nodes) ? null : (Element) nodes.get(0)
+						)
+				);
 			}
 		} else {
 			source.getResult().addHl7Error(
@@ -600,24 +607,29 @@ class Hl7SourceMapper {
 	private void changeDatatypeIfNecessary(String type,	Relationship relationship, BareANY object) {
 		// if the type parsed was different from the relationship type, preserve that info in the parsed object
 		if (object != null && !relationship.getType().equals(type)) {
-			StandardDataType newDataType = StandardDataType.valueOf(StandardDataType.class, type);
+			StandardDataType newDataType = StandardDataType.getByTypeName(type);
 			if (newDataType != null) {
 				object.setDataType(newDataType);
 			}
 		}
 	}
 
-	private String determineType(List<Node> nodes, Relationship relationship, boolean cda) {
+	private String determineType(List<Node> nodes, Relationship relationship, boolean cda, Hl7Errors errors) {
 		String type = relationship.getType();
 		if (cda && relationship.getCardinality().isSingle() && !relationship.isStructural() && nodes.size() == 1) {
 			if (!StandardDataType.ANY.getName().equals(type)) {
-				String newType = ((Element) nodes.get(0)).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
+				Element element = (Element) nodes.get(0);
+				String newType = element.getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
 				if (StringUtils.isNotBlank(newType)) {
 					StandardDataType newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
-					newType = (newTypeEnum == null ? type : newTypeEnum.getType());
-					if (!newType.equals(type)) {
-						// TODO - CDA - TM - validate for illegal type switching (e.g. PQ to CD)
-						type = (newTypeEnum == null ? type : newTypeEnum.getType());
+					if (newTypeEnum != null) {
+						String newTypeString = newTypeEnum.getType();
+						if (this.polymorphismHandler.isValidTypeChange(type, newTypeString)) {
+							type = newTypeString;
+						} else {
+							String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", type, newTypeString);
+							errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, element));
+						}
 					}
 				}
 			}

@@ -46,7 +46,7 @@ class PivlTsElementParser extends AbstractPivlElementParser {
 	@Override
 	protected DateDiff createPeriodType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
     	return (DateDiff) new IvlTsElementParser().createDiffType(
-    			ParserContextImpl.create(
+    			ParseContextImpl.create(
     					"IVL<TS>",
     					null,
     					context.getVersion(),
@@ -54,7 +54,7 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
     					Cardinality.create("0-1"),
-    					context.getConstraints()),
+    					null),
     			element, xmlToModelResult);
 	}
 
@@ -62,7 +62,7 @@ class PivlTsElementParser extends AbstractPivlElementParser {
 	@Override
 	protected Interval<Date> createPhaseType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) throws ParseException, XmlToModelTransformationException {
 		return (Interval<Date>) new IvlTsElementParser().parse(
-    			ParserContextImpl.create(
+    			ParseContextImpl.create(
     					"IVL<TS>",
     					null,
     					context.getVersion(),
@@ -70,7 +70,7 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
     					Cardinality.create("0-1"),
-    					context.getConstraints()),
+    					null),
     			Arrays.asList((Node) element), xmlToModelResult).getBareValue();
 	}
 

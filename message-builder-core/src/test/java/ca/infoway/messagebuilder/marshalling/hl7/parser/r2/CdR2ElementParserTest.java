@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 
@@ -59,7 +59,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -70,7 +70,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -81,7 +81,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -92,7 +92,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -103,7 +103,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("empty node returns null", cd.getValue());
@@ -113,7 +113,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("node with no code attribute returns null", cd.getValue());
@@ -123,7 +123,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -134,7 +134,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -146,7 +146,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -156,7 +156,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         CD_R2 cd = (CD_R2) this.parser.parse(
-        		ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -174,14 +174,14 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
 							   "</something>");
 		
 		CD_R2 cd = (CD_R2) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cd.getValue().getCode());
 		assertEquals("aCsName", cd.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", cd.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", cd.getValue().getDisplayName());
-		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());
@@ -209,7 +209,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
 				"</something>");
 		
 		CD_R2 cd = (CD_R2) this.parser.parse(
-				ParserContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("CD", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, 
 				this.xmlResult);
 		
@@ -225,7 +225,7 @@ public class CdR2ElementParserTest extends MarshallingTestCase {
 		assertNull(cd.getValue().getOperator());
 		assertNull(cd.getValue().getValue());
 		assertNull(cd.getValue().getSimpleValue());
-		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());

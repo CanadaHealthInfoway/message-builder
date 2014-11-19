@@ -33,25 +33,28 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.j5goodies.Generics;
+import ca.infoway.messagebuilder.marshalling.PolymorphismHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.IiConstraintHandler.ConstraintResult;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler.ConstraintResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 abstract class SetOrListR2ElementParser extends AbstractElementParser {
 
 	// only checking II constraints for now
-	private IiConstraintHandler constraintHandler = new IiConstraintHandler();
+	private IiCollectionConstraintHandler constraintHandler = new IiCollectionConstraintHandler();
+	private PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
 	
 	@Override
 	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
@@ -62,26 +65,13 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 		
 		for (Node node : nodes) {
 			
-			StandardDataType newTypeEnum = null;
-			if (!StandardDataType.ANY.getName().equals(subType)) {
-				String newType = ((Element) nodes.get(0)).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
-				if (StringUtils.isNotBlank(newType)) {
-					newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
-					newType = (newTypeEnum == null ? subType : newTypeEnum.getType());
-					if (!newType.equals(subType)) {
-						// TODO - CDA - TM - validate for illegal type switching (e.g. PQ to CD)
-						subType = (newTypeEnum == null ? subType : newTypeEnum.getType());
-					} else {
-						newTypeEnum = null;
-					}
-				}
-			}
+			String actualType = determineActualType(node, subType, xmlToModelResult);
 			
-			ElementParser parser = ParserR2Registry.getInstance().get(subType);
+			ElementParser parser = ParserR2Registry.getInstance().get(actualType);
 			if (parser != null) {
 				BareANY result = parser.parse(
-						ParserContextImpl.create(
-								subType,
+						ParseContextImpl.create(
+								actualType,
 								getSubTypeAsModelType(context),
 								context.getVersion(),
 								context.getDateTimeZone(),
@@ -92,8 +82,8 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {
-					if (newTypeEnum != null) {
-						result.setDataType(newTypeEnum);
+					if (!StringUtils.equals(subType, actualType)) {
+						result.setDataType(StandardDataType.getByTypeName(actualType));
 					}
 					if (list.contains(result)) {
 						resultAlreadyExistsInCollection(result, (Element) node, xmlToModelResult);
@@ -102,14 +92,32 @@ abstract class SetOrListR2ElementParser extends AbstractElementParser {
 				}
 			} else {
 				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR,
-						"No parser type found for " + subType, (Element) node));
-				break;
+						"No parser type found for " + actualType, (Element) node));
 			}
 		}
 		
 		handleConstraints(subType, list, context.getConstraints(), nodes, xmlToModelResult);
 		
 		return wrapWithHl7DataType(context.getType(), subType, list);
+	}
+
+	private String determineActualType(Node node, String subType, Hl7Errors errors) {
+		if (!StandardDataType.ANY.getName().equals(subType)) {
+			String newType = ((Element) node).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
+			if (StringUtils.isNotBlank(newType)) {
+				StandardDataType newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
+				if (newTypeEnum != null) {
+					String newTypeString = newTypeEnum.getType();
+					if (this.polymorphismHandler.isValidTypeChange(subType, newTypeString)) {
+						subType = newTypeString;
+					} else {
+						String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", subType, newTypeString);
+						errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, (Element) node));
+					}
+				}
+			}
+		}
+		return subType;
 	}
 
 	private void handleConstraints(String type, Collection<BareANY> parsedItems, ConstrainedDatatype constraints, List<Node> nodes, XmlToModelResult xmlToModelResult) {

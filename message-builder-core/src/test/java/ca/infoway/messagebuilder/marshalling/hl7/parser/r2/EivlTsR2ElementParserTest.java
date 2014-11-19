@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class EivlTsR2ElementParserTest extends CeRxDomainValueTestCase {
@@ -52,7 +52,7 @@ public class EivlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParserContextImpl.create(type, EventRelatedPeriodicIntervalTime.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, EventRelatedPeriodicIntervalTime.class, version, null, null, ConformanceLevel.POPULATED, null, null);
 	}
 
 	@Test

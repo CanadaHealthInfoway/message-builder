@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.SchematronContext;
 
 /**
  * <p>A message definition service that combines the results of other message defintion 
@@ -230,4 +231,14 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 		return null;
 	}
 
+	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
+		for (MessageDefinitionService service : this.services) {
+			List<SchematronContext> contexts = service.getAllSchematronContexts(version);
+			if (contexts != null) {
+				return contexts;
+			}
+		}
+		return null;
+	}
+	
 }

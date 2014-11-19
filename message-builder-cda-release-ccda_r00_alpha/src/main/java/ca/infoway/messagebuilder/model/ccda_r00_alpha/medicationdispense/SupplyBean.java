@@ -70,7 +70,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ProductBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ReferenceBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -87,7 +86,7 @@ public class SupplyBean extends MessagePartBean {
     private CD_R2 code = new CD_R2Impl();
     private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
     private CS_R2 statusCode = new CS_R2Impl();
-    private SXCM_R2<Date> effectiveTime = new SXCM_R2Impl<Date>();
+    private SXCM_R2<MbDate> effectiveTime = new SXCM_R2Impl<MbDate>();
     private LIST<CE_R2, CodedTypeR2<? extends Code>> priorityCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
     private BL independentInd = new BLImpl();
@@ -224,7 +223,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
-    public Date getEffectiveTime() {
+    public MbDate getEffectiveTime() {
         return this.effectiveTime.getValue();
     }
 
@@ -233,7 +232,7 @@ public class SupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setEffectiveTime(Date effectiveTime) {
+    public void setEffectiveTime(MbDate effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
     }
 

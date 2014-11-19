@@ -301,6 +301,7 @@ public class CdaTemplateProcessor {
 						Template targetTemplate = this.templateSet.getByOid(childConstraint.getContainedTemplateOid());
 						delta.addConstraint(new AssociationTypeConstraint(null, targetTemplate.getEntryClassName()));
 						template.addTemplateReference(node.getQualifiedName() + "." + childConstraint.getContext(), childConstraint.getContainedTemplateOid(), Cardinality.create(node.getConstraint().getCardinality()));
+						addSchematronConstraint(delta, childConstraint);
 					} else {
 						List<TemplateNode> childNodes = node.getChildren().get(childConstraint.getContext());
 						if (childNodes != null && childNodes.size() == 1) {
@@ -474,6 +475,7 @@ public class CdaTemplateProcessor {
 					
 					template.addTemplateReference(choiceOptionName + ".section", targetTemplate.getOid(), constraintCardinality);
 				}
+				addSchematronConstraint(choiceBlockDelta, cdaConstraint);
 			}
 		}
 		structuredBodyComponentDelta.addConstraint(new CardinalityConstraint(new Cardinality(1, Integer.MAX_VALUE), new Cardinality(1, Integer.MAX_VALUE)));
@@ -905,6 +907,7 @@ public class CdaTemplateProcessor {
 		if (cdaConstraint.getContainedTemplateOid() != null) {
 			Template targetTemplate = this.templateSet.getByOid(cdaConstraint.getContainedTemplateOid());
 			delta.addConstraint(new AssociationTypeConstraint(relationship.getType(), targetTemplate.getEntryClassName()));
+			addSchematronConstraint(delta, cdaConstraint);
 		} else {
 			List<TemplateNode> childNodes = templateNode.getChildren().get(relationship.getName());
 			if (childNodes != null && childNodes.size() == 1 && !cdaConstraint.isBranch()) {
@@ -938,7 +941,16 @@ public class CdaTemplateProcessor {
 	
 	private void addSchematronConstraint(Delta delta, CdaConstraint subconstraint) {
 		if (subconstraint.getSchematronTest() != null && subconstraint.getSchematronTest().hasValidTest()) {
-			SchematronConstraint constraint = new SchematronConstraint(subconstraint.getSchematronTest().getTest());
+			String narrativeText = null;
+			if (subconstraint.getNarrativeText() != null) {
+				narrativeText = subconstraint.getNarrativeText().getText();
+			} else if (subconstraint.getContainedTemplateOid() != null) {
+				Template containedTemplate = this.templateSet.getByOid(subconstraint.getContainedTemplateOid());
+				if (containedTemplate != null) {
+					narrativeText = subconstraint.getConformance() + " contain [" + subconstraint.getCardinality() + "] " + containedTemplate.getTitle() + "(templateId:" + subconstraint.getContainedTemplateOid() + ") (CONF:" + subconstraint.getNumber() + ").";
+				}
+			}
+			SchematronConstraint constraint = new SchematronConstraint(subconstraint.getSchematronTest().getTest(),	narrativeText);
 			constraint.setWarning(subconstraint.isConformanceShould() || subconstraint.isConformanceMay());
 			delta.addConstraint(constraint);
 		}
@@ -1005,6 +1017,7 @@ public class CdaTemplateProcessor {
 		Template template = new Template(cdaTemplate.getOid());
 		
 		template.setOpen(cdaTemplate.isOpen());
+		template.setTitle(cdaTemplate.getTitle());
 		template.setContextType(cdaTemplate.getContextType());
 		template.setTemplateType(cdaTemplate.getTemplateType());
 		template.setContext(cdaTemplate.getContext());

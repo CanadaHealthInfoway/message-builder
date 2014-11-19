@@ -20,18 +20,17 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import java.text.MessageFormat;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.TimeZone;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
@@ -56,19 +55,11 @@ class Hl7MessageSource implements Hl7Source {
 		this.isCda = service.isCda(version);
 		
 		String messageIdFromDocument = getMessageIdFromDocument();
-		String templateIdFromDocument = getTemplateIdFromDocument();
+		Set<String> templateIdsFromDocument = getTemplateIdsFromDocument();
 		
-		this.context = new ConversionContext(service, version, dateTimeZone, dateTimeTimeZone, messageIdFromDocument, templateIdFromDocument);
 		this.result = new XmlToModelResult();
-		if (this.context.getInteraction() == null){
-			String message = MessageFormat.format("The interaction {0} for version {1} could not be found (and is possibly not supported). For CDA, please confirm an appropriate templateId has been provided.", messageIdFromDocument, version);
-			result.addHl7Error(
-					new Hl7Error(
-							Hl7ErrorCode.UNSUPPORTED_INTERACTION,
-							message,
-							document == null ? null : document.getDocumentElement()
-							));
-		} else {
+		this.context = new ConversionContext(service, version, dateTimeZone, dateTimeTimeZone, messageIdFromDocument, templateIdsFromDocument, result);
+		if (this.context.getInteraction() != null){
 			this.messagePart = initMessagePart();
 		}
 		
@@ -136,16 +127,13 @@ class Hl7MessageSource implements Hl7Source {
 		return NodeUtil.getLocalOrTagName(this.document.getDocumentElement());
 	}
 
-	private String getTemplateIdFromDocument() {
-		String result = null;
-		// iterate templateIds in reverse order (it appears like they are supplied in order of least to most specific)
-		List<Node> childNodes = NodeUtil.getChildNodes(this.document.getDocumentElement(), "templateId");
-		for (int i = childNodes.size(); --i >= 0; ) {
-			Element element = (Element) childNodes.get(i);
-			if (element.getParentNode() == this.document.getDocumentElement()) {
+	private Set<String> getTemplateIdsFromDocument() {
+		Set<String> result = new HashSet<String>();
+		List<Element> childNodes = NodeUtil.toElementList(this.document.getDocumentElement());
+		for (Element element : childNodes) {
+			if (StringUtils.equals(element.getNodeName(), "templateId")) {
 				if (element.hasAttribute("root")) {
-					result = element.getAttribute("root");
-					break;
+					result.add(element.getAttribute("root"));
 				}
 			}
 		}

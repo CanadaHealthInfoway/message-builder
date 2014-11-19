@@ -109,7 +109,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 
 	private Integer parseNumerator(ParseContext context, Element numerator,	XmlToModelResult xmlToModelResult) {
 		ElementParser parser = ParserRegistry.getInstance().get("INT.NONNEG");
-		ParseContext subContext = ParserContextImpl.create(
+		ParseContext subContext = ParseContextImpl.create(
 				"INT.NONNEG",
 				Integer.class,
 				context.getVersion(),
@@ -117,13 +117,13 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				context.getConstraints());
+				null);
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
 	private PhysicalQuantity parseDenominator(ParseContext context, Element numerator, XmlToModelResult xmlToModelResult) {
 		ElementParser parser = ParserRegistry.getInstance().get("PQ.TIME");
-		ParseContext subContext = ParserContextImpl.create(
+		ParseContext subContext = ParseContextImpl.create(
 				"PQ.TIME",
 				PhysicalQuantity.class,
 				context.getVersion(),
@@ -131,7 +131,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				context.getConstraints());
+				null);
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -139,7 +139,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 	private Interval<PhysicalQuantity> parseDenominatorSk(ParseContext context, Element numerator, XmlToModelResult xmlToModelResult) {
 		// TM - Unsure if SK is allowed to send in any kind of PQ, or only specific ones. Picked PQ.BASIC to cover most scenarios. 
 		ElementParser parser = ParserRegistry.getInstance().get("IVL<PQ.BASIC>");
-		ParseContext subContext = ParserContextImpl.create(
+		ParseContext subContext = ParseContextImpl.create(
 				"IVL<PQ.BASIC>",
 				PhysicalQuantity.class,
 				context.getVersion(),
@@ -147,7 +147,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				context.getConstraints());
+				null);
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 

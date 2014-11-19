@@ -20,13 +20,19 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import javax.xml.transform.TransformerException;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.util.xml.XmlRenderer;
 
 /**
  * R2-specific ED data type 
@@ -53,18 +59,24 @@ public class EncapsulatedDataR2 {
 	private Compression compression;
 	private String integrityCheck;
 	private IntegrityCheckAlgorithm integrityCheckAlgorithm;
-	
-	private String content; // must be text or base64 encoded
+
+	// at most can provide only one of these three content types
+	private String textContent; // must be text or base64 encoded; will be escaped
+	private String cdataContent;
+	private Document documentContent;
 
 	/**
 	 * <p>Constructs an empty ED.
 	 */
 	public EncapsulatedDataR2() {
-		this(null);
 	}
 	
-	public EncapsulatedDataR2(String content) {
-		this.content = content;
+	public EncapsulatedDataR2(String textContent) {
+		this.textContent = textContent;
+	}
+
+	public EncapsulatedDataR2(Document documentContent) {
+		this.documentContent = documentContent;
 	}
 
 	/**
@@ -149,18 +161,66 @@ public class EncapsulatedDataR2 {
 	}
 
 	/**
-	 * <p>Returns the content.
+	 * <p>Returns the text content. This content will be escaped when rendered to xml.
 	 * 
 	 * @return the content
 	 */
-	public String getContent() {
-		return this.content;
+	public String getTextContent() {
+		return this.textContent;
 	}
 	
-	public void setContent(String content) {
-		this.content = content;
+	public void setTextContent(String content) {
+		this.textContent = content;
 	}
 
+	/**
+	 * CDATA content. This content will be wrapped in a CDATA block and *not* escaped.
+	 * 
+	 * @return the cdata content
+	 */
+	public String getCdataContent() {
+		return cdataContent;
+	}
+
+	public void setCdataContent(String cdataContent) {
+		this.cdataContent = cdataContent;
+	}
+
+	/**
+	 * Document content. Useful for when ED content is a single root element containing additional elements. 
+	 * 
+	 * @return the document
+	 */
+	public Document getDocumentContent() {
+		return documentContent;
+	}
+
+	public void setDocumentContent(Document documentContent) {
+		this.documentContent = documentContent;
+	}
+
+	/**
+	 * Convenience method to obtain ED xml content as a String
+	 * @param indentLevel amount to indent xml; -1 for no indenting
+	 * @return the ED document in a string
+	 * @throws TransformerException
+	 */
+	public String getDocumentContentAsString(int indentLevel) throws TransformerException {
+		if (this.documentContent == null) {
+			return null;
+		}
+		return XmlRenderer.render(this.documentContent, true, indentLevel);
+	}
+	
+	/**
+	 * Convenience method to pass in xml as a string to set as documentContent
+	 * @param documentContentAsString the string to convert to a Document
+	 * @throws SAXException
+	 */
+	public void setDocumentContentFromString(String documentContentAsString) throws SAXException {
+		this.documentContent = new DocumentFactory().createFromString(documentContentAsString);
+	}
+	
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
@@ -172,7 +232,9 @@ public class EncapsulatedDataR2 {
 		        .append(this.compression)
 		        .append(this.integrityCheck)
 		        .append(this.integrityCheckAlgorithm)
-		        .append(this.content)
+		        .append(this.textContent)
+		        .append(this.cdataContent)
+		        .append(this.documentContent)
                 .toHashCode();
     }
 
@@ -197,7 +259,9 @@ public class EncapsulatedDataR2 {
 		        .append(this.compression, that.compression)
 		        .append(this.integrityCheck, that.integrityCheck)
 		        .append(this.integrityCheckAlgorithm, that.integrityCheckAlgorithm)
-                .append(this.content, that.content)
+                .append(this.textContent, that.textContent)
+                .append(this.cdataContent, that.cdataContent)
+                .append(this.documentContent, that.documentContent)
                 .isEquals();
     }
 	
@@ -210,6 +274,8 @@ public class EncapsulatedDataR2 {
 				this.compression == null &&
 				this.integrityCheck == null &&
 				this.integrityCheckAlgorithm == null &&
-				this.content == null;
+				this.textContent == null &&
+				this.cdataContent == null &&
+				this.documentContent== null;
 	}
 }

@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 
@@ -58,7 +58,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cs.getValue());
@@ -69,7 +69,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cs.getValue());
@@ -80,7 +80,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cs.getValue().getCodeValue());
@@ -91,7 +91,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());  // codeSystem not allowed
@@ -103,7 +103,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("empty node returns null", cs.getValue());
@@ -113,7 +113,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("node with no code attribute returns null", cs.getValue());
@@ -123,7 +123,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -134,7 +134,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -146,7 +146,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -156,7 +156,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         CS_R2 cs = (CS_R2) this.parser.parse(
-        		ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -168,7 +168,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something code=\"FRED\" />");
 		
 		CS_R2 cs = (CS_R2) this.parser.parse(
-				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cs.getValue().getCode());
@@ -187,7 +187,7 @@ public class CsR2ElementParserTest extends MarshallingTestCase {
 				"</something>");
 		
 		CS_R2 cs = (CS_R2) this.parser.parse(
-				ParserContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("CS", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, 
 				this.xmlResult);
 		

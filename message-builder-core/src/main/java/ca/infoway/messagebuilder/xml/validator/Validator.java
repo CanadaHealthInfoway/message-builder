@@ -29,9 +29,11 @@ import ca.infoway.messagebuilder.xml.visitor.MessageWalker;
 /**
  * For MB testing/internal use only.
  * 
+ * @deprecated
  * For general message validation, please use ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl.
  * 
  */
+@Deprecated
 class Validator {
 
 	private final MessageWalker messageWalker;

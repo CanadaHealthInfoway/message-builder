@@ -20,8 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.xml.transform.TransformerException;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -32,13 +36,20 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.EdConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.platform.Base64;
+import ca.infoway.messagebuilder.util.text.Indenter;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 
 /**
@@ -46,8 +57,9 @@ import ca.infoway.messagebuilder.platform.Base64;
  */
 @DataTypeHandler("ED")
 public class EdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EncapsulatedDataR2> {
-
+	
 	private TelR2PropertyFormatter telFormatter = new TelR2PropertyFormatter();
+	private final EdConstraintsHandler constraintsHandler = new EdConstraintsHandler();
 	
 	@Override
 	protected
@@ -60,32 +72,47 @@ public class EdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<E
 	String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {
 		
 		EncapsulatedDataR2 encapsulatedData = extractBareValue(dataType);
+		
+		handleConstraints(encapsulatedData, context.getConstraints(), context.getPropertyPath(), context.getModelToXmlResult());
 
 		Map<String, String> attributes = createAttributes(encapsulatedData, context);
 
 		boolean hasContent = hasContent(encapsulatedData);
-		boolean hasReferenceOrThumbnail = hasReferenceOrThumbnail(encapsulatedData);
+		boolean hasReferenceOrThumbnailOrDocument = hasReferenceOrThumbnailOrDocument(encapsulatedData);
 		
 		StringBuffer buffer = new StringBuffer();
-		buffer.append(createElement(context, attributes, indentLevel, !hasContent, hasReferenceOrThumbnail));
+		buffer.append(createElement(context, attributes, indentLevel, !hasContent, hasReferenceOrThumbnailOrDocument));
 		if (hasContent) {
 			writeReference(encapsulatedData, buffer, indentLevel + 1, context);
 			writeThumbnail(encapsulatedData, buffer, indentLevel + 1, context);
-			writeContent(encapsulatedData, buffer, indentLevel + 1, context);
-			buffer.append(createElementClosure(context, hasReferenceOrThumbnail ? indentLevel : 0, true));
+			writeContent(encapsulatedData, buffer, indentLevel + 1, context, hasReferenceOrThumbnailOrDocument);
+			buffer.append(createElementClosure(context, hasReferenceOrThumbnailOrDocument ? indentLevel : 0, true));
 		}
 		
 		return buffer.toString();
 	}
 
-	private boolean hasContent(EncapsulatedDataR2 encapsulatedData) {
-		return hasReferenceOrThumbnail(encapsulatedData) || 
-			   encapsulatedData.getContent() != null;
+	private void handleConstraints(EncapsulatedDataR2 ed, ConstrainedDatatype constraints, final String propertyPath, final Hl7Errors errors) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+
+		this.constraintsHandler.handleConstraints(constraints, ed, logger);
 	}
 
-	private boolean hasReferenceOrThumbnail(EncapsulatedDataR2 encapsulatedData) {
+	private boolean hasContent(EncapsulatedDataR2 encapsulatedData) {
+		return hasReferenceOrThumbnailOrDocument(encapsulatedData) || 
+			   encapsulatedData.getTextContent() != null ||
+			   encapsulatedData.getCdataContent() != null ||
+			   encapsulatedData.getDocumentContent() != null;
+	}
+
+	private boolean hasReferenceOrThumbnailOrDocument(EncapsulatedDataR2 encapsulatedData) {
 		return encapsulatedData.getReference() != null || 
-			   encapsulatedData.getThumbnail() != null;
+			   encapsulatedData.getThumbnail() != null ||
+			   encapsulatedData.getDocumentContent() != null;
 	}
 
 	private void writeReference(EncapsulatedDataR2 encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context) {
@@ -116,15 +143,46 @@ public class EdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<E
 		}
 	}
 	
-	private void writeContent(EncapsulatedDataR2 encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context) {
-		String content = encapsulatedData.getContent();
-		if (StringUtils.isNotBlank(content)) {
-			
-			if (EdRepresentation.B64.equals(encapsulatedData.getRepresentation())) {
-				validateBase64Encoded("content", content, context);
+	private void writeContent(EncapsulatedDataR2 encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context, boolean hasReferenceOrThumbnailOrDocument) {
+		boolean hasDoc = encapsulatedData.getDocumentContent() != null;
+		boolean hasCdata = encapsulatedData.getCdataContent() != null;
+		boolean hasText = encapsulatedData.getTextContent() != null;
+		boolean hasContent = (hasDoc || hasCdata || hasText);
+		validateContent(context, hasDoc, hasCdata, hasText);
+		
+		if (hasReferenceOrThumbnailOrDocument && hasContent) {
+			Indenter.indentBuffer(buffer, indentLevel);
+		}
+		if (hasDoc) {
+			try {
+				String documentContentAsString = encapsulatedData.getDocumentContentAsString(indentLevel);
+				buffer.append(documentContentAsString);
+			} catch (TransformerException e) {
+				context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "ED xml document content could not be rendered: " + e.getMessage(), context.getPropertyPath()));
 			}
-			
-			buffer.append(content);
+		} else if (hasCdata) {
+			buffer.append("<![CDATA[" + encapsulatedData.getCdataContent() + "]]>");
+		} else if (hasText) {
+			String textContent = encapsulatedData.getTextContent();
+			if (EdRepresentation.B64.equals(encapsulatedData.getRepresentation())) {
+				validateBase64Encoded("content", textContent, context);
+			}
+			buffer.append(XmlStringEscape.escape(textContent));
+		}
+		if (hasReferenceOrThumbnailOrDocument && hasContent) {
+			buffer.append(LINE_SEPARATOR);
+		}
+	}
+
+	private void validateContent(FormatContext context, boolean hasDoc, boolean hasCdata, boolean hasText) {
+		// only one content type should be provided
+		int numProvided = (hasDoc ? 1 : 0) + (hasCdata ? 1 : 0) + (hasText ? 1 : 0);
+		if (numProvided > 1) {
+			context.getModelToXmlResult().addHl7Error(
+					new Hl7Error(Hl7ErrorCode.ONLY_ONE_TYPE_OF_CONTENT_ALLOWED, 
+							Hl7ErrorLevel.WARNING, 
+							"ED only allows for one type of content (Document, CDATA or text). Precendence given to content in order shown; other content not rendered.", 
+							context.getPropertyPath()));
 		}
 	}
 

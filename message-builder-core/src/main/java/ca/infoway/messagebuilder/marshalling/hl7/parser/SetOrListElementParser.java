@@ -50,7 +50,7 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 			ElementParser parser = ParserRegistry.getInstance().get(subType);
 			if (parser != null) {
 				BareANY result = parser.parse(
-						ParserContextImpl.create(
+						ParseContextImpl.create(
 								subType,
 								getSubTypeAsModelType(context),
 								context.getVersion(),
@@ -58,7 +58,7 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 								context.getDateTimeTimeZone(),
 								context.getConformance(),
 								context.getCardinality(),
-								context.getConstraints()),
+								null),
 						toList(node),
 						xmlToModelResult);
 				if (result != null) {

@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
+import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.util.MessageSetUtils;
 
 /**
@@ -306,6 +307,14 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		return null;
 	}
 	
+	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet != null) {
+			return messageSet.getSchematronContexts();
+		}
+		return Collections.emptyList();
+	}
+
 	private MessageSet findMessageSet(VersionNumber version) {
 		return findMessageSet(version == null ? null : version.getVersionLiteral());
 	}

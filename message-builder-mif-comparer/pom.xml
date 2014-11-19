@@ -19,6 +19,12 @@
 			<groupId>ca.infoway.messagebuilder</groupId>
 			<artifactId>message-builder-core</artifactId>
 			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>ph-schematron</artifactId>
+					<groupId>com.helger</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>

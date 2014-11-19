@@ -54,12 +54,6 @@ public class TypeConverter {
 		DataType dataType = null;
 		if (name!=null) {
 			List<DataType> parameters = convertAll(name.getParameters(), domainType);
-			
-			// FIXME - CDA - TM - something better needs to be done here
-			if (this.isR2 && "IVL<TS>".equals(name.toString())) {
-				parameters.clear();
-			}
-			
 			DataType baseType = getBasicType(name, domainType);
 			if (baseType.getParameters() != null && baseType.getParameters().length > 0) {
 				parameters.addAll(Arrays.asList(baseType.getParameters()));

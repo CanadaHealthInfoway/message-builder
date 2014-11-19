@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: jroberts $
+ * Last modified: $LastChangedDate: 2014-11-06 15:40:43 -0500 (Thu, 06 Nov 2014) $
+ * Revision:      $LastChangedRevision: 9058 $
  */
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
-public class ParserContextImpl implements ParseContext {
+public class ParseContextImpl implements ParseContext {
 
 	private final Type expectedReturnType;
 	private final String type;
@@ -42,7 +42,7 @@ public class ParserContextImpl implements ParseContext {
 	private final Cardinality cardinality;
 	private final ConstrainedDatatype constraints;
 
-	private ParserContextImpl(String type, Type returnType, VersionNumber version,
+	private ParseContextImpl(String type, Type returnType, VersionNumber version,
 			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, CodingStrength strength, Integer length, ConstrainedDatatype constraints) {
 		this.type = type;
 		this.expectedReturnType = returnType;
@@ -97,24 +97,30 @@ public class ParserContextImpl implements ParseContext {
 	}
 
 	public static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, ConstrainedDatatype constraints) {
-		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null, constraints);
+		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null, constraints);
 	}
 
 	public static ParseContext create(String type, Type returnType, VersionNumber version,
 			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, CodingStrength strength, Integer length, ConstrainedDatatype constraints) {
-		return new ParserContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, strength, length, constraints);
+		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, strength, length, constraints);
 	}
 	
 	public static ParseContext create(String newType, ParseContext oldContext) {
-		return ParserContextImpl.create(newType, oldContext.getConformance(), oldContext.getCardinality(), oldContext);
+		return ParseContextImpl.create(newType, oldContext.getConformance(), oldContext.getCardinality(), oldContext);
+	}
+	
+	public static ParseContext createWithConstraints(String newType, ParseContext oldContext) {
+		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints());
 	}
 	
 	public static ParseContext create(String newType, Type newReturnType, ParseContext oldContext) {
-		return new ParserContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints());
+		// not passing constraints down unless constraints are explicitly provided
+		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), null);
 	}
 
 	public static ParseContext create(String newType, ConformanceLevel newConformance, Cardinality newCardinality, ParseContext oldContext) {
-		return new ParserContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints());
+		// not passing constraints down unless constraints are explicitly provided
+		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength(), null);
 	}
 
 }

@@ -83,6 +83,9 @@ public class MessageSet implements MessagePartResolver {
 	@ElementMap(name="constrainedDatatype",key="name",required=false,inline=true,attribute=true,entry="constrainedDatatypeEntry")
 	private Map<String, ConstrainedDatatype> constrainedDatatypes = new TreeMap<String, ConstrainedDatatype>();
 	
+	@ElementList(required=false,inline=true,entry="schematronContext")
+	private List<SchematronContext> schematronContexts = new ArrayList<SchematronContext>();
+	
 	/**
 	 * <p>Get the version code that this message set represents.
 	 * @return - the version code.
@@ -393,5 +396,13 @@ public class MessageSet implements MessagePartResolver {
 
 	public void setRealmCode(String realmCode) {
 		this.realmCode = realmCode;
+	}
+
+	public List<SchematronContext> getSchematronContexts() {
+		return schematronContexts;
+	}
+	
+	public void addSchematronContext(SchematronContext context) {
+		this.schematronContexts.add(context);
 	}
 }

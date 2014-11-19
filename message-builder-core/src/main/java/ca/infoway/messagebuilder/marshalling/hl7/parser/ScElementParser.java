@@ -86,7 +86,7 @@ class ScElementParser extends AbstractSingleElementParser<CodedString<? extends 
 		
 		Code lookedUpCode = null;
 		if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(codeSystem)) {
-			lookedUpCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, (Element) node, context, xmlToModelResult);
+			lookedUpCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, expectedReturnType, (Element) node, context.getType(), xmlToModelResult);
 		}
 		
 		String displayName = getAttributeValue(node, "displayName");

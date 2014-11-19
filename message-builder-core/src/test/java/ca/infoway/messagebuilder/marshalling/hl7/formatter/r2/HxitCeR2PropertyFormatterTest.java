@@ -77,7 +77,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setValidTime(interval);
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), new CE_R2Impl(codedType));
@@ -97,7 +97,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("original text allowed for CE");
+		originalText.setTextContent("original text allowed for CE");
 		codedType.setOriginalText(originalText);
 		
 		CE_R2 ce = new CE_R2Impl(codedType);
@@ -135,7 +135,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setValidTime(interval);
 		
 		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
-		originalText.setContent("some original text");
+		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		CE_R2 ce = new CE_R2Impl(codedType);

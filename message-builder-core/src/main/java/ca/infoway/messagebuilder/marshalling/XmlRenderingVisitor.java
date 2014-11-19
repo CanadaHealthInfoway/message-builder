@@ -51,6 +51,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
@@ -149,6 +150,8 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 	
+	private PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
+
 	private final Stack<String> propertyPathNames = new Stack<String>();
 	private final Stack<Buffer> buffers = new Stack<Buffer>();
 	private Interaction interaction;
@@ -371,28 +374,16 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	private void renderNonStructuralAttribute(AttributeBridge tealBean, Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		String type = relationship.getType();
-		BareANY hl7Value = tealBean.getHl7Value();
-		String rootType = StandardDataType.getByTypeName(type).getRootType();
-		String alternateType = (hl7Value == null ? type : hl7Value.getDataType().getType());
-		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
-		boolean typeSwitched = false;
+		String propertyPath = buildPropertyPath();
 		
-		// TODO - CDA - TM - need a more solid check on datatype being changed (add to bareany a getDefaultType and see if that has been changed?)
-		if (this.isR2 && !"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
-			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
-				// TODO - CDA - TM - need to validate non-allowed type-switching
-				type = alternateType;
-				typeSwitched = true;
-			}
-		}
+		BareANY hl7Value = tealBean.getHl7Value();
+		String type = determineActualType(relationship, hl7Value, this.result, propertyPath);
 		
 		PropertyFormatter formatter = this.formatterRegistry.get(type);
 		
 		if (formatter == null) {
 			throw new RenderingException("Cannot support properties of type " + type);
 		} else {
-			String propertyPath = buildPropertyPath();
 			String xmlFragment = "";
 			try {
 				BareANY any = null;
@@ -407,7 +398,7 @@ class XmlRenderingVisitor implements Visitor {
 					}
 				} else {
 					any = hl7Value;
-					any = this.adapterProvider.getAdapter(any!=null ? any.getClass() : null, type).adapt(any);
+					any = this.adapterProvider.getAdapter(any != null ? any.getClass() : null, type).adapt(any);
 
 					// TODO - CDA - TM - implement default value handling
 //					boolean valueNotProvided = (any.getBareValue() == null && !any.hasNullFlavor());
@@ -422,8 +413,8 @@ class XmlRenderingVisitor implements Visitor {
 				handleNotAllowedAndIgnored(relationship, propertyPath);
 				
 				FormatContext context = FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints);
-				if (typeSwitched) {
-					context = new ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl(context.getType(), true, context);
+				if (!StringUtils.equals(type, relationship.getType())) {
+					context = new ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl(type, true, context);
 				}
 				xmlFragment += formatter.format(
 						context, 
@@ -444,6 +435,26 @@ class XmlRenderingVisitor implements Visitor {
 			renderNewErrorsToXml(currentBuffer().getChildBuilder());
 			currentBuffer().getChildBuilder().append(xmlFragment);
 		}
+	}
+
+	private String determineActualType(Relationship relationship, BareANY hl7Value, Hl7Errors errors, String propertyPath) {
+		String type = relationship.getType();
+		String alternateType = (hl7Value == null ? type : hl7Value.getDataType().getType());
+		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
+		
+		if (this.isCda && !"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
+			String rootType = StandardDataType.getByTypeName(type).getRootType();
+			// any better way to detect a type change? no guarantee that the standard/unchanged type in hl7Value will directly match the model type 
+			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
+				if (this.polymorphismHandler.isValidTypeChange(type, alternateType)) {
+					type = alternateType;
+				} else {
+					String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", type, alternateType);
+					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, propertyPath));
+				}
+			}
+		}
+		return type;
 	}
 
 	private void handleNotAllowedAndIgnored(Relationship relationship,	String propertyPath) {

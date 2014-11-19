@@ -23,21 +23,30 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 import java.util.Date;
 import java.util.List;
 
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IvlTsConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 @DataTypeHandler("IVL<TS>")
 class IvlTsR2ElementParser implements ElementParser {
 
+	private final IvlTsConstraintsHandler constraintsHandler = new IvlTsConstraintsHandler();
+	
 	private static IvlR2ElementParser<Date> actualIvlTsParser = new IvlR2ElementParser<Date>() {
 		protected Object extractValue(BareANY any) {
 			Object value = any == null ? null : any.getBareValue();
@@ -55,9 +64,23 @@ class IvlTsR2ElementParser implements ElementParser {
 		if (bareValue != null && bareValue instanceof Interval<?>) {
 			@SuppressWarnings("unchecked")
 			DateInterval newValue = new DateInterval((Interval<Date>) bareValue);
+			
+			Node node = (nodes == null || nodes.size() == 0 ? null : nodes.get(0)); // should always have a node
+			handleConstraints(context, xmlToModelResult, (Element) node, newValue);
+			
 			parsedValue.setBareValue(newValue);
 		}
 		return parsedValue;
+	}
+
+	private void handleConstraints(ParseContext context, final Hl7Errors errors, final Element element, DateInterval dateInterval) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
+			}
+		};
+		
+		this.constraintsHandler.handleConstraints(context.getConstraints(), dateInterval, logger);
 	}
 
 }

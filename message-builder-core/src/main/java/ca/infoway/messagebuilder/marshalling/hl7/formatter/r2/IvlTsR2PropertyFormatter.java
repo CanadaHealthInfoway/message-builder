@@ -28,12 +28,20 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IvlTsConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 
 @DataTypeHandler("IVL<TS>")
 class IvlTsR2PropertyFormatter implements PropertyFormatter { 
+
+	private final IvlTsConstraintsHandler constraintsHandler = new IvlTsConstraintsHandler();
 
 	private static IvlR2PropertyFormatter<Date> actualFormatter = new IvlR2PropertyFormatter<Date>() {
 		protected Object convertValueIfNecessary(Date date) {
@@ -45,14 +53,26 @@ class IvlTsR2PropertyFormatter implements PropertyFormatter {
 		return format(formatContext, dataType, 0);
 	}
 
-	public String format(FormatContext formatContext, BareANY value, int indentLevel) {
+	public String format(FormatContext context, BareANY value, int indentLevel) {
 		Object bareValue = value.getBareValue();
 		Interval<Date> innerDateInterval = null;
 		if (bareValue != null && bareValue instanceof DateInterval) {
-			innerDateInterval = ((DateInterval) bareValue).getInterval();
+			DateInterval dateInterval = (DateInterval) bareValue;
+			handleConstraints(context, context.getModelToXmlResult(), context.getPropertyPath(), dateInterval);
+			innerDateInterval = dateInterval.getInterval();
 		}
 		BareANY newValue = new IVLImpl<TS, Interval<Date>>(Interval.class, innerDateInterval, value.getNullFlavor(), value.getDataType());
-		return actualFormatter.format(formatContext, newValue, indentLevel);
+		return actualFormatter.format(context, newValue, indentLevel);
+	}
+
+	private void handleConstraints(FormatContext context, final Hl7Errors errors, final String propertyPath, DateInterval dateInterval) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+		
+		this.constraintsHandler.handleConstraints(context.getConstraints(), dateInterval, logger);
 	}
 
 }

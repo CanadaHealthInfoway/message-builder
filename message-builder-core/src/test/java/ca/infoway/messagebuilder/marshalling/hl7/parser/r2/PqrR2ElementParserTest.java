@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 
@@ -60,7 +60,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", pqr.getValue());
@@ -71,7 +71,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", pqr.getValue());
@@ -82,7 +82,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", pqr.getValue().getCodeValue());
@@ -93,7 +93,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", pqr.getValue().getCodeValue());
@@ -104,7 +104,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("empty node returns null", pqr.getValue());
@@ -114,7 +114,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("node with no code attribute returns null", pqr.getValue());
@@ -124,7 +124,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -135,7 +135,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -147,7 +147,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -157,7 +157,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         PQR pqr = (PQR) this.parser.parse(
-        		ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -171,14 +171,14 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
 							   "</something>");
 		
 		PQR pqr = (PQR) this.parser.parse(
-				ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, pqr.getValue().getCode());
 		assertEquals("aCsName", pqr.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", pqr.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", pqr.getValue().getDisplayName());
-		assertEquals("some original text", pqr.getValue().getOriginalText().getContent());
+		assertEquals("some original text", pqr.getValue().getOriginalText().getTextContent());
 		assertEquals(new BigDecimal("1.2"), pqr.getValue().getValue());
 	}
 	
@@ -195,7 +195,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
 				"</something>");
 		
 		PQR pqr = (PQR) this.parser.parse(
-				ParserContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("PQR", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
 				node, 
 				this.xmlResult);
 		
@@ -211,7 +211,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
 		assertNull(pqr.getValue().getOperator());
 		assertEquals(new BigDecimal("1.2"), pqr.getValue().getValue());
 		assertNull(pqr.getValue().getSimpleValue());
-		assertEquals("some original text", pqr.getValue().getOriginalText().getContent());
+		assertEquals("some original text", pqr.getValue().getOriginalText().getTextContent());
 		assertEquals(0, pqr.getValue().getTranslation().size());
 		assertEquals(0, pqr.getValue().getQualifier().size());
 	}

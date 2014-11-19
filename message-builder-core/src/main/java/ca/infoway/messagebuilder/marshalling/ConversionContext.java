@@ -20,13 +20,23 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.TimeZone;
 
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -40,29 +50,14 @@ class ConversionContext {
 	private final TimeZone dateTimeTimeZone;
 	private final TimeZone dateTimeZone;
 	
-	ConversionContext(MessageDefinitionService service, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, String messageId, String templateId) {
+	ConversionContext(MessageDefinitionService service, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, String messageId, Set<String> templateIdsFromDocument, Hl7Errors errors) {
 		this.service = service;
 		this.version = version;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.dateTimeZone = dateTimeZone;
-		this.interaction = determineInteraction(messageId, templateId, version, service);
+		this.interaction = determineInteraction(messageId, templateIdsFromDocument, version, service, errors);
 	}
 	
-	private Interaction determineInteraction(String messageId, String templateId, VersionNumber version, MessageDefinitionService service) {
-		Interaction result = null;
-		if (service.isCda(version)) {
-			for (Interaction interaction : service.getAllInteractions(version)) {
-				if (StringUtils.equals(interaction.getTemplateId(), templateId)) {
-					result = interaction;
-					break;
-				}
-			}
-		} else {
-			result = service.getInteraction(version, messageId);
-		}
-		return result;
-	}
-
 	public MessageDefinitionService getService() {
 		return this.service;
 	}
@@ -91,6 +86,85 @@ class ConversionContext {
 		return this.interaction;
 	}
 	
+	private Interaction determineInteraction(String messageId, Set<String> templateIdsFromDocument, VersionNumber version, MessageDefinitionService service, Hl7Errors errors) {
+		Interaction result = null;
+		if (service.isCda(version)) {
+			result = obtainCdaInteraction(templateIdsFromDocument, version,	service, errors);
+		} else {
+			result = obtainHl7v3Interaction(messageId, version, service, errors);
+		}
+		return result;
+	}
+
+	private Interaction obtainHl7v3Interaction(String messageId, VersionNumber version, MessageDefinitionService service, Hl7Errors errors) {
+		Interaction result = service.getInteraction(version, messageId);
+		if (result == null) {
+			String message = MessageFormat.format("The interaction {0} for version {1} could not be found (and is possibly not supported). Please ensure an appropriate version code has been provided.", messageId, version);
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_INTERACTION, message, (String) null));
+		}
+		return result;
+	}
+
+	private Interaction obtainCdaInteraction(Set<String> templateIdsFromDocument, VersionNumber version, MessageDefinitionService service, Hl7Errors errors) {
+		Interaction baseModel = null;
+		Interaction firstInteractionMatch = null;
+		
+		Set<String> parentTemplateIds = new HashSet<String>();
+		Map<String, Interaction> candidateInteractions = new HashMap<String, Interaction>();
+		for (Interaction matchingInteraction : service.getAllInteractions(version)) {
+			String templateId = matchingInteraction.getTemplateId();
+			if (templateIdsFromDocument.contains(templateId)) { 
+				if (firstInteractionMatch == null) {
+					// first matching interaction will not necessarily be the first templateId in the document
+					firstInteractionMatch = matchingInteraction;
+				}
+				candidateInteractions.put(templateId, matchingInteraction);
+				String parentTemplateId = matchingInteraction.getParentTemplateId();
+				if (parentTemplateId != null) {
+					parentTemplateIds.add(parentTemplateId);
+				}
+			} else if (templateId == null) {
+				baseModel = matchingInteraction;
+			}
+		}
+
+		for (Iterator<Map.Entry<String, Interaction>> iterator = candidateInteractions.entrySet().iterator(); iterator.hasNext(); ) {
+			Map.Entry<String, Interaction> entry = iterator.next();
+			if (parentTemplateIds.contains(entry.getKey())) {
+				iterator.remove();
+			}
+		}
+		 
+		return determineSuitableInteraction(candidateInteractions, baseModel, firstInteractionMatch, version, errors);
+	}
+
+	private Interaction determineSuitableInteraction(Map<String, Interaction> candidateInteractions, Interaction baseModel, Interaction firstInteractionMatch, VersionNumber version, Hl7Errors errors) {
+		Interaction result = null;
+		if (candidateInteractions.isEmpty()) {
+			// use base model; there will be an error if the base model was not found
+			result = baseModel;
+			if (baseModel == null) {
+				String versionLiteral = version == null ? "(none provided)" : version.getVersionLiteral();
+				String message = MessageFormat.format("No document model could be identified based on the supplied templateIds, and no base model could be found. Please ensure an appropriate version code has been provided. (version={0})", versionLiteral, result.getTemplateId(), result.getName());
+				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, Hl7ErrorLevel.ERROR, message, (String) null));
+			}
+		} else if (candidateInteractions.size() == 1) {
+			// this should be the normal case
+			result = candidateInteractions.values().iterator().next();						
+		} else {  
+			// more than one interaction matched; error, and use "first" matching interaction
+			result = firstInteractionMatch;
+			String message = MessageFormat.format("Unable to determine the most suitable templateId to use. A suitable templateId has been arbitrarily chosen: {0} ({1})", result.getTemplateId(), result.getName());
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, Hl7ErrorLevel.WARNING, message, (String) null));
+		}
+		
+		if (result != null) {
+			String message = MessageFormat.format("Document being parsed using templateId {0} ({1})", result.getTemplateId(), result.getName());
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATE_CHOSEN, Hl7ErrorLevel.INFO, message, (String) null));
+		}
+		return result;
+	}
+
 	public String resolveType(Relationship relationship, String selectedElementName){
 		String resolvedType;
 		if (relationship.isTemplateRelationship()){

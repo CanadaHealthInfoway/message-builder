@@ -42,19 +42,25 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.ErrorLogger;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractAttributePropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
-abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePropertyFormatter<CodedTypeR2<? extends Code>> {
+abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePropertyFormatter<CodedTypeR2<Code>> {
 
 	private final IvlTsR2PropertyFormatter ivlFormatter = new IvlTsR2PropertyFormatter();
 	private final EdR2PropertyFormatter edFormatter = new EdR2PropertyFormatter();
+	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
@@ -70,7 +76,9 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 
     @Override
     public String formatNonNullDataType(FormatContext context, BareANY hl7Value, int indentLevel) {
-    	CodedTypeR2<? extends Code> codedType = extractBareValue(hl7Value);
+    	CodedTypeR2<Code> codedType = extractBareValue(hl7Value);
+    	
+    	handleConstraints(codedType, context.getConstraints(), context.getPropertyPath(), context.getModelToXmlResult());
     	
     	StringBuilder result = new StringBuilder();
     	
@@ -90,6 +98,16 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 		return result.toString();
     }
     
+	private void handleConstraints(CodedTypeR2<Code> codedType, ConstrainedDatatype constraints, final String propertyPath, final Hl7Errors errors) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+
+		this.constraintsHandler.handleConstraints(constraints, codedType, logger);
+	}
+	
 	private void validateChildContent(CodedTypeR2<? extends Code> codedType, FormatContext context) {
 		if (hasTranslation(codedType) && !translationAllowed()) {
        		logValueNotAllowed("translation", context);
@@ -191,7 +209,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 
 	@Override
 	protected
-    Map<String, String> getAttributeNameValuePairs(FormatContext context, CodedTypeR2<? extends Code> codedType, BareANY bareAny) {
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, CodedTypeR2<Code> codedType, BareANY bareAny) {
         Map<String, String> result = new HashMap<String, String>();
         
         handleNullFlavor(codedType, result, bareAny, context);

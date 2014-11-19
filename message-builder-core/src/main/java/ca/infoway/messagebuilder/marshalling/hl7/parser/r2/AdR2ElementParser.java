@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -122,7 +122,7 @@ class AdR2ElementParser extends AbstractSingleElementParser<PostalAddress> {
                 
 				if (isUseablePeriod) {
                 	foundUseablePeriod = true;
-                	ParseContext newContext = ParserContextImpl.create("SXCM<TS>", context);
+                	ParseContext newContext = ParseContextImpl.create("SXCM<TS>", context);
                 	BareANY tsAny = this.tsParser.parse(newContext, childElement, xmlToModelResult);
                 	if (tsAny != null && tsAny.getBareValue() != null) {
 	                	SetOperator operator = ((ANYMetaData) tsAny).getOperator();

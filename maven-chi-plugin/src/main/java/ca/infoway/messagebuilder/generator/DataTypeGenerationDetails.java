@@ -286,7 +286,7 @@ enum DataTypeGenerationDetails implements Typed {
 	
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
 	SXCM_R2("SXCM", SXCM_R2.class.getName(), Object.class.getName(), null),
-	SXCM_TS_R2("SXCM<TS>", SXCM_R2.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	SXCM_TS_R2("SXCM<TS>", SXCM_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	SXCM_PQ_R2("SXCM<PQ>", "PhysicalQuantity", SXCM_R2.class.getName(), PhysicalQuantity.class.getName(), null), 
 	SXCM_MO_R2("SXCM<MO>", "Money", SXCM_R2.class.getName(), Money.class.getName(), null), 
 	SXCM_INT_R2("SXCM<INT>", "integer", SXCM_R2.class.getName(), Integer.class.getName(), "System.int?"), 

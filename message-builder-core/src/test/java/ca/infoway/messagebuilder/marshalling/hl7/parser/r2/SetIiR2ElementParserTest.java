@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -37,7 +38,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserTestCase;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -65,12 +66,12 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
 		BareANY result = new SetR2ElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
 		
-		assertTrue(xmlToModelResult.isValid()); // only has a warning
+		assertFalse(xmlToModelResult.isValid());
 		assertEquals("size", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("Expected to find an identifier with: root={a_fixed_value},extension={an_extension}", xmlToModelResult.getHl7Errors().get(0).getMessage());
 		assertEquals(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorCode());
@@ -95,12 +96,12 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
 		BareANY result = new SetR2ElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
 		
-		assertTrue(xmlToModelResult.isValid()); // only has a warning
+		assertFalse(xmlToModelResult.isValid());
 		assertEquals("size", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("Expected to find an identifier with: root={a_fixed_value},extension={null}", xmlToModelResult.getHl7Errors().get(0).getMessage());
 		assertEquals(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorCode());
@@ -125,7 +126,7 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
 		BareANY result = new SetR2ElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -155,7 +156,7 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
 		BareANY result = new SetR2ElementParser().parse(
-				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();

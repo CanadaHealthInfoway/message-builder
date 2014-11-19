@@ -54,7 +54,7 @@ public class XmlToModelResult implements Hl7Errors {
 	
 	public boolean isValid() {
 		for (Hl7Error hl7Error : this.hl7Errors) {
-			if (hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.ERROR) {
+			if (hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.ERROR || hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.WARNING) {
 				return false;
 			}
 		}
