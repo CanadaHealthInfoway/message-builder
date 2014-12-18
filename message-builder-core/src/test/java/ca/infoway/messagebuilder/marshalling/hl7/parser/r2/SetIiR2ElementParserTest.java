@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserTestCase;
@@ -46,6 +46,8 @@ import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class SetIiR2ElementParserTest extends ParserTestCase {
+
+	private ParserR2Registry parserR2Registry = ParserR2Registry.getInstance();
 
 	@Test
 	public void testParseMissingFixedConstraint() throws Exception {
@@ -65,8 +67,8 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
-		BareANY result = new SetR2ElementParser().parse(
-				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+		BareANY result = new SetR2ElementParser(this.parserR2Registry).parse(
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints, false), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -95,8 +97,8 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
-		BareANY result = new SetR2ElementParser().parse(
-				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+		BareANY result = new SetR2ElementParser(this.parserR2Registry).parse(
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints, false), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -125,8 +127,8 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
-		BareANY result = new SetR2ElementParser().parse(
-				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+		BareANY result = new SetR2ElementParser(this.parserR2Registry).parse(
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints, false), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -155,8 +157,8 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		
 		XmlToModelResult xmlToModelResult = new XmlToModelResult();
 		
-		BareANY result = new SetR2ElementParser().parse(
-				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints), 
+		BareANY result = new SetR2ElementParser(this.parserR2Registry).parse(
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), constraints, false), 
 				asList(node.getChildNodes()), xmlToModelResult);
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();

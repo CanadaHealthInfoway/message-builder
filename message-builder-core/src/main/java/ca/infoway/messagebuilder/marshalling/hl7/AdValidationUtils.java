@@ -37,6 +37,9 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 public class AdValidationUtils {

@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.tools.delta.ConstraintVisitor;
 import ca.infoway.messagebuilder.tools.delta.InteractionDeltaVisitor;
 import ca.infoway.messagebuilder.tools.delta.PackageLocationDeltaVisitor;
 import ca.infoway.messagebuilder.tools.messageset.MessageSetCloner;
+import ca.infoway.messagebuilder.xml.ContainedTemplate;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -48,6 +49,7 @@ import ca.infoway.messagebuilder.xml.delta.PackageLocationDelta;
 import ca.infoway.messagebuilder.xml.delta.RealmCode;
 import ca.infoway.messagebuilder.xml.delta.SchematronConstraint;
 import ca.infoway.messagebuilder.xml.template.Template;
+import ca.infoway.messagebuilder.xml.template.TemplateReference;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
 /**
@@ -134,6 +136,11 @@ public class TemplateApplier {
 	public PackageLocation createPackageLocation(Template template) {
 		PackageLocation packageLocation = new PackageLocation(template.getPackageName());
 		packageLocation.setRootType(template.getEntryClassName());
+		packageLocation.setTemplateOid(template.getOid());
+		packageLocation.setImpliedTemplateOid(template.getImpliedTemplateOid());
+		for (TemplateReference reference : template.getTemplateReferences()) {
+			packageLocation.getContainedTemplateConstraints().add(new ContainedTemplate(reference.getOid(), reference.getCardinality()));
+		}
 		return packageLocation;
 	}
 

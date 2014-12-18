@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 import java.lang.reflect.Type;
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -31,9 +32,9 @@ import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -60,10 +61,22 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
 	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
+	private final boolean allowReference;
+	
+	public TelElementParser() {
+		this(false);
+	}
+	
+	public TelElementParser(boolean allowReference) {
+		this.allowReference = allowReference;
+	}
 	
 	@Override
 	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-		validateNoChildren(context, node);
+		if (!this.allowReference) {
+			validateNoChildren(context, node);
+		}
+		
 		String specializationType = getSpecializationType(node);
 		TelecommunicationAddress telecomAddress = parseTelecommunicationAddress(node, xmlToModelResult);
 		
@@ -75,6 +88,9 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 
 	private TelecommunicationAddress parseTelecommunicationAddress(Node node, XmlToModelResult xmlToModelResult) {
 		String value = getAttributeValue(node, "value");
+		if (StringUtils.isBlank(value) && this.allowReference) {
+			value = getAttributeValue(node, "reference");
+		}
 		
 		// remove the // that appear after the colon if necessary
 		// e.g. file://monkey

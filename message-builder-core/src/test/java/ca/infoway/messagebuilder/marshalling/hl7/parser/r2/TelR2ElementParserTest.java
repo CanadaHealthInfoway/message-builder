@@ -43,10 +43,10 @@ import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
@@ -65,7 +65,7 @@ public class TelR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParseContextImpl.create(type, TelecommunicationAddress.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, TelecommunicationAddress.class, version, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test

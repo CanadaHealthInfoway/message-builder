@@ -126,12 +126,13 @@ public class IiValidationUtils {
 			   SpecificationVersion.isVersion(type, version, Hl7BaseVersion.CERX);
 	}
 
-	public boolean isSpecializationTypeRequired(VersionNumber version, String type) {
+	public boolean isSpecializationTypeRequired(VersionNumber version, String type, boolean isCda) {
 		StandardDataType standardDataType = StandardDataType.getByTypeName(type);
 		// AB does not treat II as abstract; for CeRx, II is concrete; Newfoundland is excepted to allow our legacy tests to pass
 		return isIiBusAndVer(type) ||
 				(isII(type) && 
-						!(SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX) || 
+						!(isCda ||
+						  SpecificationVersion.isVersion(standardDataType, version, Hl7BaseVersion.CERX) || 
 						  "NEWFOUNDLAND".equals(version == null ? null : version.getVersionLiteral()) ||
 						  SpecificationVersion.isExactVersion(SpecificationVersion.V02R02_AB, version))
 				);

@@ -28,10 +28,14 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler({"BAG"})
 class BagPropertyFormatter extends BaseCollectionPropertyFormatter {
 
-    @Override
+    public BagPropertyFormatter(FormatterRegistry formatterRegistry) {
+		super(formatterRegistry, false);
+	}
+
+	@Override
 	protected
     String formatNonNullValue(FormatContext context, Collection<BareANY> list, int indentLevel) {
-    	return formatAllElements(createSubContext(context), list, indentLevel);
+    	return formatAllElements(context, createSubContext(context), list, indentLevel);
     }
 
 }

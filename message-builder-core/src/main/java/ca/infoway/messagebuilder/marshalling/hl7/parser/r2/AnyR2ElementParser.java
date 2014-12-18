@@ -34,10 +34,10 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
@@ -90,15 +90,10 @@ public class AnyR2ElementParser extends AbstractSingleElementParser<Object> {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(actualType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
-						ParseContextImpl.create(
+						ParseContextImpl.createWithConstraints(
 							actualType,
 							determineReturnType(actualType, getReturnType(context)),
-							context.getVersion(),
-							context.getDateTimeZone(),
-							context.getDateTimeTimeZone(),
-							context.getConformance(), 
-							context.getCardinality(),
-							context.getConstraints()),
+							context),
 						Arrays.asList(node), 
 						xmlToModelResult);
 				result = parsedValue.getBareValue();

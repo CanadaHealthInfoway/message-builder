@@ -26,7 +26,6 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
@@ -39,7 +38,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 
 @DataTypeHandler("PIVL<TS>")
-class PivlTsR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<PeriodicIntervalTimeR2> {
+public class PivlTsR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<PeriodicIntervalTimeR2> {
 
 	private static final String PHASE = "phase";
 	private static final String PERIOD = "period";

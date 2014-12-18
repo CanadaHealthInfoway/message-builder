@@ -34,9 +34,9 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -51,7 +51,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, ts.getNullFlavor());
 	}
 	private ParseContext createContext() {
-		return ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
@@ -89,7 +89,7 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 		Node node = createNode("<something value=\"19990355\" />");
 
     	XmlToModelResult result = new XmlToModelResult();
-        new TsElementParser().parse(null, node, result);
+        new TsElementParser().parse(new TrivialContext("TS.FULLDATE"), node, result);
 
         assertFalse("valid date", result.isValid());
         assertEquals("one error", 1, result.getHl7Errors().size());
@@ -112,6 +112,6 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
-		return ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, timeZone, null, ConformanceLevel.POPULATED, null, null, null, null);
+		return ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.V02R02, timeZone, null, ConformanceLevel.POPULATED, null, null, null, null, false);
 	}
 }

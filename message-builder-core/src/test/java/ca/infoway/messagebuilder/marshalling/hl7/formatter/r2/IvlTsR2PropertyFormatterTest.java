@@ -113,7 +113,7 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
 		hl7DataType.setDataType(StandardDataType.IVL_TS);
 
-		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null, false), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
@@ -137,7 +137,7 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
 		hl7DataType.setDataType(StandardDataType.IVL_TS);
 		
-		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null, false), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name><low value=\"2006122511-0500\"/><high value=\"2007010210-0500\"/></name>", result);
@@ -157,7 +157,7 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
 		hl7DataType.setDataType(StandardDataType.IVL_TS);
 		
-		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null), 
+		String result = new IvlTsR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "IVL<TS>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.V02R02, timeZone, timeZone, null, false), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
@@ -165,6 +165,6 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Override
     protected FormatContext getContext(String name) {
-    	return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS>", null, null);
+    	return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<TS>", null, null, false);
     }
 }

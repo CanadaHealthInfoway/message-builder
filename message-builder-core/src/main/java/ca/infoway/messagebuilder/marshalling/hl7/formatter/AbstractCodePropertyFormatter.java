@@ -30,22 +30,28 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
-import ca.infoway.messagebuilder.marshalling.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 /**
@@ -66,6 +72,7 @@ import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFormatter<Code> {
 
 	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
+	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
@@ -82,6 +89,8 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     	StringBuilder result = new StringBuilder();
     	if (cd != null) {
 
+        	handleConstraints(cd.getValue(), context.getConstraints(), context.getPropertyPath(), context.getModelToXmlResult());
+    		
     		// don't bother validating if we don't have anything to validate
     		if (cd.hasNullFlavor() || hasValue(cd, context)) {
 	    		Hl7Errors errors = context.getModelToXmlResult();
@@ -141,6 +150,17 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
         return result.toString();
     }
 
+	private void handleConstraints(Code code, ConstrainedDatatype constraints, final String propertyPath, final Hl7Errors errors) {
+		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>(code);
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+
+		this.constraintsHandler.handleConstraints(constraints, codedType, logger);
+	}
+	
 	private CD convertAnyToCd(BareANY hl7Value) {
 		ANYMetaData anyCd = (ANYMetaData) hl7Value;
 		CD cd = new CDImpl();
@@ -165,7 +185,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
 	private void validateCodeExists(Code value, String domainType, VersionNumber version, String propertyPath, Hl7Errors errors) {
 		@SuppressWarnings("unchecked")
-		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version);
+		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version, CodeTypeRegistry.getInstance());
 		if (returnType == null) {
 			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not locate a registered domain type to match \"" + domainType + "\"", propertyPath));
 		} else if (getCode(returnType, value.getCodeValue(), value.getCodeSystem()) == null) {

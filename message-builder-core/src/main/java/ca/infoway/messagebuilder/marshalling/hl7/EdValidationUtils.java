@@ -19,17 +19,17 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.PLAIN_TEXT;
-
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 public class EdValidationUtils {
@@ -47,11 +47,14 @@ public class EdValidationUtils {
 	public static final String CERX_ENGLISH = "eng";
 	public static final String CERX_FRENCH = "fre";
 
-	public void doValidate(EncapsulatedData encapsulatedData, String specializationType, Hl7BaseVersion baseVersion, String type, String propertyPath, Hl7Errors errors) {
-		Compression compression = (encapsulatedData instanceof CompressedData ? ((CompressedData) encapsulatedData).getCompression() : null);
+	public void doValidate(EncapsulatedData ed, String specializationType, Hl7BaseVersion baseVersion, String type, String propertyPath, Hl7Errors errors) {
+		Compression compression = ed.getCompression();
 		boolean hasCompression = (compression != null);
-		String representation = this.isBase64(encapsulatedData, encapsulatedData.getContent()) ? REPRESENTATION_B64 : REPRESENTATION_TXT;
-		doValidate(specializationType, compression, hasCompression, encapsulatedData.getMediaType(), encapsulatedData.getLanguage(), representation, encapsulatedData.getReference(), encapsulatedData.getContent(), baseVersion, type, null, propertyPath, errors);
+		int contentSize = (ed.hasContent() ? 1 : 0);
+		String representation = (ed.getRepresentation() == null ? null : ed.getRepresentation().name());
+		boolean hasReference = (ed.getReferenceObj() != null);
+		
+		doValidate(specializationType, compression, hasCompression, ed.getMediaType(), ed.getLanguage(), representation, hasReference, ed.hasContent(), contentSize, baseVersion, type, null, propertyPath, errors);
 	}
 
 	public void doValidate(String specializationType, 
@@ -60,8 +63,9 @@ public class EdValidationUtils {
 							x_DocumentMediaType mediaType, 
 							String language, 
 							String representation, 
-							String reference, 
-							byte[] content, 
+							boolean hasReference, 
+							boolean hasContent,
+							int contentSize,
 							Hl7BaseVersion baseVersion, 
 							String type, 
 							Element element, 
@@ -72,11 +76,11 @@ public class EdValidationUtils {
 		if (StandardDataType.ED_DOC_OR_REF.getType().equals(type) && !Hl7BaseVersion.CERX.equals(baseVersion)) {
 			if (StringUtils.isBlank(specializationType) || StandardDataType.ED.getType().equals(specializationType)) {
 				// must specify
-				type = (content == null || content.length == 0 ? StandardDataType.ED_DOC_REF.getType() : StandardDataType.ED_DOC.getType());
+				type = (!hasContent ? StandardDataType.ED_DOC_REF.getType() : StandardDataType.ED_DOC.getType());
 				createError("Must specify specializationType for ED.DOC_OR_REF types. Value will be treated as " + type + ".", element, propertyPath, errors);
 			} else if (!(StandardDataType.ED_DOC.getType().equals(specializationType) || StandardDataType.ED_DOC_REF.getType().equals(specializationType))) {
 				// must be doc or docref; default to something suitable 
-				type = (content == null || content.length == 0 ? StandardDataType.ED_DOC_REF.getType() : StandardDataType.ED_DOC.getType());
+				type = (!hasContent ? StandardDataType.ED_DOC_REF.getType() : StandardDataType.ED_DOC.getType());
 				createError("Invalid specializationType: " + specializationType + ". The specializationType must be ED.DOC or ED.DOCREF for ED.DOC_OR_REF types. Value will be treated as " + type + ".", element, propertyPath, errors);
 			} else {
 				type = specializationType;
@@ -132,7 +136,7 @@ public class EdValidationUtils {
 		
 		// reference - required; must be TEL.URI (mandatory for ED.DOCREF)
 		//           - CeRx: only allowed (and mandatory?) if content not present; must be FTP, HTTP, HTTPS  (ED.REF, ED.DOCORREF) 
-		if (StringUtils.isBlank(reference)) {
+		if (!hasReference) {
 			if (StandardDataType.ED_DOC_REF.getType().equals(type) || StandardDataType.ED_REF.getType().equals(type)) {
 				// mandatory case
 				createError("Reference is mandatory.", element, propertyPath, errors);
@@ -145,12 +149,12 @@ public class EdValidationUtils {
 		// content - max 1 MB after compression and base64 encoding; compressed or pdf must be b64-encoded; any checks done on this??
 		//         - mandatory for ED.DOC, ED.DOCORREF/CeRx (if no ref provided)
 		//         - not permitted for ED.DOCREF/ED.REF
-		if (content != null && content.length > 0) {
+		if (hasContent && contentSize > 0) {
 			if (StandardDataType.ED_DOC_REF.getType().equals(type) || StandardDataType.ED_REF.getType().equals(type)) {
 				// not permitted
 				createError("Content is not permitted for " + type + ".", element, propertyPath, errors);
 			}
-			if (content.length > ONE_MEGABYTE_SIZE) {
+			if (contentSize > ONE_MEGABYTE_SIZE) {
 				// too large
 				createError("Content must be less than 1 MB.", element, propertyPath, errors);
 			}
@@ -162,10 +166,10 @@ public class EdValidationUtils {
 		}
 		
 		if (Hl7BaseVersion.CERX.equals(baseVersion) && StandardDataType.ED_DOC_OR_REF.getType().equals(type)) {
-			if (StringUtils.isNotBlank(reference) && (content != null && content.length > 0)) {
+			if (hasReference && hasContent) {
 				// can't provide both
 				createError("Cannot provide both content and reference.", element, propertyPath, errors);
-			} else if (StringUtils.isBlank(reference) && (content == null || content.length == 0)) {
+			} else if (!hasReference && !hasContent) {
 				// must provide one
 				createError("Must provide one and only one of content or reference.", element, propertyPath, errors);
 			}
@@ -188,17 +192,5 @@ public class EdValidationUtils {
 		
 		errors.addHl7Error(error);
 	}
-
-	public boolean isBase64(EncapsulatedData data, byte[] content) {
-		if (data != null) {
-			if (data instanceof CompressedData) {
-				return true;
-			} else if (content != null && data.getMediaType() != PLAIN_TEXT) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 
 }

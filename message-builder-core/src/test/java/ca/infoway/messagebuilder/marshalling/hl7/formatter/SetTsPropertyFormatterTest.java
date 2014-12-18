@@ -44,9 +44,11 @@ import ca.infoway.messagebuilder.xml.Cardinality;
  */
 public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Test
     public void testFormatValueNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, null), 
+		String result = new SetPropertyFormatter(this.formatterRegistry).format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, null, false), 
         		new SETImpl<TS, Date>(TSImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
@@ -60,8 +62,8 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
         SETImpl<TS, Date> set = new SETImpl<TS, Date>(TSImpl.class);
         set.rawSet().addAll(makeSet(calendar1, calendar2));
         
-		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, Cardinality.create("1-4")), 
+		String result = new SetPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, Cardinality.create("1-4"), false), 
 				set);
 		
 		SimpleDateFormat tzformat = new SimpleDateFormat("Z");

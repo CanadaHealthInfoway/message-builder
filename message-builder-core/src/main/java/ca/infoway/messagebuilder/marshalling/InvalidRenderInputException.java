@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.marshalling;
 
 import java.util.List;
 
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 
 /**
  * <p>An exception indicating that the application tried to marshall a message

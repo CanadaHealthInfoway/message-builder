@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
@@ -63,7 +63,7 @@ public class PlayingEntity_1Bean extends MessagePartBean {
     private LIST<PQ, PhysicalQuantity> quantity = new LISTImpl<PQ, PhysicalQuantity>(PQImpl.class);
     private PN name = new PNImpl();
     private TS_R2 birthTime = new TS_R2Impl();
-    private ED<EncapsulatedDataR2> desc = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> desc = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -410,7 +410,7 @@ public class PlayingEntity_1Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"desc"})
-    public EncapsulatedDataR2 getDesc() {
+    public EncapsulatedData getDesc() {
         return this.desc.getValue();
     }
 
@@ -434,7 +434,7 @@ public class PlayingEntity_1Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setDesc(EncapsulatedDataR2 desc) {
+    public void setDesc(EncapsulatedData desc) {
         this.desc.setValue(desc);
     }
 

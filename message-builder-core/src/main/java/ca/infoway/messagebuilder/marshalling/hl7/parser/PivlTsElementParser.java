@@ -49,12 +49,9 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     			ParseContextImpl.create(
     					"IVL<TS>",
     					null,
-    					context.getVersion(),
-    					context.getDateTimeZone(),
-    					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
     					Cardinality.create("0-1"),
-    					null),
+    					context),
     			element, xmlToModelResult);
 	}
 
@@ -65,12 +62,9 @@ class PivlTsElementParser extends AbstractPivlElementParser {
     			ParseContextImpl.create(
     					"IVL<TS>",
     					null,
-    					context.getVersion(),
-    					context.getDateTimeZone(),
-    					context.getDateTimeTimeZone(),
     					ConformanceLevel.OPTIONAL,
     					Cardinality.create("0-1"),
-    					null),
+    					context),
     			Arrays.asList((Node) element), xmlToModelResult).getBareValue();
 	}
 

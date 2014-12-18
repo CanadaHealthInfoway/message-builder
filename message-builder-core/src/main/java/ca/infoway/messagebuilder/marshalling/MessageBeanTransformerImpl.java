@@ -30,9 +30,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
+import ca.infoway.messagebuilder.xml.cdavalidator.ContainedTemplateValidator;
+import ca.infoway.messagebuilder.xml.cdavalidator.SchematronValidator;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
-import ca.infoway.messagebuilder.xml.validator.SchematronValidator;
 
 public class MessageBeanTransformerImpl {
 	
@@ -114,6 +115,9 @@ public class MessageBeanTransformerImpl {
 		
 		SchematronValidator schematronValidator = new SchematronValidator(this.service.getAllSchematronContexts(version));
 		schematronValidator.validate(result.getXmlMessage(), result);
+		
+		ContainedTemplateValidator containedTemplateValidator = new ContainedTemplateValidator(this.service.getAllPackageLocations(version));
+		containedTemplateValidator.validate(result.getXmlMessage(), result);
 		
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());

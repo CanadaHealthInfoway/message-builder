@@ -58,7 +58,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 
 		PhysicalQuantity period = new PhysicalQuantity(new BigDecimal(11), DefaultTimeUnit.DAY);
 		
-		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2(phase, period, CalendarCycle.DAY_OF_THE_MONTH, true);
+		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2(phase, period, CalendarCycle.DAY_OF_THE_MONTH, true, null, null);
 		
 		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl(pivl));
 		
@@ -87,7 +87,7 @@ public class PivlTsR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testMissingValues() throws Exception {
 		
-		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2(null, null);
+		PeriodicIntervalTimeR2 pivl = new PeriodicIntervalTimeR2((Interval<Date>) null, (PhysicalQuantity) null);
 		
 		String result = new PivlTsR2PropertyFormatter().format(getContext("periodicInterval", "PIVL<TS>"), new PIVL_R2Impl(pivl));
 		

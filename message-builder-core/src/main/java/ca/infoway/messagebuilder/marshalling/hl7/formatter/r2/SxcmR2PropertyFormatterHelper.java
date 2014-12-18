@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 
 public class SxcmR2PropertyFormatterHelper {

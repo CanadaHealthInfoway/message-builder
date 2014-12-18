@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ActClassDocument;
@@ -54,7 +54,7 @@ public class ExternalDocumentBean extends MessagePartBean implements ReferenceCh
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
-    private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private II setId = new IIImpl();
     private INT versionNumber = new INTImpl();
 
@@ -158,7 +158,7 @@ public class ExternalDocumentBean extends MessagePartBean implements ReferenceCh
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedDataR2 getText() {
+    public EncapsulatedData getText() {
         return this.text.getValue();
     }
 
@@ -167,7 +167,7 @@ public class ExternalDocumentBean extends MessagePartBean implements ReferenceCh
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setText(EncapsulatedDataR2 text) {
+    public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 

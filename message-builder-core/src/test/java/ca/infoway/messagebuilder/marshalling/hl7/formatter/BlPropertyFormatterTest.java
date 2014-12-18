@@ -35,7 +35,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), null, new BLImpl());
+		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, new BLImpl());
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -46,7 +46,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsSpecifiedNullValue() throws Exception {
-		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), null, new BLImpl(NullFlavor.NOT_APPLICABLE));
+		Map<String,String>  result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, new BLImpl(NullFlavor.NOT_APPLICABLE));
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -57,7 +57,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanTrue() throws Exception  {
-		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), Boolean.TRUE, null);
+		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), Boolean.TRUE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -66,7 +66,7 @@ public class BlPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanFalse() throws Exception  {
-		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), Boolean.FALSE, null);
+		Map<String, String> result = new BlPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), Boolean.FALSE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));

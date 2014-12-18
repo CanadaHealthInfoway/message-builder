@@ -27,7 +27,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -41,11 +40,11 @@ import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.platform.Base64;
 import ca.infoway.messagebuilder.platform.BytesUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
+@SuppressWarnings("deprecation")
 public class EdElementParserTest extends CeRxDomainValueTestCase {
 
 	private static final String TEXT_SIMPLE = Base64.encodeBase64String("This is a test".getBytes());
@@ -61,7 +60,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParseContextImpl.create(type, EncapsulatedData.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, EncapsulatedData.class, version, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
@@ -89,7 +88,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", "This is a test", new String(data.getContent()));
+		assertEquals("content", "This is a test", unencode(data.getContent()));
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 	
@@ -101,24 +100,26 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"<shines/>" +
 				"<through/>" +
 				"</something>");
-		try {
-			new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
-			fail("expected exception");
-		} catch (XmlToModelTransformationException e) {
-			// expected
-		}
+		new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(2, this.xmlResult.getHl7Errors().size());
+		assertEquals("ED only supports a single content node. Found: 3", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
+		
+		this.xmlResult.clearErrors();
 		
 		node = createNode(
 				"<something>" +
 				"<monkey/>" +
 				"<shines/>" +
 				"</something>");
-		try {
-			new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.V02R02), node, this.xmlResult);
-			fail("expected exception");
-		} catch (XmlToModelTransformationException e) {
-			// expected
-		}
+		new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertFalse(this.xmlResult.isValid());
+		assertEquals(4, this.xmlResult.getHl7Errors().size());
+		assertEquals("ED only supports a single content node. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
+		assertEquals("Reference is mandatory. (<something>)", this.xmlResult.getHl7Errors().get(2).getMessage());
+		assertEquals("Content is not permitted for ED.DOCREF. (<something>)", this.xmlResult.getHl7Errors().get(3).getMessage());
 	}
 	
 	@Test
@@ -292,7 +293,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"TXTB64\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
-		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals(2, this.xmlResult.getHl7Errors().size()); // unknown value for representation; representation must be B64 or TXT
 		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
@@ -314,7 +315,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" + content + "</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", BytesUtil.asString(Base64.decodeBase64(value.getContent())));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -388,6 +389,9 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	// charset not permitted pre-MR2009
-	
+
+	private String unencode(byte[] contentToBeUnencoded) {
+		return new String(Base64.decodeBase64(contentToBeUnencoded));
+	}
 }
 

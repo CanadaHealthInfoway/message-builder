@@ -21,8 +21,8 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.datatype.lang.BareRatio;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 
 public abstract class AbstractRtoPropertyFormatter<T, U> extends AbstractNullFlavorPropertyFormatter<BareRatio> {
 

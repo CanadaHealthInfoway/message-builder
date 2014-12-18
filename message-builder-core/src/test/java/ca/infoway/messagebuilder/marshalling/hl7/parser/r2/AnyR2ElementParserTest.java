@@ -40,8 +40,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
@@ -53,7 +53,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void shouldParseStTextNodeAsCdata() throws Exception {
 		Node node = createNode("<something xsi:type=\"ST\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><![CDATA[<cats think they're > humans & dogs 99% of the time/>]]></something>");
-		ParseContext context = ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null);
+		ParseContext context = ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null, false);
 		BareANY parseResult = new AnyR2ElementParser().parse(context, node, this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
@@ -75,7 +75,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</range>");
 		Interval<PhysicalQuantity> range = 
 			(Interval<PhysicalQuantity>)new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null), 
+				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 				node, this.xmlResult).getBareValue();
 		assertNotNull("null", range);
 		assertTrue(this.xmlResult.isValid());
@@ -96,7 +96,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</range>");
 		
 		BareANY parseResult = new AnyR2ElementParser().parse(
-			ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null), 
+			ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_02, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 			node, this.xmlResult);
 		Interval<PhysicalQuantity> range = (Interval<PhysicalQuantity>)parseResult.getBareValue();
 		
@@ -118,7 +118,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"PQ\" value=\"80\" unit=\"pg/mL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null), 
+				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 				node, this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
@@ -138,7 +138,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 				"<value xsi:type=\"ST\" language=\"fr-CA\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">some text</value>");
 		
 		BareANY result = new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null), 
+				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 				node, this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
@@ -158,7 +158,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 		"<value xsi:type=\"PQ\" value=\"80\" unit=\"pg/mL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
 		
 		BareANY result = new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY, null, null), 
+				ParseContextImpl.create("ANY.LAB", Object.class, null, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 				node, this.xmlResult);
 
 		assertNotNull(result);
@@ -193,7 +193,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 				);
 		
 		BareANY result = new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null), 
+				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, null, null, false), 
 				node, new XmlToModelResult());
 		
 		assertNotNull("null", result);
@@ -262,7 +262,7 @@ public class AnyR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something nullFlavor=\"ASKU\" xsi:type=\"PQ\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" />");
 		
 		BareANY pqAny = new AnyR2ElementParser().parse(
-				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_03, null, null, ConformanceLevel.POPULATED, null, null), 
+				ParseContextImpl.create("ANY", Object.class, SpecificationVersion.R02_04_03, null, null, ConformanceLevel.POPULATED, null, null, false), 
 				node, this.xmlResult);
 
 		assertTrue(this.xmlResult.isValid());

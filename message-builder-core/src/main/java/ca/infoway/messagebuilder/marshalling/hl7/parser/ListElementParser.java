@@ -32,6 +32,10 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler({"LIST"})
 class ListElementParser extends SetOrListElementParser {
 
+	public ListElementParser(ParserRegistry parserRegistry) {
+		super(parserRegistry, false);
+	}
+
 	@Override
 	protected BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection) {
 		@SuppressWarnings({ "unchecked", "rawtypes" })

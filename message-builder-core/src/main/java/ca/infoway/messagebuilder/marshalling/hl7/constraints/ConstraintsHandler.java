@@ -23,9 +23,9 @@ import java.text.MessageFormat;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -35,10 +35,9 @@ public class ConstraintsHandler {
 	public ConstraintsHandler() {
 	}
 	
-	public String validateConstraint(String name, String value, boolean isCDA, ConstrainedDatatype constraints, ErrorLogger errorLogger) {
+	public String validateConstraint(String name, String value, ConstrainedDatatype constraints, ErrorLogger errorLogger) {
 		
-		if (!isCDA || constraints == null) {
-			// only checking constraints for CDA (non-CDA should not even have constraints)
+		if (constraints == null) {
 			return value;
 		}
 		

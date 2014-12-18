@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.TelR2PropertyFormatter;
 
 public class TelR2PropertyFormatterTest extends FormatterTestCase {
 
@@ -46,7 +47,7 @@ public class TelR2PropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private FormatContextImpl createContext(String type) {
-		return new FormatContextImpl(this.result, null, "name", type, null, null, false, SpecificationVersion.R02_04_03, null, null, null);
+		return new FormatContextImpl(this.result, null, "name", type, null, null, false, SpecificationVersion.R02_04_03, null, null, null, false);
 	}
 
 	// tests for valid/invalid schemes?? valid/invalid address uses? 

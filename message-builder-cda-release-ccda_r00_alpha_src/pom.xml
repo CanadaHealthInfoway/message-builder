@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ca.infoway.messagebuilder</groupId>
+	<artifactId>mbt-maven-executor</artifactId>
+	<name>mbt-maven-executor</name>
+	<version>1.5.9-SNAPSHOT</version>
+	<url>http://maven.apache.org</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ca.infoway.messagebuilder</groupId>
+				<artifactId>maven-chi-plugin</artifactId>
+				<version>1.5.9-SNAPSHOT</version>
+
+				<configuration>
+					<!-- cda-to-xml: message set generation from cda sources -->
+					<schema>./etc/POCD_MT000040_SDTC.xsd</schema>
+					<supplementarySchema>./etc/SDTC.xsd</supplementarySchema>
+					<template>./etc/Consolidation.xml</template>
+					<vocabulary>./etc/voc.xml</vocabulary>
+					<r2Datatypes>true</r2Datatypes>
+
+					<!-- xml-to-java: java api generation -->
+					<!--
+						output directory: default-value="${project.build.sourceDirectory}
+					-->
+
+			          <fingerprintDuplicates>
+                        <fingerprintDuplicate>
+                            <type>ContinuityOfCareDocumentCCD.ClinicalDocument</type>
+                            <relationship>componentOf</relationship>
+                        </fingerprintDuplicate>
+                        <fingerprintDuplicate>
+                            <type>ContinuityOfCareDocumentCCD.ClinicalDocument</type>
+                            <relationship>component</relationship>
+                        </fingerprintDuplicate>
+
+                        <fingerprintDuplicate>
+                            <type>POCD_MT000040.ClinicalDocument</type>
+                            <relationship>componentOf</relationship>
+                        </fingerprintDuplicate>
+                        <fingerprintDuplicate>
+                            <type>POCD_MT000040.ClinicalDocument</type>
+                            <relationship>component</relationship>
+                        </fingerprintDuplicate>
+
+                        <fingerprintDuplicate>
+                            <type>UnstructuredDocument.ClinicalDocument</type>
+                            <relationship>componentOf</relationship>
+                        </fingerprintDuplicate>
+                        <fingerprintDuplicate>
+                            <type>UnstructuredDocument.ClinicalDocument</type>
+                            <relationship>component</relationship>
+                        </fingerprintDuplicate>
+
+                        <fingerprintDuplicate>
+                            <type>USRealmHeader.ClinicalDocument</type>
+                            <relationship>componentOf</relationship>
+                        </fingerprintDuplicate>
+                        <fingerprintDuplicate>
+                            <type>USRealmHeader.ClinicalDocument</type>
+                            <relationship>component</relationship>
+                        </fingerprintDuplicate>
+
+                	     </fingerprintDuplicates>
+
+					<version>R02_04_02</version>					
+					<javaSourceFolder>./java</javaSourceFolder>
+					<xsdSourceFolder>./resources</xsdSourceFolder>
+					<generatedReportsDirectory>../chi-messagebuilder/message-builder-cda-release-ccda_r00_alpha/target</generatedReportsDirectory>
+					<basePackageName>ca.infoway.messagebuilder.model.ccda_r00_alpha</basePackageName>
+					<messageSet>./messageSet.xml</messageSet>
+					<mifTransformer>../chi-messagebuilder/maven-chi-plugin/src/main/resources/ca/infoway/messagebuilder/generator/transform/ConvertMifVersion.xslt</mifTransformer>
+				</configuration>
+
+				<dependencies>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>8.3-603.jdbc3</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>intelliwareReleases</id>
+			<name>Intelliware Releases</name>
+			<url>dav:http://mvnrepo.intelliware.ca/release</url>
+		</repository>
+		<snapshotRepository>
+			<id>intelliwareSnapshots</id>
+			<name>Intelliware Snapshots</name>
+			<url>dav:http://mvnrepo.intelliware.ca/snapshot</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
+

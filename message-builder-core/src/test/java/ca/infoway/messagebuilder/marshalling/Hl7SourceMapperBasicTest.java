@@ -31,7 +31,7 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.mock.QuantityObservationEventBean;
 import ca.infoway.messagebuilder.model.mock.Sender;

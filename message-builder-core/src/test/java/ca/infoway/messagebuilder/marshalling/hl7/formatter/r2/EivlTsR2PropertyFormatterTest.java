@@ -48,7 +48,7 @@ public class EivlTsR2PropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	private FormatContextImpl createContext(String type) {
-		return new FormatContextImpl(this.result, null, "eventRelatedPeriod", type, null, null, false, SpecificationVersion.R02_04_03, null, null, null);
+		return new FormatContextImpl(this.result, null, "eventRelatedPeriod", type, null, null, false, SpecificationVersion.R02_04_03, null, null, null, false);
 	}
 
 	@Test

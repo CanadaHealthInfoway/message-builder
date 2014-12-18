@@ -29,9 +29,9 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
@@ -46,7 +46,7 @@ public class EdSignatureElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createEdContext() {
-		return ParseContextImpl.create("ED.SIGNATURE", String.class, SpecificationVersion.V02R02, null, null, null, null, null);
+		return ParseContextImpl.create("ED.SIGNATURE", String.class, SpecificationVersion.V02R02, null, null, null, null, null, false);
 	}
 
 	@Test

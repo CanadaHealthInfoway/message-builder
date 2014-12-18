@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.lang;
 
-import static ca.infoway.messagebuilder.marshalling.DomainTypeHelper.sanitize;
+import static ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper.sanitize;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +53,6 @@ import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.TypeName;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.Vocabulary;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 import ca.intelliware.commons.dependency.DependencyManager;
 import ca.intelliware.commons.dependency.Layer;
 import ca.intelliware.commons.dependency.Node;

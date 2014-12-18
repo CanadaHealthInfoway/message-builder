@@ -45,4 +45,5 @@ public interface FormatContext extends Typed {
 	public TimeZone getDateTimeZone();
 	public TimeZone getDateTimeTimeZone();
 	public ConstrainedDatatype getConstraints();
+	public boolean isCda();
 }

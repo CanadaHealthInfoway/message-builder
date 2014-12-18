@@ -40,8 +40,13 @@ class FormatContextImpl implements FormatContext {
 	private final TimeZone dateTimeTimeZone;
 	private final String propertyPath;
 	private final ConstrainedDatatype constraints;
+	private final boolean isCda;
 
-	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints) {
+	public boolean isCda() {
+		return isCda;
+	}
+
+	private FormatContextImpl(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints, boolean isCda) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.relationship = relationship;
@@ -49,10 +54,11 @@ class FormatContextImpl implements FormatContext {
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.constraints = constraints;
+		this.isCda = isCda;
 	}
 
-	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints) {
-		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints);
+	public static FormatContext create(ModelToXmlResult result, String propertyPath, Relationship relationship, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConstrainedDatatype constraints, boolean isCda) {
+		return new FormatContextImpl(result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints, isCda);
 	}
 
 	public ModelToXmlResult getModelToXmlResult() {

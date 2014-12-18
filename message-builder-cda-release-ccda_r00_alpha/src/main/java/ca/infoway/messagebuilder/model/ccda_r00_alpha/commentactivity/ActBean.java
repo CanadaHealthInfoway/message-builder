@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Informant12Bean;
@@ -66,7 +66,7 @@ public class ActBean extends MessagePartBean {
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private CS_R2 statusCode = new CS_R2Impl();
     private IVL_TS effectiveTime = new IVL_TSImpl();
     private CE_R2 priorityCode = new CE_R2Impl();
@@ -161,7 +161,7 @@ public class ActBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedDataR2 getText() {
+    public EncapsulatedData getText() {
         return this.text.getValue();
     }
 
@@ -170,7 +170,7 @@ public class ActBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setText(EncapsulatedDataR2 text) {
+    public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 

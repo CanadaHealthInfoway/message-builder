@@ -28,15 +28,15 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -57,7 +57,7 @@ public class EdConstraintsHandlerTest {
 		this.constraintsHandler.handleConstraints(null, null, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
 		
-		EncapsulatedDataR2 ed = new EncapsulatedDataR2();
+		EncapsulatedData ed = new EncapsulatedData();
 		
 		this.constraintsHandler.handleConstraints(null, ed, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
@@ -74,7 +74,7 @@ public class EdConstraintsHandlerTest {
 		assertTrue(this.errors.isEmpty());
 		
 		ed.setTextContent("some content");
-		ed.setReference(new TelecommunicationAddress(URLScheme.TEL, "4167620032"));
+		ed.setReferenceObj(new TelecommunicationAddress(URLScheme.TEL, "4167620032"));
 		ed.setMediaType(X_DocumentMediaType.HTML_TEXT);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
@@ -82,7 +82,7 @@ public class EdConstraintsHandlerTest {
 	
 	@Test
 	public void testPassingConstraints() {
-		EncapsulatedDataR2 ed = createEd(true, true, X_DocumentMediaType.DICOM);
+		EncapsulatedData ed = createEd(true, true, X_DocumentMediaType.DICOM);
 		ConstrainedDatatype constraints = createConstraints(true);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
@@ -90,7 +90,7 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testMissingReferenceFailingConstraint() {
-		EncapsulatedDataR2 ed = createEd(false, false, X_DocumentMediaType.DICOM);
+		EncapsulatedData ed = createEd(false, false, X_DocumentMediaType.DICOM);
 		ConstrainedDatatype constraints = createConstraints(true);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertFalse(this.errors.isEmpty());
@@ -101,7 +101,7 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testMissingReferenceValueFailingConstraint() {
-		EncapsulatedDataR2 ed = createEd(true, false, X_DocumentMediaType.DICOM);
+		EncapsulatedData ed = createEd(true, false, X_DocumentMediaType.DICOM);
 		ConstrainedDatatype constraints = createConstraints(true);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertFalse(this.errors.isEmpty());
@@ -112,8 +112,8 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testMissingReferenceValuePassesIfReferenceMissingAndNotMandatory() {
-		EncapsulatedDataR2 ed = createEd(true, false, X_DocumentMediaType.DICOM);
-		ed.setReference(null);
+		EncapsulatedData ed = createEd(true, false, X_DocumentMediaType.DICOM);
+		ed.setReferenceObj(null);
 		ConstrainedDatatype constraints = createConstraints(false);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
@@ -121,7 +121,7 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testMissingReferenceValueFailsIfReferenceProvidedAndNotMandatory() {
-		EncapsulatedDataR2 ed = createEd(true, false, X_DocumentMediaType.DICOM);
+		EncapsulatedData ed = createEd(true, false, X_DocumentMediaType.DICOM);
 		ConstrainedDatatype constraints = createConstraints(false);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertFalse(this.errors.isEmpty());
@@ -132,7 +132,7 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testIncorrectMediaTypeFailingConstraint() {
-		EncapsulatedDataR2 ed = createEd(true, true, X_DocumentMediaType.HL7_CDA);
+		EncapsulatedData ed = createEd(true, true, X_DocumentMediaType.HL7_CDA);
 		ConstrainedDatatype constraints = createConstraints(true);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertFalse(this.errors.isEmpty());
@@ -144,20 +144,20 @@ public class EdConstraintsHandlerTest {
 
 	@Test
 	public void testMissingMediaTypeFailingConstraint() {
-		EncapsulatedDataR2 ed = createEd(true, true, null);
+		EncapsulatedData ed = createEd(true, true, null);
 		ConstrainedDatatype constraints = createConstraints(true);
 		this.constraintsHandler.handleConstraints(constraints, ed, this.errorLogger);
 		assertTrue(this.errors.isEmpty());
 		assertEquals(X_DocumentMediaType.DICOM, ed.getMediaType());
 	}
 
-	private EncapsulatedDataR2 createEd(boolean createReference, boolean createReferenceValue, x_DocumentMediaType mediaType) {
-		EncapsulatedDataR2 ed = new EncapsulatedDataR2();
+	private EncapsulatedData createEd(boolean createReference, boolean createReferenceValue, x_DocumentMediaType mediaType) {
+		EncapsulatedData ed = new EncapsulatedData();
 		if (createReference) {
-			ed.setReference(new TelecommunicationAddress());
+			ed.setReferenceObj(new TelecommunicationAddress());
 			if (createReferenceValue) {
-				ed.getReference().setUrlScheme(URLScheme.TEL);
-				ed.getReference().setAddress("4167620032");
+				ed.getReferenceObj().setUrlScheme(URLScheme.TEL);
+				ed.getReferenceObj().setAddress("4167620032");
 			}
 		}
 		if (mediaType != null) {

@@ -2227,4 +2227,31 @@ public class CdaTemplateProcessorTest {
 		assertTrue(foundChoiceBlockCloneCase);
 		assertTrue(foundChoiceBlockDefinitionCase);
 	}
+	
+	@Test
+	public void shouldInheritOptionsFromParentTemplates() throws Exception {
+		Template template = templateSet.getByOid("2.16.840.1.113883.10.20.22.4.68");
+		assertNotNull(template);
+		List<Delta> deltas = template.getDeltas();
+		
+		boolean foundChoiceBlockDefinitionCase = false;
+		for (Delta delta : deltas) {
+			if (delta.getClassName().equals("FunctionalStatusProblemObservation.EntryRelationshipChoice") && delta.getRelationshipName() == null) {
+
+				foundChoiceBlockDefinitionCase = true;
+				
+				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+				assertNotNull(addChoiceConstraints);
+				assertEquals(7, addChoiceConstraints.size());
+				assertEquals("FunctionalStatusProblemObservation.NonMedicinalSupplyActivityEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("FunctionalStatusProblemObservation.AssessmentScaleObservationEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+				assertEquals("FunctionalStatusProblemObservation.AgeObservationEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertEquals("FunctionalStatusProblemObservation.ProblemStatusEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
+				assertEquals("FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
+				assertEquals("POCD_MT000040.EntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(6)).getChoiceClassName());
+			}
+		}
+		assertTrue(foundChoiceBlockDefinitionCase);
+	}
 }

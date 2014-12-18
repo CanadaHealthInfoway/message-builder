@@ -53,7 +53,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
 
     @Test
     public void testGetAttributeNameValuePairsNullValue() throws Exception {
-        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), null, null);
+        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, null);
         assertEquals("map size", 0, result.size());
     }
 
@@ -61,7 +61,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     public void testGetAttributeNameValuePairsEnum() throws Exception {
         // used as expected: an enumerated object is passed in
         Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), 
         		CeRxDomainTestValues.CENTIMETRE, null);
         assertEquals("map size", 1, result.size());
         
@@ -72,7 +72,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testGetAttributeNameValuePairsWithoutCodeSystem() throws Exception {
         Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), 
+        		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), 
         		new MockCodeImpl("fred", "The Flintstones"),
         		null);
 

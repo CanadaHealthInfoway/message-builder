@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -54,7 +55,7 @@ public class EnElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParseContextImpl.create("EN", EntityName.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("EN", EntityName.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
@@ -73,11 +74,13 @@ public class EnElementParserTest extends MarshallingTestCase {
                   "<something>trivial name</something>");
         
         EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
-        assertEquals(2, this.xmlResult.getHl7Errors().size());
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 1, entityName.getParts().size());
         assertNamePartAsExpected("name", entityName.getParts().get(0), null, "trivial name");
         assertTrue("returned class", entityName instanceof TrivialName);
+        assertFalse(this.xmlResult.isValid());
+        assertEquals(1, this.xmlResult.getHl7Errors().size());
+        assertEquals("EN field has been handled as type TN", this.xmlResult.getHl7Errors().get(0).getMessage());
     }
 
 	@Test
@@ -139,13 +142,13 @@ public class EnElementParserTest extends MarshallingTestCase {
                   "<something><given>Steve</given><family>Shaw</family><suffix>Inc</suffix></something>");
         
         EntityName entityName = (EntityName) new EnElementParser().parse(createContext(), node, this.xmlResult).getBareValue();
-        assertEquals(3, this.xmlResult.getHl7Errors().size());  // 2 for parser, 1 for missing "use"
         assertNotNull("entity name", entityName);
         assertEquals("number of name parts", 3, entityName.getParts().size());
         assertNamePartAsExpected("given", entityName.getParts().get(0), PersonNamePartType.GIVEN, "Steve");
         assertNamePartAsExpected("family", entityName.getParts().get(1), PersonNamePartType.FAMILY, "Shaw");
         assertNamePartAsExpected("suffix", entityName.getParts().get(2), PersonNamePartType.SUFFIX, "Inc");
         assertTrue("returned class", entityName instanceof PersonName);
+        assertEquals(2, this.xmlResult.getHl7Errors().size());  // 1 warning stating EN treated as PN, 1 for missing "use"
     }
 
     private void assertNamePartAsExpected(String message, EntityNamePart namePart, NamePartType expectedType, String expectedValue) {

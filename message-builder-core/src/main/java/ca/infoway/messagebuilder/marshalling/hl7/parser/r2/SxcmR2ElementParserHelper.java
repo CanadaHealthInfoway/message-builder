@@ -23,10 +23,10 @@ import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.EnumPattern;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 public class SxcmR2ElementParserHelper {
@@ -41,7 +41,7 @@ public class SxcmR2ElementParserHelper {
 			result = SetOperator.INCLUDE; // default
 			if (hasOperator) {
 				String operatorString = element.getAttribute("operator");
-				result = findMatchingOperator(operatorString);
+				result = SetOperator.findMatchingOperator(operatorString);
 				if (result == null) {
 					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Operator could not be determined from attribute value: '" + operatorString + "'", element));
 				}
@@ -55,15 +55,4 @@ public class SxcmR2ElementParserHelper {
 		return result;
 	}
 
-	private SetOperator findMatchingOperator(String operatorString) {
-		SetOperator result = null;
-		for (SetOperator setOperator : EnumPattern.values(SetOperator.class)) {
-			if (setOperator.getCodeValue().equals(operatorString)) {
-				result = setOperator;
-				break;
-			}
-		}
-		return result;
-	}
-	
 }

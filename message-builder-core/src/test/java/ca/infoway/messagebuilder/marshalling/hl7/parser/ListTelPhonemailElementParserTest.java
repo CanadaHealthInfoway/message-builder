@@ -48,7 +48,7 @@ public class ListTelPhonemailElementParserTest extends ParserTestCase {
 				"<something specializationType=\"TEL.EMAIL\" value=\"mailto://Wilma\"/>" +
 				"</top>");
 		
-		BareANY result = new ListElementParser().parse(ParseContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5"), null), 
+		BareANY result = new ListElementParser(ParserRegistry.getInstance()).parse(ParseContextImpl.create("LIST<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), null);
 		@SuppressWarnings("unchecked")
 		List<TelecommunicationAddress> list = ((LIST<TEL,TelecommunicationAddress>) result).rawList();

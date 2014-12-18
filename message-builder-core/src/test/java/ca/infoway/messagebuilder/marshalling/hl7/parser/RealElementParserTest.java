@@ -43,20 +43,20 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNullNode() throws Exception {
 		Node node = createNode("<something nullFlavor=\"NI\"/>");
-		REAL real = (REAL) new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		REAL real = (REAL) new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertNull("null returned", real.getValue());
 		assertEquals("null flavor", NullFlavor.NO_INFORMATION, real.getNullFlavor());
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	private ParseContext createContext(String type) {
-		return ParseContextImpl.create(type, BigDecimal.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, BigDecimal.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
 	public void testParseEmptyNode() throws Exception {
 		Node node = createNode("<something/>");
-		REAL real = (REAL) new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		REAL real = (REAL) new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertNull("null returned", real.getBareValue());
 		assertNull("no null flavor", real.getNullFlavor());
 		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
@@ -65,16 +65,16 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseNoValueAttributeNode() throws Exception {
 		Node node = createNode("<something notvalue=\"\" />");
-		REAL real = (REAL) new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		REAL real = (REAL) new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertNull("null returned", real.getBareValue());
 		assertNull("no null flavor", real.getNullFlavor());
 		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealConf() throws Exception {
+	public void testParseValueAttributeValidReal() throws Exception {
 		Node node = createNode("<something value=\"0.2345\" />");
-		BareANY real = new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		BareANY real = new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("correct value returned", 
 				new BigDecimal("0.2345"), 
 				real.getBareValue());
@@ -83,9 +83,9 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealConfMax() throws Exception {
+	public void testParseValueAttributeValidReal2() throws Exception {
 		Node node = createNode("<something value=\"1.0000\" />");
-		BareANY real = new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		BareANY real = new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("correct value returned", 
 				new BigDecimal("1.0000"), 
 				real.getBareValue());
@@ -93,9 +93,9 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealConfMaxNoZeros() throws Exception {
+	public void testParseValueAttributeValidRealNoZeros() throws Exception {
 		Node node = createNode("<something value=\"1.\" />");
-		BareANY real = new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		BareANY real = new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("correct value returned", 
 				new BigDecimal("1"), 
 				real.getBareValue());
@@ -103,45 +103,45 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealConfMin() throws Exception {
+	public void testParseValueAttributeValidRealAsZero() throws Exception {
 		Node node = createNode("<something value=\"0\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal(0), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeInvalidRealConfMinLotsOfZeros() throws Exception {
+	public void testParseValueAttributeRealLotsOfZeros() throws Exception {
 		Node node = createNode("<something value=\"000.0000\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("000.0000"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
-		assertEquals("1 errors", 1, this.xmlResult.getHl7Errors().size()); // too many chars before decimal
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeInvalidRealConfNegative() throws Exception {
+	public void testParseValueAttributeRealNegative() throws Exception {
 		Node node = createNode("<something value=\"-1\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("-1"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
-		assertEquals("2 errors", 2, this.xmlResult.getHl7Errors().size()); // too many chars before decimal, value less than zero 
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 
 	@Test
-	public void testParseValueAttributeInvalidRealConfTooLarge() throws Exception {
+	public void testParseValueAttributeReal() throws Exception {
 		Node node = createNode("<something value=\"1.0001\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("1.0001"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
-		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 
 	@Test
-	public void testParseValueAttributeValidRealCoordMax() throws Exception {
+	public void testParseValueAttributeValidReal3() throws Exception {
 		Node node = createNode("<something value=\"9999.9999\" />");
-		BareANY real = new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult);
+		BareANY real = new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("correct value returned", 
 				new BigDecimal("9999.9999"), 
 				real.getBareValue());
@@ -149,58 +149,58 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealCoordMin() throws Exception {
+	public void testParseValueAttributeValidReal4() throws Exception {
 		Node node = createNode("<something value=\"-999.9999\" />");
 		BigDecimal bigDecimal = new BigDecimal("-999.9999");
 		assertEquals("correct value returned", 
 				bigDecimal, 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeInvalidRealCoordTooLarge() throws Exception {
+	public void testParseValueAttributeRealLarge() throws Exception {
 		Node node = createNode("<something value=\"10000\" />");
-		BareANY real = new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult);
+		BareANY real = new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("correct value returned", 
 				new BigDecimal("10000"), 
 				real.getBareValue());
-		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeInvalidRealCoordTooSmall() throws Exception {
+	public void testParseValueAttributeRealNegative2() throws Exception {
 		Node node = createNode("<something value=\"-1000\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal(-1000), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
-		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeInvalidRealCoordMultipleErrors() throws Exception {
+	public void testParseValueAttributeRealLarge2() throws Exception {
 		Node node = createNode("<something value=\"10000.00000\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("10000.00000"), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
-		assertEquals("2 errors", 2, this.xmlResult.getHl7Errors().size()); // too many characters before and after decimal
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealCoordTooManyDigitsAfterDecimal() throws Exception {
+	public void testParseValueAttributeValidReal6() throws Exception {
 		Node node = createNode("<something value=\"9999.99999\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("9999.99999"), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
-		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
 	@Test
-	public void testParseValueAttributeValidRealCoord() throws Exception {
+	public void testParseValueAttributeValidReal7() throws Exception {
 		Node node = createNode("<something value=\"78.2345\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("78.2345"), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
@@ -209,7 +209,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something extra=\"value\" value=\"1345\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("1345"), 
-				new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertTrue("no errors", this.xmlResult.isValid());
 	}
 	
@@ -220,33 +220,30 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 				"<monkey/>" +
 				"</something>");
 		try {
-			new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+			new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 			fail("expected exception");
 			
 		} catch (XmlToModelTransformationException e) {
 			// expected
-			assertEquals("proper exception returned", "Expected REAL.CONF node to have no children", e.getMessage());
+			assertEquals("proper exception returned", "Expected REAL node to have no children", e.getMessage());
 		}
 	}
 
 	@Test
 	public void testParseInvalidValueAttribute() throws Exception {
 		Node node = createNode("<something value=\"monkey\" />");
-		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
+		new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
 		assertEquals("errors", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("error message", 
-				"Value \"monkey\" of type REAL.CONF is not a valid number", 
+				"Value \"monkey\" of type REAL is not a valid number", 
 				this.xmlResult.getHl7Errors().get(0).getMessage());
 	}
 
 	@Test
-	public void testParseInvalidValueAttribute1() throws Exception {
+	public void testParseBasicValueAttribute() throws Exception {
 		Node node = createNode("<something value=\"1.11\" />");
-		new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult);
-		assertEquals("errors", 1, this.xmlResult.getHl7Errors().size());
-		assertEquals("error message", 
-				"Value 1.11 of type REAL.CONF must be between 0 and 1 (inclusive).", 
-				this.xmlResult.getHl7Errors().get(0).getMessage());
+		new RealElementParser().parse(createContext("REAL"), node, this.xmlResult);
+		assertTrue("no errors", this.xmlResult.isValid());
 	}
 
 	@Test
@@ -254,7 +251,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\".11\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal(".11"), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertEquals("errors", 0, this.xmlResult.getHl7Errors().size());
 	}
 	
@@ -262,7 +259,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 	@Test
 	public void testParseValueAttributeInvalidAsHexValue() throws Exception {
 		Node node = createNode("<something value=\"0x1a\" />");
-		assertNull(new RealElementParser().parse(createContext("REAL.COORD"), node, this.xmlResult).getBareValue());
+		assertNull(new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertEquals("1 error", 1, this.xmlResult.getHl7Errors().size());
 	}
 	
@@ -272,7 +269,7 @@ public class RealElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something value=\"1.\" />");
 		assertEquals("correct value returned", 
 				new BigDecimal("1."), 
-				new RealElementParser().parse(createContext("REAL.CONF"), node, this.xmlResult).getBareValue());
+				new RealElementParser().parse(createContext("REAL"), node, this.xmlResult).getBareValue());
 		assertEquals("errors", 0, this.xmlResult.getHl7Errors().size());
 	}
 }

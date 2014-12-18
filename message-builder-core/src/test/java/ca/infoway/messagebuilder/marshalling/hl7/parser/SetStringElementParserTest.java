@@ -47,8 +47,8 @@ public class SetStringElementParserTest extends ParserTestCase {
 				"<something>Betty</something>" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<ST>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(ParserRegistry.getInstance()).parse(
+				ParseContextImpl.create("SET<ST>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<String> set = ((SET<ST,String>) result).rawSet();

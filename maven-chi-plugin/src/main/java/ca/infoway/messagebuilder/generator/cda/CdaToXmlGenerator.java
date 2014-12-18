@@ -25,7 +25,6 @@ import static ca.infoway.messagebuilder.generator.LogLevel.INFO;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
@@ -34,10 +33,7 @@ import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
 import ca.infoway.messagebuilder.GeneratorException;
-import ca.infoway.messagebuilder.generator.FileSet;
-import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 import ca.infoway.messagebuilder.generator.MessageSetWriter;
-import ca.infoway.messagebuilder.generator.MifSource;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessor;
 import ca.infoway.messagebuilder.generator.template.TemplateExport;
@@ -48,7 +44,7 @@ import ca.infoway.messagebuilder.tools.template.TemplateApplier;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
-public class CdaToXmlGenerator implements MessageSetGenerator {
+public class CdaToXmlGenerator {
 
 	private final OutputUI outputUI;
 	private MessageSet messageSet = new MessageSet();
@@ -75,7 +71,6 @@ public class CdaToXmlGenerator implements MessageSetGenerator {
 		this.messageSetWriter = new MessageSetWriter(this.messageSet, this.outputUI);
 	}
 
-	@Override
 	public MessageSet processAllCdaFiles(File schemaFile, File supplementarySchemaFile, File templateFile, File vocabularyFile) throws GeneratorException, IOException {
 		try {
 			this.outputUI.log(INFO, "Parsing input files.");
@@ -99,6 +94,10 @@ public class CdaToXmlGenerator implements MessageSetGenerator {
 			this.outputUI.log(INFO, "Applying templates to generate constrained model.");
 			TemplateApplier applier = new TemplateApplier();
 			this.messageSet = applier.resolveToMessageSet(messageSet, templateSet, "");
+			
+			if (!this.messageSet.isGeneratedAsR2()) {
+				R1DatatypeHelper.convertBaseDatatypesToPolymorphic(this.messageSet);
+			}
 		} catch (Exception e) {
 			throw new GeneratorException(e);
 		}
@@ -108,21 +107,9 @@ public class CdaToXmlGenerator implements MessageSetGenerator {
 		return this.messageSet;
 	}
 
-	@Override
 	public void writeToMessageSet(File outputFile) throws GeneratorException, IOException {
 		this.messageSetWriter.writeToMessageSet(outputFile);
 	}
-
-	@Override
-	public MessageSet processAllMifs(MifSource mifSource)
-			throws GeneratorException, IOException {
-		throw new UnsupportedOperationException("Must use processAllCdaFiles() method instead.");
-	}
-
-	@Override
-	public void processAllMessageSets(List<FileSet> inputMessageSets)
-			throws GeneratorException, IOException {
-		throw new UnsupportedOperationException("Must use processAllCdaFiles() method instead.");
-	}
+	
 
 }

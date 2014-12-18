@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.generator.cda;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
@@ -31,8 +32,30 @@ import org.simpleframework.xml.Root;
 @Namespace(prefix="xs",reference="http://www.w3.org/2001/XMLSchema")
 public class Choice implements SequenceChild {
 
+	@Attribute(required=false)
+	private String minOccurs;
+	
+	@Attribute(required=false)
+	private String maxOccurs;
+	
 	@ElementList(entry="element",inline=true,type=XsElement.class)
 	private List<XsElement> elements = new ArrayList<XsElement>();
+
+	public String getMinOccurs() {
+		return minOccurs;
+	}
+
+	public void setMinOccurs(String minOccurs) {
+		this.minOccurs = minOccurs;
+	}
+
+	public String getMaxOccurs() {
+		return maxOccurs;
+	}
+
+	public void setMaxOccurs(String maxOccurs) {
+		this.maxOccurs = maxOccurs;
+	}
 
 	public List<XsElement> getElements() {
 		return elements;

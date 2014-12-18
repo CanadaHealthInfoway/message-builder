@@ -171,7 +171,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     	String expectedErrorInteger = "PhysicalQuantity for MR2009/PQ.BASIC can contain a maximum of 11 integer places";
     	
 		new PqPropertyFormatter().format(new FormatContextImpl(this.result,
-				null, "name", "PQ.BASIC", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, null), new PQImpl(physicalQuantity), 0);
+				null, "name", "PQ.BASIC", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new PQImpl(physicalQuantity), 0);
 		if (decimalError) {
 			assertEquals(expectedErrorDecimal, this.result.getHl7Errors().get(0).getMessage());
 		}
@@ -232,6 +232,6 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     }
 
 	private FormatContextImpl createContext(String type) {
-		return new FormatContextImpl(this.result, null, "name", type, ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		return new FormatContextImpl(this.result, null, "name", type, ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
 	}
 }

@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 
 /**
@@ -134,4 +135,12 @@ public interface MessageDefinitionService {
 	 */
 	public List<SchematronContext> getAllSchematronContexts(VersionNumber version);
 
+	/**
+	 * Returns all the package locations for a specific message set
+	 * 
+	 * @param version
+	 * @return the package locations
+	 */
+	public List<PackageLocation> getAllPackageLocations(VersionNumber version);
+	
 }

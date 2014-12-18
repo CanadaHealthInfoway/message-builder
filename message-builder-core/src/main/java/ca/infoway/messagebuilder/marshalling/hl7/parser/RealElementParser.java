@@ -30,10 +30,10 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.lang.NumberUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.RealConfFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealCoordFormat;
 import ca.infoway.messagebuilder.marshalling.hl7.RealFormat;
@@ -57,7 +57,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  * CHI further breaks down the datatype into REAL.CONF and REAL.COORD subtypes.
  * 
  */
-@DataTypeHandler({"REAL.CONF", "REAL.COORD"})
+@DataTypeHandler({"REAL.CONF", "REAL.COORD", "REAL"})
 class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 
 	@Override
@@ -79,19 +79,21 @@ class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 
 	private void validateDecimal(String value, String type, XmlToModelResult result, Element element) {
 		if (NumberUtil.isNumber(value)) {
-			String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
-			String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
-			
-			RealFormat format = getFormat(type);
-			if (StandardDataType.REAL_CONF.getType().equals(type) && !valueIsBetweenZeroAndOneInclusive(integerPart, decimalPart)) {
-				recordValueMustBeBetweenZeroAndOneError(value, type, result, element);
-			}
-			// TM - decided to remove check on overall length; we check before and after decimal lengths, which should be sufficient
-			if (StringUtils.length(integerPart) > format.getMaxIntegerPartLength()) {
-				recordTooManyCharactersBeforeDecimalError(value, type, result, element, format);
-			}
-			if (StringUtils.length(decimalPart) > format.getMaxDecimalPartLength()) {
-				recordTooManyDigitsAfterDecimalError(value, type, result, element, format);
+			if (!StandardDataType.REAL.getType().equals(type)) {
+				String integerPart = value.contains(".") ? StringUtils.substringBefore(value, ".") : value;
+				String decimalPart = value.contains(".") ? StringUtils.substringAfter(value, ".") : "";
+				
+				RealFormat format = getFormat(type);
+				if (StandardDataType.REAL_CONF.getType().equals(type) && !valueIsBetweenZeroAndOneInclusive(integerPart, decimalPart)) {
+					recordValueMustBeBetweenZeroAndOneError(value, type, result, element);
+				}
+				// TM - decided to remove check on overall length; we check before and after decimal lengths, which should be sufficient
+				if (StringUtils.length(integerPart) > format.getMaxIntegerPartLength()) {
+					recordTooManyCharactersBeforeDecimalError(value, type, result, element, format);
+				}
+				if (StringUtils.length(decimalPart) > format.getMaxDecimalPartLength()) {
+					recordTooManyDigitsAfterDecimalError(value, type, result, element, format);
+				}
 			}
 		} else if (StringUtils.isBlank(value)) {
 			recordValueMustBeSpecifiedError(result, element);

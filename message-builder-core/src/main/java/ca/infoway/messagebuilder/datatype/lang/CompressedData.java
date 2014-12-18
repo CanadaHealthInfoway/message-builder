@@ -24,22 +24,21 @@ import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 
 import java.io.IOException;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
+import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.platform.Base64;
 
 /**
  * <p>Java datatype representing the HL7 Datatype ED. (a specialized class)
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * @deprecated
  *
  * @sharpen.ignore - datatype - translated manually
  */
+@Deprecated
 public class CompressedData extends EncapsulatedData {
-
-	private Compression compression;
 
 	/**
 	 * <p>Constructs an empty CompressedData.
@@ -59,16 +58,7 @@ public class CompressedData extends EncapsulatedData {
 	 */
 	public CompressedData(x_DocumentMediaType mediaType, String reference, byte[] content, Compression compression, String language) {
 		super(mediaType, reference, language, content);
-		this.compression = compression;
-	}
-
-	/**
-	 * <p>Returns the compression type.
-	 * 
-	 * @return the compression type
-	 */
-	public Compression getCompression() {
-		return this.compression;
+		setCompression(compression);
 	}
 
 	/**
@@ -77,14 +67,18 @@ public class CompressedData extends EncapsulatedData {
 	 * @return the uncompressed content as a byte array
 	 */
 	public byte[] getUncompressedContent() {
+		byte[] content = getContent();
 		if (isGzip()) {
 			try {
-				return Compression.gunzip(getContent());
+				if (isB64()) {
+					content = Base64.decodeBase64(content);
+				}
+				return Compression.gunzip(content);
 			} catch (IOException e) {
 				return null;
 			}
 		} else {
-			return getContent();
+			return content;
 		}
 	}
 
@@ -94,43 +88,24 @@ public class CompressedData extends EncapsulatedData {
 	 * @return the compressed content as a byte array.
 	 */
 	public byte[] getCompressedContent() {
+		byte[] content = getContent();
 		if (isGzip()) {
 			try {
-				return Compression.gzip(getContent());
+				// will callers be expecting this to be B64 encoded?
+				return Compression.gzip(content);
 			} catch (IOException e) {
 				return null;
 			}
 		} else {
-			return getContent();
+			return content;
 		}
 	}
 
 	private boolean isGzip() {
-		return compression != null && GZIP.equals(compression);
+		return GZIP.equals(getCompression());
 	}
-	
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder()
-                .appendSuper(super.hashCode())
-                .append(this.compression)
-                .toHashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        } else if (obj.getClass() != getClass()) {
-            return false;
-        } else {
-            return equals((CompressedData) obj);
-        }
-    }
-    
-    private boolean equals(CompressedData that) {
-        return new EqualsBuilder().appendSuper(super.equals(that))
-                .append(this.compression, that.compression)
-                .isEquals();
-    }
+	private boolean isB64() {
+		return EdRepresentation.B64.equals(getRepresentation());
+	}
 }

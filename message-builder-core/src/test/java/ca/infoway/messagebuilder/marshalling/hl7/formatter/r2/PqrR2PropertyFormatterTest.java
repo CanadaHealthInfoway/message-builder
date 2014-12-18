@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.PQR;
 import ca.infoway.messagebuilder.datatype.impl.PQRImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -59,7 +59,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setDisplayName("aDisplayName");
 		codedType.setValue(new BigDecimal("1.234"));
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 
@@ -74,7 +74,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text allowed for PQR");
 		codedType.setOriginalText(originalText);
 
@@ -101,7 +101,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		codedType.setValue(new BigDecimal("1.234"));
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		

@@ -62,7 +62,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -73,7 +73,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", cd.getValue());
@@ -84,7 +84,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -95,7 +95,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", cd.getValue().getCodeValue());
@@ -106,7 +106,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull(cd.getValue());
@@ -116,7 +116,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull(cd.getValue());
@@ -126,7 +126,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -137,7 +137,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -149,7 +149,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), node, this.xmlResult);
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -159,7 +159,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+        		ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -177,7 +177,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
 							   "</something>");
 		
 		BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-				ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, cd.getValue().getCode());
@@ -213,7 +213,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
 				"</something>");
 		
 		BXIT<CodedTypeR2<? extends Code>> cd = (BXIT<CodedTypeR2<? extends Code>>) this.parser.parse(
-				ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null), 
+				ParseContextImpl.create("BXIT<CD>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, 
 				this.xmlResult);
 		

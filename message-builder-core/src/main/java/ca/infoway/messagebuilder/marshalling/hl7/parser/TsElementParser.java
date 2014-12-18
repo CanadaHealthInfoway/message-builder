@@ -34,13 +34,15 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -73,6 +75,17 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 		return parseNonNullNode(context, (Element) node, xmlToModelResult);
 	}
 
+	@Override
+	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+		BareANY parseResult = super.parse(context, node, xmlToModelResult);
+		if (context.isCda()) {
+			String operatorAsString = getAttributeValue(node, "operator");
+			SetOperator operator = SetOperator.findMatchingOperator(operatorAsString);
+			((ANYMetaData) parseResult).setOperator(operator);
+		}
+		return parseResult;
+	}
+	
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		String specializationType = getSpecializationType(node);
 		if (specializationType == null) {
@@ -89,7 +102,7 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 			}
 			
 		} else if (isValidSpecializationType(specializationType)) {
-			context = ParseContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getDateTimeZone(), context.getDateTimeTimeZone(), context.getConformance(), context.getCardinality(), null, null, context.getConstraints());
+			context = ParseContextImpl.create(specializationType, context);
 		} else {
 			// log error - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
 		    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
@@ -116,7 +129,7 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
        		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Timestamp value must be non-blank.", element));
 		} else {
             try {
-                result = parseDate(unparsedDate, getAllDateFormats(context), context);
+                result = parseDate(unparsedDate, getAllDateFormats(StandardDataType.getByTypeName(getType(context)), context.getVersion()), context);
 				checkForMissingTimezone(context, xmlToModelResult, result, unparsedDate, element);
             } catch (IllegalArgumentException e) {
                 result = tryEveryFormat(context, unparsedDate, element, xmlToModelResult);
@@ -167,28 +180,12 @@ public class TsElementParser extends AbstractSingleElementParser<Date> {
 
 
 	private String[] getDateFormatsForOtherType(StandardDataType type, ParseContext context) {
-		ParseContext newContext;
-		if (context == null) {
-			newContext = ParseContextImpl.create(type == null ? null : type.getType(), null, null, null, null, null, null, null, null, null);
-		} else {
-			newContext =  ParseContextImpl.create(
-					type == null ? null : type.getType(),
-					context.getExpectedReturnType(),
-					context.getVersion(),
-					context.getDateTimeZone(),
-					context.getDateTimeTimeZone(),
-					context.getConformance(),
-					context.getCardinality(),
-					context.getConstraints());
-		}
-		return getAllDateFormats(newContext);
+		return getAllDateFormats(type, context == null ? null : context.getVersion());
 	}
 
 
-	private String[] getAllDateFormats(ParseContext context) {
-		StandardDataType standardDataType = StandardDataType.getByTypeName(context);
-		VersionNumber version = (context == null ? null : context.getVersion());
-		return TsDateFormats.getAllDateFormats(standardDataType, version);
+	private String[] getAllDateFormats(StandardDataType type, VersionNumber version) {
+		return TsDateFormats.getAllDateFormats(type, version);
 	}
 
 

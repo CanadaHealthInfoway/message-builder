@@ -28,8 +28,8 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.guide.hello_world.HelloWorldApp;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;

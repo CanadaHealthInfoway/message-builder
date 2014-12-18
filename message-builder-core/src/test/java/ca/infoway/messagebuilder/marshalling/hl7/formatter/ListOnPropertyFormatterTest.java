@@ -43,26 +43,28 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class ListOnPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", OPTIONAL, null), 
+		String result = new ListPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", OPTIONAL, null, false), 
 				new LISTImpl<ON, OrganizationName>(ONImpl.class));
 		assertXml("null", "", result);
 	}
 
 	@Test
     public void testFormatValueNullMandatory() throws Exception {
-        String result = new ListPropertyFormatter().format(
-        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<ON>", ConformanceLevel.MANDATORY, null), 
+        String result = new ListPropertyFormatter(this.formatterRegistry).format(
+        		new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<ON>", ConformanceLevel.MANDATORY, null, false), 
 				(BareANY) new LISTImpl<ON, OrganizationName>(ONImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
     }
     
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY, Cardinality.create("1-4")),
+		String result = new ListPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", "LIST<ON>", MANDATORY, Cardinality.create("1-4"), false),
 				LISTImpl.<ON, OrganizationName>create(ONImpl.class, createOrganizationNameList()));
 		
 		assertEquals("non null", 

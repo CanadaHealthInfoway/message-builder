@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
@@ -46,7 +46,7 @@ public class ObservationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20141104L;
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private CD_R2 value = new CD_R2Impl();
 
 
@@ -68,7 +68,7 @@ public class ObservationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedDataR2 getText() {
+    public EncapsulatedData getText() {
         return this.text.getValue();
     }
 
@@ -77,7 +77,7 @@ public class ObservationBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setText(EncapsulatedDataR2 text) {
+    public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 

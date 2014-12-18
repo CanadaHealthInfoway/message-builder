@@ -100,4 +100,8 @@ public class Schema {
 		}
 		return result;
 	}
+	
+	public void addElement(XsElement element) {
+		this.elements.add(element);
+	}
 }

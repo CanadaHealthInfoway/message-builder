@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
@@ -76,7 +76,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation2);	
 		codedType.setValidTime(interval);
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
@@ -96,7 +96,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text allowed for CE");
 		codedType.setOriginalText(originalText);
 		
@@ -134,7 +134,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		codedType.setValidTime(interval);
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		

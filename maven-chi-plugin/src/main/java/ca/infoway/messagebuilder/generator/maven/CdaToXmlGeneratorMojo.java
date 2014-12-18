@@ -29,7 +29,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
 import ca.infoway.messagebuilder.GeneratorException;
-import ca.infoway.messagebuilder.generator.MessageSetGenerator;
+import ca.infoway.messagebuilder.generator.cda.CdaToXmlGenerator;
 import ca.infoway.messagebuilder.tools.CdaMessageSetValidator;
 import ca.infoway.messagebuilder.tools.MessageSetValidator.MessageSetValidatorError;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -125,7 +125,7 @@ public class CdaToXmlGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
-			MessageSetGenerator generator = this.factory.createForCda(this, this.r2Datatypes);
+			CdaToXmlGenerator generator = this.factory.createForCda(this, this.r2Datatypes);
 			MessageSet generatedMessageSet = generator.processAllCdaFiles(this.schema, this.supplementarySchema, this.template, this.vocabulary);
 			generator.writeToMessageSet(this.messageSet);
 			

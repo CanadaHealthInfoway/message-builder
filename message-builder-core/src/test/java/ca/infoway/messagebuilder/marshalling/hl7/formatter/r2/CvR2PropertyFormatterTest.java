@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.COImpl;
 import ca.infoway.messagebuilder.datatype.impl.CV_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -60,7 +60,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setCodeSystemVersion("aCodeSystemVersion");
 		codedType.setDisplayName("aDisplayName");
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
@@ -78,7 +78,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text allowed for CV");
 		codedType.setOriginalText(originalText);
 		
@@ -104,7 +104,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(new CodedTypeR2<Code>());
 		codedType.getQualifier().add(new CodeRole());
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
@@ -136,7 +136,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setCodeSystemVersion("aCodeSystemVersion");
 		codedType.setDisplayName("aDisplayName");
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
@@ -151,7 +151,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavorCo() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text allowed for CO");
 		codedType.setOriginalText(originalText);
 		
@@ -177,7 +177,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(new CodedTypeR2<Code>());
 		codedType.getQualifier().add(new CodeRole());
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		

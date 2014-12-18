@@ -40,7 +40,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null), null, new INTImpl());
+		Map<String,String>  result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), null, new INTImpl());
 
 		// a null value for INT elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -53,7 +53,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerValid() throws Exception {
 		String integerValue = "34";
-		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null), new Integer(integerValue), null);
+		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -64,7 +64,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullCaseMandatory() throws Exception {
 		String result = new IntR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null), new INTImpl());
+				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null, false), new INTImpl());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 		assertTrue("no errors", this.result.isValid());
 	}
@@ -72,7 +72,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullCasePopulated() throws Exception {
 		String result = new IntR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null), new INTImpl());
+				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null, false), new INTImpl());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 		assertTrue("no errors", this.result.isValid());
 	}
@@ -80,7 +80,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullCaseNotMandatory() throws Exception {
 		String result = new IntR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.OPTIONAL, null), null);
+				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.OPTIONAL, null, false), null);
 		assertTrue("result", StringUtils.isBlank(result));
 		assertTrue("no errors", this.result.isValid());
 	}
@@ -88,7 +88,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZero() throws Exception {
 		String integerValue = "0";
-		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null), new Integer(integerValue), null);
+		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -99,7 +99,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerNegative() throws Exception {
 		String integerValue = "-1";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
 		Integer integer = new Integer(integerValue);
 		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
 		assertEquals("map size", 1, result.size());
@@ -119,7 +119,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZeroNoWarnings() throws Exception {
 		String integerValue = "0";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
 		String output = new IntR2PropertyFormatter().format(
 				context,
 				new INTImpl(new Integer(integerValue)));
@@ -130,7 +130,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testIntegerOperatorNotAllowed() throws Exception {
 		String integerValue = "123";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
 		
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setOperator(SetOperator.INCLUDE);
@@ -146,7 +146,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testIntegerWithRegionOfInterest() throws Exception {
 		String integerValue = "123";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
 		
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setUnsorted(true);
@@ -161,7 +161,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testSxcmOperatorAllowed() throws Exception {
 		String integerValue = "123";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null, false);
 		
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setOperator(SetOperator.INCLUDE);
@@ -176,7 +176,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testSxcmNoOperator() throws Exception {
 		String integerValue = "123";
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "SXCM<INT>", ConformanceLevel.REQUIRED, null, false);
 		
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		

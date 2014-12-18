@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.SYNTAX_ERROR;
+import static ca.infoway.messagebuilder.error.Hl7ErrorCode.SYNTAX_ERROR;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -39,8 +39,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
+
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -51,16 +53,18 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.r2.ParserR2Registry;
+import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
@@ -565,13 +569,14 @@ class Hl7SourceMapper {
 			);
 		}
 		
-		String type = determineType(nodes, relationship, source.isCda(), source.getResult());
+		String type = determineType(nodes, relationship, source, source.getResult());
 		
 		ElementParser parser = (source.isR2() ? ParserR2Registry.getInstance().get(type): ParserRegistry.getInstance().get(type));
 		if (parser != null) {
 			try {
 				ConstrainedDatatype constraints = source.getService().getConstraints(source.getVersion(), relationship.getConstrainedType());
-				BareANY object = parser.parse(ParseContextImpl.create(relationship, constraints, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone()), nodes, source.getResult());
+				ParseContextImpl context = new ParseContextImpl(relationship, constraints, source.getVersion(), source.getDateTimeZone(), source.getDateTimeTimeZone(), CodeTypeRegistry.getInstance(), source.isCda());
+				BareANY object = parser.parse(context, nodes, source.getResult());
 				
 				changeDatatypeIfNecessary(type, relationship, object);
 				
@@ -614,27 +619,21 @@ class Hl7SourceMapper {
 		}
 	}
 
-	private String determineType(List<Node> nodes, Relationship relationship, boolean cda, Hl7Errors errors) {
+	private String determineType(List<Node> nodes, Relationship relationship, Hl7Source source, final Hl7Errors errors) {
 		String type = relationship.getType();
-		if (cda && relationship.getCardinality().isSingle() && !relationship.isStructural() && nodes.size() == 1) {
-			if (!StandardDataType.ANY.getName().equals(type)) {
-				Element element = (Element) nodes.get(0);
-				String newType = element.getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
-				if (StringUtils.isNotBlank(newType)) {
-					StandardDataType newTypeEnum = StandardDataType.valueOf(StandardDataType.class, newType);
-					if (newTypeEnum != null) {
-						String newTypeString = newTypeEnum.getType();
-						if (this.polymorphismHandler.isValidTypeChange(type, newTypeString)) {
-							type = newTypeString;
-						} else {
-							String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", type, newTypeString);
-							errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, element));
-						}
-					}
-				}
-			}
+		if (nodes.size() >= 1) {
+			String newType = ((Element) nodes.get(0)).getAttributeNS(XmlSchemas.SCHEMA_INSTANCE, "type");
+			type = this.polymorphismHandler.determineActualDataTypeFromXsiType(type, newType, source.isCda(), !source.isR2(), createErrorLogger((Element) nodes.get(0), errors));
 		}
 		return type;
+	}
+
+	private ErrorLogger createErrorLogger(final Element element, final Hl7Errors errors) {
+		return new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, (Node) element));
+			}
+		};
 	}
 
 	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source, List<Node> nodes) {

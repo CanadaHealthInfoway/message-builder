@@ -40,13 +40,15 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class BagEnElementParserTest extends ParserTestCase {
 	
+	private ParserRegistry parserRegistry = ParserRegistry.getInstance();
+	
 	@SuppressWarnings("unchecked")
 	@Test
 	public void shouldParseSimpleBag() throws Exception {
 		Node node = createNode("<top><name><family>Flinstone</family><given>Fred</given></name>" + 
 				                    "<name><family>Flinstone</family><given>Wilma</given></name></top>");
-		BareANY result = new BagElementParser().parse(
-				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new BagElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
@@ -65,8 +67,8 @@ public class BagEnElementParserTest extends ParserTestCase {
 	@Test
 	public void shouldParseEmptyBag() throws Exception {
 		Node node = createNode("<top></top>");
-		BareANY result = new BagElementParser().parse(
-				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new BagElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		List<PersonName> list = ((LIST<PN,PersonName>) result).rawList();
@@ -79,8 +81,8 @@ public class BagEnElementParserTest extends ParserTestCase {
 	@Test
 	public void shouldParseNullFlavor() throws Exception {
 		Node node = createNode("<top><name nullFlavor=\"NI\"/></top>");
-		BareANY result = new BagElementParser().parse(
-				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new BagElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("BAG<PN>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		

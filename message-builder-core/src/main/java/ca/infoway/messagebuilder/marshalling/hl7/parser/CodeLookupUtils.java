@@ -19,7 +19,7 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
+import static ca.infoway.messagebuilder.error.Hl7ErrorCode.DATA_TYPE_ERROR;
 
 import java.lang.reflect.Type;
 
@@ -31,9 +31,9 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.Generics;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;

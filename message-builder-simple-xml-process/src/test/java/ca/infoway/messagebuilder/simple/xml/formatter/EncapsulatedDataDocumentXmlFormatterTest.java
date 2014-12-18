@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.simple.xml.FormatterContextImpl;
 import ca.infoway.messagebuilder.simple.xml.FormatterException;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
+@SuppressWarnings("deprecation")
 public class EncapsulatedDataDocumentXmlFormatterTest {
 
 	private String ns = " xmlns=\"" + AbstractSimpleXmlFormatter.NAMESPACE + "\" xmlns:xsi=\"" + XmlSchemas.SCHEMA_INSTANCE + "\"";

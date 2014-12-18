@@ -50,7 +50,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         iiHl7.setDataType(StandardDataType.II);
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 4, result.size());
@@ -69,7 +69,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.V01R04_3, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.V01R04_3, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());
@@ -87,7 +87,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
@@ -105,7 +105,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
@@ -123,7 +123,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
@@ -139,7 +139,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         II iiHl7 = new IIImpl();
         
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
-		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
 		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
@@ -152,7 +152,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("11.22.33.44", "extensionString");
-        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), ii, new IIImpl(ii));
+        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");
@@ -165,7 +165,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult xmlResult = new ModelToXmlResult();
 		IIImpl dataType = new IIImpl(ii);
 		dataType.setDataType(StandardDataType.II);
-		new IiR2PropertyFormatter().format(new FormatContextImpl(xmlResult, null, "name", "II", null, null), dataType);
+		new IiR2PropertyFormatter().format(new FormatContextImpl(xmlResult, null, "name", "II", null, null, false), dataType);
         assertFalse(xmlResult.isValid());
         assertEquals(1, xmlResult.getHl7Errors().size());
         assertEquals("Attribute \"root\" must be specified for II", xmlResult.getHl7Errors().get(0).getMessage());
@@ -174,7 +174,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsExtensionNotFilled() throws Exception {
         Identifier ii = new Identifier("11.22.33.44", null);
-        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), ii, new IIImpl(ii));
+        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
         assertEquals("map size", 1, result.size());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");

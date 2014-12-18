@@ -63,7 +63,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testUrg() throws Exception {
 		UncertainRange<PhysicalQuantity> urg = UncertainRangeFactory.createLowHigh(createQuantity("55", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER), createQuantity("60", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIMETER));
 		ANYImpl<Object> urgImpl = new ANYImpl<Object>(urg, null, StandardDataType.URG_PQ_BASIC);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null, false, SpecificationVersion.R02_04_02, null, null, null), urgImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), urgImpl, 0);
 		assertXml("result", "<name specializationType=\"URG_PQ.BASIC\" xsi:type=\"URG_PQ\"><low unit=\"mm\" value=\"55\"/><high unit=\"mm\" value=\"60\"/></name>", result);
 		
 	}
@@ -72,7 +72,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testPq() throws Exception {
 		Object quantity = createQuantity("12", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.GRAM);
 		ANYImpl<Object> pqImpl = new ANYImpl<Object>(quantity, null, StandardDataType.PQ_BASIC);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pqImpl, 0);
 		assertXml("result", "<name specializationType=\"PQ.BASIC\" unit=\"g\" value=\"12\" xsi:type=\"PQ\"/>", result);
 		
 	}
@@ -81,7 +81,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testTs() throws Exception {
 		Object time = DateUtil.getDate(2003, 2, 27); 
 		ANYImpl<Object> tsImpl = new ANYImpl<Object>(time, null, StandardDataType.TS_FULLDATE);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), tsImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), tsImpl, 0);
 		assertXml("result", "<name specializationType=\"TS.FULLDATE\" value=\"20030327\" xsi:type=\"TS\"/>", result);
 		
 	}
@@ -90,7 +90,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	public void testPn() throws Exception {
 		PersonName name = PersonName.createFirstNameLastName("John", "Smith");
 		ANYImpl<Object> pnImpl = new ANYImpl<Object>(name, null, StandardDataType.PN_BASIC);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pnImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pnImpl, 0);
 		assertXml("result", "<name specializationType=\"PN.BASIC\" use=\"L\" xsi:type=\"PN\"><given>John</given><family>Smith</family></name>", result);
 		
 	}
@@ -100,7 +100,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		String myString = "some value";
 		ANYImpl<Object> stImpl = new ANYImpl<Object>(myString, null, StandardDataType.ST_LANG);
 		stImpl.setLanguage("en-CA");
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), stImpl, 0);
 		assertXml("result", "<name language=\"en-CA\" specializationType=\"ST.LANG\" xsi:type=\"ST\">some value</name>", result);
 	}
 
@@ -112,7 +112,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		
 		ANYImpl<Object> rtoImpl = new ANYImpl<Object>(ratio, null, StandardDataType.RTO_PQ_DRUG_PQ_DRUG);
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), rtoImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), rtoImpl, 0);
 		// FIXME: TM (see RM18656) - this is not quite right - I believe the specializationType should be omitted (though should check if it is ok as is)
 		assertXml("result", "<name specializationType=\"RTO_PQ.DRUG_PQ.DRUG\" xsi:type=\"RTO_PQ_PQ\"><numerator specializationType=\"PQ.DRUG\" unit=\"cm\" value=\"1\" xsi:type=\"PQ\"/><denominator specializationType=\"PQ.DRUG\" unit=\"m\" value=\"2\" xsi:type=\"PQ\"/></name>", result);
 	}
@@ -125,7 +125,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), cdImpl, 0);
 		assertXml("result", "<name code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" displayName=\"disp name\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -137,7 +137,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BAM_BAM));
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), cdImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), cdImpl, 0);
 		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"CD.LAB\" xsi:type=\"CD\"><originalText>orig text</originalText><translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\"/><translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\"/></name>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -147,7 +147,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 		ANYImpl<Object> pqImpl = new ANYImpl<Object>(null, NullFlavor.UNKNOWN, StandardDataType.PQ_LAB);
 		pqImpl.setOriginalText("orig text");
 		
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pqImpl, 0);
 		assertXml("result", "<name nullFlavor=\"UNK\" specializationType=\"PQ.LAB\" xsi:type=\"PQ\"><originalText>orig text</originalText></name>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -185,7 +185,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullCase() throws Exception {
 		ANYImpl<Object> urgImpl = new ANYImpl<Object>(null, null, StandardDataType.URG_PQ_BASIC);
-		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null), 
+		String result = new AnyPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "name", "ANY.LAB", null, null, false), 
 				urgImpl, 0);
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}

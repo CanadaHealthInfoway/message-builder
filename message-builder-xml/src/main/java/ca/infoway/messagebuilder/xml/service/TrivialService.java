@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 
 /**
@@ -93,6 +94,10 @@ class TrivialService implements MessageDefinitionService {
 	}
 
 	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
+		return null;
+	}
+
+	public List<PackageLocation> getAllPackageLocations(VersionNumber version) {
 		return null;
 	}
 

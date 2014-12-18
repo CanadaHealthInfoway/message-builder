@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.CD_R2;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActClass;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
@@ -86,7 +86,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation1);	
 		codedType.getTranslation().add(translation2);
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 		
@@ -109,7 +109,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text allowed for CD");
 		codedType.setOriginalText(originalText);
 
@@ -158,7 +158,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(translation1);	
 		codedType.getTranslation().add(translation2);	
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("some original text");
 		codedType.setOriginalText(originalText);
 

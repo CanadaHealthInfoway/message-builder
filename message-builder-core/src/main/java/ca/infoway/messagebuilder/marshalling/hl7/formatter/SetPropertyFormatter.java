@@ -28,10 +28,14 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler({"SET"})
 public class SetPropertyFormatter extends BaseCollectionPropertyFormatter {
 
-    @Override
+    public SetPropertyFormatter(FormatterRegistry formatterRegistry) {
+		super(formatterRegistry, false);
+	}
+
+	@Override
 	protected
     String formatNonNullValue(FormatContext context, Collection<BareANY> set, int indentLevel) {
-    	return formatAllElements(createSubContext(context), set, indentLevel);
+    	return formatAllElements(context, createSubContext(context), set, indentLevel);
     }
 
 }

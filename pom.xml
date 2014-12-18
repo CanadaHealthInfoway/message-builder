@@ -49,6 +49,7 @@
 		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>
 		<module>message-builder-cda-release-ccda_r00_alpha</module>
+		<module>message-builder-cda-release-pcs_cda_r00_alpha</module>
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</module>
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_4</module>
 		<module>message-builder-hl7v3-release-pcs_mr2007_v02_r02</module>
@@ -447,6 +448,7 @@
 			            <exclude>**/html/js/themes/default/style.css</exclude>
 			            <exclude>**/html/css/jquery-ui-1.8.21.custom.css</exclude>
 						<exclude>**/*.xsd</exclude>
+						<exclude>message-builder-cda-*_src/etc/**</exclude>
 			        </excludes>
 				<skipExistingHeaders>true</skipExistingHeaders>
 			    </configuration>

@@ -37,16 +37,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.comparator.BeanAnalysisError.ErrorType;
+
 public class BeanAnalyzer {
-	
-	// if adding interfaces or behaviour to this enum, please consider using enum pattern for translation purposes
-	public enum ErrorType {
-		EXTENDS, 
-		IMPLEMENTS, 
-		NO_CORRESPONDING_CLASS, 
-		METHOD_NOT_FOUND, 
-		DIFFERENT_RETURN_TYPE, CLASS_NOT_PUBLIC;
-	}
 	
 	private final Log log = LogFactory.getLog(BeanAnalyzer.class);
 	

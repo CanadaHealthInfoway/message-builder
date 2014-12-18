@@ -48,8 +48,8 @@ public class SetTsElementParserTest extends ParserTestCase {
 				"<something value=\"20020628010101\" />" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(ParserRegistry.getInstance()).parse(
+				ParseContextImpl.create("SET<TS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				new XmlToModelResult());
 		Set<Date> set = ((SET<TS,Date>) result).rawSet();

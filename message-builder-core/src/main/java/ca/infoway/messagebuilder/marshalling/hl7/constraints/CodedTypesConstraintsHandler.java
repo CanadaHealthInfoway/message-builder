@@ -27,9 +27,9 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -60,18 +60,18 @@ public class CodedTypesConstraintsHandler {
 		int numberOfQualifiers = qualifiers.size();
 		
 		// check if qualifier fits into constrained number of items (1, 0-1)
-		this.constraintsHandler.validateConstraint("qualifier", qualifiers.isEmpty() ? null : "qualifiers", true, constraints, logger);  // just checks if any qualifiers provided
+		this.constraintsHandler.validateConstraint("qualifier", qualifiers.isEmpty() ? null : "qualifiers", constraints, logger);  // just checks if any qualifiers provided
 		if (numberOfQualifiers == 1) {
 			// if only one qualifier present, check other qualifier constraints
 			CodeRole qualifier = qualifiers.get(0);
 			
 			CodedTypeR2<Code> qualifierName = qualifier.getName();
-			this.constraintsHandler.validateConstraint("qualifier.name", qualifierName == null ? null : "qualifierName", true, constraints, logger);  // just checks if name provided
+			this.constraintsHandler.validateConstraint("qualifier.name", qualifierName == null ? null : "qualifierName", constraints, logger);  // just checks if name provided
 			if (qualifierName != null) {
 				String nameCode = qualifierName.getCodeValue();
-				String newNameCode = this.constraintsHandler.validateConstraint("qualifier.name.code", nameCode, true, constraints, logger);
+				String newNameCode = this.constraintsHandler.validateConstraint("qualifier.name.code", nameCode, constraints, logger);
 				String nameCodeSystem = qualifierName.getCodeSystem();
-				String newNameCodeSystem = this.constraintsHandler.validateConstraint("qualifier.name.codeSystem", nameCodeSystem, true, constraints, logger);
+				String newNameCodeSystem = this.constraintsHandler.validateConstraint("qualifier.name.codeSystem", nameCodeSystem, constraints, logger);
 				if (!StringUtils.equals(nameCode, newNameCode) || !StringUtils.equals(nameCodeSystem, newNameCodeSystem)) {
 					Code newName = this.trivialCodeResolver.lookup(Code.class, newNameCode, newNameCodeSystem);
 					qualifierName.setCode(newName);
@@ -79,7 +79,7 @@ public class CodedTypesConstraintsHandler {
 			}
 			
 			CodedTypeR2<Code> qualifierValue = qualifier.getValue();
-			this.constraintsHandler.validateConstraint("qualifier.value", qualifierValue == null ? null : "qualifierValue", true, constraints, logger);  // just checks if value provided
+			this.constraintsHandler.validateConstraint("qualifier.value", qualifierValue == null ? null : "qualifierValue", constraints, logger);  // just checks if value provided
 		} else if (numberOfQualifiers > 1) {
 			 // (qualifier can be constrained to at most 1 and to exactly 1)
 			Relationship qualifierConstraint = constraints.getRelationship("qualifier");
@@ -95,7 +95,7 @@ public class CodedTypesConstraintsHandler {
 		
 		String codeSystem = codedType.getCodeSystem();
 		codeSystem = StringUtils.isBlank(codeSystem) ? "not provided" : codeSystem;
-		String newCodedSystem = this.constraintsHandler.validateConstraint("codeSystem", codeSystem, true, constraints, logger);
+		String newCodedSystem = this.constraintsHandler.validateConstraint("codeSystem", codeSystem, constraints, logger);
 		if (!StringUtils.equals(codeSystem, newCodedSystem)) {
 			// String codeValue = codedType.getCodeValue();
 			// we have the current code value and new codeSystem, but to create a new value we need the actual code class for the codedType

@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.SC_R2;
 import ca.infoway.messagebuilder.datatype.impl.SC_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -70,7 +70,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 		
@@ -98,7 +98,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getTranslation().add(new CodedTypeR2<Code>());
 		codedType.getQualifier().add(new CodeRole());
 		
-		EncapsulatedDataR2 originalText = new EncapsulatedDataR2();
+		EncapsulatedData originalText = new EncapsulatedData();
 		originalText.setTextContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 

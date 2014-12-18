@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -78,13 +78,13 @@ public class ObservationBean extends MessagePartBean {
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
     private ST derivationExpr = new STImpl();
-    private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private CS_R2 statusCode = new CS_R2Impl();
     private IVL_TS effectiveTime = new IVL_TSImpl();
     private CE_R2 priorityCode = new CE_R2Impl();
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
     private CS_R2 languageCode = new CS_R2Impl();
-    private ED<EncapsulatedDataR2> value = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
     private LIST<CE_R2, CodedTypeR2<? extends Code>> interpretationCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
     private LIST<CE_R2, CodedTypeR2<? extends Code>> methodCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
     private LIST<CD_R2, CodedTypeR2<? extends Code>> targetSiteCode = new LISTImpl<CD_R2, CodedTypeR2<? extends Code>>(CD_R2Impl.class);
@@ -219,7 +219,7 @@ public class ObservationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedDataR2 getText() {
+    public EncapsulatedData getText() {
         return this.text.getValue();
     }
 
@@ -228,7 +228,7 @@ public class ObservationBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setText(EncapsulatedDataR2 text) {
+    public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 
@@ -339,7 +339,7 @@ public class ObservationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"value"})
-    public EncapsulatedDataR2 getValue() {
+    public EncapsulatedData getValue() {
         return this.value.getValue();
     }
 
@@ -348,7 +348,7 @@ public class ObservationBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setValue(EncapsulatedDataR2 value) {
+    public void setValue(EncapsulatedData value) {
         this.value.setValue(value);
     }
 

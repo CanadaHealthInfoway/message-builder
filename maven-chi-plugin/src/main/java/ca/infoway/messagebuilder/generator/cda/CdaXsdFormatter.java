@@ -22,20 +22,83 @@ package ca.infoway.messagebuilder.generator.cda;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.generator.OutputUI;
+import ca.infoway.messagebuilder.generator.template.ValueSetDefinition;
+import ca.infoway.messagebuilder.generator.template.ValueSetDefinitionSystem;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
+import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public class CdaXsdFormatter {
+	
+	private static class InferredComplexContent {
+		
+		private String name;
+		private String baseType;
+		private List<InferredAttribute> attributes = new ArrayList<InferredAttribute>();
+
+		public String getName() {
+			return name;
+		}
+
+		public String getBaseType() {
+			return baseType;
+		}
+
+		public List<InferredAttribute> getAttributes() {
+			return attributes;
+		}
+		
+	}
+	
+	private static class InferredAttribute {
+		private String name;
+		private String type;
+		private String use;
+		private String fixed;
+		public InferredAttribute(String name, String type, String use,
+				String fixed) {
+			super();
+			this.name = name;
+			this.type = type;
+			this.use = use;
+			this.fixed = fixed;
+		}
+		public String getName() {
+			return name;
+		}
+		public String getType() {
+			return type;
+		}
+		public String getUse() {
+			return use;
+		}
+		public String getFixed() {
+			return fixed;
+		}
+		
+	}
+
+	private OutputUI outputUI;
+	
+	private Map<String, String> codeSystemMap = new HashMap<String, String>();
+	private Map<String, Object> complexTypes;
 	
 	/*
 	 * We need to override standard alphabetical order in order to force the constrained datatypes to appear in the
@@ -78,48 +141,101 @@ public class CdaXsdFormatter {
 		
 	}
 
-	public void formatSchema(Schema schema, MessageSet messageSet) {
-		Map<String, Object> complexTypes = new TreeMap<String, Object>(new ComplexTypeNameComparitor());
+	public CdaXsdFormatter(OutputUI outputUI, ValueSetDefinition valueSetDefinition) {
+		this.outputUI = outputUI;
 		
+		for (ValueSetDefinitionSystem system : valueSetDefinition.getSystems()) {
+			if (StringUtils.isNotBlank(system.getCodeSystemName())) {
+				this.codeSystemMap.put(system.getCodeSystemName(), system.getCodeSystemOid());
+			}
+		}
+	}
+
+	public void formatSchema(Schema schema, MessageSet messageSet, String packageName) {
+		complexTypes = new TreeMap<String, Object>(new ComplexTypeNameComparitor());
+		
+		PackageLocation packageLocation = messageSet.getPackageLocation(packageName);
+
 		if (messageSet.getSchemaMetadata() != null) {
 			schema.setTargetNamespace(messageSet.getSchemaMetadata().getTargetNamespace());
 			schema.setElementFormDefault(messageSet.getSchemaMetadata().getElementFormDefault());
-			List<String> documentationList = messageSet.getSchemaMetadata().getDocumentation();
-			if (documentationList != null) {
-				schema.setAnnotation(new Annotation());
-				for (String documentationEntry : documentationList) {
-					Documentation documentation = new Documentation();
-					documentation.setText(documentationEntry);
-					schema.getAnnotation().getDocumentation().add(documentation);
-				}
-			}
-			for (String schemaLocation : messageSet.getSchemaMetadata().getSchemaLocations()) {
-				schema.getIncludes().add(new Include(schemaLocation));
+			
+			schema.setAnnotation(new Annotation());
+			Documentation documentation = new Documentation();
+			documentation.setText("Generated using message builder version 2.0.");
+			schema.getAnnotation().getDocumentation().add(documentation);
+
+			for (String schemaLocation : gatherSchemaDependencies(packageLocation, packageName)) {
+				schema.getIncludes().add(new Include(schemaLocation + ".xsd"));
 			}
 		}
 		
-		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
-			if (messagePart.getSpecializationChilds().size() == 0) {
-				// the parts representing choice blocks do not appear as types in the output
-				complexTypes.put(messagePart.getName(), messagePart);
+		Interaction interaction = messageSet.getInteractions().get(packageName);
+		if (interaction != null) {
+			XsElement rootElement = new XsElement();
+			rootElement.setName(StringUtils.substringAfterLast(interaction.getSuperTypeName(), "."));
+			rootElement.setType(interaction.getSuperTypeName());
+			schema.addElement(rootElement);
+		}
+		
+		if (packageLocation != null) {
+			for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
+				if (messagePart.getSpecializationChilds().size() == 0) {
+					// the parts representing choice blocks do not appear as types in the output
+					complexTypes.put(messagePart.getName(), messagePart);
+					for (Relationship relationship : messagePart.getRelationships()) {
+						if (isCandidate(relationship)) {
+							InferredComplexContent content = create(relationship, messagePart);
+							complexTypes.put(content.getName(), content);
+						}
+					}
+				}
 			}
 		}
 		
 		for (ConstrainedDatatype datatype : messageSet.getAllConstrainedDatatypes()) {
-			complexTypes.put(datatype.getName(), datatype);
+			if (StringUtils.startsWith(datatype.getName(), packageName) && isValidComplexConstraint(datatype)) {
+				complexTypes.put(datatype.getName(), datatype);
+			}
 		}
 		
-		for (String typeName : complexTypes.keySet()) {
+		for (Entry<String,Object> entry : complexTypes.entrySet()) {
 			ComplexType complexType = new ComplexType();
-			complexType.setName(typeName);
-			Object part = complexTypes.get(typeName);
+			complexType.setName(entry.getKey());
+			Object part = entry.getValue();
 			if (part instanceof MessagePart) {
 				populateComplexType(complexType, (MessagePart) part);
 			} else if (part instanceof ConstrainedDatatype) {
 				populateComplexType(complexType, (ConstrainedDatatype) part);
+			} else if (part instanceof InferredComplexContent) {
+				populateComplexType(complexType, (InferredComplexContent) part);
 			}
 			schema.getComplexTypes().add(complexType);
 		}
+	}
+
+	private boolean isValidComplexConstraint(ConstrainedDatatype datatype) {
+		boolean valid = false;
+		
+		for (Relationship relationship : datatype.getRelationships()) {
+			valid |= relationship.hasFixedValue();
+		}
+		
+		return valid;
+	}
+
+	private Set<String> gatherSchemaDependencies(PackageLocation packageLocation, String packageName) {
+		TreeSet<String> result = new TreeSet<String>();
+		
+		for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
+			for (Relationship relationship : messagePart.getRelationships()) {
+				if (relationship.isAssociation() && !StringUtils.startsWith(relationship.getType(), packageName)) {
+					result.add(StringUtils.substringBefore(relationship.getType(), "."));
+				}
+			}
+		}
+		
+		return result;
 	}
 
 	private void populateComplexType(ComplexType complexType, MessagePart part) {
@@ -129,18 +245,27 @@ public class CdaXsdFormatter {
 					XsAttribute attribute = formatAttribute(relationship);
 					complexType.getAttributes().add(attribute);
 				} else {
-					XsElement element = formatElement(relationship);
+					XsElement element = formatElement(relationship, part);
 					addElement(element, complexType);
 				}
 			} else {
 				if (relationship.isChoice()) {
 					Choice choice = new Choice();
+					if (relationship.getCardinality().isMultiple()) {
+						if (relationship.getCardinality().getMin() != 1) {
+							choice.setMinOccurs(String.valueOf(relationship.getCardinality().getMin()));
+						}
+						
+						if (relationship.getCardinality().getMax().equals(Integer.MAX_VALUE)) {
+							choice.setMaxOccurs("unbounded");
+						}
+					}
 					for (Relationship choiceElement : relationship.getChoices()) {
-						choice.getElements().add(formatElement(choiceElement));
+						choice.getElements().add(formatElementAsChoiceOption(choiceElement, relationship));
 					}
 					addElement(choice, complexType);
 				} else {
-					XsElement element = formatElement(relationship);
+					XsElement element = formatElement(relationship, part);
 					addElement(element, complexType);
 				}
 			}
@@ -164,12 +289,15 @@ public class CdaXsdFormatter {
 		return result;
 	}
 
-	private XsElement formatElement(Relationship relationship) {
+	private XsElement formatElement(Relationship relationship, MessagePart part) {
 		XsElement element = new XsElement();
 		element.setName(relationship.getName());
 		
-		if (relationship.getConstrainedType() != null) {
-			element.setType(relationship.getConstrainedType());
+		String constrainedTypeName = relationship.getConstrainedType();
+		if (isRenderableConstrainedType(constrainedTypeName) && relationship.getCardinality().isSingle()) {
+			element.setType(constrainedTypeName);
+		} else if (isCandidate(relationship)) {
+			element.setType(formatName(relationship, part));
 		} else {
 			if (relationship.getCardinality().isMultiple() && StandardDataType.isSetOrList(relationship.getType())) {
 				element.setType(StandardDataType.getTemplateArgument(relationship.getType()).getName());
@@ -194,6 +322,31 @@ public class CdaXsdFormatter {
 		return element;
 	}
 
+	private boolean isRenderableConstrainedType(String constrainedTypeName) {
+		return constrainedTypeName != null && 
+				(complexTypes.containsKey(constrainedTypeName) || 
+						StringUtils.equals(constrainedTypeName, "StrucDoc.Text") ||	// special case, defined elsewhere
+						StringUtils.startsWith(constrainedTypeName, "POCD_MT000040."));	// inherited from base model
+	}
+
+	private XsElement formatElementAsChoiceOption(Relationship relationship, Relationship parent) {
+		Cardinality choiceBlockCardinality = parent.getCardinality();
+		XsElement element = new XsElement();
+		if (choiceBlockCardinality.isMultiple()) {
+			element.setName(parent.getName());
+		} else {
+			element.setName(relationship.getName());
+
+			if (choiceBlockCardinality.getMin() != 1) {
+				element.setMinOccurs(String.valueOf(choiceBlockCardinality.getMin()));
+			}
+		}
+		
+		element.setType(relationship.getType());
+		
+		return element;
+	}
+	
 	private void addElement(SequenceChild element, ComplexType complexType) {
 		if (complexType.getSequence() == null) {
 			complexType.setSequence(new Sequence());
@@ -209,13 +362,33 @@ public class CdaXsdFormatter {
 			attribute.setType(relationship.getDomainType());
 		} else if ("NullFlavor".equals(relationship.getType())) {
 			attribute.setType(relationship.getType());
-		} else if (StringUtils.isNotBlank(relationship.getConstrainedType())) {
+		} else if (StringUtils.isNotBlank(relationship.getConstrainedType()) && relationship.getCardinality().isSingle()) {
 			attribute.setType(relationship.getConstrainedType());
+		} else if (StringUtils.isBlank(relationship.getType())) {
+			if (StringUtils.equals(relationship.getName(), "root")) {
+				attribute.setType("uid");
+			} else if (StringUtils.equals(relationship.getName(), "extension")) {
+				attribute.setType("st");
+			} else if (StringUtils.equals(relationship.getName(), "code")) {
+				attribute.setType("cs");
+			} else if (StringUtils.equals(relationship.getName(), "codeSystem")) {
+				attribute.setType("uid");
+			} else if (StringUtils.equals(relationship.getName(), "low")) {
+				attribute.setType("ts");
+			} else if (StringUtils.equals(relationship.getName(), "high")) {
+				attribute.setType("ts");
+			} else if (StringUtils.equals(relationship.getName(), "operator")) {
+				attribute.setType("SetOperator");
+			} else if (StringUtils.equals(relationship.getName(), "mediaType")) {
+				attribute.setType("cs");
+			} else {
+				attribute.setType("nil");
+			}
 		} else {
 			attribute.setType(relationship.getType().toLowerCase());
 		}
 		
-		if (relationship.getCardinality().isMandatory()) {
+		if (relationship.getCardinality().isMandatory() && relationship.getDefaultValue() == null) {
 			attribute.setUse("required");
 		} else {
 			attribute.setUse("optional");
@@ -239,12 +412,67 @@ public class CdaXsdFormatter {
 			throw new IllegalArgumentException("Constrained datatype " + part.getName() + " is not valid.");
 		}
 		
-		child.setBase(part.getBaseType());
+		StandardDataType standardType = StandardDataType.getByTypeName(part.getBaseType());
+		if (standardType != null) {
+			child.setBase(standardType.getName());
+		} else {
+			child.setBase(part.getBaseType());
+		}
 		
 		for (Relationship attribute : part.getRelationships()) {
+			if (attribute.hasFixedValue()) {
+				child.getAttributes().add(formatAttribute(attribute));
+			}
+		}
+		
+		complexType.getComplexContent().setChild(child);
+	}
+
+	private void populateComplexType(ComplexType complexType, InferredComplexContent part) {
+		complexType.setComplexContent(new ComplexContent());
+		ComplexContentChild child = new Restriction();
+		
+		child.setBase(part.getBaseType());
+		
+		for (InferredAttribute attribute : part.getAttributes()) {
 			child.getAttributes().add(formatAttribute(attribute));
 		}
 		
 		complexType.getComplexContent().setChild(child);
 	}
+
+	private XsAttribute formatAttribute(InferredAttribute attribute) {
+		XsAttribute result = new XsAttribute();
+		result.setName(attribute.getName());
+		result.setType(attribute.getType());
+		result.setUse(attribute.getUse());
+		result.setFixed(attribute.getFixed());
+		
+		return result;
+	}
+	
+	public boolean isCandidate(Relationship relationship) {
+		return !relationship.isStructural() && relationship.isCodedType() && relationship.hasFixedValue();
+	}
+
+	public InferredComplexContent create(Relationship relationship, MessagePart messagePart) {
+		InferredComplexContent content = new InferredComplexContent();
+		content.name = formatName(relationship, messagePart);
+		content.baseType = relationship.getType();
+		if (relationship.isCodedType()) {
+			content.attributes.add(new InferredAttribute("code", "cs", "required", relationship.getFixedValue()));
+			if (!StringUtils.equals(relationship.getType(), "CS") && 
+					DomainSource.CODE_SYSTEM.equals(relationship.getDomainSource()) && 
+					StringUtils.isNotBlank(relationship.getDomainType())) {
+				content.attributes.add(new InferredAttribute("codeSystem", "uid", "required", this.codeSystemMap.get(relationship.getDomainType())));
+			}
+		}
+		return content;
+	}
+
+	private String formatName(Relationship relationship,	MessagePart messagePart) {
+		return messagePart.getName() + "." + relationship.getName();
+	}
+	
+
 }

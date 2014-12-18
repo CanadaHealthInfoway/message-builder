@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.datatype.impl.SXCM_R2Impl;
 import ca.infoway.messagebuilder.datatype.impl.TS_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
@@ -76,7 +76,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, EntryRel
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
-    private ED<EncapsulatedDataR2> text = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private CS_R2 statusCode = new CS_R2Impl();
     private LIST<SXCM_R2<MbDate>, MbDate> effectiveTime = new LISTImpl<SXCM_R2<MbDate>, MbDate>(SXCM_R2Impl.class);
     private LIST<CE_R2, CodedTypeR2<? extends Code>> priorityCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
@@ -195,7 +195,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, EntryRel
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"text"})
-    public EncapsulatedDataR2 getText() {
+    public EncapsulatedData getText() {
         return this.text.getValue();
     }
 
@@ -204,7 +204,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, EntryRel
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setText(EncapsulatedDataR2 text) {
+    public void setText(EncapsulatedData text) {
         this.text.setValue(text);
     }
 

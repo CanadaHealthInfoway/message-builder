@@ -26,7 +26,7 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 
@@ -37,8 +37,8 @@ public class ListErrorElementParserTest extends ParserTestCase {
 		XmlToModelResult result = new XmlToModelResult();
 		Node node = createNode("<top><name>Fred</name>" + 
 				                    "<name>Flinstone</name></top>");
-		new ListElementParser().parse(
-				ParseContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5"), null), 
+		new ListElementParser(ParserRegistry.getInstance()).parse(
+				ParseContextImpl.create("LIST<ABCDEFGHIJKLMNOPQRSTUVWXYZ>", null, SpecificationVersion.V02R02, null, null, null, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), result);
 		
 		assertFalse("valid", result.isValid());

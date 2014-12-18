@@ -67,11 +67,11 @@ public class MoR2ElementParserTest extends MarshallingTestCase {
 	}
 
 	private ParseContext createContext() {
-		return ParseContextImpl.create("MO", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("MO", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 	
 	private ParseContext createContextSxcm() {
-		return ParseContextImpl.create("SXCM<MO>", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("SXCM<MO>", Money.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 	
 	@Test

@@ -110,6 +110,12 @@ public class XsdTypeConverter {
         map.put("URG<TS>", new XsdDataType("DateUncertainRange", Namespaces.CHI_NAMESPACE));
         map.put("URG<PQ>", new XsdDataType("PhysicalQuantityUncertainRange", Namespaces.CHI_NAMESPACE));
         
+        // special types for CDA/R1:
+        map.put("TSCDAR1", new XsdDataType("FullDateWithTime", Namespaces.CHI_NAMESPACE));
+        map.put("SXCMTSCDAR1", new XsdDataType("FullDateWithTime", Namespaces.CHI_NAMESPACE));
+        map.put("PIVLTSCDAR1", new XsdDataType("PeriodicIntervalOfTime", Namespaces.CHI_NAMESPACE));
+        map.put("IVLTSCDAR1", new XsdDataType("DateInterval", Namespaces.CHI_NAMESPACE));
+        
     }
     
 	public XsdDataType convertToType(Relationship relationship, boolean isIndicator) throws GeneratorException {

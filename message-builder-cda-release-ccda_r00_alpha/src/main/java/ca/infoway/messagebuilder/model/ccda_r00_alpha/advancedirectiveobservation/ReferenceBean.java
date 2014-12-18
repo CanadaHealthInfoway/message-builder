@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ActClassDocument;
@@ -60,7 +60,7 @@ public class ReferenceBean extends MessagePartBean implements ReferenceChoice {
     private LIST<II, Identifier> externalDocumentTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> externalDocumentId = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 externalDocumentCode = new CD_R2Impl();
-    private ED<EncapsulatedDataR2> externalDocumentText = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> externalDocumentText = new EDImpl<EncapsulatedData>();
     private II externalDocumentSetId = new IIImpl();
     private INT externalDocumentVersionNumber = new INTImpl();
 
@@ -242,7 +242,7 @@ public class ReferenceBean extends MessagePartBean implements ReferenceChoice {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"externalDocument/text"})
-    public EncapsulatedDataR2 getExternalDocumentText() {
+    public EncapsulatedData getExternalDocumentText() {
         return this.externalDocumentText.getValue();
     }
 
@@ -252,7 +252,7 @@ public class ReferenceBean extends MessagePartBean implements ReferenceChoice {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setExternalDocumentText(EncapsulatedDataR2 externalDocumentText) {
+    public void setExternalDocumentText(EncapsulatedData externalDocumentText) {
         this.externalDocumentText.setValue(externalDocumentText);
     }
 

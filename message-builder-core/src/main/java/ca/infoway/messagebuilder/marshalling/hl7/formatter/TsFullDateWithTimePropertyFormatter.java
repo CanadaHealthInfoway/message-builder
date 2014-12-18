@@ -26,9 +26,9 @@ import java.text.MessageFormat;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 
 /**
  * TS.FULLDATEWITHTIME - Abstract TS - must be one of TS.FULLDATE or TS.FULLDATETIME
@@ -63,20 +63,7 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 			formatterSpecializationType = StandardDataType.TS_FULLDATE.getType();
 		}
 		
-		return formatter.format(
-				new FormatContextImpl(
-						context.getModelToXmlResult(), 
-						context.getPropertyPath(), 
-						context.getElementName(), 
-						formatterSpecializationType, 
-						context.getConformanceLevel(), 
-						context.getCardinality(), 
-						true, 
-						context.getVersion(), 
-						context.getDateTimeZone(), 
-						context.getDateTimeTimeZone(), null), 
-				hl7Value, 
-				indentLevel);
+		return formatter.format(new FormatContextImpl(formatterSpecializationType, true, context), hl7Value, indentLevel);
 	}
 
 	private void validateSpecializationType(StandardDataType specializationType, boolean valueOmitted, FormatContext context) {

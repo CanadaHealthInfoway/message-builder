@@ -37,10 +37,12 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, null, false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new ListPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, null, false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
@@ -48,8 +50,8 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testFormatValueNonNull() throws Exception {
 		ModelToXmlResult results = new ModelToXmlResult();
-		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(results, null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new ListPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(results, null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressList("Fred"))));
@@ -58,8 +60,8 @@ public class ListTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueNonNullMultiple() throws Exception {
-		String result = new ListPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new ListPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "LIST<TEL.PHONEMAIL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						new ArrayList<TelecommunicationAddress>(makeTelecommunicationAddressList("Fred", "Jack"))));

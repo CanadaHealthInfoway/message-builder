@@ -38,7 +38,7 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new AdBasicPropertyFormatter());
         register(new AdPropertyFormatter());
         register(new AnyPropertyFormatter());
-        register(new BagPropertyFormatter());
+        register(new BagPropertyFormatter(this));
         register(new BlPropertyFormatter());
         register(new GtsBoundedPivlFormatter());
         register(new CdPropertyFormatter());
@@ -59,13 +59,14 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new OnPropertyFormatter());
         register(new PnPropertyFormatter());
         register(new PqPropertyFormatter());
+        register(new RealPropertyFormatter());
         register(new RealConfPropertyFormatter());
         register(new RealCoordPropertyFormatter());
         register(new RtoMoPqPropertyFormatter());
         register(new RtoPqPqPropertyFormatter());
         register(new ScPropertyFormatter());
-        register(new SetPropertyFormatter());
-        register(new ListPropertyFormatter());
+        register(new SetPropertyFormatter(this));
+        register(new ListPropertyFormatter(this));
         register(new StPropertyFormatter());
         register(new TelPhonemailPropertyFormatter());
         register(new TelUriPropertyFormatter());
@@ -75,6 +76,10 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new TsFullDateTimePropertyFormatter());
         register(new UrgPqPropertyFormatter());
         register(new UrgTsPropertyFormatter());
+        
+        register(new TsCdaPropertyFormatter());
+        register(new PivlTsCdaPropertyFormatter());
+        register(new IvlTsCdaPropertyFormatter());
     }
 
 }

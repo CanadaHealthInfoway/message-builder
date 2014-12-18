@@ -27,6 +27,8 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
+import ca.infoway.messagebuilder.generator.cda.R1DatatypeHelper;
+import ca.infoway.messagebuilder.generator.cda.XmlToXsdGenerator;
 import ca.infoway.messagebuilder.generator.lang.IntermediateToXsdGenerator;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -72,6 +74,13 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
    //private File xsdSimpleDataTypeLocation;
     
     /**
+     * The location of the CDA datatype mapping file
+     * 
+     * @parameter
+     */
+    private File vocabulary;
+    
+    /**
      * <p>Perform the generation.  Read in the message set, and create
      * the corresponding Java classes.
      * 
@@ -95,10 +104,24 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
 	private void generate() throws MojoExecutionException {
 		try {
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
-			IntermediateToXsdGenerator generator = new IntermediateToXsdGenerator(new OutputUIImpl(this), 
-					this.xsdSourceFolder, this.basePackageName, messages.isGeneratedAsR2());
-			//XsdMessageWriterUtil.setXsdSDFolder(this.xsdSimpleDataTypeLocation);
-			generator.generate(messages);
+			if (messages.isCda()) {
+				if (this.vocabulary == null || !this.vocabulary.exists()) {
+					throw new MojoFailureException("Please specify a valid vocabulary definition file.");
+				}
+				
+				if (!messages.isGeneratedAsR2()) {
+					R1DatatypeHelper.convertPolymorphicDatatypesToBaseTypes(messages);
+					R1DatatypeHelper.convertSpecializedDatatypesToBaseTypes(messages);
+				}
+				
+				XmlToXsdGenerator generator = new XmlToXsdGenerator(new OutputUIImpl(this), this.xsdSourceFolder);
+				generator.generateAllSchemaFiles(messages, this.vocabulary);
+			} else {
+				IntermediateToXsdGenerator generator = new IntermediateToXsdGenerator(new OutputUIImpl(this), 
+						this.xsdSourceFolder, this.basePackageName, messages.isGeneratedAsR2());
+				//XsdMessageWriterUtil.setXsdSDFolder(this.xsdSimpleDataTypeLocation);
+				generator.generate(messages);
+			}
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);
 		} catch (Exception e) {

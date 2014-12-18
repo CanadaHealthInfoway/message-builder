@@ -44,6 +44,7 @@ public class FormatContextImpl implements FormatContext {
 	private final Cardinality cardinality; 
 	private final String domainType;
 	private final ConstrainedDatatype constraints;
+	private final boolean isCda;
 
 	// TM - CDA - modified this case to set isSpecializationType to false (must specifically specify this value if it is required)
 	public FormatContextImpl(String newType, FormatContext context) {
@@ -77,18 +78,21 @@ public class FormatContextImpl implements FormatContext {
 			 context.getDateTimeZone(), 
 			 context.getDateTimeTimeZone(),
 			 context.getCodingStrength(),
-			 null); // constraints not automatically passed on
+			 null, // constraints not automatically passed on
+			 context.isCda());
 	}
 
-	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, false, null, null, null, null, null);
+	// tests only
+	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isCda) {
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, false, null, null, null, null, null, isCda);
 	}
 	
-	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength) {
-		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, codingStrength, null);
+	// tests only
+	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength, boolean isCda) {
+		this(result, propertyPath, elementName, type, null, conformanceLevel, cardinality, isSpecializationType, version, dateTimeZone, dateTimeTimeZone, codingStrength, null, isCda);
 	}
 	
-	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength, ConstrainedDatatype constraints) {
+	public FormatContextImpl(ModelToXmlResult result, String propertyPath, String elementName, String type, String domainType, ConformanceLevel conformanceLevel, Cardinality cardinality, boolean isSpecializationType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodingStrength codingStrength, ConstrainedDatatype constraints, boolean isCda) {
 		this.result = result;
 		this.propertyPath = propertyPath;
 		this.elementName = elementName;
@@ -102,6 +106,7 @@ public class FormatContextImpl implements FormatContext {
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.codingStrength = codingStrength;
 		this.constraints = constraints;
+		this.isCda = isCda;
 	}
 	
 	public ModelToXmlResult getModelToXmlResult() {
@@ -159,6 +164,10 @@ public class FormatContextImpl implements FormatContext {
 
 	public ConstrainedDatatype getConstraints() {
 		return this.constraints;
+	}
+
+	public boolean isCda() {
+		return this.isCda;
 	}
 
 }

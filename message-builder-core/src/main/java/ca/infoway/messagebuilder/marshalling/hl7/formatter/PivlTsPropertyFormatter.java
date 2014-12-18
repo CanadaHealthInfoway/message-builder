@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
@@ -35,10 +34,9 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -71,7 +69,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 	
 	private void appendIntervalBounds(PeriodicIntervalTime value, StringBuffer buffer, int indentLevel, FormatContext context) {
 		String period = createPeriodElement(value.getPeriod(), indentLevel, context);
-		String phase = createPhaseElement(value.getPhase(), context.getVersion(), context.getPropertyPath(), indentLevel, context.getModelToXmlResult());
+		String phase = createPhaseElement(value.getPhase(), indentLevel, context);
 
 		switch (value.getRepresentation()) {
 		case PERIOD:
@@ -115,13 +113,13 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 
 	private void appendSk(StringBuffer buffer, Integer repetitions, Interval<PhysicalQuantity> quantity, int indentLevel, FormatContext context) {
 		INTImpl intImpl = new INTImpl(repetitions);
-		FormatContextImpl formatContext = new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", "INT.NONNEG", ConformanceLevel.MANDATORY, Cardinality.create("1"), context.isSpecializationType(), context.getVersion(), null, null, null);
+		FormatContext formatContext = new FormatContextImpl("INT.NONNEG", context.isSpecializationType(), ConformanceLevel.MANDATORY, Cardinality.create("1"), "numerator", context);
 		buffer.append(
 				this.intNonNegPropertyFormatter.format(formatContext, intImpl, indentLevel)
 			);
 		
 		IVLImpl<PQ, Interval<PhysicalQuantity>> ivlImpl = new IVLImpl<PQ, Interval<PhysicalQuantity>>(quantity);
-		formatContext = new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", "IVL<PQ.BASIC>", ConformanceLevel.MANDATORY, Cardinality.create("1"), context.isSpecializationType(), context.getVersion(), null, null, null);
+		formatContext = new FormatContextImpl("IVL<PQ.BASIC>", context.isSpecializationType(), ConformanceLevel.MANDATORY, Cardinality.create("1"), "denominator", context);
 		buffer.append(
 				this.ivlPqPropertyFormatter.format(formatContext, ivlImpl, indentLevel)
 			);
@@ -160,7 +158,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 	}
 
 	private void formatFrequency(StringBuffer buffer, Integer repetitions, PhysicalQuantity quantity, int indentLevel, FormatContext context) {
-		FormatContext formatContext = new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "numerator", "INT.NONNEG", ConformanceLevel.MANDATORY, Cardinality.create("1"), context.isSpecializationType(), context.getVersion(), null, null, null);
+		FormatContext formatContext = new FormatContextImpl("INT.NONNEG", context.isSpecializationType(), ConformanceLevel.MANDATORY, Cardinality.create("1"), "numerator", context);
 		buffer.append(
 				this.intNonNegPropertyFormatter.format(formatContext, new INTImpl(repetitions), indentLevel)
 			);
@@ -170,7 +168,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 		String units = tempAttributes.get(PqPropertyFormatter.ATTRIBUTE_UNIT);
 		Map<String, String> attributes = toStringMap(VALUE, value, UNIT, units);
 		
-		context = new FormatContextImpl(context.getModelToXmlResult(), context.getPropertyPath(), "denominator", "PQ.TIME", ConformanceLevel.MANDATORY, Cardinality.create("1"), context.isSpecializationType(), context.getVersion(), null, null, null);
+		context = new FormatContextImpl("PQ.TIME", context.isSpecializationType(), ConformanceLevel.MANDATORY, Cardinality.create("1"), "denominator", context);
 		buffer.append(
 				createElement(context, attributes, indentLevel, true, true)
 			);
@@ -190,10 +188,10 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 		return "";
 	}
 
-	private String createPhaseElement(Interval<Date> phase, VersionNumber version, String propertyPath, int indentLevel, ModelToXmlResult result) {
+	private String createPhaseElement(Interval<Date> phase, int indentLevel, FormatContext context) {
 		if (phase != null) {
 			return new IvlTsPropertyFormatter().format(
-					new FormatContextImpl(result, propertyPath, PHASE, "IVL<TS.FULLDATE>", null, null, false, version, null, null, null),
+					new FormatContextImpl("IVL<TS.FULLDATE>", PHASE, context),
 					new IVLImpl<TS, Interval<Date>>(phase), 
 					indentLevel);
 		}

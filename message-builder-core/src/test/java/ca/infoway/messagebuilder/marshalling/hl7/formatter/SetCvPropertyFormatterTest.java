@@ -39,10 +39,12 @@ import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public class SetCvPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Test
     public void testFormatValueNull() throws Exception {
-        String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE), 
+        String result = new SetPropertyFormatter(this.formatterRegistry).format(
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), 
 				new SETImpl<CV, Code>(CVImpl.class, NullFlavor.NO_INFORMATION));
         assertFalse(this.result.isValid()); // blah is mandatory
         assertEquals(1, this.result.getHl7Errors().size());
@@ -51,8 +53,8 @@ public class SetCvPropertyFormatterTest extends FormatterTestCase {
     
 	@Test
     public void testFormatValueNonNull() throws Exception {
-        String result = new SetPropertyFormatter().format(
-        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, null), 
+        String result = new SetPropertyFormatter(this.formatterRegistry).format(
+        		new FormatContextImpl(this.result, null, "blah", "SET<CV>", "x_BasicUnitsOfMeasure", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, null, false), 
 				SETImpl.<CV, Code>create(CVImpl.class, 
 	        			makeSet( UnitsOfMeasureCaseSensitive.CENTIMETRE, UnitsOfMeasureCaseSensitive.KILOGRAM )));
         assertTrue(this.result.isValid());

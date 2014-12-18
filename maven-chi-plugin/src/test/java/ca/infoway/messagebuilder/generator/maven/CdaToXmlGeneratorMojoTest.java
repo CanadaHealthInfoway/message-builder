@@ -34,7 +34,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import ca.infoway.messagebuilder.generator.MessageSetGenerator;
+import ca.infoway.messagebuilder.generator.cda.CdaToXmlGenerator;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CdaToXmlGeneratorMojoTest {
@@ -42,7 +42,7 @@ public class CdaToXmlGeneratorMojoTest {
 	@Mock
 	private MessageSetGeneratorFactory factory;
 	@Mock
-	private MessageSetGenerator generator;
+	private CdaToXmlGenerator generator;
 	
 	@Mock
 	private File schemaFile;

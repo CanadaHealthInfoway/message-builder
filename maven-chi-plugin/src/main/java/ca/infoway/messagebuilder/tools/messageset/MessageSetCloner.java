@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.xml.MessageSetHistory;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.ReceiverResponsibility;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.SchemaMetadata;
 import ca.infoway.messagebuilder.xml.SpecializationChild;
 import ca.infoway.messagebuilder.xml.ValueSet;
 import ca.infoway.messagebuilder.xml.ValueSetFilter;
@@ -80,6 +81,10 @@ public class MessageSetCloner {
 		
 		if (original.getVocabulary() != null) {
 			result.setVocabulary(clone(original.getVocabulary()));
+		}
+		
+		if (original.getSchemaMetadata() != null) {
+			result.setSchemaMetadata(clone(original.getSchemaMetadata()));
 		}
 		return result;
 	}
@@ -279,6 +284,19 @@ public class MessageSetCloner {
 			result.getRelationships().add(clone(relationship, false, realmCode));
 		}
 		
+		return result;
+	}
+	
+	private SchemaMetadata clone(SchemaMetadata schemaMetadata) {
+		SchemaMetadata result = new SchemaMetadata();
+		result.setTargetNamespace(schemaMetadata.getTargetNamespace());
+		result.setElementFormDefault(schemaMetadata.getElementFormDefault());
+		for (String schemaLocation : schemaMetadata.getSchemaLocations()) {
+			result.getSchemaLocations().add(schemaLocation);
+		}
+		for (String documentation : schemaMetadata.getDocumentation()) {
+			result.addDocumentation(documentation);
+		}
 		return result;
 	}
 

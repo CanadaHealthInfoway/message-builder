@@ -68,7 +68,7 @@ public class PqElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParseContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null);
+		return ParseContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null, false);
 	}
 
 	@Test

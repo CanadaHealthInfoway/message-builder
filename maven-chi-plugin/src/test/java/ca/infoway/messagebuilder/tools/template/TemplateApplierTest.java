@@ -283,6 +283,7 @@ public class TemplateApplierTest {
 		assertEquals("constrained datatype base", "II", xpathHelper.getAttributeValue(constrainedDatatypeNode, "@baseType"));
 		assertEquals("constrained datatype type", "RES", xpathHelper.getAttributeValue(constrainedDatatypeNode, "@constraintType"));
 		assertEquals("constrained datatype fixedValue", "2.16.840.1.113883.1.3", xpathHelper.getAttributeValue(constrainedDatatypeNode, "relationship[@name=\"root\"]/@fixedValue"));
+		assertEquals("constrained datatype type", "uid", xpathHelper.getAttributeValue(constrainedDatatypeNode, "relationship[@name=\"root\"]/@type"));
 		
 		// new one added by constraint
 		assertEquals("new constrained datatype reference", "EstimatedDateOfDelivery.Observation.templateId", 
@@ -295,6 +296,7 @@ public class TemplateApplierTest {
 		assertNotNull(newRelationshipNode);
 		assertEquals("2.16.840.1.113883.10.20.15.3.1", xpathHelper.getAttributeValue(newRelationshipNode, "@fixedValue"));
 		assertEquals("1", xpathHelper.getAttributeValue(newRelationshipNode, "@cardinality"));
+//		assertEquals("uid", xpathHelper.getAttributeValue(newRelationshipNode, "@type"));
 		
 		// vocabulary binding
 		assertEquals("vocabulary binding base", "TEL", xpathHelper.getAttributeValue(newConstrainedDatatypeNode, "//constrainedDatatype[@name=\"USRealmHeader.PatientRole.telecom\"]/@baseType"));
@@ -360,5 +362,30 @@ public class TemplateApplierTest {
 		assertEquals("0-*", xpathHelper.getAttributeValue(extendedNode, "@cardinality"));
 		assertEquals("Race", xpathHelper.getAttributeValue(extendedNode, "@domainType"));
 		 */
+	}
+	
+	@Test
+	public void shouldHandleContainedTemplates() throws Exception {
+		assertEquals("2.16.840.1.113883.10.20.22.1.4", xpathHelper.getAttributeValue(document, "//packageLocation[@name=\"ConsultationNote\"]/@templateOid"));
+		assertEquals("2.16.840.1.113883.10.20.22.1.1", xpathHelper.getAttributeValue(document, "//packageLocation[@name=\"ConsultationNote\"]/@impliedTemplateOid"));
+		NodeList documentNodes = xpathHelper.getNodes(document, "//packageLocation[@name=\"ConsultationNote\"]/containedTemplate");
+		assertEquals(28, documentNodes.getLength());
+		assertEquals("2.16.840.1.113883.10.20.22.2.8", xpathHelper.getAttributeValue(documentNodes.item(0), "@templateOid"));
+		assertEquals("0-1", xpathHelper.getAttributeValue(documentNodes.item(0), "@cardinality"));
+		assertEquals("2.16.840.1.113883.10.20.22.2.10", xpathHelper.getAttributeValue(documentNodes.item(1), "@templateOid"));
+		assertEquals("0-1", xpathHelper.getAttributeValue(documentNodes.item(1), "@cardinality"));
+		
+		assertEquals("2.16.840.1.113883.10.20.22.2.6.1", xpathHelper.getAttributeValue(document, "//packageLocation[@name=\"AllergiesSectionentriesRequired\"]/@templateOid"));
+		assertEquals("2.16.840.1.113883.10.20.22.2.6", xpathHelper.getAttributeValue(document, "//packageLocation[@name=\"AllergiesSectionentriesRequired\"]/@impliedTemplateOid"));
+		NodeList sectionNodes = xpathHelper.getNodes(document, "//packageLocation[@name=\"AllergiesSectionentriesRequired\"]/containedTemplate");
+		assertEquals(1, sectionNodes.getLength());
+		assertEquals("2.16.840.1.113883.10.20.22.4.30", xpathHelper.getAttributeValue(sectionNodes.item(0), "@templateOid"));
+		assertEquals("*", xpathHelper.getAttributeValue(sectionNodes.item(0), "@cardinality"));
+		
+		assertEquals("2.16.840.1.113883.10.20.22.4.36", xpathHelper.getAttributeValue(document, "//packageLocation[@name=\"AdmissionMedication\"]/@templateOid"));
+		NodeList entryNodes = xpathHelper.getNodes(document, "//packageLocation[@name=\"AdmissionMedication\"]/containedTemplate");
+		assertEquals(1, entryNodes.getLength());
+		assertEquals("2.16.840.1.113883.10.20.22.4.16", xpathHelper.getAttributeValue(entryNodes.item(0), "@templateOid"));
+		assertEquals("*", xpathHelper.getAttributeValue(entryNodes.item(0), "@cardinality"));
 	}
 }

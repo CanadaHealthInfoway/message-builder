@@ -26,14 +26,10 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
 /**
- * <p>HL7 datatype INT. Backed by an Integer.
+ * <p>HL7 datatype IVL. Backed by the java datatype DateInterval.
  * 
- * <p>Covers:
+ * <p>This data type is used when a continuous range needs to be expressed.
  * 
- * <p>INT.POS: This is used to convey an integer number that is greater than or equal to "1".
- * 
- * <p>INT.NONNEG: This is used to convey an integer number that is greater than or equal to "0".
- * 	
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  *
  * @sharpen.ignore - datatype - translated manually 

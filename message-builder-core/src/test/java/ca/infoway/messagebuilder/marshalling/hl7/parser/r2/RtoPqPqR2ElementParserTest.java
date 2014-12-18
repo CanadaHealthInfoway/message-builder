@@ -57,7 +57,7 @@ public class RtoPqPqR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParseContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("RTO<PQ,PQ>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -97,10 +97,8 @@ public class RtoPqPqR2ElementParserTest extends CeRxDomainValueTestCase {
         
 		assertTrue(this.xmlResult.isValid());
         assertNotNull("ratio", ratio);
-        assertEquals("numerator", new BigDecimal("1"), ratio.getNumerator().getQuantity());
-        assertEquals("numerator unit", "1", ratio.getNumerator().getUnit().getCodeValue()); // yes this is weird
-        assertEquals("denominator", new BigDecimal("1"), ratio.getDenominator().getQuantity());
-        assertEquals("denominator unit", "1", ratio.getDenominator().getUnit().getCodeValue()); // yes this is weird
+        assertNull("numerator", ratio.getNumerator());
+        assertNull("denominator", ratio.getDenominator());
 	}
 	
 	@SuppressWarnings("unchecked")

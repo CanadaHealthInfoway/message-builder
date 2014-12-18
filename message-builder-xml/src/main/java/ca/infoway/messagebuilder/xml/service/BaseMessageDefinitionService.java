@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.util.MessageSetUtils;
 
@@ -315,6 +316,15 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		return Collections.emptyList();
 	}
 
+	public List<PackageLocation> getAllPackageLocations(VersionNumber version) {
+		List<PackageLocation> packageLocations = new ArrayList<PackageLocation>();
+		MessageSet messageSet = findMessageSet(version);
+		if (messageSet != null) {
+			packageLocations.addAll(messageSet.getPackageLocations().values());
+		}
+		return packageLocations;
+	}
+	
 	private MessageSet findMessageSet(VersionNumber version) {
 		return findMessageSet(version == null ? null : version.getVersionLiteral());
 	}

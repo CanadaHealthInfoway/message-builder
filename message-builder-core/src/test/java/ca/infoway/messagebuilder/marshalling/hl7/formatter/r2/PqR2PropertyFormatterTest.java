@@ -292,6 +292,6 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     }
 
 	private FormatContextImpl createContext(String type) {
-		return new FormatContextImpl(this.result, null, "name", type, ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_02, null, null, null);
+		return new FormatContextImpl(this.result, null, "name", type, ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
 	}
 }

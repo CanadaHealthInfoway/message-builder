@@ -28,11 +28,11 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParser;
 
+@SuppressWarnings("deprecation")
 public class EncapsulatedDataDocumentXmlParser extends AbstractSimpleXmlParser<ED<EncapsulatedData>, EncapsulatedData> implements SimpleXmlParser<ED<EncapsulatedData>> {
 	
 	EncapsulatedDataDocumentXmlParser() {
@@ -61,22 +61,19 @@ public class EncapsulatedDataDocumentXmlParser extends AbstractSimpleXmlParser<E
 		if (value.getMediaType() != null) {
 			attributes.put("mediaType", value.getMediaType().getCodeValue());
 		}
-		if (StringUtils.isNotBlank(value.getReference())) {
-			attributes.put("uri", value.getReference());
+		if (value.getReference() != null) {
+			attributes.put("uri", value.getReference().toString());
 		}
-		if (value instanceof CompressedData) {
-			CompressedData compressedData = (CompressedData) value;
-			String compressionType = compressedData.getCompression() == null ? null : compressedData.getCompression().getCompressionType();
-			if (StringUtils.isNotBlank(compressionType)) {
-				attributes.put("compression", compressionType);
-			}
-			String language = compressedData.getLanguage();
-			if (StringUtils.isNotBlank(language)) {
-				if ("en-CA".equals(language)) {
-					attributes.put("language", "en");
-				} else if ("fr-CA".equals(language)) {
-					attributes.put("language", "fr");
-				}
+		String compressionType = value.getCompression() == null ? null : value.getCompression().getCompressionType();
+		if (StringUtils.isNotBlank(compressionType)) {
+			attributes.put("compression", compressionType);
+		}
+		String language = value.getLanguage();
+		if (StringUtils.isNotBlank(language)) {
+			if ("en-CA".equals(language)) {
+				attributes.put("language", "en");
+			} else if ("fr-CA".equals(language)) {
+				attributes.put("language", "fr");
 			}
 		}
 		return attributes;

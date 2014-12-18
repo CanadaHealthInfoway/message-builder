@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.EntityClassRoot;
 import ca.infoway.messagebuilder.model.MessagePartBean;
@@ -52,7 +52,7 @@ public class EntityBean extends MessagePartBean {
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
-    private ED<EncapsulatedDataR2> desc = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> desc = new EDImpl<EncapsulatedData>();
 
 
     /**
@@ -234,7 +234,7 @@ public class EntityBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"desc"})
-    public EncapsulatedDataR2 getDesc() {
+    public EncapsulatedData getDesc() {
         return this.desc.getValue();
     }
 
@@ -251,7 +251,7 @@ public class EntityBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setDesc(EncapsulatedDataR2 desc) {
+    public void setDesc(EncapsulatedData desc) {
         this.desc.setValue(desc);
     }
 

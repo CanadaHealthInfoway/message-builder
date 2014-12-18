@@ -72,6 +72,7 @@ class ParameterAppenderRegistry {
 			map.put(StandardDataType.ED, new ParameterAppenderForEd());
 			map.put(StandardDataType.URG, new ParameterAppenderForUrg());
 			map.put(StandardDataType.SC, new ParameterAppenderForSc());
+			map.put(StandardDataType.EN, new ParameterAppenderForEn());
 			instance = new ParameterAppenderRegistry(map);
 		}
 	}
@@ -144,6 +145,15 @@ class ParameterAppenderRegistry {
 				builder.append(ClassUtils.getShortClassName(parameters.get(0).getTypeName()));
 				builder.append(">");
 			}
+		}
+	}
+	
+	static class ParameterAppenderForEn extends DefaultWrappedParameterAppender {
+		@Override
+		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
+			builder.append("<");
+			builder.append(dataType.getShortName(language));
+			builder.append(">");
 		}
 	}
 	

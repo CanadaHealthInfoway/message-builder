@@ -32,6 +32,9 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
+import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.datatype.impl.CEImpl;
+import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -69,6 +72,13 @@ public class CvElementParser extends AbstractCodeTypeElementParser {
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
+		if ("CD".equals(typeName)) {
+			return new CDImpl();
+		} else if ("CE".equals(typeName)) {
+			return new CEImpl();
+		} else if ("CS".equals(typeName)) {
+			return new CSImpl();
+		}
 		return new CVImpl();
 	}
 	

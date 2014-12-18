@@ -38,7 +38,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValueBL() throws Exception {
-		Map<String,String>  result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null), null, new BLImpl());
+		Map<String,String>  result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null, false), null, new BLImpl());
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -50,7 +50,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsSpecifiedNullValueBL() throws Exception {
-		Map<String,String>  result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null), null, new BLImpl(NullFlavor.NOT_APPLICABLE));
+		Map<String,String>  result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null, false), null, new BLImpl(NullFlavor.NOT_APPLICABLE));
 
 		// a null value for BL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -62,7 +62,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanTrueBL() throws Exception  {
-		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null), Boolean.TRUE, null);
+		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null, false), Boolean.TRUE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue(this.result.isValid());
@@ -72,7 +72,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanFalseBL() throws Exception  {
-		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null), Boolean.FALSE, null);
+		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BL", null, null, false), Boolean.FALSE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue(this.result.isValid());
@@ -84,7 +84,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 	public void testNullValueBN() throws Exception {
 		// this test should go through the full formatter (as NFs can sometimes cause a short-circuit of the code path to follow)
 
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "BN", null, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "BN", null, null, false);
 		String xml = new BlR2PropertyFormatter().format(context, new BLImpl());
 
 		assertFalse(this.result.isValid());
@@ -97,7 +97,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 		
 		// this test should go through the full formatter (as NFs can sometimes cause a short-circuit of the code path to follow)
 		
-		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "BN", null, null);
+		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "BN", null, null, false);
 		String xml = new BlR2PropertyFormatter().format(context, new BLImpl(NullFlavor.NOT_APPLICABLE));
 		
 		// a null value for BL elements results in a nullFlavor attribute
@@ -108,7 +108,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanTrueBN() throws Exception  {
-		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BN", null, null), Boolean.TRUE, null);
+		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BN", null, null, false), Boolean.TRUE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue(this.result.isValid());
@@ -118,7 +118,7 @@ public class BlR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testGetAttributeNameValuePairsBooleanFalseBN() throws Exception  {
-		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BN", null, null), Boolean.FALSE, null);
+		Map<String, String> result = new BlR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", "BN", null, null, false), Boolean.FALSE, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue(this.result.isValid());

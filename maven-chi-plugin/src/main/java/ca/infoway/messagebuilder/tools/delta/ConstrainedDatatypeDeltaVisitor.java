@@ -88,8 +88,8 @@ public class ConstrainedDatatypeDeltaVisitor extends RelationshipDeltaVisitor {
 			visitFixedConstraint((FixedConstraint) constraint);
 		} else if (constraint instanceof CardinalityConstraint) {
 			visitCardinalityConstraint((CardinalityConstraint) constraint);
-//		} else if (constraint instanceof DatatypeConstraint) {
-//			visitDatatypeConstraint((DatatypeConstraint) constraint);
+		} else if (constraint instanceof DatatypeConstraint) {
+			visitDatatypeConstraint((DatatypeConstraint) constraint);
 //		} else if (constraint instanceof LengthConstraint) {
 //			visitLengthConstraint((LengthConstraint) constraint);
 //		} else if (constraint instanceof DefaultValueConstraint) {

@@ -61,7 +61,7 @@ public class TelUriPropertyFormatterTest {
 	}
 
 	private FormatContextImpl createContext() {
-		return new FormatContextImpl(this.xmlResult, null, "name", "TEL.URI", null, null, false, SpecificationVersion.R02_04_03, null, null, null);
+		return new FormatContextImpl(this.xmlResult, null, "name", "TEL.URI", null, null, false, SpecificationVersion.R02_04_03, null, null, null, false);
 	}
 
 	@Test

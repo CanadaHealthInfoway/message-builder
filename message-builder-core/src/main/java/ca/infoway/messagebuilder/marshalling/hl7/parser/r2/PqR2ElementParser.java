@@ -78,8 +78,7 @@ class PqR2ElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 		if (StringUtils.isNotBlank(unitAsString)) {
 			unit = this.pqValidationUtils.validateUnits(context.getType(), unitAsString, element, null, xmlToModelResult, true);
 		} else {
-			// units default to "1" if not specified
-			unit = ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.ONE;
+			// TM - MBR-285: units default to "1" if not specified; however, this part of the schemas will be ignored
 		}
 
 		PhysicalQuantity physicalQuantity = (value != null || unit != null) ? new PhysicalQuantity(value, unit) : null;

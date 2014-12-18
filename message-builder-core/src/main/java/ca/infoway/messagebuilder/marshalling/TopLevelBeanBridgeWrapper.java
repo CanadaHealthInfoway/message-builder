@@ -78,7 +78,7 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 						new CSImpl(HL7StandardVersionCode.V3_2007_05)));
 			} else if ("interactionId".equals(relationshipBridge.getRelationship().getName())) {
 				IIImpl iiImpl = new IIImpl(new Identifier("2.16.840.1.113883.1.6", this.interactionId));
-				if (iiValidationUtils.isSpecializationTypeRequired(version, relationshipBridge.getRelationship().getType())) {
+				if (iiValidationUtils.isSpecializationTypeRequired(version, relationshipBridge.getRelationship().getType(), false)) {
 					// we must set a concrete specialization type when defined as abstract
 					iiImpl.setDataType(StandardDataType.II_PUBLIC);
 				}

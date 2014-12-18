@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -80,19 +79,20 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 
 	// CDA releases
 	public static final SpecificationVersion CCDA_R00_ALPHA = new SpecificationVersion("CCDA_R00_ALPHA", "CDA (CCDA_R00_ALPHA)", Hl7BaseVersion.MR2009);
+	public static final SpecificationVersion PCS_CDA = new SpecificationVersion("PCS_CDA", "CDA (PCS)", Hl7BaseVersion.MR2009);
 	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
-		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
-		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
-		V01R04_3.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+		V01R04_3.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
+		V01R04_3.registerHl7ReleaseByDatatype("II.VER", Hl7BaseVersion.MR2009);
+		V01R04_3.registerHl7ReleaseByDatatype("II.BUS_AND_VER", Hl7BaseVersion.MR2009);
 		
-		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
-		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
-		V01R04_3_ON.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+		V01R04_3_ON.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
+		V01R04_3_ON.registerHl7ReleaseByDatatype("II.VER", Hl7BaseVersion.MR2009);
+		V01R04_3_ON.registerHl7ReleaseByDatatype("II.BUS_AND_VER", Hl7BaseVersion.MR2009);
 		
-		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS);
-		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_VER);
-		V01R04_2_SK.registerHl7ReleaseByDatatype(Hl7BaseVersion.MR2009, StandardDataType.II_BUS_AND_VER);
+		V01R04_2_SK.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
+		V01R04_2_SK.registerHl7ReleaseByDatatype("II.VER", Hl7BaseVersion.MR2009);
+		V01R04_2_SK.registerHl7ReleaseByDatatype("II.BUS_AND_VER", Hl7BaseVersion.MR2009);
 	}
 
 	
@@ -158,12 +158,11 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	
 	/**
 	 * Register a specific datatype against a particular HL7v3 release (for validation and processing).
-	 * 
-	 * @param hl7BaseVersion
 	 * @param datatype
+	 * @param hl7BaseVersion
 	 */
-	public void registerHl7ReleaseByDatatype(Hl7BaseVersion hl7BaseVersion, Typed datatype) {
-		this.hl7ReleaseByDatatypeMap.put(datatype.getType(), hl7BaseVersion);
+	public void registerHl7ReleaseByDatatype(String datatype, Hl7BaseVersion hl7BaseVersion) {
+		this.hl7ReleaseByDatatypeMap.put(datatype, hl7BaseVersion);
 	}
 	
 	/**

@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -45,10 +45,12 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class ListIiR2PropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterR2Registry formatterRegistry = FormatterR2Registry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "ids", "LIST<II>", OPTIONAL, null), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "ids", "LIST<II>", OPTIONAL, null, false), 
 				(BareANY) new LISTImpl<II, Identifier>(IIImpl.class));
 		assertTrue(this.result.isValid());
 		assertEquals(0, this.result.getHl7Errors().size());
@@ -57,8 +59,8 @@ public class ListIiR2PropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "ids", "LIST<II>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "ids", "LIST<II>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				(BareANY) LISTImpl.<II, Identifier>create(
 						IIImpl.class, 
 						createIdentifierList()));
@@ -80,8 +82,8 @@ public class ListIiR2PropertyFormatterTest extends FormatterTestCase {
 		constraints.getRelationships().add(rootConstraint);
 		constraints.getRelationships().add(extConstraint);
 		
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "ids", "LIST<II>", null, OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, constraints), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "ids", "LIST<II>", null, OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, constraints, false), 
 				(BareANY) LISTImpl.<II, Identifier>create(
 						IIImpl.class, 
 						createIdentifierList()));
@@ -103,8 +105,8 @@ public class ListIiR2PropertyFormatterTest extends FormatterTestCase {
 		constraints.getRelationships().add(rootConstraint);
 		constraints.getRelationships().add(extConstraint);
 		
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "ids", "LIST<II>", null, OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, constraints), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "ids", "LIST<II>", null, OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, constraints, false), 
 				(BareANY) LISTImpl.<II, Identifier>create(
 						IIImpl.class, 
 						createIdentifierList()));

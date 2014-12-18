@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 
 public class FormatterR2Registry extends Registry<PropertyFormatter> {
@@ -39,14 +40,14 @@ public class FormatterR2Registry extends Registry<PropertyFormatter> {
     	register(new AdR2PropertyFormatter());
     	register(new AnyR2PropertyFormatter());
     	register(new BlR2PropertyFormatter());
-    	register(new BagR2PropertyFormatter());
+    	register(new BagR2PropertyFormatter(this));
     	register(new BxitCdR2PropertyFormatter());
     	register(new CdR2PropertyFormatter());
     	register(new CeR2PropertyFormatter());
     	register(new CrR2PropertyFormatter());
     	register(new CsR2PropertyFormatter());
     	register(new CvR2PropertyFormatter());
-    	register(new EdR2PropertyFormatter());
+    	register(new EdPropertyFormatter(new TelR2PropertyFormatter(), true));
     	register(new EivlTsR2PropertyFormatter());
     	register(new EnR2PropertyFormatter());
         register(new HxitCeR2PropertyFormatter());
@@ -57,7 +58,7 @@ public class FormatterR2Registry extends Registry<PropertyFormatter> {
         register(new IvlPqR2PropertyFormatter());
         register(new IvlRealR2PropertyFormatter());
         register(new IvlTsR2PropertyFormatter());
-        register(new ListR2PropertyFormatter());
+        register(new ListR2PropertyFormatter(this));
         register(new MoR2PropertyFormatter());
     	register(new PivlTsR2PropertyFormatter());
     	register(new PqR2PropertyFormatter());
@@ -66,7 +67,7 @@ public class FormatterR2Registry extends Registry<PropertyFormatter> {
         register(new RtoMoPqR2PropertyFormatter());
         register(new RtoPqPqR2PropertyFormatter());
         register(new ScR2PropertyFormatter());
-        register(new SetR2PropertyFormatter());
+        register(new SetR2PropertyFormatter(this));
         register(new StR2PropertyFormatter());
         register(new SxcmCdR2PropertyFormatter());
         register(new TelR2PropertyFormatter());

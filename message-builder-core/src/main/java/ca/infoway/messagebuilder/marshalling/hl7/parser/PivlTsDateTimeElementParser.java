@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeSk;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 
@@ -112,12 +112,9 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		ParseContext subContext = ParseContextImpl.create(
 				"INT.NONNEG",
 				Integer.class,
-				context.getVersion(),
-				context.getDateTimeZone(),
-				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				null);
+				context);
 		return (Integer) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -126,12 +123,9 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		ParseContext subContext = ParseContextImpl.create(
 				"PQ.TIME",
 				PhysicalQuantity.class,
-				context.getVersion(),
-				context.getDateTimeZone(),
-				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				null);
+				context);
 		return (PhysicalQuantity) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 
@@ -142,12 +136,9 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 		ParseContext subContext = ParseContextImpl.create(
 				"IVL<PQ.BASIC>",
 				PhysicalQuantity.class,
-				context.getVersion(),
-				context.getDateTimeZone(),
-				context.getDateTimeTimeZone(),
 				MANDATORY, 
 				Cardinality.create("1"),
-				null);
+				context);
 		return (Interval<PhysicalQuantity>) parser.parse(subContext, Arrays.asList((Node) numerator), xmlToModelResult).getBareValue();
 	}
 

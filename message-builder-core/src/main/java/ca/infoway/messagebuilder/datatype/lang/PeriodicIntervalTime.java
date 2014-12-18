@@ -109,6 +109,13 @@ public class PeriodicIntervalTime extends SetComponent<Date> {
 		return new PeriodicIntervalTime(null, null, repetitions, quantity, FREQUENCY);
 	}
 	
+	public static PeriodicIntervalTime createFromPivlR2(PeriodicIntervalTimeR2 pivlR2) {
+		DateDiff dateDiff = (pivlR2.getPeriod() == null ? null : new DateDiff(pivlR2.getPeriod()));
+		Representation representation = pivlR2.getPeriod() != null || pivlR2.getPhase() != null ? Representation.PERIOD_PHASE : Representation.FREQUENCY; 
+		return new PeriodicIntervalTime(dateDiff, pivlR2.getPhase(), pivlR2.getFrequencyRepetitions(), pivlR2.getFrequencyQuantity(), representation);
+	}
+
+	
 	/**
 	 * <p>Gets the period.
 	 * 

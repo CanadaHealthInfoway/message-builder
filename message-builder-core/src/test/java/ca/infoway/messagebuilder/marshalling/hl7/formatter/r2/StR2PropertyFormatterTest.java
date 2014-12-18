@@ -109,7 +109,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNonNullWithLanguageAllowed() throws Exception {
 		AbstractPropertyFormatter formatter = new StR2PropertyFormatter();
 		
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
+		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null, false);
 		String result = formatter.format(context, new STImpl("something", "fr-CA"));
 		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\">something</name>"), removeErrorComments(result));
 		assertNoErrors(context);
@@ -119,7 +119,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNonNullWithLanguageFr() throws Exception {
 		AbstractPropertyFormatter formatter = new StR2PropertyFormatter();
 		
-		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
+		FormatContext context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null, false);
 		String result = formatter.format(context, new STImpl("something", "fr-CA"));
 		assertEquals("something in text node", addLineSeparator("<name language=\"fr-CA\">something</name>"), result);
 		assertNoErrors(context);
@@ -129,7 +129,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNonNullWithLanguageEn() throws Exception {
 		AbstractPropertyFormatter formatter = new StR2PropertyFormatter();
 		
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
+		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null, false);
 		String result = formatter.format(context, new STImpl("something", "en-CA"));
 		assertEquals("something in text node", addLineSeparator("<name language=\"en-CA\">something</name>"), result);
 		assertNoErrors(context);
@@ -139,7 +139,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNonNullWithNonEnglishNonFrenchLanguage() throws Exception {
 		AbstractPropertyFormatter formatter = new StR2PropertyFormatter();
 		
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
+		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null, false);
 		String result = formatter.format(context, new STImpl("something", "it-CA"));
 		assertEquals("something in text node", addLineSeparator("<name language=\"it-CA\">something</name>"), removeErrorComments(result));
 		assertNoErrors(context);
@@ -149,7 +149,7 @@ public class StR2PropertyFormatterTest extends FormatterTestCase {
 	public void testFormatValueNonNullWithBlankLanguage() throws Exception {
 		AbstractPropertyFormatter formatter = new StR2PropertyFormatter();
 		
-		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null);
+		FormatContextImpl context = new FormatContextImpl(new ModelToXmlResult(), null, "name", "ST", null, null, false);
 		STImpl dataType = new STImpl("something");
 		dataType.setLanguage("");
 		String result = formatter.format(context, dataType);

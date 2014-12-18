@@ -43,6 +43,8 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetIiElementParserTest extends ParserTestCase {
 
+	private ParserRegistry parserRegistry = ParserRegistry.getInstance();
+	
 	@Test
 	public void testParse() throws Exception {
 		Node node = createNode("<top>" +
@@ -50,8 +52,8 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"<something root=\"rootValue2\" extension=\"extensionValue\" />" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("SET<II>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), new XmlToModelResult());
 		@SuppressWarnings("unchecked")
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -69,8 +71,8 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"<something root=\"2.2\" extension=\"extensionValue\" use=\"BUS\" />" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), null);
 		@SuppressWarnings({ "unchecked"})
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
@@ -89,8 +91,8 @@ public class SetIiElementParserTest extends ParserTestCase {
 				"<something root=\"2.2\" extension=\"extensionValue\" use=\"BUS\" />" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("SET<II.BUS>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), this.xmlResult);
 		
 		@SuppressWarnings({ "unchecked"})

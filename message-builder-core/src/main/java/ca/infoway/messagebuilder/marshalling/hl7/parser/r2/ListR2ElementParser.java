@@ -29,9 +29,14 @@ import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.SetOrListElementParser;
 
 @DataTypeHandler({"LIST", "BAG"})
-class ListR2ElementParser extends SetOrListR2ElementParser {
+class ListR2ElementParser extends SetOrListElementParser {
+
+	public ListR2ElementParser(ParserR2Registry parserRegistry) {
+		super(parserRegistry, true);
+	}
 
 	@Override
 	protected BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection) {

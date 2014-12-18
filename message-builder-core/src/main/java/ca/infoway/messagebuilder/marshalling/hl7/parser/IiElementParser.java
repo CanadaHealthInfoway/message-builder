@@ -41,11 +41,15 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiConstraintsHandler;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 
 /**
@@ -70,6 +74,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	
 	private static final IiValidationUtils iiValidationUtils = new IiValidationUtils();
+	private final IiConstraintsHandler constraintsHandler = new IiConstraintsHandler();
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
@@ -110,7 +115,21 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 			versionAttribute = validateII_PUBLICVER(context, xmlToModelResult, element, root, extension, StandardDataType.II_PUBLICVER, version);
 		}
 		validateUnallowedAttributes(result.getDataType(), element, xmlToModelResult, "assigningAuthorityName");
-		return new Identifier(root, extension, versionAttribute);
+		Identifier identifier = new Identifier(root, extension, versionAttribute);
+		
+		handleConstraints(context, xmlToModelResult, element, identifier);
+
+		return identifier;
+	}
+
+	private void handleConstraints(ParseContext context, final Hl7Errors errors, final Element element, Identifier identifier) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
+			}
+		};
+		
+		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
 	}
 
 	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
@@ -196,7 +215,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		String typeFromContext = context.getType(); 
 		String specializationType = getSpecializationType(element);
 		
-    	if (iiValidationUtils.isSpecializationTypeRequired(version, typeFromContext)) {
+    	if (iiValidationUtils.isSpecializationTypeRequired(version, typeFromContext, context.isCda())) {
     		boolean validSpecializationType = isSpecializationTypeProvided(specializationType);
     		if (iiValidationUtils.isII(typeFromContext)) {
     			validSpecializationType &= concreteIiTypes.contains(specializationType);

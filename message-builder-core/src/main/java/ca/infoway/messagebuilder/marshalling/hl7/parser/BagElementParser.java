@@ -33,14 +33,18 @@ import com.sun.corba.se.impl.corba.AnyImpl;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
 @DataTypeHandler({"BAG"})
 class BagElementParser extends SetOrListElementParser {
+
+	public BagElementParser(ParserRegistry parserRegistry) {
+		super(parserRegistry, false);
+	}
 
 	@Override
 	public BareANY parse(ParseContext context, List<Node> nodes,

@@ -39,9 +39,9 @@ import ca.infoway.messagebuilder.datatype.impl.GTSImpl;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTime;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -94,12 +94,9 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 		ParseContext subContext = ParseContextImpl.create(
 				"IVL<TS.FULLDATE>",
 				Interval.class,
-				context.getVersion(),
-				context.getDateTimeZone(),
-				context.getDateTimeTimeZone(),
 				MANDATORY,
 				Cardinality.create("1"),
-				null);
+				context);
 		return (Interval<Date>) ParserRegistry.getInstance().get("IVL<TS.FULLDATE>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlResult)
 						.getBareValue();
@@ -109,12 +106,9 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 		ParseContext subContext = ParseContextImpl.create(
 				"PIVL<TS.DATETIME>",
 				PeriodicIntervalTime.class,
-				context.getVersion(),
-				context.getDateTimeZone(),
-				context.getDateTimeTimeZone(),
 				MANDATORY,
 				Cardinality.create("1"),
-				null);
+				context);
 		return (PeriodicIntervalTime) ParserRegistry.getInstance().get("PIVL<TS.DATETIME>").parse(
 					subContext, Arrays.asList((Node) durationElement), xmlToModelResult)
 						.getBareValue();

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<systems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.lantanagroup.com/voc">
+  <system valueSetOid="2.16.840.1.113883.2.20.3.206" valueSetName="CDAHeaderDocumentType" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.139" valueSetName="x_BasicConfidentialityKind" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.190" valueSetName="LanguageCode" />
+  <system valueSetOid="2.16.840.1.113883.1.11.1" valueSetName="AdministrativeGender" />
+  <system valueSetOid="2.16.840.1.113883.1.11.12212" valueSetName="MaritalStatus" />
+  <system valueSetOid="2.16.840.1.113883.1.11.12249" valueSetName="LanguageAbilityMode" />
+  <system valueSetOid="2.16.840.1.113883.1.11.12199" valueSetName="LanguageAbilityProficiency" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.90" valueSetName="PersonalRelationshipRoleType" />
+  <system valueSetOid="2.16.840.1.113883.5.30" valueSetName="EntityDeterminer" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.265" valueSetName="ProviderRoleCode" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.6" valueSetName="ActConsentType" />
+  <system valueSetOid="2.16.840.1.113883.1.11.19316" valueSetName="RoleClassMutualRelationship" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.87" valueSetName="ParticipationFunction" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.2" valueSetName="ActCareEventType" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.43" valueSetName="EncounterDischargeDisposition" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.182" valueSetName="ServiceDeliveryLocationRoleType" />
+  <system valueSetOid="2.16.840.1.113883.1.11.19600" valueSetName="x_EncounterParticipant" />
+  <system valueSetOid="2.16.840.1.113883.1.11.19366" valueSetName="x_InformationRecipient" />
+  <system valueSetOid="2.16.840.1.113883.1.11.10901" valueSetName="ParticipationType" />
+  <system valueSetOid="2.16.840.1.113883.1.11.19313" valueSetName="RoleClassAssociative" />
+  <system valueSetOid="2.16.840.1.113883.1.11.11527" valueSetName="ActClass" />
+  <system valueSetOid="2.16.840.1.113883.2.20.3.15" valueSetName="ActPriority" />
+  <system valueSetOid="2.16.840.1.113883.1.11.13856" valueSetName="ActClassRoot" />
+  <system valueSetOid="2.16.840.1.113883.1.11.19601" valueSetName="x_ServiceEventPerformer" />
+  <system valueSetOid="2.16.840.1.113883.1.11.11610" valueSetName="x_ActRelationshipDocument" />
+  
+  <system codeSystemOid="2.16.840.1.113883.5.111" codeSystemName="RoleCode" />
+  <system codeSystemOid="2.16.840.1.113883.5.1001" codeSystemName="ActMood" />
+  <system codeSystemOid="2.16.840.1.113883.5.14" codeSystemName="ActStatus" />
+  <system codeSystemOid="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+  <system codeSystemOid="2.16.840.1.113883.5.89" codeSystemName="ParticipationSignature" />
+</systems>

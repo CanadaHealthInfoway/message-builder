@@ -50,7 +50,7 @@ public class CodedTypeR2<T extends Code> {
 
     private NullFlavor nullFlavorForTranslationOnly; 
     
-    private EncapsulatedDataR2 originalText;
+    private EncapsulatedData originalText;
     private List<CodeRole> qualifier = new ArrayList<CodeRole>();
     private List<CodedTypeR2<Code>> translation = new ArrayList<CodedTypeR2<Code>>();
     
@@ -108,11 +108,11 @@ public class CodedTypeR2<T extends Code> {
 		this.displayName = displayName;
 	}
 
-	public EncapsulatedDataR2 getOriginalText() {
+	public EncapsulatedData getOriginalText() {
 		return originalText;
 	}
 
-	public void setOriginalText(EncapsulatedDataR2 originalText) {
+	public void setOriginalText(EncapsulatedData originalText) {
 		this.originalText = originalText;
 	}
 

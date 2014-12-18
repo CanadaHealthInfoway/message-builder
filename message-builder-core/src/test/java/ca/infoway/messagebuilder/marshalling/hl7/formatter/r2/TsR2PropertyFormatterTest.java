@@ -54,7 +54,7 @@ public class TsR2PropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception  {
-		Map<String,String>  result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), null, new TS_R2Impl());
+		Map<String,String>  result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, new TS_R2Impl());
 		
 		// a null value for TS elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -67,7 +67,7 @@ public class TsR2PropertyFormatterTest {
 	public void testGetAttributeNameValuePairsDate() throws Exception  {
 		// used as expected: a date object is passed in
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), new MbDate(calendar1), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), new MbDate(calendar1), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -83,7 +83,7 @@ public class TsR2PropertyFormatterTest {
 		ts.setOperator(SetOperator.PERIODIC_HULL);
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(calendar1), ts);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(calendar1), ts);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -101,7 +101,7 @@ public class TsR2PropertyFormatterTest {
 		ts.setOperator(SetOperator.PERIODIC_HULL);
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(calendar1), ts);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(calendar1), ts);
 		assertEquals("map size", 2, result.size());
 		assertTrue(xmlResult.isValid());
 		
@@ -120,7 +120,7 @@ public class TsR2PropertyFormatterTest {
 		TS_R2 ts = new TS_R2Impl(new MbDate(calendar1));
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(calendar1), ts);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "SXCM<TS>", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(calendar1), ts);
 		assertEquals("map size", 1, result.size());
 		assertTrue(xmlResult.isValid());
 		
@@ -136,7 +136,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMMddHHmmss.SSS0ZZZZZ");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(dateWithInvalidPattern), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(dateWithInvalidPattern), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "1999Apr23101112.0000" + getCurrentTimeZone(calendar);
@@ -151,7 +151,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHHZZZZZ");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(dateWithInvalidPattern), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(dateWithInvalidPattern), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "1999042310" + getCurrentTimeZone(calendar);
@@ -166,7 +166,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHHZZZZZ");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(dateWithInvalidPattern), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(dateWithInvalidPattern), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "1999042310" + getCurrentTimeZone(calendar);
@@ -181,7 +181,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMM");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(dateWithInvalidPattern), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(dateWithInvalidPattern), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "199904";
@@ -196,7 +196,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithValidPatternMissingTZ = new DateWithPattern(calendar, "yyyyMMddHH");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null), new MbDate(dateWithValidPatternMissingTZ), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new MbDate(dateWithValidPatternMissingTZ), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "1999042310", result.get("value"));
@@ -211,7 +211,7 @@ public class TsR2PropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMddHH");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.V01R04_3, null, null, null), new MbDate(dateWithInvalidPattern), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS", null, null, false, SpecificationVersion.V01R04_3, null, null, null, false), new MbDate(dateWithInvalidPattern), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		String expectedValue = "1999042310";
@@ -225,7 +225,7 @@ public class TsR2PropertyFormatterTest {
 		Date calendar1 = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern dateWithPattern = new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(calendar1, "yyyyMMddHHmmss");
 		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), 
 				new MbDate(dateWithPattern), null);
 		assertEquals("map size", 1, result.size());
 		
@@ -239,7 +239,7 @@ public class TsR2PropertyFormatterTest {
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern dateWithPattern = new ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern(calendar, "yyyyMMddHHmmss.SSSZZZZZ");
 		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), 
 				new MbDate(dateWithPattern), null);
 		assertEquals("map size", 1, result.size());
 		
@@ -253,7 +253,7 @@ public class TsR2PropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		String resultXml = new TsR2PropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, null), 
+				new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), 
 				new TS_R2Impl(new MbDate(calendar))
 		);
 		String result = resultXml.substring("<name value=\"".length(), resultXml.indexOf("\"/>"));
@@ -282,7 +282,7 @@ public class TsR2PropertyFormatterTest {
 	private void handleVersion(SpecificationVersion version, String expected, boolean withTimeZone) {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
-		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, version, null, null, null), new MbDate(calendar), null);
+		Map<String, String> result = new TsR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false, version, null, null, null, false), new MbDate(calendar), null);
 		assertEquals("map size", 1, result.size());
 		
 		String expectedValue = withTimeZone?expected+getCurrentTimeZone(calendar):expected;
@@ -303,7 +303,7 @@ public class TsR2PropertyFormatterTest {
 	}
 
 	private FormatContextImpl createFormatContextWithTimeZone(TimeZone timeZone) {
-		return new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, null, false, null, null, timeZone, null, null);
+		return new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, null, false, null, null, timeZone, null, null, false);
 	}
 	
 	@Test

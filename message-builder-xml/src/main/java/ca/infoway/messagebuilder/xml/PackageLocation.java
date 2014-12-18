@@ -67,6 +67,12 @@ public class PackageLocation implements Categorizable, HasDifferences, Named, Do
 	private Map<String,MessagePart> messageParts = new TreeMap<String,MessagePart>();
 	@Attribute(required=false)
 	private String category;
+	@Attribute(required=false)
+	private String templateOid;
+	@Attribute(required=false)
+	private String impliedTemplateOid;
+	@ElementList(inline=true,required=false,entry="containedTemplate")
+	private List<ContainedTemplate> containedTemplateConstraints = new ArrayList<ContainedTemplate>();
 	
 	/**
 	 * <p>The default constructor.
@@ -151,6 +157,21 @@ public class PackageLocation implements Categorizable, HasDifferences, Named, Do
 		return this.category;
 	}
 	
+	public String getTemplateOid() {
+		return templateOid;
+	}
+	public void setTemplateOid(String templateOid) {
+		this.templateOid = templateOid;
+	}
+	public String getImpliedTemplateOid() {
+		return impliedTemplateOid;
+	}
+	public void setImpliedTemplateOid(String impliedTemplateOid) {
+		this.impliedTemplateOid = impliedTemplateOid;
+	}
+	public List<ContainedTemplate> getContainedTemplateConstraints() {
+		return containedTemplateConstraints;
+	}
 	/**
 	 * Tracks package location differences for regen 
 	 * 

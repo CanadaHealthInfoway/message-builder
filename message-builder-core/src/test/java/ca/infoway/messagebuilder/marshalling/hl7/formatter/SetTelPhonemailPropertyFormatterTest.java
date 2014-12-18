@@ -35,9 +35,11 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class SetTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, null, false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new SetPropertyFormatter(this.formatterRegistry).format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, null, false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				new SETImpl<TEL, TelecommunicationAddress>(
 						TELImpl.class, 
 						NullFlavor.NO_INFORMATION));
@@ -46,7 +48,7 @@ public class SetTelPhonemailPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new SetPropertyFormatter().format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_03, null, null, null),
+		String result = new SetPropertyFormatter(this.formatterRegistry).format(new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TEL.PHONEMAIL>", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_03, null, null, null, false),
 				SETImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, makeTelecommunicationAddressSet("Fred")));
 		assertXml("non null", "<blah specializationType=\"TEL.PHONE\" value=\"mailto:Fred\" xsi:type=\"TEL\"/>", result);

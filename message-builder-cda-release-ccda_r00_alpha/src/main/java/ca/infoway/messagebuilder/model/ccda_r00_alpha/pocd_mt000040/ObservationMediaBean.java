@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassObservation;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
@@ -60,7 +60,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CS_R2 languageCode = new CS_R2Impl();
-    private ED<EncapsulatedDataR2> value = new EDImpl<EncapsulatedDataR2>();
+    private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
@@ -211,7 +211,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"value"})
-    public EncapsulatedDataR2 getValue() {
+    public EncapsulatedData getValue() {
         return this.value.getValue();
     }
 
@@ -220,7 +220,7 @@ public class ObservationMediaBean extends MessagePartBean implements EntryChoice
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setValue(EncapsulatedDataR2 value) {
+    public void setValue(EncapsulatedData value) {
         this.value.setValue(value);
     }
 

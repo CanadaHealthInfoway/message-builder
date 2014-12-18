@@ -49,18 +49,35 @@ public class PeriodicIntervalTimeR2 extends MbDate implements Serializable {
 	private PhysicalQuantity period;
 	private CalendarCycle alignment;
 	private Boolean institutionSpecified;
+	private Integer frequencyRepetitions;
+	private PhysicalQuantity frequencyQuantity;
 
 	public PeriodicIntervalTimeR2(Interval<Date> phase, PhysicalQuantity period) {
-		this(phase, period, null, null);
+		this(phase, period, null, null, null, null);
 	}
 	
-	public PeriodicIntervalTimeR2(Interval<Date> phase, PhysicalQuantity period, CalendarCycle alignment, Boolean institutionSpecified) {  
+	public PeriodicIntervalTimeR2(Integer frequencyRepetitions, PhysicalQuantity frequencyQuantity) {
+		this(null, null, null, null, frequencyRepetitions, frequencyQuantity);
+	}
+	
+	public PeriodicIntervalTimeR2(Interval<Date> phase, PhysicalQuantity period, CalendarCycle alignment, Boolean institutionSpecified, Integer frequencyRepetitions, PhysicalQuantity frequencyQuantity) {  
 		this.period = period;
 		this.phase = phase;
 		this.alignment = alignment;
 		this.institutionSpecified = institutionSpecified;
+		this.frequencyRepetitions = frequencyRepetitions;
+		this.frequencyQuantity = frequencyQuantity;
 	}
 
+	public static PeriodicIntervalTimeR2 createFromPivlR1(PeriodicIntervalTime pivlR1) {
+		DateDiff period = pivlR1.getPeriod();
+		PhysicalQuantity periodPq = (period != null ? period.getValueAsPhysicalQuantity() : null);
+		Interval<Date> phase = pivlR1.getPhase();
+		PhysicalQuantity quantity = pivlR1.getQuantity();
+		Integer repetitions = pivlR1.getRepetitions();
+		return new PeriodicIntervalTimeR2(phase, periodPq, null, null, repetitions, quantity);
+	}
+	
     public Interval<Date> getPhase() {
 		return phase;
 	}
@@ -93,6 +110,22 @@ public class PeriodicIntervalTimeR2 extends MbDate implements Serializable {
 		this.institutionSpecified = institutionSpecified;
 	}
 
+	public Integer getFrequencyRepetitions() {
+		return frequencyRepetitions;
+	}
+
+	public void setFrequencyRepetitions(Integer frequencyRepetitions) {
+		this.frequencyRepetitions = frequencyRepetitions;
+	}
+
+	public PhysicalQuantity getFrequencyQuantity() {
+		return frequencyQuantity;
+	}
+
+	public void setFrequencyQuantity(PhysicalQuantity frequencyQuantity) {
+		this.frequencyQuantity = frequencyQuantity;
+	}
+
 	@Override
     public int hashCode() {
         return new HashCodeBuilder()
@@ -100,6 +133,8 @@ public class PeriodicIntervalTimeR2 extends MbDate implements Serializable {
                 .append(this.phase)
                 .append(this.alignment)
                 .append(this.institutionSpecified)
+                .append(this.frequencyRepetitions)
+                .append(this.frequencyQuantity)
                 .toHashCode();
     }
 
@@ -120,6 +155,8 @@ public class PeriodicIntervalTimeR2 extends MbDate implements Serializable {
                 .append(this.phase, that.phase)
                 .append(this.alignment, that.alignment)
                 .append(this.institutionSpecified, that.institutionSpecified)
+                .append(this.frequencyRepetitions, that.frequencyRepetitions)
+                .append(this.frequencyQuantity, that.frequencyQuantity)
                 .isEquals();
     }
 	

@@ -20,7 +20,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.constraints;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
+import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public class IiConstraintsHandler {
@@ -35,8 +35,8 @@ public class IiConstraintsHandler {
 			return;
 		}
 		
-		String newRoot = constraintsHandler.validateConstraint("root", identifier.getRoot(), true, constraints, logger);
-		String newExtension = constraintsHandler.validateConstraint("extension", identifier.getExtension(), true, constraints, logger);
+		String newRoot = constraintsHandler.validateConstraint("root", identifier.getRoot(), constraints, logger);
+		String newExtension = constraintsHandler.validateConstraint("extension", identifier.getExtension(), constraints, logger);
 		
 		identifier.setRoot(newRoot);
 		identifier.setExtension(newExtension);

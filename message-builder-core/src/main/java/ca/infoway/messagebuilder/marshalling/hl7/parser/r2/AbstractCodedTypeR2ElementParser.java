@@ -40,18 +40,19 @@ import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.CodeLookupUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.EdElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -74,7 +75,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 	private CodeLookupUtils codeLookupUtils = new CodeLookupUtils();
 	private SxcmR2ElementParserHelper operatorHelper = new SxcmR2ElementParserHelper();
 	private IvlTsR2ElementParser validTimeParser = new IvlTsR2ElementParser();
-	private EdR2ElementParser edParser = new EdR2ElementParser();
+	private EdElementParser edParser = new EdElementParser(new TelR2ElementParser(), true);
 	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
 	@Override
@@ -290,7 +291,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 				ParseContext newContext = ParseContextImpl.create("ED", context);
 				BareANY parsedOriginalText = this.edParser.parse(newContext, originalTextElements.get(0), result);
 				if (parsedOriginalText != null) {
-					codedType.setOriginalText((EncapsulatedDataR2) parsedOriginalText.getBareValue());
+					codedType.setOriginalText((EncapsulatedData) parsedOriginalText.getBareValue());
 				}
 			}
     	} else {

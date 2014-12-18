@@ -60,7 +60,7 @@ public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name, String type, VersionNumber version) {
-		return new FormatContextImpl(this.result, null, name, type, ConformanceLevel.POPULATED, null, false, version, null, null, null);
+		return new FormatContextImpl(this.result, null, name, type, ConformanceLevel.POPULATED, null, false, version, null, null, null, false);
 	}
 	
 	@Test
@@ -251,7 +251,7 @@ public class IvlTsFullDatePropertyFormatterTest extends FormatterTestCase {
 		IVLImpl<QTY<Date>, Interval<Date>> hl7DataType = new IVLImpl<QTY<Date>, Interval<Date>>(interval);
 		hl7DataType.setDataType(StandardDataType.IVL_FULL_DATE);
 		
-		String result = this.formatter.format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = this.formatter.format(new FormatContextImpl(this.result, null, "name", "IVL<TS.FULLDATEWITHTIME>", ConformanceLevel.POPULATED, null, false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				hl7DataType);
 		assertTrue(this.result.isValid());
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\"><low value=\"20061225\"/><high value=\"20070102\"/></name>", result);

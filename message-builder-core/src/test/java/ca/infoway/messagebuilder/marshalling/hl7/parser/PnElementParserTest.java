@@ -58,7 +58,7 @@ public class PnElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParseContextImpl.create(type, PersonName.class, version, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create(type, PersonName.class, version, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test

@@ -39,7 +39,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.Describable;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeResolver;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeResolver;
 
 /**
  * An identifier for a business concept that is used in a

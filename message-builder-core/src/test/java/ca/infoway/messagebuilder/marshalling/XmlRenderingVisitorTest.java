@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
@@ -241,6 +241,19 @@ public class XmlRenderingVisitorTest {
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\" negationInd=\"true\"/>", xml);
 	}
 
+	@Test
+	public void shouldRenderDefaultValueStructuralAttribute() throws Exception {
+		this.attributeBridge.setValue(null);
+		
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAttribute(this.attributeBridge, createDefaultValueStructuralRelationship(), null, null, null, null);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\" classCode=\"ACT\"/>", xml);
+	}
+	
 	private Relationship createStructuralRelationship() {
 		Relationship relationship = new Relationship();
 		relationship.setName("negationInd");
@@ -258,6 +271,16 @@ public class XmlRenderingVisitorTest {
 		return relationship;
 	}
 
+	private Relationship createDefaultValueStructuralRelationship() {
+		Relationship relationship = new Relationship();
+		relationship.setName("classCode");
+		relationship.setDefaultValue("ACT");
+		relationship.setType(StandardDataType.CS.getType());
+		relationship.setStructural(true);
+		relationship.setConformance(ConformanceLevel.MANDATORY);
+		return relationship;
+	}
+	
 	@Test
 	public void shouldRenderSimpleAssociation() throws Exception {
 		Relationship relationship = createSimpleAssociationRelationship();

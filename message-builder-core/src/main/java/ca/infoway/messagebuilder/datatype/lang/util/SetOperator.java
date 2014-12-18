@@ -44,6 +44,17 @@ public class SetOperator extends EnumPattern implements Code {
 	
 	private final String codeValue;
 
+	public static SetOperator findMatchingOperator(String operatorString) {
+		SetOperator result = null;
+		for (SetOperator setOperator : EnumPattern.values(SetOperator.class)) {
+			if (setOperator.getCodeValue().equals(operatorString)) {
+				result = setOperator;
+				break;
+			}
+		}
+		return result;
+	}
+
 	private SetOperator(String name, String codeValue) {
 		super(name);
 		this.codeValue = codeValue;

@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 /**
  * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH; added for BC: ANY.X1, ANY.X2
  * 
@@ -41,6 +42,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH", "ANY.x1", "ANY.x2"})
 public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Object> {
 
+	private final PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
+
 	@Override
 	public String format(FormatContext formatContext, BareANY hl7Value, int indentLevel) {
 		String specializationType = hl7Value.getDataType().getType();
@@ -50,7 +53,8 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 			// specializationType has been determined to be an ANY variant; this (most likely) means specializationType has not been specified, so don't do any special processing  
 			return super.format(formatContext, hl7Value, indentLevel);
 		} else {
-			PropertyFormatter formatter = FormatterRegistry.getInstance().get(specializationType);
+			String mappedSpecializationType = this.polymorphismHandler.mapCdaR1Type(hl7Value.getDataType(), formatContext.isCda());
+			PropertyFormatter formatter = FormatterRegistry.getInstance().get(mappedSpecializationType);
 			String parentType = formatContext.getType();
 			if (formatter == null || !AnyHelper.isValidTypeForAny(parentType, specializationType)) {
 				String errorText = "Cannot support properties of type " + specializationType + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
@@ -63,7 +67,7 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 								formatContext.getModelToXmlResult(), 
 								formatContext.getPropertyPath(), 
 								formatContext.getElementName(), 
-								specializationType,
+								mappedSpecializationType,
 								type.isCoded() ? "Code" : formatContext.getDomainType(),
 								formatContext.getConformanceLevel(), 
 								formatContext.getCardinality(), 
@@ -72,7 +76,8 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 								formatContext.getDateTimeZone(), 
 								formatContext.getDateTimeTimeZone(),
 								null,
-								formatContext.getConstraints()), // yes, pass constraints down
+								formatContext.getConstraints(), // yes, pass constraints down
+								formatContext.isCda()),
 						hl7Value, 
 						indentLevel);
 			}

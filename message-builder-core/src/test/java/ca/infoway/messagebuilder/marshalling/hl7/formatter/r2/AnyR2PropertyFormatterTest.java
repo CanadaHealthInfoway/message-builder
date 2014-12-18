@@ -62,7 +62,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 	public void testPq() throws Exception {
 		Object quantity = createQuantity("12", ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.GRAM);
 		ANYImpl<Object> pqImpl = new ANYImpl<Object>(quantity, null, StandardDataType.PQ);
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pqImpl, 0);
 		assertXml("result", "<name unit=\"g\" value=\"12\" xsi:type=\"PQ\"/>", result);
 		
 	}
@@ -72,7 +72,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 		Date date = DateUtil.getDate(2003, 2, 27);
 		DateWithPattern dateWithPattern = new DateWithPattern(date, "yyyyMMdd");
 		ANYImpl<Object> tsImpl = new ANYImpl<Object>(new MbDate(dateWithPattern), null, StandardDataType.TS);
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), tsImpl, 0);
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), tsImpl, 0);
 		assertXml("result", "<name value=\"20030327\" xsi:type=\"TS\"/>", result);
 		
 	}
@@ -81,7 +81,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 	public void testPn() throws Exception {
 		PersonName name = PersonName.createFirstNameLastName("John", "Smith");
 		ANYImpl<Object> pnImpl = new ANYImpl<Object>(name, null, StandardDataType.PN);
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pnImpl, 0);
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pnImpl, 0);
 		assertXml("result", "<name use=\"L\" xsi:type=\"PN\"><given>John</given><family>Smith</family></name>", result);
 		
 	}
@@ -91,7 +91,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 		String myString = "some value";
 		ANYImpl<Object> stImpl = new ANYImpl<Object>(myString, null, StandardDataType.ST);
 		stImpl.setLanguage("en-CA");
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), stImpl, 0);
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), stImpl, 0);
 		assertXml("result", "<name language=\"en-CA\" xsi:type=\"ST\">some value</name>", result);
 	}
 
@@ -100,7 +100,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 		ANYImpl<Object> pqImpl = new ANYImpl<Object>(null, NullFlavor.UNKNOWN, StandardDataType.PQ);
 		pqImpl.setOriginalText("orig text");
 		
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null), pqImpl, 0);
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), pqImpl, 0);
 		assertXml("result", "<name nullFlavor=\"UNK\"/>", result);
 		assertTrue(this.result.isValid());
 	}
@@ -121,7 +121,7 @@ public class AnyR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNullCase() throws Exception {
 		ANYImpl<Object> urgImpl = new ANYImpl<Object>(null, null, StandardDataType.AD);
-		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null), 
+		String result = new AnyR2PropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "ANY", null, null, false), 
 				urgImpl, 0);
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 	}

@@ -55,6 +55,7 @@ import ca.infoway.messagebuilder.xml.delta.CardinalityConstraint;
 import ca.infoway.messagebuilder.xml.delta.ClassDelta;
 import ca.infoway.messagebuilder.xml.delta.CloneConstraint;
 import ca.infoway.messagebuilder.xml.delta.ConformanceConstraint;
+import ca.infoway.messagebuilder.xml.delta.Constraint;
 import ca.infoway.messagebuilder.xml.delta.ConstraintChangeType;
 import ca.infoway.messagebuilder.xml.delta.DatatypeConstraint;
 import ca.infoway.messagebuilder.xml.delta.Delta;
@@ -147,6 +148,10 @@ public class CdaTemplateProcessor {
 			}
 		}
 		
+		copyInheritedConstraints(templateExport);		
+	}
+
+	private void copyInheritedConstraints(TemplateExport templateExport) {
 		for (CdaTemplate cdaTemplate : templateExport.getTemplates()) {
 			if (cdaTemplate.getImpliedTemplateOid() != null) {
 				Template template = this.templateSet.getByOid(cdaTemplate.getOid());
@@ -157,11 +162,50 @@ public class CdaTemplateProcessor {
 					Delta delta = template.getDelta(parentDelta.getDeltaChangeType(), targetClassName, parentDelta.getRelationshipName());
 					if (delta == null) {
 						template.cloneDelta(parentDelta);
+					} else {
+						copyInheritedChoiceOptions(delta, parentDelta, template);
 					}
 				}
 			}
 			
-		}		
+		}
+	}
+
+	private void copyInheritedChoiceOptions(Delta delta, Delta parentDelta,
+			Template template) {
+		Set<String> targetOptions = new HashSet<String>();
+		List<Constraint> targetConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+		Constraint defaultConstraint = null;
+		for (Constraint targetConstraint : targetConstraints) {
+			AddChoiceConstraint targetAddChoiceConstraint = (AddChoiceConstraint) targetConstraint;
+			targetOptions.add(targetAddChoiceConstraint.getChoiceClassName());
+			if (isDefaultChoice(targetAddChoiceConstraint)) {
+				// Pull the default out. We'll restore it later. This preserves the ordering.
+				defaultConstraint = targetAddChoiceConstraint;
+				delta.removeConstraint(targetAddChoiceConstraint);
+			}
+		}
+		
+		List<Constraint> parentConstraints = parentDelta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
+		for (Constraint parentConstraint : parentConstraints) {
+			AddChoiceConstraint parentAddChoiceConstraint = (AddChoiceConstraint) parentConstraint;
+			if (isDefaultChoice(parentAddChoiceConstraint)) {
+				continue;
+			}
+			
+			String targetChoiceName = convertName(parentAddChoiceConstraint.getChoiceClassName(), template.getPackageName());
+			if (!targetOptions.contains(targetChoiceName)) {
+				delta.addConstraint(new AddChoiceConstraint(targetChoiceName));
+			}
+		}
+		
+		if (defaultConstraint != null) {
+			delta.addConstraint(defaultConstraint);
+		}
+	}
+
+	private boolean isDefaultChoice(AddChoiceConstraint addChoiceConstraint) {
+		return StringUtils.startsWith(addChoiceConstraint.getChoiceClassName(), "POCD_MT000040.");
 	}
 
 	private void createMessageParts(Template template,
@@ -206,7 +250,19 @@ public class CdaTemplateProcessor {
 			if (nodeList != null) {
 				Relationship relationship = messagePart.getRelationship(nodeKey);
 				if (relationship != null) {
-					String associationType = relationship.getType();
+					
+					String associationType;
+					if (relationship.isChoice()) {
+						Relationship choiceOption = relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(nodeKey));
+						if (choiceOption != null) {
+							associationType = choiceOption.getType();
+						} else {
+							associationType = relationship.getType();
+						}
+					} else {
+						associationType = relationship.getType();
+					}
+					
 					MessagePart childPart = baseModel.getMessagePart(associationType);
 
 					if (nodeList.size() >= 1 && nodeList.get(0).getConstraint().isBranch()) {

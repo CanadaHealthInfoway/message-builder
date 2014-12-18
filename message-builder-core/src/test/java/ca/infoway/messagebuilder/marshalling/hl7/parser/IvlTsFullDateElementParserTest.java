@@ -40,9 +40,9 @@ import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -65,7 +65,7 @@ public class IvlTsFullDateElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type) throws XmlToModelTransformationException {
-		return (Interval<Date>) this.parser.parse(ParseContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, null, null, null), 
+		return (Interval<Date>) this.parser.parse(ParseContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, null, null, null, null, null, false), 
 				Arrays.asList(node), 
 				this.result).getBareValue();
 	}

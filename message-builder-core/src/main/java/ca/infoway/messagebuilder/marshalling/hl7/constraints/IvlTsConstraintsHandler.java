@@ -23,7 +23,7 @@ import java.util.Date;
 
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
+import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public class IvlTsConstraintsHandler {
@@ -50,9 +50,9 @@ public class IvlTsConstraintsHandler {
 		boolean hasSimpleValue = (interval.getValue() != null);  // a nullFlavor instead of a simpleValue would have been handled elsewhere 
 
 		// these are just doing existency checks
-		this.constraintsHandler.validateConstraint("low", hasLow ? "low" : null, true, constraints, logger);
-		this.constraintsHandler.validateConstraint("high", hasHigh ? "high" : null, true, constraints, logger);
-		this.constraintsHandler.validateConstraint("value", hasSimpleValue ? "value" : null, true, constraints, logger);
+		this.constraintsHandler.validateConstraint("low", hasLow ? "low" : null, constraints, logger);
+		this.constraintsHandler.validateConstraint("high", hasHigh ? "high" : null, constraints, logger);
+		this.constraintsHandler.validateConstraint("value", hasSimpleValue ? "value" : null, constraints, logger);
 	}
 
 }

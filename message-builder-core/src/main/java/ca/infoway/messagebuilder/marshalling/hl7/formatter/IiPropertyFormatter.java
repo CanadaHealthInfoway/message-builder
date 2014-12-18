@@ -39,10 +39,14 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiConstraintsHandler;
 
 /**
  * II - Installer Identifier
@@ -64,6 +68,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier> {
 
 	private static final IiValidationUtils iiValidationUtils = new IiValidationUtils();
+	private final IiConstraintsHandler constraintsHandler = new IiConstraintsHandler();
 	
     @Override
 	protected
@@ -87,7 +92,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 	private String handleSpecializationType(BareANY bareAny, FormatContext context, Map<String, String> result) {
 		String typeFromContext = context.getType();
 		String typeFromField = bareAny.getDataType() == null ? null : bareAny.getDataType().getType();
-    	if (iiValidationUtils.isSpecializationTypeRequired(context.getVersion(), typeFromContext)) {
+    	if (iiValidationUtils.isSpecializationTypeRequired(context.getVersion(), typeFromContext, context.isCda())) {
     		boolean validSpecializationType = isSpecializationTypeProvided(typeFromContext, typeFromField);
     		if (iiValidationUtils.isII(typeFromContext)) {
     			validSpecializationType &= concreteIiTypes.contains(typeFromField);
@@ -151,6 +156,19 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         	validateUnallowedAttribute("extension", ii.getExtension(), type, context);
         	validateUnallowedAttribute("version", ii.getVersion(), type, context);
         }
+		handleConstraints(ii, context);
+	}
+
+	private void handleConstraints(Identifier identifier, final FormatContext context) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				Hl7Errors errors = context.getModelToXmlResult();
+				String propertyPath = context.getPropertyPath();
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+		
+		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
 	}
 
 	private void validateMandatoryAttribute(String attributeName, String attributeValue, String type, FormatContext context) {
@@ -206,7 +224,9 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
 				validateRootAsOid(root, version, type, context);
-				validateExtensionForOid(extension, type.getName(), context);
+				if (!context.isCda()) {
+					validateExtensionForOid(extension, type.getName(), context);
+				}
 			} else {
 				validateRootAsUuid(root, version, type, context);
 				validateUnallowedAttribute("extension", extension, type.getName(), context);

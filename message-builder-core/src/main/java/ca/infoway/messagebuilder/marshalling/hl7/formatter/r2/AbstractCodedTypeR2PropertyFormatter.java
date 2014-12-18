@@ -39,16 +39,17 @@ import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractAttributePropertyFormatter;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -59,12 +60,12 @@ import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePropertyFormatter<CodedTypeR2<Code>> {
 
 	private final IvlTsR2PropertyFormatter ivlFormatter = new IvlTsR2PropertyFormatter();
-	private final EdR2PropertyFormatter edFormatter = new EdR2PropertyFormatter();
+	private final EdPropertyFormatter edFormatter = new EdPropertyFormatter(new TelR2PropertyFormatter(), true);
 	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
     @Override
     public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
-    	String result = super.format(context, hl7Value, indentLevel);
+    	String result = super.format(context, hl7Value, indentLevel); // also calls formatNonNullDataType, but only if no NullFlavor present
     	
     	// if the supplied value had a null flavor we still need to handle other properties (if present)
     	if (hl7Value != null && hl7Value.hasNullFlavor()) {
@@ -196,8 +197,8 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 	private void handleOriginalText(CodedTypeR2<? extends Code> codedType, int indentLevel, StringBuilder result, FormatContext context) {
 		if (hasOriginalText(codedType)) {
 			if (originalTextAllowed()) {
-				EncapsulatedDataR2 originalText = codedType.getOriginalText();
-				EDImpl<EncapsulatedDataR2> edAny = new EDImpl<EncapsulatedDataR2>(originalText);
+				EncapsulatedData originalText = codedType.getOriginalText();
+				EDImpl<EncapsulatedData> edAny = new EDImpl<EncapsulatedData>(originalText);
 				FormatContext newContext = new FormatContextImpl("ED", "originalText", context);
 				String formattedOriginalText = this.edFormatter.format(newContext, edAny, indentLevel);
 				if (StringUtils.isNotBlank(formattedOriginalText)) {

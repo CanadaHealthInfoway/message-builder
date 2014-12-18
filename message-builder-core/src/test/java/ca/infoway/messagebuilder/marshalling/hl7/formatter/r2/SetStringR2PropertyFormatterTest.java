@@ -35,26 +35,28 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetStringR2PropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterR2Registry formatterRegistry = FormatterR2Registry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new SetR2PropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, null), 
+		String result = new SetR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, null, false), 
 				new SETImpl<ST, String>(STImpl.class, NullFlavor.NO_INFORMATION));
         assertXml("null", "<blah nullFlavor=\"NI\"/>", result);
 	}
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new SetR2PropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("1-4")), 
+		String result = new SetR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("1-4"), false), 
 				SETImpl.<ST, String>create(STImpl.class, makeSet( "Fred", "Wilma" )));
 		assertXml("non null", "<blah>Fred</blah><blah>Wilma</blah>", result);
 	}
 
 	@Test
 	public void testFormatValueTooMany() throws Exception {
-		String result = new SetR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("1-2")), 
+		String result = new SetR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("1-2"), false), 
 				SETImpl.<ST, String>create(STImpl.class, makeSet( "Fred", "Wilma", "Barney" )));
 		Assert.assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size());
@@ -66,8 +68,8 @@ public class SetStringR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testFormatValueTooFew() throws Exception {
-		String result = new SetR2PropertyFormatter().format(
-				new FormatContextImpl(this.result, null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("4-6")), 
+		String result = new SetR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(this.result, null, "blah", "SET<ST>", ConformanceLevel.MANDATORY, Cardinality.create("4-6"), false), 
 				SETImpl.<ST, String>create(STImpl.class, makeSet( "Fred", "Wilma", "Barney" )));
 		Assert.assertFalse(this.result.isValid());
 		Assert.assertEquals(1, this.result.getHl7Errors().size());

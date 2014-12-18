@@ -27,11 +27,13 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorLevel;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -46,7 +48,7 @@ class NonStructuralHl7AttributeRenderer {
 		} else if (StringUtils.equals("ST", relationship.getType())) {
 			return fixedValue;
 		} else if (relationship.isCodedType()) {
-			Class<? extends Code> codeType = DomainTypeHelper.getReturnType(relationship, version);
+			Class<? extends Code> codeType = DomainTypeHelper.getReturnType(relationship, version, CodeTypeRegistry.getInstance());
 			if (codeType == null) {
 				codeType = Code.class;
 			}

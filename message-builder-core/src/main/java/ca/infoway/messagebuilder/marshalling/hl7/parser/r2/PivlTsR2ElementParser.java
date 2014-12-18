@@ -35,10 +35,10 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PeriodicIntervalTimeR2;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.CalendarCycle;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
@@ -68,7 +68,7 @@ class PivlTsR2ElementParser extends AbstractSingleElementParser<PeriodicInterval
 		
 		boolean institutionSpecified = obtainInstitutionSpecified(context, (Element) node, xmlToModelResult);
 		
-		return new PeriodicIntervalTimeR2(phase, period, alignment, institutionSpecified);
+		return new PeriodicIntervalTimeR2(phase, period, alignment, institutionSpecified, null, null);
 	}
 
 	protected PhysicalQuantity createPeriodType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {

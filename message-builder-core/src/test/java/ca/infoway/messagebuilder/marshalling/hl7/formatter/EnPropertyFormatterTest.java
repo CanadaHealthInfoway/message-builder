@@ -83,4 +83,18 @@ public class EnPropertyFormatterTest extends FormatterTestCase {
         		"<x xsi:type=\"PN\"><prefix>prefix</prefix><given>given</given></x>", 
         		formatter.format(getContext("x"), new ENImpl<EntityName>(name)).trim());
     }
+	
+	@Test
+    public void testFormatValueNoSpecializationType() throws Exception {
+        EnPropertyFormatter formatter = new EnPropertyFormatter();
+        
+        EntityName name = new EntityName();
+        name.addNamePart(new EntityNamePart("prefix", PersonNamePartType.PREFIX));
+        name.addNamePart(new EntityNamePart("given", PersonNamePartType.GIVEN));
+
+        assertEquals("result", 
+        		"<x><prefix>prefix</prefix><given>given</given></x>", 
+        		formatter.format(getContext("x"), new ENImpl<EntityName>(name)).trim());
+        System.out.println("");
+    }
 }

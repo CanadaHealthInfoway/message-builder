@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
 
@@ -90,6 +91,9 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 		return null;
 	}
 	public List<SchematronContext> getAllSchematronContexts(VersionNumber version) {
+		return null;
+	}
+	public List<PackageLocation> getAllPackageLocations(VersionNumber version) {
 		return null;
 	}
 }

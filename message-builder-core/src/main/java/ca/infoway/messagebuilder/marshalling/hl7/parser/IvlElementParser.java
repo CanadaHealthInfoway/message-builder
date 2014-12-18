@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode.DATA_TYPE_ERROR;
+import static ca.infoway.messagebuilder.error.Hl7ErrorCode.DATA_TYPE_ERROR;
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.POPULATED;
 
 import java.lang.reflect.Type;
@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IvlValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -224,15 +224,9 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 		ElementParser parser = ParserRegistry.getInstance().get(type);
 
 		if (parser != null) {
-			return parser.parse(ParseContextImpl.create(
+			return parser.parse(ParseContextImpl.createWithConstraints(
 					type,
-					null,
-					context.getVersion(),
-					context.getDateTimeZone(),
-					context.getDateTimeTimeZone(),
-					POPULATED, 
-					Cardinality.create("1"),
-					context.getConstraints()),
+					context),
 					Arrays.asList((Node) element), parseResult);
 		} else {
 			parseResult.addHl7Error(new Hl7Error(
@@ -276,12 +270,9 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 					ParseContext subContext = ParseContextImpl.create(
 							diffType.getType(),
 							PhysicalQuantity.class,
-							context.getVersion(),
-							context.getDateTimeZone(),
-							context.getDateTimeTimeZone(),
 							POPULATED, 
 							Cardinality.create("1"),
-							null);
+							context);
 					PhysicalQuantity quantity = (PhysicalQuantity) parser.parse(
 							subContext, Arrays.asList((Node) width), xmlToModelResult).getBareValue();
 

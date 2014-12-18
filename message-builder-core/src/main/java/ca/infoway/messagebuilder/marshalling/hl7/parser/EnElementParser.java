@@ -31,9 +31,10 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.ENImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 
@@ -52,22 +53,22 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 @DataTypeHandler("EN")
 class EnElementParser extends AbstractSingleElementParser<EntityName> {
 
-	private static OnElementParser onElementParser = new OnElementParser();
-	private static PnElementParser pnElementParser = new PnElementParser();
-	private static TnElementParser tnElementParser = new TnElementParser();
+	private OnElementParser onElementParser = new OnElementParser();
+	private PnElementParser pnElementParser = new PnElementParser();
+	private TnElementParser tnElementParser = new TnElementParser();
 	
-    private static final Map<String, NameParser> nameParsers = new HashMap<String, NameParser>();
-    static {
-		nameParsers.put("ON",  onElementParser);
-		nameParsers.put("PN",  pnElementParser);
-		nameParsers.put("TN",  tnElementParser);
+    private final Map<String, NameParser> nameParsers = new HashMap<String, NameParser>();
+    {
+		this.nameParsers.put("ON",  this.onElementParser);
+		this.nameParsers.put("PN",  this.pnElementParser);
+		this.nameParsers.put("TN",  this.tnElementParser);
     }
     
     @Override
 	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
     	EntityName result = null;
         
-    	// The incoming xml should specify a specializationType or xsi:type in order to determine how to process the field.
+    	// The incoming xml should specify a specializationType or xsi:type in order to determine how to process the field. (CDA/R1 does allow for EN)
     	// However, it should be possible to determine which concrete type to use by applying all known name parsers.
     	
     	String specializationType = getSpecializationType(node);
@@ -77,9 +78,9 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
     	
     	String upperCaseST = StringUtils.isBlank(specializationType) ? "" : specializationType.toUpperCase();
 		NameParser nameParser = nameParsers.get(upperCaseST);
-    	if (nameParser == null) {
+    	if (nameParser == null && StringUtils.isNotBlank(specializationType)) {
     		// log error based on bad ST/XT
-    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "EN fields require a specializationType and/or xsi:type specifying one of TN/PN/ON", (Element) node));
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not determine appropriate parser to use for EN specializationType/xsi:type of: " + specializationType, (Element) node));
     	}
     	
         if (nameParser != null && nameParser.isParseable(node, context)) {
@@ -104,7 +105,7 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
         	}
         	
         	// need to log warning - not able to parse name as expected
-    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "EN field could not be parsed as specified. Field has been handled as of type " + actualParserUsed, (Element) node));
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, Hl7ErrorLevel.WARNING, "EN field has been handled as type " + actualParserUsed, (Element) node));
         }
 
         return result;
@@ -114,4 +115,5 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new ENImpl<EntityName>();
 	}
+
 }

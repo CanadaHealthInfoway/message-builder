@@ -23,6 +23,10 @@ package ca.infoway.messagebuilder.marshalling.hl7;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
+
 /**
  * <p>An object that represents the result of transforming an object from HL7 XML format
  * to an object representation.  The result tends to contain two key items:

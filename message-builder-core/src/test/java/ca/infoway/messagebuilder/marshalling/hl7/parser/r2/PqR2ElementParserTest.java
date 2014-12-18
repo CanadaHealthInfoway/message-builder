@@ -61,7 +61,7 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 
 	private ParseContext createContext(String type, VersionNumber version) {
-		return ParseContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null);
+		return ParseContextImpl.create(type, PhysicalQuantity.class, version, null, null, null, null, null, false);
 	}
 
 	@Test
@@ -69,9 +69,7 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something/>");
 		PhysicalQuantity physicalQuantity = (PhysicalQuantity) new PqR2ElementParser().parse(createContext("PQ", V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertNotNull("PhysicalQuantity", physicalQuantity);
-		assertNull("quantity", physicalQuantity.getQuantity());
-		assertEquals("unit", "1", physicalQuantity.getUnit().getCodeValue());
+		assertNull("PhysicalQuantity", physicalQuantity);
 	}
 
 	@Test
@@ -79,9 +77,7 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something notvalue=\"\" />");
 		PhysicalQuantity physicalQuantity = (PhysicalQuantity) new PqR2ElementParser().parse(createContext("PQ", V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertNotNull("PhysicalQuantity", physicalQuantity);
-		assertNull("quantity", physicalQuantity.getQuantity());
-		assertEquals("unit", "1", physicalQuantity.getUnit().getCodeValue());
+		assertNull("PhysicalQuantity", physicalQuantity);
 	}
 
 	@Test
@@ -235,7 +231,7 @@ public class PqR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.xmlResult.isValid());
 		assertNotNull("PhysicalQuantity", physicalQuantity);
 		assertEquals("value", "1234.45", physicalQuantity.getQuantity().toString());
-		assertEquals("unit", "1", physicalQuantity.getUnit().getCodeValue());
+		assertNull("unit", physicalQuantity.getUnit());
 	}
 	
 	@Test

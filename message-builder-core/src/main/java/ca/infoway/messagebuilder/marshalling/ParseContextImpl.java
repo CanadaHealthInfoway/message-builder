@@ -24,6 +24,8 @@ import java.lang.reflect.Type;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.domainvalue.util.CodeTypeHandler;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -38,21 +40,21 @@ class ParseContextImpl implements ParseContext {
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
 	private final ConstrainedDatatype constraints;
+	private final CodeTypeHandler codeTypeHandler;
+	private final boolean isCda;
 
-	private ParseContextImpl(Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+	public ParseContextImpl(Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, CodeTypeHandler codeTypeHandler, boolean isCda) {
 		this.relationship = relationship;
 		this.constraints = constraints;
 		this.version = version;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
-	}
-
-	public static ParseContext create(Relationship relationship, ConstrainedDatatype constraints, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
-		return new ParseContextImpl(relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
+		this.codeTypeHandler = codeTypeHandler;
+		this.isCda = isCda;
 	}
 
 	public Type getExpectedReturnType() {
-		return DomainTypeHelper.getReturnType(this.relationship, this.version);
+		return DomainTypeHelper.getReturnType(this.relationship, this.version, this.codeTypeHandler);
 	}
 
 	public String getType() {
@@ -87,6 +89,10 @@ class ParseContextImpl implements ParseContext {
 	
 	public ConstrainedDatatype getConstraints() {
 		return this.constraints;
+	}
+
+	public boolean isCda() {
+		return isCda;
 	}
 
 }

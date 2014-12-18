@@ -25,14 +25,39 @@ import java.util.Collection;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareCollection;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
+import ca.infoway.messagebuilder.marshalling.hl7.Registry;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler.ConstraintResult;
+import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Collection<BareANY>> {
 
+	private final Registry<PropertyFormatter> formatterRegistry;
+
+	private final boolean isR2;
+
+	public BaseCollectionPropertyFormatter(Registry<PropertyFormatter> formatterRegistry, boolean isR2) {
+		this.formatterRegistry = formatterRegistry;
+		this.isR2 = isR2;
+	}
+	
+	// only checking II constraints for now
+	private IiCollectionConstraintHandler constraintHandler = new IiCollectionConstraintHandler();
+	
+	private PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
+	
 	protected FormatContext createSubContext(FormatContext context) {
 		return new FormatContextImpl(
 				context.getModelToXmlResult(),
@@ -47,7 +72,23 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 				context.getDateTimeZone(), 
 				context.getDateTimeTimeZone(), 
 				null,
-				null); // constraints are not passed down from collection attributes
+				null, // constraints are not passed down from collection attributes
+				context.isCda());
+	}
+	
+	@Override
+	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
+    	handleConstraints(getSubType(context), context.getConstraints(), convertToCollection(hl7Value), context);
+		return super.format(context, hl7Value, indentLevel);
+	}
+
+	@SuppressWarnings("unchecked")
+	private Collection<BareANY> convertToCollection(BareANY hl7Value) {
+		Object bareValue = (hl7Value == null ? null : hl7Value.getBareValue());
+		if (bareValue instanceof Collection<?>) {
+			return (Collection<BareANY>) bareValue;
+		}
+		return null;
 	}
 	
 	@Override
@@ -56,21 +97,50 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 		return collection.getBareCollectionValue();
 	}
 
-	protected String formatAllElements(FormatContext subContext, Collection<BareANY> collection, int indentLevel) {
+	protected String formatAllElements(FormatContext originalContext, FormatContext subContext, Collection<BareANY> collection, int indentLevel) {
     	StringBuilder builder = new StringBuilder();
 
-    	validateCardinality(subContext, collection);
+    	validateCardinality(originalContext, collection);
     	
-    	PropertyFormatter formatter = FormatterRegistry.getInstance().get(subContext.getType());
+    	PropertyFormatter formatter = this.formatterRegistry.get(subContext.getType());
     	if (collection.isEmpty()) {
     		builder.append(formatter.format(subContext, null, indentLevel));
     	} else {
-	        for (BareANY element : EmptyIterable.<BareANY>nullSafeIterable(collection)) {
-	        	// TODO - compare "element" type with subcontext datatype - if different, need to re-build a subcontext
-				builder.append(formatter.format(subContext, (BareANY) element, indentLevel));
+	        for (BareANY hl7Value : EmptyIterable.<BareANY>nullSafeIterable(collection)) {
+	    		String type = determineActualType(subContext.getType(), hl7Value, originalContext.getModelToXmlResult(), originalContext.getPropertyPath(), originalContext.isCda());
+	    		
+	    		if (!StringUtils.equals(type, subContext.getType())) {
+	    			subContext = new FormatContextImpl(type, true, subContext);
+	    			formatter = this.formatterRegistry.get(type);
+	    		}
+	        	
+				builder.append(formatter.format(subContext, hl7Value, indentLevel));
 	        }
     	}
         return builder.toString();
+	}
+
+	private String determineActualType(String type, BareANY hl7Value, Hl7Errors errors, String propertyPath, boolean isCda) {
+		StandardDataType newTypeEnum = (hl7Value == null ? null : hl7Value.getDataType());
+		return this.polymorphismHandler.determineActualDataType(type, newTypeEnum, isCda, !this.isR2, createErrorLogger(propertyPath, errors));
+	}
+
+	private ErrorLogger createErrorLogger(final String propertyPath, final Hl7Errors errors) {
+		return new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
+			}
+		};
+	}
+
+	private void handleConstraints(String type, ConstrainedDatatype constraints, Collection<BareANY> collection, FormatContext context) {
+		ConstraintResult constraintResult = this.constraintHandler.checkConstraints(type, constraints, collection);
+		if (constraintResult != null && !constraintResult.isFoundMatch()) {
+			// there should be a match, but if not we need to create an II with the appropriate values and add to collection
+			Identifier identifier = constraintResult.getIdentifer();
+			collection.add(new IIImpl(identifier));
+			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_PROVIDED, Hl7ErrorLevel.INFO, "A fixed constraint was added for compliance: " + identifier, context.getPropertyPath()));
+		}
 	}
 
 	private void validateCardinality(FormatContext context, Collection<BareANY> collection) {

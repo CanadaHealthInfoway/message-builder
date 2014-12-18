@@ -22,10 +22,18 @@ package ca.infoway.messagebuilder.comparator;
 
 import java.io.File;
 
-import ca.infoway.messagebuilder.comparator.BeanAnalyzer.ErrorType;
-
 public class BeanAnalysisError {
 
+	// if adding interfaces or behaviour to this enum, please consider using enum pattern for translation purposes
+	public enum ErrorType {
+		EXTENDS, 
+		IMPLEMENTS, 
+		NO_CORRESPONDING_CLASS, 
+		METHOD_NOT_FOUND, 
+		DIFFERENT_RETURN_TYPE, 
+		CLASS_NOT_PUBLIC;
+	}
+	
 	private final String errorMessage;
 	private final File file;
 	private final ErrorType errorType;

@@ -88,7 +88,7 @@ public abstract class FormatterTestCase {
 	}
 
 	protected FormatContext getContext(String name, String type, VersionNumber version) {
-		return new FormatContextImpl(this.result, null, name, type, null, null, false, version, null, null, null);
+		return new FormatContextImpl(this.result, null, name, type, null, null, false, version, null, null, null, false);
 	}
 
     protected final Set<Code> makeSet(Code... codes) {

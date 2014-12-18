@@ -20,40 +20,40 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_COMPRESSION;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_LANGUAGE;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_MEDIA_TYPE;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_REPRESENTATION;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ATTRIBUTE_VALUE;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.ELEMENT_REFERENCE;
-import static ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils.REPRESENTATION_B64;
-
 import java.lang.reflect.Type;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CompressedData;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
-import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
+import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
+import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
-import ca.infoway.messagebuilder.platform.Base64;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.EdConstraintsHandler;
+import ca.infoway.messagebuilder.util.xml.XmlRenderer;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
- * ED - Encapsulated Data (Document or Reference)
+ * ED (R2)- Encapsulated Data
  * 
  * Parses a ED element into an Encapsulated Data:
  * 
@@ -61,121 +61,24 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-ED
  *
- * This appears to be correct, although all of the examples name the outer element as "text".
- *
- * Note that there are many more variations on this datatype. HTML, XML and PDF data are
- * all supported. However the current schemas that we work with all define the document
- * as a String so plain text is all we support at the moment.
  */
 @DataTypeHandler("ED")
-class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
+@SuppressWarnings("deprecation")
+public class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 
-	private EdValidationUtils edValidationUtils = new EdValidationUtils();
-
-	@Override
-	protected EncapsulatedData parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToModelResult) {
-		validateMaxChildCount(context, node, StandardDataType.ED_DOC.getType().equals(context.getType()) ? 2 : 1);
-		try {
-			return parse((Element) node, context, xmlToModelResult);
-		} catch (RuntimeException e) {
-			throw new XmlToModelTransformationException(e);
-		}
+	private final AbstractSingleElementParser<TelecommunicationAddress> telParser;
+	private final EdConstraintsHandler constraintsHandler = new EdConstraintsHandler();
+	private final EdValidationUtils edValidationUtils = new EdValidationUtils();
+	
+	private final boolean isR2;
+	
+	public EdElementParser() {
+		this(new TelElementParser(true), false); // R1
 	}
 
-	private EncapsulatedData parse(Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
-		
-		String specializationType = parseSpecializationType(element);
-		Compression compression = parseCompression(element);
-		x_DocumentMediaType mediaType = parseMediaType(element);
-		String language = parseLanguage(element);
-		String representation = parseRepresentation(element);
-		String reference = parseReference(element);
-		byte[] content = parseContent(element, representation);
-
-		validate(specializationType, compression, mediaType, language, representation, reference, content, element, context, xmlToModelResult);
-		
-		if (compression != null) {
-			return new CompressedData(mediaType, reference, content, compression, language);
-		} else if (mediaType != null || reference != null || content != null) {
-			return new EncapsulatedData(mediaType, reference, language, content);
-		} else {
-			return null;
-		}
-	}
-
-	private void validate(String specializationType, Compression compression, x_DocumentMediaType mediaType, String language, String representation, String reference, byte[] content, 
-			Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
-
-		Hl7BaseVersion baseVersion = context.getVersion().getBaseVersion();
-		String type = context.getType();
-		Hl7Errors errors = xmlToModelResult;
-		
-		boolean hasCompression = element.hasAttribute(ATTRIBUTE_COMPRESSION);
-		
-		this.edValidationUtils.doValidate(specializationType, compression, hasCompression, mediaType, language, representation, reference, content, baseVersion, type, element, null, errors);
-		
-	}
-
-	private byte[] parseContent(Element element, String representation) {
-		byte[] content = null;
-		String text = NodeUtil.getTextValue(element, false);
-		if (!StringUtils.isBlank(text)) {
-			if (REPRESENTATION_B64.equalsIgnoreCase(representation)) {
-				content = Base64.decodeBase64String(text);
-			} else {
-				content = text.getBytes();
-			}
-		}
-		return content;
-	}
-
-	private String parseRepresentation(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_REPRESENTATION)) {
-			return element.getAttribute(ATTRIBUTE_REPRESENTATION);
-		}
-		return null;
-	}
-
-	private String parseReference(Element element) {
-		if (element.hasAttribute(ELEMENT_REFERENCE)) {
-			// this format of ED is no longer correct (for any HL7v3 version), contrary to what V01R04.3 and V02R02 data type specifications state
-			return element.getAttribute(ELEMENT_REFERENCE);
-		} else {
-			// look for newer format for providing reference within a "value" attribute of a "reference" element
-			NodeList elements = element.getElementsByTagName(ELEMENT_REFERENCE);
-			if (elements.getLength() == 1) {
-				Element reference = (Element) elements.item(0);
-				if (reference.hasAttribute(ATTRIBUTE_VALUE)) {
-					return reference.getAttribute(ATTRIBUTE_VALUE);
-				}
-			}
-		}
-		return null;
-	}
-
-	private String parseSpecializationType(Element element) {
-		return getSpecializationType(element);
-	}
-
-	private String parseLanguage(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_LANGUAGE)) {
-			return element.getAttribute(ATTRIBUTE_LANGUAGE);
-		}
-		return null;
-	}
-
-	private Compression parseCompression(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_COMPRESSION)) {
-			return Compression.get(element.getAttribute(ATTRIBUTE_COMPRESSION));
-		}
-		return null;
-	}
-
-	private x_DocumentMediaType parseMediaType(Element element) {
-		if (element.hasAttribute(ATTRIBUTE_MEDIA_TYPE)) {
-			return X_DocumentMediaType.get(element.getAttribute(ATTRIBUTE_MEDIA_TYPE));
-		}
-		return null;
+	public EdElementParser(AbstractSingleElementParser<TelecommunicationAddress> telParser, boolean isR2) {
+		this.isR2 = isR2;
+		this.telParser = telParser;
 	}
 
 	@Override
@@ -183,5 +86,232 @@ class EdElementParser extends AbstractSingleElementParser<EncapsulatedData> {
 		return new EDImpl<EncapsulatedData>();
 	}
 
+	@Override
+	protected EncapsulatedData parseNonNullNode(ParseContext context, Node node, BareANY bareAny, Type expectedReturnType, XmlToModelResult result) {
+
+		Element element = (Element) node;
+		
+		EncapsulatedData ed = new EncapsulatedData();
+		if (!this.isR2 && element.hasAttribute("compression")) {
+			ed = new CompressedData();
+		}
+
+		handleRepresentation(ed, element, context, result);
+		handleMediaType(ed, element, result);
+		handleLanguage(ed, element, result);
+		handleCompression(ed, element, result);
+		handleIntegrityCheck(ed, element, context, result);
+		handleIntegrityCheckAlgorithm(ed, element, context, result);
+		
+		validateInnerNodes(element, result);
+		handleContent(ed, element, result, context);
+		handleReference(ed, element, result, context);
+		handleThumbnail(ed, element, result, context);
+		
+		handleConstraints(ed, context.getConstraints(), element, result);
+		
+		if (!this.isR2) {
+			validate(ed, element, context, result);
+		}
+		
+		if (ed.isEmpty()) {
+			ed = null;
+		}
+		
+		return ed;
+	}
+	
+	private void validate(EncapsulatedData ed, Element element, ParseContext context, XmlToModelResult xmlToModelResult) {
+		int contentSize = (ed.hasContent() ? 1 : 0);  // TODO - determine content size
+		this.edValidationUtils.doValidate(
+				element.hasAttribute(SPECIALIZATION_TYPE) ? element.getAttribute(SPECIALIZATION_TYPE) : null, 
+				ed.getCompression(), 
+				element.hasAttribute("compression"), 
+				ed.getMediaType(), 
+				ed.getLanguage(), 
+				element.hasAttribute("representation") ? element.getAttribute("representation") : null, 
+				!getNamedElements("reference", element).isEmpty() || (!this.isR2 && element.hasAttribute("reference")), 
+				ed.hasContent(), 
+				contentSize, 
+				context.getVersion().getBaseVersion(), 
+				context.getType(), 
+				element, 
+				null, 
+				xmlToModelResult);
+	}
+
+	private void handleConstraints(EncapsulatedData ed, ConstrainedDatatype constraints, final Element element, final Hl7Errors errors) {
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
+			}
+		};
+		this.constraintsHandler.handleConstraints(constraints, ed, logger);
+	}
+
+	private void handleContent(EncapsulatedData ed, Element element, XmlToModelResult result, ParseContext context) {
+		Node contentNode = determineContentNode(element, result);
+		if (contentNode != null) {
+	        if (contentNode.getNodeName().equals("#text")) {
+	        	// debatable whether the text content should be trimmed or not; trimming for now
+	        	ed.setTextContent(StringUtils.trim(contentNode.getTextContent()));
+	        } else if (contentNode.getNodeType() == Node.CDATA_SECTION_NODE) {
+	        	ed.setCdataContent(contentNode.getNodeValue());
+	        } else {
+	        	try {
+					Document doc = XmlRenderer.obtainDocumentFromNode(contentNode, true);
+					ed.setDocumentContent(doc);
+				} catch (ParserConfigurationException e) {
+					result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content: " + e.getMessage(), element));
+				}
+	        }
+		}
+	}
+
+	private void validateInnerNodes(Element element, Hl7Errors errors) {
+		// should come in the following order (ignoring empty text nodes)
+		// at most one reference
+		// at most one thumbnail
+		// at most one content node (text, CDATA, element)
+		int referenceCount = 0;
+		int thumbnailCount = 0;
+		int contentCount = 0;
+		boolean nodesOutOfOrder = false;
+		
+		NodeList childNodes = element.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if ("reference".equals(node.getNodeName())) {
+				if (thumbnailCount > 0 || contentCount > 0) {
+					nodesOutOfOrder = true;
+				}
+				referenceCount++;
+			} else if ("thumbnail".equals(node.getNodeName())) {
+				if (contentCount > 0) {
+					nodesOutOfOrder = true;
+				}
+				thumbnailCount++;
+			} else if (!isEmptyTextNode(node)) {
+				contentCount++;
+			}
+		}
+		
+		if (referenceCount > 1) {
+			recordError("ED types only allow a single reference. Found: " + referenceCount, element, errors);
+		}
+		if (thumbnailCount > 1) {
+			recordError("ED types only allow a single thumbnail. Found: " + thumbnailCount, element, errors);
+		}
+		if (contentCount > 1) {
+			recordError("ED only supports a single content node. Found: " + contentCount, element, errors);
+		}
+		if (nodesOutOfOrder) {
+			recordError("ED properties appear to be out of order. If provided, order must be (reference element, thumbnail element, content).", element, errors);
+		}
+	}
+
+	private Node determineContentNode(Element element, Hl7Errors errors) {
+		// skip reference element, thumbnail element, blank text nodes
+		Node firstContentNode = null;
+		NodeList childNodes = element.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName()) && !isEmptyTextNode(node)) {
+				firstContentNode = node;
+				break;
+			}
+		}
+		return firstContentNode;
+	}
+	
+    private boolean isEmptyTextNode(Node node) {
+        return node.getNodeName().equals("#text") && StringUtils.isBlank(node.getTextContent());
+	}
+
+	private void handleIntegrityCheckAlgorithm(EncapsulatedData ed, Element element, ParseContext context, XmlToModelResult result) {
+		if (element.hasAttribute("integrityCheckAlgorithm")) {
+			String icaString = element.getAttribute("integrityCheckAlgorithm");
+			try {
+				IntegrityCheckAlgorithm ica = IntegrityCheckAlgorithm.valueOf(icaString);
+				ed.setIntegrityCheckAlgorithm(ica);
+			} catch (Exception e) {
+				recordError("Unknown value for integrityCheckAlgorithm: " + icaString, element, result);
+			}
+		}
+	}
+
+	private void handleIntegrityCheck(EncapsulatedData ed, Element element, ParseContext context, XmlToModelResult result) {
+		if (element.hasAttribute("integrityCheck")) {
+			String icString = element.getAttribute("integrityCheck");
+			ed.setIntegrityCheck(icString);
+		}
+	}
+
+	private void handleReference(EncapsulatedData ed, Element element, XmlToModelResult xmlToModelResult, ParseContext context) {
+		List<Element> references = getNamedElements("reference", element);
+		if (references.isEmpty() && !this.isR2) {
+			if (element.hasAttribute("reference")) {
+				references.add(element);
+			}
+		}
+		
+		if (!references.isEmpty()) {
+			Element referenceElement = references.get(0);
+			ParseContext newContext = ParseContextImpl.create(this.isR2 ? "TEL" : "TEL.URI", context);
+			BareANY parsedRef = this.telParser.parse(newContext, referenceElement, xmlToModelResult);
+			if (parsedRef != null && parsedRef.getBareValue() != null) {
+				ed.setReferenceObj((TelecommunicationAddress) parsedRef.getBareValue());
+			}
+		}
+	}
+
+	private void handleRepresentation(EncapsulatedData ed, Element element, ParseContext context, XmlToModelResult result) {
+		if (element.hasAttribute("representation")) {
+			String representationString = element.getAttribute("representation");
+			try {
+				EdRepresentation representation = EdRepresentation.valueOf(representationString);
+				ed.setRepresentation(representation);
+			} catch (Exception e) {
+				recordError("Unknown value for representation: " + representationString, element, result);
+			}
+		}
+	}
+
+	private void handleThumbnail(EncapsulatedData ed, Element element, XmlToModelResult xmlToModelResult, ParseContext context) {
+		List<Element> thumbnails = getNamedElements("thumbnail", element);
+		
+		if (!thumbnails.isEmpty()) {
+			Element thumbnailElement = thumbnails.get(0);
+			ParseContext newContext = ParseContextImpl.create("ED", context);
+			BareANY parsedThumbnail = this.parse(newContext, thumbnailElement, xmlToModelResult);
+			EncapsulatedData edThumbnail = (EncapsulatedData) parsedThumbnail.getBareValue();
+			ed.setThumbnail(edThumbnail);
+			if (edThumbnail.getThumbnail() != null) {
+				recordError("ED thumbnail properties should not themselves also have a thumbnail." + thumbnails.size(), element, xmlToModelResult);
+			}
+		}
+	}
+
+	private void handleLanguage(EncapsulatedData ed, Element element, XmlToModelResult xmlToModelResult) {
+		if (element.hasAttribute("language")) {
+			ed.setLanguage(element.getAttribute("language"));
+		}
+	}
+
+	private void handleCompression(EncapsulatedData ed, Element element, XmlToModelResult xmlToModelResult) {
+		if (element.hasAttribute("compression")) {
+			ed.setCompression(Compression.get(element.getAttribute("compression")));
+		}
+	}
+
+	private void handleMediaType(EncapsulatedData ed, Element element, XmlToModelResult xmlToModelResult) {
+		if (element.hasAttribute("mediaType")) {
+			ed.setMediaType(X_DocumentMediaType.get(element.getAttribute("mediaType")));
+		}
+	}
+
+	private void recordError(String message, Element element, Hl7Errors errors) {
+		errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, element));
+	}
 	
 }

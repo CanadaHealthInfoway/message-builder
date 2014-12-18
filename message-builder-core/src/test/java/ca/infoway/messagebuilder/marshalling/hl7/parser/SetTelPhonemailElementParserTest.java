@@ -43,6 +43,8 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class SetTelPhonemailElementParserTest extends ParserTestCase {
 
+	private ParserRegistry parserRegistry = ParserRegistry.getInstance();
+	
 	@Test
 	public void testParse() throws Exception {
 		Node node = createNode("<top>" +
@@ -50,8 +52,8 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 				"<something specializationType=\"TEL.EMAIL\" value=\"mailto://Wilma\"/>" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V02R02, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				null);
 		Set<TelecommunicationAddress> set = ((SET<TEL,TelecommunicationAddress>) result).rawSet();
@@ -76,8 +78,8 @@ public class SetTelPhonemailElementParserTest extends ParserTestCase {
 				"<telecom specializationType=\"TEL.EMAIL\"  value=\"mailto:doctorLocation@doctor.org\"/>" +
 				"</top>");
 		
-		BareANY result = new SetElementParser().parse(
-				ParseContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null), 
+		BareANY result = new SetElementParser(this.parserRegistry).parse(
+				ParseContextImpl.create("SET<TEL.PHONEMAIL>", null, SpecificationVersion.V01R04_3, null, null, ConformanceLevel.MANDATORY, Cardinality.create("1-5"), null, false), 
 				asList(node.getChildNodes()), 
 				this.xmlResult);
 		

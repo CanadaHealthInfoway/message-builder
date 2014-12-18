@@ -34,12 +34,13 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 
 /**
  * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH; added for BC: ANY.X1, ANY.X2
@@ -57,6 +58,8 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
  */
 @DataTypeHandler({"ANY", "ANY.LAB", "ANY.CA.IZ", "ANY.PATH", "ANY.x1", "ANY.x2"})
 public class AnyElementParser extends AbstractSingleElementParser<Object> {
+
+	private final PolymorphismHandler polymorphismHandler = new PolymorphismHandler();
 
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -91,20 +94,16 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		String parentType = context == null ? null : context.getType();
 		String specializationType = obtainSpecializationType(parentType, node, xmlToModelResult);
 		if (StringUtils.isNotBlank(specializationType)) {
-			ElementParser elementParser = ParserRegistry.getInstance().get(specializationType);
+			String mappedSpecializationType = this.polymorphismHandler.mapCdaR1Type(StandardDataType.getByTypeName(specializationType), context.isCda());
+			ElementParser elementParser = ParserRegistry.getInstance().get(mappedSpecializationType);
 			if (elementParser == null || !isValidTypeForAny(parentType, specializationType)) {
 				xmlToModelResult.addHl7Error(Hl7Error.createInvalidTypeError(specializationType, parentType, (Element) node));
 			} else {
 				BareANY parsedValue = elementParser.parse(
-						ParseContextImpl.create(
-							specializationType,
+						ParseContextImpl.createWithConstraints(
+							mappedSpecializationType,
 							determineReturnType(specializationType, getReturnType(context)),
-							context.getVersion(),
-							context.getDateTimeZone(),
-							context.getDateTimeTimeZone(),
-							context.getConformance(), 
-							context.getCardinality(),
-							context.getConstraints()),
+							context),
 						Arrays.asList(node), 
 						xmlToModelResult);
 				result = parsedValue.getBareValue();

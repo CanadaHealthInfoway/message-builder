@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailType;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.model.common.GenericResponseMessageBean;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesCriteria;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesQueryMessageBean;

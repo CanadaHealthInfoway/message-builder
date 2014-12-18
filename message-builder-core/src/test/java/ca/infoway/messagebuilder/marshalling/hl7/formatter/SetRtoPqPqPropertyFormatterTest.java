@@ -46,6 +46,8 @@ import ca.infoway.messagebuilder.xml.Cardinality;
  */
 public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
+
 	@Before
 	public void setup() {
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
@@ -67,8 +69,8 @@ public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
         SETImpl<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>> set = new SETImpl<RTO<PhysicalQuantity,PhysicalQuantity>,Ratio<PhysicalQuantity,PhysicalQuantity>>(RTOImpl.class);
         set.rawSet().addAll(makeSet(ratio1, ratio2));
 
-		String result = new SetPropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, null),
+		String result = new SetPropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<RTO<PQ.DRUG,PQ.TIME>>", MANDATORY, Cardinality.create("1-4"), false, SpecificationVersion.R02_04_02, null, null, null, false),
 				set);
 
         assertXml("non null", "<blah><numerator unit=\"cm\" value=\"1\"/><denominator unit=\"cm3\" value=\"2\"/></blah><blah><numerator unit=\"mm\" value=\"10\"/><denominator unit=\"mm3\" value=\"11\"/></blah>", result);

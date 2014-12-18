@@ -40,18 +40,20 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class ListTelR2PropertyFormatterTest extends FormatterTestCase {
 
+	private FormatterR2Registry formatterRegistry = FormatterR2Registry.getInstance();
+
 	@Test
 	public void testFormatValueNull() throws Exception {
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, null), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, null, false), 
 				(BareANY) new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class));
 		assertXml("null", "", result);
 	}
 	
 	@Test
 	public void testFormatValueNonNull() throws Exception {
-		String result = new ListR2PropertyFormatter().format(
-				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null), 
+		String result = new ListR2PropertyFormatter(this.formatterRegistry).format(
+				new FormatContextImpl(new ModelToXmlResult(), null, "telecom", "LIST<TEL>", OPTIONAL, Cardinality.create("0-4"), false, SpecificationVersion.R02_04_03, null, null, null, false), 
 				(BareANY) LISTImpl.<TEL, TelecommunicationAddress>create(
 						TELImpl.class, 
 						createTelecommunicationAddressList()));

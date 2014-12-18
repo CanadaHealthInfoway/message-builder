@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.xml;
 
 import static ca.infoway.messagebuilder.xml.Hl7TypeName.parse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -36,4 +37,12 @@ public class Hl7TypeNameTest {
 		assertTrue("name", parse("RTO < PQ.DRUG, PQ.TIME >").equals(parse("RTO<PQ.DRUG,PQ.TIME>")));
 		assertFalse("different specialization", parse("RTO < PQ.DRUG, PQ >").equals(parse("RTO<PQ.DRUG,PQ.TIME>")));
 	}
+	
+	@Test
+	public void testRootNames() throws Exception {
+		Hl7TypeName nameWithSpecialization = Hl7TypeName.parse("IVL.LOW<TS.DATETIME>");
+		Hl7TypeName nameWithoutSpecialization = Hl7TypeName.parse("IVL<TS>");
+		assertEquals(nameWithoutSpecialization.toString(), nameWithSpecialization.getUnspecializedName());
+	}
+	
 }

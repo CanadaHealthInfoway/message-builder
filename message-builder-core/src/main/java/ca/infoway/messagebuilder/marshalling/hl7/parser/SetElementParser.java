@@ -29,13 +29,17 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.CollectionHelper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 
 @DataTypeHandler({"SET"})
 class SetElementParser extends SetOrListElementParser {
+
+	public SetElementParser(ParserRegistry parserRegistry) {
+		super(parserRegistry, false);
+	}
 
 	@Override
 	protected BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection) {

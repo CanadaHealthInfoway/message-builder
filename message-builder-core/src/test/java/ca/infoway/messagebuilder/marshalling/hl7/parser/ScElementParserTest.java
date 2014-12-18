@@ -66,7 +66,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
 	}
     
 	private ParseContext createContext() {
-		return ParseContextImpl.create("SC", CodedString.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("SC", CodedString.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
@@ -105,7 +105,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
     public void testParseTextNodeWithCodeAttributesSomeErrors() throws Exception {
         Node node = createNode("<something representation=\"TXT\" mediaType=\"text/plain\" code=\"AB\">text value</something>");
         CodedString<Code> result = (CodedString<Code>) new ScElementParser().parse(
-        		ParseContextImpl.create("SC", new CodedString<State>(null ,null).getClass(), SpecificationVersion.V02R02, null, null, null, null, null), 
+        		ParseContextImpl.create("SC", new CodedString<State>(null ,null).getClass(), SpecificationVersion.V02R02, null, null, null, null, null, false), 
         		node, 
         		this.xmlResult).getBareValue();
 		
@@ -118,7 +118,7 @@ public class ScElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseTextNodeWithCodeAttributes() throws Exception {
-        ParseContext context = ParseContextImpl.create("SC", MockCharacters.class, SpecificationVersion.V02R02, null, null, null, null, null);
+        ParseContext context = ParseContextImpl.create("SC", MockCharacters.class, SpecificationVersion.V02R02, null, null, null, null, null, false);
         
         Node node = createNode("<something code=\"FRED\" codeSystem=\"1.2.3.4.5\" displayName=\"some text\" codeSystemName=\"cs name\" codeSystemVersion=\"cs version\">text value</something>");
         

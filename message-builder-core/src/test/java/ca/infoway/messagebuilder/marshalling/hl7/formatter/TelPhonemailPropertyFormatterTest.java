@@ -40,8 +40,8 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 
@@ -72,7 +72,7 @@ public class TelPhonemailPropertyFormatterTest {
 	}
 
 	private FormatContextImpl createContext(String type, SpecificationVersion version) {
-		return new FormatContextImpl(this.xmlResult, null, "name", type, null, null, false, version, null, null, null);
+		return new FormatContextImpl(this.xmlResult, null, "name", type, null, null, false, version, null, null, null, false);
 	}
 
 	@Test

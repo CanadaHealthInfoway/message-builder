@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 
+@SuppressWarnings("deprecation")
 public class EncapsulatedDataDocumentXmlParserTest extends AbstractXmlParserTest<ED<EncapsulatedData>> {
 	
 //	<document mediaType="text/html" uri="http://www.i-proving.ca" compression="GZ" language="en">

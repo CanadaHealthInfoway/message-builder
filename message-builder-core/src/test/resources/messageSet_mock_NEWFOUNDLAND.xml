@@ -30348,7 +30348,7 @@
                      <annotation>RXR.1</annotation>
                   </documentation>
                </relationship>
-               <relationship name="approachSiteCode" type="SET&lt;CV&gt;" structural="false" domainType="ActSite" conformance="OPTIONAL" cardinality="0-5" sortOrder="6" codingStrength="CWE">
+               <relationship name="approachSiteCode" type="SET&lt;CD&gt;" structural="false" domainType="ActSite" conformance="OPTIONAL" cardinality="0-5" sortOrder="6" codingStrength="CWE">
                   <documentation>
                      <businessName>Administration Sites</businessName>
                      <annotation>A value denoting the body area where the medicine should be administered. E.g. &apos;Right Elbow&apos;, &apos;Left Ear&apos;. When multiples sites are specified they should be treated as &apos;AND&apos;.</annotation>

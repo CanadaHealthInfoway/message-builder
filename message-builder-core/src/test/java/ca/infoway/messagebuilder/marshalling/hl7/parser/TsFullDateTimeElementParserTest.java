@@ -37,9 +37,9 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -60,7 +60,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParseContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@Test
@@ -155,7 +155,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 	}
 	
 	private ParseContext createContextWithTimeZone(TimeZone timeZone) {
-		return ParseContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null, null, null);
+		return ParseContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null, null, null, false);
 	}
 	
 	/**

@@ -77,4 +77,8 @@ public class TrivialContext implements ParseContext {
 		return null;
 	}
 
+	public boolean isCda() {
+		return false;
+	}
+
 }

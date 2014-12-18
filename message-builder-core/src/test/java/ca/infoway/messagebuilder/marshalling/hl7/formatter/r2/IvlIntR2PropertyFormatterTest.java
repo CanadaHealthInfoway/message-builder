@@ -46,7 +46,7 @@ public class IvlIntR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Override
 	protected FormatContext getContext(String name) {
-		return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<INT>", ConformanceLevel.POPULATED, null);
+		return new FormatContextImpl(new ModelToXmlResult(), null, name, "IVL<INT>", ConformanceLevel.POPULATED, null, false);
 	}
 	
 	@Test

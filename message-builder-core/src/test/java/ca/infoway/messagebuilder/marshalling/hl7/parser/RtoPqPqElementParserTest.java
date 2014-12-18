@@ -52,7 +52,7 @@ public class RtoPqPqElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private ParseContext createContext() {
-		return ParseContextImpl.create("RTO<PQ.DRUG,PQ.DRUG>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null);
+		return ParseContextImpl.create("RTO<PQ.DRUG,PQ.DRUG>", Ratio.class, SpecificationVersion.V02R02, null, null, ConformanceLevel.POPULATED, null, null, false);
 	}
 
 	@SuppressWarnings("unchecked")

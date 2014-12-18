@@ -29,10 +29,18 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.xml.CodingStrength;
+import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
 
@@ -40,6 +48,7 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 	protected static final String CODE_SYSTEM_ATTRIBUTE_NAME = "codeSystem";
 
 	private static final CdValidationUtils CD_VALIDATION_UTILS = new CdValidationUtils();
+	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	
     @Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
@@ -57,11 +66,25 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
         	CD codeAsCd = (CD) cd;
         	String codeAsString = getAttributeValue(node, codeAttributeName);
 			CD_VALIDATION_UTILS.validateCodedType(codeAsCd, codeAsString, isCWE(context), isCNE(context), isTranslation, false, context.getType(), context.getVersion(), (Element) node, null, xmlToModelResult);
+			
+	    	handleConstraints(codeAsCd.getValue(), context.getConstraints(), (Element) node, xmlToModelResult);
         }
         
         return cd;
     }
 	
+	private void handleConstraints(Code code, ConstrainedDatatype constraints, final Element element, final Hl7Errors errors) {
+		// only code/codeSystem passed to constraints handler for now (only qualifier and codeSystem are currently checked for constraints)
+		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>(code);
+		ErrorLogger logger = new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
+			}
+		};
+
+		this.constraintsHandler.handleConstraints(constraints, codedType, logger);
+	}
+
 	private boolean isCNE(ParseContext context) {
 		return context.getCodingStrength() == CodingStrength.CNE;
 	}

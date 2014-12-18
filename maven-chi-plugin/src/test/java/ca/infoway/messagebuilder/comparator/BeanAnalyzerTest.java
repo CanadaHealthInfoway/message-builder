@@ -27,7 +27,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.comparator.BeanAnalyzer.ErrorType;
+import ca.infoway.messagebuilder.comparator.BeanAnalysisError.ErrorType;
 
 public class BeanAnalyzerTest {
 

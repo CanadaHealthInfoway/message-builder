@@ -21,11 +21,11 @@ package ca.infoway.messagebuilder.marshalling.hl7.constraints;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
+import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
-import ca.infoway.messagebuilder.marshalling.ErrorLogger;
+import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 public class EdConstraintsHandler {
@@ -35,23 +35,23 @@ public class EdConstraintsHandler {
 	public EdConstraintsHandler() {
 	}
 	
-	public void handleConstraints(ConstrainedDatatype constraints, EncapsulatedDataR2 ed, ErrorLogger logger) {
+	public void handleConstraints(ConstrainedDatatype constraints, EncapsulatedData ed, ErrorLogger logger) {
 		
 		if (ed == null || constraints == null) {
 			return;
 		}
 		
-		TelecommunicationAddress reference = ed.getReference();
+		TelecommunicationAddress reference = ed.getReferenceObj();
 		// ignoring any fixed value returned from reference constraints checking
-		this.constraintsHandler.validateConstraint("reference", reference == null ? null : "reference", true, constraints, logger);  // just checks if reference provided
+		this.constraintsHandler.validateConstraint("reference", reference == null ? null : "reference", constraints, logger);  // just checks if reference provided
 		if (reference != null) {
 			// only check this constraint if a reference has been provided (whether the reference was mandatory or not)
 			String referenceValue = reference.toString();
-			this.constraintsHandler.validateConstraint("reference.value", referenceValue, true, constraints, logger); // checks for actual value
+			this.constraintsHandler.validateConstraint("reference.value", referenceValue, constraints, logger); // checks for actual value
 		}
 		
 		String mediaType = ed.getMediaType() == null ? null : ed.getMediaType().getCodeValue();
-		String newMediaType = this.constraintsHandler.validateConstraint("mediaType", mediaType, true, constraints, logger);
+		String newMediaType = this.constraintsHandler.validateConstraint("mediaType", mediaType, constraints, logger);
 		if (!StringUtils.equals(mediaType, newMediaType)) {
 			x_DocumentMediaType newMediaTypeEnum = X_DocumentMediaType.get(newMediaType);
 			if (newMediaTypeEnum != null) {

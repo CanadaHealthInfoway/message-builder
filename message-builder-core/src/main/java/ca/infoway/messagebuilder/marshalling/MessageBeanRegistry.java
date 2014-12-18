@@ -20,30 +20,18 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.j5goodies.EnumeratedIterable.iterable;
-import static ca.infoway.messagebuilder.xml.service.ManifestMessageDefinitionService.MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE;
-import static java.util.Arrays.asList;
-import static org.apache.commons.lang.StringUtils.split;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.jar.Attributes;
-import java.util.jar.Manifest;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
@@ -52,6 +40,7 @@ import ca.infoway.messagebuilder.j5goodies.ClassPredicate;
 import ca.infoway.messagebuilder.j5goodies.Predicates;
 import ca.infoway.messagebuilder.marshalling.hl7.MessageTypeKey;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.util.ManifestLocater;
 
 /**
  * <p>A utility class that can be used to translate between Java model classes
@@ -76,7 +65,6 @@ public class MessageBeanRegistry {
 	
 	private final Map<MessageTypeKey,Class<? extends InteractionBean>> registry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<? extends InteractionBean>>());
 	private final Map<MessageTypeKey,Class<?>> partTypeRegistry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<?>>());
-	private final Map<MessageTypeKey,Class<?>> codeTypeRegistry = Collections.synchronizedMap(new HashMap<MessageTypeKey, Class<?>>());
 
 	private MessageBeanRegistry() {
 	}
@@ -102,27 +90,10 @@ public class MessageBeanRegistry {
 
 	private void initialize() {
 		ClassPredicate partTypePredicate = Predicates.hasAnnotationPredicate(Hl7PartTypeMapping.class);
-		ClassPredicate codeTypePredicate = Predicates.isInstanceofPredicate(Code.class);
-		Map<URL, List<String>> manifests = getManifestsWithVersionAttribute();
+		Map<URL, List<String>> manifests = new ManifestLocater().getManifestsWithVersionAttribute();
 		for (URL url : manifests.keySet()) {
 			List<Class<?>> classes = new ClassFinder().findClasses(url, partTypePredicate);
 			registerClasses(classes, manifests.get(url));
-
-			List<Class<?>> codes = new ClassFinder().findClasses(url, codeTypePredicate);
-			registerCodeType(codes, manifests.get(url));
-		}
-	}
-
-	private void registerCodeType(List<Class<?>> codes, List<String> versions) {
-		for (Class<?> c : codes) {
-			registerCodeType(c, versions);
-		}
-	}
-
-	private void registerCodeType(Class<?> c, List<String> versions) {
-		String domainType = ClassUtils.getShortClassName(c);
-		for (String version : versions) {
-			this.codeTypeRegistry.put(new MessageTypeKey(version, domainType), c);
 		}
 	}
 
@@ -132,7 +103,7 @@ public class MessageBeanRegistry {
 		}
 	}
 
-	void registerClass(Class<?> c, VersionNumber version) {
+	public void registerClass(Class<?> c, VersionNumber version) {
 		registerClass(c, Arrays.asList(version.getVersionLiteral()));
 	}
 	
@@ -152,33 +123,6 @@ public class MessageBeanRegistry {
 		}
 	}
 
-	private Map<URL, List<String>> getManifestsWithVersionAttribute() {
-		Map<URL, List<String>> manifests = new HashMap<URL, List<String>>();
-		try {
-			Enumeration<URL> resources = getClass().getClassLoader().getResources("META-INF/MANIFEST.MF");
-			for (URL url : iterable(resources)) {
-				InputStream input = url.openStream();
-				try {
-					Manifest manifest = new Manifest(input);
-					Attributes attributes = manifest.getMainAttributes();
-					String versionNumbers = attributes.getValue(MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE);
-					if (StringUtils.isNotBlank(versionNumbers)) {
-						manifests.put(url, asList(split(versionNumbers)));
-					}
-				} finally {
-					IOUtils.closeQuietly(input);
-				}
-			}
-		} catch (IOException e) {
-			// quietly swallow the error
-		}
-		return manifests;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public Class<? extends Code> getCodeType(String domainType, String version) {
-		return (Class<? extends Code>) this.codeTypeRegistry.get(new MessageTypeKey(version, domainType));
-	}
 	Class<?> getMessagePartType(MessageTypeKey key) {
 		return this.partTypeRegistry.get(key);
 	}
@@ -202,7 +146,7 @@ public class MessageBeanRegistry {
 		return this.registry.get(key);
 	}
 
-	MessageTypeKey getType(VersionNumber version, InteractionBean messageBean) {
+	public MessageTypeKey getType(VersionNumber version, InteractionBean messageBean) {
 		if (messageBean != null && messageBean.getClass().isAnnotationPresent(Hl7PartTypeMapping.class)) {
 			return getTypeFromPartTypeMapping(version, messageBean);
 		} else {
@@ -219,7 +163,7 @@ public class MessageBeanRegistry {
 		}
 	}
 
-	Class<?> getMessagePartClass(VersionNumber version, String type) {
+	public Class<?> getMessagePartClass(VersionNumber version, String type) {
 		MessageTypeKey key = new MessageTypeKey(version, type);
 		Class<?> result = getMessagePartType(key);
 		if (result == null && type.contains(".")) {

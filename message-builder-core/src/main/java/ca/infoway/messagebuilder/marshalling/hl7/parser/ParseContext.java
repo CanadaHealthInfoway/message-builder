@@ -40,5 +40,6 @@ public interface ParseContext extends Typed {
 	public ConformanceLevel getConformance();
 	public Cardinality getCardinality();
 	public ConstrainedDatatype getConstraints();
+	public boolean isCda();
 	
 }

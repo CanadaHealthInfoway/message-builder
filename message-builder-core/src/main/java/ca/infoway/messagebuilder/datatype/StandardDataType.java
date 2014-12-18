@@ -234,6 +234,12 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 */
 	public static final StandardDataType BAG = new StandardDataType("BAG", "BAG"); 
 	
+	// special types only used for CDA/R1; not for general use
+	public static final StandardDataType TSCDAR1 = new StandardDataType("TSCDAR1", "TSCDAR1"); // replaces TS
+	public static final StandardDataType SXCMTSCDAR1 = new StandardDataType("SXCMTSCDAR1", "SXCMTSCDAR1"); // replaces SXCM<TS>
+	public static final StandardDataType IVLTSCDAR1 = new StandardDataType("IVLTSCDAR1", "IVLTSCDAR1");  // replaces IVL_TS
+	public static final StandardDataType PIVLTSCDAR1 = new StandardDataType("PIVLTSCDAR1", "PIVLTSCDAR1");  // replaces PIVL_TS
+	
 	private static final Set<StandardDataType> ignorable;
 	
 	static {

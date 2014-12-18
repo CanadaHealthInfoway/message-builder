@@ -33,7 +33,7 @@ public class ParserRegistry extends Registry<ElementParser> {
     protected void registerAll() {
         register(new AdElementParser());
         register(new AnyElementParser());
-        register(new BagElementParser());
+        register(new BagElementParser(this));
         register(new BlElementParser());
         register(new CvElementParser());
         register(new EdElementParser());
@@ -47,8 +47,8 @@ public class ParserRegistry extends Registry<ElementParser> {
         register(new IvlIntElementParser());
         register(new IvlPqElementParser());
         register(new IvlTsElementParser());
-        register(new ListElementParser());
-        register(new SetElementParser());
+        register(new ListElementParser(this));
+        register(new SetElementParser(this));
         register(new MoElementParser());
         register(new OnElementParser());
         register(new PnElementParser());
@@ -63,6 +63,10 @@ public class ParserRegistry extends Registry<ElementParser> {
         register(new TsElementParser());
         register(new UrgPqElementParser());
         register(new UrgTsElementParser());
+        
+        register(new TsCdaElementParser());
+        register(new PivlTsCdaElementParser());
+        register(new IvlTsCdaElementParser());
     }
 
     public static ParserRegistry getInstance() {

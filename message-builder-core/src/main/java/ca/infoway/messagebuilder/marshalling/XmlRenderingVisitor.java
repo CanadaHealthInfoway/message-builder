@@ -48,10 +48,12 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
@@ -59,6 +61,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registry;
+import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -412,7 +415,7 @@ class XmlRenderingVisitor implements Visitor {
 				
 				handleNotAllowedAndIgnored(relationship, propertyPath);
 				
-				FormatContext context = FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints);
+				FormatContext context = FormatContextImpl.create(this.result, propertyPath, relationship, version, dateTimeZone, dateTimeTimeZone, constraints, this.isCda);
 				if (!StringUtils.equals(type, relationship.getType())) {
 					context = new ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl(type, true, context);
 				}
@@ -437,24 +440,17 @@ class XmlRenderingVisitor implements Visitor {
 		}
 	}
 
-	private String determineActualType(Relationship relationship, BareANY hl7Value, Hl7Errors errors, String propertyPath) {
-		String type = relationship.getType();
-		String alternateType = (hl7Value == null ? type : hl7Value.getDataType().getType());
-		String alternateTypeRootType = StandardDataType.getByTypeName(alternateType).getRootType();
-		
-		if (this.isCda && !"ANY".equals(type) && !StandardDataType.isSetOrList(alternateType)) {
-			String rootType = StandardDataType.getByTypeName(type).getRootType();
-			// any better way to detect a type change? no guarantee that the standard/unchanged type in hl7Value will directly match the model type 
-			if (!StringUtils.equals(rootType, alternateTypeRootType)) {
-				if (this.polymorphismHandler.isValidTypeChange(type, alternateType)) {
-					type = alternateType;
-				} else {
-					String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", type, alternateType);
-					errors.addHl7Error(new Hl7Error(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, message, propertyPath));
-				}
+	private String determineActualType(Relationship relationship, BareANY hl7Value, final Hl7Errors errors, final String propertyPath) {
+		StandardDataType newTypeEnum = (hl7Value == null ? null : hl7Value.getDataType());
+		return this.polymorphismHandler.determineActualDataType(relationship.getType(), newTypeEnum, this.isCda, !this.isR2, createErrorLogger(propertyPath, errors));
+	}
+
+	private ErrorLogger createErrorLogger(final String propertyPath, final Hl7Errors errors) {
+		return new ErrorLogger() {
+			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
 			}
-		}
-		return type;
+		};
 	}
 
 	private void handleNotAllowedAndIgnored(Relationship relationship,	String propertyPath) {

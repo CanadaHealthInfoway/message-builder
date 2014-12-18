@@ -24,12 +24,17 @@ import java.util.Collection;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.BaseCollectionPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 
 @DataTypeHandler({"BAG"})
-class BagR2PropertyFormatter extends BaseCollectionR2PropertyFormatter {
+class BagR2PropertyFormatter extends BaseCollectionPropertyFormatter {
 
-    @Override
+    public BagR2PropertyFormatter(FormatterR2Registry formatterR2Registry) {
+		super(formatterR2Registry, true);
+	}
+
+	@Override
 	protected
     String formatNonNullValue(FormatContext context, Collection<BareANY> list, int indentLevel) {
     	return formatAllElements(context, createSubContext(context), list, indentLevel);

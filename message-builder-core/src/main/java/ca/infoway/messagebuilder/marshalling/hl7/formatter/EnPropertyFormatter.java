@@ -41,21 +41,23 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-EN
  */
 @DataTypeHandler("EN")
-class EnPropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityName> {
+class EnPropertyFormatter extends AbstractEntityNamePropertyFormatter<EntityName> {
 
     private final OnPropertyFormatter onPropertyFormatter = new OnPropertyFormatter();
     private final PnPropertyFormatter pnPropertyFormatter = new PnPropertyFormatter();
     private final TnPropertyFormatter tnPropertyFormatter = new TnPropertyFormatter();
 
     @Override
-	protected
-    String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) {
+	protected String formatNonNullValue(FormatContext context, EntityName value, int indentLevel) {
     	
     	// this code is delegating to the appropriate formatter based on the type of the
     	// object set as the value; specializationType needs to also be set, but we can infer it
     	// (note that this is a bit different from how other formatters treat abstract types)
     	
-        if (value == null || value.getClass().isAssignableFrom(TrivialName.class)) {
+        if (value == null || value.getClass().isAssignableFrom(EntityName.class)) {
+            return super.formatNonNullValue(context, value, indentLevel);
+
+        } else if (value.getClass().isAssignableFrom(TrivialName.class)) {
         	context = new FormatContextImpl("TN", true, context);
             return this.tnPropertyFormatter.format(context, new TNImpl((TrivialName) value), indentLevel);
 

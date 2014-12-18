@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.EdElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 
 public class ParserR2Registry extends Registry<ElementParser> {
@@ -36,7 +37,7 @@ public class ParserR2Registry extends Registry<ElementParser> {
         register(new AdR2ElementParser());
         register(new BlR2ElementParser());
         register(new BxitCdR2ElementParser());
-        register(new EdR2ElementParser());
+        register(new EdElementParser(new TelR2ElementParser(), true));
         register(new EivlTsR2ElementParser());
         register(new EnR2ElementParser());
         register(new HxitCeR2ElementParser());
@@ -47,7 +48,7 @@ public class ParserR2Registry extends Registry<ElementParser> {
         register(new IvlPqR2ElementParser());
         register(new IvlRealR2ElementParser());
         register(new IvlTsR2ElementParser());
-        register(new ListR2ElementParser());
+        register(new ListR2ElementParser(this));
         register(new MoR2ElementParser());
         register(new OnR2ElementParser());
         register(new PivlTsR2ElementParser());
@@ -56,7 +57,7 @@ public class ParserR2Registry extends Registry<ElementParser> {
         register(new RealR2ElementParser());
         register(new RtoMoPqR2ElementParser());
         register(new RtoPqPqR2ElementParser());
-        register(new SetR2ElementParser());
+        register(new SetR2ElementParser(this));
         register(new StR2ElementParser());
         register(new TelR2ElementParser());
         register(new TnR2ElementParser());

@@ -31,9 +31,11 @@ import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
 import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.datatype.lang.util.NamePartType;
 import ca.infoway.messagebuilder.datatype.lang.util.OrganizationNamePartType;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 
 /**
@@ -54,7 +56,7 @@ class OnElementParser extends AbstractEntityNameElementParser {
 	}
     
     @Override
-	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) {
         OrganizationName result = new OrganizationName();
         NodeList childNodes = node.getChildNodes();
         for (int i = 0; i < childNodes.getLength(); i++) {
@@ -66,22 +68,22 @@ class OnElementParser extends AbstractEntityNameElementParser {
             } else if (childNode instanceof Element) {
                 Element element = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(element);
-                String value = getTextValue(element);
+                String value = getTextValue(element, xmlToModelResult);
                 result.addNamePart(new EntityNamePart(value, getOrganizationNamePartType(name)));
             }
         }
         return result;
     }
     
-    private String getTextValue(Element element) throws XmlToModelTransformationException {
+    private String getTextValue(Element element, Hl7Errors errors) {
         Node childNode = element.getFirstChild();
         if (childNode.getNodeType() != Node.TEXT_NODE) {
-            throw new XmlToModelTransformationException("Expected ON child node to have a text node");
+        	errors.addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Expected ON child node to have a text node", element));
         }
         return childNode.getNodeValue();
     }
     
-    private NamePartType getOrganizationNamePartType(String value) throws XmlToModelTransformationException {
+    private NamePartType getOrganizationNamePartType(String value) {
     	return getNamePartType(OrganizationNamePartType.class, value);
     }
 

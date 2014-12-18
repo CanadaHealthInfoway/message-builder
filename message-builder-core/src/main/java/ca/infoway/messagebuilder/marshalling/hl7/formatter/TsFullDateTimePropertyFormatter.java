@@ -22,16 +22,19 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import java.text.MessageFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.Hl7BaseVersion;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.TsDateFormats;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
@@ -144,6 +147,17 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
 
 	private VersionNumber getVersion(FormatContext context) {
 		return context == null ? null : context.getVersion();
+	}
+	
+	@Override
+	protected void addOtherAttributesIfNecessary(Date v, Map<String, String> attributes, FormatContext context,	BareANY bareAny) {
+		super.addOtherAttributesIfNecessary(v, attributes, context, bareAny);
+		if (context.isCda()) {
+			SetOperator operator = ((ANYMetaData) bareAny).getOperator();
+			if (operator != null) {
+				attributes.put("operator", operator.getCodeValue());
+			}
+		}
 	}
 
 }

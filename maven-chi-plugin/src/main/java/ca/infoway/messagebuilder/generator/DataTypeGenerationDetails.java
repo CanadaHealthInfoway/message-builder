@@ -57,11 +57,13 @@ import ca.infoway.messagebuilder.datatype.HXIT;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.IVLTSCDAR1;
 import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.ON;
 import ca.infoway.messagebuilder.datatype.PIVL;
+import ca.infoway.messagebuilder.datatype.PIVLTSCDAR1;
 import ca.infoway.messagebuilder.datatype.PIVL_R2;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.PQ;
@@ -74,11 +76,13 @@ import ca.infoway.messagebuilder.datatype.SC_R2;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.SXCM;
+import ca.infoway.messagebuilder.datatype.SXCMTSCDAR1;
 import ca.infoway.messagebuilder.datatype.SXCM_R2;
 import ca.infoway.messagebuilder.datatype.SXPR;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TN;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.TSCDAR1;
 import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.URG;
 import ca.infoway.messagebuilder.datatype.URL;
@@ -87,7 +91,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedDataR2;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.GeneralTimingSpecification;
@@ -196,7 +199,6 @@ enum DataTypeGenerationDetails implements Typed {
 	ED_DOC("ED.DOC", "EncapsulatedDocumentType", ED.class.getName(), EncapsulatedData.class.getName(), null), 
 	ED_DOC_REF("ED.DOCREF", "EncapsulatedReferenceType", ED.class.getName(), EncapsulatedData.class.getName(), null),
 	ED_SIGNATURE("ED.SIGNATURE", "EncapsulatedSignatureType", ED.class.getName(), String.class.getName(), "System.String"),
-	ED_R2("ED", ED.class.getName(), EncapsulatedDataR2.class.getName(), null), 
 	
 	PN("PN", PN.class.getName(), PersonName.class.getName(), null), 
 	PN_BASIC("PN.BASIC", PN.class.getName(), PersonName.class.getName(), null), 
@@ -296,7 +298,12 @@ enum DataTypeGenerationDetails implements Typed {
 	LIST("LIST", LIST.class.getName(), List.class.getName(), "System.Collections.Generic.IList"), 
 	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
 	BAG("BAG", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.IList"), 
-	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"); 
+	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"),
+
+	TSCDAR1("TSCDAR1", TSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"), // need to correct for .NET
+	SXCMTSCDAR1("SXCMTSCDAR1", SXCMTSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	IVLTSCDAR1("IVLTSCDAR1", "DateInterval", IVLTSCDAR1.class.getName(), DateInterval.class.getName(), null), 
+	PIVLTSCDAR1("PIVLTSCDAR1", PIVLTSCDAR1.class.getName(), PeriodicIntervalTimeR2.class.getName(), null);
 	
 	private static final Map<DataTypeGenerationDetails,DataTypeGenerationDetails> widthType;
 	
