@@ -24,6 +24,7 @@ import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulat
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_5;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_10;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_25;
+import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_100;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MINIMUM_WITH_AT_LEAST_1;
 
 import java.lang.reflect.ParameterizedType;
@@ -82,7 +83,7 @@ public class InteractionPopulatingUtility  {
 	}
 	
 	public enum MultipleCardinalityOption {
-		MINIMUM_WITH_AT_LEAST_1, MAXIMUM_WITH_LIMIT_3, MAXIMUM_WITH_LIMIT_5, MAXIMUM_WITH_LIMIT_10, MAXIMUM_WITH_LIMIT_25
+		MINIMUM_WITH_AT_LEAST_1, MAXIMUM_WITH_LIMIT_3, MAXIMUM_WITH_LIMIT_5, MAXIMUM_WITH_LIMIT_10, MAXIMUM_WITH_LIMIT_25, MAXIMUM_WITH_LIMIT_100
 	}
 	
 	public enum ChoiceOption {
@@ -547,6 +548,9 @@ public class InteractionPopulatingUtility  {
 		}
 		
 		int upperLimit = (cardinalityOption == MAXIMUM_WITH_LIMIT_25 ? 25 : (cardinalityOption == MAXIMUM_WITH_LIMIT_10 ? 10 : (cardinalityOption == MAXIMUM_WITH_LIMIT_5 ? 5: 3)));
+		if (cardinalityOption == MAXIMUM_WITH_LIMIT_100) {
+			upperLimit = 100;
+		}
 		return Math.max(cardinality.getMin(), Math.min(cardinality.getMax(), upperLimit));
 	}
 

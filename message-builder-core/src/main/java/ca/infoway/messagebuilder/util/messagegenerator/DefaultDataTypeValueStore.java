@@ -126,7 +126,6 @@ import org.apache.commons.lang.time.DateUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
-import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.Diff;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.EntityNamePart;
@@ -147,9 +146,11 @@ import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRange;
 import ca.infoway.messagebuilder.datatype.lang.UncertainRangeFactory;
 import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType;
 import ca.infoway.messagebuilder.domainvalue.basic.Country;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
+import ca.infoway.messagebuilder.domainvalue.basic.EntityNameUse;
 import ca.infoway.messagebuilder.domainvalue.basic.State;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
@@ -241,7 +242,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 	private void createPivlValues() {
 		GeneralTimingSpecification gts = new GeneralTimingSpecification(
 				IntervalFactory.<Date>createLowHigh(DateUtil.getDate(1969, 11, 31), DateUtil.getDate(1969, 11, 31)), 
-				PeriodicIntervalTime.createPeriod(new DateDiff(new PhysicalQuantity(new BigDecimal("3"), DefaultTimeUnit.DAY))));
+				PeriodicIntervalTime.createFrequency(4, new PhysicalQuantity(new BigDecimal("3"), DefaultTimeUnit.DAY)));
 
 		this.addValue(GTS_BOUNDEDPIVL, gts);
 
@@ -256,7 +257,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 	}
 
 	private void createUncertainRangeValues() {
-		Interval<Date> dateUrg = IntervalFactory.createLowHigh(DateUtil.getDate(1997, 5, 19), DateUtil.getDate(2005, 9, 21));
+		UncertainRange<Date> dateUrg = UncertainRangeFactory.createLowHigh(DateUtil.getDate(1997, 5, 19), DateUtil.getDate(2005, 9, 21));
 		this.addValue(URG_TS_DATE, dateUrg);
 		
 		UncertainRange<PhysicalQuantity> urgPqBasic = UncertainRangeFactory.createLowHigh(new PhysicalQuantity(new BigDecimal("11.2"), UnitsOfMeasureCaseSensitive.FOOT), new PhysicalQuantity(new BigDecimal("15.2"), UnitsOfMeasureCaseSensitive.FOOT));
@@ -297,7 +298,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		
 		this.addValue(TS, date);
 		this.addValue(TS_DATE, date);
-		this.addValue(TS_DATETIME, date);
+		this.addValue(TS_DATETIME, new DateWithPattern(date, "yyyyMMdd"));
 		this.addValue(TS_FULLDATE, date);
 		this.addValue(TS_FULLDATETIME, date);
 		this.addValue(TS_FULLDATEWITHTIME, date);
@@ -410,8 +411,8 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		this.addValue(II_BUS, new Identifier("1.2.3.56", "II.BUS val"));
 		this.addValue(II_PUBLIC, new Identifier("1.2.3.6", "II.PUBLIC value"));
 		this.addValue(II_PUBLIC, new Identifier("1.2.3.67", "II.PUBLIC val"));
-		this.addValue(II_OID, new Identifier("1.2.3.7", "II.OID value"));
-		this.addValue(II_OID, new Identifier("1.2.3.78", "II.OID val"));
+		this.addValue(II_OID, new Identifier("1.2.3.7"));
+		this.addValue(II_OID, new Identifier("1.2.3.78"));
 		this.addValue(II_PUBLICVER, new Identifier("1.2.3.8", "II.PUBLICVER value"));
 		this.addValue(II_PUBLICVER, new Identifier("1.2.3.89", "II.PUBLICVER val"));
 		this.addValue(II_BUSVER, new Identifier("1.2.3.9", "II.BUSVER value"));
@@ -431,6 +432,7 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		abstractMapping.put(ANY_PATH, StandardDataType.ST);
 		abstractMapping.put(ANY_X1, StandardDataType.ST);
 		abstractMapping.put(ANY_X2, StandardDataType.ST);
+		abstractMapping.put(II, StandardDataType.II_BUS);
 		abstractMapping.put(II_BUS_AND_VER, StandardDataType.II_BUS);
 		abstractMapping.put(ED_DOC_OR_REF, StandardDataType.ED_DOC_REF);
 		abstractMapping.put(IVL_FULL_DATE_PART_TIME, StandardDataType.IVL_FULL_DATE_TIME);
@@ -460,15 +462,25 @@ public class DefaultDataTypeValueStore extends DataTypeValueStoreImpl {
 		this.addValue(PN_BASIC, name1);
 		this.addValue(PN_BASIC, name2);
 		this.addValue(PN_BASIC, name3);
-		this.addValue(PN_SIMPLE, name1);
-		this.addValue(PN_SIMPLE, name2);
-		this.addValue(PN_SIMPLE, name3);
 		this.addValue(PN_FULL, name1);
 		this.addValue(PN_FULL, name2);
 		this.addValue(PN_FULL, name3);
 		this.addValue(PN_SEARCH, name1);
 		this.addValue(PN_SEARCH, name2);
 		this.addValue(PN_SEARCH, name3);
+		
+		PersonName name1simple = new PersonName();
+		name1simple.addNamePart(new EntityNamePart("Bob McAnulty"));
+		name1simple.addUse(EntityNameUse.LEGAL);
+		PersonName name2simple = new PersonName();
+		name2simple.addNamePart(new EntityNamePart("Allison Johnson"));
+		name2simple.addUse(EntityNameUse.LEGAL);
+		PersonName name3simple = new PersonName();
+		name3simple.addNamePart(new EntityNamePart("Jack Simpson"));
+		name3simple.addUse(EntityNameUse.LEGAL);
+		this.addValue(PN_SIMPLE, name1simple);
+		this.addValue(PN_SIMPLE, name2simple);
+		this.addValue(PN_SIMPLE, name3simple);
 	}
 
 	private void createAnyValues() {
