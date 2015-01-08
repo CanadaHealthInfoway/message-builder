@@ -114,7 +114,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			return false;
 		} else {
 			Set<String> childTypes = getTranslatedChildTypes(type);
-			Set<String> otherChildTypes = getTranslatedChildTypes(type);
+			Set<String> otherChildTypes = getTranslatedChildTypes(otherType);
 			
 			if (childTypes.size() == otherChildTypes.size() && childTypes.containsAll(otherChildTypes)) {
 				return true;
