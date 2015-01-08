@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>ca.infoway.messagebuilder</groupId>
 		<artifactId>message-builder</artifactId>
-		<version>1.5.10</version>
+		<version>1.5.11-SNAPSHOT</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-mif-comparer</artifactId>
-	<version>1.5.10</version>
+	<version>1.5.11-SNAPSHOT</version>
 	<name>message-builder-mif-comparer</name>
 	<url>http://maven.apache.org</url>
 	<properties>
