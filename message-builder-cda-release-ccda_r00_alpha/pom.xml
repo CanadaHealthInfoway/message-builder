@@ -4,11 +4,11 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.5.10-SNAPSHOT</version>
+		<version>1.5.10</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-cda-release-ccda_r00_alpha</artifactId>
-	<version>1.5.10-SNAPSHOT</version>
+	<version>1.5.10</version>
 	<name>message-builder-cda-release-ccda_r00_alpha</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
