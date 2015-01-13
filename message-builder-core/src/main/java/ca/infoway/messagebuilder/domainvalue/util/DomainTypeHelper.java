@@ -32,42 +32,40 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class DomainTypeHelper {
 	
-	private static DomainTypeResolver domainTypeResolver = new DomainTypeResolver();
-
 	public static Class<? extends Code> getReturnType(Relationship relationship, VersionNumber version, CodeTypeHandler codeTypeHandler) {
 		return getReturnType(relationship.getDomainType(), version, codeTypeHandler);
 	}
 	
 	public static Class<? extends Code> getReturnType(String domainType, VersionNumber version, CodeTypeHandler codeTypeHandler) {
+		return getReturnType(domainType, version.getVersionLiteral(), codeTypeHandler);
+	}
+	
+	public static Class<? extends Code> getReturnType(String domainType, String version, CodeTypeHandler codeTypeHandler) {
+		String sanitizedDomainType = sanitize(domainType);
 		Class<? extends Code> type = getReturnType(domainType);
-		if (type == Code.class) {
-			String sanitizedDomainType = sanitize(domainType);
-			Class<? extends Code> codeType = codeTypeHandler.getCodeType(sanitizedDomainType, version.getVersionLiteral()); 
-			if (codeType != null) {
-				type = codeType;
-			}
+		if (type == null) {
+			// try to obtain the domain interface from the appropriate generated API
+			type = codeTypeHandler.getCodeType(sanitizedDomainType, version); 
 		}
 		return type;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static Class<Code> getReturnType(String domainType) {
-		String sanitizedDomainType = sanitize(domainType);
+	private static Class<Code> getReturnType(String sanitizedDomainType) {
+		// these might be legacy problems with the NFLD API (not released; for testing only)
 		if (ClassUtils.getShortClassName(HealthcareProviderRoleType.class).equalsIgnoreCase(sanitizedDomainType)) {
 			sanitizedDomainType = ClassUtils.getShortClassName(HealthcareProviderRoleType.class);
 		} else if (ClassUtils.getShortClassName(OtherIDsRoleCode.class).equals(sanitizedDomainType)) {
 			sanitizedDomainType = ClassUtils.getShortClassName(OtherIdentifierRoleType.class);
 		}
 		if (StringUtils.isNotBlank(sanitizedDomainType)) {
-			Class<?> result = domainTypeResolver.resolveDomainTypeUniquely(sanitizedDomainType);
-			if (result == null) {
-				return Code.class;
+			try {
+				return (Class<Code>) Class.forName("ca.infoway.messagebuilder.domainvalue." + sanitizedDomainType);
+			} catch (ClassNotFoundException e) {
+				// this is an expected result
 			}
-			// TM - this code may not run properly in .NET
-			return (Class<Code>) result;
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	/**

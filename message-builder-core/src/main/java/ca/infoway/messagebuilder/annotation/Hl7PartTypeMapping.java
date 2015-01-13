@@ -30,5 +30,4 @@ import java.lang.annotation.Retention;
 @Retention(RUNTIME)
 public @interface Hl7PartTypeMapping {
 	String[] value();
-
 }

@@ -110,7 +110,10 @@ public class DatabaseCodeResolver implements CodeResolver {
 		Set<Class<?>> typeList = new HashSet<Class<?>>();
 		Collection<VocabularyDomain> vocabularyDomains = value.getValueSet().getVocabularyDomains();
 		for (VocabularyDomain vocabularyDomain : vocabularyDomains) {
-			typeList.addAll(vocabularyDomain.getTypeAsClasses());
+			Class<? extends Code> typeAsClass = vocabularyDomain.getTypeAsClass(this.version);
+			if (typeAsClass != null) {
+				typeList.add(typeAsClass);
+			}
 		}
 		return typeList;
 	}
