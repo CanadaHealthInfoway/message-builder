@@ -43,6 +43,7 @@ public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infow
 	public static final UnitsOfMeasureCaseSensitive ONE= new UnitsOfMeasureCaseSensitive("ONE", "1");
 
 	public static final UnitsOfMeasureCaseSensitive PERCENT= new UnitsOfMeasureCaseSensitive("PERCENT", "%");
+	public static final UnitsOfMeasureCaseSensitive THOUSAND_PARTS_PER_MICROLITRE_LOWER= new UnitsOfMeasureCaseSensitive("THOUSAND_PARTS_PER_MICROLITRE_LOWER", "10+3/ul");
 	public static final UnitsOfMeasureCaseSensitive PER_DAY= new UnitsOfMeasureCaseSensitive("PER_DAY", "1/d");
 	public static final UnitsOfMeasureCaseSensitive PER_MINUTE= new UnitsOfMeasureCaseSensitive("PER_MINUTE", "1/min");
 	public static final UnitsOfMeasureCaseSensitive DEGREE_CELSIUS= new UnitsOfMeasureCaseSensitive("DEGREE_CELSIUS", "Cel");
@@ -90,6 +91,7 @@ public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infow
 	public static final UnitsOfMeasureCaseSensitive MILLIEQUIVALENT= new UnitsOfMeasureCaseSensitive("MILLIEQUIVALENT", "meq");
 	public static final UnitsOfMeasureCaseSensitive MILLIGRAM= new UnitsOfMeasureCaseSensitive("MILLIGRAM", "mg");
 	public static final UnitsOfMeasureCaseSensitive MILLIGRAM_PER_DAY= new UnitsOfMeasureCaseSensitive("MILLIGRAM_PER_DAY", "mg/d");
+	public static final UnitsOfMeasureCaseSensitive MILLIGRAM_PER_MILLILITRE= new UnitsOfMeasureCaseSensitive("MILLIGRAM_PER_MILLILITRE", "mg/mL");
 	public static final UnitsOfMeasureCaseSensitive MINUTE= new UnitsOfMeasureCaseSensitive("MINUTE", "min");
 	public static final UnitsOfMeasureCaseSensitive MILLILITRE= new UnitsOfMeasureCaseSensitive("MILLILITRE", "mL");
 	public static final UnitsOfMeasureCaseSensitive MILLILITRE_LOWER= new UnitsOfMeasureCaseSensitive("MILLILITRE_LOWER", "ml");
