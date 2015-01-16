@@ -35,6 +35,7 @@ public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.do
 	private static final long serialVersionUID = 584607967819653758L;
 	
 	public static final ActCode ADVERSE_REACTION = new ActCode("ADVERSE_REACTION"); 
+	public static final ActCode ASSERTION = new ActCode("ASSERTION");
 	public static final ActCode CHRON = new ActCode("CHRON"); 
 	public static final ActCode DRUG = new ActCode("DRUG"); 
 	public static final ActCode FS = new ActCode("FS"); 
