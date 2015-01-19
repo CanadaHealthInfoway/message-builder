@@ -93,6 +93,19 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
+	public void testCommentsShouldNotCauseValidationErrors() throws Exception {
+		Node node = createNode(
+				"<something mediaType=\"text/plain\">" +
+				"<!--reference to CR DICOM image (PA view) -->" +
+				"<reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>" +
+				"This is a text node" +
+				"</something>");
+		new EdElementParser().parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult);
+		assertTrue(this.xmlResult.isValid());
+		assertEquals(0, this.xmlResult.getHl7Errors().size());
+	}
+	
+	@Test
 	public void testParseTooManyChildNodes() throws Exception {
 		Node node = createNode(
 				"<something>" +

@@ -191,7 +191,8 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 					nodesOutOfOrder = true;
 				}
 				thumbnailCount++;
-			} else if (!isEmptyTextNode(node)) {
+			} else if (!isEmptyTextNode(node) && !isComment(node)) {
+				// MBG-193 - we need not to count comments as content, regardless of where they occur in the element.
 				contentCount++;
 			}
 		}
@@ -228,6 +229,10 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
         return node.getNodeName().equals("#text") && StringUtils.isBlank(node.getTextContent());
 	}
 
+    private boolean isComment(Node node) {
+    	return node.getNodeName().equals("#comment");
+    }
+    
 	private void handleIntegrityCheckAlgorithm(EncapsulatedData ed, Element element, ParseContext context, XmlToModelResult result) {
 		if (element.hasAttribute("integrityCheckAlgorithm")) {
 			String icaString = element.getAttribute("integrityCheckAlgorithm");
