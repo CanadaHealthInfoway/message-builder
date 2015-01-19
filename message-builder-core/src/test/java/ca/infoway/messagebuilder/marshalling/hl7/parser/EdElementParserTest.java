@@ -109,22 +109,23 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseTooManyChildNodes() throws Exception {
 		Node node = createNode(
 				"<something>" +
-				"<monkey/>" +
-				"<shines/>" +
-				"<through/>" +
+				"Some Text" +
+				"<!-- a comment -->" +
+				"And some more text" +
 				"</something>");
 		new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size());
-		assertEquals("ED only supports a single content node. Found: 3", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("ED only supports a single content node. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
 		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
 		
 		this.xmlResult.clearErrors();
 		
 		node = createNode(
 				"<something>" +
-				"<monkey/>" +
-				"<shines/>" +
+				"Some Text" +
+				"<!-- a comment -->" +
+				"And some more text" +
 				"</something>");
 		new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());

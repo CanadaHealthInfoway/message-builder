@@ -20,6 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.transform.TransformerException;
 
 import org.apache.commons.lang.StringUtils;
@@ -65,7 +68,7 @@ public class EncapsulatedData {
 	// at most can provide only one of these three content types
 	private String textContent; // must be text or base64 encoded; will be escaped
 	private String cdataContent;
-	private Document documentContent;
+	private List<Document> documentContent; // HTML content may not have a single root element
 
 	/**
 	 * <p>Constructs an empty ED.
@@ -77,8 +80,9 @@ public class EncapsulatedData {
 		this.textContent = textContent;
 	}
 
-	public EncapsulatedData(Document documentContent) {
-		this.documentContent = documentContent;
+	public EncapsulatedData(Document document) {
+		this.documentContent = new ArrayList<Document>();
+		this.documentContent.add(document);
 	}
 
 	/**
@@ -242,16 +246,23 @@ public class EncapsulatedData {
 	}
 
 	/**
-	 * Document content. Useful for when ED content is a single root element containing additional elements. 
+	 * Document content. ED content may contain multiple root elements 
 	 * 
 	 * @return the document
 	 */
-	public Document getDocumentContent() {
+	public List<Document> getDocumentContent() {
 		return documentContent;
 	}
 
-	public void setDocumentContent(Document documentContent) {
+	public void setDocumentContent(List<Document> documentContent) {
 		this.documentContent = documentContent;
+	}
+	
+	public void addDocumentContent(Document document) {
+		if (this.documentContent == null) {
+			this.documentContent = new ArrayList<Document>();
+		}
+		this.documentContent.add(document);
 	}
 
 	/**
@@ -264,7 +275,11 @@ public class EncapsulatedData {
 		if (this.documentContent == null) {
 			return null;
 		}
-		return XmlRenderer.render(this.documentContent, true, indentLevel);
+		String result = "";
+		for (Document document : this.documentContent) {
+			result += XmlRenderer.render(document, true, indentLevel);
+		}
+		return result;
 	}
 	
 	/**
@@ -273,7 +288,7 @@ public class EncapsulatedData {
 	 * @throws SAXException
 	 */
 	public void setDocumentContentFromString(String documentContentAsString) throws SAXException {
-		this.documentContent = new DocumentFactory().createFromString(documentContentAsString);
+		addDocumentContent(new DocumentFactory().createFromString(documentContentAsString));
 	}
 	
     @Override

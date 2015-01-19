@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -150,22 +151,33 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 	}
 
 	private void handleContent(EncapsulatedData ed, Element element, XmlToModelResult result, ParseContext context) {
-		Node contentNode = determineContentNode(element, result);
+		Node contentNode = determineFirstContentNode(element, result);
 		if (contentNode != null) {
-	        if (contentNode.getNodeName().equals("#text")) {
+	        if (isTextNode(contentNode)) {
 	        	// debatable whether the text content should be trimmed or not; trimming for now
 	        	ed.setTextContent(StringUtils.trim(contentNode.getTextContent()));
-	        } else if (contentNode.getNodeType() == Node.CDATA_SECTION_NODE) {
+	        } else if (isCdataSection(contentNode)) {
 	        	ed.setCdataContent(contentNode.getNodeValue());
 	        } else {
-	        	try {
-					Document doc = XmlRenderer.obtainDocumentFromNode(contentNode, true);
-					ed.setDocumentContent(doc);
-				} catch (ParserConfigurationException e) {
-					result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content: " + e.getMessage(), element));
-				}
+	        	List<Node> allContentNodes = determineAllContentNodes(element);
+	        	for (Node node : allContentNodes) {
+	        		try {
+	        			Document doc = XmlRenderer.obtainDocumentFromNode(node, true);
+	        			ed.addDocumentContent(doc);
+	        		} catch (ParserConfigurationException e) {
+	        			result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content: " + e.getMessage(), element));
+	        		}
+	        	}
 	        }
 		}
+	}
+
+	private boolean isTextNode(Node contentNode) {
+		return contentNode.getNodeName().equals("#text");
+	}
+	
+	private boolean isCdataSection(Node contentNode) {
+		return contentNode.getNodeType() == Node.CDATA_SECTION_NODE;
 	}
 
 	private void validateInnerNodes(Element element, Hl7Errors errors) {
@@ -177,6 +189,8 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		int thumbnailCount = 0;
 		int contentCount = 0;
 		boolean nodesOutOfOrder = false;
+		boolean textNodeDetected = false;
+		boolean cdataNodeDetected = false;
 		
 		NodeList childNodes = element.getChildNodes();
 		for (int i = 0; i < childNodes.getLength(); i++) {
@@ -194,6 +208,13 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 			} else if (!isEmptyTextNode(node) && !isComment(node)) {
 				// MBG-193 - we need not to count comments as content, regardless of where they occur in the element.
 				contentCount++;
+				// MBG-188 - only text and CDATA nodes should trigger content count validation
+				if (isTextNode(node)) {
+					textNodeDetected = true;
+				}
+				if (isCdataSection(node)) {
+					cdataNodeDetected = true;
+				}
 			}
 		}
 		
@@ -203,7 +224,7 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		if (thumbnailCount > 1) {
 			recordError("ED types only allow a single thumbnail. Found: " + thumbnailCount, element, errors);
 		}
-		if (contentCount > 1) {
+		if (contentCount > 1 && (textNodeDetected || cdataNodeDetected)) {
 			recordError("ED only supports a single content node. Found: " + contentCount, element, errors);
 		}
 		if (nodesOutOfOrder) {
@@ -211,7 +232,7 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		}
 	}
 
-	private Node determineContentNode(Element element, Hl7Errors errors) {
+	private Node determineFirstContentNode(Element element, Hl7Errors errors) {
 		// skip reference element, thumbnail element, blank text nodes
 		Node firstContentNode = null;
 		NodeList childNodes = element.getChildNodes();
@@ -225,8 +246,21 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		return firstContentNode;
 	}
 	
+	private List<Node> determineAllContentNodes(Element element) {
+		// skip reference element, thumbnail element, blank text nodes
+		List<Node> contentNodes = new ArrayList<Node>();
+		NodeList childNodes = element.getChildNodes();
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			Node node = childNodes.item(i);
+			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName()) && !isTextNode(node)) {
+				contentNodes.add(node);
+			}
+		}
+		return contentNodes;
+	}
+	
     private boolean isEmptyTextNode(Node node) {
-        return node.getNodeName().equals("#text") && StringUtils.isBlank(node.getTextContent());
+        return isTextNode(node) && StringUtils.isBlank(node.getTextContent());
 	}
 
     private boolean isComment(Node node) {

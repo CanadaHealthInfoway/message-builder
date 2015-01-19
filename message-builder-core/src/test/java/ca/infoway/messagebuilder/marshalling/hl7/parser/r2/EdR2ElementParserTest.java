@@ -103,11 +103,14 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"<through/>" +
 				"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
-		assertFalse(this.xmlResult.isValid());
+		assertTrue(this.xmlResult.isValid());
 		assertNotNull(data);
 		assertNull(data.getTextContent());
 		assertNotNull(data.getDocumentContent());
-		assertXml("content", "<monkey/>", data.getDocumentContentAsString(-1));
+		assertEquals(3, data.getDocumentContent().size());
+		assertXml("content", "<monkey/>" + System.getProperty("line.separator") + 
+				"<shines/>" + System.getProperty("line.separator") + 
+				"<through/>", data.getDocumentContentAsString(-1));
 	}
 	
 	@Test
