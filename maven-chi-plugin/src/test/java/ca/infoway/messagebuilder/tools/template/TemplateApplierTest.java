@@ -196,6 +196,7 @@ public class TemplateApplierTest {
 		assertEquals(2, xpathHelper.getNodes(entryChoiceNode, "messagePart/specializationChild").getLength());
 		assertEquals("PregnancyObservation.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[1]/@name"));
 		assertEquals("POCD_MT000040.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@name"));
+		assertEquals("true", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@isDefault"));
 		
 		entryNode = xpathHelper.getSingleNode(packageEntryNode, "//entry[@name=\"PregnancyObservation.EntryRelationship\"]");
 		assertNotNull("the entry does not exist", entryNode);

@@ -102,6 +102,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String nonFixedVocabularyBinding;
 	@Attribute(required=false)
 	private Boolean printDatatype;
+	@Attribute(required=false)
+	private Boolean defaultChoice;
 	
 	
 	@ElementList(inline=true, required=false)
@@ -660,6 +662,14 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 
 	public void setPrintDatatype(Boolean printDatatype) {
 		this.printDatatype = printDatatype;
+	}
+
+	public boolean isDefaultChoice() {
+		return defaultChoice == null ? false : defaultChoice;
+	}
+
+	public void setDefaultChoice(Boolean defaultChoice) {
+		this.defaultChoice = defaultChoice;
 	}
 
 	public int compareTo(Relationship rel) {

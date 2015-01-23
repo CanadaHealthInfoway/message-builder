@@ -284,7 +284,9 @@ public class CdaTemplateProcessor {
 							}
 						}
 						
-						choiceBlockDelta.addConstraint(new AddChoiceConstraint(relationship.getType()));
+						AddChoiceConstraint defaultChoice = new AddChoiceConstraint(relationship.getType());
+						defaultChoice.setDefault(true);
+						choiceBlockDelta.addConstraint(defaultChoice);
 						
 						template.addDelta(choiceBlockDelta);
 					}

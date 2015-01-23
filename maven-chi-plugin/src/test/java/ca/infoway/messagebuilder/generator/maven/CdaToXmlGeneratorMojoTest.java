@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.generator.maven;
 
 import static org.mockito.Matchers.anyBoolean;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -33,6 +34,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import com.google.common.collect.Sets.SetView;
 
 import ca.infoway.messagebuilder.generator.cda.CdaToXmlGenerator;
 
@@ -70,7 +73,7 @@ public class CdaToXmlGeneratorMojoTest {
 		
 		this.mojo = new CdaToXmlGeneratorMojo(this.factory);
 		
-		when(this.factory.createForCda(eq(mojo), anyBoolean())).thenReturn(generator);
+		when(this.factory.createForCda(eq(mojo), anyString(), anyBoolean())).thenReturn(generator);
 	}
 	
 	@Test(expected=MojoExecutionException.class)
@@ -181,6 +184,18 @@ public class CdaToXmlGeneratorMojoTest {
 		this.mojo.execute();
 	}
 	
+	@Test(expected=MojoExecutionException.class)
+	public void shouldRejectNoVersion() throws Exception {
+		this.mojo.setSchema(schemaFile);
+		this.mojo.setSupplementarySchema(suppSchemaFile);
+		this.mojo.setTemplate(templateFile);
+		this.mojo.setVocabulary(vocFile);
+		this.mojo.setR2Datatypes(true);
+		this.mojo.setOutputFile(generatedReportsDir);
+		
+		this.mojo.execute();
+	}
+
 	@Test
 	public void shouldProcessSuccessfully() throws Exception {
 		this.mojo.setSchema(schemaFile);
@@ -188,6 +203,7 @@ public class CdaToXmlGeneratorMojoTest {
 		this.mojo.setTemplate(templateFile);
 		this.mojo.setVocabulary(vocFile);
 		this.mojo.setR2Datatypes(true);
+		this.mojo.setVersion("version");
 		this.mojo.setOutputFile(generatedReportsDir);
 		
 		this.mojo.execute();

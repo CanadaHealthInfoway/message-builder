@@ -5,7 +5,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>mbt-maven-executor</artifactId>
 	<name>mbt-maven-executor</name>
-	<version>1.5.9-SNAPSHOT</version>
+	<version>1.5.12-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 
 	<build>
@@ -13,7 +13,7 @@
 			<plugin>
 				<groupId>ca.infoway.messagebuilder</groupId>
 				<artifactId>maven-chi-plugin</artifactId>
-				<version>1.5.9-SNAPSHOT</version>
+				<version>1.5.12-SNAPSHOT</version>
 
 				<configuration>
 					<!-- cda-to-xml: message set generation from cda sources -->
@@ -67,9 +67,8 @@
 
                 	     </fingerprintDuplicates>
 
-					<version>R02_04_02</version>					
+					<version>CCDA_R00_ALPHA</version>					
 					<javaSourceFolder>./java</javaSourceFolder>
-					<xsdSourceFolder>./resources</xsdSourceFolder>
 					<generatedReportsDirectory>../chi-messagebuilder/message-builder-cda-release-ccda_r00_alpha/target</generatedReportsDirectory>
 					<basePackageName>ca.infoway.messagebuilder.model.ccda_r00_alpha</basePackageName>
 					<messageSet>./messageSet.xml</messageSet>

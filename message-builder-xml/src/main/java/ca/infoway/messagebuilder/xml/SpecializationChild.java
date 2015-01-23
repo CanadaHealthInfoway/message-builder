@@ -39,6 +39,8 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 	private String cmetBindingName;
 	@Attribute(required=false)
 	private String cmetDerivationClassName;
+	@Attribute(required=false)
+	private Boolean isDefault;
 	
 	/**
 	 * <p>Standard constructor.
@@ -87,6 +89,14 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 
 	public void setCmetDerivationClassName(String cmetDerivationClassName) {
 		this.cmetDerivationClassName = cmetDerivationClassName;
+	}
+
+	public boolean isDefault() {
+		return isDefault == null ? false : isDefault;
+	}
+
+	public void setDefault(boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 
 	public int compareTo(SpecializationChild o) {

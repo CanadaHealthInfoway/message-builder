@@ -47,8 +47,8 @@ class MessageSetGeneratorFactoryImpl implements MessageSetGeneratorFactory {
 	}
 
 	@Override
-	public CdaToXmlGenerator createForCda(Mojo mojo, boolean useR2Datatypes) throws GeneratorException {
-		return new CdaToXmlGenerator(new OutputUIImpl(mojo), useR2Datatypes);
+	public CdaToXmlGenerator createForCda(Mojo mojo, String version, boolean useR2Datatypes) throws GeneratorException {
+		return new CdaToXmlGenerator(new OutputUIImpl(mojo), version, useR2Datatypes);
 	}
 
 }

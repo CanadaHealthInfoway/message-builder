@@ -690,9 +690,13 @@ public class CdaTemplateProcessorTest {
 				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
 				assertEquals(4, addChoiceConstraints.size());
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
+				assertFalse(((AddChoiceConstraint)addChoiceConstraints.get(0)).isDefault());
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertFalse(((AddChoiceConstraint)addChoiceConstraints.get(1)).isDefault());
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
+				assertFalse(((AddChoiceConstraint)addChoiceConstraints.get(2)).isDefault());
 				assertEquals("POCD_MT000040.Entry", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertTrue(((AddChoiceConstraint)addChoiceConstraints.get(3)).isDefault());
 			}
 
 			if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry") && delta.getRelationshipName() == null) {

@@ -80,6 +80,9 @@ public class AssociationDeltaVisitor extends RelationshipDeltaVisitor {
 			for (SpecializationChild childName : messagePart.getSpecializationChilds()) {
 				Relationship childRelationship = new Relationship();
 				childRelationship.setType(childName.getName());
+				if (childName.isDefault()) {
+					childRelationship.setDefaultChoice(Boolean.TRUE);
+				}
 				childRelationship.setName(nameAssigner.determineName(childName.getName()));
 				populateChoices(childRelationship, nameAssigner);
 				relationship.getChoices().add(childRelationship);

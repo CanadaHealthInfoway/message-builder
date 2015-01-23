@@ -38,6 +38,7 @@ public class AddChoiceConstraint extends Constraint{
 	
 	private String choiceClassName;
 	private String optionName;
+	private boolean isDefault;
 	
 	public AddChoiceConstraint() {
 	}
@@ -56,6 +57,12 @@ public class AddChoiceConstraint extends Constraint{
 	}
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
+	}
+	public boolean isDefault() {
+		return isDefault;
+	}
+	public void setDefault(boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 	@Override
 	public boolean hasChange() {
@@ -86,6 +93,7 @@ public class AddChoiceConstraint extends Constraint{
 	public Constraint clone(String originalPackageName, String newPackageName) {
 		AddChoiceConstraint addChoiceConstraint = new AddChoiceConstraint(StringUtils.replace(this.choiceClassName, originalPackageName, newPackageName));
 		addChoiceConstraint.setOptionName(this.optionName);
+		addChoiceConstraint.setDefault(this.isDefault);
 		return addChoiceConstraint;
 	}
 }

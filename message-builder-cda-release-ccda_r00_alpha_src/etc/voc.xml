@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <systems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.lantanagroup.com/voc">
-  <system valueSetOid="2.16.840.1.113883.1.11.16926" valueSetName="x_BasicConfidentialityKind" />
+  <system valueSetOid="2.16.840.1.113883.1.11.16926" valueSetName="BasicConfidentialityKind" />
   <system valueSetOid="2.16.840.1.113883.1.11.12212" valueSetName="MaritalStatus" />
   <system valueSetOid="2.16.840.1.113883.1.11.19185" valueSetName="ReligiousAffiliation" />
   <system valueSetOid="2.16.840.1.113883.1.11.14914" valueSetName="Race" />
@@ -9,7 +9,7 @@
   <system valueSetOid="2.16.840.1.113883.1.11.11526" valueSetName="Language" />
   <system valueSetOid="2.16.840.1.113883.11.20.9.20" valueSetName="TelecomUse" />
   <system valueSetOid="2.16.840.1.113883.3.88.12.80.2" valueSetName="PostalCode" />
-  <system valueSetOid="2.16.840.1.113883.3.88.12.80.63" valueSetName="CCDACountry" />
+  <system valueSetOid="2.16.840.1.113883.3.88.12.80.63" valueSetName="Country" />
   <system valueSetOid="2.16.840.1.113883.1.11.12249" valueSetName="LanguageAbilityMode" />
   <system valueSetOid="2.16.840.1.113883.1.11.1" valueSetName="AdministrativeGender" />
   <system valueSetOid="2.16.840.1.113883.1.11.12199" valueSetName="LanguageAbilityProficiency" />
@@ -79,8 +79,8 @@
   <system codeSystemOid="2.16.840.1.113883.5.89" codeSystemName="ParticipationSignature" />
   <system codeSystemOid="2.16.840.1.113883.5.90" codeSystemName="ParticipationType" />
   <system codeSystemOid="2.16.840.1.113883.5.110" codeSystemName="RoleClass" />
-  <system codeSystemOid="2.16.840.1.113883.6.1" codeSystemName="Loinc" />
-  <system codeSystemOid="2.16.840.1.113883.6.96" codeSystemName="SnomedCT" />
-  <system codeSystemOid="2.16.840.1.113883.6.101" codeSystemName="Providertaxonomy" />
+  <system codeSystemOid="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <system codeSystemOid="2.16.840.1.113883.6.96" codeSystemName="Snomed_CT" />
+  <system codeSystemOid="2.16.840.1.113883.6.101" codeSystemName="NUCCProviderTaxonomy" />
 
  </systems>

@@ -433,12 +433,13 @@ class Hl7SourceMapper {
 			int currentNodeDepth = XmlDescriber.getDepth(childNode);
 			
 			int currentErrorCount = source.getResult().getHl7Errors().size();
-			List<String> allChoiceTypes = determineAllChoiceTypes(relationship.getChoices());
+			List<Relationship> allChoiceTypes = determineAllChoiceTypes(relationship.getChoices());
 			Hl7SourceMapperChoiceCandidate choiceCandidate = null;
+			Relationship choiceCandidateRelationship = null;
 			boolean foundMultipleChoiceCandidates = false;
 			
-			for (String choiceType : allChoiceTypes) {
-				Hl7PartSource childSource = source.createPartSourceForSpecificType(relationship, childNode, choiceType);
+			for (Relationship choiceType : allChoiceTypes) {
+				Hl7PartSource childSource = source.createPartSourceForSpecificType(relationship, childNode, choiceType.getType());
 				this.log.debug("RECURSE for node=" + source.getCurrentElement().getNodeName() + " - relationship=" + relationship.getName() + ", tarversalName=" + traversalName + ", of type: " + childSource.getType());
 				
 				// after creating tealChild for each choiceType
@@ -462,10 +463,16 @@ class Hl7SourceMapper {
 						foundMultipleChoiceCandidates = false;
 						break;
 					} else {
-						if (choiceCandidate != null) {
+						if (choiceCandidate == null) {
+							choiceCandidate = newChoiceCandidate;
+							choiceCandidateRelationship = choiceType;
+							foundMultipleChoiceCandidates = false;
+						} else if (choiceCandidateRelationship.isDefaultChoice()) {
+							choiceCandidate = newChoiceCandidate;
+							choiceCandidateRelationship = choiceType;
+						} else if (!choiceType.isDefaultChoice()) {
 							foundMultipleChoiceCandidates = true;
-						}
-						choiceCandidate = newChoiceCandidate;
+						} // else newChoiceCandidate is a default, and we ignore it in favor of the non-default we previously found
 					}
 				}
 			}
@@ -503,11 +510,11 @@ class Hl7SourceMapper {
 		return result;
 	}
 
-	private List<String> determineAllChoiceTypes(List<Relationship> choices) {
-		ArrayList<String> results = new ArrayList<String>();
+	private List<Relationship> determineAllChoiceTypes(List<Relationship> choices) {
+		ArrayList<Relationship> results = new ArrayList<Relationship>();
 		for (Relationship rel : choices) {
 			if (rel.getChoices().isEmpty()) {
-				results.add(rel.getType());
+				results.add(rel);
 			} else {
 				results.addAll(determineAllChoiceTypes(rel.getChoices()));
 			}

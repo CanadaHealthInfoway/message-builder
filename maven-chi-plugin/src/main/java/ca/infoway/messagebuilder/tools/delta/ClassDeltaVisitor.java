@@ -159,6 +159,9 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 			} else {
 				child = new SpecializationChild(constraint.getChoiceClassName());
 			}
+			if(constraint.isDefault()) {
+				child.setDefault(Boolean.TRUE);
+			} // else leave it null
 			
 			getMessagePart().getSpecializationChilds().add(child);
 			for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
@@ -217,7 +220,8 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 	 */
 	private void addChoiceToRelationship(Relationship relationship,	String parentMessagePartName, AddChoiceConstraint constraint, NameAssigner nameAssigner) {
 		if (relationship.getType() != null && relationship.getType().equals(parentMessagePartName)) {
-			relationship.getChoices().add(createChoice(constraint.getOptionName(), constraint.getChoiceClassName(), nameAssigner));
+			Relationship choice = createChoice(constraint.getOptionName(), constraint.getChoiceClassName(), constraint.isDefault(), nameAssigner);
+			relationship.getChoices().add(choice);
 		} else {
 			addChoiceToAllRelationships(relationship.getChoices(), parentMessagePartName, constraint, nameAssigner);
 		}
@@ -237,7 +241,7 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 		}
 	}
 	
-	private Relationship createChoice(String choiceName, String choiceType, NameAssigner nameAssigner) {
+	private Relationship createChoice(String choiceName, String choiceType, boolean isDefault, NameAssigner nameAssigner) {
 		MessagePart choiceMessagePart = this.messageSet.getMessagePart(choiceType);
 		
 		Relationship choice = new Relationship();
@@ -248,9 +252,13 @@ public class ClassDeltaVisitor extends ConstraintVisitor {
 			choice.setName(nameAssigner.determineName(choiceType));
 		}
 		
+		if (isDefault) {
+			choice.setDefaultChoice(Boolean.TRUE);
+		}
+
 		if (choiceMessagePart.isAbstract()) {
 			for (SpecializationChild nestedChoice : choiceMessagePart.getSpecializationChilds()) {
-				choice.getChoices().add(createChoice(null, nestedChoice.getName(), nameAssigner));
+				choice.getChoices().add(createChoice(null, nestedChoice.getName(), nestedChoice.isDefault(), nameAssigner));
 			}
 		}
 		

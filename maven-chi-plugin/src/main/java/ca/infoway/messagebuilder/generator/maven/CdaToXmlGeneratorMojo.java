@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -80,6 +81,14 @@ public class CdaToXmlGeneratorMojo extends AbstractMojo {
     private Boolean r2Datatypes;
     
     /**
+     * <p>The version number of the output.
+     * 
+     * @parameter 
+     * @required
+     */
+    private String version;
+    
+    /**
      * <p>The output message set file.
      * 
      * @parameter default-value="${project.build.directory}/messageSet.xml"
@@ -118,6 +127,8 @@ public class CdaToXmlGeneratorMojo extends AbstractMojo {
 			throw new MojoExecutionException("Please specify a valid template file.");
 		} else if (vocabulary == null || !vocabulary.exists() || !vocabulary.isFile()) {
 			throw new MojoExecutionException("Please specify a valid vocabulary definition file.");
+		} else if (StringUtils.isBlank(this.version)) {
+			throw new MojoExecutionException("Version must be provided.");
 		} else {
 			generate();
 		}
@@ -125,7 +136,7 @@ public class CdaToXmlGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
-			CdaToXmlGenerator generator = this.factory.createForCda(this, this.r2Datatypes);
+			CdaToXmlGenerator generator = this.factory.createForCda(this, this.version, this.r2Datatypes);
 			MessageSet generatedMessageSet = generator.processAllCdaFiles(this.schema, this.supplementarySchema, this.template, this.vocabulary);
 			generator.writeToMessageSet(this.messageSet);
 			
@@ -193,6 +204,14 @@ public class CdaToXmlGeneratorMojo extends AbstractMojo {
 
 	public void setR2Datatypes(boolean r2Datatypes) {
 		this.r2Datatypes = r2Datatypes;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 }

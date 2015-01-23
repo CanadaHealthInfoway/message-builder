@@ -19,7 +19,7 @@
     Revision:      $LastChangedRevision: 2623 $
 
 -->
-<messageSet cda="true" generatedAsR2="false" version="PCS_CDA" schemaVersion="2.0" generatedBy="1.5.9-SNAPSHOT">
+<messageSet version="PCS_CDA" cda="true" generatedAsR2="false" schemaVersion="2.0" generatedBy="1.5.12-SNAPSHOT">
    <vocabulary/>
    <schemaMetadata targetNamespace="urn:hl7-org:v3" elementFormDefault="qualified">
       <documentation>Generated using schema builder version 2.0. Stylesheets:
