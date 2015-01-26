@@ -275,6 +275,7 @@ enum DataTypeGenerationDetails implements Typed {
 	TEL_PHONE("TEL.PHONE", "PhoneNumber", TEL.class.getName(), TelecommunicationAddress.class.getName(), null), 
 	TEL_EMAIL("TEL.EMAIL", "EmailAddress", TEL.class.getName(), TelecommunicationAddress.class.getName(), null), 
 	TEL_URI("TEL.URI", "Uri", TEL.class.getName(), TelecommunicationAddress.class.getName(), null),
+	TEL_ALL("TEL.ALL", "BaseTelecommunicationAddress", TEL.class.getName(), TelecommunicationAddress.class.getName(), null),
 	
 	URG("URG", URG.class.getName(), UncertainRange.class.getName(), null),
 	URG_TS_DATE("URG<TS.DATE>", URG.class.getName(), UncertainRange.class.getName(), null),
