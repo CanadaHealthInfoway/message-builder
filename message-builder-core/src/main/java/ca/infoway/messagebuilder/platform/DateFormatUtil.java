@@ -26,11 +26,18 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * @sharpen.ignore platform
  */
 public class DateFormatUtil {
 	public static boolean isMatchingPattern(String str, String pattern) {
+		// this was a performance change made on the .NET side; it isn't really necessary on the Java side, but will improve performance somewhat
+		if (StringUtils.length(str) != StringUtils.length(pattern)) {
+			return false;
+		}
+		
 		ParsePosition pos = new ParsePosition(0);
         SimpleDateFormat parser = new SimpleDateFormat(pattern);
         parser.setLenient(false);
