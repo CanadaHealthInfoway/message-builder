@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Participant2"})
 public class Participant2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.advancedirectiveobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.encounteractivities.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.allergyintoleranceobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedureactivityprocedure.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.policyactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.nonmedicinalsupplyactivity.Participant2Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

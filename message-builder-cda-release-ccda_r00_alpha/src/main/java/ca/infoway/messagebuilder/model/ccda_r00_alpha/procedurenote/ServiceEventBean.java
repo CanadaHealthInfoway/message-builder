@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassRoot;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Performer1_2Bean;
 import java.util.List;
 
 
@@ -46,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureNote.ServiceEvent"})
 public class ServiceEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private CS_R2 classCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
@@ -54,7 +53,7 @@ public class ServiceEventBean extends MessagePartBean {
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private IVL_TS effectiveTime = new IVL_TSImpl();
-    private Performer1_2Bean performer;
+    private Performer1Bean performer;
 
 
     /**
@@ -176,7 +175,7 @@ public class ServiceEventBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"performer"})
-    public Performer1_2Bean getPerformer() {
+    public Performer1Bean getPerformer() {
         return this.performer;
     }
 
@@ -185,7 +184,7 @@ public class ServiceEventBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setPerformer(Performer1_2Bean performer) {
+    public void setPerformer(Performer1Bean performer) {
         this.performer = performer;
     }
 

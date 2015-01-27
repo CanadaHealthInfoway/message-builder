@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7RootType
 public class ObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private CD_R2 value = new CD_R2Impl();

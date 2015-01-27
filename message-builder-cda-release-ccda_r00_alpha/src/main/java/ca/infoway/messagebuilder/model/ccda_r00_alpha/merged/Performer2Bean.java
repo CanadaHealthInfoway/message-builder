@@ -44,13 +44,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.Performer2","ProcedureActivityObservation.Performer2","ProcedureActivityProcedure.Performer2"})
 public class Performer2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedureactivityprocedure.Performer2Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
     private CE_R2 modeCode = new CE_R2Impl();
-    private AssignedEntity_3Bean assignedEntity;
+    private AssignedEntity_2Bean assignedEntity;
 
 
     /**
@@ -284,7 +284,7 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedEntity"})
-    public AssignedEntity_3Bean getAssignedEntity() {
+    public AssignedEntity_2Bean getAssignedEntity() {
         return this.assignedEntity;
     }
 
@@ -310,7 +310,7 @@ public class Performer2Bean extends MessagePartBean implements ca.infoway.messag
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAssignedEntity(AssignedEntity_3Bean assignedEntity) {
+    public void setAssignedEntity(AssignedEntity_2Bean assignedEntity) {
         this.assignedEntity = assignedEntity;
     }
 

@@ -40,37 +40,45 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ProviderRole;
 import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.PersonBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"OperativeNote.AssignedEntity","ProcedureNote.AssignedEntity"})
+@Hl7PartTypeMapping({"ProcedureActivityAct.AssignedEntity","ProcedureActivityObservation.AssignedEntity","ProcedureActivityProcedure.AssignedEntity"})
 public class AssignedEntity_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
-    private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD addr = new ADImpl();
+    private TEL telecom = new TELImpl();
     private PersonBean assignedPerson;
-    private Organization_1Bean representedOrganization;
+    private Organization_2Bean representedOrganization;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.realmCode</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.realmCode</p>
+     * <p>Relationship: 
+     * ProcedureActivityAct.AssignedEntity.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -83,13 +91,21 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.typeId</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.typeId</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -101,13 +117,21 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.typeId</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.typeId</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -119,13 +143,22 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.templateId</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.templateId</p>
+     * <p>Relationship: 
+     * ProcedureActivityAct.AssignedEntity.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -138,13 +171,21 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.id</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.id</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -157,35 +198,51 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.code</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.code</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
-    public CodedTypeR2<ProviderRole> getCode() {
-        return (CodedTypeR2<ProviderRole>) this.code.getValue();
+    public CodedTypeR2<Code> getCode() {
+        return (CodedTypeR2<Code>) this.code.getValue();
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.code</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.code</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.code</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setCode(CodedTypeR2<ProviderRole> code) {
+    public void setCode(CodedTypeR2<Code> code) {
         this.code.setValue(code);
     }
 
@@ -193,51 +250,126 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.addr</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.addr</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.addr</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getAddr() {
-        return this.addr.rawList();
+    public PostalAddress getAddr() {
+        return this.addr.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.addr</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setAddr(PostalAddress addr) {
+        this.addr.setValue(addr);
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.telecom</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.telecom</p>
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.telecom</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getTelecom() {
-        return this.telecom.rawList();
+    public TelecommunicationAddress getTelecom() {
+        return this.telecom.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureActivityAct.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setTelecom(TelecommunicationAddress telecom) {
+        this.telecom.setValue(telecom);
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ProcedureActivityAct.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -249,13 +381,22 @@ public class AssignedEntity_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ProcedureActivityObservation.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: OperativeNote.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ProcedureActivityAct.AssignedEntity.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -268,19 +409,26 @@ public class AssignedEntity_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.AssignedEntity.representedOrganization</p>
+     * ProcedureActivityObservation.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.AssignedEntity.representedOrganization</p>
+     * ProcedureActivityAct.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"representedOrganization"})
-    public Organization_1Bean getRepresentedOrganization() {
+    public Organization_2Bean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
@@ -288,18 +436,25 @@ public class AssignedEntity_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.AssignedEntity.representedOrganization</p>
+     * ProcedureActivityObservation.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * OperativeNote.AssignedEntity.representedOrganization</p>
+     * ProcedureActivityAct.AssignedEntity.representedOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setRepresentedOrganization(Organization_1Bean representedOrganization) {
+    public void setRepresentedOrganization(Organization_2Bean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }
 

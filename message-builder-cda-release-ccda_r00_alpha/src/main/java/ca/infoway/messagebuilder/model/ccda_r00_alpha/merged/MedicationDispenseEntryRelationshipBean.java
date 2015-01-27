@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.MedicationDispenseEntryRelationship","MedicationActivity.MedicationDispenseEntryRelationship"})
 public class MedicationDispenseEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

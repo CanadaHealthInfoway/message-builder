@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Performer1AssignedEntity","ContinuityOfCareDocumentCCD.Performer1AssignedEntity","DiagnosticImagingReport.Performer1AssignedEntity","DischargeSummary.Performer1AssignedEntity","HistoryAndPhysical.Performer1AssignedEntity","OperativeNote.Performer1AssignedEntity","ProcedureNote.Performer1AssignedEntity","ProgressNote.Performer1AssignedEntity","USRealmHeader.Performer1AssignedEntity","UnstructuredDocument.Performer1AssignedEntity"})
 public class Performer1AssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

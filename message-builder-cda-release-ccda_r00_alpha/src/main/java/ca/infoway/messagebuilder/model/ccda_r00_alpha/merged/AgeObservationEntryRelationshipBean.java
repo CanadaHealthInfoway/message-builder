@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.AgeObservationEntryRelationship","FamilyHistoryObservation.AgeObservationEntryRelationship","FunctionalStatusProblemObservation.AgeObservationEntryRelationship","ProblemObservation.AgeObservationEntryRelationship"})
 public class AgeObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.familyhistoryobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);

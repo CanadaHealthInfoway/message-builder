@@ -5891,7 +5891,7 @@ A Consultation Note must be provided to the referring physician or NPP and must 
 An NPP is defined as any licensed medical professional as recognized by the state in which the professional practices, including, but not limited to, physician assistants, nurse practitioners, clinical nurse specialists, social workers, registered dietitians, physical therapists, and speech therapists.
 
 Reports on visits requested by a patient, family member, or other third party are not covered by this specification. Second opinions, sometimes called ""confirmatory consultations,"" also are not covered here. Any question on use of the Consultation Note defined here should be resolved by reference to CMS or American Medical Association (AMA) guidelines.</Description>
-    <Constraint isStatic="true" conformance="SHALL" isSchRooted="true" cardinality="1..1" context="templateId" number="8375">
+    <Constraint isStatic="true" conformance="SHALL" isSchRooted="true" cardinality="1..1" context="templateId" number="8375" isBranch="true">
       <SchematronTest>count(cda:templateId[@root='2.16.840.1.113883.10.20.22.1.4'])=1</SchematronTest>
       <NarrativeText>SHALL contain exactly one [1..1] templateId (CONF:8375).</NarrativeText>
       <Constraint isStatic="true" conformance="SHALL" isInheritable="false" cardinality="1..1" context="@root" number="10040">

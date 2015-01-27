@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.NonXMLBody"})
 public class NonXMLBodyBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.operativenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.continuityofcaredocumentccd.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.dischargesummary.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.diagnosticimagingreport.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.historyandphysical.Component2Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote.Component2Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

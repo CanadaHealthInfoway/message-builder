@@ -34,6 +34,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote.ClinicalDocum
 @Hl7PartTypeMapping({"ProgressNote"})
 public class ProgressNoteBean extends ClinicalDocumentBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
 
 }

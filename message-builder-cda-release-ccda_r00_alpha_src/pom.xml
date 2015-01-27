@@ -69,10 +69,10 @@
 
 					<version>CCDA_R00_ALPHA</version>					
 					<javaSourceFolder>./java</javaSourceFolder>
-					<generatedReportsDirectory>../chi-messagebuilder/message-builder-cda-release-ccda_r00_alpha/target</generatedReportsDirectory>
+					<generatedReportsDirectory>../message-builder-cda-release-ccda_r00_alpha/target</generatedReportsDirectory>
 					<basePackageName>ca.infoway.messagebuilder.model.ccda_r00_alpha</basePackageName>
 					<messageSet>./messageSet.xml</messageSet>
-					<mifTransformer>../chi-messagebuilder/maven-chi-plugin/src/main/resources/ca/infoway/messagebuilder/generator/transform/ConvertMifVersion.xslt</mifTransformer>
+					<mifTransformer>../maven-chi-plugin/src/main/resources/ca/infoway/messagebuilder/generator/transform/ConvertMifVersion.xslt</mifTransformer>
 				</configuration>
 
 				<dependencies>

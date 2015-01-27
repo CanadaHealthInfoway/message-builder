@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POCD_MT000040.Organizer"})
 public class OrganizerBean extends MessagePartBean implements EntryChoice, EntryRelationshipChoice, Component4Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private CS_R2 classCode = new CS_R2Impl();
     private CS_R2 moodCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);

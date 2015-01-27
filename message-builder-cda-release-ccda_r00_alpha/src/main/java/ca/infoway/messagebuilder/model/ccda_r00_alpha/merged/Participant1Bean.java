@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Participant1","ContinuityOfCareDocumentCCD.Participant1","DiagnosticImagingReport.Participant1","DischargeSummary.Participant1","HistoryAndPhysical.Participant1","OperativeNote.Participant1","ProcedureNote.Participant1","ProgressNote.Participant1","USRealmHeader.Participant1","UnstructuredDocument.Participant1"})
 public class Participant1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Participant1Choice, Participant1Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.CaregiverCharacteristicsEntryRelationship","CognitiveStatusResultObservation.CaregiverCharacteristicsEntryRelationship","FunctionalStatusProblemObservation.CaregiverCharacteristicsEntryRelationship","FunctionalStatusResultObservation.CaregiverCharacteristicsEntryRelationship"})
 public class CaregiverCharacteristicsEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_4 {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

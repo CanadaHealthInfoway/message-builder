@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant","POCD_MT000040.EncounterParticipant"})
 public class EncounterParticipantBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.EncounterParticipantChoice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

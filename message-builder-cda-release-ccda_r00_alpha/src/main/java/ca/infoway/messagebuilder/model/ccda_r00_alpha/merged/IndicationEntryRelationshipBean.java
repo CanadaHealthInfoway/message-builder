@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncounterActivities.IndicationEntryRelationship","ImmunizationActivity.IndicationEntryRelationship","MedicationActivity.IndicationEntryRelationship","ProcedureActivityAct.IndicationEntryRelationship","ProcedureActivityObservation.IndicationEntryRelationship","ProcedureActivityProcedure.IndicationEntryRelationship"})
 public class IndicationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.encounteractivities.EntryRelationshipChoice, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r00_alpha.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r00_alpha.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

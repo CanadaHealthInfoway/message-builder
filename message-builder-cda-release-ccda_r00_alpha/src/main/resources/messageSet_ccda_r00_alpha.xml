@@ -1911,7 +1911,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="moodCode" attribute="true" type="CS" structural="true" domainType="ActMood" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="2" fixedValue="EVN"/>
                <relationship name="realmCode" attribute="true" type="CS" conformance="MANDATORY" cardinality="1" sortOrder="3" fixedValue="US"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="ConsultationNote.ClinicalDocument.typeId" conformance="MANDATORY" cardinality="1" sortOrder="4"/>
-               <relationship name="templateId" attribute="true" type="II" constrainedType="ConsultationNote.ClinicalDocument.templateId" conformance="MANDATORY" cardinality="1" sortOrder="5"/>
+               <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" constrainedType="ConsultationNote.ClinicalDocument.templateId" conformance="MANDATORY" cardinality="*" sortOrder="5"/>
                <relationship name="id" attribute="true" type="II" conformance="POPULATED" cardinality="1" sortOrder="6"/>
                <relationship name="code" attribute="true" type="CE" domainType="ConsultDocumentType" domainSource="VALUE_SET" conformance="POPULATED" cardinality="1" sortOrder="7"/>
                <relationship name="title" attribute="true" type="ST" conformance="POPULATED" cardinality="1" sortOrder="8"/>

@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.PlanOfCareSectionComponent3","ContinuityOfCareDocumentCCD.PlanOfCareSectionComponent3","DischargeSummary.PlanOfCareSectionComponent3","HistoryAndPhysical.PlanOfCareSectionComponent3","OperativeNote.PlanOfCareSectionComponent3","ProcedureNote.PlanOfCareSectionComponent3","ProgressNote.PlanOfCareSectionComponent3"})
 public class PlanOfCareSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.operativenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.continuityofcaredocumentccd.Component3Choice {
 
-    private static final long serialVersionUID = 20141104L;
+    private static final long serialVersionUID = 20150127L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
