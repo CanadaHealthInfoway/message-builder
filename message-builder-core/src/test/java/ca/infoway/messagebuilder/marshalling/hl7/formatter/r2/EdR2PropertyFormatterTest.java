@@ -131,7 +131,7 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 		}
 		if (documentContent != null) {
 			try {
-				data.setDocumentContentFromString(documentContent);
+				data.addDocumentContentFromString(documentContent);
 			} catch (SAXException e) {
 				Assert.fail("Should not fail creating document content");
 			}

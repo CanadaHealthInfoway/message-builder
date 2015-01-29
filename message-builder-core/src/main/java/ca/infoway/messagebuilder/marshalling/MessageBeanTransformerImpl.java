@@ -48,6 +48,9 @@ public class MessageBeanTransformerImpl {
 	public MessageBeanTransformerImpl(RenderMode renderMode) {
 		this(new MessageDefinitionServiceFactory().create(), renderMode);
 	}
+	public MessageBeanTransformerImpl(TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		this(new MessageDefinitionServiceFactory().create(), RenderMode.PERMISSIVE, dateTimeZone, dateTimeTimeZone);
+	}
 	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode) {
 		this(service, renderMode, null, null);
 	}

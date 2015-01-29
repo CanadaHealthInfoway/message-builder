@@ -70,6 +70,8 @@ public class EncapsulatedData {
 	private String cdataContent;
 	private List<Document> documentContent; // HTML content may not have a single root element
 
+	private final DocumentFactory documentFactory = new DocumentFactory();
+	
 	/**
 	 * <p>Constructs an empty ED.
 	 */
@@ -283,12 +285,12 @@ public class EncapsulatedData {
 	}
 	
 	/**
-	 * Convenience method to pass in xml as a string to set as documentContent
+	 * Convenience method to pass in xml as a string to add to documentContent
 	 * @param documentContentAsString the string to convert to a Document
 	 * @throws SAXException
 	 */
-	public void setDocumentContentFromString(String documentContentAsString) throws SAXException {
-		addDocumentContent(new DocumentFactory().createFromString(documentContentAsString));
+	public void addDocumentContentFromString(String documentContentAsString) throws SAXException {
+		addDocumentContent(this.documentFactory.createFromString(documentContentAsString));
 	}
 	
     @Override
