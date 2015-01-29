@@ -39,6 +39,7 @@
 		<module>message-builder-acceptance</module>
 		<module>maven-chi-plugin</module>
 		<module>message-builder-hello-world</module>
+		<module>message-builder-hello-world-cda</module>
 		<module>message-builder-util</module>
 		<module>message-builder-xml</module>
 		<module>message-builder-core</module>
