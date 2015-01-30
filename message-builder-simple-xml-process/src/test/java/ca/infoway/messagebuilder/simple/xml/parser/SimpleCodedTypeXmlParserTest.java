@@ -50,6 +50,9 @@ public class SimpleCodedTypeXmlParserTest extends AbstractXmlParserTest<CS> {
 			public String getCodeSystem() {
 				return codeSystem;
 			}
+		    public String getCodeSystemName() {
+		    	return null;
+		    }
 		};
 	}
 	

@@ -47,7 +47,8 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 	private final Class<?> type;
 	private final Collection<Class<?>> interfaceTypes;
 	private final String code;
-	private final String codeSystem;
+	private final String codeSystemOid;
+	private final String codeSystemName;
 	private final Integer ordinal;
 	private final Map<String,String> displayTextMap;
 	private final Boolean active;
@@ -59,14 +60,15 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 	 */
 	@SuppressWarnings("unchecked")
 	public TypedCode() {
-		this(null, Collections.EMPTY_SET, null, null, null, null, null, null);
+		this(null, Collections.EMPTY_SET, null, null, null, null, null, null, null);
 	}
 
-	TypedCode(Class<?> type, Collection<Class<?>> interfaceTypes, String code, String codeSystem, Map<String,String> displayTextMap, Integer sortValue, Boolean active, Boolean common) {
+	TypedCode(Class<?> type, Collection<Class<?>> interfaceTypes, String code, String codeSystemOid, String codeSystemName, Map<String,String> displayTextMap, Integer sortValue, Boolean active, Boolean common) {
 		this.type = type;
 		this.interfaceTypes = interfaceTypes;
 		this.code = code;
-		this.codeSystem = codeSystem;
+		this.codeSystemOid = codeSystemOid;
+		this.codeSystemName = codeSystemName;
 		this.displayTextMap = displayTextMap;
 		this.ordinal = sortValue;
 		this.active = active;
@@ -85,10 +87,17 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 	 * {@inheritDoc}
 	 */
 	public String getCodeSystem() {
-		return codeSystem;
+		return codeSystemOid;
 	}
 
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return codeSystemName;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */
@@ -143,7 +152,7 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 	 * @see TypedCodeFactory
 	 */
 	Object readResolve() {
-		return new TypedCodeFactory().create(type, interfaceTypes, getCodeValue(), getCodeSystem(), displayTextMap, ordinal, active, common);
+		return new TypedCodeFactory().create(type, interfaceTypes, getCodeValue(), getCodeSystem(), getCodeSystemName(), displayTextMap, ordinal, active, common);
 	}
 	
 	/**
@@ -155,7 +164,7 @@ public class TypedCode implements Code, Displayable, Sortable, Active, Common, S
 	 * @see TypedCodeFactory
 	 */
 	Object writeReplace() {
-		return new TypedCode(type, interfaceTypes, getCodeValue(), getCodeSystem(), displayTextMap, ordinal, active, common);
+		return new TypedCode(type, interfaceTypes, getCodeValue(), getCodeSystem(), getCodeSystemName(), displayTextMap, ordinal, active, common);
 	}
 
 	/**

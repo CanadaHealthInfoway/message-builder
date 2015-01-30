@@ -195,6 +195,13 @@ public class MediaType extends EnumPattern implements ca.infoway.messagebuilder.
 		return CodeSystem.VOCABULARY_DOCUMENT_MEDIA_TYPES.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * <p>Returns the code value.
 	 * 

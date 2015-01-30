@@ -85,6 +85,9 @@ public class ConceptDescriptorXmlParserTest extends AbstractXmlParserTest<CD> {
 			public String getCodeSystem() {
 				return codeSystem;
 			}
+		    public String getCodeSystemName() {
+		    	return null;
+		    }
 		});
 		cd.setOriginalText(origianlText);
 		return cd;
@@ -98,6 +101,9 @@ public class ConceptDescriptorXmlParserTest extends AbstractXmlParserTest<CD> {
 			public String getCodeSystem() {
 				return codeSystem;
 			}
+		    public String getCodeSystemName() {
+		    	return null;
+		    }
 		};
 	}
 	

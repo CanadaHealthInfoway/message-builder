@@ -69,6 +69,13 @@ public class EntityNamePartQualifier extends EnumPattern implements ca.infoway.m
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the code value.
      * 
      * @return the code value

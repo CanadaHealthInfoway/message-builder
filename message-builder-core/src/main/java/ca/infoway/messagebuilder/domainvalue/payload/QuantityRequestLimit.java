@@ -47,6 +47,13 @@ public class QuantityRequestLimit extends EnumPattern implements ca.infoway.mess
 		return "2.16.840.1.113883.5.1112";
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

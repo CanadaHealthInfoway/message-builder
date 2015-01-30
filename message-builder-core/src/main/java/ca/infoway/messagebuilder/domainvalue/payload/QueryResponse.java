@@ -53,6 +53,13 @@ public class QueryResponse extends EnumPattern implements ca.infoway.messagebuil
 		return CodeSystem.VOCABULARY_QUERY_RESPONSE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

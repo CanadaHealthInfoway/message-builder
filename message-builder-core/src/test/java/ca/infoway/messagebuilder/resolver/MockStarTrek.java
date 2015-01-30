@@ -44,6 +44,10 @@ public class MockStarTrek extends EnumPattern implements MockCharacters {
 		return "to.boldly.go";
 	}
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return this != OTHER ? toString() : null;
 	}

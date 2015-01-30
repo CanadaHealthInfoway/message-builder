@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.generator.cda.CdaXsdProcessor;
 import ca.infoway.messagebuilder.generator.cda.Schema;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 import ca.infoway.messagebuilder.xml.delta.ConformanceConstraint;
 import ca.infoway.messagebuilder.xml.delta.Constraint;
 import ca.infoway.messagebuilder.xml.delta.ConstraintChangeType;

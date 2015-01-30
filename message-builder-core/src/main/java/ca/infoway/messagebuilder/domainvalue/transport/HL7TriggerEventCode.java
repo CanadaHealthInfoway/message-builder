@@ -361,6 +361,13 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 		return this.codeSystem == null ? CodeSystem.VOCABULARY_TRIGGER_EVENT_ID.getRoot() : this.codeSystem.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

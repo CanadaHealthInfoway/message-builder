@@ -105,6 +105,10 @@ public class MarshallingAcceptanceTestRunner implements AcceptanceTestRunner {
 			return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 		}
 
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 		public String getCodeValue() {
 			return name();
 		}
@@ -117,6 +121,10 @@ public class MarshallingAcceptanceTestRunner implements AcceptanceTestRunner {
 			return CodeSystem.VOCABULARY_QUERY_REQUEST_LIMIT.getRoot();
 		}
 
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 		public String getCodeValue() {
 			return name();
 		}

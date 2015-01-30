@@ -56,6 +56,13 @@ public class Confidentiality extends EnumPattern implements ca.infoway.messagebu
 		return CodeSystem.VOCABULARY_CONFIDENTIALITY.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

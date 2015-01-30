@@ -88,6 +88,13 @@ public class TimingEvent extends EnumPattern implements ca.infoway.messagebuilde
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the value (protocol) for the URL.
      * 
      * @return the value (protocol) for the URL.

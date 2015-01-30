@@ -54,6 +54,13 @@ public class Iso3166Alpha2Country extends EnumPattern implements ca.infoway.mess
 		return CodeSystem.ISO_3166_1_ALPHA_2.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

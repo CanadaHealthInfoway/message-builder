@@ -71,7 +71,7 @@ public class CrR2PropertyFormatterTest extends FormatterTestCase {
 		
 		String result = new CrR2PropertyFormatter().format(getContext("codeRole", "CR"), new CRImpl(codeRole));
 		assertTrue(this.result.isValid());
-		assertXml("result", "<codeRole inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><value code=\"completed\" codeSystem=\"2.16.840.1.113883.5.14\"/></codeRole>", result);
+		assertXml("result", "<codeRole inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><value code=\"completed\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Completed\"/></codeRole>", result);
 	}
 	
 	@Test
@@ -84,7 +84,7 @@ public class CrR2PropertyFormatterTest extends FormatterTestCase {
 		String result = new CrR2PropertyFormatter().format(getContext("codeRole", "CR"), new CRImpl(codeRole));
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertXml("result", "<codeRole inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/></codeRole>", result);
+		assertXml("result", "<codeRole inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/></codeRole>", result);
 	}
 	
 }

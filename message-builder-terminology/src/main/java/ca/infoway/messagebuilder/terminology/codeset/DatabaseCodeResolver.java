@@ -120,7 +120,7 @@ public class DatabaseCodeResolver implements CodeResolver {
 
 	private <T extends Code> T createCode(Class<T> type, CodedValue value, Set<Class<?>> implementedTypes) {
 		return type.cast(this.codeFactory.create(type, implementedTypes, value.getCode(), 
-				value.getCodeSystem().getOid(), 
+				value.getCodeSystem().getOid(), value.getCodeSystem().getName(), 
 				new HashMap<String, String>(value.getDescriptions()), 
 				new Integer(1), Boolean.TRUE, Boolean.TRUE));
 	}

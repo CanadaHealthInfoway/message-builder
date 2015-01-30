@@ -66,6 +66,13 @@ public class RoleStatusNormal extends EnumPattern implements ca.infoway.messageb
 		return CodeSystem.VOCABULARY_ROLE_STATUS.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

@@ -140,4 +140,11 @@ public class State implements ca.infoway.messagebuilder.domainvalue.State, Seria
 	public String getCodeSystem(){
 		return "";
 	}		
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 }

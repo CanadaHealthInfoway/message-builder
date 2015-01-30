@@ -256,7 +256,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
         }
 	}
 
-	private void handleDisplayName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
+	protected void handleDisplayName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
 		if (hasDisplayName(codedType)) {
         	if (displayNameAllowed()) {
                 result.put("displayName", codedType.getDisplayName());
@@ -276,7 +276,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
         }
 	}
 
-	private void handleCodeSystemName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
+	protected void handleCodeSystemName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
 		if (hasCodeSystemName(codedType)) {
         	if (codeSystemNameAllowed()) {
                 result.put("codeSystemName", codedType.getCodeSystemName());

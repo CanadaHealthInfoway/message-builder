@@ -126,6 +126,8 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 		CDImpl cd = new CDImpl(new Code() {
 			public String getCodeValue() {return null;}
 			public String getCodeSystem() {return null;}
+		    public String getCodeSystemName() {return null;}
+		    
 		});
 		String result = new CdPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CNE, false), cd);
 		

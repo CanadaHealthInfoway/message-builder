@@ -55,6 +55,13 @@ public class ProcessingID extends EnumPattern implements ca.infoway.messagebuild
     /**
      * {@inheritDoc}
      */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
     public String getCodeValue() {
         return this.codeValue;
     }

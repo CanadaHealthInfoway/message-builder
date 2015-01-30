@@ -79,6 +79,13 @@ public class MessageWaitingPriority extends EnumPattern implements ca.infoway.me
 		return CodeSystem.VOCABULARY_MESSAGE_WAITING_PRIORITY.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * Returns the code value.
 	 * 

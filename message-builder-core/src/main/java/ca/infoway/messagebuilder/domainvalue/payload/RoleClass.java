@@ -51,6 +51,13 @@ public class RoleClass extends EnumPattern implements ca.infoway.messagebuilder.
 		return CodeSystem.VOCABULARY_ROLE_CLASS.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

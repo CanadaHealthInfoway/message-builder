@@ -40,6 +40,10 @@ class MockCodeImpl implements Code {
         return this.codeSystem;
     }
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
     public String getCodeValue() {
         return this.codeValue;
     }

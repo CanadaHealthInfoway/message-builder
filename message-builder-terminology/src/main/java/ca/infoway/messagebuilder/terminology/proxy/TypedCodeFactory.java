@@ -63,6 +63,7 @@ public class TypedCodeFactory {
 	 * @param types the types
 	 * @param code the code
 	 * @param codeSystemOid the code system oid
+	 * @param codeSystemName the human readable name of the code system
 	 * @param displayTextMap the display text map
 	 * @param sortValue the sort value
 	 * @param active the active
@@ -71,6 +72,7 @@ public class TypedCodeFactory {
 	 */
 	public Code create(Class<?> type, Collection<Class<?>> types, 
 			String code, String codeSystemOid, 
+			String codeSystemName,
 			Map<String,String> displayTextMap, 
 			Integer sortValue, Boolean active, 
 			Boolean common) {	
@@ -80,7 +82,7 @@ public class TypedCodeFactory {
 		allTypes.addAll(STANDARD_INTERFACES);
 		enhancer.setInterfaces((Class[]) allTypes.toArray(new Class[allTypes.size()]));
 		enhancer.setCallback(new TypedCodeMethodInterceptor(new TypedCode(type, allTypes, code, 
-				codeSystemOid, displayTextMap, sortValue, active, common)));
+				codeSystemOid, codeSystemName, displayTextMap, sortValue, active, common)));
 		return (Code) enhancer.create();
 	}
 }

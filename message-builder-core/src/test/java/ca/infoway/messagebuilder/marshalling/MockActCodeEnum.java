@@ -47,6 +47,10 @@ public class MockActCodeEnum extends EnumPattern implements ActCode {
 		return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 	}
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return name();
 	}

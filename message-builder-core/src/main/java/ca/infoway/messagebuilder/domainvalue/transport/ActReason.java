@@ -51,6 +51,13 @@ public class ActReason extends EnumPattern implements ca.infoway.messagebuilder.
 		return CodeSystem.REFERRALS_ACT_REASON.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

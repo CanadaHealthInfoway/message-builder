@@ -45,6 +45,8 @@ import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.RimClass;
 import ca.infoway.messagebuilder.xml.TypeName;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinitionSystem;
 import ca.infoway.messagebuilder.xml.delta.AddChoiceConstraint;
 import ca.infoway.messagebuilder.xml.delta.AddConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;

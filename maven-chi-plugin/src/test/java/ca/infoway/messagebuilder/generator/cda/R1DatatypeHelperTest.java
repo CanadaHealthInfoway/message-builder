@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessor;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessorTest;
 import ca.infoway.messagebuilder.generator.template.TemplateExport;
-import ca.infoway.messagebuilder.generator.template.ValueSetDefinition;
 import ca.infoway.messagebuilder.tools.template.TemplateApplier;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
 @RunWith(MockitoJUnitRunner.class)

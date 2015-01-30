@@ -63,6 +63,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		public String getCodeSystem() {
 			return null;
 		}
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
 		public String getCodeValue() {
 			return name();
 		}

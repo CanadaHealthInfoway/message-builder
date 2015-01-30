@@ -49,6 +49,13 @@ public class x_ActMoodOrderEvent extends EnumPattern implements ca.infoway.messa
 		return CodeSystem.VOCABULARY_ACT_MOOD.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

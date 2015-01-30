@@ -20,7 +20,7 @@
 					<schema>./etc/POCD_MT000040_SDTC.xsd</schema>
 					<supplementarySchema>./etc/SDTC.xsd</supplementarySchema>
 					<template>./etc/Consolidation.xml</template>
-					<vocabulary>./etc/voc.xml</vocabulary>
+					<vocabulary>./etc/vocabNameMap.xml</vocabulary>
 					<r2Datatypes>true</r2Datatypes>
 
 					<!-- xml-to-java: java api generation -->

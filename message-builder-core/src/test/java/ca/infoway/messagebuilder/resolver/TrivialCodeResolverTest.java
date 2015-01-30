@@ -61,6 +61,9 @@ public class TrivialCodeResolverTest {
 			public String getCodeSystem() {
 				return null;
 			}
+		    public String getCodeSystemName() {
+		    	return null;
+		    }
 		};
 	}
 	

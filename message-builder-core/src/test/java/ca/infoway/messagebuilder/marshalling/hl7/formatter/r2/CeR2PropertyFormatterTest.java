@@ -68,6 +68,9 @@ public class CeR2PropertyFormatterTest extends FormatterTestCase {
 			public String getCodeSystem() {
 				return CeRxDomainTestValues.FLUID_OUNCE.getCodeSystem();
 			}
+		    public String getCodeSystemName() {
+		    	return null;
+		    }
 		});
 		translation3.setNullFlavorForTranslationOnly(NullFlavor.OTHER);
 		

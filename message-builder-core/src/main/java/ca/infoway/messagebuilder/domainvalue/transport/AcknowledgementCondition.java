@@ -69,6 +69,13 @@ public class AcknowledgementCondition extends EnumPattern implements ca.infoway.
     /**
      * {@inheritDoc}
      */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
     public String getCodeValue() {
         return this.codeValue;
     }

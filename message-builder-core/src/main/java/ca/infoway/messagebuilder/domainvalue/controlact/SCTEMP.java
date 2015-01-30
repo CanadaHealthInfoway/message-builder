@@ -49,6 +49,13 @@ public class SCTEMP extends EnumPattern implements Code, Describable {
 		return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

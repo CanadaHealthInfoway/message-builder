@@ -52,6 +52,13 @@ public class SubscriptionStatus extends EnumPattern implements ca.infoway.messag
 		return CodeSystem.SUBSCRIPTION_STATUS.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

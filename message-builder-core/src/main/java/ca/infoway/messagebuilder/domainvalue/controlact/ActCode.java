@@ -64,6 +64,13 @@ public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.do
 		return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

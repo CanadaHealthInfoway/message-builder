@@ -100,6 +100,13 @@ public class Country implements ca.infoway.messagebuilder.domainvalue.Country, S
 		return "";
 	}		
 	
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * <p>Returns the country applicable for the country code.
 	 * 

@@ -18,9 +18,13 @@
  * Revision:      $LastChangedRevision: 6471 $
  */
 
-package ca.infoway.messagebuilder.generator.template;
+package ca.infoway.messagebuilder.xml.cda.vocabulary;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
 @Root(strict=false)
@@ -38,6 +42,9 @@ public class ValueSetDefinitionSystem {
 	@Attribute(required=false)
 	private String codeSystemName;
 	
+	@ElementList(required=false,inline=true,entry="code")
+	private List<Code> codes = new ArrayList<Code>();
+
 	public String getValueSetOid() {
 		return valueSetOid;
 	}
@@ -68,5 +75,13 @@ public class ValueSetDefinitionSystem {
 
 	public void setCodeSystemName(String codeSystemName) {
 		this.codeSystemName = codeSystemName;
+	}
+
+	public List<Code> getCodes() {
+		return codes;
+	}
+
+	public void setCodes(List<Code> codes) {
+		this.codes = codes;
 	}
 }

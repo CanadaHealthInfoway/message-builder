@@ -52,6 +52,13 @@ public class SeverityObservation extends EnumPattern implements ca.infoway.messa
 		return CodeSystem.VOCABULARY_SEVERITY_OBSERVATION.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

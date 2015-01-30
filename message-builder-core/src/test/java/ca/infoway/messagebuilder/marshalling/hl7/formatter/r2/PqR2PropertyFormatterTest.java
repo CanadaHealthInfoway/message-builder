@@ -160,7 +160,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         
 		String xml = new PqR2PropertyFormatter().format(createContext("PQ"), new PQImpl(physicalQuantity), 0);
 		
-		assertXml("should see translations", "<name unit=\"U/L\" value=\"33.45\"><translation code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><translation code=\"active\" codeSystem=\"2.16.840.1.113883.5.14\"/></name>", xml);
+		assertXml("should see translations", "<name unit=\"U/L\" value=\"33.45\"><translation code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><translation code=\"active\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Active\"/></name>", xml);
         
     }
     

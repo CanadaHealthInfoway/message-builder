@@ -48,6 +48,13 @@ public class x_ActMoodIntentEvent extends EnumPattern implements ca.infoway.mess
 		return CodeSystem.VOCABULARY_ACT_MOOD.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

@@ -77,7 +77,7 @@ public class EivlTsR2PropertyFormatterTest extends FormatterTestCase {
 		String result = new EivlTsR2PropertyFormatter().format(createContext("EIVL<TS>"), new EIVLImpl<EventRelatedPeriodicIntervalTime>(event));
 		
 		assertTrue(this.result.isValid());
-		assertXml("xml output", "<eventRelatedPeriod><event code=\"ACM\" codeSystem=\"2.16.840.1.113883.5.139\" codeSystemName=\"TimingEvent\"/><offset><low unit=\"cm\" value=\"120\"/><high unit=\"cm\" value=\"170\"/></offset></eventRelatedPeriod>", result, true);
+		assertXml("xml output", "<eventRelatedPeriod><event code=\"ACM\" codeSystem=\"2.16.840.1.113883.5.139\" codeSystemName=\"TimingEvent\" displayName=\"Acm\"/><offset><low unit=\"cm\" value=\"120\"/><high unit=\"cm\" value=\"170\"/></offset></eventRelatedPeriod>", result, true);
 	}
 
 }

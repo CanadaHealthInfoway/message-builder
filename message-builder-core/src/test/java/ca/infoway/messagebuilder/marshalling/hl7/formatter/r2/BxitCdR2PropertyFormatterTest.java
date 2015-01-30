@@ -65,7 +65,7 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		name1.setCode(CeRxDomainTestValues.CENTIMETRE);
 		
 		CodedTypeR2<Code> name2 = new CodedTypeR2<Code>();
-		name2.setCode(AdministrativeGender.MALE);
+		name2.setCode(AdministrativeGender.FEMALE);
 
 		CodedTypeR2<Code> value1 = new CodedTypeR2<Code>();
 		value1.setCode(ActStatus.NORMAL);
@@ -98,8 +98,8 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", 
 				"<name code=\"cm\" codeSystem=\"1.2.3.4\" codeSystemName=\"aCodeSystemName\" codeSystemVersion=\"aCodeSystemVersion\" displayName=\"aDisplayName\" qty=\"1122\">" +
 				"<originalText>some original text</originalText>" +
-				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\"/></qualifier>" +
-				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Normal\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"F\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Female\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\" displayName=\"Act\"/></qualifier>" +
 				"<translation code=\"kg\" codeSystem=\"1.2.3.4\"/>" +
 				"<translation code=\"[foz_br]\" codeSystem=\"1.2.3.4\"/>" +
 				"</name>", 
@@ -174,8 +174,8 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", 
 				"<name code=\"cm\" codeSystem=\"1.2.3.4\" codeSystemName=\"aCodeSystemName\" codeSystemVersion=\"aCodeSystemVersion\" displayName=\"aDisplayName\" qty=\"1122\">" +
 				"<originalText>some original text</originalText>" +
-				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\"/></qualifier>" +
-				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Normal\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\" displayName=\"Act\"/></qualifier>" +
 				"<translation code=\"kg\" codeSystem=\"1.2.3.4\"/>" +
 				"<translation code=\"[foz_br]\" codeSystem=\"1.2.3.4\"/>" +
 				"</name>", 

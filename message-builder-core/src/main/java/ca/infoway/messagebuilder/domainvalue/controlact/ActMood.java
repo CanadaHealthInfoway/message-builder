@@ -53,6 +53,13 @@ public class ActMood extends EnumPattern implements ca.infoway.messagebuilder.do
 		return CodeSystem.VOCABULARY_ACT_MOOD.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

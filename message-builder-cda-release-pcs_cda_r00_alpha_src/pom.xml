@@ -19,7 +19,7 @@
 					<!-- cda-to-xml: message set generation from cda sources -->
 					<schema>./etc/POCD_MT000040.xsd</schema>
 					<template>./etc/pCS-header.xml</template>
-					<vocabulary>./etc/pCS-voc.xml</vocabulary>
+					<vocabulary>./etc/pCS-vocabNameMap.xml</vocabulary>
 					<r2Datatypes>false</r2Datatypes>
 
 					<!-- xml-to-java: java api generation -->

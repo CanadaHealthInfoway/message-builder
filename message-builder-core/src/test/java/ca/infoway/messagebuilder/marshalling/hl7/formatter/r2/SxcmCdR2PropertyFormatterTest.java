@@ -98,8 +98,8 @@ public class SxcmCdR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", 
 				"<name code=\"cm\" codeSystem=\"1.2.3.4\" codeSystemName=\"aCodeSystemName\" codeSystemVersion=\"aCodeSystemVersion\" displayName=\"aDisplayName\" operator=\"A\">" +
 				"<originalText>some original text</originalText>" +
-				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\"/></qualifier>" +
-				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Normal\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\" displayName=\"Act\"/></qualifier>" +
 				"<translation code=\"kg\" codeSystem=\"1.2.3.4\"/>" +
 				"<translation code=\"[foz_br]\" codeSystem=\"1.2.3.4\"/>" +
 				"</name>", 
@@ -173,8 +173,8 @@ public class SxcmCdR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", 
 				"<name code=\"cm\" codeSystem=\"1.2.3.4\" codeSystemName=\"aCodeSystemName\" codeSystemVersion=\"aCodeSystemVersion\" displayName=\"aDisplayName\" operator=\"A\">" +
 				"<originalText>some original text</originalText>" +
-				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\"/></qualifier>" +
-				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"cm\" codeSystem=\"1.2.3.4\"/><value code=\"normal\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Normal\"/></qualifier>" +
+				"<qualifier inverted=\"true\"><name code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><value code=\"ACT\" codeSystem=\"2.16.840.1.113883.5.6\" displayName=\"Act\"/></qualifier>" +
 				"<translation code=\"kg\" codeSystem=\"1.2.3.4\"/>" +
 				"<translation code=\"[foz_br]\" codeSystem=\"1.2.3.4\"/>" +
 				"</name>", 

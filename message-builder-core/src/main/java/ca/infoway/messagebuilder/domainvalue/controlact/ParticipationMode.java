@@ -47,6 +47,13 @@ public class ParticipationMode extends EnumPattern implements ca.infoway.message
 		return CodeSystem.VOCABULARY_PROCESSING_MODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

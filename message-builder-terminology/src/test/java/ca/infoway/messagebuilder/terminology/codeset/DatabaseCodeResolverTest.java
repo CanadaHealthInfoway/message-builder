@@ -90,6 +90,7 @@ public class DatabaseCodeResolverTest {
 					with(hasSameContents(Arrays.asList(x_NormalRestrictedTabooConfidentialityKind.class))), 
 					with(equal(CODE_VALUE)), 
 					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
 					with(any(Map.class)),
 					with(any(Integer.class)), 
 					with(any(Boolean.class)), 
@@ -141,6 +142,7 @@ public class DatabaseCodeResolverTest {
 					with(hasSameContents(Arrays.asList(x_NormalRestrictedTabooConfidentialityKind.class))), 
 					with(equal(CODE_VALUE)), 
 					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
 					with(any(Map.class)),
 					with(any(Integer.class)), 
 					with(any(Boolean.class)), 
@@ -162,6 +164,7 @@ public class DatabaseCodeResolverTest {
 					with(hasSameContents(Arrays.asList(x_NormalRestrictedTabooConfidentialityKind.class))), 
 					with(equal(CODE_VALUE)), 
 					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
 					with(any(Map.class)),
 					with(any(Integer.class)), 
 					with(any(Boolean.class)), 
@@ -186,6 +189,7 @@ public class DatabaseCodeResolverTest {
 					with(hasSameContents(list)), 
 					with(equal(CODE_VALUE)), 
 					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
 					with(any(Map.class)),
 					with(any(Integer.class)), 
 					with(any(Boolean.class)), 
@@ -247,6 +251,7 @@ public class DatabaseCodeResolverTest {
 					with(hasSameContents(Arrays.asList(x_NormalRestrictedTabooConfidentialityKind.class))), 
 					with(equal(CODE_VALUE)), 
 					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
 					with(isValidDisplayTextMap()),
 					with(any(Integer.class)), 
 					with(any(Boolean.class)), 
@@ -329,6 +334,7 @@ public class DatabaseCodeResolverTest {
 		return new x_NormalRestrictedTabooConfidentialityKind() {
 			public String getCodeValue() {return null;}
 			public String getCodeSystem() {return null;}
+		    public String getCodeSystemName() {return null;}
 		};
 	}
 }

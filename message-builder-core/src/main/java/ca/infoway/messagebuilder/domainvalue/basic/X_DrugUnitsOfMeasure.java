@@ -79,4 +79,11 @@ public class X_DrugUnitsOfMeasure extends EnumPattern implements x_DrugUnitsOfMe
 		return CodeSystem.VOCABULARY_UNIFORM_UNIT_OF_MEASURE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 }

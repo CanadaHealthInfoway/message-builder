@@ -55,4 +55,11 @@ public class X_HeightOrWeightObservationUnitsOfMeasure extends EnumPattern imple
 		return CodeSystem.VOCABULARY_UNIFORM_UNIT_OF_MEASURE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 }

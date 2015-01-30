@@ -437,6 +437,13 @@ public class AddAllergyIntoleranceExample {
 			return VOCABULARY_ACT_CODE.getRoot();
 		}
 
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 		public String getCodeValue() {
 			return name();
 		}

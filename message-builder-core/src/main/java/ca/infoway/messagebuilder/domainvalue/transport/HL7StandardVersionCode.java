@@ -56,6 +56,13 @@ public class HL7StandardVersionCode extends EnumPattern implements ca.infoway.me
     /**
      * {@inheritDoc}
      */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
     public String getCodeValue() {
         return this.codeValue;
     }

@@ -75,6 +75,13 @@ public class URLScheme extends EnumPattern implements ca.infoway.messagebuilder.
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the value (protocol) for the URL.
      * 
      * @return the value (protocol) for the URL.

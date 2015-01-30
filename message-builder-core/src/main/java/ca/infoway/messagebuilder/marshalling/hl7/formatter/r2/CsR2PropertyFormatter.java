@@ -46,10 +46,38 @@ class CsR2PropertyFormatter extends AbstractCodedTypeR2PropertyFormatter {
 	}
 	
 	@Override
+	protected boolean codeSystemNameAllowed() {
+		// Technically, CS does not allow for a codeSystemName. However, we don't want to log an error just because a Code also has a CodeSystem with it (most common case)  
+		return true;
+	}
+	
+	@Override
+	protected boolean displayNameAllowed() {
+		// Technically, CS does not allow for a codeSystemName. However, we don't want to log an error just because a Code also has a CodeSystem with it (most common case)  
+		return true;
+	}
+	
+	@Override
 	protected void handleCodeSystem(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
 		// codes will usually have a codeSystem even if we don't intend to render it in the message
 		if (!"CS".equals(context.getType())) {
 			super.handleCodeSystem(codedType, result, context);
+		}
+	}
+	
+	@Override
+	protected void handleCodeSystemName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
+		// codes will usually have a codeSystem even if we don't intend to render it in the message
+		if (!"CS".equals(context.getType())) {
+			super.handleCodeSystemName(codedType, result, context);
+		}
+	}
+	
+	@Override
+	protected void handleDisplayName(CodedTypeR2<? extends Code> codedType, Map<String, String> result, FormatContext context) {
+		// codes will usually have a codeSystem even if we don't intend to render it in the message
+		if (!"CS".equals(context.getType())) {
+			super.handleDisplayName(codedType, result, context);
 		}
 	}
 	

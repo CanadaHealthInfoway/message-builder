@@ -117,6 +117,13 @@ public class PostalAddressUse extends EnumPattern implements ca.infoway.messageb
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the code value for this enum.
      * 
      * @return the code value

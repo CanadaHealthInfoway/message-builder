@@ -53,6 +53,13 @@ public class ProbabilityMatchCode extends EnumPattern implements ObservationQuer
 		return CodeSystem.SC_TEMP.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

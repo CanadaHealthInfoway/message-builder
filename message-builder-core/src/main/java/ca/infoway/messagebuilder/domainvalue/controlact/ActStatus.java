@@ -80,6 +80,13 @@ public class ActStatus extends EnumPattern implements ca.infoway.messagebuilder.
 		return CodeSystem.VOCABULARY_ACT_STATUS.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

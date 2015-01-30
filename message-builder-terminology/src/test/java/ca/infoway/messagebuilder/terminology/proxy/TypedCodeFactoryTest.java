@@ -42,7 +42,8 @@ public class TypedCodeFactoryTest {
 		Code code = new TypedCodeFactory().create(AcknowledgementDetailType.class, 
 				new HashSet<Class<?>>(Arrays.asList(
 						AcknowledgementDetailType.class, ActIssuePriority.class)),
-				"E", CodeSystem.VOCABULARY_ACKNOWLEDGEMENT_DETAIL_TYPE.getRoot(), 
+				"E", CodeSystem.VOCABULARY_ACKNOWLEDGEMENT_DETAIL_TYPE.getRoot(),
+				CodeSystem.VOCABULARY_ACKNOWLEDGEMENT_DETAIL_TYPE.getName(),
 				new HashMap<String,String>(), 0, true, true);
 		
 		assertTrue("AcknowledgementDetailType", code instanceof AcknowledgementDetailType);

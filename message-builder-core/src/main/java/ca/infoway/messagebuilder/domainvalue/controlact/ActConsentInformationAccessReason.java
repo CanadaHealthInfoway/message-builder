@@ -51,6 +51,13 @@ public class ActConsentInformationAccessReason extends EnumPattern implements
 		return CodeSystem.VOCABULARY_ACT_REASON.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

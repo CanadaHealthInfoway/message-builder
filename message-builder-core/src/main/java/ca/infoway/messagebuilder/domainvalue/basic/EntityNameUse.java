@@ -78,6 +78,13 @@ public class EntityNameUse extends EnumPattern implements ca.infoway.messagebuil
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the code value.
      * 
      * @return the code value

@@ -42,10 +42,10 @@ import ca.infoway.messagebuilder.generator.cda.Schema;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessor;
 import ca.infoway.messagebuilder.generator.template.CdaTemplateProcessorTest;
 import ca.infoway.messagebuilder.generator.template.TemplateExport;
-import ca.infoway.messagebuilder.generator.template.ValueSetDefinition;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 import ca.infoway.messagebuilder.xml.template.TemplateSet;
 
 @RunWith(MockitoJUnitRunner.class)

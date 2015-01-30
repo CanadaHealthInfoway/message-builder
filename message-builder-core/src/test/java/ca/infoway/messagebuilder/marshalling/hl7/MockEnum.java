@@ -46,6 +46,13 @@ public class MockEnum extends EnumPattern implements MockCharacters {
 		return "1.2.3.4.5";
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return toString();
 	}

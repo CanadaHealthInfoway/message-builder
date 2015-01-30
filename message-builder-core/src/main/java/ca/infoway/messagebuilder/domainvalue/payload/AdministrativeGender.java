@@ -53,6 +53,13 @@ public class AdministrativeGender extends EnumPattern implements ca.infoway.mess
 		return CodeSystem.VOCABULARY_ADMINISTRATIVE_GENDER.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

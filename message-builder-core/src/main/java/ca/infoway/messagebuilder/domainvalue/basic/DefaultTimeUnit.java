@@ -69,6 +69,13 @@ public class DefaultTimeUnit extends EnumPattern implements DateConverter, x_Tim
 		return CodeSystem.VOCABULARY_UNIFORM_UNIT_OF_MEASURE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * <p>Returns the code value.
 	 * 

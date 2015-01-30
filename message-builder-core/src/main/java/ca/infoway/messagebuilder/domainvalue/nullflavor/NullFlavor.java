@@ -71,6 +71,13 @@ public class NullFlavor extends EnumPattern implements ca.infoway.messagebuilder
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * * fast Code lookup **.
      *
      * @param codeValue the code value

@@ -53,6 +53,13 @@ public class IssueFilterCode extends EnumPattern implements ca.infoway.messagebu
 		return CodeSystem.VOCABULARY_QUERY_PARAMETER_VALUE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

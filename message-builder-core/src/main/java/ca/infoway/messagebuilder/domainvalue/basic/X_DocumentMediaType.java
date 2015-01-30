@@ -101,6 +101,13 @@ public class X_DocumentMediaType extends EnumPattern implements x_DocumentMediaT
 		return CodeSystem.VOCABULARY_DOCUMENT_MEDIA_TYPES.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * <p>Returns the code value.
 	 * 

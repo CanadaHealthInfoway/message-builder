@@ -47,6 +47,13 @@ public class ActSpecimenTransportationCode extends EnumPattern implements ca.inf
 		return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

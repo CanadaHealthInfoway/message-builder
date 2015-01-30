@@ -131,6 +131,13 @@ public class PostalAddressPartType extends EnumPattern implements NamePartType, 
 		return CodeSystem.VOCABULARY_ADDRESS_PART_TYPE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
      * <p>Returns the code value for the address part type enum.
      * 

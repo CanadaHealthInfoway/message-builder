@@ -34,8 +34,6 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.OutputUI;
-import ca.infoway.messagebuilder.generator.template.ValueSetDefinition;
-import ca.infoway.messagebuilder.generator.template.ValueSetDefinitionSystem;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.DomainSource;
@@ -44,6 +42,8 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinitionSystem;
 
 public class CdaXsdFormatter {
 	

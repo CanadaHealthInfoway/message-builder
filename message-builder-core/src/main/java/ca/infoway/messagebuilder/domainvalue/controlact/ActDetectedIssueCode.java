@@ -139,6 +139,13 @@ public class ActDetectedIssueCode extends EnumPattern implements ca.infoway.mess
 		return CodeSystem.VOCABULARY_ACT_CODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

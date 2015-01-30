@@ -29,6 +29,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.Describable;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
@@ -65,7 +66,7 @@ public class CodedTypeR2<T extends Code> {
 	}
     
     public CodedTypeR2(T code) {
-    	this.code = code;
+    	setCode(code);
 	}
     
 	public T getCode() {
@@ -85,6 +86,13 @@ public class CodedTypeR2<T extends Code> {
 	}
 	
 	public String getCodeSystemName() {
+		// If the code happens to contain a code system name, we should always treat it as
+		// correct and authoritative. However, if the code resolver we are using hasn't
+		// provided a value and we happen to have one from another source (e.g., an 
+		// incoming document), we can use that as a backup.
+		if (this.code != null && this.code.getCodeSystemName() != null) {
+			return this.code.getCodeSystemName();
+		}
 		return codeSystemName;
 	}
 
@@ -101,6 +109,17 @@ public class CodedTypeR2<T extends Code> {
 	}
 
 	public String getDisplayName() {
+		// If the code happens to contain a display name, we should always treat it as
+		// correct and authoritative. However, if the code resolver we are using hasn't
+		// provided a value and we happen to have one from another source (e.g., an 
+		// incoming document), we can use that as a backup.
+		if (this.code != null && Describable.class.isAssignableFrom(this.code.getClass())) {
+			Describable describableCode = (Describable) this.code;
+			String englishDescription = describableCode.getDescription();
+			if (englishDescription != null) {
+				return englishDescription;
+			}
+		}
 		return displayName;
 	}
 

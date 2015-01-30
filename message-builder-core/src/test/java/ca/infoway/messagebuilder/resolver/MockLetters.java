@@ -45,6 +45,10 @@ public class MockLetters extends EnumPattern implements MockCharacters {
 		return "a.b.c.e.f.g.h";
 	}
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return this != OTHER ? name() : null;
 	}

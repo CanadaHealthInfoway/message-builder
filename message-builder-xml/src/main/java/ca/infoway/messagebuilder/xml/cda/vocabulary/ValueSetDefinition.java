@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision: 6471 $
  */
 
-package ca.infoway.messagebuilder.generator.template;
+package ca.infoway.messagebuilder.xml.cda.vocabulary;
 
 import java.util.ArrayList;
 import java.util.List;

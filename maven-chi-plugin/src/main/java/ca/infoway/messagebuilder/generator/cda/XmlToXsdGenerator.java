@@ -32,10 +32,10 @@ import org.simpleframework.xml.core.Persister;
 
 import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
-import ca.infoway.messagebuilder.generator.template.ValueSetDefinition;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 
 public class XmlToXsdGenerator {
 

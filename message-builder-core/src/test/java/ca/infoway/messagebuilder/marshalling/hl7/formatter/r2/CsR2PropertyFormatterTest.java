@@ -63,6 +63,20 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	@Test
+	public void testCodeSystemNameNotRendered() throws Exception {
+		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
+		codedType.setCode(CeRxDomainTestValues.CENTIMETRE);
+		codedType.setCodeSystemName("aCodeSystemName");
+		codedType.setDisplayName("aDisplayName");
+		
+		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl(codedType));
+		
+		assertTrue(this.result.isValid());
+		
+		assertEquals("result", "<name code=\"cm\"/>", StringUtils.trim(result));
+	}
+	
+	@Test
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
@@ -85,9 +99,9 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 	public void testEverythingSpecified() throws Exception {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		codedType.setCode(CeRxDomainTestValues.CENTIMETRE);
-		codedType.setCodeSystemName("aCodeSystemName");
+		codedType.setCodeSystemName("aCodeSystemName");	// Doesn't appear in the output, but shouldn't log an error either
 		codedType.setCodeSystemVersion("aCodeSystemVersion");
-		codedType.setDisplayName("aDisplayName");
+		codedType.setDisplayName("aDisplayName");	// Doesn't appear in the output, but shouldn't log an error either
 		codedType.setSimpleValue("simpleValue");
 		codedType.setOperator(SetOperator.CONVEX_HULL);
 		codedType.setValue(BigDecimal.ONE);
@@ -103,7 +117,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), cs);
 		
 		assertFalse(this.result.isValid());
-		assertEquals(9, this.result.getHl7Errors().size());
+		assertEquals(7, this.result.getHl7Errors().size());
 		assertEquals("result", "<name code=\"cm\"/>", StringUtils.trim(result));
 	}
 

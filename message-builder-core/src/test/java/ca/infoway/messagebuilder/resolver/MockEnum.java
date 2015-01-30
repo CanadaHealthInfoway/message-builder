@@ -41,6 +41,10 @@ public class MockEnum extends EnumPattern implements MockCharacters {
 		return "";
 	}
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return toString();
 	}

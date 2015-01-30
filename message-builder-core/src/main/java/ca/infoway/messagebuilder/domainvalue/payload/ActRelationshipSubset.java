@@ -61,6 +61,13 @@ public class ActRelationshipSubset extends EnumPattern implements ca.infoway.mes
 		return CodeSystem.VOCABULARY_ACT_RELATIONSHIP_SUBSET.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

@@ -69,6 +69,13 @@ public class SetOperator extends EnumPattern implements Code {
 		return "";
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * <p>Returns the value of this enum.
 	 * 

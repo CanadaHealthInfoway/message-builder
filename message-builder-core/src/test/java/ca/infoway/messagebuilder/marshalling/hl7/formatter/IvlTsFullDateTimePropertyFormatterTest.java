@@ -27,7 +27,6 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
@@ -60,6 +59,9 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		public String getCodeSystem() {
 			return null;
 		}
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
 		public String getCodeValue() {
 			return name();
 		}

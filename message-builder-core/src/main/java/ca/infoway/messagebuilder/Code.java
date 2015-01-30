@@ -38,4 +38,11 @@ public interface Code {
      * @return the code system
      */
     public String getCodeSystem();
+    
+    /**
+     * <p>Gets the code system name.
+     *
+     * @return the code system name
+     */
+    public String getCodeSystemName();
 }

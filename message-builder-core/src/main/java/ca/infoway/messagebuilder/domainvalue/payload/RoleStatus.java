@@ -86,6 +86,13 @@ public class RoleStatus extends EnumPattern implements ca.infoway.messagebuilder
 		return CodeSystem.VOCABULARY_ROLE_STATUS.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

@@ -40,6 +40,10 @@ public class QueryRequestLimitEnum extends EnumPattern implements Code {
 		return CodeSystem.VOCABULARY_QUERY_REQUEST_LIMIT.getRoot();
 	}
 
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return name();
 	}

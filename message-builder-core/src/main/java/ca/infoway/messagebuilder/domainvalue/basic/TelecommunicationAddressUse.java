@@ -69,6 +69,13 @@ public class TelecommunicationAddressUse extends EnumPattern implements Describa
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the code for this telecome address use.
      * 
      * @return the code for this telecome address use.

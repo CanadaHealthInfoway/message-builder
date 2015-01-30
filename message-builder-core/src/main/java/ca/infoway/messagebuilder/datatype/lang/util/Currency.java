@@ -57,6 +57,13 @@ public class Currency extends EnumPattern implements Code {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the code value.
      * 
      * @return the code value.

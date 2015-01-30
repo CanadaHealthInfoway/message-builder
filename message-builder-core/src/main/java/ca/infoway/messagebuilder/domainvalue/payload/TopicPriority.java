@@ -53,6 +53,13 @@ public class TopicPriority extends EnumPattern implements ca.infoway.messagebuil
 		return CodeSystem.TOPIC_PRIORITY.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

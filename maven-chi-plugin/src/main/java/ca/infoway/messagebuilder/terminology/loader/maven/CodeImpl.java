@@ -36,6 +36,13 @@ class CodeImpl implements Code {
 		return this.oid;
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	public String getCodeValue() {
 		return this.code;
 	}

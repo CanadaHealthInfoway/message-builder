@@ -47,6 +47,13 @@ public class SpecimenRoleType extends EnumPattern implements ca.infoway.messageb
 		return CodeSystem.VOCABULARY_ROLE_CODE.getRoot();
 	}
 
+    /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
 	/**
 	 * {@inheritDoc}
 	 */

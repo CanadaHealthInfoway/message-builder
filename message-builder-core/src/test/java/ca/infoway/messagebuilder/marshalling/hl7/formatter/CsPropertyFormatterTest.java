@@ -46,6 +46,13 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
         public String getCodeSystem() {
             return "1.1";
         }
+        /**
+         * {@inheritDoc}
+         */
+        public String getCodeSystemName() {
+        	return null;
+        }
+        
         public String getCodeValue() {
             return "code";
         }

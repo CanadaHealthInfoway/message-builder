@@ -38,6 +38,13 @@ public class CeRxDomainTestValues {
 		public String getCodeSystem() {
 			return "";
 		}
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 	}
 
 	public static class TelecommunicationUsageTypeImpl implements TelecommunicationAddressUse {
@@ -52,6 +59,13 @@ public class CeRxDomainTestValues {
 		public String getCodeSystem() {
 			return "";
 		}
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 	}
 	
 	public static class UnitImpl implements UnitsOfMeasureCaseSensitive {
@@ -66,6 +80,13 @@ public class CeRxDomainTestValues {
 		public String getCodeSystem() {
 			return "1.2.3.4";
 		}
+	    /**
+	     * {@inheritDoc}
+	     */
+	    public String getCodeSystemName() {
+	    	return null;
+	    }
+	    
 	}
 	
 	public static final URLScheme TELEPHONE = new URLSchemeImpl("tel");

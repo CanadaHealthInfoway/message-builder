@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.generator.cda.Schema;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.MessageSet;
+import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 import ca.infoway.messagebuilder.xml.delta.AddChoiceConstraint;
 import ca.infoway.messagebuilder.xml.delta.AddConstraint;
 import ca.infoway.messagebuilder.xml.delta.AssociationDelta;

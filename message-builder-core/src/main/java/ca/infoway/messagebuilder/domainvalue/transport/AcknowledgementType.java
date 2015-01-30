@@ -60,6 +60,13 @@ public class AcknowledgementType extends EnumPattern implements ca.infoway.messa
     /**
      * {@inheritDoc}
      */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
     public String getCodeValue() {
         return this.codeValue;
     }

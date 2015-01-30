@@ -154,6 +154,13 @@ public class UnitsOfMeasureCaseSensitive extends EnumPattern implements ca.infow
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public String getCodeSystemName() {
+    	return null;
+    }
+    
+    /**
      * <p>Returns the value of the unit of measurement.
      * 
      * @return the value of the unit of measurement.
