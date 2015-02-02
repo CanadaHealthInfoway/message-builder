@@ -34,6 +34,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.ClinicalDocu
 @Hl7PartTypeMapping({"ProcedureNote"})
 public class ProcedureNoteBean extends ClinicalDocumentBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
 
 }

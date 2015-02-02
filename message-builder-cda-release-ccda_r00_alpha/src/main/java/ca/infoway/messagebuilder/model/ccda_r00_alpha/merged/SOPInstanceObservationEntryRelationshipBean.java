@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CodeObservations.SOPInstanceObservationEntryRelationship","TextObservation.SOPInstanceObservationEntryRelationship"})
 public class SOPInstanceObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_3 {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

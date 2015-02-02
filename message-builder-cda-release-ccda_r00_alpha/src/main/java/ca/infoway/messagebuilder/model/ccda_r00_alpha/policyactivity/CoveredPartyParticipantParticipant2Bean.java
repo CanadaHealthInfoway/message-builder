@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PolicyActivity.CoveredPartyParticipantParticipant2"})
 public class CoveredPartyParticipantParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
     private II templateId = new IIImpl();
     private IVL_TS time = new IVL_TSImpl();
     private CoveredPartyParticipantParticipantRoleBean participantRole;

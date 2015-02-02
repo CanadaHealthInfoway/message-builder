@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"DeceasedObservation.EntryRelationship","EncounterDiagnosis.EntryRelationship","HospitalAdmissionDiagnosis.EntryRelationship","HospitalDischargeDiagnosis.EntryRelationship","PostprocedureDiagnosis.EntryRelationship","PreoperativeDiagnosis.EntryRelationship","ProblemConcernActCondition.EntryRelationship"})
 public class EntryRelationship_2Bean extends MessagePartBean implements EntryRelationshipChoice_5 {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

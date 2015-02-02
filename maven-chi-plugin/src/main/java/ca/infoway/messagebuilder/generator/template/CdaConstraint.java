@@ -45,6 +45,9 @@ public class CdaConstraint {
 	@Attribute(required=false)
 	private String conformance;
 	
+	@Attribute(required=false,name="isSchRooted")
+	private boolean schRooted;
+	
 	@Attribute(required=false)
 	private String cardinality;
 	
@@ -95,6 +98,14 @@ public class CdaConstraint {
 
 	public void setConformance(String conformance) {
 		this.conformance = conformance;
+	}
+
+	public boolean isSchRooted() {
+		return schRooted;
+	}
+
+	public void setSchRooted(boolean schRooted) {
+		this.schRooted = schRooted;
 	}
 
 	public String getCardinality() {

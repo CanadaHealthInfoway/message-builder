@@ -538,6 +538,12 @@ public class CdaTemplateProcessor {
 				addSchematronConstraint(choiceBlockDelta, cdaConstraint);
 			}
 		}
+		
+		// add the default choice
+		AddChoiceConstraint defaultChoice = new AddChoiceConstraint("POCD_MT000040.Component3");
+		defaultChoice.setDefault(true);
+		choiceBlockDelta.addConstraint(defaultChoice);
+
 		structuredBodyComponentDelta.addConstraint(new CardinalityConstraint(new Cardinality(1, Integer.MAX_VALUE), new Cardinality(1, Integer.MAX_VALUE)));
 		
 		template.addDelta(choiceBlockDelta);

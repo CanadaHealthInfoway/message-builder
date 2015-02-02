@@ -34,6 +34,6 @@ import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.ClinicalDocu
 @Hl7PartTypeMapping({"POCD_MT000040"})
 public class POCD_MT000040Bean extends ClinicalDocumentBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
 
 }

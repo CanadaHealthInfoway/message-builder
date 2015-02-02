@@ -274,7 +274,7 @@ public class CdaXsdFormatterTest {
 		
 		Node structuredBodyNode = helper.getSingleNode(schemaDocument, "/xs:schema/xs:complexType[@name='ConsultationNote.StructuredBody']", Namespaces.XSD_NAMESPACE);
 		assertEquals(1, helper.getNodes(structuredBodyNode, "xs:sequence/xs:choice", Namespaces.XSD_NAMESPACE).getLength());
-		assertEquals(28, helper.getNodes(structuredBodyNode, "xs:sequence/xs:choice/xs:element", Namespaces.XSD_NAMESPACE).getLength());
+		assertEquals(29, helper.getNodes(structuredBodyNode, "xs:sequence/xs:choice/xs:element", Namespaces.XSD_NAMESPACE).getLength());
 
 		assertNull(helper.getAttributeValue(structuredBodyNode, "xs:sequence/xs:choice/@minOccurs", Namespaces.XSD_NAMESPACE));
 		assertEquals("unbounded", helper.getAttributeValue(structuredBodyNode, "xs:sequence/xs:choice/@maxOccurs", Namespaces.XSD_NAMESPACE));

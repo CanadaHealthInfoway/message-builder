@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"OperativeNote.ProcedureIndicationsSectionComponent3","ProcedureNote.ProcedureIndicationsSectionComponent3"})
 public class ProcedureIndicationsSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r00_alpha.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r00_alpha.operativenote.Component3Choice {
 
-    private static final long serialVersionUID = 20150127L;
+    private static final long serialVersionUID = 20150202L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

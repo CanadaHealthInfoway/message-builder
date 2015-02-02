@@ -1793,7 +1793,7 @@ public class CdaTemplateProcessorTest {
 				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
 				
 				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
-				assertEquals(20, addChoiceConstraints.size());
+				assertEquals(21, addChoiceConstraints.size());
 				assertEquals("ProgressNote.ObjectiveSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
 				assertEquals("ProgressNote.MedicationsSectionentriesOptionalComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
 				assertEquals("ProgressNote.MedicationsSectionentriesRequiredComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
@@ -1814,6 +1814,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("ProgressNote.ReviewOfSystemsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(17)).getChoiceClassName());
 				assertEquals("ProgressNote.SubjectiveSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(18)).getChoiceClassName());
 				assertEquals("ProgressNote.InstructionsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(19)).getChoiceClassName());
+				assertEquals("POCD_MT000040.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(20)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("ProgressNote.ObjectiveSectionComponent3") && delta.getRelationshipName() == null) {
@@ -1961,12 +1962,13 @@ public class CdaTemplateProcessorTest {
 				assertTrue(((AddConstraint) addConstraint).getIsAbstract());
 				
 				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
-				assertEquals(5, addChoiceConstraints.size());
+				assertEquals(6, addChoiceConstraints.size());
 				assertEquals("DiagnosticImagingReport.ProcedureContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.FetusSubjectContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.ObserverContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.FindingsSectionDIRComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
+				assertEquals("POCD_MT000040.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("DiagnosticImagingReport.EncompassingEncounter") && delta.getRelationshipName() == null) {
