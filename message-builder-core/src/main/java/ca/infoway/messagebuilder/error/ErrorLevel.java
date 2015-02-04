@@ -25,7 +25,7 @@ package ca.infoway.messagebuilder.error;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  * 
  */
-public enum Hl7ErrorLevel {
+public enum ErrorLevel {
 	
 	// if adding interfaces or behaviour to this enum, please consider using enum pattern for translation purposes
 

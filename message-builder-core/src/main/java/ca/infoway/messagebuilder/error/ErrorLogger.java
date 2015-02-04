@@ -23,6 +23,6 @@ package ca.infoway.messagebuilder.error;
 
 public interface ErrorLogger {
 	
-	public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage);
+	public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String errorMessage);
 	
 }

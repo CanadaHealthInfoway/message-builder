@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.domainvalue.x_LabUnitsOfMeasure;
 import ca.infoway.messagebuilder.domainvalue.x_TimeUnitsOfMeasure;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.NumberUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -213,13 +213,13 @@ public class PqValidationUtils {
 		if (element != null) {
 			error = new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR,
-					Hl7ErrorLevel.ERROR,
+					ErrorLevel.ERROR,
 					errorMessage + 	" (" + XmlDescriber.describeSingleElement(element) + ")", 
 					element);		
 		} else { // assuming this has a property path
 			error = new Hl7Error(
 					Hl7ErrorCode.DATA_TYPE_ERROR, 
-					Hl7ErrorLevel.ERROR,
+					ErrorLevel.ERROR,
 					errorMessage, 
 					propertyPath);		
 		}

@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -112,7 +112,7 @@ public class ListIiR2PropertyFormatterTest extends FormatterTestCase {
 						createIdentifierList()));
 		assertTrue(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals(Hl7ErrorLevel.INFO, this.result.getHl7Errors().get(0).getHl7ErrorLevel());
+		assertEquals(ErrorLevel.INFO, this.result.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertEquals(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_PROVIDED, this.result.getHl7Errors().get(0).getHl7ErrorCode());
 		assertEquals("A fixed constraint was added for compliance: root={1.22.33.44},extension={1223344}", this.result.getHl7Errors().get(0).getMessage());
 		assertXml("non null", "<ids extension=\"123\" root=\"1.2.3\"/>" + 

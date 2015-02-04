@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.platform.Base64;
 import ca.infoway.messagebuilder.util.text.Indenter;
@@ -71,7 +71,7 @@ public class EdContentRenderer {
 		if (numProvided > 1) {
 			context.getModelToXmlResult().addHl7Error(
 					new Hl7Error(Hl7ErrorCode.ONLY_ONE_TYPE_OF_CONTENT_ALLOWED, 
-							Hl7ErrorLevel.WARNING, 
+							ErrorLevel.WARNING, 
 							"ED only allows for one type of content (Document, CDATA or text). Precendence given to content in order shown; other content not rendered.", 
 							context.getPropertyPath()));
 		}

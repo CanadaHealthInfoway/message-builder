@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
@@ -127,7 +127,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 
 	private ErrorLogger createErrorLogger(final String propertyPath, final Hl7Errors errors) {
 		return new ErrorLogger() {
-			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+			public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String errorMessage) {
 				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, propertyPath));
 			}
 		};
@@ -139,7 +139,7 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 			// there should be a match, but if not we need to create an II with the appropriate values and add to collection
 			Identifier identifier = constraintResult.getIdentifer();
 			collection.add(new IIImpl(identifier));
-			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_PROVIDED, Hl7ErrorLevel.INFO, "A fixed constraint was added for compliance: " + identifier, context.getPropertyPath()));
+			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_PROVIDED, ErrorLevel.INFO, "A fixed constraint was added for compliance: " + identifier, context.getPropertyPath()));
 		}
 	}
 

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.j5goodies.Generics;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -109,7 +109,7 @@ public abstract class SetOrListElementParser extends AbstractElementParser {
 
 	private ErrorLogger createErrorLogger(final Element element, final Hl7Errors errors) {
 		return new ErrorLogger() {
-			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+			public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String errorMessage) {
 				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, (Node) element));
 			}
 		};
@@ -122,12 +122,12 @@ public abstract class SetOrListElementParser extends AbstractElementParser {
 			if (constraintResult.isFoundMatch()) {
 				if (isTemplateId) {
 					String msg = MessageFormat.format("Found match for templateId fixed constraint: {0}", constraintResult.getIdentifer());
-					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, Hl7ErrorLevel.INFO, msg, nodes.size() > 0 ? nodes.get(0) : null));
+					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, ErrorLevel.INFO, msg, nodes.size() > 0 ? nodes.get(0) : null));
 				}
 			} else {
 				Hl7ErrorCode errorCode = (isTemplateId ? Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING : Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING);
 				String msg = "Expected to find an identifier with: " + constraintResult.getIdentifer();
-				xmlToModelResult.addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, nodes.size() > 0 ? nodes.get(0) : null));
+				xmlToModelResult.addHl7Error(new Hl7Error(errorCode, ErrorLevel.WARNING, msg, nodes.size() > 0 ? nodes.get(0) : null));
 			}
 		}
 	}

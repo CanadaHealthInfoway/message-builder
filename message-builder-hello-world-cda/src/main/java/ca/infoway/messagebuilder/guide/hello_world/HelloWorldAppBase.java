@@ -31,7 +31,7 @@ import org.xml.sax.SAXException;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.error.Hl7Error;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
@@ -89,7 +89,7 @@ public abstract class HelloWorldAppBase {
 		}
 		// printing everything (to include INFO messages as well)
 		for (Hl7Error hl7Error : results.getHl7Errors()) {
-			if (includeInfo || hl7Error.getHl7ErrorLevel() != Hl7ErrorLevel.INFO) {
+			if (includeInfo || hl7Error.getHl7ErrorLevel() != ErrorLevel.INFO) {
 				System.out.println(hl7Error);
 			}
 		}

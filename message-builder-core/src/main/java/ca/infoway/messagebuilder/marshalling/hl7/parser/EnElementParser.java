@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.ENImpl;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -105,7 +105,7 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
         	}
         	
         	// need to log warning - not able to parse name as expected
-    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, Hl7ErrorLevel.WARNING, "EN field has been handled as type " + actualParserUsed, (Element) node));
+    		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, ErrorLevel.WARNING, "EN field has been handled as type " + actualParserUsed, (Element) node));
         }
 
         return result;

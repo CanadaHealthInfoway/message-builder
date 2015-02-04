@@ -38,14 +38,14 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class Hl7Error {
 	private final Hl7ErrorCode hl7ErrorCode;
-	private final Hl7ErrorLevel hl7ErrorLevel;
+	private final ErrorLevel hl7ErrorLevel;
 	private final String message;
 	private final String path;
 	private String beanPath; // must be set explicitly - later - when passing in an xpath
 	
 	private transient boolean renderedToXml = false;
 	
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, String beanPath) {
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, ErrorLevel hl7ErrorLevel, String message, String beanPath) {
 		this.hl7ErrorCode = hl7ErrorCode;
 		this.hl7ErrorLevel = hl7ErrorLevel;
 		this.message = message;
@@ -54,30 +54,30 @@ public class Hl7Error {
 	}
 	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, String beanPath) {
-		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, beanPath);
+		this(hl7ErrorCode, ErrorLevel.ERROR, message, beanPath);
 	}
 	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Element element) {
-		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, (Node) element);
+		this(hl7ErrorCode, ErrorLevel.ERROR, message, (Node) element);
 	}
 	
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Element element) {
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, ErrorLevel hl7ErrorLevel, String message, Element element) {
 		this(hl7ErrorCode, hl7ErrorLevel, message, (Node) element);
 	}
 	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Attr attr) {
-		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, (Node) attr);
+		this(hl7ErrorCode, ErrorLevel.ERROR, message, (Node) attr);
 	}
 	
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Attr attr) {
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, ErrorLevel hl7ErrorLevel, String message, Attr attr) {
 		this(hl7ErrorCode, hl7ErrorLevel, message, (Node) attr);
 	}
 	
 	public Hl7Error(Hl7ErrorCode hl7ErrorCode, String message, Node node) {
-		this(hl7ErrorCode, Hl7ErrorLevel.ERROR, message, node);
+		this(hl7ErrorCode, ErrorLevel.ERROR, message, node);
 	}
 	
-	public Hl7Error(Hl7ErrorCode hl7ErrorCode, Hl7ErrorLevel hl7ErrorLevel, String message, Node node) {
+	public Hl7Error(Hl7ErrorCode hl7ErrorCode, ErrorLevel hl7ErrorLevel, String message, Node node) {
 		this.hl7ErrorCode = hl7ErrorCode;
 		this.hl7ErrorLevel = hl7ErrorLevel;
 		this.message = message;
@@ -88,7 +88,7 @@ public class Hl7Error {
 		return hl7ErrorCode;
 	}
 	
-	public Hl7ErrorLevel getHl7ErrorLevel() {
+	public ErrorLevel getHl7ErrorLevel() {
 		return hl7ErrorLevel;
 	}
 	

@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -47,7 +47,7 @@ public class IvlTsConstraintsHandlerTest {
 	
 	private final List<Hl7Error> errors = new ArrayList<Hl7Error>();
 	private ErrorLogger errorLogger = new ErrorLogger() {
-		public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String message) {
+		public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String message) {
 			errors.add(new Hl7Error(errorCode, errorLevel, message, ""));
 		}
 	}; 

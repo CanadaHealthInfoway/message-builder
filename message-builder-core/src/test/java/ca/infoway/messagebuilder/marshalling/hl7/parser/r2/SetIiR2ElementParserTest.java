@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserTestCase;
@@ -77,7 +77,7 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals("size", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("Expected to find an identifier with: root={a_fixed_value},extension={an_extension}", xmlToModelResult.getHl7Errors().get(0).getMessage());
 		assertEquals(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorCode());
-		assertEquals(Hl7ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
+		assertEquals(ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
 		assertEquals(new Identifier("1.2.3.4", "5678"), rawSet.iterator().next());
@@ -107,7 +107,7 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals("size", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("Expected to find an identifier with: root={a_fixed_value},extension={null}", xmlToModelResult.getHl7Errors().get(0).getMessage());
 		assertEquals(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorCode());
-		assertEquals(Hl7ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
+		assertEquals(ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
 		assertEquals(new Identifier("1.2.3.4", "5678"), rawSet.iterator().next());
@@ -137,7 +137,7 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals("size", 1, xmlToModelResult.getHl7Errors().size());
 		assertEquals("Found match for templateId fixed constraint: root={1.2.3.4},extension={null}", xmlToModelResult.getHl7Errors().get(0).getMessage());
 		assertEquals(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorCode());
-		assertEquals(Hl7ErrorLevel.INFO, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
+		assertEquals(ErrorLevel.INFO, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
 		assertEquals(new Identifier("1.2.3.4"), rawSet.iterator().next());

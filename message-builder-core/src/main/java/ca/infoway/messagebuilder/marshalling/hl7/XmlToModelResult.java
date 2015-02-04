@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.infoway.messagebuilder.error.Hl7Error;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 
 /**
@@ -58,7 +58,7 @@ public class XmlToModelResult implements Hl7Errors {
 	
 	public boolean isValid() {
 		for (Hl7Error hl7Error : this.hl7Errors) {
-			if (hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.ERROR || hl7Error.getHl7ErrorLevel() == Hl7ErrorLevel.WARNING) {
+			if (hl7Error.getHl7ErrorLevel() == ErrorLevel.ERROR || hl7Error.getHl7ErrorLevel() == ErrorLevel.WARNING) {
 				return false;
 			}
 		}

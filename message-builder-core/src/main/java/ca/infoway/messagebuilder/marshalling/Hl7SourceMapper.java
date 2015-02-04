@@ -56,7 +56,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -173,7 +173,7 @@ class Hl7SourceMapper {
 		if (!NamespaceUtil.isNamespaceCorrect(node, xmlRelationship)) {
 			String message = MessageFormat.format("Expected relationship {0}.{1} to have namespace {2} but was {3}", 
 					xmlRelationship.getParentType(), xmlRelationship.getName(), NamespaceUtil.getExpectedNamespace(xmlRelationship), NamespaceUtil.getActualNamespace(node));
-			Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.UNEXPECTED_NAMESPACE, Hl7ErrorLevel.ERROR, message, node);
+			Hl7Error hl7Error = new Hl7Error(Hl7ErrorCode.UNEXPECTED_NAMESPACE, ErrorLevel.ERROR, message, node);
 			source.getResult().addHl7Error(hl7Error);
 		}
 	}
@@ -199,7 +199,7 @@ class Hl7SourceMapper {
 							if (constraint.hasFixedValue()) {
 								String msg = MessageFormat.format("{0}.{1} property constrained to {2} but no value was provided.", relationship.getName(), constraint.getName(), constraint.getFixedValue());
 								Hl7ErrorCode errorCode = (isTemplateId ? Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING : Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING);
-								source.getResult().addHl7Error(new Hl7Error(errorCode, Hl7ErrorLevel.WARNING, msg, source.getCurrentElement()));
+								source.getResult().addHl7Error(new Hl7Error(errorCode, ErrorLevel.WARNING, msg, source.getCurrentElement()));
 							}
 						}
 					}
@@ -484,7 +484,7 @@ class Hl7SourceMapper {
 				source.getResult().addHl7Error(
 						new Hl7Error(
 							Hl7ErrorCode.COULD_NOT_DETERMINE_CHOICE_OPTION,
-							Hl7ErrorLevel.WARNING,
+							ErrorLevel.WARNING,
 							"Could not determine an appropriate match for a choice element: " + XmlDescriber.describePath(node),
 							childNode
 						)
@@ -637,7 +637,7 @@ class Hl7SourceMapper {
 
 	private ErrorLogger createErrorLogger(final Element element, final Hl7Errors errors) {
 		return new ErrorLogger() {
-			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+			public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String errorMessage) {
 				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, (Node) element));
 			}
 		};

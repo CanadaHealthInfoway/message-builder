@@ -23,13 +23,18 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.TimeZone;
 
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
+import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.cdavalidator.ContainedTemplateValidator;
 import ca.infoway.messagebuilder.xml.cdavalidator.SchematronValidator;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
@@ -116,17 +121,32 @@ public class MessageBeanTransformerImpl {
 		
 		ModelToXmlResult result = visitor.toXml();
 		
-		SchematronValidator schematronValidator = new SchematronValidator(this.service.getAllSchematronContexts(version));
-		schematronValidator.validate(result.getXmlMessage(), result);
-		
-		ContainedTemplateValidator containedTemplateValidator = new ContainedTemplateValidator(this.service.getAllPackageLocations(version));
-		containedTemplateValidator.validate(result.getXmlMessage(), result);
+		performAdditionalCdaValidation(version, result.getXmlMessage(), result);
 		
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());
 		}
 		
 		return result;
+	}
+	
+	// this is likely to be moved to a "cda transformer" when the other renaming issue (MBG-184) is resolved
+	public void performAdditionalCdaValidation(VersionNumber version, String xml, Hl7Errors errorContainer) {
+		try {
+			Document document = new DocumentFactory().createFromString(xml);
+			performAdditionalCdaValidation(version, document, errorContainer);
+		} catch (SAXException e) {
+			errorContainer.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (String) null));
+		}
+	}
+	
+	// this is likely to be moved to a "cda transformer" when the other renaming issue (MBG-184) is resolved
+	public void performAdditionalCdaValidation(VersionNumber version, Document xmlDocument, Hl7Errors errorContainer) {
+		SchematronValidator schematronValidator = new SchematronValidator(this.service.getAllSchematronContexts(version));
+		schematronValidator.validate(xmlDocument, errorContainer);
+		
+		ContainedTemplateValidator containedTemplateValidator = new ContainedTemplateValidator(this.service.getAllPackageLocations(version));
+		containedTemplateValidator.validate(xmlDocument, errorContainer);
 	}
 	
 	private boolean isStrict() {

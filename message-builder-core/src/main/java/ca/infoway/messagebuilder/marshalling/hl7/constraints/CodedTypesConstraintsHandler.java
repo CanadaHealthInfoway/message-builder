@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -88,7 +88,7 @@ public class CodedTypesConstraintsHandler {
 				if (qualifierConstraintCardinality != null && !qualifierConstraintCardinality.contains(numberOfQualifiers)) {
 					String message = MessageFormat.format("Property {0} of type {1} is constrained to a cardinality of {2} but contains {3} values",
 							"qualifier", constraints.getBaseType(), qualifierConstraintCardinality, numberOfQualifiers);
-					logger.logError(Hl7ErrorCode.CDA_CARDINALITY_CONSTRAINT, Hl7ErrorLevel.ERROR, message);
+					logger.logError(Hl7ErrorCode.CDA_CARDINALITY_CONSTRAINT, ErrorLevel.ERROR, message);
 				}
 			}
 		}

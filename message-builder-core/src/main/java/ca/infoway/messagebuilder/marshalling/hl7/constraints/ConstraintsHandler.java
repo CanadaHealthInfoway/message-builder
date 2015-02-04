@@ -25,7 +25,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -73,17 +73,17 @@ public class ConstraintsHandler {
 
 	private void logMandatoryConstraintError(String name, String type, ErrorLogger errorLogger) {
 		String message = MessageFormat.format("Property {0} of type {1} is constrained to be mandatory but no value was provided", name, type);
-		errorLogger.logError(Hl7ErrorCode.CDA_MANDATORY_CONSTRAINT_MISSING, Hl7ErrorLevel.ERROR, message);
+		errorLogger.logError(Hl7ErrorCode.CDA_MANDATORY_CONSTRAINT_MISSING, ErrorLevel.ERROR, message);
 	}
 
 	private void logFixedConstraintError(String name, String value, String fixedConstraint, String type, ErrorLogger errorLogger) {
 		String message = MessageFormat.format("Property {0} of type {1} is constrained to a fixed value of {2} but was {3}", name, type, fixedConstraint, value);
-		errorLogger.logError(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, Hl7ErrorLevel.ERROR, message);
+		errorLogger.logError(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, ErrorLevel.ERROR, message);
 	}
 
 	private void logProhibitedConstraintError(String name, String type, ErrorLogger errorLogger) {
 		String message = MessageFormat.format("Property {0} of type {1} is constrained to be prohibited but a value was provided", name, type);
-		errorLogger.logError(Hl7ErrorCode.CDA_PROHIBITED_CONSTRAINT, Hl7ErrorLevel.ERROR, message);
+		errorLogger.logError(Hl7ErrorCode.CDA_PROHIBITED_CONSTRAINT, ErrorLevel.ERROR, message);
 	}
 
 	private boolean obtainMandatory(Relationship constrainedRelationship) {

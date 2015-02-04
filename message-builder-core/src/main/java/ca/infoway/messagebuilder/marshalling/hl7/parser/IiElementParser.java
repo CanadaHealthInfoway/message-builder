@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
@@ -124,7 +124,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 
 	private void handleConstraints(ParseContext context, final Hl7Errors errors, final Element element, Identifier identifier) {
 		ErrorLogger logger = new ErrorLogger() {
-			public void logError(Hl7ErrorCode errorCode, Hl7ErrorLevel errorLevel, String errorMessage) {
+			public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String errorMessage) {
 				errors.addHl7Error(new Hl7Error(errorCode, errorLevel, errorMessage, element));
 			}
 		};

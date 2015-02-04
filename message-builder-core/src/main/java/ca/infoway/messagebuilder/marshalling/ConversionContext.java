@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -146,7 +146,7 @@ class ConversionContext {
 			if (baseModel == null) {
 				String versionLiteral = version == null ? "(none provided)" : version.getVersionLiteral();
 				String message = MessageFormat.format("No document model could be identified based on the supplied templateIds, and no base model could be found. Please ensure an appropriate version code has been provided. (version={0})", versionLiteral, result.getTemplateId(), result.getName());
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, Hl7ErrorLevel.ERROR, message, (String) null));
+				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, ErrorLevel.ERROR, message, (String) null));
 			}
 		} else if (candidateInteractions.size() == 1) {
 			// this should be the normal case
@@ -155,12 +155,12 @@ class ConversionContext {
 			// more than one interaction matched; error, and use "first" matching interaction
 			result = firstInteractionMatch;
 			String message = MessageFormat.format("Unable to determine the most suitable templateId to use. A suitable templateId has been arbitrarily chosen: {0} ({1})", result.getTemplateId(), result.getName());
-			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, Hl7ErrorLevel.WARNING, message, (String) null));
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, ErrorLevel.WARNING, message, (String) null));
 		}
 		
 		if (result != null) {
 			String message = MessageFormat.format("Document being parsed using templateId {0} ({1})", result.getTemplateId(), result.getName());
-			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATE_CHOSEN, Hl7ErrorLevel.INFO, message, (String) null));
+			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATE_CHOSEN, ErrorLevel.INFO, message, (String) null));
 		}
 		return result;
 	}

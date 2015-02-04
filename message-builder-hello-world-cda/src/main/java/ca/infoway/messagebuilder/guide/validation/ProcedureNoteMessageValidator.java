@@ -29,7 +29,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.error.Hl7Error;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.guide.hello_world.HelloWorldAppBase;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
@@ -108,7 +108,7 @@ public class ProcedureNoteMessageValidator {
 		Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
 		while (resultsIterator.hasNext()) {
 			Hl7Error hl7Err = resultsIterator.next();
-			if (hl7Err.getHl7ErrorLevel() != Hl7ErrorLevel.INFO) {
+			if (hl7Err.getHl7ErrorLevel() != ErrorLevel.INFO) {
 				System.out.printf(hl7Err.getHl7ErrorLevel() + ": %s at XPath: %s\n", hl7Err.getMessage(), hl7Err.getPath());
 			}
 		}
@@ -117,7 +117,7 @@ public class ProcedureNoteMessageValidator {
 	private static int countErrorsAndWarnings(List<Hl7Error> hl7Errors) {
 		int count = 0;
 		for (Hl7Error hl7Error : hl7Errors) {
-			if (hl7Error.getHl7ErrorLevel() != Hl7ErrorLevel.INFO) {
+			if (hl7Error.getHl7ErrorLevel() != ErrorLevel.INFO) {
 				count++;
 			}
 		}

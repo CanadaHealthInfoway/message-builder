@@ -47,7 +47,7 @@ import java.util.Map;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 
 public class PolymorphismHandler {
 
@@ -110,7 +110,7 @@ public class PolymorphismHandler {
 			return mapCdaR1Type(newType, isCdaR1);
 		} else {
 			String message = MessageFormat.format("Not able to handle type change from {0} to {1}. Type has been left unchanged.", convertedModelType.getType(), newType.getType());
-			errorLogger.logError(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, Hl7ErrorLevel.WARNING, message);
+			errorLogger.logError(Hl7ErrorCode.UNSUPPORTED_TYPE_CHANGE, ErrorLevel.WARNING, message);
 			return modelType.getType();
 		}
 	}

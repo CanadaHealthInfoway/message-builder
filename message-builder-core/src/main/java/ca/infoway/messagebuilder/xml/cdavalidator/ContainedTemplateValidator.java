@@ -33,8 +33,8 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.j5goodies.XPathHelper;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.ContainedTemplate;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -53,32 +53,35 @@ public class ContainedTemplateValidator {
 		}
 	}
 
-	public void validate(String xml, ModelToXmlResult result) {
+	public void validate(String xml, Hl7Errors validationResult) {
 		try {
 			Document document = new DocumentFactory().createFromString(xml);
-
-			validate(document, "/cda:ClinicalDocument", "cda:component/cda:structuredBody/cda:component/cda:section/cda:templateId/@root", result);
-			validate(document, "//cda:section", "cda:entry/*/cda:templateId/@root", result);
-			validate(document, "//cda:entry/*[cda:templateId]", "cda:entryRelationship/*/cda:templateId/@root", result);
+			validate(document, validationResult);
 		} catch (SAXException e) {
-			result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Unable to validate contained templates: " + e.getMessage(), "/"));
+			validationResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Unable to validate contained templates: " + e.getMessage(), "/"));
 		}
+	}
+	
+	public void validate(Document document, Hl7Errors validationResult) {
+			validate(document, "/cda:ClinicalDocument", "cda:component/cda:structuredBody/cda:component/cda:section/cda:templateId/@root", validationResult);
+			validate(document, "//cda:section", "cda:entry/*/cda:templateId/@root", validationResult);
+			validate(document, "//cda:entry/*[cda:templateId]", "cda:entryRelationship/*/cda:templateId/@root", validationResult);
 	}
 
 	private void validate(Node xml, String baseNodeXPath,
-			String containedNodeXPath, ModelToXmlResult result) {
+			String containedNodeXPath, Hl7Errors validationResult) {
 		try {
 			NodeList baseNodes = xPathHelper.getNodes(xml, baseNodeXPath, NAMESPACE);
 			for (int i = 0, ilength = baseNodes.getLength(); i < ilength; i++) {
-				validateSingleNode(baseNodes.item(i), containedNodeXPath, result);
+				validateSingleNode(baseNodes.item(i), containedNodeXPath, validationResult);
 			}
 		} catch (XPathExpressionException e) {
-			result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Unable to validate contained templates: " + e.getMessage(), baseNodeXPath));
+			validationResult.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Unable to validate contained templates: " + e.getMessage(), baseNodeXPath));
 		}
 	}
 
 	private void validateSingleNode(Node baseNode, String containedNodeXPath,
-			ModelToXmlResult result) throws XPathExpressionException {
+			Hl7Errors validationResult) throws XPathExpressionException {
 		NodeList baseTemplateIds = xPathHelper.getNodes(baseNode, "cda:templateId/@root", NAMESPACE);
 		for (int j = 0, jlength = baseTemplateIds.getLength(); j < jlength; j++) {
 			String templateId = baseTemplateIds.item(j).getNodeValue();
@@ -93,7 +96,7 @@ public class ContainedTemplateValidator {
 						count = 0;
 					}
 					if (!containedTemplate.getCardinality().contains(count)) {
-						result.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_CARDINALITY_CONSTRAINT, "Expected [" + containedTemplate.getRawCardinality() + "] instances of template "
+						validationResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_CARDINALITY_CONSTRAINT, "Expected [" + containedTemplate.getRawCardinality() + "] instances of template "
 								+ containedTemplate.getTemplateOid()
 								+ ", but found " + count, baseNode));
 					}

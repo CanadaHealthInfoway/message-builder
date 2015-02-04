@@ -28,10 +28,11 @@ import org.apache.commons.logging.LogFactory;
 import org.oclc.purl.dsdl.svrl.FailedAssert;
 import org.oclc.purl.dsdl.svrl.SchematronOutputType;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.SchematronRule;
@@ -56,6 +57,7 @@ public class SchematronValidator {
 		initiate(contexts);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void initiate(List<SchematronContext> contexts) {
 		if (!contexts.isEmpty()) {
 			PSSchema schema = new PSSchema();
@@ -111,11 +113,20 @@ public class SchematronValidator {
 		}		
 	}
 
-	public void validate(String xml, ModelToXmlResult result) {
+	public void validate(String xml, Hl7Errors validationResults) {
 		if (this.initiated) {
 			try {
 				Document document = new DocumentFactory().createFromString(xml);
-				
+				validate(document, validationResults);
+			} catch (SAXException e) {
+				validationResults.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (String) null));
+			}
+		}
+	}
+	
+	public void validate(Document document, Hl7Errors validationResults) {
+		if (this.initiated) {
+			try {
 				SchematronOutputType schematronOutput = boundSchema.validateComplete(document);
 				
 				for (Object o : schematronOutput.getActivePatternAndFiredRuleAndFailedAssert()) {
@@ -127,11 +138,11 @@ public class SchematronValidator {
 							description = failedAssert.getTest();
 						}
 						
-						result.addHl7Error(new Hl7Error(Hl7ErrorCode.SCHEMATRON, description, failedAssert.getLocation()));
+						validationResults.addHl7Error(new Hl7Error(Hl7ErrorCode.SCHEMATRON, description, failedAssert.getLocation()));
 					}
 				}
 			} catch (Exception e) {
-				result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (String) null));
+				validationResults.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage(), (String) null));
 			}
 		}
 	}

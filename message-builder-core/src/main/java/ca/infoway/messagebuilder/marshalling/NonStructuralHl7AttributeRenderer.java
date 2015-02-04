@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.Hl7ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -55,7 +55,7 @@ class NonStructuralHl7AttributeRenderer {
 			Code code = CodeResolverRegistry.lookup(codeType, fixedValue);
 			if (code == null) {
 				String message = MessageFormat.format("Fixed code lookup could not find match for {0}.{1}", relationship.getDomainType(), fixedValue);
-				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, Hl7ErrorLevel.WARNING, message, propertyPath));
+				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, ErrorLevel.WARNING, message, propertyPath));
 			}
 			return isR2 ? (code == null ? null : new CodedTypeR2<Code>(code)) : code;
 		} else {
