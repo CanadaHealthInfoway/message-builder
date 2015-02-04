@@ -293,7 +293,7 @@
 				displayName="Colonoscopy"/>
 			<effectiveTime>
 				<low value="201209091911-0400"/>
-				<high value="201209161911-0400"/>
+				<!-- high value="201209161911-0400"/ -->
 			</effectiveTime>
 			<performer typeCode="PRF">
 				<functionCode code="PP" displayName="Primary Care Provider"

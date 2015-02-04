@@ -28,12 +28,12 @@ import java.util.List;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.ErrorLevel;
+import ca.infoway.messagebuilder.error.TransformError;
 import ca.infoway.messagebuilder.guide.hello_world.HelloWorldAppBase;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
-import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
-import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
+import ca.infoway.messagebuilder.xml.validator.CdaValidatorResult;
+import ca.infoway.messagebuilder.xml.validator.ClinicalDocumentValidator;
 
 /**
  * <p>
@@ -75,11 +75,10 @@ public class ProcedureNoteMessageValidator {
 	//	ERROR: Fixed-value attribute 'statusCode' must have value 'completed' at XPath: /ClinicalDocument/authorization/consent/statusCode
 	
 	
-	// 4) These are *likely* incorrect template ids (though these errors should warrant special attention)
+	// 4) These are Schematron validation errors.
 	
-	//	WARNING: Could not determine an appropriate match for a choice element: /ClinicalDocument/component/structuredBody/component[6] at XPath: /ClinicalDocument/component/structuredBody/component[6]
-	//	WARNING: Could not determine an appropriate match for a choice element: /ClinicalDocument/component/structuredBody/component[8] at XPath: /ClinicalDocument/component/structuredBody/component[8]
-	//	WARNING: Could not determine an appropriate match for a choice element: /ClinicalDocument/component/structuredBody/component[14] at XPath: /ClinicalDocument/component/structuredBody/component[14]
+	//	ERROR: 	If a width is not present, the serviceEvent/effectiveTime SHALL include effectiveTime/high at XPath: null
+	//	ERROR: 	When only the date and the length of the procedure are known a width element SHALL be present and the serviceEvent/effectiveTime/high SHALL not be present at XPath: null
 	
 	
 	public void run(String[] args) {
@@ -100,24 +99,24 @@ public class ProcedureNoteMessageValidator {
 		// Relaxes code vocabulary checks.
 		configureCodeResolversWithTrivialDefault();
 		
-		MessageValidatorImpl validator = this.createNewValidator();
+		ClinicalDocumentValidator validator = this.createNewValidator();
 		
-		MessageValidatorResult result = validator.validate(createDocument("ProcedureNote.xml"), HelloWorldAppBase.MBSpecificationVersion);
+		CdaValidatorResult result = validator.validate(createDocument("ProcedureNote.xml"), HelloWorldAppBase.MBSpecificationVersion);
 
-		System.out.printf("There are %d errors and/or warnings\n\n", countErrorsAndWarnings(result.getHl7Errors()));
-		Iterator<Hl7Error> resultsIterator = result.getHl7Errors().iterator();
+		System.out.printf("There are %d errors and/or warnings\n\n", countErrorsAndWarnings(result.getErrors()));
+		Iterator<TransformError> resultsIterator = result.getErrors().iterator();
 		while (resultsIterator.hasNext()) {
-			Hl7Error hl7Err = resultsIterator.next();
-			if (hl7Err.getHl7ErrorLevel() != ErrorLevel.INFO) {
-				System.out.printf(hl7Err.getHl7ErrorLevel() + ": %s at XPath: %s\n", hl7Err.getMessage(), hl7Err.getPath());
+			TransformError cdaError = resultsIterator.next();
+			if (cdaError.getErrorLevel() != ErrorLevel.INFO) {
+				System.out.printf(cdaError.getErrorLevel() + ": %s at XPath: %s\n", cdaError.getMessage(), cdaError.getPath());
 			}
 		}
 	}
 
-	private static int countErrorsAndWarnings(List<Hl7Error> hl7Errors) {
+	private static int countErrorsAndWarnings(List<TransformError> list) {
 		int count = 0;
-		for (Hl7Error hl7Error : hl7Errors) {
-			if (hl7Error.getHl7ErrorLevel() != ErrorLevel.INFO) {
+		for (TransformError transformError : list) {
+			if (transformError.getErrorLevel() != ErrorLevel.INFO) {
 				count++;
 			}
 		}
@@ -129,8 +128,8 @@ public class ProcedureNoteMessageValidator {
 		return new DocumentFactory().createFromStream(getClass().getResourceAsStream("/"+resourceName));
 	}
 	
-	private MessageValidatorImpl createNewValidator() {
-		return new MessageValidatorImpl();
+	private ClinicalDocumentValidator createNewValidator() {
+		return new ClinicalDocumentValidator();
 	}
 
 }
