@@ -31,6 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import org.xml.sax.SAXException;
@@ -216,8 +217,19 @@ public abstract class HelloWorldApp {
 		return xmlResponse;	
 	}
 	protected MessageBeanTransformerImpl createTransformer() {
+		// PERMISSIVE is the default setting for the transformer; this allows processing to continue even if errors are detected
+
+		// this creates a transformer using the local timezone and PERMISSIVE
+		// return new MessageBeanTransformerImpl();
+
+		// this creates a transformer using the local timezone and explicitly sets PERMISSIVE
+		// return new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
 		
-		return new MessageBeanTransformerImpl(RenderMode.PERMISSIVE);
+		// specify a time zone when using the transformer 
+		// (not absolutely necessary, if not set, local timezone is used)
+		// Note: a time zone can also be specified for each individual transform, overriding any provided in the constructor
+		TimeZone timeZone = TimeZone.getTimeZone("GMT-5");
+		return new MessageBeanTransformerImpl(timeZone, timeZone);
 	}
 	
 	protected String convertBeanToXML(InteractionBean msgBean) {
