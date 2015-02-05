@@ -83,7 +83,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	
 	// CDA releases
 	public static final SpecificationVersion CCDA_R1_1 = new SpecificationVersion("CCDA_R1_1", "CDA (CCDA_R1_1)", Hl7BaseVersion.MR2009);
-	public static final SpecificationVersion PCS_CDA = new SpecificationVersion("PCS_CDA", "CDA (PCS)", Hl7BaseVersion.MR2009);
+	public static final SpecificationVersion PCS_CDA_R1_2 = new SpecificationVersion("PCS_CDA_R1_2", "CDA (PCS_CDA_R1_2)", Hl7BaseVersion.MR2009);
 	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
 		V01R04_3.registerHl7ReleaseByDatatype("II.BUS", Hl7BaseVersion.MR2009);
