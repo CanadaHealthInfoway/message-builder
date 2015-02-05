@@ -45,28 +45,28 @@ import ca.infoway.messagebuilder.domainvalue.basic.PostalAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.chiefcomplaintandreasonforvisitsection.SectionBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.StructuredBodyBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.BasicConfidentialityKind;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.ConsultDocumentType;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.domainvalue.Language;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.interaction.ConsultationNoteBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssignedAuthorBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssignedCustodianBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ChiefComplaintAndReasonForVisitSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Component1_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.CustodianBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.CustodianOrganizationBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.EncompassingEncounter_1Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.GeneralStatusSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.HistoryOfPresentIllnessSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.InFulfillmentOfBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.OrderBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientRoleBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.RecordTargetBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.chiefcomplaintandreasonforvisitsection.SectionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.StructuredBodyBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.BasicConfidentialityKind;
+import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.ConsultDocumentType;
+import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.Language;
+import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNoteBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedAuthorBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedCustodianBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ChiefComplaintAndReasonForVisitSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Component1_1Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.CustodianBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.CustodianOrganizationBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.EncompassingEncounter_1Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.GeneralStatusSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.HistoryOfPresentIllnessSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.InFulfillmentOfBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.OrderBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PatientBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PatientRoleBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.RecordTargetBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
 public class ConsultationNoteCreator {
@@ -101,7 +101,7 @@ public class ConsultationNoteCreator {
 
 	// used to add more information to the document object after initially creating it
 	public void addHistoryOfPresentIllness(ConsultationNoteBean consultationNote) {
-		ca.infoway.messagebuilder.model.ccda_r00_alpha.historyofpresentillnesssection.SectionBean historyOfPresentIllnessSection = new ca.infoway.messagebuilder.model.ccda_r00_alpha.historyofpresentillnesssection.SectionBean();
+		ca.infoway.messagebuilder.model.ccda_r1_1.historyofpresentillnesssection.SectionBean historyOfPresentIllnessSection = new ca.infoway.messagebuilder.model.ccda_r1_1.historyofpresentillnesssection.SectionBean();
 		historyOfPresentIllnessSection.setTitle("HISTORY OF PRESENT ILLNESS");
 		historyOfPresentIllnessSection.setText(createIllnessHistoryText());
 		
@@ -152,7 +152,7 @@ public class ConsultationNoteCreator {
 			// nothing to do here
 		}
 		
-		ca.infoway.messagebuilder.model.ccda_r00_alpha.generalstatussection.SectionBean section = new ca.infoway.messagebuilder.model.ccda_r00_alpha.generalstatussection.SectionBean();
+		ca.infoway.messagebuilder.model.ccda_r1_1.generalstatussection.SectionBean section = new ca.infoway.messagebuilder.model.ccda_r1_1.generalstatussection.SectionBean();
 		section.setTitle("GENERAL STATUS");
 		section.setText(text);
 		

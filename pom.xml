@@ -49,7 +49,7 @@
 		<module>message-builder-simple-xml</module>
 		<module>message-builder-simple-xml-process</module>
 		<module>junitUtils</module>
-		<module>message-builder-cda-release-ccda_r00_alpha</module>
+		<module>message-builder-ccda-r1_1</module>
 		<module>message-builder-cda-release-pcs_cda_r00_alpha</module>
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_3</module>
 		<module>message-builder-hl7v3-release-pcs_cerx_v01_r04_4</module>

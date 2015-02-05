@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public abstract class HelloWorldAppBase {
 	
-	public static final VersionNumber MBSpecificationVersion = SpecificationVersion.CCDA_R00_ALPHA;
+	public static final VersionNumber MBSpecificationVersion = SpecificationVersion.CCDA_R1_1;
 	
 	protected String processDocumentObject(InteractionBean documentObject) {
 		

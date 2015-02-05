@@ -32,43 +32,43 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.allergiessectionentriesoptional.SectionBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.Component3Choice;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.ReasonForReferralSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.consultationnote.StructuredBodyBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.interaction.ConsultationNoteBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AllergiesSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AllergiesSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssessmentAndPlanSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.AssessmentSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.Author_2Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ChiefComplaintAndReasonForVisitSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ChiefComplaintSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.FamilyHistorySectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.GeneralStatusSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.HistoryOfPastIllnessSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.HistoryOfPresentIllnessSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ImmunizationsSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ImmunizationsSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.MedicationsSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.MedicationsSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PatientRoleBean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PhysicalExamSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.PlanOfCareSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ProblemSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ProblemSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ProceduresSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ProceduresSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReasonForVisitSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ResultsSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ResultsSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.ReviewOfSystemsSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.SocialHistorySectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.VitalSignsSectionentriesOptionalComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.merged.VitalSignsSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.pocd_mt000040.NonXMLBodyBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.allergiessectionentriesoptional.SectionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.ReasonForReferralSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.StructuredBodyBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNoteBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AllergiesSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AllergiesSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssessmentAndPlanSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssessmentSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ChiefComplaintAndReasonForVisitSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ChiefComplaintSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.FamilyHistorySectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.GeneralStatusSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.HistoryOfPastIllnessSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.HistoryOfPresentIllnessSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ImmunizationsSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ImmunizationsSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.MedicationsSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.MedicationsSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PatientBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PatientRoleBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PhysicalExamSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.PlanOfCareSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ProblemSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ProblemSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ProceduresSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ProceduresSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ReasonForVisitSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ResultsSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ResultsSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ReviewOfSystemsSectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.SocialHistorySectionComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.VitalSignsSectionentriesOptionalComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.VitalSignsSectionentriesRequiredComponent3Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.NonXMLBodyBean;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
 
@@ -124,7 +124,7 @@ public class ConsultationNoteAccessor {
 		} else if (section instanceof AllergiesSectionentriesRequiredComponent3Bean) {
 			// no required allergies section for this sample CDA document
 			AllergiesSectionentriesRequiredComponent3Bean optionalAllergies = (AllergiesSectionentriesRequiredComponent3Bean) section;
-			ca.infoway.messagebuilder.model.ccda_r00_alpha.allergiessectionentriesrequired.SectionBean allergies = optionalAllergies.getSection();
+			ca.infoway.messagebuilder.model.ccda_r1_1.allergiessectionentriesrequired.SectionBean allergies = optionalAllergies.getSection();
 			processRequiredAlergies(allergies);
 			
 		} else if (section instanceof AssessmentAndPlanSectionComponent3Bean) {
@@ -136,7 +136,7 @@ public class ConsultationNoteAccessor {
 			
 		} else if (section instanceof FamilyHistorySectionComponent3Bean) {
 			FamilyHistorySectionComponent3Bean familyHistoryBean = (FamilyHistorySectionComponent3Bean) section;
-			ca.infoway.messagebuilder.model.ccda_r00_alpha.familyhistorysection.SectionBean familyHistory = familyHistoryBean.getSection();
+			ca.infoway.messagebuilder.model.ccda_r1_1.familyhistorysection.SectionBean familyHistory = familyHistoryBean.getSection();
 			processFamilyHistory(familyHistory);
 			
 		} else if (section instanceof GeneralStatusSectionComponent3Bean) {
@@ -169,7 +169,7 @@ public class ConsultationNoteAccessor {
 	}
 
 	private void processFamilyHistory(
-			ca.infoway.messagebuilder.model.ccda_r00_alpha.familyhistorysection.SectionBean familyHistory) {
+			ca.infoway.messagebuilder.model.ccda_r1_1.familyhistorysection.SectionBean familyHistory) {
 		System.out.println(familyHistory.getTitle());
 		System.out.println("Text: ");
 		renderText(familyHistory.getText());
@@ -177,7 +177,7 @@ public class ConsultationNoteAccessor {
 	}
 
 	private void processRequiredAlergies(
-			ca.infoway.messagebuilder.model.ccda_r00_alpha.allergiessectionentriesrequired.SectionBean allergies) {
+			ca.infoway.messagebuilder.model.ccda_r1_1.allergiessectionentriesrequired.SectionBean allergies) {
 		// TODO fill in as appropriate
 		
 	}

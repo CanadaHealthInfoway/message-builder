@@ -19,7 +19,7 @@
  */
 package ca.infoway.messagebuilder.guide.hello_world;
 
-import ca.infoway.messagebuilder.model.ccda_r00_alpha.interaction.ConsultationNoteBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNoteBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 

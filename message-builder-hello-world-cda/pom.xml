@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-cda-release-ccda_r00_alpha</artifactId>
+			<artifactId>message-builder-ccda-r1_1</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

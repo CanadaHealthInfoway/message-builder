@@ -82,7 +82,7 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	public static final SpecificationVersion V01R04_3_NS = new SpecificationVersion("V01R04_3_NS", "NS Drug (CeRx)", Hl7BaseVersion.CERX);
 	
 	// CDA releases
-	public static final SpecificationVersion CCDA_R00_ALPHA = new SpecificationVersion("CCDA_R00_ALPHA", "CDA (CCDA_R00_ALPHA)", Hl7BaseVersion.MR2009);
+	public static final SpecificationVersion CCDA_R1_1 = new SpecificationVersion("CCDA_R1_1", "CDA (CCDA_R1_1)", Hl7BaseVersion.MR2009);
 	public static final SpecificationVersion PCS_CDA = new SpecificationVersion("PCS_CDA", "CDA (PCS)", Hl7BaseVersion.MR2009);
 	
 	static{ /*static init block for translation purposes. Please do not remove.*/ 
