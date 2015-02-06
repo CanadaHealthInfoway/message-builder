@@ -12365,7 +12365,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="3"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="observation" attribute="false" type="PlanOfCareActivityAct.Act" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
+               <relationship name="act" attribute="false" type="PlanOfCareActivityAct.Act" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
             </messagePart>
          </entry>
          <entry name="PlanOfCareSection.PlanOfCareActivityEncounterEntry">
@@ -12375,7 +12375,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="3"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="observation" attribute="false" type="PlanOfCareActivityEncounter.Encounter" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
+               <relationship name="encounter" attribute="false" type="PlanOfCareActivityEncounter.Encounter" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
             </messagePart>
          </entry>
          <entry name="PlanOfCareSection.PlanOfCareActivityObservationEntry">
@@ -12395,7 +12395,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="3"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="observation" attribute="false" type="PlanOfCareActivityProcedure.Procedure" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
+               <relationship name="procedure" attribute="false" type="PlanOfCareActivityProcedure.Procedure" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
             </messagePart>
          </entry>
          <entry name="PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry">
@@ -12405,7 +12405,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="3"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="observation" attribute="false" type="PlanOfCareActivitySubstanceAdministration.SubstanceAdministration" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
+               <relationship name="substanceAdministration" attribute="false" type="PlanOfCareActivitySubstanceAdministration.SubstanceAdministration" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
             </messagePart>
          </entry>
          <entry name="PlanOfCareSection.PlanOfCareActivitySupplyEntry">
@@ -12415,7 +12415,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="3"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="observation" attribute="false" type="PlanOfCareActivitySupply.Supply" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
+               <relationship name="supply" attribute="false" type="PlanOfCareActivitySupply.Supply" conformance="MANDATORY" cardinality="1" sortOrder="1" associationSortKey="ZZZZZZZZ"/>
             </messagePart>
          </entry>
          <entry name="PlanOfCareSection.Section">

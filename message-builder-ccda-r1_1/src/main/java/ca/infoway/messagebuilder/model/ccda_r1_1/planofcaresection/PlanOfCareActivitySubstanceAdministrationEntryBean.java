@@ -46,7 +46,7 @@ public class PlanOfCareActivitySubstanceAdministrationEntryBean extends MessageP
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private SubstanceAdministrationBean observation;
+    private SubstanceAdministrationBean substanceAdministration;
 
 
     /**
@@ -119,23 +119,23 @@ public class PlanOfCareActivitySubstanceAdministrationEntryBean extends MessageP
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public SubstanceAdministrationBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"substanceAdministration"})
+    public SubstanceAdministrationBean getSubstanceAdministration() {
+        return this.substanceAdministration;
     }
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry.substanceAdministration</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(SubstanceAdministrationBean observation) {
-        this.observation = observation;
+    public void setSubstanceAdministration(SubstanceAdministrationBean substanceAdministration) {
+        this.substanceAdministration = substanceAdministration;
     }
 
 }

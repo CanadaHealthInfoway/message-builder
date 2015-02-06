@@ -46,7 +46,7 @@ public class PlanOfCareActivityEncounterEntryBean extends MessagePartBean implem
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private EncounterBean observation;
+    private EncounterBean encounter;
 
 
     /**
@@ -119,23 +119,23 @@ public class PlanOfCareActivityEncounterEntryBean extends MessagePartBean implem
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityEncounterEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityEncounterEntry.encounter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public EncounterBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"encounter"})
+    public EncounterBean getEncounter() {
+        return this.encounter;
     }
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityEncounterEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityEncounterEntry.encounter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(EncounterBean observation) {
-        this.observation = observation;
+    public void setEncounter(EncounterBean encounter) {
+        this.encounter = encounter;
     }
 
 }
