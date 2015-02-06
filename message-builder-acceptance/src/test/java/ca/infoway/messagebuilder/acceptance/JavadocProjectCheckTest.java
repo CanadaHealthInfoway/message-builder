@@ -84,6 +84,7 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-acceptance");
 		this.projectExclusions.add("message-builder-release-newfoundland");
 		this.projectExclusions.add("message-builder-ccda-r1_1");
+		this.projectExclusions.add("message-builder-ccda-pcs-r1_1");
 		this.projectExclusions.add("message-builder-pcs-cda-r1_2");
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2009_r02_04_02");
 		this.projectExclusions.add("message-builder-hl7v3-release-pcs_mr2009_r02_04_03");

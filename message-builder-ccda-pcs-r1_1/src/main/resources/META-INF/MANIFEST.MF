@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: root
+Build-Jdk: 1.6.0_34
+Implementation-Version: 1.5.12
+MBT-Message-Set: /messageSet_ccda_pcs_r1_1.xml
+MBT-Model-Version-Numbers: CCDA_PCS_R1_1
+MBT-Version: 1.5.12
+
