@@ -55,7 +55,7 @@ public class DefinitionToResultConverterTest {
 	}
 
 	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
-	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger(), NamingPolicy.getDefaultPolicy(), false);
+	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger(), NamingPolicy.getDefaultPolicy(), false, false);
 	private TypeConverter typeConverter = new TypeConverter(false);
 	
 	@Test

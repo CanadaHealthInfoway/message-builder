@@ -118,7 +118,7 @@ public class XmlToXsdGeneratorMojo extends AbstractMojo {
 				generator.generateAllSchemaFiles(messages, this.vocabulary);
 			} else {
 				IntermediateToXsdGenerator generator = new IntermediateToXsdGenerator(new OutputUIImpl(this), 
-						this.xsdSourceFolder, this.basePackageName, messages.isGeneratedAsR2());
+						this.xsdSourceFolder, this.basePackageName, messages.isGeneratedAsR2(), messages.isCda());
 				//XsdMessageWriterUtil.setXsdSDFolder(this.xsdSimpleDataTypeLocation);
 				generator.generate(messages);
 			}

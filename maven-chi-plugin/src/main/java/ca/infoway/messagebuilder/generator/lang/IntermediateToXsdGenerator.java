@@ -29,11 +29,11 @@ import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 	
-	public IntermediateToXsdGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2) {
-		this(outputUI, sourceFolder, basePackageName, null, isR2);
+	public IntermediateToXsdGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2, boolean isCda) {
+		this(outputUI, sourceFolder, basePackageName, null, isR2, isCda);
 	}
-	public IntermediateToXsdGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report, boolean isR2) {
-		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, report, null, isR2));
+	public IntermediateToXsdGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report, boolean isR2, boolean isCda) {
+		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, report, null, isR2, isCda));
 	}
 	public IntermediateToXsdGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
 		super(outputUI, configuration);
@@ -49,8 +49,8 @@ public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 		return null;
 	}
 	@Override
-	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions, boolean isR2) {
-		return new XsdDefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy(), isR2);
+	protected DefinitionToResultConverter getDefinitionToResultConverter(SimplifiableDefinitions definitions, boolean isR2, boolean isCda) {
+		return new XsdDefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy(), isR2, isCda);
 	}
 	@Override
 	protected void writeDomainInterfaces() throws IOException, GeneratorException {

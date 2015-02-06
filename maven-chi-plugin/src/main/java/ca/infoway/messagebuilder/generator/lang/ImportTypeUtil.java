@@ -38,11 +38,18 @@ public class ImportTypeUtil {
 			importTypes.add("Ca.Infoway.Messagebuilder.Model.IInteraction");
 		} else {
 			importTypes.add("ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping");
-			importTypes.add("ca.infoway.messagebuilder.model.InteractionBean");
+			if (type.isCda()) {
+				importTypes.add("ca.infoway.messagebuilder.model.ClinicalDocumentBean");
+			} else {
+				importTypes.add("ca.infoway.messagebuilder.model.InteractionBean");
+			}
 		}
-		Type parentType = ((InteractionType) type).getParentType();
-		if (parentType != null) {
-			importTypes.add(parentType.getLanguageSpecificName().getFullyQualifiedName());
+		
+		if (!type.isCda()) {
+			Type parentType = ((InteractionType) type).getParentType();
+			if (parentType != null) {
+				importTypes.add(parentType.getLanguageSpecificName().getFullyQualifiedName());
+			}
 		}
 		addArgumentTypes(importTypes, type.getArguments());
 		return importTypes;

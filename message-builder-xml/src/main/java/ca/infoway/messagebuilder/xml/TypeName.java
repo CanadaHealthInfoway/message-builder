@@ -37,18 +37,24 @@ public class TypeName {
 	public static final String PART_SEPARATOR = ".";
 	private final String name;
 	private final Boolean isInteraction;
+	private final boolean isCdaDocumentRoot; // EXPERIMENT
 
 	/**
 	 * <p>Standard constructor.
 	 * @param name - the name of the type
 	 */
 	public TypeName(String name) {
-		this(name, null);
+		this(name, null, false);
+	}
+	
+	public TypeName(String name, Boolean isInteraction) {
+		this(name, isInteraction, false);
 	}
 
-	public TypeName(String name, Boolean isInteraction) {
+	public TypeName(String name, Boolean isInteraction, boolean isCdaDocumentRoot) {
 		this.name = name!=null ? name.replace('$', '.') : name;
 		this.isInteraction = isInteraction;
+		this.isCdaDocumentRoot = isCdaDocumentRoot;
 	}
 
 	/**
@@ -197,5 +203,9 @@ public class TypeName {
 	public static String determineRootName(String name) {
 		TypeName typeName = new TypeName(name);
 		return typeName.getRootName().getName();
+	}
+	
+	public boolean isCdaDocumentRoot() {
+		return this.isCdaDocumentRoot;
 	}
 }

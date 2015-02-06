@@ -143,7 +143,7 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
 	private IntermediateToModelConfiguration createConfiguration(MessageSet messages) throws MojoFailureException {
 		return new IntermediateToModelConfiguration(
 				this.javaSourceFolder, this.basePackageName, 
-				this.generatedReportsDirectory, getNamingPolicy(), messages.isGeneratedAsR2());
+				this.generatedReportsDirectory, getNamingPolicy(), messages.isGeneratedAsR2(), messages.isCda());
 	}
 
 	private NamingPolicy getNamingPolicy() throws MojoFailureException {

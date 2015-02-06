@@ -54,7 +54,11 @@ public class SimpleNameTranslator implements NameTranslator {
 	}
 	
 	public String getClassNameWithoutPackage(TypeName name) {
-		return getPrefix(name) + this.nameCoordinator.getName(name) + getSuffix(name);
+		if (name.isCdaDocumentRoot()) {
+			return getPrefix(name) + name.getRootName().getName() + getSuffix(name);	// EXPERIMENT
+		} else {
+			return getPrefix(name) + this.nameCoordinator.getName(name) + getSuffix(name);
+		}
 	}
 	private String getSuffix(TypeName name) {
 		if (this.language == ProgrammingLanguage.C_SHARP) {

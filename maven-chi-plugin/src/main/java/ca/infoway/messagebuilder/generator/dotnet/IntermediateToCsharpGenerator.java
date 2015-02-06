@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.generator.util.ProgrammingLanguage;
 
 public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator {
 	
-	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2) {
-		this(outputUI, sourceFolder, basePackageName, null, isR2);
+	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, boolean isR2, boolean isCda) {
+		this(outputUI, sourceFolder, basePackageName, null, isR2, isCda);
 	}
-	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir, boolean isR2) {
-		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null, isR2));
+	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir, boolean isR2, boolean isCda) {
+		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null, isR2, isCda));
 	}
 	public IntermediateToCsharpGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
 		super(outputUI, configuration);

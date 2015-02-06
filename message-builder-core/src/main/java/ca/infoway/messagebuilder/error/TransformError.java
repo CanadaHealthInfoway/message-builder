@@ -49,4 +49,8 @@ public class TransformError {
 		return this.error.getBeanPath();
 	}
 	
+	@Override
+	public String toString() {
+		return this.error.toString();
+	}
 }

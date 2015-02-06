@@ -149,11 +149,19 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 		writer.write(" extends ");
 		InteractionType interaction = (InteractionType) this.type;
 		Type parentTypeName = interaction.getParentType();
-		writer.write(parentTypeName.getLanguageSpecificName().getUnqualifiedClassName());
+		if (interaction.isCda()) {
+			writer.write(parentTypeName.getLanguageSpecificName().getFullyQualifiedName());
+		} else {
+			writer.write(parentTypeName.getLanguageSpecificName().getUnqualifiedClassName());
+		}
 		
 		writeTemplateArguments(writer, interaction.getArguments());
 		
-		writer.write(" implements InteractionBean");
+		if (interaction.isCda()) {
+			writer.write(" implements ClinicalDocumentBean");
+		} else {
+			writer.write(" implements InteractionBean");
+		}
 	}
 
 	private void writeTemplateArguments(Writer writer, List<ArgumentType> arguments) throws IOException {

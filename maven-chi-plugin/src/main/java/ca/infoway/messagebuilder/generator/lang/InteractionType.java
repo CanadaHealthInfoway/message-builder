@@ -73,6 +73,7 @@ public class InteractionType extends Type {
 	
 	private final List<ArgumentType> arguments = Collections.synchronizedList(new ArrayList<ArgumentType>());
 	private Type parentType;
+	private boolean isCda;
 
 	public Type getParentType() {
 		return this.parentType;
@@ -92,5 +93,13 @@ public class InteractionType extends Type {
 
 	public boolean hasParent() {
 		return this.parentType != null;
+	}
+	
+	public boolean isCda() {
+		return isCda;
+	}
+	
+	public void setCda(boolean isCda) {
+		this.isCda = isCda;
 	}
 }

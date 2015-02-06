@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.codehaus.plexus.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.GeneratorException;
 import ca.infoway.messagebuilder.Named;
@@ -54,13 +54,15 @@ public class SimplifiableType implements Named, NamedType {
     private Set<String> interfaceTypes = Collections.synchronizedSet(new HashSet<String>());
 	private final String category;
 	private boolean indicator;
+	private boolean isCdaDocumentRoot;
 
 	public SimplifiableType(MessagePart messagePart, boolean rootType, String category) {
 		this.messagePart = messagePart;
 		this.rootType = rootType;
 		this.category = category;
+		this.isCdaDocumentRoot = (this.rootType && StringUtils.contains(messagePart.getName(), "ClinicalDocument"));	// EXPERIMENT
 	}
-	
+
 	public SimplifiableType(MessagePart messagePart, boolean rootType) {
 		this(messagePart, rootType, null);
 	}
@@ -170,7 +172,7 @@ public class SimplifiableType implements Named, NamedType {
 	}
 
 	public TypeName getTypeName() {
-		return new TypeName(getName());
+		return new TypeName(getName(), false, isCdaDocumentRoot);	// EXPERIMENT
 	}
 
 	public Set<TypeName> getChildTypes() {

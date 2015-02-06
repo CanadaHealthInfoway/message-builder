@@ -31,14 +31,16 @@ public class IntermediateToModelConfiguration {
 	private final File reportDirectory;
 	private final NamingPolicy namingPolicy;
 	private boolean isR2;
+	private boolean isCda;
 	
 	public IntermediateToModelConfiguration(File sourceFolder,
-			String basePackageName, File reportDirectory, NamingPolicy namingPolicy, boolean isR2) {
+			String basePackageName, File reportDirectory, NamingPolicy namingPolicy, boolean isR2, boolean isCda) {
 		this.sourceFolder = sourceFolder;
 		this.basePackageName = basePackageName;
 		this.reportDirectory = reportDirectory;
 		this.namingPolicy = namingPolicy == null ? NamingPolicy.getDefaultPolicy() : namingPolicy;
 		this.isR2 = isR2;
+		this.isCda = isCda;
 	}
 	public File getSourceFolder() {
 		return sourceFolder;
@@ -54,5 +56,8 @@ public class IntermediateToModelConfiguration {
 	}
 	public boolean isR2() {
 		return this.isR2;
+	}
+	public boolean isCda() {
+		return this.isCda;
 	}
 }

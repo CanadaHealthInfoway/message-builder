@@ -58,16 +58,18 @@ class DefinitionToResultConverter {
 	private final ProgrammingLanguage programmingLanguage;
 	private final OutputUI outputUI;
 	private final NamingPolicy namingPolicy;
+	private final boolean isCda;
 
 	DefinitionToResultConverter(SimplifiableDefinitions definitions,
 			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI,
-			NamingPolicy namingPolicy, boolean isR2) {
+			NamingPolicy namingPolicy, boolean isR2, boolean isCda) {
 		this.definitions = definitions;
 		this.basePackageName = basePackageName;
 		this.programmingLanguage = programmingLanguage;
 		this.outputUI = outputUI;
 		this.namingPolicy = namingPolicy;
 		this.converter = new TypeConverter(isR2);
+		this.isCda = isCda;
 	}
 
 	public TypeAnalysisResult convert() throws GeneratorException {
@@ -463,7 +465,7 @@ class DefinitionToResultConverter {
 
 	private void createAllTypes(TypeAnalysisResult result) {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
-			Type type = new Type(new TypeName(simplifiableType.getName()), simplifiableType.isRootType());
+			Type type = new Type(simplifiableType.getTypeName(), simplifiableType.isRootType());	// Experiment
 			this.types.put(simplifiableType.getName(), type);
 			type.setMergedName(simplifiableType.getMergedTypeName());
 			type.setBusinessName(simplifiableType.getBusinessName());
@@ -549,6 +551,7 @@ class DefinitionToResultConverter {
 			
 			interactionType.setBusinessName(interaction.getBusinessName());
 			interactionType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments()));
+			interactionType.setCda(this.isCda);
 			result.getTypes().put(interactionType.getTypeName(), interactionType);
 		}
 	}

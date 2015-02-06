@@ -145,7 +145,7 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
 	private IntermediateToModelConfiguration createConfiguration(MessageSet messages) throws MojoFailureException {
 		return new IntermediateToModelConfiguration(
 				this.csSourceFolder, this.basePackageName, 
-				this.generatedReportsDirectory, getNamingPolicy(), messages.isGeneratedAsR2());
+				this.generatedReportsDirectory, getNamingPolicy(), messages.isGeneratedAsR2(), messages.isCda());
 	}
 	
 	private NamingPolicy getNamingPolicy() throws MojoFailureException {
