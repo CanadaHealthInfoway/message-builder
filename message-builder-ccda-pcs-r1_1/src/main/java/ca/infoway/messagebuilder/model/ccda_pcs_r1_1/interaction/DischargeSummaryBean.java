@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.dischargesummary.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.dischargesummary.ClinicalDo
  * <p>Message: DischargeSummary.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"DischargeSummary"})
-public class DischargeSummaryBean extends ClinicalDocumentBean implements InteractionBean {
+public class DischargeSummaryBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.dischargesummary.DischargeSummaryBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

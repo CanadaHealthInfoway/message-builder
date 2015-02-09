@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.continuityofcaredocumentccd.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.continuityofcaredocumentccd
  * <p>Message: ContinuityOfCareDocumentCCD.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD"})
-public class ContinuityOfCareDocumentCCDBean extends ClinicalDocumentBean implements InteractionBean {
+public class ContinuityOfCareDocumentCCDBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.continuityofcaredocumentccd.ContinuityOfCareDocumentCCDBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

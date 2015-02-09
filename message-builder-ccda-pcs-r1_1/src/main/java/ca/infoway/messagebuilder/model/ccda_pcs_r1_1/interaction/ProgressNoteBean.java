@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.progressnote.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.progressnote.ClinicalDocume
  * <p>Message: ProgressNote.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"ProgressNote"})
-public class ProgressNoteBean extends ClinicalDocumentBean implements InteractionBean {
+public class ProgressNoteBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.progressnote.ProgressNoteBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

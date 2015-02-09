@@ -45,7 +45,7 @@ public class PlanOfCareActivitySupplyEntryBean extends MessagePartBean implement
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private SupplyBean observation;
+    private SupplyBean supply;
 
 
     /**
@@ -118,23 +118,23 @@ public class PlanOfCareActivitySupplyEntryBean extends MessagePartBean implement
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivitySupplyEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivitySupplyEntry.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public SupplyBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"supply"})
+    public SupplyBean getSupply() {
+        return this.supply;
     }
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivitySupplyEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivitySupplyEntry.supply</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(SupplyBean observation) {
-        this.observation = observation;
+    public void setSupply(SupplyBean supply) {
+        this.supply = supply;
     }
 
 }

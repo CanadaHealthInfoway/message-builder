@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.usrealmheader.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.usrealmheader.ClinicalDocum
  * <p>Message: USRealmHeader.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"USRealmHeader"})
-public class USRealmHeaderBean extends ClinicalDocumentBean implements InteractionBean {
+public class USRealmHeaderBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.usrealmheader.USRealmHeaderBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

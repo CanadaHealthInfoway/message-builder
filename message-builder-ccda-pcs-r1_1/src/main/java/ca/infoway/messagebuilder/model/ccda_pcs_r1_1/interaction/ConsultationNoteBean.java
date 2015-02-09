@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.consultationnote.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.consultationnote.ClinicalDo
  * <p>Message: ConsultationNote.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"ConsultationNote"})
-public class ConsultationNoteBean extends ClinicalDocumentBean implements InteractionBean {
+public class ConsultationNoteBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.consultationnote.ConsultationNoteBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

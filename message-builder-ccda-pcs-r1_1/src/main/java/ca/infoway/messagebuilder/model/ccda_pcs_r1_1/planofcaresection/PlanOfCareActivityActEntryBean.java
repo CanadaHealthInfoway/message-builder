@@ -45,7 +45,7 @@ public class PlanOfCareActivityActEntryBean extends MessagePartBean implements E
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ActBean observation;
+    private ActBean act;
 
 
     /**
@@ -118,23 +118,23 @@ public class PlanOfCareActivityActEntryBean extends MessagePartBean implements E
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityActEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityActEntry.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public ActBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"act"})
+    public ActBean getAct() {
+        return this.act;
     }
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityActEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityActEntry.act</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(ActBean observation) {
-        this.observation = observation;
+    public void setAct(ActBean act) {
+        this.act = act;
     }
 
 }

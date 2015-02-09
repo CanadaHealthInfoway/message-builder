@@ -62,7 +62,7 @@ import java.util.List;
 
 @Hl7PartTypeMapping({"UnstructuredDocument.ClinicalDocument"})
 @Hl7RootType
-public class ClinicalDocumentBean extends MessagePartBean {
+public class UnstructuredDocumentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150206L;
     private II typeId = new IIImpl();

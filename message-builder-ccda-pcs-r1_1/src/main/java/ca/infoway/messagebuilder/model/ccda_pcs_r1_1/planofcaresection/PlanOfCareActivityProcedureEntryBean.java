@@ -45,7 +45,7 @@ public class PlanOfCareActivityProcedureEntryBean extends MessagePartBean implem
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ProcedureBean observation;
+    private ProcedureBean procedure;
 
 
     /**
@@ -118,23 +118,23 @@ public class PlanOfCareActivityProcedureEntryBean extends MessagePartBean implem
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityProcedureEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"observation"})
-    public ProcedureBean getObservation() {
-        return this.observation;
+    @Hl7XmlMapping({"procedure"})
+    public ProcedureBean getProcedure() {
+        return this.procedure;
     }
 
     /**
      * <p>Relationship: 
-     * PlanOfCareSection.PlanOfCareActivityProcedureEntry.observation</p>
+     * PlanOfCareSection.PlanOfCareActivityProcedureEntry.procedure</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setObservation(ProcedureBean observation) {
-        this.observation = observation;
+    public void setProcedure(ProcedureBean procedure) {
+        this.procedure = procedure;
     }
 
 }

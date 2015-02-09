@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.unstructureddocument.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.unstructureddocument.Clinic
  * <p>Message: UnstructuredDocument.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"UnstructuredDocument"})
-public class UnstructuredDocumentBean extends ClinicalDocumentBean implements InteractionBean {
+public class UnstructuredDocumentBean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.unstructureddocument.UnstructuredDocumentBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 

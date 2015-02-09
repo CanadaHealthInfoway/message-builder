@@ -21,8 +21,7 @@
 package ca.infoway.messagebuilder.model.ccda_pcs_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 
 
 
@@ -32,7 +31,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ClinicalDocum
  * <p>Message: POCD_MT000040.ClinicalDocument</p>
  */
 @Hl7PartTypeMapping({"POCD_MT000040"})
-public class POCD_MT000040Bean extends ClinicalDocumentBean implements InteractionBean {
+public class POCD_MT000040Bean extends ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ClinicalDocumentBean implements ClinicalDocumentBean {
 
     private static final long serialVersionUID = 20150206L;
 
