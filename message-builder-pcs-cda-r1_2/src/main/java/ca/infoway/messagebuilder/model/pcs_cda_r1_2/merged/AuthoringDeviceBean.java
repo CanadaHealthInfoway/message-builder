@@ -37,14 +37,13 @@ import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.MaintainedEntityBean;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.AuthoringDevice","PanCanadianHeader.AuthoringDevice"})
-public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cda_r1_2.pancanadianheader.AssignedAuthorChoice, ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.AssignedAuthorChoice {
+@Hl7PartTypeMapping({"POCD_MT000040.AuthoringDevice","PcCDAHeader.AuthoringDevice"})
+public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.AssignedAuthorChoice {
 
     private static final long serialVersionUID = 20141210L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
@@ -59,7 +58,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AuthoringDevice.realmCode</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -78,7 +77,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AuthoringDevice.typeId</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -96,7 +95,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AuthoringDevice.typeId</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -114,8 +113,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.templateId</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -134,7 +132,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AuthoringDevice.code</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -152,7 +150,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AuthoringDevice.code</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -171,7 +169,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.manufacturerModelName</p>
+     * PcCDAHeader.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -191,7 +189,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.manufacturerModelName</p>
+     * PcCDAHeader.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -210,8 +208,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.softwareName</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -229,8 +226,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.softwareName</p>
+     * <p>Relationship: PcCDAHeader.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -249,7 +245,7 @@ public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.m
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.AuthoringDevice.asMaintainedEntity</p>
+     * PcCDAHeader.AuthoringDevice.asMaintainedEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 

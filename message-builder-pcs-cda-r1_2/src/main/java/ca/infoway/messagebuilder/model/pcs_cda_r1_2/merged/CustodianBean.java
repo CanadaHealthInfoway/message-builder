@@ -35,7 +35,7 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Custodian","PanCanadianHeader.Custodian"})
+@Hl7PartTypeMapping({"POCD_MT000040.Custodian","PcCDAHeader.Custodian"})
 public class CustodianBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20141210L;
@@ -48,13 +48,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.Custodian.realmCode</p>
+     * <p>Relationship: POCD_MT000040.Custodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.realmCode</p>
+     * <p>Relationship: PcCDAHeader.Custodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -67,13 +67,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.Custodian.typeId</p>
+     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
+     * <p>Relationship: PcCDAHeader.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -85,13 +85,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.Custodian.typeId</p>
+     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
+     * <p>Relationship: PcCDAHeader.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -103,13 +103,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.Custodian.templateId</p>
+     * <p>Relationship: POCD_MT000040.Custodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.templateId</p>
+     * <p>Relationship: PcCDAHeader.Custodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -122,14 +122,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.Custodian.assignedCustodian</p>
+     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
+     * <p>Relationship: PcCDAHeader.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -141,14 +140,13 @@ public class CustodianBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.Custodian.assignedCustodian</p>
+     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
+     * <p>Relationship: PcCDAHeader.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

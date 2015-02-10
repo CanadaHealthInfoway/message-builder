@@ -35,7 +35,7 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.AssignedCustodian","PanCanadianHeader.AssignedCustodian"})
+@Hl7PartTypeMapping({"POCD_MT000040.AssignedCustodian","PcCDAHeader.AssignedCustodian"})
 public class AssignedCustodianBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20141210L;
@@ -54,8 +54,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.AssignedCustodian.realmCode</p>
+     * <p>Relationship: PcCDAHeader.AssignedCustodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -74,7 +73,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AssignedCustodian.typeId</p>
+     * <p>Relationship: PcCDAHeader.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -92,7 +91,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.AssignedCustodian.typeId</p>
+     * <p>Relationship: PcCDAHeader.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -110,8 +109,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.AssignedCustodian.templateId</p>
+     * <p>Relationship: PcCDAHeader.AssignedCustodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -132,7 +130,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.AssignedCustodian.representedCustodianOrganization</p>
+     * PcCDAHeader.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -152,7 +150,7 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.AssignedCustodian.representedCustodianOrganization</p>
+     * PcCDAHeader.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

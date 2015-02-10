@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.x_ServiceEventPerformer;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.AssignedEntityBean;
-
 import java.util.List;
 
 

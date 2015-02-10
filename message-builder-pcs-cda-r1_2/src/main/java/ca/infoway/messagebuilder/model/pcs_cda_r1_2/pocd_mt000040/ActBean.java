@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.x_ActClassDocumentEntryAct;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.x_DocumentActMood;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Performer2Bean;
-
 import java.util.ArrayList;
 import java.util.List;
 

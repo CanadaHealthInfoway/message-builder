@@ -43,7 +43,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.RoleClassMutualRelationship;
-
 import java.util.List;
 
 

@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassRoot;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Performer2Bean;
-
 import java.util.ArrayList;
 import java.util.List;
 

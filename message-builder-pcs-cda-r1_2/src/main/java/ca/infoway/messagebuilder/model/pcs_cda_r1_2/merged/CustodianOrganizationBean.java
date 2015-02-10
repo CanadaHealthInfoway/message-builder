@@ -44,7 +44,7 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.CustodianOrganization","PanCanadianHeader.CustodianOrganization"})
+@Hl7PartTypeMapping({"POCD_MT000040.CustodianOrganization","PcCDAHeader.CustodianOrganization"})
 public class CustodianOrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20141210L;
@@ -60,8 +60,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.realmCode</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -81,8 +80,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.typeId</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -100,8 +98,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.typeId</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -120,7 +117,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.templateId</p>
+     * PcCDAHeader.CustodianOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -140,7 +137,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PanCanadianHeader.CustodianOrganization.id</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
@@ -159,10 +156,9 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.name</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -178,10 +174,9 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.name</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.name</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -197,8 +192,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.telecom</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -216,8 +210,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.telecom</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -235,8 +228,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.addr</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -254,8 +246,7 @@ public class CustodianOrganizationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PanCanadianHeader.CustodianOrganization.addr</p>
+     * <p>Relationship: PcCDAHeader.CustodianOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
