@@ -30,30 +30,30 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.ErrorLevel;
-import ca.infoway.messagebuilder.error.Hl7Errors;
-import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
-import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.error.TransformError;
+import ca.infoway.messagebuilder.error.TransformErrors;
+import ca.infoway.messagebuilder.marshalling.CdaModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.ClinicalDocumentTransformer;
+import ca.infoway.messagebuilder.marshalling.XmlToCdaModelResult;
+import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public abstract class HelloWorldAppBase {
 	
 	public static final VersionNumber MBSpecificationVersion = SpecificationVersion.CCDA_R1_1;
 	
-	protected String processDocumentObject(InteractionBean documentObject) {
+	protected String processDocumentObject(ClinicalDocumentBean clinicalDocumentBean) {
 		
 		// the transformer would ideally be cached
-		ModelToXmlResult result = this.createTransformer().transformToHl7(MBSpecificationVersion, documentObject);
+		CdaModelToXmlResult result = this.createTransformer().transformToDocument(MBSpecificationVersion, clinicalDocumentBean);
 		
 		System.out.println("\nDocument (converted to XML):\n");
 		
 		// IMPORTANT NOTE: it is the application's responsibility to add a valid xml header to the xml output
 		//                 (this feature is under consideration for a future version of MB)
 		
-		String documentXml = result.getXmlMessage();
+		String documentXml = result.getXmlDocument();
 		System.out.println(documentXml);
 		
 		reportErrorsAndWarnings(result, true, true);
@@ -61,41 +61,41 @@ public abstract class HelloWorldAppBase {
 		return documentXml;
 	}
 	
-	protected InteractionBean processDocumentXml(String documentXml) {
+	protected ClinicalDocumentBean processDocumentXml(String documentXml) {
 		
-		InteractionBean documentBean = null;
+		ClinicalDocumentBean documentBean = null;
 		
 		// the transformer would ideally be cached
-		MessageBeanTransformerImpl transformer = this.createTransformer();
+		ClinicalDocumentTransformer transformer = this.createTransformer();
 		
 		// this is a W3C DOM Document (not to be confused with a CDA Document)
 		Document xmlAsDoc = createW3CDocument(documentXml);
 		
-		XmlToModelResult result = transformer.transformFromHl7(MBSpecificationVersion, xmlAsDoc);
+		XmlToCdaModelResult result = transformer.transformFromDocument(MBSpecificationVersion, xmlAsDoc);
 		
-		documentBean = (InteractionBean) result.getMessageObject();
+		documentBean = (ClinicalDocumentBean) result.getClinicalDocumentObject();
 		
 		reportErrorsAndWarnings(result, false, false);
 			
 		return documentBean;
 	}
 	
-	private void reportErrorsAndWarnings(Hl7Errors results, boolean toXml, boolean includeInfo) {
+	private void reportErrorsAndWarnings(TransformErrors errors, boolean toXml, boolean includeInfo) {
 		String message = (toXml ? "Document object to XML" : "Document XML to object");
-		if (results.isValid()) {
+		if (errors.isValid()) {
 			System.out.println("\n\nNo errors or warnings to report from converting " + message + ".\n");
 		} else {
 			System.out.println("\n\nErrors/warnings from converting " + message + ":\n");
 		}
 		// printing everything (to include INFO messages as well)
-		for (Hl7Error hl7Error : results.getHl7Errors()) {
-			if (includeInfo || hl7Error.getHl7ErrorLevel() != ErrorLevel.INFO) {
-				System.out.println(hl7Error);
+		for (TransformError transformError : errors.getErrors()) {
+			if (includeInfo || transformError.getErrorLevel() != ErrorLevel.INFO) {
+				System.out.println(transformError);
 			}
 		}
 	}
 	
-	protected MessageBeanTransformerImpl createTransformer() {
+	protected ClinicalDocumentTransformer createTransformer() {
 		
 		// PERMISSIVE is the default setting for the transformer; this allows processing to continue even if errors are detected
 
@@ -109,7 +109,7 @@ public abstract class HelloWorldAppBase {
 		// (not absolutely necessary, if not set, local timezone is used)
 		// Note: a time zone can also be specified for each individual transform, overriding any provided in the constructor
 		TimeZone timeZone = TimeZone.getTimeZone("GMT-5");
-		return new MessageBeanTransformerImpl(timeZone, timeZone);
+		return new ClinicalDocumentTransformer(timeZone, timeZone);
 	}
 	
 	private Document createW3CDocument(String xml) {
