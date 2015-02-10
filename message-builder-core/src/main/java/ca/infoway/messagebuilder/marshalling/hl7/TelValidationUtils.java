@@ -20,6 +20,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7;
 
 import java.text.MessageFormat;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -162,6 +163,15 @@ public class TelValidationUtils {
     	
     	if (urlScheme == null) {
 			createError("TelecomAddress must have a valid URL scheme (e.g. 'http://')", element, propertyPath, errors);
+    	} else if (StandardDataType.TEL.getType().equals(type)) {
+    		// any known scheme should be ok here
+    		Collection<Set<String>> values = ALLOWABLE_SCHEMES_BY_TYPE.values();
+    		for (Set<String> set : values) {
+				if (set.contains(urlScheme.getCodeValue())) {
+					return; // we're good here
+				}
+			}
+			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, propertyPath, errors);
     	} else {
     		Set<String> allowableSchemes = ALLOWABLE_SCHEMES_BY_TYPE.get(type);
     		if (allowableSchemes == null || !allowableSchemes.contains(urlScheme.getCodeValue())) {

@@ -70,6 +70,7 @@ public class AdValidationUtils {
     	boolean isBasic = StandardDataType.AD_BASIC.getType().equals(type);
     	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(type);
     	boolean isFull = StandardDataType.AD_FULL.getType().equals(type);
+    	boolean isAd = StandardDataType.AD.getType().equals(type);
     	
     	for (PostalAddressPart postalAddressPart : postalAddress.getParts()) {
 			int partLength = StringUtils.length(postalAddressPart.getValue());
@@ -87,12 +88,12 @@ public class AdValidationUtils {
 	    			createError("Text without an address part only allowed for AD.BASIC", element, propertyPath, errors);
 	    		}
 			} else if (partType == PostalAddressPartType.DELIMITER) {
-	    		if (!isBasic) {
-	    			createError("Part type " + partType.getValue() + " is only allowed for AD.BASIC", element, propertyPath, errors);
+	    		if (isSearch) {
+	    			createError("Part type " + partType.getValue() + " is not allowed for AD.SEARCH", element, propertyPath, errors);
 	    		}
-	    	} else if (isFull) {
+	    	} else if (isFull || isAd) {
 	    		if (!PostalAddressPartType.isFullAddressPartType(partType)) {
-	    			createError("Part type " + partType.getValue() + " is not allowed for AD.FULL", element, propertyPath, errors);
+	    			createError("Part type " + partType.getValue() + " is not allowed for AD or AD.FULL", element, propertyPath, errors);
 	    		}
 			} else if (!PostalAddressPartType.isBasicAddressPartType(partType)) {
     			createError("Part type " + partType.getValue() + " is not allowed for AD.BASIC or AD.SEARCH", element, propertyPath, errors);
@@ -163,6 +164,7 @@ public class AdValidationUtils {
 	public boolean isAllowableAddressPart(PostalAddressPartType partType, String type) {
     	boolean isBasic = StandardDataType.AD_BASIC.getType().equals(type);
     	boolean isFull = StandardDataType.AD_FULL.getType().equals(type);
+    	boolean isSearch = StandardDataType.AD_SEARCH.getType().equals(type);
 
     	boolean result = true; 
     	
@@ -172,7 +174,7 @@ public class AdValidationUtils {
     			result = false;
     		}
 		} else if (partType == PostalAddressPartType.DELIMITER) {
-    		if (!isBasic) {
+    		if (isSearch) {
     			result = false;
     		}
     	} else if (isFull) {

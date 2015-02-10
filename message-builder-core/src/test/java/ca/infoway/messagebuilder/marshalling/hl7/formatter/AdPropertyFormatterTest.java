@@ -78,8 +78,8 @@ public class AdPropertyFormatterTest extends FormatterTestCase {
 		postalAddress.addPostalAddressPart(new PostalAddressPart(PostalAddressPartType.STATE, "ON"));
 		String result = formatter.format(getContext("addr", "AD.FULL"), new ADImpl(postalAddress));
 		assertFalse(this.result.isValid());
-		assertEquals(4, this.result.getHl7Errors().size()); // no parts without part type; delimiter not allowed; postal code and country mandatory
-        assertEquals("something in text node with goofy sub nodes suppressed", "<addr><city>cityname</city><state>ON</state></addr>", result.trim());
+		assertEquals(3, this.result.getHl7Errors().size()); // no parts without part type; postal code and country mandatory
+        assertEquals("something in text node with goofy sub nodes suppressed", "<addr><city>cityname</city><delimiter>,</delimiter><state>ON</state></addr>", result.trim());
     }
 
 	@Test

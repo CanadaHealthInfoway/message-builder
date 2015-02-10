@@ -103,7 +103,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 	    		// a "reverse" lookup of domain type by code/codesystem could be possible, but difficult to implement to be 100% correct (MB does not track code systems)
 	    		if (!isAny) {
 		    		if (cd.getValue() != null && cd.getValue().getCodeValue() != null) {
-		    			validateCodeExists(cd.getValue(), context.getDomainType(), version, context.getPropertyPath(), errors);
+		    			validateCodeExists(cd.getValue(), context.getDomainType(), version, context.isCda(), context.getPropertyPath(), errors);
 		    		}
 	    		}
 	    		
@@ -183,11 +183,17 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 		return cd;
 	}
 
-	private void validateCodeExists(Code value, String domainType, VersionNumber version, String propertyPath, Hl7Errors errors) {
-		@SuppressWarnings("unchecked")
-		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version, CodeTypeRegistry.getInstance());
+	@SuppressWarnings("unchecked")
+	private void validateCodeExists(Code value, String domainType, VersionNumber version, boolean isCda, String propertyPath, Hl7Errors errors) {
+		Class<Code> returnType = null;
+		if (StringUtils.isNotBlank(domainType)) {
+			returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version, CodeTypeRegistry.getInstance());
+		}
 		if (returnType == null) {
-			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not locate a registered domain type to match \"" + domainType + "\"", propertyPath));
+			// for CDA usage, domainType not always supplied 
+			if (!isCda) {
+				errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not locate a registered domain type to match \"" + domainType + "\"", propertyPath));
+			}
 		} else if (getCode(returnType, value.getCodeValue(), value.getCodeSystem()) == null) {
 			errors.addHl7Error(createCodeValueNotFoundError(value, returnType, propertyPath));
 		}

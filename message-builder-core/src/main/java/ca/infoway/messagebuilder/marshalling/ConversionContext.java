@@ -159,7 +159,9 @@ class ConversionContext {
 		}
 		
 		if (result != null) {
-			String message = MessageFormat.format("Document being parsed using templateId {0} ({1})", result.getTemplateId(), result.getName());
+			String item = ((result == baseModel) ? "the base model " : "templateId ");
+			String templateId = ((result == baseModel) ? "" : result.getTemplateId());
+			String message = MessageFormat.format("Document being parsed using {0}{1} ({2})", item, templateId, result.getName());
 			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_TEMPLATE_CHOSEN, ErrorLevel.INFO, message, (String) null));
 		}
 		return result;

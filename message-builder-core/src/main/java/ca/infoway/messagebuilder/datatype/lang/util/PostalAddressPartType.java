@@ -86,6 +86,7 @@ public class PostalAddressPartType extends EnumPattern implements NamePartType, 
     
     private static final Set<PostalAddressPartType> fullPartTypes = new HashSet<PostalAddressPartType>();
     static {
+    	fullPartTypes.add(DELIMITER);   // TM - adding delimiter to full
     	fullPartTypes.add(CITY);
     	fullPartTypes.add(STATE);
     	fullPartTypes.add(POSTAL_CODE);

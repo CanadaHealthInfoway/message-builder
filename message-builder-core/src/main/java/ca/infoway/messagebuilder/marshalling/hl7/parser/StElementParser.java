@@ -67,7 +67,7 @@ class StElementParser extends AbstractSingleElementParser<String> {
     	if (ST.getType().equals(context.getType()) && hasLanguageAttribute(element)) {
     		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
     				MessageFormat.format(
-    						"The language attribute is not allow for ST element types ({0})",
+    						"The language attribute is not allowed for ST element types ({0})",
     						XmlDescriber.describeSingleElement(element)), element));
     	} else if (ST_LANG.getType().equals(context.getType()) && !hasLanguageAttribute(element)) {
     		xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 

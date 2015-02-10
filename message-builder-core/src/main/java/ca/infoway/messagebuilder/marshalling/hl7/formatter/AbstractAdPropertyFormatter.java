@@ -80,7 +80,7 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
 
         boolean isDelimiter = isDelimiter(postalAddressPart);
         if (postalAddressPart.getType() != null) {
-			if (isDelimiter) {
+			if (isDelimiter && StringUtils.isBlank(postalAddressPart.getValue())) {
         		openTag = "<" + postalAddressPart.getType().getValue() + "/>";
         	} else {
         		openTag = "<" + postalAddressPart.getType().getValue() + formatCode(postalAddressPart.getCode()) + ">";
@@ -89,11 +89,9 @@ public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorProp
         }
 
         buffer.append(openTag);
-        if (!isDelimiter) {
-	        String xmlEscapedValue = XmlStringEscape.escape(postalAddressPart.getValue());
-	        if (xmlEscapedValue != null) {
-	        	buffer.append(xmlEscapedValue);
-	        }
+        String xmlEscapedValue = XmlStringEscape.escape(postalAddressPart.getValue());
+        if (xmlEscapedValue != null) {
+        	buffer.append(xmlEscapedValue);
         }
         buffer.append(closeTag);
     }

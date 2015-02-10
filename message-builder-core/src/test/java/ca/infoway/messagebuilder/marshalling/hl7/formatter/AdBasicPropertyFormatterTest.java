@@ -188,7 +188,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		
 		String expectedResult = 
 			"<address>"
-			+ "200<delimiter/>1709 Bloor St. W."
+			+ "200<delimiter>-</delimiter>1709 Bloor St. W."
 			+ "</address>";
 		
 		assertXmlEquals("postal code", expectedResult, result);
@@ -205,7 +205,7 @@ public class AdBasicPropertyFormatterTest extends FormatterTestCase {
 		
 		String expectedResult = 
 			"<address>"
-			+ "200<delimiter/>1709 Bloor St. W. Toronto<delimiter/>ON"
+			+ "200<delimiter>-</delimiter>1709 Bloor St. W. Toronto<delimiter>-</delimiter>ON"
 			+ "</address>";
 		
 		assertXmlEquals("postal code", expectedResult, result);
