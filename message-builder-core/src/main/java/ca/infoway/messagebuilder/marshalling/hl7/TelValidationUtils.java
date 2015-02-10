@@ -160,6 +160,7 @@ public class TelValidationUtils {
 
 	private void validateTelecomAddressScheme(TelecommunicationAddress telecomAddress, String type, Hl7BaseVersion baseVersion, Element element, String propertyPath, Hl7Errors errors) {
     	URLScheme urlScheme = telecomAddress.getUrlScheme();
+		String urlSchemeValue = (urlScheme == null ? null : urlScheme.getCodeValue().toLowerCase());
     	
     	if (urlScheme == null) {
 			createError("TelecomAddress must have a valid URL scheme (e.g. 'http://')", element, propertyPath, errors);
@@ -167,14 +168,14 @@ public class TelValidationUtils {
     		// any known scheme should be ok here
     		Collection<Set<String>> values = ALLOWABLE_SCHEMES_BY_TYPE.values();
     		for (Set<String> set : values) {
-				if (set.contains(urlScheme.getCodeValue())) {
+				if (set.contains(urlSchemeValue)) {
 					return; // we're good here
 				}
 			}
 			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, propertyPath, errors);
     	} else {
     		Set<String> allowableSchemes = ALLOWABLE_SCHEMES_BY_TYPE.get(type);
-    		if (allowableSchemes == null || !allowableSchemes.contains(urlScheme.getCodeValue())) {
+    		if (allowableSchemes == null || !allowableSchemes.contains(urlSchemeValue)) {
     			createError("TelecomAddressScheme " + urlScheme.getCodeValue() + " is not valid for " + type, element, propertyPath, errors);
     		}
     	}
@@ -206,7 +207,7 @@ public class TelValidationUtils {
 		Hl7BaseVersion baseVersion = version.getBaseVersion();
 		return !StandardDataType.TEL_URI.getType().equals(dataType)
 				&& telecomAddressUse != null && telecomAddressUse.getCodeValue() != null 
-				&& ALLOWABLE_TELECOM_USES.contains(telecomAddressUse.getCodeValue())
+				&& ALLOWABLE_TELECOM_USES.contains(telecomAddressUse.getCodeValue() != null ? telecomAddressUse.getCodeValue().toUpperCase() : null)
 				&& !(StandardDataType.TEL_EMAIL.getType().equals(dataType) && isPgConfDir(telecomAddressUse))
 				&& !(isMr2007(baseVersion) && isConf(telecomAddressUse))
 				&& !(isCeRxOrNewfoundland(version) && isConfOrDir(telecomAddressUse));

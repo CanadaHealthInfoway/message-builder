@@ -108,8 +108,11 @@ class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddr
 			String urlSchemeString = value.substring(0, colonIndex);
 			urlScheme = CodeResolverRegistry.lookup(URLScheme.class, urlSchemeString);
 			if (urlScheme == null) {
-				String message = "Unrecognized URL scheme '" + urlSchemeString + "' in element " +  XmlDescriber.describePath(node);
-				xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, (Element) node));
+				urlScheme = CodeResolverRegistry.lookup(URLScheme.class, urlSchemeString.toLowerCase());
+				if (urlScheme == null) {
+					String message = "Unrecognized URL scheme '" + urlSchemeString + "' in element " +  XmlDescriber.describePath(node);
+					xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, message, (Element) node));
+				}
 			}
 		}
 			

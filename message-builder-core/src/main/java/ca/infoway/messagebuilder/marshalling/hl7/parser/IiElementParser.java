@@ -96,13 +96,15 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		// type might have resolved to something different if this II.x is abstract (II, II_BUS_AND_VER), so set it again before performing validations
 		setDataType(type, result);
 
+		boolean isCda = context.isCda();
+		
 		if (II.equals(type)) {
 			// should only occur for CeRx and AB, but could happen if a relationship of type II is not specified via specializationType 
-			validateII(xmlToModelResult, element, root, extension, StandardDataType.II,	version);
+			validateII(xmlToModelResult, element, root, extension, StandardDataType.II,	version, isCda);
 		} else if (II_TOKEN.equals(type)) {
 			validateII_TOKEN(xmlToModelResult, element, root, StandardDataType.II_TOKEN, version);
 		} else if (II_BUS.equals(type)) {
-			validateII_BUS(xmlToModelResult, element, root, extension, StandardDataType.II_BUS, version);
+			validateII_BUS(xmlToModelResult, element, root, extension, StandardDataType.II_BUS, version, isCda);
 		} else if (II_OID.equals(type)) {
 			validateII_OID(context, xmlToModelResult, element, root, StandardDataType.II_OID, version);
 		} else if (II_PUBLIC.equals(type)) {
@@ -110,7 +112,7 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		} else if (II_VER.equals(type)) {
 			validateII_VER(xmlToModelResult, element, root, StandardDataType.II_VER, version);
 		} else if (II_BUSVER.equals(type)) {
-			versionAttribute = validateII_BUSVER(xmlToModelResult, element, root, extension, StandardDataType.II_BUSVER, version);
+			versionAttribute = validateII_BUSVER(xmlToModelResult, element, root, extension, StandardDataType.II_BUSVER, version, isCda);
 		} else if (II_PUBLICVER.equals(type)) {
 			versionAttribute = validateII_PUBLICVER(context, xmlToModelResult, element, root, extension, StandardDataType.II_PUBLICVER, version);
 		}
@@ -132,8 +134,8 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
 	}
 
-	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type);
+	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version, boolean isCda) {
+		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type, isCda);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		validateUnallowedAttributes(type, element, xmlToModelResult, "use");
 	}
@@ -143,8 +145,8 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
 	}
 
-	private String validateII_BUSVER(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
-		validateII_BUS(xmlToModelResult, element, root, extension, type, version);
+	private String validateII_BUSVER(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version, boolean isCda) {
+		validateII_BUS(xmlToModelResult, element, root, extension, type, version, isCda);
 		return getMandatoryAttributeValue(element, "version", xmlToModelResult);
 	}
 
@@ -185,18 +187,20 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		}
 	}
 
-	private void validateII_BUS(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version) {
-		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type);
+	private void validateII_BUS(XmlToModelResult xmlToModelResult, Element element, String root, String extension, StandardDataType type, VersionNumber version, boolean isCda) {
+		validateRootAndExtensionAsOidOrUuid(xmlToModelResult, element, root, extension, version, type, isCda);
 		validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
 		validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
 	}
 
-	private void validateRootAndExtensionAsOidOrUuid(XmlToModelResult xmlToModelResult,	Element element, String root, String extension, VersionNumber version, StandardDataType type) {
+	private void validateRootAndExtensionAsOidOrUuid(XmlToModelResult xmlToModelResult,	Element element, String root, String extension, VersionNumber version, StandardDataType type, boolean isCda) {
 		// if root has not been provided don't bother further validating root or extension
 		if (StringUtils.isNotBlank(root)) {
 			if (!iiValidationUtils.isUuid(root)) {
 				validateRootAsOid(root, element, xmlToModelResult, version, type);
-				validateExtensionForOid(xmlToModelResult, element, extension);
+				if (!isCda) {
+					validateExtensionForOid(xmlToModelResult, element, extension);
+				}
 			} else {
 				validateRootAsUuid(element, root, xmlToModelResult, version, type);
 				validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
