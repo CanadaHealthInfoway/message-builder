@@ -129,7 +129,7 @@ public class CdaTemplateProcessor {
 		}
 		
 		for (CdaTemplate cdaTemplate : templateExport.getTemplates()) {
-			Template template = this.templateSet.getByOid(cdaTemplate.getOid());
+			Template template = this.templateSet.getByOid(cdaTemplate.getTemplateOid());
 			MessagePart entryPart = findRootMessagePart(template, baseModel);
 			
 			if (entryPart != null) {
@@ -156,7 +156,7 @@ public class CdaTemplateProcessor {
 	private void copyInheritedConstraints(TemplateExport templateExport) {
 		for (CdaTemplate cdaTemplate : templateExport.getTemplates()) {
 			if (cdaTemplate.getImpliedTemplateOid() != null) {
-				Template template = this.templateSet.getByOid(cdaTemplate.getOid());
+				Template template = this.templateSet.getByOid(cdaTemplate.getTemplateOid());
 				Template parentTemplate = this.templateSet.getByOid(cdaTemplate.getImpliedTemplateOid());
 				
 				for (Delta parentDelta : parentTemplate.getDeltas()) {
@@ -811,9 +811,9 @@ public class CdaTemplateProcessor {
 			}
 		}
 		if (CodedTypeEvaluator.isCodedType(relationship.getType())) {
-			if (cdaConstraint.getValueSet() != null) {
+			if (cdaConstraint.getValueSet() != null && StringUtils.isNotBlank(cdaConstraint.getValueSet().getOid())) {
 				delta.addConstraint(new VocabularyBindingConstraint(relationship.getDomainSource(), DomainSource.VALUE_SET, relationship.getDomainType(), lookupValueSet(cdaConstraint.getValueSet().getOid())));
-			} else if (cdaConstraint.getCodeSystem() != null && cdaConstraint.getSingleValueCode() == null) {
+			} else if (cdaConstraint.getCodeSystem() != null && StringUtils.isNotBlank(cdaConstraint.getCodeSystem().getOid()) && cdaConstraint.getSingleValueCode() == null) {
 				delta.addConstraint(new VocabularyBindingConstraint(relationship.getDomainSource(), DomainSource.CODE_SYSTEM, relationship.getDomainType(), lookupCodeSystem(cdaConstraint.getCodeSystem().getOid())));
 			}
 		}
@@ -1080,7 +1080,7 @@ public class CdaTemplateProcessor {
 	}
 	
 	private Template createTemplate(CdaTemplate cdaTemplate) {
-		Template template = new Template(cdaTemplate.getOid());
+		Template template = new Template(cdaTemplate.getTemplateOid());
 		
 		template.setOpen(cdaTemplate.isOpen());
 		template.setTitle(cdaTemplate.getTitle());

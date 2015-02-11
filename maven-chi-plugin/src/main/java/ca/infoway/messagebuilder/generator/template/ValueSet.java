@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.template;
 
+import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
@@ -28,11 +29,11 @@ import org.simpleframework.xml.Root;
 @Namespace(reference="http://www.lantanagroup.com")
 public class ValueSet {
 	
-	@Attribute
+	@Attribute(required=false)
 	private String oid;
 
 	public String getOid() {
-		return oid;
+		return StringUtils.trim(oid);
 	}
 
 	public void setOid(String oid) {

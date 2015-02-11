@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.generator.template;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
@@ -45,11 +46,14 @@ public class CdaTemplate {
 	@Attribute
 	private String templateType;
 	
-	@Attribute
+	@Attribute(required=false)
 	private String oid;
 	
 	@Attribute
 	private String context;
+	
+	@Attribute(required=false)
+	private String identifier;
 	
 	@Attribute
 	private String title;
@@ -108,6 +112,14 @@ public class CdaTemplate {
 		this.context = context;
 	}
 
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -126,6 +138,21 @@ public class CdaTemplate {
 
 	public List<CdaConstraint> getConstraints() {
 		return constraints;
+	}
+	
+	public String getTemplateOid() {
+		String result = null;
+		
+		if (this.oid != null) {
+			result = this.oid;
+		} else if (this.identifier != null) {
+			String[] identifierParts = StringUtils.split(this.identifier, ":");
+			if (identifierParts.length >= 3) {
+				result = identifierParts[2];
+			}
+		}
+		
+		return result;
 	}
 
 }
