@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Author:        $LastChangedBy$
- * Last modified: $LastChangedDate$
- * Revision:      $LastChangedRevision$
+ * Author:        $LastChangedBy: tmcgrady $
+ * Last modified: $LastChangedDate: 2013-01-02 17:05:34 -0500 (Wed, 02 Jan 2013) $
+ * Revision:      $LastChangedRevision: 6471 $
  */
 
 package ca.infoway.messagebuilder.terminology.proxy;

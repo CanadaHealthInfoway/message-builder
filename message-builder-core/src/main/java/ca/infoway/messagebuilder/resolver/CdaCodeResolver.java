@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision: 9127 $
  */
 
-package ca.infoway.messagebuilder.terminology.codeset;
+package ca.infoway.messagebuilder.resolver;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -37,7 +37,6 @@ import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.terminology.proxy.TypedCodeFactory;
 import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinition;
 import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinitionSystem;

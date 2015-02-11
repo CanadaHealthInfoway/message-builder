@@ -18,7 +18,7 @@
  * Revision:      $LastChangedRevision: 9127 $
  */
 
-package ca.infoway.messagebuilder.terminology.codeset;
+package ca.infoway.messagebuilder.resolver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
