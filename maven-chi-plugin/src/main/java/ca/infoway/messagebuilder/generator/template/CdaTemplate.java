@@ -144,14 +144,26 @@ public class CdaTemplate {
 		String result = null;
 		
 		if (this.oid != null) {
-			result = this.oid;
-		} else if (this.identifier != null) {
-			String[] identifierParts = StringUtils.split(this.identifier, ":");
+			if (StringUtils.contains(this.oid, ":")) {
+				result = parseCompountIdentifier(this.oid);
+			} else {
+				result = this.oid;
+			}
+		} else {
+			result = parseCompountIdentifier(this.identifier);
+		}
+		
+		return result;
+	}
+
+	private String parseCompountIdentifier(String compoundIdentifier) {
+		String result = null;
+		if (compoundIdentifier != null) {
+			String[] identifierParts = StringUtils.split(compoundIdentifier, ":");
 			if (identifierParts.length >= 3) {
 				result = identifierParts[2];
 			}
 		}
-		
 		return result;
 	}
 
