@@ -39,7 +39,7 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"PcCDAHeader.AssignedAuthorPerson"})
-public class AssignedAuthorPersonBean extends MessagePartBean {
+public class AssignedAuthorPersonBean extends MessagePartBean implements AssignedAuthorChoice {
 
     private static final long serialVersionUID = 20141210L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

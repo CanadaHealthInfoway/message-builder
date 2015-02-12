@@ -1324,7 +1324,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
       </packageLocation>
    </packageEntry>
    <packageEntry name="PcCDAHeader">
-      <packageLocation name="PcCDAHeader" rootType="PcCDAHeader.ClinicalDocument" templateOid="2.16.840.1.113883.2.20.4.1.1">
+      <packageLocation name="PcCDAHeader" rootType="PcCDAHeader.ClinicalDocument" templateOid="2.16.840.1.113883.3.10.20.4.1.1">
          <entry name="PcCDAHeader.AssignedAuthor">
             <messagePart name="PcCDAHeader.AssignedAuthor" abstract="false" templateParameter="false">
                <relationship name="classCode" attribute="true" type="CS" structural="true" domainType="RoleClassAssignedEntity" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ASSIGNED"/>
@@ -1335,9 +1335,17 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CV" domainType="ProviderRoleCode" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
+               <relationship name="assignedAuthorChoice" attribute="false" type="PcCDAHeader.AssignedAuthorChoice" conformance="OPTIONAL" cardinality="0-1" sortOrder="9">
+                  <choice name="assignedPerson" attribute="false" type="PcCDAHeader.AssignedAuthorPerson"/>
+                  <choice name="assignedAuthoringDevice" attribute="false" type="PcCDAHeader.AuthoringDevice"/>
+               </relationship>
                <relationship name="representedOrganization" attribute="false" type="PcCDAHeader.AssignedAuthorOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
-               <relationship name="assignedAuthoringDevice" attribute="false" type="PcCDAHeader.AuthoringDevice" conformance="MANDATORY" cardinality="1" sortOrder="12" associationSortKey="ZZZZZZZZ"/>
-               <relationship name="assignedPerson" attribute="false" type="PcCDAHeader.AssignedAuthorPerson" conformance="MANDATORY" cardinality="1" sortOrder="11" associationSortKey="ZZZZZZZZ"/>
+            </messagePart>
+         </entry>
+         <entry name="PcCDAHeader.AssignedAuthorChoice">
+            <messagePart name="PcCDAHeader.AssignedAuthorChoice" abstract="true" templateParameter="false">
+               <specializationChild name="PcCDAHeader.AssignedAuthorPerson"/>
+               <specializationChild name="PcCDAHeader.AuthoringDevice"/>
             </messagePart>
          </entry>
          <entry name="PcCDAHeader.AssignedAuthorOrganization">
@@ -1381,7 +1389,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="3"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="4"/>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
-               <relationship name="code" attribute="true" type="CV" domainType="RoleCode" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
+               <relationship name="code" attribute="true" type="CV" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
                <relationship name="associatedPerson" attribute="false" type="PcCDAHeader.AssociatedEntityPerson" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
@@ -1948,7 +1956,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
-               <relationship name="code" attribute="true" type="CV" domainType="ActCode" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
+               <relationship name="code" attribute="true" type="CV" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
                <relationship name="priorityCode" attribute="true" type="CV" domainType="ActPriority" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="8"/>
             </messagePart>
          </entry>
@@ -1960,7 +1968,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="typeId" attribute="true" type="II" constrainedType="POCD_MT000040.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="4"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="5"/>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
-               <relationship name="code" attribute="true" type="CD" domainType="ActCode" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
+               <relationship name="code" attribute="true" type="CD" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
                <relationship name="text" attribute="true" type="ED" conformance="OPTIONAL" cardinality="0-1" sortOrder="8"/>
                <relationship name="setId" attribute="true" type="II" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
                <relationship name="versionNumber" attribute="true" type="INT" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
@@ -2196,7 +2204,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
       <interaction name="POCD_MT000040" superTypeName="POCD_MT000040.ClinicalDocument" category="document"/>
    </entry>
    <entry name="PcCDAHeader">
-      <interaction name="PcCDAHeader" superTypeName="PcCDAHeader.ClinicalDocument" category="document" templateId="2.16.840.1.113883.2.20.4.1.1"/>
+      <interaction name="PcCDAHeader" superTypeName="PcCDAHeader.ClinicalDocument" category="document" templateId="2.16.840.1.113883.3.10.20.4.1.1"/>
    </entry>
    <constrainedDatatypeEntry name="POCD_MT000040.InfrastructureRoot.typeId">
       <constrainedDatatype name="POCD_MT000040.InfrastructureRoot.typeId" baseType="II" constraintType="RES">
@@ -2211,7 +2219,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
    </constrainedDatatypeEntry>
    <constrainedDatatypeEntry name="PcCDAHeader.ClinicalDocument.templateId">
       <constrainedDatatype name="PcCDAHeader.ClinicalDocument.templateId" baseType="II" constraintType="RES">
-         <relationship name="root" attribute="false" cardinality="1" fixedValue="2.16.840.1.113883.3.239.34.1"/>
+         <relationship name="root" attribute="false" cardinality="1"/>
       </constrainedDatatype>
    </constrainedDatatypeEntry>
    <constrainedDatatypeEntry name="PcCDAHeader.ClinicalDocument.typeId">
@@ -2248,7 +2256,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
          <relationship name="useablePeriod" attribute="false" cardinality="0-1"/>
       </constrainedDatatype>
    </constrainedDatatypeEntry>
-   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.2.20.4.1.1&apos;]">
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.3.10.20.4.1.1&apos;]">
       <schematronRule>
          <test>not(cda:versionNumber) or (cda:setId and cda:setId[not(@nullFlavor)])</test>
          <description>If versionNumber is present setId SHALL be present and SHALL NOT contain nullFlavor</description>

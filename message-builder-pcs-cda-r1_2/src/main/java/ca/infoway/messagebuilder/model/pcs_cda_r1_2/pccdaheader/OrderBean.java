@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActClassRoot;
-import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ActPriority;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
@@ -132,8 +131,8 @@ public class OrderBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"code"})
-    public ActCode getCode() {
-        return (ActCode) this.code.getValue();
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
 
     /**
@@ -141,7 +140,7 @@ public class OrderBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setCode(ActCode code) {
+    public void setCode(Code code) {
         this.code.setValue(code);
     }
 

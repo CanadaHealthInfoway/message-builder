@@ -56,9 +56,8 @@ public class AssignedAuthorBean extends MessagePartBean {
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AssignedAuthorChoice assignedAuthorChoice;
     private AssignedAuthorOrganizationBean representedOrganization;
-    private AuthoringDeviceBean assignedAuthoringDevice;
-    private AssignedAuthorPersonBean assignedPerson;
 
 
     /**
@@ -158,6 +157,42 @@ public class AssignedAuthorBean extends MessagePartBean {
 
     /**
      * <p>Relationship: 
+     * PcCDAHeader.AssignedAuthor.assignedAuthorChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"assignedAuthorChoice"})
+    public AssignedAuthorChoice getAssignedAuthorChoice() {
+        return this.assignedAuthorChoice;
+    }
+
+    /**
+     * <p>Relationship: 
+     * PcCDAHeader.AssignedAuthor.assignedAuthorChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setAssignedAuthorChoice(AssignedAuthorChoice assignedAuthorChoice) {
+        this.assignedAuthorChoice = assignedAuthorChoice;
+    }
+
+    public AssignedAuthorPersonBean getAssignedAuthorChoiceAsAssignedPerson() {
+        return this.assignedAuthorChoice instanceof AssignedAuthorPersonBean ? (AssignedAuthorPersonBean) this.assignedAuthorChoice : null;
+    }
+    public boolean hasAssignedAuthorChoiceAsAssignedPerson() {
+        return (this.assignedAuthorChoice instanceof AssignedAuthorPersonBean);
+    }
+
+    public AuthoringDeviceBean getAssignedAuthorChoiceAsAssignedAuthoringDevice() {
+        return this.assignedAuthorChoice instanceof AuthoringDeviceBean ? (AuthoringDeviceBean) this.assignedAuthorChoice : null;
+    }
+    public boolean hasAssignedAuthorChoiceAsAssignedAuthoringDevice() {
+        return (this.assignedAuthorChoice instanceof AuthoringDeviceBean);
+    }
+
+
+    /**
+     * <p>Relationship: 
      * PcCDAHeader.AssignedAuthor.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -175,48 +210,6 @@ public class AssignedAuthorBean extends MessagePartBean {
      */
     public void setRepresentedOrganization(AssignedAuthorOrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
-    }
-
-
-    /**
-     * <p>Relationship: 
-     * PcCDAHeader.AssignedAuthor.assignedAuthoringDevice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"assignedAuthoringDevice"})
-    public AuthoringDeviceBean getAssignedAuthoringDevice() {
-        return this.assignedAuthoringDevice;
-    }
-
-    /**
-     * <p>Relationship: 
-     * PcCDAHeader.AssignedAuthor.assignedAuthoringDevice</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAssignedAuthoringDevice(AuthoringDeviceBean assignedAuthoringDevice) {
-        this.assignedAuthoringDevice = assignedAuthoringDevice;
-    }
-
-
-    /**
-     * <p>Relationship: PcCDAHeader.AssignedAuthor.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"assignedPerson"})
-    public AssignedAuthorPersonBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-
-    /**
-     * <p>Relationship: PcCDAHeader.AssignedAuthor.assignedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setAssignedPerson(AssignedAuthorPersonBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
     }
 
 }

@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.CDAHeaderDocumentType;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.CustodianBean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.RelatedDocumentBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.Component2Bean;
 import java.util.ArrayList;
 import java.util.List;

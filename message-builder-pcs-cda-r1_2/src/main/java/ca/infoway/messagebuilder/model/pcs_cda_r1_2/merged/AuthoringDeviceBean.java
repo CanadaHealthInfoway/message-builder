@@ -43,7 +43,7 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"POCD_MT000040.AuthoringDevice","PcCDAHeader.AuthoringDevice"})
-public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.AssignedAuthorChoice {
+public class AuthoringDeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cda_r1_2.pocd_mt000040.AssignedAuthorChoice, ca.infoway.messagebuilder.model.pcs_cda_r1_2.pccdaheader.AssignedAuthorChoice {
 
     private static final long serialVersionUID = 20141210L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
