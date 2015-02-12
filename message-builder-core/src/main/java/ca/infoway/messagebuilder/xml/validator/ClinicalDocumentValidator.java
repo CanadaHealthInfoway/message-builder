@@ -20,31 +20,22 @@
 
 package ca.infoway.messagebuilder.xml.validator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.w3c.dom.Document;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.error.Hl7Error;
-import ca.infoway.messagebuilder.error.TransformError;
-import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
-import ca.infoway.messagebuilder.marshalling.RenderMode;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.marshalling.ClinicalDocumentTransformer;
+import ca.infoway.messagebuilder.marshalling.XmlToCdaModelResult;
 import ca.infoway.messagebuilder.resolver.GenericCodeResolverRegistry;
-import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
-import ca.infoway.messagebuilder.xml.service.MessageDefinitionServiceFactory;
 
 public class ClinicalDocumentValidator {
 	
-	private final MessageBeanTransformerImpl messageTransformer;
+	private final ClinicalDocumentTransformer documentTransformer;
 	
 	public ClinicalDocumentValidator() {
-		this(new MessageDefinitionServiceFactory().create());
+		this.documentTransformer = new ClinicalDocumentTransformer();
 	}
-	
-	public ClinicalDocumentValidator(MessageDefinitionService service) {
-		this.messageTransformer = new MessageBeanTransformerImpl(service, RenderMode.PERMISSIVE);
+	public ClinicalDocumentValidator(ClinicalDocumentTransformer documentTransformer) {
+		this.documentTransformer = documentTransformer;
 	}
 
 	public CdaValidatorResult validate(Document xmlDocument, VersionNumber version) {
@@ -52,16 +43,8 @@ public class ClinicalDocumentValidator {
 	}
 	
 	public CdaValidatorResult validate(Document xmlDocument, VersionNumber version, GenericCodeResolverRegistry codeResolverRegistryOverride) {
-		XmlToModelResult transformResults = this.messageTransformer.transformFromHl7(version, xmlDocument, codeResolverRegistryOverride);
-		this.messageTransformer.performAdditionalCdaValidation(version, xmlDocument, transformResults);
-		return new CdaValidatorResult(convertErrors(transformResults.getHl7Errors()));
+		XmlToCdaModelResult transformResults = this.documentTransformer.transformFromDocument(version, xmlDocument, codeResolverRegistryOverride);
+		return new CdaValidatorResult(transformResults.getErrors());
 	}
 
-	private List<TransformError> convertErrors(List<Hl7Error> hl7Errors) {
-		List<TransformError> errors = new ArrayList<TransformError>();
-		for (Hl7Error hl7Error : hl7Errors) {
-			errors.add(new TransformError(hl7Error));
-		}
-		return errors;
-	}
 }

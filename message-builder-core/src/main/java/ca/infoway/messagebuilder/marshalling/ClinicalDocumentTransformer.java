@@ -53,6 +53,9 @@ public class ClinicalDocumentTransformer {
 	public ClinicalDocumentTransformer(MessageDefinitionService service, RenderMode renderMode, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
 		this.delegate = new MessageBeanTransformerImpl(service, renderMode, dateTimeZone, dateTimeTimeZone);
 	}
+	public ClinicalDocumentTransformer(MessageDefinitionService service, RenderMode renderMode, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean performAdditionalCdaValidationWhenUnmarshalling) {
+		this.delegate = new MessageBeanTransformerImpl(service, renderMode, dateTimeZone, dateTimeTimeZone, performAdditionalCdaValidationWhenUnmarshalling);
+	}
 
 	public XmlToCdaModelResult transformFromDocument(VersionNumber version, Document xmlDocument) {
 		return new XmlToCdaModelResult(this.delegate.transformFromHl7(version, xmlDocument));

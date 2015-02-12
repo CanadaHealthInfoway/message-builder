@@ -46,6 +46,7 @@ public class MessageBeanTransformerImpl {
 	private final RenderMode renderMode;
 	private final TimeZone dateTimeZone;
 	private final TimeZone dateTimeTimeZone;
+	private final boolean performAdditionalCdaValidationWhenUnmarshalling;
 
 	public MessageBeanTransformerImpl() {
 		this(new MessageDefinitionServiceFactory().create(), RenderMode.PERMISSIVE);
@@ -60,10 +61,14 @@ public class MessageBeanTransformerImpl {
 		this(service, renderMode, null, null);
 	}
 	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode, TimeZone dateTimeZone, TimeZone dateTimeTimeZone) {
+		this(service, renderMode, null, null, true);
+	}
+	public MessageBeanTransformerImpl(MessageDefinitionService service, RenderMode renderMode, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, boolean performAdditionalCdaValidationWhenUnmarshalling) {
 		this.service = service;
 		this.renderMode = renderMode;
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
+		this.performAdditionalCdaValidationWhenUnmarshalling = performAdditionalCdaValidationWhenUnmarshalling;
 	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {
@@ -78,12 +83,16 @@ public class MessageBeanTransformerImpl {
 		CodeResolverRegistry.setThreadLocalVersion(version);
 		CodeResolverRegistry.setThreadLocalCodeResolverRegistryOverride(codeResolverRegistryOverride);
 		
-		XmlToModelResult results = new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
+		XmlToModelResult result = new Hl7SourceMapper().mapToTeal(new Hl7MessageSource(version, hl7Message, dateTimeZone, dateTimeTimeZone, this.service));
+		
+		if (this.performAdditionalCdaValidationWhenUnmarshalling) {
+			performAdditionalCdaValidation(version, hl7Message, result);
+		}
 		
 		CodeResolverRegistry.clearThreadLocalVersion();
 		CodeResolverRegistry.clearThreadLocalCodeResolverRegistryOverride();
 		
-		return results;
+		return result;
 	}
 
 	@Deprecated
