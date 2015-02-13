@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.model.ccda_r1_1.allergiessectionentriesoptional.SectionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.NonXMLBodyBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component2Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.ReasonForReferralSectionComponent3Bean;
@@ -68,7 +69,6 @@ import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ReviewOfSystemsSectionCo
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.SocialHistorySectionComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.VitalSignsSectionentriesOptionalComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.VitalSignsSectionentriesRequiredComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.NonXMLBodyBean;
 import ca.infoway.messagebuilder.platform.DateFormatUtil;
 
 

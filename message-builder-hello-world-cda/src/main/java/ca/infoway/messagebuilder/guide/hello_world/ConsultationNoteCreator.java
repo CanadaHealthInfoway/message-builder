@@ -56,10 +56,10 @@ import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedAuthorBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedCustodianBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_2Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.ChiefComplaintAndReasonForVisitSectionComponent3Bean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Component1_1Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Component1_2Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.CustodianBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.CustodianOrganizationBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.merged.EncompassingEncounter_1Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.merged.EncompassingEncounter_2Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.GeneralStatusSectionComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.HistoryOfPresentIllnessSectionComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.InFulfillmentOfBean;
@@ -179,16 +179,16 @@ public class ConsultationNoteCreator {
 		return reasonForVisit;
 	}
 
-	private Component1_1Bean createComponentOf() {
+	private Component1_2Bean createComponentOf() {
 		// setting low only - currently (2015/01/28) the Schematron validation will report an error if high is provided (outside of MB's control)
 		Interval<Date> interval = IntervalUtil.createInterval(DateUtil.getDate(2009, 01, 27), null);
 		DateInterval dateInterval = new DateInterval(interval);
 		
-		EncompassingEncounter_1Bean encompassingEncounter = new EncompassingEncounter_1Bean();
+		EncompassingEncounter_2Bean encompassingEncounter = new EncompassingEncounter_2Bean();
 		encompassingEncounter.setId(new Identifier("2.16.840.1.113883.19", "9937012"));
 		encompassingEncounter.setEffectiveTime(dateInterval);		
 		
-		Component1_1Bean componentOf = new Component1_1Bean();
+		Component1_2Bean componentOf = new Component1_2Bean();
 		componentOf.setEncompassingEncounter(encompassingEncounter);
 		return componentOf;
 	}
