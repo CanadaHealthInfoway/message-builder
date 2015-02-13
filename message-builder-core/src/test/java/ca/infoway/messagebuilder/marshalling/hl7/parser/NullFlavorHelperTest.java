@@ -74,6 +74,18 @@ public class NullFlavorHelperTest {
 		assertTrue(xmlResult.getHl7Errors().get(0).getMessage().contains("does not specify xsi:nil=\"true\""));
 	}
 	
+	@Test
+	public void shouldAllowXsiNilAttributeErrorForAssociationWhenSystemPropertySet() throws SAXException {
+		Node node = createNode("<patient nullFlavor=\"NI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"/>");
+		XmlToModelResult xmlResult = new XmlToModelResult();
+		
+		System.setProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR, "true");
+		new NullFlavorHelper(ConformanceLevel.POPULATED, node, xmlResult, true).parseNullNode();
+		System.clearProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR);
+
+		assertTrue(xmlResult.getHl7Errors().isEmpty());
+	}
+	
 	private Node createNode(String xml) throws SAXException {
 		return new DocumentFactory().createFromString(xml).getDocumentElement();
 	}

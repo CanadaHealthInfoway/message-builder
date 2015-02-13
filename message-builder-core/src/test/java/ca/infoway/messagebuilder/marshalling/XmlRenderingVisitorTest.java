@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.Argument;
@@ -313,6 +314,27 @@ public class XmlRenderingVisitorTest {
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
 				+"<receiver nullFlavor=\"MSK\" xsi:nil=\"true\"/></ABCD_IN123456CA>", xml);
+		
+	}
+
+	@Test
+	public void shouldRenderSimpleAssociationWithNullFlavorWithoutXsiNil() throws Exception {
+		Relationship relationship = createSimpleAssociationRelationship();
+		
+		this.partBridge.setNullFlavor(NullFlavor.MASKED);
+		this.partBridge.setEmpty(true);
+		
+		System.setProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR, "true");
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAssociationStart(this.partBridge, relationship);
+		this.visitor.visitAssociationEnd(this.partBridge, relationship);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		System.clearProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
+				+"<receiver nullFlavor=\"MSK\"/></ABCD_IN123456CA>", xml);
 		
 	}
 

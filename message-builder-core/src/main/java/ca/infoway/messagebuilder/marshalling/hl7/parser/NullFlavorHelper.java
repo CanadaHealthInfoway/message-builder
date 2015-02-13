@@ -37,8 +37,10 @@ import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 public class NullFlavorHelper {
 	
+	public static final String MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR = "messagebuilder.suppress.xsi.nil.on.nullflavor";
+
 	public static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
-	static final String NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME = "xsi:nil";
+	private static final String NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME = "xsi:nil";
 
 	private final Node node;
 	private final XmlToModelResult xmlToModelResult;
@@ -69,9 +71,11 @@ public class NullFlavorHelper {
 //					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
 //					(Element) node));
 		} else if (this.isAssociation && !StringUtils.equals(getAttributeValue(node, NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME), "true")) {
-			xmlToModelResult.addHl7Error(Hl7Error.createNullFlavorMissingXsiNilError(
-					NodeUtil.getLocalOrTagName((Element) node), 
-					(Element) node));
+			if (!Boolean.valueOf(System.getProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR))) {
+				xmlToModelResult.addHl7Error(Hl7Error.createNullFlavorMissingXsiNilError(
+						NodeUtil.getLocalOrTagName((Element) node), 
+						(Element) node));
+			}
 		}
 		return nullFlavor;
 	}

@@ -291,7 +291,7 @@ public class Hl7Error {
 				element);
 	}
 	public static Hl7Error createNullFlavorMissingXsiNilError(String elementName, Element element) {
-		return new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED,
+		return new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, ErrorLevel.WARNING,
 				MessageFormat.format("Association \"{0}\" has a nullFlavor, but does not specify xsi:nil=\"true\".", elementName), 
 				element);
 	}

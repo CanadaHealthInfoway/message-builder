@@ -48,10 +48,10 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
@@ -61,6 +61,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.ModelToXmlTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.PropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registry;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.util.text.Indenter;
 import ca.infoway.messagebuilder.xml.Argument;
@@ -73,8 +74,10 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 class XmlRenderingVisitor implements Visitor {	
 	private static final String INLINED_PROPERTY_SUFFIX = "_INLINED";
-	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
-
+	
+	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS_NO_XSI_NIL = "nullFlavor=\"{0}\"";
+	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS_NO_XSI_NIL + " xsi:nil=\"true\"";
+	
 	class Buffer {
 		private final String name;
 		private final StringBuilder structuralBuilder = new StringBuilder();
@@ -210,8 +213,12 @@ class XmlRenderingVisitor implements Visitor {
 			addChoiceAnnotation(part, relationship);
 			
 			if (part.isEmpty() && (ConformanceLevelUtil.isPopulated(relationship) || part.hasNullFlavor())) {
+				// MBR-319 - some clients want xsi:nil suppressed
+				String nf = Boolean.valueOf(System.getProperty(NullFlavorHelper.MB_SUPPRESS_XSI_NIL_ON_NULLFLAVOR))
+						? NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS_NO_XSI_NIL 
+						: NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS;
 				currentBuffer().getStructuralBuilder().append(
-						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
+						MessageFormat.format(nf, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && ConformanceLevelUtil.isMandatory(relationship) && !isTrivial(part)) {
 				// some errors are due to "null" parts MB has inserted to create structural XML; don't log errors on these
 				validationWarning = !part.isNullPart() && !part.isCollapsed();
