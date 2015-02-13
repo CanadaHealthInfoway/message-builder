@@ -43,13 +43,25 @@ public class ModelToXmlResult implements Hl7Errors {
 		this.xmlMessage = xmlMessage;
 	}
 
+	public boolean hasErrors() {
+		return hasErrorLevel(ErrorLevel.ERROR);
+	}
+
+	public boolean hasWarnings() {
+		return hasErrorLevel(ErrorLevel.WARNING);
+	}
+
 	public boolean isValid() {
+		return !(hasErrors() || hasWarnings());
+	}
+
+	private boolean hasErrorLevel(ErrorLevel level) {
 		for (Hl7Error hl7Error : this.hl7Errors) {
-			if (hl7Error.getHl7ErrorLevel() == ErrorLevel.ERROR || hl7Error.getHl7ErrorLevel() == ErrorLevel.WARNING) {
-				return false;
+			if (hl7Error.getHl7ErrorLevel() == level) {
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public void addHl7Error(Hl7Error hl7Error) {

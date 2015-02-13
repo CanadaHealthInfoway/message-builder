@@ -25,6 +25,8 @@ import java.util.List;
 public interface Hl7Errors {
 
 	public boolean isValid();
+	public boolean hasErrors();
+	public boolean hasWarnings();
 	public void addHl7Error(Hl7Error hl7Error);
 	public List<Hl7Error> getHl7Errors();
 	

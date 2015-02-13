@@ -25,6 +25,8 @@ import java.util.List;
 public interface TransformErrors {
 
 	public boolean isValid();
+	public boolean hasErrors();
+	public boolean hasWarnings();
 //	public void addError(TransformError error);	// TODO: implement in some future age when the non-HL7 classes are more than just a facade
 	public List<TransformError> getErrors();
 	

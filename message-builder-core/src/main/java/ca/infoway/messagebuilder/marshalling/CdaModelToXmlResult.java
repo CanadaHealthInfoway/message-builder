@@ -51,6 +51,14 @@ public class CdaModelToXmlResult implements TransformErrors {
 		return this.delegate.isValid();
 	}
 	
+	public boolean hasErrors() {
+		return this.delegate.hasErrors();
+	}
+	
+	public boolean hasWarnings() {
+		return this.delegate.hasWarnings();
+	}
+	
 	public List<TransformError> getErrors() {
 		return this.errors;
 	}
