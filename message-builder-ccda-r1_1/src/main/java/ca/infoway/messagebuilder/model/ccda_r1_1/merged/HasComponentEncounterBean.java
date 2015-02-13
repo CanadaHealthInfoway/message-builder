@@ -42,11 +42,11 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.EntryRelationshipBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.Participant2Bean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.PreconditionBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ReferenceBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SubjectBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.EntryRelationshipBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.Participant2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ReferenceBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.HasComponentEncounter","ProcedureActivityProcedure.HasComponentEncounter"})
 public class HasComponentEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

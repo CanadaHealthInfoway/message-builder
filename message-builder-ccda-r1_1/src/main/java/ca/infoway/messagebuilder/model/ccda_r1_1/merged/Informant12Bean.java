@@ -32,15 +32,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.Informant12Choice;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.Informant12Choice;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"DiagnosticImagingReport.Informant12","POCD_MT000040.Informant12"})
+@Hl7PartTypeMapping({"BaseModel.Informant12","DiagnosticImagingReport.Informant12"})
 public class Informant12Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.merged.Informant12Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -50,7 +50,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.realmCode</p>
+     * <p>Relationship: BaseModel.Informant12.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -70,7 +70,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.typeId</p>
+     * <p>Relationship: BaseModel.Informant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -88,7 +88,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.typeId</p>
+     * <p>Relationship: BaseModel.Informant12.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -106,7 +106,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.templateId</p>
+     * <p>Relationship: BaseModel.Informant12.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -126,7 +126,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.informant12Choice</p>
+     * <p>Relationship: BaseModel.Informant12.informant12Choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -145,7 +145,7 @@ public class Informant12Bean extends MessagePartBean implements ca.infoway.messa
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Informant12.informant12Choice</p>
+     * <p>Relationship: BaseModel.Informant12.informant12Choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

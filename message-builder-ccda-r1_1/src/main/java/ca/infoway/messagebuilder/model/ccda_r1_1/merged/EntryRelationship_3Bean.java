@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"QuantityMeasurementObservation.EntryRelationship","SeriesAct.EntryRelationship"})
 public class EntryRelationship_3Bean extends MessagePartBean implements EntryRelationshipChoice_7 {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

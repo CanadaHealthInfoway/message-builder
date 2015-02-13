@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"HistoryAndPhysical"})
 public class HistoryAndPhysicalBean extends ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.HistoryAndPhysicalBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
 
 }

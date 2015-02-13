@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Component5Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_4;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private ST iD = new STImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

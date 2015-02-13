@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AnesthesiaSection.MedicationActivityEntry"})
 public class MedicationActivityEntryBean extends MessagePartBean implements EntryChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

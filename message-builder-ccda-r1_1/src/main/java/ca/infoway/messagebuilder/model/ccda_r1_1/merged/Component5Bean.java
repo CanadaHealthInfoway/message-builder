@@ -32,15 +32,15 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SectionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SectionBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Component3","POCD_MT000040.Component5"})
+@Hl7PartTypeMapping({"BaseModel.Component3","BaseModel.Component5"})
 public class Component5Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.diagnosticimagingreport.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.Component3Choice, ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.Component3Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -50,13 +50,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.realmCode</p>
+     * <p>Relationship: BaseModel.Component3.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.realmCode</p>
+     * <p>Relationship: BaseModel.Component5.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -69,13 +69,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.typeId</p>
+     * <p>Relationship: BaseModel.Component3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.typeId</p>
+     * <p>Relationship: BaseModel.Component5.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -87,13 +87,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.typeId</p>
+     * <p>Relationship: BaseModel.Component3.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.typeId</p>
+     * <p>Relationship: BaseModel.Component5.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -105,13 +105,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.templateId</p>
+     * <p>Relationship: BaseModel.Component3.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.templateId</p>
+     * <p>Relationship: BaseModel.Component5.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -124,13 +124,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.section</p>
+     * <p>Relationship: BaseModel.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.section</p>
+     * <p>Relationship: BaseModel.Component5.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -142,13 +142,13 @@ public class Component5Bean extends MessagePartBean implements ca.infoway.messag
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component3.section</p>
+     * <p>Relationship: BaseModel.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component5.section</p>
+     * <p>Relationship: BaseModel.Component5.section</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

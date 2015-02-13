@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"DischargeSummary"})
 public class DischargeSummaryBean extends ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.DischargeSummaryBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
 
 }

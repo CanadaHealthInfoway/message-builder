@@ -43,15 +43,15 @@ import ca.infoway.messagebuilder.datatype.lang.OrganizationName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.OrganizationPartOfBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.OrganizationPartOfBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ImmunizationMedicationInformation.Organization","MedicationInformation.Organization","POCD_MT000040.Organization"})
-public class Organization_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.GuardianChoice {
+@Hl7PartTypeMapping({"BaseModel.Organization","ImmunizationMedicationInformation.Organization","MedicationInformation.Organization"})
+public class Organization_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.GuardianChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -73,14 +73,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.realmCode</p>
+     * <p>Relationship: BaseModel.Organization.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.realmCode</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -99,14 +99,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.typeId</p>
+     * <p>Relationship: BaseModel.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.typeId</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -124,14 +124,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.typeId</p>
+     * <p>Relationship: BaseModel.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.typeId</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -150,14 +150,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.templateId</p>
+     * <p>Relationship: BaseModel.Organization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.templateId</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -176,14 +176,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.id</p>
+     * <p>Relationship: BaseModel.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.id</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -202,14 +202,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.name</p>
+     * <p>Relationship: BaseModel.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.name</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -228,14 +228,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.telecom</p>
+     * <p>Relationship: BaseModel.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.telecom</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -254,14 +254,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.addr</p>
+     * <p>Relationship: BaseModel.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Organization.addr</p>
+     * <p>Relationship: 
+     * ImmunizationMedicationInformation.Organization.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -282,14 +282,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
+     * BaseModel.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.Organization.standardIndustryClassCode</p>
+     * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -309,14 +309,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
+     * BaseModel.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.Organization.standardIndustryClassCode</p>
+     * ImmunizationMedicationInformation.Organization.standardIndustryClassCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -335,15 +335,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
+     * <p>Relationship: BaseModel.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.Organization.asOrganizationPartOf</p>
+     * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -362,15 +361,14 @@ public class Organization_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
+     * <p>Relationship: BaseModel.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.Organization.asOrganizationPartOf</p>
+     * ImmunizationMedicationInformation.Organization.asOrganizationPartOf</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

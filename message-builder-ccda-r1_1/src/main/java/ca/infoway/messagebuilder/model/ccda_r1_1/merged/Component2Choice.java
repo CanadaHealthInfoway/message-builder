@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Component2Choice","UnstructuredDocument.Component2Choice"})
+@Hl7PartTypeMapping({"BaseModel.Component2Choice","UnstructuredDocument.Component2Choice"})
 public interface Component2Choice {
 
 }

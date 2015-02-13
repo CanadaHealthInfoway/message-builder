@@ -40,17 +40,16 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.PersonBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.RoleClassAssociative;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.PersonBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.AssociatedEntity","ProcedureNote.AssociatedEntity"})
+@Hl7PartTypeMapping({"BaseModel.AssociatedEntity","ProcedureNote.AssociatedEntity"})
 public class AssociatedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -60,42 +59,19 @@ public class AssociatedEntityBean extends MessagePartBean {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PersonBean associatedPerson;
     private Organization_1Bean scopingOrganization;
+    private CS_R2 classCode = new CS_R2Impl();
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClassAssociative> getClassCode() {
-        return (CodedTypeR2<RoleClassAssociative>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClassAssociative> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.realmCode</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.realmCode</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -108,13 +84,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.typeId</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.typeId</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -126,13 +102,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.typeId</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.typeId</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -144,13 +120,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.templateId</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.templateId</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -163,13 +139,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.id</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.id</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -182,13 +158,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.code</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.code</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -200,13 +176,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.code</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.code</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -218,13 +194,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.addr</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.addr</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -237,13 +213,13 @@ public class AssociatedEntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssociatedEntity.telecom</p>
+     * <p>Relationship: ProcedureNote.AssociatedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureNote.AssociatedEntity.telecom</p>
+     * <p>Relationship: BaseModel.AssociatedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -257,16 +233,15 @@ public class AssociatedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssociatedEntity.associatedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureNote.AssociatedEntity.associatedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssociatedEntity.associatedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"associatedPerson"})
     public PersonBean getAssociatedPerson() {
@@ -277,16 +252,15 @@ public class AssociatedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssociatedEntity.associatedPerson</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProcedureNote.AssociatedEntity.associatedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssociatedEntity.associatedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setAssociatedPerson(PersonBean associatedPerson) {
         this.associatedPerson = associatedPerson;
@@ -297,14 +271,14 @@ public class AssociatedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssociatedEntity.scopingOrganization</p>
+     * ProcedureNote.AssociatedEntity.scopingOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.AssociatedEntity.scopingOrganization</p>
+     * BaseModel.AssociatedEntity.scopingOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -317,19 +291,43 @@ public class AssociatedEntityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssociatedEntity.scopingOrganization</p>
+     * ProcedureNote.AssociatedEntity.scopingOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ProcedureNote.AssociatedEntity.scopingOrganization</p>
+     * BaseModel.AssociatedEntity.scopingOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setScopingOrganization(Organization_1Bean scopingOrganization) {
         this.scopingOrganization = scopingOrganization;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssociatedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"classCode"})
+    public CodedTypeR2<RoleClassAssociative> getClassCode() {
+        return (CodedTypeR2<RoleClassAssociative>) this.classCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssociatedEntity.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setClassCode(CodedTypeR2<RoleClassAssociative> classCode) {
+        this.classCode.setValue(classCode);
     }
 
 }

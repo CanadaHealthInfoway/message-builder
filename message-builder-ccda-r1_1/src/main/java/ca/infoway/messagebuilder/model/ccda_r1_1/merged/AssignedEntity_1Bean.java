@@ -40,15 +40,15 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.PersonBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.PersonBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD.AssignedEntity","EncounterActivities.AssignedEntity","POCD_MT000040.AssignedEntity","PhysicianReadingStudyPerformer.AssignedEntity"})
-public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.Informant12Choice {
+@Hl7PartTypeMapping({"BaseModel.AssignedEntity","ContinuityOfCareDocumentCCD.AssignedEntity","EncounterActivities.AssignedEntity","PhysicianReadingStudyPerformer.AssignedEntity"})
+public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.Informant12Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -77,14 +77,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.realmCode</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.realmCode</p>
+     * <p>Relationship: BaseModel.AssignedEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -110,14 +110,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.typeId</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.typeId</p>
+     * <p>Relationship: BaseModel.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -142,14 +142,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.typeId</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.typeId</p>
+     * <p>Relationship: BaseModel.AssignedEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -175,14 +175,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.templateId</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.templateId</p>
+     * <p>Relationship: BaseModel.AssignedEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -208,14 +208,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.id</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.id</p>
+     * <p>Relationship: BaseModel.AssignedEntity.id</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
@@ -241,14 +241,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.code</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.code</p>
+     * <p>Relationship: BaseModel.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -273,14 +273,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.code</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.code</p>
+     * <p>Relationship: BaseModel.AssignedEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -305,14 +305,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.addr</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.addr</p>
+     * <p>Relationship: BaseModel.AssignedEntity.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -338,14 +338,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.telecom</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.telecom</p>
+     * <p>Relationship: BaseModel.AssignedEntity.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -372,14 +372,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: BaseModel.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -405,14 +405,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.assignedPerson</p>
+     * <p>Relationship: BaseModel.AssignedEntity.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -439,14 +439,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssignedEntity.representedOrganization</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.representedOrganization</p>
+     * BaseModel.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -473,14 +473,14 @@ public class AssignedEntity_1Bean extends MessagePartBean implements ca.infoway.
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssignedEntity.representedOrganization</p>
+     * ContinuityOfCareDocumentCCD.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ContinuityOfCareDocumentCCD.AssignedEntity.representedOrganization</p>
+     * BaseModel.AssignedEntity.representedOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

@@ -36,10 +36,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.InFulfillmentOf","ContinuityOfCareDocumentCCD.InFulfillmentOf","DiagnosticImagingReport.InFulfillmentOf","DischargeSummary.InFulfillmentOf","HistoryAndPhysical.InFulfillmentOf","OperativeNote.InFulfillmentOf","POCD_MT000040.InFulfillmentOf","ProcedureNote.InFulfillmentOf","ProgressNote.InFulfillmentOf","USRealmHeader.InFulfillmentOf","UnstructuredDocument.InFulfillmentOf"})
+@Hl7PartTypeMapping({"BaseModel.InFulfillmentOf","ConsultationNote.InFulfillmentOf","ContinuityOfCareDocumentCCD.InFulfillmentOf","DiagnosticImagingReport.InFulfillmentOf","DischargeSummary.InFulfillmentOf","HistoryAndPhysical.InFulfillmentOf","OperativeNote.InFulfillmentOf","ProcedureNote.InFulfillmentOf","ProgressNote.InFulfillmentOf","USRealmHeader.InFulfillmentOf","UnstructuredDocument.InFulfillmentOf"})
 public class InFulfillmentOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -113,7 +113,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.realmCode</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -188,7 +188,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.typeId</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -262,7 +262,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.typeId</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -338,7 +338,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.templateId</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -413,7 +413,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.order</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.order</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -487,7 +487,7 @@ public class InFulfillmentOfBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.InFulfillmentOf.order</p>
+     * <p>Relationship: BaseModel.InFulfillmentOf.order</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

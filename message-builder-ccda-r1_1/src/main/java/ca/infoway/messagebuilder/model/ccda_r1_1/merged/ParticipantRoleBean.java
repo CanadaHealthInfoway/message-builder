@@ -41,16 +41,15 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.RoleClassRoot;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ParticipantRoleChoice;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ParticipantRoleChoice;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"AllergyIntoleranceObservation.ParticipantRole","CaregiverCharacteristics.ParticipantRole","POCD_MT000040.ParticipantRole","SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole"})
+@Hl7PartTypeMapping({"AllergyIntoleranceObservation.ParticipantRole","BaseModel.ParticipantRole","CaregiverCharacteristics.ParticipantRole","SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole"})
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
-    private CS_R2 classCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -58,42 +57,13 @@ public class ParticipantRoleBean extends MessagePartBean {
     private CE_R2 code = new CE_R2Impl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ParticipantRoleChoice participantRoleChoice;
     private EntityBean scopingEntity;
     private PlayingEntity_2Bean playingEntity;
+    private ParticipantRoleChoice participantRoleChoice;
+    private CS_R2 classCode = new CS_R2Impl();
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"classCode"})
-    public CodedTypeR2<RoleClassRoot> getClassCode() {
-        return (CodedTypeR2<RoleClassRoot>) this.classCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.classCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setClassCode(CodedTypeR2<RoleClassRoot> classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -114,6 +84,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"realmCode"})
     public List<CodedTypeR2<Code>> getRealmCode() {
@@ -122,12 +98,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -146,6 +116,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -157,12 +133,6 @@ public class ParticipantRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
@@ -181,6 +151,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -188,12 +164,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -214,6 +184,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -222,12 +198,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -247,6 +217,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"id"})
     public List<Identifier> getId() {
@@ -255,12 +231,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -279,6 +249,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -290,12 +266,6 @@ public class ParticipantRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
@@ -314,6 +284,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setCode(CodedTypeR2<Code> code) {
         this.code.setValue(code);
@@ -321,12 +297,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -347,6 +317,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.addr</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"addr"})
     public List<PostalAddress> getAddr() {
@@ -355,12 +331,6 @@ public class ParticipantRoleBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -381,6 +351,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.telecom</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getTelecom() {
@@ -392,52 +368,6 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.ParticipantRole.participantRoleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CaregiverCharacteristics.ParticipantRole.participantRoleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    @Hl7XmlMapping({"participantRoleChoice"})
-    public ParticipantRoleChoice getParticipantRoleChoice() {
-        return this.participantRoleChoice;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.ParticipantRole.participantRoleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * CaregiverCharacteristics.ParticipantRole.participantRoleChoice</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     */
-    public void setParticipantRoleChoice(ParticipantRoleChoice participantRoleChoice) {
-        this.participantRoleChoice = participantRoleChoice;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.scopingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -453,6 +383,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -464,12 +400,6 @@ public class ParticipantRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.ParticipantRole.scopingEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
      * 
@@ -486,6 +416,12 @@ public class ParticipantRoleBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * SubstanceOrDeviceAllergyIntoleranceObservation.ParticipantRole.scopingEntity</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.scopingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -531,6 +467,70 @@ public class ParticipantRoleBean extends MessagePartBean {
      */
     public void setPlayingEntity(PlayingEntity_2Bean playingEntity) {
         this.playingEntity = playingEntity;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.ParticipantRole.participantRoleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.ParticipantRole.participantRoleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"participantRoleChoice"})
+    public ParticipantRoleChoice getParticipantRoleChoice() {
+        return this.participantRoleChoice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * CaregiverCharacteristics.ParticipantRole.participantRoleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.ParticipantRole.participantRoleChoice</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setParticipantRoleChoice(ParticipantRoleChoice participantRoleChoice) {
+        this.participantRoleChoice = participantRoleChoice;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"classCode"})
+    public CodedTypeR2<RoleClassRoot> getClassCode() {
+        return (CodedTypeR2<RoleClassRoot>) this.classCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ParticipantRole.classCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setClassCode(CodedTypeR2<RoleClassRoot> classCode) {
+        this.classCode.setValue(classCode);
     }
 
 }

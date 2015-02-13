@@ -207,7 +207,7 @@ public class CdaTemplateProcessor {
 	}
 
 	private boolean isDefaultChoice(AddChoiceConstraint addChoiceConstraint) {
-		return StringUtils.startsWith(addChoiceConstraint.getChoiceClassName(), "POCD_MT000040.");
+		return StringUtils.startsWith(addChoiceConstraint.getChoiceClassName(), "BaseModel.");
 	}
 
 	private void createMessageParts(Template template,
@@ -471,32 +471,32 @@ public class CdaTemplateProcessor {
 		if (template.getDelta(DeltaChangeType.DEFINITION, clinicalDocumentName, "component") == null) {
 			// some templates provide partial context that creates this part for us. If not, do it ourselves.
 			Delta clinicalDocumentDelta = getOrCreatePlainAssociationDelta(template, clinicalDocumentName, "component", DeltaChangeType.DEFINITION);
-			clinicalDocumentDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Component2", component2ClassName));
+			clinicalDocumentDelta.addConstraint(new AssociationTypeConstraint("BaseModel.Component2", component2ClassName));
 			
 			Delta component2CloneDelta = getOrCreatePlainClassDelta(template, component2ClassName, DeltaChangeType.CLONE);
-			component2CloneDelta.addConstraint(new CloneConstraint(component2ClassName, null, "POCD_MT000040.Component2"));
+			component2CloneDelta.addConstraint(new CloneConstraint(component2ClassName, null, "BaseModel.Component2"));
 		}
 		
 		Delta component2Delta = getOrCreatePlainAssociationDelta(template,	component2ClassName, "component2Choice", DeltaChangeType.DEFINITION);
 		
 		String component2ChoiceClassName = template.getPackageName() + ".Component2Choice";
-		component2Delta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Component2Choice", component2ChoiceClassName));
+		component2Delta.addConstraint(new AssociationTypeConstraint("BaseModel.Component2Choice", component2ChoiceClassName));
 		
 		Delta component2ChoiceCloneDelta = getOrCreatePlainClassDelta(template, component2ChoiceClassName, DeltaChangeType.CLONE);
-		component2ChoiceCloneDelta.addConstraint(new CloneConstraint(component2ChoiceClassName, null, "POCD_MT000040.Component2Choice"));
+		component2ChoiceCloneDelta.addConstraint(new CloneConstraint(component2ChoiceClassName, null, "BaseModel.Component2Choice"));
 
 		Delta component2ChoiceDelta = getOrCreatePlainClassDelta(template, component2ChoiceClassName, DeltaChangeType.DEFINITION);
-		component2ChoiceDelta.addConstraint(new RemoveChoiceConstraint("POCD_MT000040.StructuredBody"));
+		component2ChoiceDelta.addConstraint(new RemoveChoiceConstraint("BaseModel.StructuredBody"));
 		
 		String structuredBodyClassName = template.getPackageName() + ".StructuredBody";
 		component2ChoiceDelta.addConstraint(new AddChoiceConstraint(structuredBodyClassName));
 		
 		Delta structuredBodyCloneDelta = getOrCreatePlainClassDelta(template, structuredBodyClassName, DeltaChangeType.CLONE);
-		structuredBodyCloneDelta.addConstraint(new CloneConstraint(structuredBodyClassName, null, "POCD_MT000040.StructuredBody"));
+		structuredBodyCloneDelta.addConstraint(new CloneConstraint(structuredBodyClassName, null, "BaseModel.StructuredBody"));
 
 		Delta structuredBodyComponentDelta = getOrCreatePlainAssociationDelta(template, structuredBodyClassName, "component", DeltaChangeType.DEFINITION);
 		String choiceBlockName = template.getPackageName() + ".Component3Choice";
-		structuredBodyComponentDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Component3", choiceBlockName));
+		structuredBodyComponentDelta.addConstraint(new AssociationTypeConstraint("BaseModel.Component3", choiceBlockName));
 		
 		Delta choiceBlockDelta = createDelta(choiceBlockName, null, DeltaChangeType.ADD);
 		choiceBlockDelta.addConstraint(new AddConstraint(choiceBlockName, RimClass.ACT_RELATIONSHIP, true));
@@ -507,7 +507,7 @@ public class CdaTemplateProcessor {
 				Template targetTemplate = templateSet.getByOid(cdaConstraint.getContainedTemplateOid());
 				String messagePartName = template.getPackageName() + ".EncompassingEncounter";
 				Delta delta = getOrCreatePlainAssociationDelta(template, messagePartName, "encounterParticipant", DeltaChangeType.DEFINITION);
-				delta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.EncounterParticipant", targetTemplate.getEntryClassName()));
+				delta.addConstraint(new AssociationTypeConstraint("BaseModel.EncounterParticipant", targetTemplate.getEntryClassName()));
 				delta.addConstraint(new CardinalityConstraint(new Cardinality(0, Integer.MAX_VALUE), constraintCardinality));
 
 				template.addTemplateReference(messagePartName + ".encounterParticipant", cdaConstraint.getContainedTemplateOid(), constraintCardinality);
@@ -518,11 +518,11 @@ public class CdaTemplateProcessor {
 					choiceBlockDelta.addConstraint(new AddChoiceConstraint(choiceOptionName));
 		
 					Delta choiceOptionDelta = createDelta(choiceOptionName, null, DeltaChangeType.CLONE);
-					choiceOptionDelta.addConstraint(new CloneConstraint(choiceOptionName, null, "POCD_MT000040.Component3"));
+					choiceOptionDelta.addConstraint(new CloneConstraint(choiceOptionName, null, "BaseModel.Component3"));
 					template.addDelta(choiceOptionDelta);
 					
 					Delta sectionDelta = getOrCreatePlainAssociationDelta(template, choiceOptionName, "section", DeltaChangeType.DEFINITION);
-					sectionDelta.addConstraint(new AssociationTypeConstraint("POCD_MT000040.Section", targetTemplate.getEntryClassName()));
+					sectionDelta.addConstraint(new AssociationTypeConstraint("BaseModel.Section", targetTemplate.getEntryClassName()));
 					
 		
 					if (constraintCardinality == null) {
@@ -540,7 +540,7 @@ public class CdaTemplateProcessor {
 		}
 		
 		// add the default choice
-		AddChoiceConstraint defaultChoice = new AddChoiceConstraint("POCD_MT000040.Component3");
+		AddChoiceConstraint defaultChoice = new AddChoiceConstraint("BaseModel.Component3");
 		defaultChoice.setDefault(true);
 		choiceBlockDelta.addConstraint(defaultChoice);
 

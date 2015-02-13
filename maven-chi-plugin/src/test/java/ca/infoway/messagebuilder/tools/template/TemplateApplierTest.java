@@ -183,7 +183,7 @@ public class TemplateApplierTest {
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"subject\"]");
 		assertNotNull("association retained", relationshipNode);
-		assertEquals("type retained", "POCD_MT000040.Subject", xpathHelper.getAttributeValue(relationshipNode, "@type"));
+		assertEquals("type retained", "BaseModel.Subject", xpathHelper.getAttributeValue(relationshipNode, "@type"));
 		assertEquals("cardinality retained", "0-1", xpathHelper.getAttributeValue(relationshipNode, "@cardinality"));
 		
 		relationshipNode = xpathHelper.getSingleNode(messagePartNode, "relationship[@name=\"entryRelationship\"]");
@@ -195,7 +195,7 @@ public class TemplateApplierTest {
 		assertNotNull("the choice does not exist", entryChoiceNode);
 		assertEquals(2, xpathHelper.getNodes(entryChoiceNode, "messagePart/specializationChild").getLength());
 		assertEquals("PregnancyObservation.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[1]/@name"));
-		assertEquals("POCD_MT000040.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@name"));
+		assertEquals("BaseModel.EntryRelationship", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@name"));
 		assertEquals("true", xpathHelper.getAttributeValue(entryChoiceNode, "messagePart/specializationChild[2]/@isDefault"));
 		
 		entryNode = xpathHelper.getSingleNode(packageEntryNode, "//entry[@name=\"PregnancyObservation.EntryRelationship\"]");
@@ -225,7 +225,7 @@ public class TemplateApplierTest {
 
 		assertEquals("USRealmHeader.Performer1AssignedEntity", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Performer1\"]/relationship[@name=\"assignedEntity\"]/@type"));
 		assertEquals("1", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Performer1\"]/relationship[@name=\"assignedEntity\"]/@cardinality"));
-		assertEquals("POCD_MT000040.Person", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Performer1AssignedEntity\"]/relationship[@name=\"assignedPerson\"]/@type"));
+		assertEquals("BaseModel.Person", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Performer1AssignedEntity\"]/relationship[@name=\"assignedPerson\"]/@type"));
 		assertEquals("0-1", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Performer1AssignedEntity\"]/relationship[@name=\"assignedPerson\"]/@cardinality"));
 		
 		assertEquals("USRealmHeader.GuardianPerson", xpathHelper.getAttributeValue(document, "//messagePart[@name=\"USRealmHeader.Guardian\"]/relationship[@name=\"guardianPerson\"]/@type"));
@@ -279,7 +279,7 @@ public class TemplateApplierTest {
 	@Test
 	public void shouldHandleConstrainedDatatypes() throws Exception {
 		// Inherited from ancestor
-		Node constrainedDatatypeNode = xpathHelper.getSingleNode(document, "//constrainedDatatype[@name=\"POCD_MT000040.InfrastructureRoot.typeId\"]");
+		Node constrainedDatatypeNode = xpathHelper.getSingleNode(document, "//constrainedDatatype[@name=\"BaseModel.InfrastructureRoot.typeId\"]");
 		assertNotNull("constrained datatype should exist", constrainedDatatypeNode);
 		assertEquals("constrained datatype base", "II", xpathHelper.getAttributeValue(constrainedDatatypeNode, "@baseType"));
 		assertEquals("constrained datatype type", "RES", xpathHelper.getAttributeValue(constrainedDatatypeNode, "@constraintType"));

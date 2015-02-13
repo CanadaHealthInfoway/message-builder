@@ -45,10 +45,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.CustodianOrganization","ContinuityOfCareDocumentCCD.CustodianOrganization","DiagnosticImagingReport.CustodianOrganization","DischargeSummary.CustodianOrganization","HistoryAndPhysical.CustodianOrganization","OperativeNote.CustodianOrganization","POCD_MT000040.CustodianOrganization","ProcedureNote.CustodianOrganization","ProgressNote.CustodianOrganization","USRealmHeader.CustodianOrganization"})
+@Hl7PartTypeMapping({"BaseModel.CustodianOrganization","ConsultationNote.CustodianOrganization","ContinuityOfCareDocumentCCD.CustodianOrganization","DiagnosticImagingReport.CustodianOrganization","DischargeSummary.CustodianOrganization","HistoryAndPhysical.CustodianOrganization","OperativeNote.CustodianOrganization","ProcedureNote.CustodianOrganization","ProgressNote.CustodianOrganization","USRealmHeader.CustodianOrganization"})
 public class CustodianOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -82,6 +82,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.realmCode</p>
      * 
@@ -105,13 +111,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.CustodianOrganization.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.CustodianOrganization.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -157,6 +156,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.typeId</p>
      * 
@@ -179,12 +184,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.CustodianOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -228,6 +227,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.typeId</p>
      * 
@@ -250,12 +255,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.CustodianOrganization.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -301,6 +300,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.templateId</p>
      * 
@@ -324,13 +329,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.CustodianOrganization.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.CustodianOrganization.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -375,6 +373,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.id</p>
      * 
@@ -398,12 +402,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.CustodianOrganization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -445,6 +443,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.name</p>
      * 
@@ -468,12 +472,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.CustodianOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -514,6 +512,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.name</p>
      * 
@@ -537,12 +541,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.CustodianOrganization.name</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -583,6 +581,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.telecom</p>
      * 
@@ -607,12 +611,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * ConsultationNote.CustodianOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -654,6 +652,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.telecom</p>
      * 
@@ -678,12 +682,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * ConsultationNote.CustodianOrganization.telecom</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -725,6 +723,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.addr</p>
      * 
@@ -748,12 +752,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.CustodianOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -794,6 +792,12 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.CustodianOrganization.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.CustodianOrganization.addr</p>
      * 
@@ -817,12 +821,6 @@ public class CustodianOrganizationBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.CustodianOrganization.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.CustodianOrganization.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 

@@ -42,14 +42,14 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.EncompassingEncounter","HistoryAndPhysical.EncompassingEncounter"})
+@Hl7PartTypeMapping({"BaseModel.EncompassingEncounter","ContinuityOfCareDocumentCCD.EncompassingEncounter","DischargeSummary.EncompassingEncounter","OperativeNote.EncompassingEncounter","USRealmHeader.EncompassingEncounter","UnstructuredDocument.EncompassingEncounter"})
 public class EncompassingEncounter_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private II id = new IIImpl();
+    private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE_R2 code = new CE_R2Impl();
     private IVL_TS effectiveTime = new IVL_TSImpl();
     private CE_R2 dischargeDispositionCode = new CE_R2Impl();
@@ -62,14 +62,41 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.realmCode</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.realmCode</p>
+     * OperativeNote.EncompassingEncounter.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -83,14 +110,39 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.typeId</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.EncompassingEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.typeId</p>
+     * UnstructuredDocument.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: USRealmHeader.EncompassingEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -103,14 +155,39 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.typeId</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.EncompassingEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.typeId</p>
+     * UnstructuredDocument.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: USRealmHeader.EncompassingEncounter.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -123,14 +200,41 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.templateId</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.templateId</p>
+     * OperativeNote.EncompassingEncounter.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -143,50 +247,84 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.EncompassingEncounter.id</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: HistoryAndPhysical.EncompassingEncounter.id</p>
+     * <p>Relationship: OperativeNote.EncompassingEncounter.id</p>
      * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: DischargeSummary.EncompassingEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: USRealmHeader.EncompassingEncounter.id</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ConsultationNote.EncompassingEncounter.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: HistoryAndPhysical.EncompassingEncounter.id</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public List<Identifier> getId() {
+        return this.id.rawList();
     }
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.EncompassingEncounter.code</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.EncompassingEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.code</p>
+     * UnstructuredDocument.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: DischargeSummary.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: USRealmHeader.EncompassingEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -198,14 +336,39 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.EncompassingEncounter.code</p>
+     * <p>Relationship: 
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: OperativeNote.EncompassingEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.code</p>
+     * UnstructuredDocument.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: DischargeSummary.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: USRealmHeader.EncompassingEncounter.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -218,14 +381,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.effectiveTime</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.effectiveTime</p>
+     * OperativeNote.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -238,14 +429,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.effectiveTime</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.effectiveTime</p>
+     * OperativeNote.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -258,14 +477,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.dischargeDispositionCode</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.dischargeDispositionCode</p>
+     * OperativeNote.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -278,14 +525,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.dischargeDispositionCode</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.dischargeDispositionCode</p>
+     * OperativeNote.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.dischargeDispositionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.dischargeDispositionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -298,14 +573,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.responsibleParty</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.responsibleParty</p>
+     * OperativeNote.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -318,14 +621,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.responsibleParty</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.responsibleParty</p>
+     * OperativeNote.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.responsibleParty</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.responsibleParty</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -338,14 +669,42 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.encounterParticipant</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.encounterParticipant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.encounterParticipant</p>
+     * OperativeNote.EncompassingEncounter.encounterParticipant</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.encounterParticipant</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.encounterParticipant</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EncompassingEncounter.encounterParticipant</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.encounterParticipant</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -359,14 +718,41 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.location</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.location</p>
+     * OperativeNote.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -379,14 +765,41 @@ public class EncompassingEncounter_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncompassingEncounter.location</p>
+     * ContinuityOfCareDocumentCCD.EncompassingEncounter.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HistoryAndPhysical.EncompassingEncounter.location</p>
+     * OperativeNote.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * UnstructuredDocument.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * DischargeSummary.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EncompassingEncounter.location</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * USRealmHeader.EncompassingEncounter.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

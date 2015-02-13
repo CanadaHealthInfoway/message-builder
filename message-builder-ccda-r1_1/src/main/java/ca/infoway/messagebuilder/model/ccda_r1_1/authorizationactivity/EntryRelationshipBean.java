@@ -36,16 +36,16 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ActBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.EncounterBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.EntryRelationshipChoice;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ObservationBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ObservationMediaBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.OrganizerBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ProcedureBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.RegionOfInterestBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SubstanceAdministrationBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SupplyBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ActBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.EncounterBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.EntryRelationshipChoice;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ObservationBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ObservationMediaBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.OrganizerBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ProcedureBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.RegionOfInterestBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SubstanceAdministrationBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SupplyBean;
 import java.util.List;
 
 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AuthorizationActivity.EntryRelationship"})
 public class EntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.authorizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

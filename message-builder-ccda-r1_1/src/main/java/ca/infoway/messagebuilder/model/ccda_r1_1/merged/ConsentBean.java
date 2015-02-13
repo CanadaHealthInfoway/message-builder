@@ -38,10 +38,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.Consent","ContinuityOfCareDocumentCCD.Consent","DiagnosticImagingReport.Consent","DischargeSummary.Consent","HistoryAndPhysical.Consent","OperativeNote.Consent","POCD_MT000040.Consent","ProcedureNote.Consent","ProgressNote.Consent","USRealmHeader.Consent","UnstructuredDocument.Consent"})
+@Hl7PartTypeMapping({"BaseModel.Consent","ConsultationNote.Consent","ContinuityOfCareDocumentCCD.Consent","DiagnosticImagingReport.Consent","DischargeSummary.Consent","HistoryAndPhysical.Consent","OperativeNote.Consent","ProcedureNote.Consent","ProgressNote.Consent","USRealmHeader.Consent","UnstructuredDocument.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -54,12 +54,6 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Consent.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Consent.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -114,6 +108,12 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Consent.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Consent.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -128,12 +128,6 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Consent.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Consent.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -182,6 +176,12 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Consent.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Consent.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -205,12 +205,6 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Consent.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.Consent.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -259,6 +253,12 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Consent.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Consent.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -272,12 +272,6 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Consent.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Consent.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -332,6 +326,12 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Consent.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Consent.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -346,12 +346,6 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Consent.id</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -405,6 +399,12 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Consent.id</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Consent.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -419,12 +419,6 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Consent.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Consent.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -473,6 +467,12 @@ public class ConsentBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: USRealmHeader.Consent.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Consent.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -496,12 +496,6 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Consent.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.Consent.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -550,6 +544,12 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Consent.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Consent.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -562,7 +562,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Consent.statusCode</p>
+     * <p>Relationship: BaseModel.Consent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -574,7 +574,7 @@ public class ConsentBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Consent.statusCode</p>
+     * <p>Relationship: BaseModel.Consent.statusCode</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

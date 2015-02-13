@@ -201,7 +201,7 @@ public class CdaXsdFormatter {
 		
 		for (Entry<String,Object> entry : complexTypes.entrySet()) {
 			ComplexType complexType = new ComplexType();
-			complexType.setName(entry.getKey());
+			complexType.setName(reformatTypeName(entry.getKey()));
 			Object part = entry.getValue();
 			if (part instanceof MessagePart) {
 				populateComplexType(complexType, (MessagePart) part);
@@ -212,6 +212,14 @@ public class CdaXsdFormatter {
 			}
 			schema.getComplexTypes().add(complexType);
 		}
+	}
+
+	/*
+	 * Since we replaced the base model name with a more user-friendly on in the parser, we need to reverse the change here.
+	 */
+	private String reformatTypeName(String modelName) {
+		String rename = StringUtils.replace(modelName, "BaseModel", "POCD_MT000040");
+		return rename;
 	}
 
 	private boolean isValidComplexConstraint(ConstrainedDatatype datatype) {
@@ -230,7 +238,12 @@ public class CdaXsdFormatter {
 		for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
 			for (Relationship relationship : messagePart.getRelationships()) {
 				if (relationship.isAssociation() && !StringUtils.startsWith(relationship.getType(), packageName)) {
-					result.add(StringUtils.substringBefore(relationship.getType(), "."));
+					String dependencyPackage = StringUtils.substringBefore(relationship.getType(), ".");
+					if (StringUtils.equals(dependencyPackage, "BaseModel")) {
+						result.add("POCD_MT000040");
+					} else {
+						result.add(dependencyPackage);
+					}
 				}
 			}
 		}
@@ -295,9 +308,9 @@ public class CdaXsdFormatter {
 		
 		String constrainedTypeName = relationship.getConstrainedType();
 		if (isRenderableConstrainedType(constrainedTypeName) && relationship.getCardinality().isSingle()) {
-			element.setType(constrainedTypeName);
+			element.setType(reformatTypeName(constrainedTypeName));
 		} else if (isCandidate(relationship)) {
-			element.setType(formatName(relationship, part));
+			element.setType(reformatTypeName(formatName(relationship, part)));
 		} else {
 			if (relationship.getCardinality().isMultiple() && StandardDataType.isSetOrList(relationship.getType())) {
 				element.setType(StandardDataType.getTemplateArgument(relationship.getType()).getName());
@@ -306,7 +319,7 @@ public class CdaXsdFormatter {
 				if (standardType != null) {
 					element.setType(standardType.getName());
 				} else {
-					element.setType(relationship.getType());
+					element.setType(reformatTypeName(relationship.getType()));
 				}
 			}
 		}
@@ -326,7 +339,7 @@ public class CdaXsdFormatter {
 		return constrainedTypeName != null && 
 				(complexTypes.containsKey(constrainedTypeName) || 
 						StringUtils.equals(constrainedTypeName, "StrucDoc.Text") ||	// special case, defined elsewhere
-						StringUtils.startsWith(constrainedTypeName, "POCD_MT000040."));	// inherited from base model
+						StringUtils.startsWith(constrainedTypeName, "BaseModel."));	// inherited from base model
 	}
 
 	private XsElement formatElementAsChoiceOption(Relationship relationship, Relationship parent) {
@@ -342,7 +355,7 @@ public class CdaXsdFormatter {
 			}
 		}
 		
-		element.setType(relationship.getType());
+		element.setType(reformatTypeName(relationship.getType()));
 		
 		return element;
 	}
@@ -470,7 +483,7 @@ public class CdaXsdFormatter {
 		return content;
 	}
 
-	private String formatName(Relationship relationship,	MessagePart messagePart) {
+	private String formatName(Relationship relationship, MessagePart messagePart) {
 		return messagePart.getName() + "." + relationship.getName();
 	}
 	

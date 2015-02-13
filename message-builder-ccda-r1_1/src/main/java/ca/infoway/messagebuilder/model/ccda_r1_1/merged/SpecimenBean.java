@@ -36,10 +36,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Specimen","ProcedureActivityProcedure.Specimen"})
+@Hl7PartTypeMapping({"BaseModel.Specimen","ProcedureActivityProcedure.Specimen"})
 public class SpecimenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -49,14 +49,14 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.realmCode</p>
+     * <p>Relationship: BaseModel.Specimen.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.realmCode</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Specimen.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -69,13 +69,13 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityProcedure.Specimen.typeId</p>
+     * <p>Relationship: BaseModel.Specimen.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.typeId</p>
+     * <p>Relationship: ProcedureActivityProcedure.Specimen.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -87,13 +87,13 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ProcedureActivityProcedure.Specimen.typeId</p>
+     * <p>Relationship: BaseModel.Specimen.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.typeId</p>
+     * <p>Relationship: ProcedureActivityProcedure.Specimen.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -105,14 +105,14 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.templateId</p>
+     * <p>Relationship: BaseModel.Specimen.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.templateId</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Specimen.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -125,14 +125,14 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.specimenRole</p>
+     * <p>Relationship: BaseModel.Specimen.specimenRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.specimenRole</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Specimen.specimenRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -144,14 +144,14 @@ public class SpecimenBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityProcedure.Specimen.specimenRole</p>
+     * <p>Relationship: BaseModel.Specimen.specimenRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Specimen.specimenRole</p>
+     * <p>Relationship: 
+     * ProcedureActivityProcedure.Specimen.specimenRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

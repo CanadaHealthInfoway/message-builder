@@ -43,16 +43,16 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.Participant2Bean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ReferenceBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.ProblemActStatusCode;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryRelationshipChoice_5;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.SpecimenBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.Participant2Bean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.PreconditionBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ReferenceBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

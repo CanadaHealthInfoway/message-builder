@@ -152,7 +152,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("EstimatedDateOfDelivery.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("templateId")) {
 				foundCardinalityCase = true;
 				
@@ -236,7 +236,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PregnancyObservation.Observation") && delta.getRelationshipName().equals("value")) {
 				
 				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
@@ -359,7 +359,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PregnancyObservation.Observation") && delta.getRelationshipName().equals("entryRelationship")) {
 				
 				assertTrue(delta instanceof AssociationDelta);
@@ -374,7 +374,7 @@ public class CdaTemplateProcessorTest {
 				Constraint typeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(typeConstraint);
 				foundTypeCase = true;
-				assertEquals("POCD_MT000040.EntryRelationship", ((AssociationTypeConstraint) typeConstraint).getOriginalValue());
+				assertEquals("BaseModel.EntryRelationship", ((AssociationTypeConstraint) typeConstraint).getOriginalValue());
 				assertEquals("PregnancyObservation.EntryRelationshipChoice", ((AssociationTypeConstraint) typeConstraint).getNewValue());
 			}
 		}
@@ -401,7 +401,7 @@ public class CdaTemplateProcessorTest {
 				Constraint typeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(typeConstraint);
 				foundTypeCase = true;
-				assertEquals("POCD_MT000040.ManufacturedProduct", ((AssociationTypeConstraint) typeConstraint).getOriginalValue());
+				assertEquals("BaseModel.ManufacturedProduct", ((AssociationTypeConstraint) typeConstraint).getOriginalValue());
 				assertEquals("MedicationInformation.ManufacturedProduct", ((AssociationTypeConstraint) typeConstraint).getNewValue());
 			}
 		}
@@ -425,7 +425,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("EstimatedDateOfDelivery.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("templateId.root")) {
 				foundInnerFieldCase = true;
 				
@@ -464,7 +464,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("SOPInstanceObservation.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("SOPInstanceObservation.Observation") && delta.getRelationshipName().equals("code.codeSystem")) {
 				Constraint fixedConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
 				assertNotNull(fixedConstraint);
@@ -505,7 +505,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("MedicationActivity.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("MedicationActivity.SubstanceAdministration") && delta.getRelationshipName().equals("text.reference")) {
 				foundFirstInnerConstraint = true;
 				
@@ -562,7 +562,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.EntryRelationship", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.EntryRelationship", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship") && delta.getRelationshipName().equals("typeCode")) {
 				foundFixedCase = true;
 				
@@ -597,7 +597,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PregnancyObservation.Observation") && delta.getRelationshipName().equals("entryRelationship")) {
 				foundCardinalityConstraint = true;
 				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
@@ -614,7 +614,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PregnancyObservation.EntryRelationship", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.EntryRelationship", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PregnancyObservation.EntryRelationship") && delta.getRelationshipName().equals("entryRelationshipChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -696,7 +696,7 @@ public class CdaTemplateProcessorTest {
 				assertFalse(((AddChoiceConstraint)addChoiceConstraints.get(1)).isDefault());
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
 				assertFalse(((AddChoiceConstraint)addChoiceConstraints.get(2)).isDefault());
-				assertEquals("POCD_MT000040.Entry", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertEquals("BaseModel.Entry", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
 				assertTrue(((AddChoiceConstraint)addChoiceConstraints.get(3)).isDefault());
 			}
 
@@ -707,7 +707,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				procedureEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -730,7 +730,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				observationEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -753,7 +753,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				actEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesRequired.ProcedureActivityActEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesRequired.ProcedureActivityActEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -839,7 +839,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityActEntry", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Entry", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
+				assertEquals("BaseModel.Entry", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry") && delta.getRelationshipName() == null) {
@@ -849,7 +849,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				procedureEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -872,7 +872,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				observationEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityObservationEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -895,7 +895,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				actEntryCloneConstraintFound = true;
 				assertEquals("ProceduresSectionentriesOptional.ProcedureActivityActEntry", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Entry", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProceduresSectionentriesOptional.ProcedureActivityActEntry") && delta.getRelationshipName().equals("entryChoice")) {
 				assertEquals(DeltaChangeType.REMOVE, delta.getDeltaChangeType());
 				
@@ -952,7 +952,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("EstimatedDateOfDelivery.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("negationInd")) {
 				foundStructuralAttributeCase = true;
 				
@@ -995,7 +995,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("MedicationActivity.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("MedicationActivity.SubstanceAdministration") && delta.getRelationshipName().equals("effectiveTime")) {
 				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
 				assertNotNull(cardinalityConstraint);
@@ -1025,7 +1025,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("MedicationActivity.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.SubstanceAdministration", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("MedicationActivity.SubstanceAdministration") && delta.getRelationshipName().equals("approachSiteCode")) {
 				Constraint setConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_DATATYPE);
 				assertNotNull(setConstraint);
@@ -1052,7 +1052,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("ResultObservation.ObservationRange", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.ObservationRange", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.ObservationRange", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ResultObservation.ObservationRange") && delta.getRelationshipName().equals("code")) {
 				Constraint cardinalityConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_CARDINALITY);
 				assertNotNull(cardinalityConstraint);
@@ -1087,7 +1087,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.ClinicalDocument", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.ClinicalDocument") && delta.getRelationshipName().equals("confidentialityCode")) {
 				Constraint bindingConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
 				assertNotNull(bindingConstraint);
@@ -1110,7 +1110,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.Patient", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.Patient") && delta.getRelationshipName().equals("maritalStatusCode")) {
 				Constraint bindingConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
 				assertNotNull(bindingConstraint);
@@ -1136,7 +1136,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("PlanOfCareActivityAct.Act", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Act", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Act", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PlanOfCareActivityAct.Act") && delta.getRelationshipName().equals("moodCode")) {
 				Constraint bindingConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_VOCABULARY_BINDING);
 				assertNotNull(bindingConstraint);
@@ -1184,7 +1184,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("EstimatedDateOfDelivery.Observation", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Observation", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("EstimatedDateOfDelivery.Observation") && delta.getRelationshipName().equals("code")) {
 				Constraint fixedConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
 				assertNotNull(fixedConstraint);
@@ -1238,7 +1238,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.Performer1", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Performer1", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Performer1", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.Performer1") && delta.getRelationshipName().equals("typeCode")) {
 				Constraint fixedConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
 				assertNull(fixedConstraint);
@@ -1272,7 +1272,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.ClinicalDocument", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.ClinicalDocument") && delta.getRelationshipName().equals("effectiveTime")) {
 				Constraint schematronConstraint = delta.getConstraint(ConstraintChangeType.SCHEMATRON);
 				assertNotNull(schematronConstraint);
@@ -1291,7 +1291,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.Patient", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.Patient") && delta.getRelationshipName().equals("birthTime")) {
 				List<Constraint> schematronConstraints = delta.getAllConstraints(ConstraintChangeType.SCHEMATRON);
 				assertNotNull(schematronConstraints);
@@ -1309,7 +1309,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("USRealmHeader.Author", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Author", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Author", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("USRealmHeader.Author") && delta.getRelationshipName().equals("assignedAuthor")) {
 				Constraint schematronConstraint = delta.getConstraint(ConstraintChangeType.SCHEMATRON);
 				assertNotNull(schematronConstraint);
@@ -1341,7 +1341,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("ProgressNote.ClinicalDocument", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.ClinicalDocument", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProgressNote.ClinicalDocument") && delta.getRelationshipName().equals("realmCode")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
 				assertNotNull(constraint);
@@ -1370,7 +1370,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("ProgressNote.Patient", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Patient", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProgressNote.Patient") && delta.getRelationshipName().equals("birthTime")) {
 				List<Constraint> schematronConstraints = delta.getAllConstraints(ConstraintChangeType.SCHEMATRON);
 				assertNotNull(schematronConstraints);
@@ -1522,7 +1522,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals(3, constraints.size());
 				assertEquals("PolicyActivity.PayerPerformerPerformer2", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
 				assertEquals("PolicyActivity.GuarantorPerformerPerformer2", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Performer2", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
+				assertEquals("BaseModel.Performer2", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
 				choiceBlockFound = true;
 			}
 			
@@ -1531,7 +1531,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerPerformer2") && delta.getRelationshipName().equals("time")) {
 				assertNotNull(delta.getConstraint(ConstraintChangeType.REMOVE));
 				payerPerformerTimeRemoved = true;
@@ -1547,7 +1547,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.Performer2", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerPerformer2") && delta.getRelationshipName().equals("assignedEntity")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1560,7 +1560,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PolicyActivity.PayerPerformerAssignedEntity") && delta.getRelationshipName().equals("assignedPerson")) {
 				assertNotNull(delta.getConstraint(ConstraintChangeType.REMOVE));
 				payerEntityPersonRemoved = true;
@@ -1579,7 +1579,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.AssignedEntity", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PolicyActivity.GuarantorPerformerAssignedEntity") && delta.getRelationshipName().equals("code")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_FIXED);
 				assertNotNull(constraint);
@@ -1635,7 +1635,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("PressureUlcerObservation.LengthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
 				assertEquals("PressureUlcerObservation.WidthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
 				assertEquals("PressureUlcerObservation.DepthofWoundEntryRelationship", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
-				assertEquals("POCD_MT000040.EntryRelationship", ((AddChoiceConstraint)constraints.get(3)).getChoiceClassName());
+				assertEquals("BaseModel.EntryRelationship", ((AddChoiceConstraint)constraints.get(3)).getChoiceClassName());
 				choiceBlockFound = true;
 			}
 			
@@ -1644,7 +1644,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PressureUlcerObservation.LengthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1657,7 +1657,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PressureUlcerObservation.WidthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1670,7 +1670,7 @@ public class CdaTemplateProcessorTest {
 				
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
-				assertEquals("POCD_MT000040.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.EntryRelationship", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("PressureUlcerObservation.DepthofWoundEntryRelationship") && delta.getRelationshipName().equals("observation")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1705,7 +1705,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals(3, constraints.size());
 				assertEquals("AdvanceDirectiveObservation.VerifierParticipant2", ((AddChoiceConstraint)constraints.get(0)).getChoiceClassName());
 				assertEquals("AdvanceDirectiveObservation.CustodianParticipant2", ((AddChoiceConstraint)constraints.get(1)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Participant2", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
+				assertEquals("BaseModel.Participant2", ((AddChoiceConstraint)constraints.get(2)).getChoiceClassName());
 				choiceBlockFound = true;
 			}
 			
@@ -1715,7 +1715,7 @@ public class CdaTemplateProcessorTest {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
 				verifierCloneFound = true;
-				assertEquals("POCD_MT000040.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("AdvanceDirectiveObservation.VerifierParticipant2") && delta.getRelationshipName().equals("participantRole")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1729,7 +1729,7 @@ public class CdaTemplateProcessorTest {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(constraint);
 				custodianCloneFound = true;
-				assertEquals("POCD_MT000040.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
+				assertEquals("BaseModel.Participant2", ((CloneConstraint)constraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("AdvanceDirectiveObservation.CustodianParticipant2") && delta.getRelationshipName().equals("participantRole")) {
 				Constraint constraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(constraint);
@@ -1765,7 +1765,7 @@ public class CdaTemplateProcessorTest {
 				Constraint associationTypeConstraint = delta.getConstraint(ConstraintChangeType.CHANGE_ASSOCIATION_TYPE);
 				assertNotNull(associationTypeConstraint);
 				component2ChoiceAssociationConstraintFound = true;
-				assertEquals("POCD_MT000040.Component2Choice", ((AssociationTypeConstraint) associationTypeConstraint).getOriginalValue());
+				assertEquals("BaseModel.Component2Choice", ((AssociationTypeConstraint) associationTypeConstraint).getOriginalValue());
 				assertEquals("ProgressNote.Component2Choice", ((AssociationTypeConstraint) associationTypeConstraint).getNewValue());
 			}
 
@@ -1814,7 +1814,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("ProgressNote.ReviewOfSystemsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(17)).getChoiceClassName());
 				assertEquals("ProgressNote.SubjectiveSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(18)).getChoiceClassName());
 				assertEquals("ProgressNote.InstructionsSectionComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(19)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(20)).getChoiceClassName());
+				assertEquals("BaseModel.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(20)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("ProgressNote.ObjectiveSectionComponent3") && delta.getRelationshipName() == null) {
@@ -1824,7 +1824,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				objectiveSectionCloneConstraintFound = true;
 				assertEquals("ProgressNote.ObjectiveSectionComponent3", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Component3", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Component3", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			} else if (delta.getClassName().equals("ProgressNote.ObjectiveSectionComponent3") && delta.getRelationshipName().equals("section")) {
 				assertEquals(DeltaChangeType.DEFINITION, delta.getDeltaChangeType());
 				
@@ -1968,7 +1968,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("DiagnosticImagingReport.ObserverContextComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(2)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.FindingsSectionDIRComponent3", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
 				assertEquals("DiagnosticImagingReport.DICOMObjectCatalogSectionDCM121181Component3", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
+				assertEquals("BaseModel.Component3", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("DiagnosticImagingReport.EncompassingEncounter") && delta.getRelationshipName() == null) {
@@ -2158,7 +2158,7 @@ public class CdaTemplateProcessorTest {
 				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
 				assertEquals(2, addChoiceConstraints.size());
 				assertEquals("ContinuityOfCareDocumentCCD.Participant1", ((AddChoiceConstraint)addChoiceConstraints.get(0)).getChoiceClassName());
-				assertEquals("POCD_MT000040.Participant1", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("BaseModel.Participant1", ((AddChoiceConstraint)addChoiceConstraints.get(1)).getChoiceClassName());
 			}
 
 			if (delta.getClassName().equals("ContinuityOfCareDocumentCCD.Participant1") && delta.getRelationshipName() == null) {
@@ -2168,7 +2168,7 @@ public class CdaTemplateProcessorTest {
 				assertNotNull(cloneConstraint);
 				participantCloneConstraintFound = true;
 				assertEquals("ContinuityOfCareDocumentCCD.Participant1", ((CloneConstraint) cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.Participant1", ((CloneConstraint) cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.Participant1", ((CloneConstraint) cloneConstraint).getOriginalClassName());
 			}
 			
 		}
@@ -2209,7 +2209,7 @@ public class CdaTemplateProcessorTest {
 				Constraint cloneConstraint = delta.getConstraint(ConstraintChangeType.CLONE);
 				assertNotNull(cloneConstraint);
 				assertEquals("ContinuityOfCareDocumentCCD.AssignedAuthorChoice", ((CloneConstraint)cloneConstraint).getClassName());
-				assertEquals("POCD_MT000040.AssignedAuthorChoice", ((CloneConstraint)cloneConstraint).getOriginalClassName());
+				assertEquals("BaseModel.AssignedAuthorChoice", ((CloneConstraint)cloneConstraint).getOriginalClassName());
 			
 			} else if (delta.getClassName().equals("ContinuityOfCareDocumentCCD.AssignedAuthorChoice") && delta.getRelationshipName() == null && delta.getDeltaChangeType().equals(DeltaChangeType.CHOICE)) {
 
@@ -2218,8 +2218,8 @@ public class CdaTemplateProcessorTest {
 				List<Constraint> removeChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.REMOVE_CHOICE);
 				assertNotNull(removeChoiceConstraints);
 				assertEquals(2, removeChoiceConstraints.size());
-				assertEquals("POCD_MT000040.Person", ((RemoveChoiceConstraint)removeChoiceConstraints.get(0)).getChoiceClassName());
-				assertEquals("POCD_MT000040.AuthoringDevice", ((RemoveChoiceConstraint)removeChoiceConstraints.get(1)).getChoiceClassName());
+				assertEquals("BaseModel.Person", ((RemoveChoiceConstraint)removeChoiceConstraints.get(0)).getChoiceClassName());
+				assertEquals("BaseModel.AuthoringDevice", ((RemoveChoiceConstraint)removeChoiceConstraints.get(1)).getChoiceClassName());
 				
 				List<Constraint> addChoiceConstraints = delta.getAllConstraints(ConstraintChangeType.ADD_CHOICE);
 				assertNotNull(addChoiceConstraints);
@@ -2256,7 +2256,7 @@ public class CdaTemplateProcessorTest {
 				assertEquals("FunctionalStatusProblemObservation.AgeObservationEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(3)).getChoiceClassName());
 				assertEquals("FunctionalStatusProblemObservation.ProblemStatusEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(4)).getChoiceClassName());
 				assertEquals("FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(5)).getChoiceClassName());
-				assertEquals("POCD_MT000040.EntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(6)).getChoiceClassName());
+				assertEquals("BaseModel.EntryRelationship", ((AddChoiceConstraint)addChoiceConstraints.get(6)).getChoiceClassName());
 			}
 		}
 		assertTrue(foundChoiceBlockDefinitionCase);

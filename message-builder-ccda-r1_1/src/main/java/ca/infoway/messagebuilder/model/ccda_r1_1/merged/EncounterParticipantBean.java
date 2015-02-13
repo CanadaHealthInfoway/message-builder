@@ -40,10 +40,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant","POCD_MT000040.EncounterParticipant"})
+@Hl7PartTypeMapping({"BaseModel.EncounterParticipant","ConsultationNote.EncounterParticipant","HistoryAndPhysical.EncounterParticipant"})
 public class EncounterParticipantBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedurenote.EncounterParticipantChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
@@ -62,14 +62,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.typeCode</p>
+     * <p>Relationship: 
+     * ConsultationNote.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.typeCode</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -88,14 +88,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.typeCode</p>
+     * <p>Relationship: 
+     * ConsultationNote.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.typeCode</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -115,14 +115,13 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EncounterParticipant.realmCode</p>
+     * ConsultationNote.EncounterParticipant.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.realmCode</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -142,14 +141,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.typeId</p>
+     * <p>Relationship: 
+     * ConsultationNote.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.typeId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -168,14 +167,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.typeId</p>
+     * <p>Relationship: 
+     * ConsultationNote.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.typeId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -195,14 +194,13 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EncounterParticipant.templateId</p>
+     * ConsultationNote.EncounterParticipant.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.templateId</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -222,13 +220,13 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.time</p>
+     * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -247,13 +245,13 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.EncounterParticipant.time</p>
+     * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: ConsultationNote.EncounterParticipant.time</p>
+     * <p>Relationship: BaseModel.EncounterParticipant.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -273,14 +271,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EncounterParticipant.assignedEntity</p>
+     * ConsultationNote.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.assignedEntity</p>
+     * BaseModel.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -300,14 +298,14 @@ public class EncounterParticipantBean extends MessagePartBean implements ca.info
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.EncounterParticipant.assignedEntity</p>
+     * ConsultationNote.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * ConsultationNote.EncounterParticipant.assignedEntity</p>
+     * BaseModel.EncounterParticipant.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

@@ -71,19 +71,19 @@ public class CdaXsdProcessorTest {
 	
 	@Test
 	public void shouldCreateMessagePart() throws Exception {
-		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
+		MessagePart actMessagePart = messageSet.getMessagePart("BaseModel.Act");
 		assertNotNull(actMessagePart);
 		
-		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor");
+		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("BaseModel.AssignedAuthor");
 		assertNotNull(assignedAuthorMessagePart);
 		
-		MessagePart component2MessagePart = messageSet.getMessagePart("POCD_MT000040.Component2");
+		MessagePart component2MessagePart = messageSet.getMessagePart("BaseModel.Component2");
 		assertNotNull(component2MessagePart);
 	}
 
 	@Test
 	public void shouldParseAttributes() throws Exception {
-		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
+		MessagePart actMessagePart = messageSet.getMessagePart("BaseModel.Act");
 		assertNotNull(actMessagePart);
 		
 		// exception - the nullFlavor attribute is special, and should not be parsed
@@ -166,7 +166,7 @@ public class CdaXsdProcessorTest {
 		assertEquals(0, effectiveTimeRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, effectiveTimeRelationship.getCardinality().getMax().intValue());
 		
-		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor");
+		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("BaseModel.AssignedAuthor");
 		assertNotNull(assignedAuthorMessagePart);
 		
 		Relationship classCodeRelationship2 = assignedAuthorMessagePart.getRelationship("classCode");
@@ -182,14 +182,14 @@ public class CdaXsdProcessorTest {
 		assertEquals(0, classCodeRelationship2.getCardinality().getMin().intValue());
 		assertEquals(1, classCodeRelationship2.getCardinality().getMax().intValue());
 		
-		MessagePart criterionMessagePart = messageSet.getMessagePart("POCD_MT000040.Criterion");
+		MessagePart criterionMessagePart = messageSet.getMessagePart("BaseModel.Criterion");
 		assertNotNull(criterionMessagePart);
 		
 		Relationship classCodeRelationship3 = criterionMessagePart.getRelationship("classCode");
 		assertNotNull(classCodeRelationship3);
 		assertEquals("OBS", classCodeRelationship3.getDefaultValue());
 		
-		MessagePart sectionMessagePart = messageSet.getMessagePart("POCD_MT000040.Section");
+		MessagePart sectionMessagePart = messageSet.getMessagePart("BaseModel.Section");
 		assertNotNull(sectionMessagePart);
 		
 		Relationship sectionIdRelationship = sectionMessagePart.getRelationship("ID");
@@ -201,14 +201,14 @@ public class CdaXsdProcessorTest {
 
 	@Test
 	public void shouldParseAssociations() throws Exception {
-		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
+		MessagePart actMessagePart = messageSet.getMessagePart("BaseModel.Act");
 		assertNotNull(actMessagePart);
 		
 		Relationship subjectRelationship = actMessagePart.getRelationship("subject");
 		assertNotNull(subjectRelationship);
 		assertTrue(subjectRelationship.isAssociation());
 		assertEquals(14, subjectRelationship.getSortOrder());
-		assertEquals("POCD_MT000040.Subject", subjectRelationship.getType());
+		assertEquals("BaseModel.Subject", subjectRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, subjectRelationship.getConformance());
 		assertEquals(0, subjectRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, subjectRelationship.getCardinality().getMax().intValue());
@@ -217,7 +217,7 @@ public class CdaXsdProcessorTest {
 		assertNotNull(specimenRelationship);
 		assertTrue(specimenRelationship.isAssociation());
 		assertEquals(15, specimenRelationship.getSortOrder());
-		assertEquals("POCD_MT000040.Specimen", specimenRelationship.getType());
+		assertEquals("BaseModel.Specimen", specimenRelationship.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, specimenRelationship.getConformance());
 		assertEquals(0, specimenRelationship.getCardinality().getMin().intValue());
 		assertEquals(Integer.MAX_VALUE, specimenRelationship.getCardinality().getMax().intValue());
@@ -226,13 +226,13 @@ public class CdaXsdProcessorTest {
 	
 	@Test
 	public void shouldParseChoices() throws Exception {
-		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthor");
+		MessagePart assignedAuthorMessagePart = messageSet.getMessagePart("BaseModel.AssignedAuthor");
 		assertNotNull(assignedAuthorMessagePart);
 		
 		Relationship assignedChoice = assignedAuthorMessagePart.getRelationship("assignedAuthorChoice");
 		assertNotNull(assignedChoice);
 		assertTrue(assignedChoice.isChoice());
-		assertEquals("POCD_MT000040.AssignedAuthorChoice", assignedChoice.getType());
+		assertEquals("BaseModel.AssignedAuthorChoice", assignedChoice.getType());
 		assertEquals(ConformanceLevel.OPTIONAL, assignedChoice.getConformance());
 		assertEquals(0, assignedChoice.getCardinality().getMin().intValue());
 		assertEquals(1, assignedChoice.getCardinality().getMax().intValue());
@@ -242,25 +242,25 @@ public class CdaXsdProcessorTest {
 		Relationship assignedPersonRelationship = assignedChoice.getChoices().get(0);
 		assertNotNull(assignedPersonRelationship);
 		assertEquals("assignedPerson", assignedPersonRelationship.getName());
-		assertEquals("POCD_MT000040.Person", assignedPersonRelationship.getType());
+		assertEquals("BaseModel.Person", assignedPersonRelationship.getType());
 		
 		Relationship assignedAuthoringDeviceRelationship = assignedChoice.getChoices().get(1);
 		assertNotNull(assignedAuthoringDeviceRelationship);
 		assertEquals("assignedAuthoringDevice", assignedAuthoringDeviceRelationship.getName());
-		assertEquals("POCD_MT000040.AuthoringDevice", assignedAuthoringDeviceRelationship.getType());
+		assertEquals("BaseModel.AuthoringDevice", assignedAuthoringDeviceRelationship.getType());
 		
-		MessagePart assignedChoicePart = messageSet.getMessagePart("POCD_MT000040.AssignedAuthorChoice");
+		MessagePart assignedChoicePart = messageSet.getMessagePart("BaseModel.AssignedAuthorChoice");
 		assertNotNull(assignedChoicePart);
 		
 		SpecializationChild assignedPersonSpecializationChild = assignedChoicePart.getSpecializationChilds().get(0);
 		assertNotNull(assignedPersonSpecializationChild);
-		assertEquals("POCD_MT000040.Person", assignedPersonSpecializationChild.getName());
+		assertEquals("BaseModel.Person", assignedPersonSpecializationChild.getName());
 		
 		SpecializationChild assignedAuthoringDeviceSpecializationChild = assignedChoicePart.getSpecializationChilds().get(1);
 		assertNotNull(assignedAuthoringDeviceSpecializationChild);
-		assertEquals("POCD_MT000040.AuthoringDevice", assignedAuthoringDeviceSpecializationChild.getName());
+		assertEquals("BaseModel.AuthoringDevice", assignedAuthoringDeviceSpecializationChild.getName());
 		
-		MessagePart component2MessagePart = messageSet.getMessagePart("POCD_MT000040.Component2");
+		MessagePart component2MessagePart = messageSet.getMessagePart("BaseModel.Component2");
 		assertNotNull(component2MessagePart);
 		
 		Relationship bodyChoice = component2MessagePart.getRelationship("component2Choice");
@@ -272,16 +272,16 @@ public class CdaXsdProcessorTest {
 		Relationship structuredBodyRelationship = bodyChoice.getChoices().get(1);
 		assertNotNull(structuredBodyRelationship);
 		assertEquals("structuredBody", structuredBodyRelationship.getName());
-		assertEquals("POCD_MT000040.StructuredBody", structuredBodyRelationship.getType());
+		assertEquals("BaseModel.StructuredBody", structuredBodyRelationship.getType());
 	}
 
 	@Test
 	public void shouldParseConstrainedDatatypes() throws Exception {
 		// Do not create bogus message parts for these guys
-		assertNull(messageSet.getMessagePart("POCD_MT000040.InfrastructureRoot.typeId"));
-		assertNull(messageSet.getMessagePart("POCD_MT000040.RegionOfInterest.value"));
+		assertNull(messageSet.getMessagePart("BaseModel.InfrastructureRoot.typeId"));
+		assertNull(messageSet.getMessagePart("BaseModel.RegionOfInterest.value"));
 		
-		MessagePart actMessagePart = messageSet.getMessagePart("POCD_MT000040.Act");
+		MessagePart actMessagePart = messageSet.getMessagePart("BaseModel.Act");
 		assertNotNull(actMessagePart);
 		
 		Relationship typeIdRelationship = actMessagePart.getRelationship("typeId");
@@ -290,12 +290,12 @@ public class CdaXsdProcessorTest {
 		assertFalse(typeIdRelationship.isStructural());
 		assertEquals(5, typeIdRelationship.getSortOrder());
 		assertEquals("II", typeIdRelationship.getType());
-		assertEquals("POCD_MT000040.InfrastructureRoot.typeId", typeIdRelationship.getConstrainedType());
+		assertEquals("BaseModel.InfrastructureRoot.typeId", typeIdRelationship.getConstrainedType());
 		assertEquals(ConformanceLevel.OPTIONAL, typeIdRelationship.getConformance());
 		assertEquals(0, typeIdRelationship.getCardinality().getMin().intValue());
 		assertEquals(1, typeIdRelationship.getCardinality().getMax().intValue());
 		
-		ConstrainedDatatype typeIdConstrainedType = messageSet.getConstrainedDatatype("POCD_MT000040.InfrastructureRoot.typeId");
+		ConstrainedDatatype typeIdConstrainedType = messageSet.getConstrainedDatatype("BaseModel.InfrastructureRoot.typeId");
 		assertNotNull(typeIdConstrainedType);
 		assertTrue(typeIdConstrainedType.isRestriction());
 		assertFalse(typeIdConstrainedType.isExtension());
@@ -313,7 +313,7 @@ public class CdaXsdProcessorTest {
 		assertEquals("ST", extensionRelationship.getType());
 		assertEquals(ConformanceLevel.MANDATORY, extensionRelationship.getConformance());
 		
-		ConstrainedDatatype regionOfInterestValueConstrainedType = messageSet.getConstrainedDatatype("POCD_MT000040.RegionOfInterest.value");
+		ConstrainedDatatype regionOfInterestValueConstrainedType = messageSet.getConstrainedDatatype("BaseModel.RegionOfInterest.value");
 		assertNotNull(regionOfInterestValueConstrainedType);
 		assertTrue(regionOfInterestValueConstrainedType.isExtension());
 		assertFalse(regionOfInterestValueConstrainedType.isRestriction());
@@ -327,7 +327,7 @@ public class CdaXsdProcessorTest {
 		assertEquals(ConformanceLevel.OPTIONAL, unsortedRelationship.getConformance());
 		assertEquals("false", unsortedRelationship.getDefaultValue());
 		
-		MessagePart sectionMessagePart = messageSet.getMessagePart("POCD_MT000040.Section");
+		MessagePart sectionMessagePart = messageSet.getMessagePart("BaseModel.Section");
 		assertNotNull(sectionMessagePart);
 		
 		Relationship textRelationship = sectionMessagePart.getRelationship("text");
@@ -343,7 +343,7 @@ public class CdaXsdProcessorTest {
 	
 	@Test
 	public void shouldParseExtendedAttributes() throws Exception {
-		MessagePart encounterMessagePart = messageSet.getMessagePart("POCD_MT000040.Encounter");
+		MessagePart encounterMessagePart = messageSet.getMessagePart("BaseModel.Encounter");
 		assertNotNull(encounterMessagePart);
 		Relationship dischargeDispositionCode = encounterMessagePart.getRelationship("dischargeDispositionCode", "sdtc");
 		assertNotNull(dischargeDispositionCode);
@@ -355,7 +355,7 @@ public class CdaXsdProcessorTest {
 		assertEquals(1, dischargeDispositionCode.getCardinality().getMax().intValue());
 		assertEquals("sdtc", dischargeDispositionCode.getNamespace());
 
-		MessagePart patientMessagePart = messageSet.getMessagePart("POCD_MT000040.Patient");
+		MessagePart patientMessagePart = messageSet.getMessagePart("BaseModel.Patient");
 		assertNotNull(patientMessagePart);
 		Relationship baseRaceCode = patientMessagePart.getRelationship("raceCode");
 		assertNotNull(baseRaceCode);
@@ -387,10 +387,10 @@ public class CdaXsdProcessorTest {
 	public void shouldCreateDefaultInteraction() throws Exception {
 		Map<String, Interaction> allInteractions = messageSet.getInteractions();
 		assertEquals(1, allInteractions.size());
-		Interaction interaction = allInteractions.get("POCD_MT000040");
+		Interaction interaction = allInteractions.get("BaseModel");
 		assertNotNull(interaction);
-		assertEquals("POCD_MT000040", interaction.getName());
-		assertEquals("POCD_MT000040.ClinicalDocument", interaction.getSuperTypeName());
+		assertEquals("BaseModel", interaction.getName());
+		assertEquals("BaseModel.ClinicalDocument", interaction.getSuperTypeName());
 		assertEquals("document", interaction.getCategory());
 	}
 }

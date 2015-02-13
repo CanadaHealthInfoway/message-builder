@@ -41,10 +41,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Device","ProductInstance.Device"})
-public class DeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.pocd_mt000040.ParticipantRoleChoice {
+@Hl7PartTypeMapping({"BaseModel.Device","ProductInstance.Device"})
+public class DeviceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private CS_R2 classCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
@@ -63,7 +63,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.classCode</p>
+     * <p>Relationship: BaseModel.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -81,7 +81,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.classCode</p>
+     * <p>Relationship: BaseModel.Device.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -99,7 +99,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.realmCode</p>
+     * <p>Relationship: BaseModel.Device.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -118,7 +118,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.typeId</p>
+     * <p>Relationship: BaseModel.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -136,7 +136,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.typeId</p>
+     * <p>Relationship: BaseModel.Device.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -154,7 +154,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.templateId</p>
+     * <p>Relationship: BaseModel.Device.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -173,7 +173,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.code</p>
+     * <p>Relationship: BaseModel.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -191,7 +191,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.code</p>
+     * <p>Relationship: BaseModel.Device.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -210,7 +210,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.manufacturerModelName</p>
+     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -229,7 +229,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.manufacturerModelName</p>
+     * <p>Relationship: BaseModel.Device.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -247,7 +247,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.softwareName</p>
+     * <p>Relationship: BaseModel.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -265,7 +265,7 @@ public class DeviceBean extends MessagePartBean implements ca.infoway.messagebui
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Device.softwareName</p>
+     * <p>Relationship: BaseModel.Device.softwareName</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

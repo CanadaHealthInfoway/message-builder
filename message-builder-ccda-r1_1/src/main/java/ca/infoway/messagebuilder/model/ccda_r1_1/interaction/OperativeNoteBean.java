@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"OperativeNote"})
 public class OperativeNoteBean extends ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.OperativeNoteBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
 
 }

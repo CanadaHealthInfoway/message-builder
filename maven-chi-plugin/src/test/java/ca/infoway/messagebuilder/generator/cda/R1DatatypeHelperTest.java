@@ -70,9 +70,9 @@ public class R1DatatypeHelperTest {
 		R1DatatypeHelper.convertBaseDatatypesToPolymorphic(derivedMessageSet);
 		
 		// In base template
-		assertEquals("TSCDAR1", derivedMessageSet.getMessagePart("POCD_MT000040.Authenticator").getRelationship("time").getType());
-		assertEquals("IVLTSCDAR1", derivedMessageSet.getMessagePart("POCD_MT000040.Act").getRelationship("effectiveTime").getType());
-		assertEquals("LIST<SXCMTSCDAR1>", derivedMessageSet.getMessagePart("POCD_MT000040.SubstanceAdministration").getRelationship("effectiveTime").getType());
+		assertEquals("TSCDAR1", derivedMessageSet.getMessagePart("BaseModel.Authenticator").getRelationship("time").getType());
+		assertEquals("IVLTSCDAR1", derivedMessageSet.getMessagePart("BaseModel.Act").getRelationship("effectiveTime").getType());
+		assertEquals("LIST<SXCMTSCDAR1>", derivedMessageSet.getMessagePart("BaseModel.SubstanceAdministration").getRelationship("effectiveTime").getType());
 		
 		// In constrained template
 		assertEquals("TS.DATETIME", derivedMessageSet.getMessagePart("PanCanadianHeader.Authenticator").getRelationship("time").getType());
@@ -87,9 +87,9 @@ public class R1DatatypeHelperTest {
 		R1DatatypeHelper.convertPolymorphicDatatypesToBaseTypes(derivedMessageSet);
 		
 		// In base template
-		assertEquals("TS", derivedMessageSet.getMessagePart("POCD_MT000040.Authenticator").getRelationship("time").getType());
-		assertEquals("IVL<TS>", derivedMessageSet.getMessagePart("POCD_MT000040.Act").getRelationship("effectiveTime").getType());
-		assertEquals("LIST<SXCM<TS>>", derivedMessageSet.getMessagePart("POCD_MT000040.SubstanceAdministration").getRelationship("effectiveTime").getType());
+		assertEquals("TS", derivedMessageSet.getMessagePart("BaseModel.Authenticator").getRelationship("time").getType());
+		assertEquals("IVL<TS>", derivedMessageSet.getMessagePart("BaseModel.Act").getRelationship("effectiveTime").getType());
+		assertEquals("LIST<SXCM<TS>>", derivedMessageSet.getMessagePart("BaseModel.SubstanceAdministration").getRelationship("effectiveTime").getType());
 		
 		// In constrained template
 		assertEquals("TS.DATETIME", derivedMessageSet.getMessagePart("PanCanadianHeader.Authenticator").getRelationship("time").getType());
@@ -104,9 +104,9 @@ public class R1DatatypeHelperTest {
 		R1DatatypeHelper.convertSpecializedDatatypesToBaseTypes(derivedMessageSet);
 		
 		// In base template
-		assertEquals("TSCDAR1", derivedMessageSet.getMessagePart("POCD_MT000040.Authenticator").getRelationship("time").getType());
-		assertEquals("IVLTSCDAR1", derivedMessageSet.getMessagePart("POCD_MT000040.Act").getRelationship("effectiveTime").getType());
-		assertEquals("LIST<SXCMTSCDAR1>", derivedMessageSet.getMessagePart("POCD_MT000040.SubstanceAdministration").getRelationship("effectiveTime").getType());
+		assertEquals("TSCDAR1", derivedMessageSet.getMessagePart("BaseModel.Authenticator").getRelationship("time").getType());
+		assertEquals("IVLTSCDAR1", derivedMessageSet.getMessagePart("BaseModel.Act").getRelationship("effectiveTime").getType());
+		assertEquals("LIST<SXCMTSCDAR1>", derivedMessageSet.getMessagePart("BaseModel.SubstanceAdministration").getRelationship("effectiveTime").getType());
 		
 		// In constrained template
 		assertEquals("TS", derivedMessageSet.getMessagePart("PanCanadianHeader.Authenticator").getRelationship("time").getType());
@@ -121,7 +121,7 @@ public class R1DatatypeHelperTest {
 		assertEquals("LIST<PN>", derivedMessageSet.getMessagePart("PanCanadianHeader.AssignedAuthorPerson").getRelationship("name").getType());
 		
 		// don't munge the associations
-		assertEquals("POCD_MT000040.OrganizationPartOf", derivedMessageSet.getMessagePart("PanCanadianHeader.AssignedAuthorOrganization").getRelationship("asOrganizationPartOf").getType());
+		assertEquals("BaseModel.OrganizationPartOf", derivedMessageSet.getMessagePart("PanCanadianHeader.AssignedAuthorOrganization").getRelationship("asOrganizationPartOf").getType());
 		assertEquals("PanCanadianHeader.CustodianOrganization", derivedMessageSet.getMessagePart("PanCanadianHeader.AssignedCustodian").getRelationship("representedCustodianOrganization").getType());
 		
 	}

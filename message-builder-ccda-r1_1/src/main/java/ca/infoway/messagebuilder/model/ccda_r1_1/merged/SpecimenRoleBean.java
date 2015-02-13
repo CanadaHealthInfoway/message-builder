@@ -36,10 +36,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.SpecimenRole","ProcedureActivityProcedure.SpecimenRole"})
+@Hl7PartTypeMapping({"BaseModel.SpecimenRole","ProcedureActivityProcedure.SpecimenRole"})
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150213L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -50,7 +50,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.realmCode</p>
+     * <p>Relationship: BaseModel.SpecimenRole.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -70,7 +70,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.typeId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -89,7 +89,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.typeId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -108,7 +108,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.templateId</p>
+     * <p>Relationship: BaseModel.SpecimenRole.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -128,7 +128,7 @@ public class SpecimenRoleBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.SpecimenRole.id</p>
+     * <p>Relationship: BaseModel.SpecimenRole.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -148,7 +148,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.SpecimenRole.specimenPlayingEntity</p>
+     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -168,7 +168,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.SpecimenRole.specimenPlayingEntity</p>
+     * BaseModel.SpecimenRole.specimenPlayingEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

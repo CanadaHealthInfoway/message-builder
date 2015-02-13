@@ -60,7 +60,7 @@ public class CdaXsdProcessor {
 		// first, create all the message parts
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			if (complexType.getComplexContent() == null) {
-				String name = complexType.getName();
+				String name = determineTypeName(complexType);
 				TypeName typeName = new TypeName(name);
 				String packageName = typeName.getRootName().getName();
 				if (!messageSet.getPackageLocations().containsKey(packageName)) {
@@ -77,7 +77,7 @@ public class CdaXsdProcessor {
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			ComplexContent complexContent = complexType.getComplexContent();
 			if (complexContent != null) {
-				ConstrainedDatatype constrainedDatatype = new ConstrainedDatatype(complexType.getName(),
+				ConstrainedDatatype constrainedDatatype = new ConstrainedDatatype(determineTypeName(complexType),
 						complexContent.getChild().getBase());
 				
 				if (complexContent.getChild() instanceof Extension) {
@@ -97,7 +97,7 @@ public class CdaXsdProcessor {
 		// then parse all the rest, excluding the constrained datatypes
 		for (ComplexType complexType : schema.getComplexTypes()) {
 			if (complexType.getComplexContent() == null) {
-				String name = complexType.getName();
+				String name = determineTypeName(complexType);
 				TypeName typeName = new TypeName(name);
 				
 				MessagePart messagePart = messageSet.getMessagePart(name);
@@ -148,7 +148,7 @@ public class CdaXsdProcessor {
 							
 							for (XsElement choiceElement : choice.getElements()) {
 								relationship.getChoices().add(parseElement(choiceElement, messageSet));
-								choicePart.addSpecializationChild(new SpecializationChild(choiceElement.getType()));
+								choicePart.addSpecializationChild(new SpecializationChild(StringUtils.replace(choiceElement.getType(), "POCD_MT000040", "BaseModel")));
 							}
 							messagePart.getRelationships().add(relationship);
 							
@@ -158,6 +158,14 @@ public class CdaXsdProcessor {
 				}
 			}
 		}
+	}
+
+	/*
+	 * Since most template packages don't have "traditional" HL7-style names, we don't want the base model to be encumbered with that either
+	 */
+	private String determineTypeName(ComplexType complexType) {
+		String name = complexType.getName();
+		return StringUtils.replace(name, "POCD_MT000040", "BaseModel");
 	}
 
 	private void createInteractionForPackage(MessageSet messageSet, String packageName) {
@@ -266,8 +274,8 @@ public class CdaXsdProcessor {
 	}
 
 	private Relationship parseElement(XsElement element, MessageSet messageSet) {
-		String type = element.getType();
-		String name = element.getName();
+		String type = StringUtils.replace(element.getType(), "POCD_MT000040", "BaseModel");
+		String name = StringUtils.replace(element.getName(), "POCD_MT000040", "BaseModel");
 
 		return parseElement(element, type, name, messageSet);
 	}
