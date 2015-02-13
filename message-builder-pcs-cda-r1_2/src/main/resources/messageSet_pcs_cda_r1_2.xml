@@ -1324,7 +1324,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
       </packageLocation>
    </packageEntry>
    <packageEntry name="PcCDAHeader">
-      <packageLocation name="PcCDAHeader" rootType="PcCDAHeader.ClinicalDocument" templateOid="2.16.840.1.113883.3.10.20.4.1.1">
+      <packageLocation name="PcCDAHeader" rootType="PcCDAHeader.ClinicalDocument" templateOid="2.16.840.1.113883.2.20.4.1.1">
          <entry name="PcCDAHeader.AssignedAuthor">
             <messagePart name="PcCDAHeader.AssignedAuthor" abstract="false" templateParameter="false">
                <relationship name="classCode" attribute="true" type="CS" structural="true" domainType="RoleClassAssignedEntity" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ASSIGNED"/>
@@ -2204,7 +2204,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
       <interaction name="POCD_MT000040" superTypeName="POCD_MT000040.ClinicalDocument" category="document"/>
    </entry>
    <entry name="PcCDAHeader">
-      <interaction name="PcCDAHeader" superTypeName="PcCDAHeader.ClinicalDocument" category="document" templateId="2.16.840.1.113883.3.10.20.4.1.1"/>
+      <interaction name="PcCDAHeader" superTypeName="PcCDAHeader.ClinicalDocument" category="document" templateId="2.16.840.1.113883.2.20.4.1.1"/>
    </entry>
    <constrainedDatatypeEntry name="POCD_MT000040.InfrastructureRoot.typeId">
       <constrainedDatatype name="POCD_MT000040.InfrastructureRoot.typeId" baseType="II" constraintType="RES">
@@ -2256,7 +2256,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
          <relationship name="useablePeriod" attribute="false" cardinality="0-1"/>
       </constrainedDatatype>
    </constrainedDatatypeEntry>
-   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.3.10.20.4.1.1&apos;]">
+   <schematronContext context="//cda:ClinicalDocument[cda:templateId/@root=&apos;2.16.840.1.113883.2.20.4.1.1&apos;]">
       <schematronRule>
          <test>not(cda:versionNumber) or (cda:setId and cda:setId[not(@nullFlavor)])</test>
          <description>If versionNumber is present setId SHALL be present and SHALL NOT contain nullFlavor</description>
