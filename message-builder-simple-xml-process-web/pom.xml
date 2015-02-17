@@ -3,13 +3,13 @@
   <parent>
     <artifactId>message-builder</artifactId>
     <groupId>ca.infoway.messagebuilder</groupId>
-    <version>1.5.8.3-BRANCH</version>
+    <version>1.5.8.4-BRANCH-SNAPSHOT</version>
   </parent>
   <groupId>ca.infoway.messagebuilder</groupId>
   <artifactId>message-builder-simple-xml-process-web</artifactId>
   <name>message-builder-simple-xml-process-web</name>
   <packaging>war</packaging>
-  <version>1.5.8.3-BRANCH</version>
+  <version>1.5.8.4-BRANCH-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <dependencies>
 	<dependency>

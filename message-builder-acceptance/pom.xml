@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>ca.infoway.messagebuilder</groupId>
 		<artifactId>message-builder</artifactId>
-		<version>1.5.8.3-BRANCH</version>
+		<version>1.5.8.4-BRANCH-SNAPSHOT</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-acceptance</artifactId>
-	<version>1.5.8.3-BRANCH</version>
+	<version>1.5.8.4-BRANCH-SNAPSHOT</version>
 	<name>message-builder-acceptance</name>
 	<url>http://maven.apache.org</url>
 	
