@@ -40,7 +40,7 @@ import org.apache.commons.lang.StringUtils;
  */
 class JarFinderStrategy implements FinderStrategy {
 
-	private static String[] JAR_URL_PREFIXES = {"jar:", "zip:"};
+	private static String[] JAR_URL_PREFIXES = {"jar:", "zip:", "wsjar:"};
 	
 	private String jarLocation;
 
