@@ -20,12 +20,13 @@
 
 package ca.infoway.messagebuilder.xml.validator;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.getReturnType;
+import static ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper.getReturnType;
 
 import java.lang.reflect.Type;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -47,7 +48,7 @@ class ParseContextImpl implements ParseContext {
 	}
 
 	public Type getExpectedReturnType() {
-		return getReturnType(this.relationship, this.version);
+		return getReturnType(this.relationship, this.version, CodeTypeRegistry.getInstance());
 	}
 
 	public String getType() {

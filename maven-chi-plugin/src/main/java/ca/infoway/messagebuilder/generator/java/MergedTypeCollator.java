@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class MergedTypeCollator {

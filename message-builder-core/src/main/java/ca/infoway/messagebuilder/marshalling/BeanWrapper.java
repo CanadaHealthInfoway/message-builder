@@ -37,14 +37,15 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.marshalling.datatypeadapter.DataTypeValueAdapterProvider;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -174,7 +175,7 @@ class BeanWrapper {
 
 	@SuppressWarnings("unchecked")
 	private Code resolveCodeValue(Relationship relationship, String attributeValue, VersionNumber version) {
-		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version), attributeValue);
+		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version, CodeTypeRegistry.getInstance()), attributeValue);
 	}
 
 	public void writeNullFlavor(Hl7Source source, Relationship relationship, NullFlavor nullFlavor) {

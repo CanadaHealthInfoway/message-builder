@@ -23,7 +23,8 @@ package ca.infoway.messagebuilder.marshalling;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -35,7 +36,7 @@ class NonStructuralHl7AttributeRenderer {
 		} else if (StringUtils.equals("INT.POS", relationship.getType())) {
 			return new Integer(relationship.getFixedValue());
 		} else if (relationship.isCodedType()) {
-			return CodeResolverRegistry.lookup(DomainTypeHelper.getReturnType(relationship, version), relationship.getFixedValue());
+			return CodeResolverRegistry.lookup(DomainTypeHelper.getReturnType(relationship, version, CodeTypeRegistry.getInstance()), relationship.getFixedValue());
 		} else {
 			throw new MarshallingException("Cannot handle a fixed relationship of type: " + relationship.getType());
 		}

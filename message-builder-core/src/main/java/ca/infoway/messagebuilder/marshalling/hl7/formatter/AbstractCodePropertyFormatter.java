@@ -30,14 +30,15 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Errors;
@@ -165,7 +166,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 
 	private void validateCodeExists(Code value, String domainType, VersionNumber version, String propertyPath, Hl7Errors errors) {
 		@SuppressWarnings("unchecked")
-		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version);
+		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(domainType, version, CodeTypeRegistry.getInstance());
 		if (returnType == null) {
 			errors.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "Could not locate a registered domain type to match \"" + domainType + "\"", propertyPath));
 		} else if (getCode(returnType, value.getCodeValue(), value.getCodeSystem()) == null) {

@@ -20,8 +20,6 @@
 
 package ca.infoway.messagebuilder.terminology.codeset.domain;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,8 +36,10 @@ import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Describable;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeResolver;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 
 /**
  * An identifier for a business concept that is used in a
@@ -53,8 +53,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeResolver;
 		)
 public class VocabularyDomain implements Describable {
 	
-	private static DomainTypeResolver domainTypeResolver = new DomainTypeResolver();
-
 	private Long id;	
 	private String type;
 	private String businessName;
@@ -109,11 +107,12 @@ public class VocabularyDomain implements Describable {
 	/**
 	 * <p>Gets the type as class.
 	 *
+	 * @param version the specification version being used
 	 * @return the type as class
 	 */
 	@Transient
-	public List<Class<?>> getTypeAsClasses() {
-		return domainTypeResolver.resolveDomainType(getType());
+	public Class<? extends Code> getTypeAsClass(String version) {
+		return DomainTypeHelper.getReturnType(getType(), version, CodeTypeRegistry.getInstance());
 	}
 	
 	/**

@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper.sanitize;
+import static ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper.sanitize;
 
 import java.io.File;
 import java.io.IOException;

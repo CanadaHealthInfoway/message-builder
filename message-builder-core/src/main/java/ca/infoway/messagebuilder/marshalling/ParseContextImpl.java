@@ -24,7 +24,8 @@ import java.lang.reflect.Type;
 import java.util.TimeZone;
 
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
+import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
+import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
@@ -50,7 +51,7 @@ class ParseContextImpl implements ParseContext {
 	}
 
 	public Type getExpectedReturnType() {
-		return DomainTypeHelper.getReturnType(this.relationship, this.version);
+		return DomainTypeHelper.getReturnType(this.relationship, this.version, CodeTypeRegistry.getInstance());
 	}
 
 	public String getType() {
