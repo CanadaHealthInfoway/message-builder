@@ -65,7 +65,7 @@ public class ContainedTemplateValidator {
 	public void validate(Document document, Hl7Errors validationResult) {
 			validate(document, "/cda:ClinicalDocument", "cda:component/cda:structuredBody/cda:component/cda:section/cda:templateId/@root", validationResult);
 			validate(document, "//cda:section", "cda:entry/*/cda:templateId/@root", validationResult);
-			validate(document, "//cda:entry/*[cda:templateId]", "cda:entryRelationship/*/cda:templateId/@root", validationResult);
+			validate(document, "//cda:entry/*[cda:templateId]", "*//cda:templateId/@root", validationResult);
 	}
 
 	private void validate(Node xml, String baseNodeXPath,
