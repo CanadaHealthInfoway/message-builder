@@ -116,4 +116,8 @@ public abstract class Registry<T> {
     private Map<String,T> getRegistryMap() {
         return this.registryMap;
     }
+    
+    public Map<String,T> getProtectedRegistryMap() {
+        return Collections.unmodifiableMap(this.registryMap);
+    }
 }

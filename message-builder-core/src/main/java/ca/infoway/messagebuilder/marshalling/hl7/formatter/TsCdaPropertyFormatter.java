@@ -53,6 +53,9 @@ public class TsCdaPropertyFormatter implements PropertyFormatter {
 	}
 
 	public String format(FormatContext formatContext, BareANY dataType, int indentLevel) {
+		if (dataType == null) {
+			return "";
+		}
 		return this.tsFormatter.format(convertContext(formatContext), convertDataType(dataType), indentLevel);
 	}
 

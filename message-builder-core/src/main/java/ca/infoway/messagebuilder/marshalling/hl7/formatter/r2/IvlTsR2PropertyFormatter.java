@@ -54,6 +54,9 @@ public class IvlTsR2PropertyFormatter implements PropertyFormatter {
 	}
 
 	public String format(FormatContext context, BareANY value, int indentLevel) {
+		if (value == null) {
+			return "";
+		}
 		Object bareValue = value.getBareValue();
 		Interval<Date> innerDateInterval = null;
 		if (bareValue != null && bareValue instanceof DateInterval) {

@@ -50,6 +50,9 @@ public class TsFullDateWithTimePropertyFormatter extends AbstractPropertyFormatt
 	
 	@Override
 	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
+		if (hl7Value == null) {
+			return "";
+		}
 		StandardDataType specializationType = hl7Value.getDataType();
 		
 		boolean valueOmitted = hl7Value.hasNullFlavor() && hl7Value.getBareValue() == null;

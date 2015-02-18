@@ -46,6 +46,11 @@ public class AnyPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Ob
 
 	@Override
 	public String format(FormatContext formatContext, BareANY hl7Value, int indentLevel) {
+		
+		if (hl7Value == null) {
+			return "";
+		}
+		
 		String specializationType = hl7Value.getDataType().getType();
 
 		StandardDataType specializationTypeAsEnum = StandardDataType.getByTypeName(specializationType);

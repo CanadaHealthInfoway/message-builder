@@ -47,6 +47,10 @@ class IvlTsCdaPropertyFormatter implements PropertyFormatter {
 	}
 
 	public String format(FormatContext context, BareANY dataType, int indentLevel) {
+		if (dataType == null) {
+			return "";
+		}
+		
 		handleConstraints(context.getConstraints(), context.getModelToXmlResult(), context.getPropertyPath(), (DateInterval) dataType.getBareValue());
 		FormatContext newContext = convertContext(context);
 		BareANY newDataType = convertDataType(dataType);

@@ -36,6 +36,9 @@ class PivlTsCdaPropertyFormatter implements PropertyFormatter {
 	}
 
 	public String format(FormatContext formatContext, BareANY dataType, int indentLevel) {
+		if (dataType == null) {
+			return "";
+		}
 		FormatContext newFormatContext = convertContext(formatContext);
 		BareANY newDataType = convertDataType(dataType);
 		return this.r1Formatter.format(newFormatContext, newDataType, indentLevel);

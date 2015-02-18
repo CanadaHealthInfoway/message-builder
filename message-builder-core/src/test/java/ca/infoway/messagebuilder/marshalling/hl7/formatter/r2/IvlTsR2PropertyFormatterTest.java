@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
@@ -28,10 +29,7 @@ import java.util.TimeZone;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVL_TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
@@ -98,6 +96,25 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		String result = new IvlTsR2PropertyFormatter().format(getContext("name"), 
         		hl7DataType);
         assertXml("result", "<name><width nullFlavor=\"OTH\"/></name>", result);
+    }
+    
+	@Test
+	public void testIntervalNull() throws Exception {
+        DateInterval dateInterval = null;
+        
+		IVL_TSImpl hl7DataType = new IVL_TSImpl(dateInterval);
+		hl7DataType.setDataType(StandardDataType.IVL_TS);
+
+		String result = new IvlTsR2PropertyFormatter().format(getContext("name"), hl7DataType);
+        assertXml("result", "<name nullFlavor=\"NI\"/>", result);
+    }
+    
+	@Test
+	public void testWrapperNull() throws Exception {
+		IVL_TSImpl hl7DataType = null;
+
+		String result = new IvlTsR2PropertyFormatter().format(getContext("name"), hl7DataType);
+		assertEquals("", result);
     }
     
 	/**

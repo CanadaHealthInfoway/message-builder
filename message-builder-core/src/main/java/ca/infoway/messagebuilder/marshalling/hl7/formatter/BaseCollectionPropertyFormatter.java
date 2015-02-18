@@ -78,7 +78,10 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 	
 	@Override
 	public String format(FormatContext context, BareANY hl7Value, int indentLevel) {
-    	handleConstraints(getSubType(context), context.getConstraints(), convertToCollection(hl7Value), context);
+		if (hl7Value == null) {
+			return "";
+		}
+		handleConstraints(getSubType(context), context.getConstraints(), convertToCollection(hl7Value), context);
 		return super.format(context, hl7Value, indentLevel);
 	}
 
