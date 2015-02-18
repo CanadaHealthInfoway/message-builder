@@ -59,12 +59,12 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
         if (nodes == null || nodes.size() == 0) {
             return null;
         } else {
-    		// if more than 1, arbitrarily choose the last one provided
+    		// if more than 1, arbitrarily choose the first one provided
         	if (nodes.size() > 1) {
         		xmlToModelResult.addHl7Error(
-        				new Hl7Error(Hl7ErrorCode.NUMBER_OF_ATTRIBUTES_EXCEEDS_LIMIT, "Expected a single element and found " + nodes.size() + ". Only the last element will be processed.", (Element) nodes.get(0)));
+        				new Hl7Error(Hl7ErrorCode.NUMBER_OF_ATTRIBUTES_EXCEEDS_LIMIT, "Expected a single element and found " + nodes.size() + ". Only the first element will be processed.", (Element) nodes.get(0)));
         	}
-            return parse(context, nodes.get(nodes.size() - 1), xmlToModelResult);
+            return parse(context, nodes.get(0), xmlToModelResult);
         }
     }
 

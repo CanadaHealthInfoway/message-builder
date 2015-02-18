@@ -66,7 +66,7 @@ public class XmlRenderingVisitorTest {
 		CodeResolverRegistry.registerResolver(ActStatus.class, new EnumBasedCodeResolver(ca.infoway.messagebuilder.domainvalue.controlact.ActStatus.class));
 		this.visitor = new XmlRenderingVisitor();
 		this.partBridge = new MockPartBridge();
-		this.attributeBridge = new MockAttributeBridge();
+		this.attributeBridge = new MockAttributeBridge("aPropertyName");
 		
 		this.interation = new Interaction();
 		this.interation.setName("ABCD_IN123456CA");

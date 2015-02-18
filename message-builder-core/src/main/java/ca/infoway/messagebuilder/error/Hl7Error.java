@@ -262,8 +262,8 @@ public class Hl7Error {
 	}
 	public static Hl7Error createWrongNumberOfAssociationsError(String xmlName,
 			Element base, int size, Cardinality cardinality) {
-		return new Hl7Error(Hl7ErrorCode.NUMBER_OF_ASSOCIATIONS_EXCEEDS_LIMIT, 
-				MessageFormat.format("Association \"{0}\" has a cardinality of \"{1}\", but {2} occurrences were found ({3}) ",
+		return new Hl7Error(Hl7ErrorCode.NUMBER_OF_ASSOCIATIONS_INCORRECT_FOR_CARDINALITY, 
+				MessageFormat.format("Association \"{0}\" has a cardinality of \"{1}\", but {2} occurrences were found ({3}). For cases where the association only supports a single value, only the first occurence will have been retained.",
 						xmlName, cardinality, size, describeSingleElement(base)), base);
 	}
 	public static Hl7Error createMissingNamespace(String xmlNamespace, Element documentElement) {

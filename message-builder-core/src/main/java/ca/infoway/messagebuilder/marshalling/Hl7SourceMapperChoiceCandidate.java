@@ -56,6 +56,11 @@ class Hl7SourceMapperChoiceCandidate {
 						return false;
 					}
 				}
+				if (hl7Error.getErrorDepth() - currentErrorLevel == 1) {
+					if (hl7Error.getHl7ErrorCode() == Hl7ErrorCode.NUMBER_OF_ASSOCIATIONS_INCORRECT_FOR_CARDINALITY) {
+						return false;
+					}
+				}
 				if (hl7Error.getErrorDepth() - currentErrorLevel <= 2) {
 					if (hl7Error.getHl7ErrorCode() == Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING) {
 						return false;

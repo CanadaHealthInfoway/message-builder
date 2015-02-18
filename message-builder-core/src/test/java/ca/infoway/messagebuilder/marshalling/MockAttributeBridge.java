@@ -29,6 +29,11 @@ class MockAttributeBridge implements AttributeBridge {
 	private Object value;
 	private boolean isEmpty;
 	Relationship relationship;
+	private final String propertyName;
+	
+	public MockAttributeBridge(String propertyName) {
+		this.propertyName = propertyName;
+	}
 	
 	public void setHl7Value(BareANY hl7Value) {
 		this.hl7Value = hl7Value;
@@ -51,7 +56,7 @@ class MockAttributeBridge implements AttributeBridge {
 	}
 
 	public String getPropertyName() {
-		return null;
+		return this.propertyName;
 	}
 
 	public Relationship getRelationship() {

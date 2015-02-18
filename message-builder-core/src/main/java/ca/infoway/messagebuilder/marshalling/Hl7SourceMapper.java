@@ -353,7 +353,7 @@ class Hl7SourceMapper {
 	 */ 
 	private void writeAssociation(BeanWrapper beanWrapper, Hl7Source source,
 			List<Node> nodes, Relationship relationship, String traversalName) {
-			this.log.debug("Writing association: traversalName=" + traversalName + ", relationshipType=" + relationship.getType());		
+			this.log.debug("Writing association: traversalName=" + traversalName + ", relationshipType=" + relationship.getType());
 		// 1. collapsed relationship
 		if (relationship.getCardinality().isSingle() && beanWrapper.isAssociationMappedToSameBean(relationship)) {
 
@@ -387,11 +387,10 @@ class Hl7SourceMapper {
  				beanWrapper.write(relationship, convertedBeans);
  			} else if (relationship.getCardinality().isSingle() && convertedBeans.isEmpty()) {
  	 			throw new MarshallingException("Special choice handling: Why is this empty? : " + relationship.getName() + " on " + source.getType());
- 			} else if (relationship.getCardinality().isSingle() && convertedBeans.size() == 1) {
- 				this.log.debug("Special choice handling: WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
- 				beanWrapper.write(relationship, convertedBeans.get(0));
  			} else {
- 	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
+ 				this.log.debug("Special choice handling: WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
+ 				// may need to ignore values beyond the first; an error will have been logged
+ 				beanWrapper.write(relationship, convertedBeans.get(0));
  			}
 
  		// 3. non-collapsed (including choice, specializationChild, and template type, handling for which is encapsulated in
@@ -412,11 +411,10 @@ class Hl7SourceMapper {
  				beanWrapper.write(relationship, convertedBeans);
  			} else if (relationship.getCardinality().isSingle() && convertedBeans.isEmpty()) {
  	 			throw new MarshallingException("Why is this empty? : " + relationship.getName() + " on " + source.getType());
- 			} else if (relationship.getCardinality().isSingle() && convertedBeans.size() == 1) {
- 				this.log.debug("WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
- 				beanWrapper.write(relationship, convertedBeans.get(0));
  			} else {
- 	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
+ 				this.log.debug("WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
+ 				// may need to ignore values beyond the first; an error will have been logged
+ 				beanWrapper.write(relationship, convertedBeans.get(0));
  			}
  		} else if (!ConformanceLevelUtil.isOptional(relationship) && !isFullyFixedType(relationship, source)) {
  			this.log.info("IGNORING: HL7 type " + relationship.getType() + " with traversalName=" + traversalName + "(" 

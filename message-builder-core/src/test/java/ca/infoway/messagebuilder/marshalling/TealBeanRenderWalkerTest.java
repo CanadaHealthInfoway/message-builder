@@ -56,7 +56,7 @@ public class TealBeanRenderWalkerTest {
 
 	@Test
 	public void shouldVisitAttribute() throws Exception {
-		MockAttributeBridge bridge = new MockAttributeBridge();
+		MockAttributeBridge bridge = new MockAttributeBridge("aPropertyName");
 		bridge.relationship = new Relationship();
 		
 		this.walker.processRelationship(this.bridgeFactory.interaction, bridge, this.visitor);

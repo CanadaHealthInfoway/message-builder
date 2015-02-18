@@ -33,7 +33,9 @@ import static ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil.isIgnoredN
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 import java.util.TimeZone;
 
@@ -64,6 +66,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.FormatterR2Registr
 import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.util.text.Indenter;
+import ca.infoway.messagebuilder.util.xml.XmlRenderingUtils;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -346,7 +349,20 @@ class XmlRenderingVisitor implements Visitor {
 			new VisitorStructuralAttributeRenderer(relationship, tealBean.getValue()).render(currentBuffer().getStructuralBuilder(), propertyPath, this.result);
 			addNewErrorsToList(currentBuffer().getWarnings());
 		} else {
-			renderNonStructuralAttribute(tealBean, relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
+			boolean hasProperty = !StringUtils.isEmpty(tealBean.getPropertyName());
+			if (hasProperty) {
+				renderNonStructuralAttribute(tealBean, relationship, constraints, version, dateTimeZone, dateTimeTimeZone);
+			} else {
+				if (ConformanceLevelUtil.isMandatoryOrPopulated(relationship)) {
+					Map<String,String> attributes = null;
+					if (ConformanceLevelUtil.isPopulated(relationship)) {
+						attributes = new HashMap<String, String>();
+						attributes.put("nullFlavor", "NI");
+					}
+					String placeholderXml =  XmlRenderingUtils.createStartElement(relationship.getName(), attributes, getIndent(), true, true);
+					currentBuffer().getChildBuilder().append(placeholderXml);
+				}
+			}
 		}
 		this.propertyPathNames.pop();
 	}

@@ -39,6 +39,14 @@ public class ConformanceLevelUtil {
 	}
 	
 	/**
+	 * <p>Get a flag indicating whether or not the relationship is mandatory or populated.
+	 * @return true if the relationship is mandatory or populated; false otherwise.
+	 */
+	public static boolean isMandatoryOrPopulated(Relationship relationship) {
+		return isMandatory(relationship) || isPopulated(relationship);
+	}
+
+	/**
 	 * <p>Get a flag indicating whether or not the relationship is mandatory.
 	 * @return true if the relationship is mandatory; false otherwise.
 	 */
