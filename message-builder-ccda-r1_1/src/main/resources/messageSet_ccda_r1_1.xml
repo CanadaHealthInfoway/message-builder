@@ -53,7 +53,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="AdmissionMedication.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="AdmissionMedication.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="AdmissionMedication.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -314,7 +314,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="AdvanceDirectivesSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="AdvanceDirectivesSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="AdvanceDirectivesSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -441,7 +441,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="AllergiesSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="AllergiesSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="AllergiesSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -618,7 +618,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="AllergyProblemAct.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="AllergyProblemAct.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="AllergyProblemAct.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -969,7 +969,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="AuthorizationActivity.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="AuthorizationActivity.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="AuthorizationActivity.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -2373,7 +2373,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="performer" attribute="false" type="BaseModel.Performer2" conformance="OPTIONAL" cardinality="0-*" sortOrder="22"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="23"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
-               <relationship name="participant" attribute="false" type="CaregiverCharacteristics.Participant2" conformance="MANDATORY" cardinality="*" sortOrder="25"/>
+               <relationship name="participant" attribute="false" type="CaregiverCharacteristics.Participant2" conformance="POPULATED" cardinality="*" sortOrder="25"/>
                <relationship name="entryRelationship" attribute="false" type="BaseModel.EntryRelationship" conformance="OPTIONAL" cardinality="0-*" sortOrder="26"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="27"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="28"/>
@@ -2843,7 +2843,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="16"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
-               <relationship name="component" attribute="false" type="CognitiveStatusResultOrganizer.Component4Choice" conformance="MANDATORY" cardinality="*" sortOrder="18">
+               <relationship name="component" attribute="false" type="CognitiveStatusResultOrganizer.Component4Choice" conformance="POPULATED" cardinality="*" sortOrder="18">
                   <choice name="component4" attribute="false" type="CognitiveStatusResultOrganizer.Component4"/>
                   <choice name="component5" attribute="false" type="BaseModel.Component4" defaultChoice="true"/>
                </relationship>
@@ -2932,7 +2932,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="typeId" attribute="true" type="II" constrainedType="BaseModel.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="5"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" constrainedType="ComplicationsOpNote.Section.templateId" conformance="MANDATORY" cardinality="*" sortOrder="6"/>
                <relationship name="id" attribute="true" type="II" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
-               <relationship name="code" attribute="true" type="CE" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="code" attribute="true" type="CE" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="title" attribute="true" type="ST" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="text" attribute="true" type="ED" constrainedType="StrucDoc.Text" conformance="POPULATED" cardinality="1" sortOrder="10"/>
                <relationship name="confidentialityCode" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="11"/>
@@ -2940,7 +2940,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="ComplicationsOpNote.Entry" conformance="MANDATORY" cardinality="*" sortOrder="16"/>
+               <relationship name="entry" attribute="false" type="ComplicationsOpNote.Entry" conformance="POPULATED" cardinality="*" sortOrder="16"/>
                <relationship name="component" attribute="false" type="BaseModel.Component5" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
             </messagePart>
          </entry>
@@ -3096,7 +3096,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -3121,7 +3121,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ConsultationNote.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -3236,14 +3236,14 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="participant1" attribute="false" type="ConsultationNote.Participant1"/>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant1" defaultChoice="true"/>
                </relationship>
-               <relationship name="inFulfillmentOf" attribute="false" type="ConsultationNote.InFulfillmentOf" conformance="MANDATORY" cardinality="*" sortOrder="24"/>
+               <relationship name="inFulfillmentOf" attribute="false" type="ConsultationNote.InFulfillmentOf" conformance="POPULATED" cardinality="*" sortOrder="24"/>
                <relationship name="documentationOf" attribute="false" type="ConsultationNote.DocumentationOf" conformance="OPTIONAL" cardinality="0-*" sortOrder="25"/>
                <relationship name="relatedDocument" attribute="false" type="BaseModel.RelatedDocument" conformance="OPTIONAL" cardinality="0-*" sortOrder="26"/>
                <relationship name="authorization" attribute="false" type="ConsultationNote.AuthorizationChoice" conformance="OPTIONAL" cardinality="0-*" sortOrder="27">
                   <choice name="authorization" attribute="false" type="ConsultationNote.Authorization"/>
                   <choice name="authorization2" attribute="false" type="BaseModel.Authorization" defaultChoice="true"/>
                </relationship>
-               <relationship name="componentOf" attribute="false" type="ConsultationNote.Component1" conformance="MANDATORY" cardinality="1" sortOrder="28"/>
+               <relationship name="componentOf" attribute="false" type="ConsultationNote.Component1" conformance="POPULATED" cardinality="1" sortOrder="28"/>
                <relationship name="component" attribute="false" type="ConsultationNote.Component2" conformance="POPULATED" cardinality="1" sortOrder="29"/>
             </messagePart>
          </entry>
@@ -3363,7 +3363,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ConsultationNote.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -3601,7 +3601,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ConsultationNote.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ConsultationNote.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -3694,7 +3694,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ConsultationNote.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="ConsultationNote.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="ConsultationNote.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="ConsultationNote.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -4124,7 +4124,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -4149,7 +4149,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ContinuityOfCareDocumentCCD.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -4245,7 +4245,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant1" defaultChoice="true"/>
                </relationship>
                <relationship name="inFulfillmentOf" attribute="false" type="ContinuityOfCareDocumentCCD.InFulfillmentOf" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
-               <relationship name="documentationOf" attribute="false" type="ContinuityOfCareDocumentCCD.DocumentationOf" conformance="MANDATORY" cardinality="1" sortOrder="25"/>
+               <relationship name="documentationOf" attribute="false" type="ContinuityOfCareDocumentCCD.DocumentationOf" conformance="POPULATED" cardinality="1" sortOrder="25"/>
                <relationship name="relatedDocument" attribute="false" type="BaseModel.RelatedDocument" conformance="OPTIONAL" cardinality="0-*" sortOrder="26"/>
                <relationship name="authorization" attribute="false" type="ContinuityOfCareDocumentCCD.AuthorizationChoice" conformance="OPTIONAL" cardinality="0-*" sortOrder="27">
                   <choice name="authorization" attribute="false" type="ContinuityOfCareDocumentCCD.Authorization"/>
@@ -4362,7 +4362,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ContinuityOfCareDocumentCCD.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -4590,7 +4590,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ContinuityOfCareDocumentCCD.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ContinuityOfCareDocumentCCD.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -4683,7 +4683,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ContinuityOfCareDocumentCCD.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="ContinuityOfCareDocumentCCD.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="ContinuityOfCareDocumentCCD.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="ContinuityOfCareDocumentCCD.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -4941,7 +4941,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="CoverageActivity.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="CoverageActivity.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="CoverageActivity.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -5001,7 +5001,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="DICOMObjectCatalogSectionDCM121181.Entry" conformance="MANDATORY" cardinality="*" sortOrder="16"/>
+               <relationship name="entry" attribute="false" type="DICOMObjectCatalogSectionDCM121181.Entry" conformance="POPULATED" cardinality="*" sortOrder="16"/>
                <relationship name="component" attribute="false" type="BaseModel.Component5" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
             </messagePart>
          </entry>
@@ -5133,7 +5133,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -5158,7 +5158,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DiagnosticImagingReport.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -5249,7 +5249,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant1" defaultChoice="true"/>
                </relationship>
                <relationship name="inFulfillmentOf" attribute="false" type="DiagnosticImagingReport.InFulfillmentOf" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
-               <relationship name="documentationOf" attribute="false" type="DiagnosticImagingReport.DocumentationOfChoice" conformance="MANDATORY" cardinality="*" sortOrder="25">
+               <relationship name="documentationOf" attribute="false" type="DiagnosticImagingReport.DocumentationOfChoice" conformance="POPULATED" cardinality="*" sortOrder="25">
                   <choice name="documentationOf" attribute="false" type="DiagnosticImagingReport.DocumentationOf"/>
                   <choice name="documentationOf2" attribute="false" type="BaseModel.DocumentationOf" defaultChoice="true"/>
                </relationship>
@@ -5368,7 +5368,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DiagnosticImagingReport.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -5575,7 +5575,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DiagnosticImagingReport.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DiagnosticImagingReport.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -5658,7 +5658,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DiagnosticImagingReport.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="DiagnosticImagingReport.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="DiagnosticImagingReport.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="DiagnosticImagingReport.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -5859,7 +5859,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="DischargeMedication.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="DischargeMedication.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="DischargeMedication.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -5974,7 +5974,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -5999,7 +5999,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DischargeSummary.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -6118,7 +6118,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="authorization" attribute="false" type="DischargeSummary.Authorization"/>
                   <choice name="authorization2" attribute="false" type="BaseModel.Authorization" defaultChoice="true"/>
                </relationship>
-               <relationship name="componentOf" attribute="false" type="DischargeSummary.Component1" conformance="MANDATORY" cardinality="1" sortOrder="28"/>
+               <relationship name="componentOf" attribute="false" type="DischargeSummary.Component1" conformance="POPULATED" cardinality="1" sortOrder="28"/>
                <relationship name="component" attribute="false" type="DischargeSummary.Component2" conformance="POPULATED" cardinality="1" sortOrder="29"/>
             </messagePart>
          </entry>
@@ -6241,7 +6241,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DischargeSummary.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -6579,7 +6579,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DischargeSummary.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="DischargeSummary.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -6652,7 +6652,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="DischargeSummary.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="DischargeSummary.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="DischargeSummary.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="DischargeSummary.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -7102,7 +7102,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="EncounterDiagnosis.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="EncounterDiagnosis.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="EncounterDiagnosis.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -7213,7 +7213,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="EncountersSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="EncountersSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="EncountersSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -7377,7 +7377,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CD" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
                <relationship name="statusCode" attribute="true" type="CS" domainType="ActStatus" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="8" fixedValue="completed"/>
                <relationship name="effectiveTime" attribute="true" type="IVL&lt;TS&gt;" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
-               <relationship name="subject" attribute="false" type="FamilyHistoryOrganizer.Subject" conformance="MANDATORY" cardinality="1" sortOrder="10"/>
+               <relationship name="subject" attribute="false" type="FamilyHistoryOrganizer.Subject" conformance="POPULATED" cardinality="1" sortOrder="10"/>
                <relationship name="specimen" attribute="false" type="BaseModel.Specimen" conformance="OPTIONAL" cardinality="0-*" sortOrder="11"/>
                <relationship name="performer" attribute="false" type="BaseModel.Performer2" conformance="OPTIONAL" cardinality="0-*" sortOrder="12"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="13"/>
@@ -7385,7 +7385,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="16"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
-               <relationship name="component" attribute="false" type="FamilyHistoryOrganizer.Component4" conformance="MANDATORY" cardinality="*" sortOrder="18"/>
+               <relationship name="component" attribute="false" type="FamilyHistoryOrganizer.Component4" conformance="POPULATED" cardinality="*" sortOrder="18"/>
             </messagePart>
          </entry>
          <entry name="FamilyHistoryOrganizer.RelatedSubject">
@@ -7485,7 +7485,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="DCM" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="5" fixedValue="121026"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="7"/>
-               <relationship name="subject" attribute="false" type="FetusSubjectContext.SubjectPerson" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="subject" attribute="false" type="FetusSubjectContext.SubjectPerson" conformance="POPULATED" cardinality="1" sortOrder="8"/>
             </messagePart>
          </entry>
          <entry name="FetusSubjectContext.SubjectPerson">
@@ -7834,7 +7834,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="16"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
-               <relationship name="component" attribute="false" type="FunctionalStatusResultOrganizer.Component4Choice" conformance="MANDATORY" cardinality="*" sortOrder="18">
+               <relationship name="component" attribute="false" type="FunctionalStatusResultOrganizer.Component4Choice" conformance="POPULATED" cardinality="*" sortOrder="18">
                   <choice name="component4" attribute="false" type="FunctionalStatusResultOrganizer.Component4"/>
                   <choice name="component5" attribute="false" type="BaseModel.Component4" defaultChoice="true"/>
                </relationship>
@@ -8212,7 +8212,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -8237,7 +8237,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="HistoryAndPhysical.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -8356,7 +8356,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="authorization" attribute="false" type="HistoryAndPhysical.Authorization"/>
                   <choice name="authorization2" attribute="false" type="BaseModel.Authorization" defaultChoice="true"/>
                </relationship>
-               <relationship name="componentOf" attribute="false" type="HistoryAndPhysical.Component1" conformance="MANDATORY" cardinality="1" sortOrder="28"/>
+               <relationship name="componentOf" attribute="false" type="HistoryAndPhysical.Component1" conformance="POPULATED" cardinality="1" sortOrder="28"/>
                <relationship name="component" attribute="false" type="HistoryAndPhysical.Component2" conformance="POPULATED" cardinality="1" sortOrder="29"/>
             </messagePart>
          </entry>
@@ -8476,7 +8476,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="HistoryAndPhysical.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -8724,7 +8724,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="HistoryAndPhysical.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="HistoryAndPhysical.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -8826,7 +8826,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="HistoryAndPhysical.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="HistoryAndPhysical.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="HistoryAndPhysical.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="HistoryAndPhysical.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -9231,7 +9231,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="HospitalAdmissionDiagnosis.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="HospitalAdmissionDiagnosis.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="HospitalAdmissionDiagnosis.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -9416,7 +9416,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="HospitalDischargeDiagnosis.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="HospitalDischargeDiagnosis.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="HospitalDischargeDiagnosis.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -9588,7 +9588,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="HospitalDischargeMedicationsSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="HospitalDischargeMedicationsSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="HospitalDischargeMedicationsSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -9796,7 +9796,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
             <messagePart name="ImmunizationActivity.SubstanceAdministration" abstract="false" templateParameter="false">
                <relationship name="classCode" attribute="true" type="CS" structural="true" domainType="ActClass" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="SBADM"/>
                <relationship name="moodCode" attribute="true" type="CS" structural="true" domainType="EvnIntMoodCode" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="2"/>
-               <relationship name="negationInd" attribute="true" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="3"/>
+               <relationship name="negationInd" attribute="true" type="BL" structural="true" conformance="POPULATED" cardinality="1" sortOrder="3"/>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="4"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="BaseModel.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="5"/>
                <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" constrainedType="ImmunizationActivity.SubstanceAdministration.templateId" conformance="MANDATORY" cardinality="*" sortOrder="6"/>
@@ -10003,7 +10003,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="ImmunizationsSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="ImmunizationsSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="ImmunizationsSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -10819,7 +10819,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="MedicationsSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="MedicationsSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="MedicationsSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -10971,7 +10971,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="NumberOfPressureUlcersObservation.Author" conformance="OPTIONAL" cardinality="0-1" sortOrder="23"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="25"/>
-               <relationship name="entryRelationship" attribute="false" type="NumberOfPressureUlcersObservation.EntryRelationship" conformance="MANDATORY" cardinality="1" sortOrder="26"/>
+               <relationship name="entryRelationship" attribute="false" type="NumberOfPressureUlcersObservation.EntryRelationship" conformance="POPULATED" cardinality="1" sortOrder="26"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="27"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="28"/>
                <relationship name="referenceRange" attribute="false" type="BaseModel.ReferenceRange" conformance="OPTIONAL" cardinality="0-*" sortOrder="29"/>
@@ -11113,7 +11113,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="OperativeNote.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="OperativeNote.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -11138,7 +11138,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="OperativeNote.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="OperativeNote.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="OperativeNote.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -11234,7 +11234,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant1" defaultChoice="true"/>
                </relationship>
                <relationship name="inFulfillmentOf" attribute="false" type="OperativeNote.InFulfillmentOf" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
-               <relationship name="documentationOf" attribute="false" type="OperativeNote.DocumentationOf" conformance="MANDATORY" cardinality="*" sortOrder="25"/>
+               <relationship name="documentationOf" attribute="false" type="OperativeNote.DocumentationOf" conformance="POPULATED" cardinality="*" sortOrder="25"/>
                <relationship name="relatedDocument" attribute="false" type="BaseModel.RelatedDocument" conformance="OPTIONAL" cardinality="0-*" sortOrder="26"/>
                <relationship name="authorization" attribute="false" type="OperativeNote.AuthorizationChoice" conformance="OPTIONAL" cardinality="0-*" sortOrder="27">
                   <choice name="authorization" attribute="false" type="OperativeNote.Authorization"/>
@@ -11358,7 +11358,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="OperativeNote.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="OperativeNote.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="OperativeNote.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -11526,7 +11526,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="OperativeNote.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="OperativeNote.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="OperativeNote.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -11619,7 +11619,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="OperativeNote.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="OperativeNote.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="OperativeNote.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="OperativeNote.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -11833,7 +11833,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="6"/>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
                <relationship name="effectiveTime" attribute="true" type="IVL&lt;TS&gt;" constrainedType="OperativeNote.ServiceEvent.effectiveTime" conformance="POPULATED" cardinality="1" sortOrder="8"/>
-               <relationship name="performer" attribute="false" type="OperativeNote.Performer1Choice" conformance="MANDATORY" cardinality="*" sortOrder="9">
+               <relationship name="performer" attribute="false" type="OperativeNote.Performer1Choice" conformance="POPULATED" cardinality="*" sortOrder="9">
                   <choice name="performer1" attribute="false" type="OperativeNote.Performer1"/>
                   <choice name="performer2" attribute="false" type="BaseModel.Performer1" defaultChoice="true"/>
                </relationship>
@@ -12127,7 +12127,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="typeCode" attribute="true" type="CS" structural="true" domainType="x_ServiceEventPerformer" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="PRF"/>
                <relationship name="realmCode" attribute="true" type="LIST&lt;CS&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="2"/>
                <relationship name="typeId" attribute="true" type="II" constrainedType="BaseModel.InfrastructureRoot.typeId" conformance="OPTIONAL" cardinality="0-1" sortOrder="3"/>
-               <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="MANDATORY" cardinality="*" sortOrder="4"/>
+               <relationship name="templateId" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="4"/>
                <relationship name="functionCode" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="5"/>
                <relationship name="time" attribute="true" type="IVL&lt;TS&gt;" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="assignedEntity" attribute="false" type="PhysicianReadingStudyPerformer.AssignedEntity" conformance="POPULATED" cardinality="1" sortOrder="7"/>
@@ -12512,17 +12512,17 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="code" attribute="true" type="CD" domainType="HealthInsuranceType" domainSource="VALUE_SET" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="statusCode" attribute="true" type="CS" domainType="ActStatus" domainSource="CODE_SYSTEM" conformance="MANDATORY" cardinality="1" sortOrder="10" fixedValue="completed"/>
-               <relationship name="performer" attribute="false" type="PolicyActivity.Performer2Choice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="performer" attribute="false" type="PolicyActivity.Performer2Choice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="payerPerformerPerformer2" attribute="false" type="PolicyActivity.PayerPerformerPerformer2"/>
                   <choice name="guarantorPerformerPerformer2" attribute="false" type="PolicyActivity.GuarantorPerformerPerformer2"/>
                   <choice name="performer2" attribute="false" type="BaseModel.Performer2" defaultChoice="true"/>
                </relationship>
-               <relationship name="participant" attribute="false" type="PolicyActivity.Participant2Choice" conformance="MANDATORY" cardinality="*" sortOrder="19">
+               <relationship name="participant" attribute="false" type="PolicyActivity.Participant2Choice" conformance="POPULATED" cardinality="*" sortOrder="19">
                   <choice name="coveredPartyParticipantParticipant2" attribute="false" type="PolicyActivity.CoveredPartyParticipantParticipant2"/>
                   <choice name="policyHolderParticipantParticipant2" attribute="false" type="PolicyActivity.PolicyHolderParticipantParticipant2"/>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant2" defaultChoice="true"/>
                </relationship>
-               <relationship name="entryRelationship" attribute="false" type="PolicyActivity.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="PolicyActivity.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="PolicyActivity.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -12682,7 +12682,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="PostprocedureDiagnosis.EntryRelationship" conformance="MANDATORY" cardinality="*" sortOrder="20"/>
+               <relationship name="entryRelationship" attribute="false" type="PostprocedureDiagnosis.EntryRelationship" conformance="POPULATED" cardinality="*" sortOrder="20"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="21"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="22"/>
             </messagePart>
@@ -12849,7 +12849,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="PreoperativeDiagnosis.EntryRelationship" conformance="MANDATORY" cardinality="*" sortOrder="20"/>
+               <relationship name="entryRelationship" attribute="false" type="PreoperativeDiagnosis.EntryRelationship" conformance="POPULATED" cardinality="*" sortOrder="20"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="21"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="22"/>
             </messagePart>
@@ -13130,7 +13130,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="ProblemConcernActCondition.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="ProblemConcernActCondition.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="ProblemConcernActCondition.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -13321,7 +13321,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="ProblemSectionentriesRequired.Entry" conformance="MANDATORY" cardinality="*" sortOrder="16"/>
+               <relationship name="entry" attribute="false" type="ProblemSectionentriesRequired.Entry" conformance="POPULATED" cardinality="*" sortOrder="16"/>
                <relationship name="component" attribute="false" type="BaseModel.Component5" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
             </messagePart>
          </entry>
@@ -14317,7 +14317,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -14331,7 +14331,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="associatedPerson" attribute="false" type="BaseModel.Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="associatedPerson" attribute="false" type="BaseModel.Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="scopingOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -14356,7 +14356,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProcedureNote.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -14472,7 +14472,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="participant2" attribute="false" type="BaseModel.Participant1" defaultChoice="true"/>
                </relationship>
                <relationship name="inFulfillmentOf" attribute="false" type="ProcedureNote.InFulfillmentOf" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
-               <relationship name="documentationOf" attribute="false" type="ProcedureNote.DocumentationOfChoice" conformance="MANDATORY" cardinality="*" sortOrder="25">
+               <relationship name="documentationOf" attribute="false" type="ProcedureNote.DocumentationOfChoice" conformance="POPULATED" cardinality="*" sortOrder="25">
                   <choice name="documentationOf" attribute="false" type="ProcedureNote.DocumentationOf"/>
                   <choice name="documentationOf2" attribute="false" type="BaseModel.DocumentationOf" defaultChoice="true"/>
                </relationship>
@@ -14614,7 +14614,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProcedureNote.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -14659,7 +14659,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="encounterParticipant" attribute="false" type="ProcedureNote.EncounterParticipant"/>
                   <choice name="encounterParticipant2" attribute="false" type="BaseModel.EncounterParticipant" defaultChoice="true"/>
                </relationship>
-               <relationship name="location" attribute="false" type="ProcedureNote.Location" conformance="MANDATORY" cardinality="*" sortOrder="12"/>
+               <relationship name="location" attribute="false" type="ProcedureNote.Location" conformance="POPULATED" cardinality="*" sortOrder="12"/>
             </messagePart>
          </entry>
          <entry name="ProcedureNote.EncounterParticipant">
@@ -14849,7 +14849,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProcedureNote.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProcedureNote.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -14971,7 +14971,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProcedureNote.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="ProcedureNote.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="ProcedureNote.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="ProcedureNote.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -15219,7 +15219,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="6"/>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="7"/>
                <relationship name="effectiveTime" attribute="true" type="IVL&lt;TS&gt;" constrainedType="ProcedureNote.ServiceEvent.effectiveTime" conformance="POPULATED" cardinality="1" sortOrder="8"/>
-               <relationship name="performer" attribute="false" type="ProcedureNote.Performer1" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="performer" attribute="false" type="ProcedureNote.Performer1" conformance="POPULATED" cardinality="1" sortOrder="9"/>
             </messagePart>
          </entry>
          <entry name="ProcedureNote.SocialHistorySectionComponent3">
@@ -15514,7 +15514,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
                <relationship name="playingDevice" attribute="false" type="ProductInstance.Device" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
-               <relationship name="scopingEntity" attribute="false" type="ProductInstance.Entity" conformance="MANDATORY" cardinality="1" sortOrder="10"/>
+               <relationship name="scopingEntity" attribute="false" type="ProductInstance.Entity" conformance="POPULATED" cardinality="1" sortOrder="10"/>
             </messagePart>
          </entry>
       </packageLocation>
@@ -15623,7 +15623,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProgressNote.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProgressNote.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -15648,7 +15648,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProgressNote.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProgressNote.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProgressNote.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -15760,7 +15760,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                   <choice name="authorization" attribute="false" type="ProgressNote.Authorization"/>
                   <choice name="authorization2" attribute="false" type="BaseModel.Authorization" defaultChoice="true"/>
                </relationship>
-               <relationship name="componentOf" attribute="false" type="ProgressNote.Component1" conformance="MANDATORY" cardinality="1" sortOrder="28"/>
+               <relationship name="componentOf" attribute="false" type="ProgressNote.Component1" conformance="POPULATED" cardinality="1" sortOrder="28"/>
                <relationship name="component" attribute="false" type="ProgressNote.Component2" conformance="POPULATED" cardinality="1" sortOrder="29"/>
             </messagePart>
          </entry>
@@ -15872,7 +15872,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProgressNote.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProgressNote.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProgressNote.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -15908,7 +15908,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="dischargeDispositionCode" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
                <relationship name="responsibleParty" attribute="false" type="BaseModel.ResponsibleParty" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
                <relationship name="encounterParticipant" attribute="false" type="BaseModel.EncounterParticipant" conformance="OPTIONAL" cardinality="0-*" sortOrder="11"/>
-               <relationship name="location" attribute="false" type="ProgressNote.Location" conformance="MANDATORY" cardinality="1" sortOrder="12"/>
+               <relationship name="location" attribute="false" type="ProgressNote.Location" conformance="POPULATED" cardinality="1" sortOrder="12"/>
             </messagePart>
          </entry>
          <entry name="ProgressNote.Guardian">
@@ -16072,7 +16072,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProgressNote.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="ProgressNote.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="ProgressNote.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -16184,7 +16184,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="ProgressNote.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="ProgressNote.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="ProgressNote.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="ProgressNote.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -16727,7 +16727,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="23"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="24"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="25"/>
-               <relationship name="entryRelationship" attribute="false" type="ReferencedFramesObservation.EntryRelationship" conformance="MANDATORY" cardinality="1" sortOrder="26"/>
+               <relationship name="entryRelationship" attribute="false" type="ReferencedFramesObservation.EntryRelationship" conformance="POPULATED" cardinality="1" sortOrder="26"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="27"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="28"/>
                <relationship name="referenceRange" attribute="false" type="BaseModel.ReferenceRange" conformance="OPTIONAL" cardinality="0-*" sortOrder="29"/>
@@ -16845,7 +16845,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="16"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
-               <relationship name="component" attribute="false" type="ResultOrganizer.Component4Choice" conformance="MANDATORY" cardinality="*" sortOrder="18">
+               <relationship name="component" attribute="false" type="ResultOrganizer.Component4Choice" conformance="POPULATED" cardinality="*" sortOrder="18">
                   <choice name="component4" attribute="false" type="ResultOrganizer.Component4"/>
                   <choice name="component5" attribute="false" type="BaseModel.Component4" defaultChoice="true"/>
                </relationship>
@@ -16934,7 +16934,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="ResultsSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="ResultsSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="ResultsSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>
@@ -17096,7 +17096,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="SeriesAct.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="SeriesAct.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="SeriesAct.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -17380,7 +17380,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="18"/>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="19"/>
-               <relationship name="entryRelationship" attribute="false" type="StudyAct.EntryRelationshipChoice" conformance="MANDATORY" cardinality="*" sortOrder="20">
+               <relationship name="entryRelationship" attribute="false" type="StudyAct.EntryRelationshipChoice" conformance="POPULATED" cardinality="*" sortOrder="20">
                   <choice name="entryRelationship" attribute="false" type="StudyAct.EntryRelationship"/>
                   <choice name="entryRelationship2" attribute="false" type="BaseModel.EntryRelationship" defaultChoice="true"/>
                </relationship>
@@ -17809,7 +17809,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -17834,7 +17834,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="USRealmHeader.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18004,7 +18004,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="USRealmHeader.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18172,7 +18172,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="USRealmHeader.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="USRealmHeader.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18245,7 +18245,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="*" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="USRealmHeader.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="USRealmHeader.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="USRealmHeader.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="USRealmHeader.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -18418,7 +18418,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" conformance="OPTIONAL" cardinality="0-*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.Informant12Person" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.Informant12Person" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18443,7 +18443,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="UnstructuredDocument.AuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.AuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.AuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18632,7 +18632,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="UnstructuredDocument.DataEntererAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.DataEntererPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.DataEntererPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18800,7 +18800,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="code" attribute="true" type="CE" domainType="HealthcareProviderTaxonomy" domainSource="VALUE_SET" conformance="OPTIONAL" cardinality="0-1" sortOrder="6"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="7"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="UnstructuredDocument.LegalAuthenticatorAssignedEntity.telecom" conformance="POPULATED" cardinality="*" sortOrder="8"/>
-               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.LegalAuthenticatorPerson" conformance="MANDATORY" cardinality="1" sortOrder="9"/>
+               <relationship name="assignedPerson" attribute="false" type="UnstructuredDocument.LegalAuthenticatorPerson" conformance="POPULATED" cardinality="1" sortOrder="9"/>
                <relationship name="representedOrganization" attribute="false" type="BaseModel.Organization" conformance="OPTIONAL" cardinality="0-1" sortOrder="10"/>
             </messagePart>
          </entry>
@@ -18873,7 +18873,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="id" attribute="true" type="LIST&lt;II&gt;" conformance="POPULATED" cardinality="1" sortOrder="5"/>
                <relationship name="addr" attribute="true" type="LIST&lt;AD&gt;" conformance="POPULATED" cardinality="*" sortOrder="6"/>
                <relationship name="telecom" attribute="true" type="LIST&lt;TEL&gt;" constrainedType="UnstructuredDocument.PatientRole.telecom" conformance="POPULATED" cardinality="*" sortOrder="7"/>
-               <relationship name="patient" attribute="false" type="UnstructuredDocument.Patient" conformance="MANDATORY" cardinality="1" sortOrder="8"/>
+               <relationship name="patient" attribute="false" type="UnstructuredDocument.Patient" conformance="POPULATED" cardinality="1" sortOrder="8"/>
                <relationship name="providerOrganization" attribute="false" type="UnstructuredDocument.PatientRoleOrganization" conformance="OPTIONAL" cardinality="0-1" sortOrder="9"/>
             </messagePart>
          </entry>
@@ -19064,7 +19064,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="participant" attribute="false" type="BaseModel.Participant2" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
                <relationship name="reference" attribute="false" type="BaseModel.Reference" conformance="OPTIONAL" cardinality="0-*" sortOrder="16"/>
                <relationship name="precondition" attribute="false" type="BaseModel.Precondition" conformance="OPTIONAL" cardinality="0-*" sortOrder="17"/>
-               <relationship name="component" attribute="false" type="VitalSignsOrganizer.Component4Choice" conformance="MANDATORY" cardinality="*" sortOrder="18">
+               <relationship name="component" attribute="false" type="VitalSignsOrganizer.Component4Choice" conformance="POPULATED" cardinality="*" sortOrder="18">
                   <choice name="component4" attribute="false" type="VitalSignsOrganizer.Component4"/>
                   <choice name="component5" attribute="false" type="BaseModel.Component4" defaultChoice="true"/>
                </relationship>
@@ -19153,7 +19153,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
                <relationship name="subject" attribute="false" type="BaseModel.Subject" conformance="OPTIONAL" cardinality="0-1" sortOrder="13"/>
                <relationship name="author" attribute="false" type="BaseModel.Author" conformance="OPTIONAL" cardinality="0-*" sortOrder="14"/>
                <relationship name="informant" attribute="false" type="BaseModel.Informant12" conformance="OPTIONAL" cardinality="0-*" sortOrder="15"/>
-               <relationship name="entry" attribute="false" type="VitalSignsSectionentriesRequired.EntryChoice" conformance="MANDATORY" cardinality="*" sortOrder="16">
+               <relationship name="entry" attribute="false" type="VitalSignsSectionentriesRequired.EntryChoice" conformance="POPULATED" cardinality="*" sortOrder="16">
                   <choice name="entry" attribute="false" type="VitalSignsSectionentriesRequired.Entry"/>
                   <choice name="entry2" attribute="false" type="BaseModel.Entry" defaultChoice="true"/>
                </relationship>

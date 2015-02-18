@@ -908,7 +908,11 @@ public class CdaTemplateProcessor {
 			delta.addConstraint(new CardinalityConstraint(relationship.getCardinality(), constrainedCardinality));
 
 			if (relationship.getConformance().equals(ConformanceLevel.OPTIONAL) && constrainedCardinality.isMandatory()) {
-				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+				if (relationship.getFixedValue() == null) {
+					delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.POPULATED));
+				} else {
+					delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.MANDATORY));
+				}
 			} 
 			if (constrainedCardinality.getMax() == 0) {
 				delta.addConstraint(new ConformanceConstraint(relationship.getConformance(), ConformanceLevel.NOT_ALLOWED));
