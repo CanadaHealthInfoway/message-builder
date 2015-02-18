@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.xml.cdavalidator;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
@@ -37,10 +38,13 @@ import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.SchematronContext;
 import ca.infoway.messagebuilder.xml.SchematronRule;
 
+import com.helger.commons.error.IResourceError;
+import com.helger.commons.error.IResourceErrorGroup;
 import com.helger.schematron.SchematronException;
 import com.helger.schematron.pure.binding.IPSQueryBinding;
 import com.helger.schematron.pure.binding.PSQueryBindingRegistry;
 import com.helger.schematron.pure.bound.IPSBoundSchema;
+import com.helger.schematron.pure.errorhandler.CollectingPSErrorHandler;
 import com.helger.schematron.pure.model.PSAssertReport;
 import com.helger.schematron.pure.model.PSNS;
 import com.helger.schematron.pure.model.PSPattern;
@@ -52,6 +56,7 @@ public class SchematronValidator {
 	
 	private boolean initiated = false;
 	private IPSBoundSchema boundSchema;
+	private CollectingPSErrorHandler errorHandler = new CollectingPSErrorHandler();
 
 	public SchematronValidator(List<SchematronContext> contexts) {
 		initiate(contexts);
@@ -104,7 +109,7 @@ public class SchematronValidator {
 				IPSQueryBinding binding = PSQueryBindingRegistry.getQueryBindingOfNameOrThrow(schema.getQueryBinding());
 				PSPreprocessor preprocessor = new PSPreprocessor(binding);
 				PSSchema preprocessedSchema = preprocessor.getAsPreprocessedSchema(schema);
-				boundSchema = binding.bind(preprocessedSchema, null, null);
+				boundSchema = binding.bind(preprocessedSchema, null, this.errorHandler);
 			} catch (SchematronException e) {
 				LogFactory.getLog(getClass()).error("Unable to initialize schematron library", e);
 			}
@@ -127,6 +132,7 @@ public class SchematronValidator {
 	public void validate(Document document, Hl7Errors validationResults) {
 		if (this.initiated) {
 			try {
+				this.errorHandler.clearResourceErrors();
 				SchematronOutputType schematronOutput = boundSchema.validateComplete(document);
 				
 				for (Object o : schematronOutput.getActivePatternAndFiredRuleAndFailedAssert()) {
@@ -139,6 +145,13 @@ public class SchematronValidator {
 						}
 						
 						validationResults.addHl7Error(new Hl7Error(Hl7ErrorCode.SCHEMATRON, description, failedAssert.getLocation()));
+					}
+				}
+				
+				IResourceErrorGroup resourceErrors = this.errorHandler.getResourceErrors();
+				if (resourceErrors.containsAtLeastOneError() || resourceErrors.containsAtLeastOneFailure()) {
+					for (IResourceError resourceError : resourceErrors.getAllResourceErrors()) {
+						validationResults.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, resourceError.getAsString(Locale.getDefault()), resourceError.getLocation().getAsString()));
 					}
 				}
 			} catch (Exception e) {
