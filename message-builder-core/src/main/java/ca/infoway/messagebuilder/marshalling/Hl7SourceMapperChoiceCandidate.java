@@ -50,13 +50,14 @@ class Hl7SourceMapperChoiceCandidate {
 		boolean isAcceptableChoiceCandidate(int currentErrorLevel) {
 			// to be acceptable can't have any templateId errors in the first two levels past choice
 			// to be acceptable can't have any missing mandatory associations in the first level past choice
+			// to be acceptable can't have any invalid association cardinality errors in the first two levels past choice
 			for (Hl7Error hl7Error : this.storedErrors) {
 				if (hl7Error.getErrorDepth() - currentErrorLevel == 0) {  // a "missing" error actually appears to be one level higher (we never get to the missing node)
 					if (hl7Error.getHl7ErrorCode() == Hl7ErrorCode.MANDATORY_ASSOCIATION_NOT_PROVIDED) {
 						return false;
 					}
 				}
-				if (hl7Error.getErrorDepth() - currentErrorLevel == 1) {
+				if (hl7Error.getErrorDepth() - currentErrorLevel <= 1) { // actually a depth of two, as the error is reported one level higher
 					if (hl7Error.getHl7ErrorCode() == Hl7ErrorCode.NUMBER_OF_ASSOCIATIONS_INCORRECT_FOR_CARDINALITY) {
 						return false;
 					}
