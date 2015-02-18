@@ -69,6 +69,12 @@ public class MessageBeanTransformerImpl {
 		this.dateTimeZone = dateTimeZone;
 		this.dateTimeTimeZone = dateTimeTimeZone;
 		this.performAdditionalCdaValidationWhenUnmarshalling = performAdditionalCdaValidationWhenUnmarshalling;
+		
+		if (this.service != null) {
+			this.service.initialize();
+		}
+		MessageBeanRegistry.getInstance();	// force the registry to initialize itself
+			
 	}
 	
 	public XmlToModelResult transformFromHl7(VersionNumber version, Document hl7Message) {

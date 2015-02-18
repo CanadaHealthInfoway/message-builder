@@ -69,7 +69,7 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		return this.messageSets != null;
 	}
 
-	private synchronized void initialize() {
+	public synchronized void initialize() {
 		if (!initialized()) {
 			List<MessageSet> list = new ArrayList<MessageSet>();
 			MessageSetMarshaller marshaller = new MessageSetMarshaller();

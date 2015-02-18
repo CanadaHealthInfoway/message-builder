@@ -57,6 +57,18 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	}
 
 	/**
+	 * <p>Initialize the service. Pre-initializing the service during system
+	 *  start-up can improve the performance of the first user call to do real work. 
+	 */
+	public void initialize() {
+		if (services != null) {
+			for (MessageDefinitionService service : services) {
+				service.initialize();
+			}
+		}
+	}
+	
+	/**
 	 * <p>Get an interaction by name and version.
 	 * @param version - the version
 	 * @param type - the type name

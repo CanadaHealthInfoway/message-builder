@@ -39,6 +39,8 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 	private Map<String,MessagePart> parts = new HashMap<String,MessagePart>();
 	private Map<String,Interaction> interactions = new HashMap<String,Interaction>();
 	
+	public void initialize() {
+	}
 	public List<Interaction> getAllInteractions(
 			boolean includeDuplicateInteractionsWithChangedBusinessNames) {
 		return null;

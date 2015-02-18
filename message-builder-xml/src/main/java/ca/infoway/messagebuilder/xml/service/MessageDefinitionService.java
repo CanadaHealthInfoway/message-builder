@@ -42,6 +42,11 @@ import ca.infoway.messagebuilder.xml.SchematronContext;
 public interface MessageDefinitionService {
 
 	/**
+	 * <p>Initialize the service. Pre-initializing the service during system
+	 *  start-up can improve the performance of the first user call to do real work. 
+	 */
+	public void initialize();
+	/**
 	 * <p>Get a message part by name and version.
 	 * @param version - the version
 	 * @param type - the type name

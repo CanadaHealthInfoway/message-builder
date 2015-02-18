@@ -37,6 +37,9 @@ import ca.infoway.messagebuilder.xml.SchematronContext;
  */
 class TrivialService implements MessageDefinitionService {
 
+	public void initialize() {
+	}
+	
 	public List<Interaction> getAllInteractions(boolean includeDuplicateInteractionsWithChangedBusinessNames) {
 		return null;
 	}
