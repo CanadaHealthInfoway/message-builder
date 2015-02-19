@@ -153,12 +153,18 @@ class BeanWrapper {
 	}
 
 	public void writeNodeAttribute(Relationship relationship, String attributeValue, VersionNumber version, boolean isR2) {
+		
+		// TODO - TM - this code bypasses parsers; this skips some validation (most significantly, also misses some CDA constraint checking)
+		
 		BeanProperty property = findBeanProperty(relationship);
 		if (property != null) {
             if (StringUtils.isNotBlank(attributeValue)) {
             	if (property.isWritable()) {
             		if ("BL".equals(relationship.getType())) {
             			property.set(Boolean.valueOf(attributeValue));
+            		} else if ("ST".equals(relationship.getType())) {
+            			// TM - there are a handful of CDA node attributes that are of type ST
+                		property.set(attributeValue);
             		} else if ("CS".equals(relationship.getType())) {
             			property.set(resolveCodeValue(relationship, attributeValue, version, isR2));
             		} else {
