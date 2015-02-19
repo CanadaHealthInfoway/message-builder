@@ -30,12 +30,14 @@ public class IiConstraintsHandler {
 	public IiConstraintsHandler() {
 	}
 	
-	public void handleConstraints(ConstrainedDatatype constraints, Identifier identifier, ErrorLogger logger) {
+	public void handleConstraints(ConstrainedDatatype constraints, Identifier identifier, ErrorLogger logger, boolean isSingleCardinality) {
 		if (identifier == null || constraints == null) {
 			return;
 		}
 		
-		String newRoot = constraintsHandler.validateConstraint("root", identifier.getRoot(), constraints, logger);
+		boolean isTemplateId = (constraints.getName() == null ? false : constraints.getName().endsWith(".templateId"));
+		
+		String newRoot = constraintsHandler.validateConstraint("root", identifier.getRoot(), constraints, logger, isSingleCardinality && isTemplateId);
 		String newExtension = constraintsHandler.validateConstraint("extension", identifier.getExtension(), constraints, logger);
 		
 		identifier.setRoot(newRoot);

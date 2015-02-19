@@ -29,10 +29,10 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiConstraintsHandle
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * II - Installer Identifier
@@ -99,7 +100,11 @@ class IiR2ElementParser extends AbstractSingleElementParser<Identifier> {
 			}
 		};
 		
-		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
+		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger, isSingleCardinality(context.getCardinality()));
+	}
+	
+	private boolean isSingleCardinality(Cardinality cardinality) {
+		return cardinality == null ? true : cardinality.isSingle();
 	}
 
 	private void validateII(XmlToModelResult xmlToModelResult, Element element, String root, String extension, String assigningAuthorityName, String displayable) {

@@ -47,6 +47,7 @@ import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiConstraintsHandler;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * II - Installer Identifier
@@ -168,7 +169,11 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
 			}
 		};
 		
-		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger);
+		this.constraintsHandler.handleConstraints(context.getConstraints(), identifier, logger, isSingleCardinality(context.getCardinality()));
+	}
+
+	private boolean isSingleCardinality(Cardinality cardinality) {
+		return cardinality == null ? true : cardinality.isSingle();
 	}
 
 	private void validateMandatoryAttribute(String attributeName, String attributeValue, String type, FormatContext context) {

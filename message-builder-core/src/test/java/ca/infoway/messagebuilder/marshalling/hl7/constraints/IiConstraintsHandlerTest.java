@@ -50,44 +50,57 @@ public class IiConstraintsHandlerTest {
 	
 	@Test
 	public void testNullCases() {
-		this.constraintsHandler.handleConstraints(null, null, this.errorLogger);
+		this.constraintsHandler.handleConstraints(null, null, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		
 		Identifier identifier = new Identifier();
 		
-		this.constraintsHandler.handleConstraints(null, identifier, this.errorLogger);
+		this.constraintsHandler.handleConstraints(null, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		
-		this.constraintsHandler.handleConstraints(null, identifier, this.errorLogger);
+		this.constraintsHandler.handleConstraints(null, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		
 		ConstrainedDatatype constraints = new ConstrainedDatatype();
 		
-		this.constraintsHandler.handleConstraints(constraints, null, this.errorLogger);
+		this.constraintsHandler.handleConstraints(constraints, null, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		
 		identifier.setRoot("1.2.3");
 		identifier.setExtension("123");
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 	}
 	
 	@Test
 	public void testPassingConstraints() {
 		Identifier identifier = new Identifier("1.2.3.4", "1234");
-		ConstrainedDatatype constraints = createConstraints();
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		ConstrainedDatatype constraints = createConstraints(false);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, true);
 		assertTrue(this.errors.isEmpty());
+	}
+
+	@Test
+	public void testPassingTemplateIdConstraints() {
+		Identifier identifier = new Identifier("1.2.3.4", "1234");
+		ConstrainedDatatype constraints = createConstraints(true);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, true);
+		assertFalse(this.errors.isEmpty());
+		assertEquals(1, this.errors.size());
+		assertEquals(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MATCH, this.errors.get(0).getHl7ErrorCode());
+		assertEquals(ErrorLevel.INFO, this.errors.get(0).getHl7ErrorLevel());
+		assertEquals("1.2.3.4", identifier.getRoot());
+		assertEquals("1234", identifier.getExtension());
 	}
 
 	@Test
 	public void testExistingRootFailingConstraint() {
 		Identifier identifier = new Identifier("1.7777", "1234");
-		ConstrainedDatatype constraints = createConstraints();
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		ConstrainedDatatype constraints = createConstraints(false);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertFalse(this.errors.isEmpty());
 		assertEquals(1, this.errors.size());
 		assertEquals(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, this.errors.get(0).getHl7ErrorCode());
@@ -96,10 +109,22 @@ public class IiConstraintsHandlerTest {
 	}
 
 	@Test
+	public void testExistingtemplateIdRootFailingConstraint() {
+		Identifier identifier = new Identifier("1.7777", "1234");
+		ConstrainedDatatype constraints = createConstraints(true);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, true);
+		assertFalse(this.errors.isEmpty());
+		assertEquals(1, this.errors.size());
+		assertEquals(Hl7ErrorCode.CDA_TEMPLATEID_FIXED_CONSTRAINT_MISSING, this.errors.get(0).getHl7ErrorCode());
+		assertEquals("1.7777", identifier.getRoot());
+		assertEquals("1234", identifier.getExtension());
+	}
+
+	@Test
 	public void testExistingExtensionFailingConstraint() {
 		Identifier identifier = new Identifier("1.2.3.4", "12347777");
-		ConstrainedDatatype constraints = createConstraints();
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		ConstrainedDatatype constraints = createConstraints(false);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertFalse(this.errors.isEmpty());
 		assertEquals(1, this.errors.size());
 		assertEquals(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_MISSING, this.errors.get(0).getHl7ErrorCode());
@@ -110,8 +135,8 @@ public class IiConstraintsHandlerTest {
 	@Test
 	public void testMissingRootFailingConstraint() {
 		Identifier identifier = new Identifier((String) null, "1234");
-		ConstrainedDatatype constraints = createConstraints();
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		ConstrainedDatatype constraints = createConstraints(false);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		assertEquals("1.2.3.4", identifier.getRoot());
 		assertEquals("1234", identifier.getExtension());
@@ -120,15 +145,16 @@ public class IiConstraintsHandlerTest {
 	@Test
 	public void testMissingExtensionFailingConstraint() {
 		Identifier identifier = new Identifier("1.2.3.4", (String) null);
-		ConstrainedDatatype constraints = createConstraints();
-		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger);
+		ConstrainedDatatype constraints = createConstraints(false);
+		this.constraintsHandler.handleConstraints(constraints, identifier, this.errorLogger, false);
 		assertTrue(this.errors.isEmpty());
 		assertEquals("1.2.3.4", identifier.getRoot());
 		assertEquals("1234", identifier.getExtension());
 	}
 
-	private ConstrainedDatatype createConstraints() {
-		ConstrainedDatatype constraints = new ConstrainedDatatype("MessagePart.relationshipName", "II");
+	private ConstrainedDatatype createConstraints(boolean isTemplateId) {
+		String name = (isTemplateId ? "MessagePart.templateId" : "MessagePart.relationshipName");
+		ConstrainedDatatype constraints = new ConstrainedDatatype(name, "II");
 		constraints.setRestriction();
 		
 		Relationship rootConstraint = new Relationship("root", null, Cardinality.create("1"));
