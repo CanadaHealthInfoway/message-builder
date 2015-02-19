@@ -456,16 +456,14 @@ class Hl7SourceMapper {
 				
 				if (newChoiceCandidate.isAcceptableChoiceCandidate(currentNodeDepth)) {
 					if (newChoiceCandidate.hasTemplateIdMatch(currentNodeDepth)) {
-						// we'll take the first one that has a template id match
+						// we'll take the first one that has a template id match, even if we found other acceptable candidates
 						choiceCandidate = newChoiceCandidate;
+						choiceCandidateRelationship = choiceType;
 						foundMultipleChoiceCandidates = false;
 						break;
 					} else {
-						if (choiceCandidate == null) {
-							choiceCandidate = newChoiceCandidate;
-							choiceCandidateRelationship = choiceType;
-							foundMultipleChoiceCandidates = false;
-						} else if (choiceCandidateRelationship.isDefaultChoice()) {
+						if (choiceCandidate == null || choiceCandidateRelationship.isDefaultChoice()) {
+							// we have found our first match, or we are dumping the default choice in favor of a better match
 							choiceCandidate = newChoiceCandidate;
 							choiceCandidateRelationship = choiceType;
 						} else if (!choiceType.isDefaultChoice()) {
@@ -474,20 +472,34 @@ class Hl7SourceMapper {
 					}
 				}
 			}
-			
-			if (choiceCandidate != null && !foundMultipleChoiceCandidates) { 
-				convertedBeans.add(choiceCandidate.getParsedBean());
-				source.getResult().getHl7Errors().addAll(choiceCandidate.getStoredErrors());
-			} else {
+
+			// error if no candidates found
+			if (choiceCandidate == null) {
 				source.getResult().addHl7Error(
 						new Hl7Error(
-							Hl7ErrorCode.COULD_NOT_DETERMINE_CHOICE_OPTION,
+							Hl7ErrorCode.CDA_NO_ACCEPTABLE_CHOICE_OPTION,
 							ErrorLevel.WARNING,
 							"Could not determine an appropriate match for a choice element: " + XmlDescriber.describePath(node),
 							childNode
 						)
 				);
+			} else {
+				// error if multiple candidates found (excluding the default; but still take the first acceptable candidate)
+				if (foundMultipleChoiceCandidates) {
+					source.getResult().addHl7Error(
+							new Hl7Error(
+								Hl7ErrorCode.CDA_MULTIPLE_CHOICE_OPTIONS_FOUND,
+								ErrorLevel.WARNING,
+								"Multiple appropriate matches for a choice element found - choosing first one: " + XmlDescriber.describePath(node),
+								childNode
+							)
+					);
+				}
+				
+				convertedBeans.add(choiceCandidate.getParsedBean());
+				source.getResult().getHl7Errors().addAll(choiceCandidate.getStoredErrors());
 			}
+			
 		}
 		return convertedBeans;
 	}
