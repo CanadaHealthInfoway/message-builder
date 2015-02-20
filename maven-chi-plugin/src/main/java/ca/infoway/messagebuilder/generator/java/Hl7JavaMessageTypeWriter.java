@@ -227,7 +227,20 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
         writer.write(LINE_SEPARATOR);
     }
     
-    @Override
+	@Override
+	protected boolean writeConstructor(Writer writer, int indentLevel, List<BaseRelationship> relationships) throws IOException {
+		if (this.type.isCdaDocumentRoot()) {
+			indent(indentLevel, writer);
+			writer.write("protected ");
+			writer.write(this.type.getLanguageSpecificName().getUnqualifiedClassName());
+			writer.write("() {}");
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
 	protected PropertyGenerator createPropertyGenerator(BaseRelationship relationship) {
 		return relationship.getPropertyGenerator(JAVA, this.importDeclarationGenerator, this.nameResolver);
 	}

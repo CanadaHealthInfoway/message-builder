@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD"})
 public class ContinuityOfCareDocumentCCDBean extends ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.ContinuityOfCareDocumentCCDBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
 
 }

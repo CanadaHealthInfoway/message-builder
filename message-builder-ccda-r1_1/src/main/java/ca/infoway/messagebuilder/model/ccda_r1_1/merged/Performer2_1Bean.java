@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Performer1","BaseModel.Performer2","EncounterActivities.Performer2","ImmunizationActivity.Performer2","MedicationActivity.Performer2"})
 public class Performer2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.Performer2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Performer2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.Performer1Choice {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

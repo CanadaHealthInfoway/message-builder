@@ -65,7 +65,7 @@ import java.util.List;
 @Hl7RootType
 public class ContinuityOfCareDocumentCCDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -92,6 +92,7 @@ public class ContinuityOfCareDocumentCCDBean extends MessagePartBean {
     private Component1_1Bean componentOf;
     private Component2Bean component;
 
+    protected ContinuityOfCareDocumentCCDBean() {}
 
     /**
      * <p>Relationship: 
@@ -457,7 +458,7 @@ public class ContinuityOfCareDocumentCCDBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.documentationOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"documentationOf"})
     public DocumentationOfBean getDocumentationOf() {
@@ -468,7 +469,7 @@ public class ContinuityOfCareDocumentCCDBean extends MessagePartBean {
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.ClinicalDocument.documentationOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setDocumentationOf(DocumentationOfBean documentationOf) {
         this.documentationOf = documentationOf;

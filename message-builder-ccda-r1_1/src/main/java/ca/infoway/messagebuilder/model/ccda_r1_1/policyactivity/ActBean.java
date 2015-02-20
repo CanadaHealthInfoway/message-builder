@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CD_R2 code = new CD_R2Impl();
@@ -96,7 +96,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.performer</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"performer"})
     public List<Performer2Choice> getPerformer() {
@@ -107,7 +107,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.participant</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"participant"})
     public List<Participant2Choice> getParticipant() {
@@ -118,7 +118,7 @@ public class ActBean extends MessagePartBean {
     /**
      * <p>Relationship: PolicyActivity.Act.entryRelationship</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
     public List<EntryRelationshipChoice> getEntryRelationship() {

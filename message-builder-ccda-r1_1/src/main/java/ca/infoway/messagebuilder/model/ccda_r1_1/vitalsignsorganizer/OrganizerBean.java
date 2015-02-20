@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class OrganizerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -243,7 +243,7 @@ public class OrganizerBean extends MessagePartBean {
     /**
      * <p>Relationship: VitalSignsOrganizer.Organizer.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"component"})
     public List<Component4Choice> getComponent() {

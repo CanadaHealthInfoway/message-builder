@@ -77,7 +77,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private CS_R2 moodCode = new CS_R2Impl();
     private BL negationInd = new BLImpl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
@@ -134,7 +134,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
      * <p>Relationship: 
      * ImmunizationActivity.SubstanceAdministration.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -145,7 +145,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
      * <p>Relationship: 
      * ImmunizationActivity.SubstanceAdministration.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);

@@ -126,6 +126,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	protected boolean writeConstructor(Writer writer, int indentLevel, List<BaseRelationship> relationships) throws IOException {
 		
 		indent(indentLevel, writer);
+		// TODO CDADOTNET In the java generator, if the class is the entry point of a package representing a document template, we create a no-arg protected constructor.
+		//   The intention is to prevent end-users from instantiating these beans directly. We want to force them to instantiate the "interaction" class that extends the bean.
 		writer.write("public ");
 		writer.write(getClassName());
 		writer.write("() {");

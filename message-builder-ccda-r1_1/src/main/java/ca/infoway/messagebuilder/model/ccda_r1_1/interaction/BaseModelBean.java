@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"BaseModel"})
 public class BaseModelBean extends ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ClinicalDocumentBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
 
 }

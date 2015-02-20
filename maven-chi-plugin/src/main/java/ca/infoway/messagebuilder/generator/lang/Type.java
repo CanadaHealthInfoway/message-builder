@@ -42,6 +42,7 @@ public class Type implements RenderedType, NamedType {
 	private boolean isAbstract = false;
 	private String businessName;
 	private boolean rootType;
+	private boolean cdaDocumentRoot;
 	private String category;
 	private TypeName mergedName;
 	
@@ -165,6 +166,12 @@ public class Type implements RenderedType, NamedType {
 	}
 	public boolean isRootType() {
 		return this.rootType;
+	}
+	public boolean isCdaDocumentRoot() {
+		return cdaDocumentRoot;
+	}
+	public void setCdaDocumentRoot(boolean cdaDocumentRoot) {
+		this.cdaDocumentRoot = cdaDocumentRoot;
 	}
 	public String getCategory() {
 		return this.category;

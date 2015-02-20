@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncounterActivities.Participant2","ProcedureActivityAct.Participant2","ProcedureActivityObservation.Participant2"})
 public class Participant2_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.Participant2Choice {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

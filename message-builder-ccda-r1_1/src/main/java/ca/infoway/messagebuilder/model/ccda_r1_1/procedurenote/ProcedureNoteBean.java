@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7RootType
 public class ProcedureNoteBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -92,6 +92,7 @@ public class ProcedureNoteBean extends MessagePartBean {
     private Component1Bean componentOf;
     private Component2Bean component;
 
+    protected ProcedureNoteBean() {}
 
     /**
      * <p>Relationship: ProcedureNote.ClinicalDocument.typeId</p>
@@ -456,7 +457,7 @@ public class ProcedureNoteBean extends MessagePartBean {
      * <p>Relationship: 
      * ProcedureNote.ClinicalDocument.documentationOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"documentationOf"})
     public List<DocumentationOfChoice> getDocumentationOf() {

@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"SOPInstanceObservation.HasSubjectEntryRelationship"})
 public class HasSubjectEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.sopinstanceobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

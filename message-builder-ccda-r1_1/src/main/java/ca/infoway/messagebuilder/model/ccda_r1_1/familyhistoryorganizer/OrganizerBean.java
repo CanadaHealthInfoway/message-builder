@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class OrganizerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -170,7 +170,7 @@ public class OrganizerBean extends MessagePartBean {
     /**
      * <p>Relationship: FamilyHistoryOrganizer.Organizer.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject"})
     public SubjectBean getSubject() {
@@ -180,7 +180,7 @@ public class OrganizerBean extends MessagePartBean {
     /**
      * <p>Relationship: FamilyHistoryOrganizer.Organizer.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSubject(SubjectBean subject) {
         this.subject = subject;
@@ -269,7 +269,7 @@ public class OrganizerBean extends MessagePartBean {
     /**
      * <p>Relationship: FamilyHistoryOrganizer.Organizer.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"component"})
     public List<Component4Bean> getComponent() {

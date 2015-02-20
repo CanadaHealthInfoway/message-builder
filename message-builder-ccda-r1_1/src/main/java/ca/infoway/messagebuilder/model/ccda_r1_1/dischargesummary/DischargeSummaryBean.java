@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7RootType
 public class DischargeSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -95,6 +95,7 @@ public class DischargeSummaryBean extends MessagePartBean {
     private Component1_1Bean componentOf;
     private Component2Bean component;
 
+    protected DischargeSummaryBean() {}
 
     /**
      * <p>Relationship: DischargeSummary.ClinicalDocument.typeId</p>
@@ -502,7 +503,7 @@ public class DischargeSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * DischargeSummary.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"componentOf"})
     public Component1_1Bean getComponentOf() {
@@ -513,7 +514,7 @@ public class DischargeSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * DischargeSummary.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setComponentOf(Component1_1Bean componentOf) {
         this.componentOf = componentOf;

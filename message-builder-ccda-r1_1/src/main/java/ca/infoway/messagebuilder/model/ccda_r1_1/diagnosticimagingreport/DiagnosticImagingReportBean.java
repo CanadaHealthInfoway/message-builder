@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class DiagnosticImagingReportBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -90,6 +90,7 @@ public class DiagnosticImagingReportBean extends MessagePartBean {
     private Component1Bean componentOf;
     private Component2Bean component;
 
+    protected DiagnosticImagingReportBean() {}
 
     /**
      * <p>Relationship: 
@@ -463,7 +464,7 @@ public class DiagnosticImagingReportBean extends MessagePartBean {
      * <p>Relationship: 
      * DiagnosticImagingReport.ClinicalDocument.documentationOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"documentationOf"})
     public List<DocumentationOfChoice> getDocumentationOf() {

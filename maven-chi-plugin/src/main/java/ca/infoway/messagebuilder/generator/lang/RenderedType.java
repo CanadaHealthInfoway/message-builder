@@ -32,6 +32,7 @@ public interface RenderedType {
 	public LanguageSpecificName getLanguageSpecificName();
 	public boolean isAbstract();
 	public boolean isRootType();
+	public boolean isCdaDocumentRoot();
 	public boolean isTemplateType();
 	public String[] getPartTypeMapping();
 	public List<String> getTemplateVariables();

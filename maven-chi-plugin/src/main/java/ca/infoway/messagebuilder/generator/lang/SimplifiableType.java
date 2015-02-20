@@ -191,6 +191,10 @@ public class SimplifiableType implements Named, NamedType {
 		this.indicator = indicator;
 	}
 
+	public boolean isCdaDocumentRoot() {
+		return isCdaDocumentRoot;
+	}
+
 	public boolean isTemplateType() {
 		return isTemplateType(new HashSet<TypeName>());
 	}

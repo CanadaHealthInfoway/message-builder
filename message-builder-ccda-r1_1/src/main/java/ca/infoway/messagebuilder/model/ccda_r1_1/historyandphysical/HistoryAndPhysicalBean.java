@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7RootType
 public class HistoryAndPhysicalBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -95,6 +95,7 @@ public class HistoryAndPhysicalBean extends MessagePartBean {
     private Component1_2Bean componentOf;
     private Component2Bean component;
 
+    protected HistoryAndPhysicalBean() {}
 
     /**
      * <p>Relationship: HistoryAndPhysical.ClinicalDocument.typeId</p>
@@ -507,7 +508,7 @@ public class HistoryAndPhysicalBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"componentOf"})
     public Component1_2Bean getComponentOf() {
@@ -518,7 +519,7 @@ public class HistoryAndPhysicalBean extends MessagePartBean {
      * <p>Relationship: 
      * HistoryAndPhysical.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setComponentOf(Component1_2Bean componentOf) {
         this.componentOf = componentOf;

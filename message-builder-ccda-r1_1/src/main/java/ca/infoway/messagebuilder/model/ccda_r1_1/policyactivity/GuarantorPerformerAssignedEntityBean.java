@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PolicyActivity.GuarantorPerformerAssignedEntity"})
 public class GuarantorPerformerAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150213L;
+    private static final long serialVersionUID = 20150220L;
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
 

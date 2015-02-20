@@ -469,6 +469,7 @@ class DefinitionToResultConverter {
 			this.types.put(simplifiableType.getName(), type);
 			type.setMergedName(simplifiableType.getMergedTypeName());
 			type.setBusinessName(simplifiableType.getBusinessName());
+			type.setCdaDocumentRoot(simplifiableType.isCdaDocumentRoot());
 			if (simplifiableType.isInlined() && simplifiableType.getInterfaceTypes().isEmpty()) {
 				// skip it
 			} else {
