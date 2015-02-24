@@ -67,7 +67,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp", "Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy()));
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy(), false));
 
 		assertEquals("second", "ca.infoway.temp2.MyClass", generator.getRepresentationOfClassName("ca.infoway.temp2.MyClass"));
 		assertEquals("first", "MyClass", generator.getRepresentationOfClassName("ca.infoway.temp.MyClass"));
@@ -80,7 +80,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp.abcd_mt123456ca", "Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.temp", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy()));
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.temp", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy(), false));
 		
 		assertEquals("class", "MyClass", generator.getRepresentationOfClassName("ca.infoway.temp.abcd_mt123456ca.MyClass"));
 	}
@@ -93,7 +93,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp", "Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy()));
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy(), false));
 		
 		assertEquals("class", "ca.infoway.example.abcd_mt123456ca.MyClass", generator.getRepresentationOfClassName("ca.infoway.example.abcd_mt123456ca.MyClass"));
 	}
@@ -120,7 +120,7 @@ public class ImportDeclarationGeneratorTest {
 	
 	private void generate(Collection<Object> classes, int count) throws IOException {
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp.abcd_mt123456ca", "Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy()));
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy(), false));
 		
 		StringWriter writer = new StringWriter();
 		generator.generate(writer, 0);

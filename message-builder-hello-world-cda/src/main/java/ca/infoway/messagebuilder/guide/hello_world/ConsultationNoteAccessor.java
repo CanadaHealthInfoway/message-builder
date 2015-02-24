@@ -36,9 +36,9 @@ import ca.infoway.messagebuilder.model.ccda_r1_1.allergiessectionentriesoptional
 import ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.NonXMLBodyBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component2Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.Component3Choice;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.ConsultationNote;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.ReasonForReferralSectionComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.StructuredBodyBean;
-import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNote;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AllergiesSectionentriesOptionalComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AllergiesSectionentriesRequiredComponent3Bean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssessmentAndPlanSectionComponent3Bean;

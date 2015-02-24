@@ -61,7 +61,7 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
 	@Override
 	protected void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException {
-		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result, getNamingPolicy());
+		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result, getNamingPolicy(), this.isCda);
 		JavaSourceFileWriterProvider writerProvider = new JavaSourceFileWriterProvider(this.sourceFolder, translator);
 		new JavaTypeWriter(this.outputUI, writerProvider, translator, result, getNamingPolicy()).writeTypes();
 	}

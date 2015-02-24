@@ -51,8 +51,8 @@ public class SimpleNameTranslatorTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(helper).getTypes();
 		}});
-		this.javaTranslator = new SimpleNameTranslator(JAVA, "ca.infoway.test", this.helper, this.nameCoordinator);
-		this.csharpTranslator = new SimpleNameTranslator(C_SHARP, "ca.infoway.test", this.helper, this.nameCoordinator);
+		this.javaTranslator = new SimpleNameTranslator(JAVA, "ca.infoway.test", this.helper, this.nameCoordinator, false);
+		this.csharpTranslator = new SimpleNameTranslator(C_SHARP, "ca.infoway.test", this.helper, this.nameCoordinator, false);
 		this.typeName = new TypeName("ABCD_MT123456CA.Purple");
 		this.interactionName = new TypeName("ABCD_IN123456CA");
 	}

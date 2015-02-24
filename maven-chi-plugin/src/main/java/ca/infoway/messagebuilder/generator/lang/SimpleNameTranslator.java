@@ -37,20 +37,18 @@ public class SimpleNameTranslator implements NameTranslator {
 	private Map<TypeName, Type> types;
 	private final ProgrammingLanguage language;
 	private final TypeNameHelper helper;
+	private final boolean isCda;
 	
-	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NamingPolicy namingPolicy) {
-		this.language = language;
-		this.basePackageName = basePackageName;
-		this.helper = helper;
-		this.types = helper.getTypes();
-		this.nameCoordinator = new SimpleNameCoordinator(helper, namingPolicy);
+	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NamingPolicy namingPolicy, boolean isCda) {
+		this(language, basePackageName, helper, new SimpleNameCoordinator(helper, namingPolicy), isCda);
 	}
-	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NameCoordinator nameCoordinator) {
+	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NameCoordinator nameCoordinator, boolean isCda) {
 		this.language = language;
 		this.basePackageName = basePackageName;
 		this.helper = helper;
 		this.types = helper.getTypes();
 		this.nameCoordinator = nameCoordinator;
+		this.isCda = isCda;
 	}
 	
 	public String getClassNameWithoutPackage(TypeName name) {
@@ -66,7 +64,7 @@ public class SimpleNameTranslator implements NameTranslator {
 		//  the .Net classes never had the "Bean" suffix in the first place, what is the corresponding change?
 		if (this.language == ProgrammingLanguage.C_SHARP) {
 			return "";
-		} else if (this.helper.isAbstract(name) || name.isInteraction()) {
+		} else if (this.helper.isAbstract(name) || (this.isCda && name.isInteraction())) {
 			return "";
 		} else {
 			return "Bean";
@@ -94,7 +92,15 @@ public class SimpleNameTranslator implements NameTranslator {
 	public String getPackageName(TypeName name) {
 		String baseName = this.basePackageName;
 		if (name.isInteraction()) {
-			return baseName + getCategory(name) + ".interaction";
+			// TODO DOTNETCDA The concept of an "interaction" isn't native to the CDA paradigm.
+			//  To prevent confusion, we are moving them to their "home" directories
+			//  this code may not produce the right results for .Net, since the above getSuffix() code
+			//  may be producing a name collision.
+			if (this.isCda) {
+				return baseName + getCategory(name) + "." + name.getName().toLowerCase();
+			} else {
+				return baseName + getCategory(name) + ".interaction";
+			}
 		} else {
 			return baseName + getCategory(name) + "." + name.getRootName().getName().toLowerCase();
 		}

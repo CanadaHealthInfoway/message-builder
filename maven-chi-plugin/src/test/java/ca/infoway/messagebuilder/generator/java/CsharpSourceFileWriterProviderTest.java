@@ -38,7 +38,7 @@ public class CsharpSourceFileWriterProviderTest {
 	@Test
 	public void shouldCreateWriter() throws Exception {
 		JavaSourceFileWriterProvider provider = new JavaSourceFileWriterProvider(
-				SystemUtils.getJavaIoTmpDir(), new SimpleNameTranslator(C_SHARP, "ca.infoway.test", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy()));
+				SystemUtils.getJavaIoTmpDir(), new SimpleNameTranslator(C_SHARP, "ca.infoway.test", new TypeNameHelperImpl(), NamingPolicy.getDefaultPolicy(), false));
 		File file = provider.createFile(new TypeName("ABCD_MT123456CA.Subject23"));
 		
         String expectedPathEnd = "ca/infoway/test/abcd_mt123456ca/Subject23.java".replace('/', System.getProperty("file.separator").charAt(0));

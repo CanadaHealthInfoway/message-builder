@@ -179,7 +179,7 @@ class DefinitionToResultConverter {
 	}
 
 	private void createLanguageSpecificNames(TypeAnalysisResult result) {
-		SimpleNameTranslator translator = new SimpleNameTranslator(this.programmingLanguage, this.basePackageName, result, this.namingPolicy);
+		SimpleNameTranslator translator = new SimpleNameTranslator(this.programmingLanguage, this.basePackageName, result, this.namingPolicy, this.isCda);
 		for (Type type : result.getAllMessageTypes()) {
 			type.setLanguageSpecificName(translator.getLanguageSpecificName(type.getTypeName()));
 		}

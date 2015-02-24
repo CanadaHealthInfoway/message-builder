@@ -65,7 +65,7 @@ public abstract class IntermediateToModelGenerator {
 	protected final String basePackageName;
 	private final File reportDir;
 	private NamingPolicy namingPolicy;
-	private boolean isCda;
+	protected boolean isCda;
 	
 	protected NamingPolicy getNamingPolicy() {
 		return namingPolicy;

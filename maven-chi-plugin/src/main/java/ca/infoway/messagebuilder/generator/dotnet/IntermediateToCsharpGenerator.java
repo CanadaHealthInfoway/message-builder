@@ -62,7 +62,7 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	
 	@Override
 	protected void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException {
-		NameTranslator translator = new CsharpPackageNameAdjustingDecorator(new SimpleNameTranslator(C_SHARP, this.basePackageName, result, getNamingPolicy()));
+		NameTranslator translator = new CsharpPackageNameAdjustingDecorator(new SimpleNameTranslator(C_SHARP, this.basePackageName, result, getNamingPolicy(), this.isCda));
 		CsharpSourceFileWriterProvider writerProvider = new CsharpSourceFileWriterProvider(this.sourceFolder, translator);
 		new CsharpTypeWriter(this.outputUI, writerProvider, translator, result, getNamingPolicy()).writeTypes();
 	}
