@@ -19,7 +19,7 @@
  */
 package ca.infoway.messagebuilder.guide.hello_world;
 
-import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNoteBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNote;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
 
@@ -54,7 +54,7 @@ public class ConsultationNoteHelloWorldApp extends HelloWorldAppBase {
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 		
 		ConsultationNoteCreator consultationNoteCreator = new ConsultationNoteCreator();
-		ConsultationNoteBean consultationNote = consultationNoteCreator.createConsultationNoteBean();
+		ConsultationNote consultationNote = consultationNoteCreator.createConsultationNoteBean();
 
 		@SuppressWarnings("unused")
 		String xml = processDocumentObject(consultationNote);
@@ -80,7 +80,7 @@ public class ConsultationNoteHelloWorldApp extends HelloWorldAppBase {
 		
 		String xml = readResourceFile(this.documentXml);
 		
-		ConsultationNoteBean consultationNote = (ConsultationNoteBean) processDocumentXml(xml);
+		ConsultationNote consultationNote = (ConsultationNote) processDocumentXml(xml);
 		
 		ConsultationNoteAccessor consultationNoteAccessor = new ConsultationNoteAccessor();
 		consultationNoteAccessor.processConsultationNote(consultationNote);

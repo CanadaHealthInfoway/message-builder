@@ -51,7 +51,7 @@ import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.StructuredBody
 import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.ConsultDocumentType;
 import ca.infoway.messagebuilder.model.ccda_r1_1.domainvalue.Language;
-import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNoteBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.interaction.ConsultationNote;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedAuthorBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.AssignedCustodianBean;
 import ca.infoway.messagebuilder.model.ccda_r1_1.merged.Author_2Bean;
@@ -75,12 +75,12 @@ public class ConsultationNoteCreator {
 	 * Note that many of these methods could be placed in a central location for reuse (if a group of Authors was always the same, they could be cached, etc.)
 	 */
 		
-	public ConsultationNoteBean createConsultationNoteBean() {
+	public ConsultationNote createConsultationNoteBean() {
 
 		// Community Health and Hospitals: Consultation Note
 		// templateId 2.16.840.1.113883.10.20.22.1.4
 
-		ConsultationNoteBean consultationNote = new ConsultationNoteBean();
+		ConsultationNote consultationNote = new ConsultationNote();
 		consultationNote.setTypeId(new Identifier("2.16.840.1.113883.1.3", "POCD_HD000040"));
 		consultationNote.getTemplateId().add(new Identifier("2.16.840.1.113883.10.20.22.1.4"));
 		consultationNote.setId(new Identifier("2.16.840.1.113883.19.5.99999.1", "TT988"));
@@ -100,7 +100,7 @@ public class ConsultationNoteCreator {
 	}
 
 	// used to add more information to the document object after initially creating it
-	public void addHistoryOfPresentIllness(ConsultationNoteBean consultationNote) {
+	public void addHistoryOfPresentIllness(ConsultationNote consultationNote) {
 		ca.infoway.messagebuilder.model.ccda_r1_1.historyofpresentillnesssection.SectionBean historyOfPresentIllnessSection = new ca.infoway.messagebuilder.model.ccda_r1_1.historyofpresentillnesssection.SectionBean();
 		historyOfPresentIllnessSection.setTitle("HISTORY OF PRESENT ILLNESS");
 		historyOfPresentIllnessSection.setText(createIllnessHistoryText());
