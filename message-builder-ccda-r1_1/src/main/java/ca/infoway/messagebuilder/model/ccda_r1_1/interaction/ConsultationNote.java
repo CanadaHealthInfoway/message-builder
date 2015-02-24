@@ -22,17 +22,18 @@ package ca.infoway.messagebuilder.model.ccda_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.consultationnote.ConsultationNoteBean;
 
 
 
 /**
- * <p>Business Name: USRealmHeader</p>
+ * <p>Business Name: ConsultationNote</p>
  * 
- * <p>Message: USRealmHeader.ClinicalDocument</p>
+ * <p>Message: ConsultationNote.ClinicalDocument</p>
  */
-@Hl7PartTypeMapping({"USRealmHeader"})
-public class USRealmHeaderBean extends ca.infoway.messagebuilder.model.ccda_r1_1.usrealmheader.USRealmHeaderBean implements ClinicalDocumentBean {
+@Hl7PartTypeMapping({"ConsultationNote"})
+public class ConsultationNote extends ConsultationNoteBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
 
 }

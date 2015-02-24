@@ -22,17 +22,18 @@ package ca.infoway.messagebuilder.model.ccda_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.diagnosticimagingreport.DiagnosticImagingReportBean;
 
 
 
 /**
- * <p>Business Name: ContinuityOfCareDocumentCCD</p>
+ * <p>Business Name: DiagnosticImagingReport</p>
  * 
- * <p>Message: ContinuityOfCareDocumentCCD.ClinicalDocument</p>
+ * <p>Message: DiagnosticImagingReport.ClinicalDocument</p>
  */
-@Hl7PartTypeMapping({"ContinuityOfCareDocumentCCD"})
-public class ContinuityOfCareDocumentCCDBean extends ca.infoway.messagebuilder.model.ccda_r1_1.continuityofcaredocumentccd.ContinuityOfCareDocumentCCDBean implements ClinicalDocumentBean {
+@Hl7PartTypeMapping({"DiagnosticImagingReport"})
+public class DiagnosticImagingReport extends DiagnosticImagingReportBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
 
 }

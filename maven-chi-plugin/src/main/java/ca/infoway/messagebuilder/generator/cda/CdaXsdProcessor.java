@@ -64,7 +64,9 @@ public class CdaXsdProcessor {
 				TypeName typeName = new TypeName(name);
 				String packageName = typeName.getRootName().getName();
 				if (!messageSet.getPackageLocations().containsKey(packageName)) {
-					messageSet.getPackageLocations().put(packageName, new PackageLocation(packageName));
+					PackageLocation newPackage = new PackageLocation(packageName);
+					newPackage.setRootType(packageName + ".ClinicalDocument"); // Hack, because there's no way to figure it out programatically
+					messageSet.getPackageLocations().put(packageName, newPackage);
 					createInteractionForPackage(messageSet, packageName);
 				}
 				

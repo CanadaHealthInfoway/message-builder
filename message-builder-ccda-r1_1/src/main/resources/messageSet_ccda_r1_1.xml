@@ -1010,7 +1010,7 @@ StaticMifToXsd.xsl version 2.0</documentation>
       </packageLocation>
    </packageEntry>
    <packageEntry name="BaseModel">
-      <packageLocation name="BaseModel">
+      <packageLocation name="BaseModel" rootType="BaseModel.ClinicalDocument">
          <entry name="BaseModel.Act">
             <messagePart name="BaseModel.Act" abstract="false" templateParameter="false">
                <relationship name="classCode" attribute="true" type="CS" structural="true" domainType="x_ActClassDocumentEntryAct" domainSource="VALUE_SET" conformance="MANDATORY" cardinality="1" sortOrder="1"/>

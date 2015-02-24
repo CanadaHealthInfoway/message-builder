@@ -61,9 +61,12 @@ public class SimpleNameTranslator implements NameTranslator {
 		}
 	}
 	private String getSuffix(TypeName name) {
+		// TODO DOTNETCDA In the Java code, we are suppressing the "Bean" suffix for the interaction class, to eliminate
+		//  the name collision and allow the class to be moved into the same package with all the message parts. Since
+		//  the .Net classes never had the "Bean" suffix in the first place, what is the corresponding change?
 		if (this.language == ProgrammingLanguage.C_SHARP) {
 			return "";
-		} else if (this.helper.isAbstract(name)) {
+		} else if (this.helper.isAbstract(name) || name.isInteraction()) {
 			return "";
 		} else {
 			return "Bean";

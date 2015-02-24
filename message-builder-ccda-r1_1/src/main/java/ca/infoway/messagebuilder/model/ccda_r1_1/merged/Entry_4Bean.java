@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncountersSectionentriesOptional.Entry","EncountersSectionentriesRequired.Entry"})
 public class Entry_4Bean extends MessagePartBean implements EntryChoice_4 {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private CS_R2 typeCode = new CS_R2Impl();
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();

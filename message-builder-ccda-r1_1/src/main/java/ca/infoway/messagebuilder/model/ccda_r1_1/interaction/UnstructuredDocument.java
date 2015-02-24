@@ -22,17 +22,18 @@ package ca.infoway.messagebuilder.model.ccda_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.unstructureddocument.UnstructuredDocumentBean;
 
 
 
 /**
- * <p>Business Name: DischargeSummary</p>
+ * <p>Business Name: UnstructuredDocument</p>
  * 
- * <p>Message: DischargeSummary.ClinicalDocument</p>
+ * <p>Message: UnstructuredDocument.ClinicalDocument</p>
  */
-@Hl7PartTypeMapping({"DischargeSummary"})
-public class DischargeSummaryBean extends ca.infoway.messagebuilder.model.ccda_r1_1.dischargesummary.DischargeSummaryBean implements ClinicalDocumentBean {
+@Hl7PartTypeMapping({"UnstructuredDocument"})
+public class UnstructuredDocument extends UnstructuredDocumentBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
 
 }

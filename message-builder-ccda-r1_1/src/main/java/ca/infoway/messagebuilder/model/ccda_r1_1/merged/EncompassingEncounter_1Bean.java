@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.EncompassingEncounter","ContinuityOfCareDocumentCCD.EncompassingEncounter","DischargeSummary.EncompassingEncounter","OperativeNote.EncompassingEncounter","USRealmHeader.EncompassingEncounter","UnstructuredDocument.EncompassingEncounter"})
 public class EncompassingEncounter_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

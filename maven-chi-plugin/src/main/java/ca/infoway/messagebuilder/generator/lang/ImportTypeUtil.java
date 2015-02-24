@@ -45,12 +45,11 @@ public class ImportTypeUtil {
 			}
 		}
 		
-		if (!type.isCda()) {
-			Type parentType = ((InteractionType) type).getParentType();
-			if (parentType != null) {
-				importTypes.add(parentType.getLanguageSpecificName().getFullyQualifiedName());
-			}
+		Type parentType = ((InteractionType) type).getParentType();
+		if (parentType != null) {
+			importTypes.add(parentType.getLanguageSpecificName().getFullyQualifiedName());
 		}
+
 		addArgumentTypes(importTypes, type.getArguments());
 		return importTypes;
 	}

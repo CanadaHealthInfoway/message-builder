@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AuthorizationActivity.EntryRelationship"})
 public class EntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.authorizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

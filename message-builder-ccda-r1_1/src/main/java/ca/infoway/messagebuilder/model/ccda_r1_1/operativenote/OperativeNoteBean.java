@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class OperativeNoteBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();

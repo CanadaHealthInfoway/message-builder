@@ -22,17 +22,18 @@ package ca.infoway.messagebuilder.model.ccda_r1_1.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
+import ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.OperativeNoteBean;
 
 
 
 /**
- * <p>Business Name: BaseModel</p>
+ * <p>Business Name: OperativeNote</p>
  * 
- * <p>Message: BaseModel.ClinicalDocument</p>
+ * <p>Message: OperativeNote.ClinicalDocument</p>
  */
-@Hl7PartTypeMapping({"BaseModel"})
-public class BaseModelBean extends ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ClinicalDocumentBean implements ClinicalDocumentBean {
+@Hl7PartTypeMapping({"OperativeNote"})
+public class OperativeNote extends OperativeNoteBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
 
 }

@@ -149,11 +149,7 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 		writer.write(" extends ");
 		InteractionType interaction = (InteractionType) this.type;
 		Type parentTypeName = interaction.getParentType();
-		if (interaction.isCda()) {
-			writer.write(parentTypeName.getLanguageSpecificName().getFullyQualifiedName());
-		} else {
-			writer.write(parentTypeName.getLanguageSpecificName().getUnqualifiedClassName());
-		}
+		writer.write(parentTypeName.getLanguageSpecificName().getUnqualifiedClassName());
 		
 		writeTemplateArguments(writer, interaction.getArguments());
 		

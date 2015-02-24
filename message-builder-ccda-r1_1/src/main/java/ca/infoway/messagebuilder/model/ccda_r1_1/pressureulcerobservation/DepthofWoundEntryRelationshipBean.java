@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PressureUlcerObservation.DepthofWoundEntryRelationship"})
 public class DepthofWoundEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

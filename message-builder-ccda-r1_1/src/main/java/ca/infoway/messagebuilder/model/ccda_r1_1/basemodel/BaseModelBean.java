@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.model.ccda_r1_1.basemodel;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
+import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.CS_R2;
@@ -53,9 +54,10 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"BaseModel.ClinicalDocument"})
-public class ClinicalDocumentBean extends MessagePartBean {
+@Hl7RootType
+public class BaseModelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150220L;
+    private static final long serialVersionUID = 20150224L;
     private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -84,6 +86,7 @@ public class ClinicalDocumentBean extends MessagePartBean {
     private Component1_1Bean componentOf;
     private Component2Bean component;
 
+    protected BaseModelBean() {}
 
     /**
      * <p>Relationship: BaseModel.ClinicalDocument.realmCode</p>
