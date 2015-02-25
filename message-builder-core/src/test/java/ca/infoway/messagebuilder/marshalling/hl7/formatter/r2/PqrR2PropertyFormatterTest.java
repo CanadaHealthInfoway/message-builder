@@ -60,7 +60,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setValue(new BigDecimal("1.234"));
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 
 		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), new PQRImpl(codedType));
@@ -75,7 +75,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text allowed for PQR");
+		originalText.setContent("original text allowed for PQR");
 		codedType.setOriginalText(originalText);
 
 		PQR pqr = new PQRImpl(codedType);
@@ -102,7 +102,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setValue(new BigDecimal("1.234"));
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		PQR pqr = new PQRImpl(codedType);

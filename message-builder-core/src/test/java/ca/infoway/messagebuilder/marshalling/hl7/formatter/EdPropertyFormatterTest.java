@@ -67,7 +67,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOC"), 
 				new EDImpl<EncapsulatedData>(new EncapsulatedData(PLAIN_TEXT, null, null, "this is some text & some \"more\"".getBytes())));
 		assertTrue(this.result.isValid());
-		assertEquals("something in text node", expectedResult, result);
+		assertXml("something in text node", expectedResult, result, true);
 	}
 	
 	@Test
@@ -93,7 +93,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 		String result = new EdPropertyFormatter().format(getContext("name", "ED.DOCORREF"), 
 				edImp);
 		assertTrue(this.result.isValid());
-		assertEquals("something in text node", expectedResult, result);
+		assertXml("something in text node", expectedResult, result, true);
 	}
 	
 	@Test
@@ -107,7 +107,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 				edImp);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals("something in text node", expectedResult, result);
+		assertXml("something in text node", expectedResult, result, true);
 	}
 	
 	@Test
@@ -122,7 +122,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 				edImp);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals("something in text node", expectedResult, result);
+		assertXml("something in text node", expectedResult, result, true);
 	}
 	
 	@Test
@@ -135,7 +135,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 				new EDImpl<EncapsulatedData>(new EncapsulatedData(null, null, null, "this is some text".getBytes())));
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals("something in text node", expectedResult, result);
+		assertXml("something in text node", expectedResult, result, true);
 	}
 	
 	@Test
@@ -151,7 +151,8 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 		
 		assertTrue(this.result.isValid());
 		assertEquals("element", clearPayload(expectedResult), clearPayload(result));
-		assertEquals("element payload", decodeAndUnzip(extractPayload(result)), "<xml>foo</xml>");
+		String extractPayload = extractPayload(result);
+		assertEquals("element payload", decodeAndUnzip(extractPayload), "<xml>foo</xml>");
 	}
 	
 	@Test
@@ -215,7 +216,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 				new EDImpl<EncapsulatedData>(ed));
 		
 		assertTrue(this.result.isValid());
-		assertEquals("something in text node", expectedResult.trim(), result.trim());
+		assertXml("something in text node", expectedResult.trim(), result.trim(), true);
 	}
 	
 	private String clearPayload(String result) {
@@ -223,7 +224,7 @@ public class EdPropertyFormatterTest extends FormatterTestCase {
 	}
 
 	private String extractPayload(String result) {
-		return result.replaceAll("(<name.*>(.*)</name>)", "$2");
+		return result.replaceAll("(?s)(<name.*>(.*)</name>)", "$2").trim();
 	}
 	
 	@Test

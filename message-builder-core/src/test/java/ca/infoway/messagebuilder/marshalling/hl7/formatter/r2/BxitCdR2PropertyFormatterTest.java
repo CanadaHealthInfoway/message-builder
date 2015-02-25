@@ -88,7 +88,7 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setQty(1122);
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new BxitCdR2PropertyFormatter().format(getContext("name", "BXIT<CD>"), new BXITImpl<CodedTypeR2<Code>>(codedType));
@@ -111,7 +111,7 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text allowed for CD");
+		originalText.setContent("original text allowed for CD");
 		codedType.setOriginalText(originalText);
 		
 		BXIT<CodedTypeR2<Code>> sxcmCd = new BXITImpl<CodedTypeR2<Code>>(codedType);
@@ -162,7 +162,7 @@ public class BxitCdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setQty(1122);
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		BXIT<CodedTypeR2<Code>> sxcm_cd = new BXITImpl<CodedTypeR2<Code>>(codedType);

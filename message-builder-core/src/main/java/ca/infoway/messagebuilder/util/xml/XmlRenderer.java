@@ -45,6 +45,12 @@ import org.w3c.dom.NodeList;
  * @sharpen.ignore - util.xml - translated manually
  */
 public class XmlRenderer {
+	
+	private static TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	private static DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+	static {
+    	documentFactory.setNamespaceAware(true);
+	}
 
 	/**
 	 * <p>Render the document to properly-formatted XML. No indenting, includes xml declaration.
@@ -52,18 +58,18 @@ public class XmlRenderer {
 	 * @return - the XML.
 	 * @throws TransformerException - if the XML cannot be rendered
 	 */
-    public static String render(Document document) throws TransformerException {
+    public static String render(Node document) throws TransformerException {
     	return render(document, false, -1);
     }
 
 	/**
 	 * <p>Render the document to properly-formatted XML.
-	 * @param document - the document to render.
+	 * @param document - the document or xml fragment to render.
 	 * @param omitXmlDeclaration - omit the xml declaration
 	 * @param indentLevel - amount to indent xml (-1 for no indenting)
 	 * @throws TransformerException - if the XML cannot be rendered
 	 */
-    public static String render(Document document, boolean omitXmlDeclaration, int indentLevel) throws TransformerException {
+    public static String render(Node document, boolean omitXmlDeclaration, int indentLevel) throws TransformerException {
     	StringWriter writer = new StringWriter();
     	render(document, omitXmlDeclaration, indentLevel, writer);
     	return writer.toString();
@@ -71,33 +77,38 @@ public class XmlRenderer {
 
     /**
 	 * <p>Render the document to properly-formatted XML.
-	 * @param document - the document to render.
+	 * @param node - the document to render.
 	 * @param omitXmlDeclaration - omit the xml declaration
 	 * @param indentLevel - amount to indent xml (-1 for no indenting)
 	 * @param writer - the writer to which the XML should be rendered.
 	 * @throws TransformerException - if the XML cannot be rendered
 	 */
-    public static void render(Document document, boolean omitXmlDeclaration, int indentLevel, Writer writer) throws TransformerException {
-    	TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    public static void render(Node node, boolean omitXmlDeclaration, int indentLevel, Writer writer) throws TransformerException {
     	if (indentLevel > 0) {
+    		// neither of these work with our configuration
 //    		transformerFactory.setAttribute("indent-number", indentLevel);
-//    		transformerFactory.setAttribute("indent-spaces ", indentLevel);
+//    		transformerFactory.setAttribute("indent-spaces", indentLevel);
     	}
 		Transformer transformer = transformerFactory.newTransformer();
         if (omitXmlDeclaration) {
         	transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
         }
         if (indentLevel > 0) {
+        	// indents the xml using a default indent amount (3)
         	transformer.setOutputProperty(OutputKeys.INDENT, "yes");        	
+    		// none of these work with our configuration
 //        	transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", ""+indentLevel);
+//        	transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", ""+indentLevel);
+//        	transformer.setOutputProperty("{http://saxon.sf.net/}indent-spaces", ""+indentLevel);  // should work, but requires Saxon-PE
         }
-        transformer.transform(new DOMSource(document), new StreamResult(writer));
+        
+        renameNamespaceRecursive(node, null);
+        
+        transformer.transform(new DOMSource(node), new StreamResult(writer));
     }
     
     public static Document obtainDocumentFromNode(Node node, boolean removeNamespaces) throws ParserConfigurationException {
-    	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    	factory.setNamespaceAware(true);
-    	DocumentBuilder builder = factory.newDocumentBuilder();
+    	DocumentBuilder builder = documentFactory.newDocumentBuilder();
     	Document newDocument = builder.newDocument();
     	Node importedNode = newDocument.importNode(node, true);
     	newDocument.appendChild(importedNode);

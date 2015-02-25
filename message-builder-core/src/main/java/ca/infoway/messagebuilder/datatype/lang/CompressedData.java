@@ -67,8 +67,8 @@ public class CompressedData extends EncapsulatedData {
 	 * @return the uncompressed content as a byte array
 	 */
 	public byte[] getUncompressedContent() {
-		byte[] content = getContent();
-		if (isGzip()) {
+		byte[] content = getContent() == null ? null : getContent().getBytes();
+		if (content != null && isGzip()) {
 			try {
 				if (isB64()) {
 					content = Base64.decodeBase64(content);
@@ -88,7 +88,7 @@ public class CompressedData extends EncapsulatedData {
 	 * @return the compressed content as a byte array.
 	 */
 	public byte[] getCompressedContent() {
-		byte[] content = getContent();
+		byte[] content = getContent().getBytes();
 		if (isGzip()) {
 			try {
 				// will callers be expecting this to be B64 encoded?

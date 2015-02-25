@@ -125,15 +125,15 @@ public class EdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Enc
 
 	private boolean hasContent(EncapsulatedData encapsulatedData) {
 		return hasReferenceOrThumbnailOrDocument(encapsulatedData) || 
-			   encapsulatedData.getTextContent() != null ||
-			   encapsulatedData.getCdataContent() != null ||
-			   encapsulatedData.getDocumentContent() != null;
+			   encapsulatedData.hasContent()
+			   ;
 	}
 
 	private boolean hasReferenceOrThumbnailOrDocument(EncapsulatedData encapsulatedData) {
 		return encapsulatedData.getReferenceObj() != null || 
 			   encapsulatedData.getThumbnail() != null ||
-			   encapsulatedData.getDocumentContent() != null;
+			   encapsulatedData.hasContent()
+			   ;
 	}
 
 	private void writeReference(EncapsulatedData encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context) {

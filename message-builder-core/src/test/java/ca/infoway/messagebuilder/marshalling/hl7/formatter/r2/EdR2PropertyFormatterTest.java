@@ -22,12 +22,11 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import junit.framework.Assert;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
@@ -36,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
-import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
@@ -57,35 +55,35 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 	}
 	
 	@Test
+	public void testInvalidTextContent() throws Exception {
+		TelecommunicationAddress reference = new TelecommunicationAddress();
+		reference.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
+		reference.setAddress("aValue");
+		reference.addAddressUse(CeRxDomainTestValues.HOME_ADDRESS);
+
+		try {
+			createEd(reference, "some content & that will <b>not</b> be escaped");
+			fail("Should not get here due to unescaped content");
+		} catch (SAXParseException e) {
+			// expected to throw an exception on the "&"
+		}
+	}
+
+	@Test
 	public void testTextContent() throws Exception {
 		TelecommunicationAddress reference = new TelecommunicationAddress();
 		reference.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
 		reference.setAddress("aValue");
 		reference.addAddressUse(CeRxDomainTestValues.HOME_ADDRESS);
 		
-		EncapsulatedData data = createEd(reference, "some content & that <b> will be escaped", null, null);
+		EncapsulatedData data = createEd(reference, "some content &amp; that will <b>not</b> be escaped");
 		
 		String result = new EdPropertyFormatter(this.telFormatter, true).format(getContext("text", "ED"), new EDImpl<EncapsulatedData>(data));
 		assertTrue(this.result.isValid());
 		assertXml("something in text node", 
 				"<text compression=\"ZL\" integrityCheck=\"c29tZXRoaW5nIHRvIGVuY29kZQ==\" integrityCheckAlgorithm=\"SHA-256\" language=\"en-CA\" mediaType=\"text/plain\" representation=\"TXT\">" +
 					"<reference use=\"H\" value=\"tel:aValue\"/>" + 
-					"some content &amp; that &lt;b&gt; will be escaped" +
-				"</text>"
-		, result, true);
-	}
-
-	@Test
-	public void testMoreContentThanAllowed() throws Exception {
-		EncapsulatedData data = createEd(null, "some content & that <b> will be escaped", "some cdata <& <> content", null);
-		
-		String result = new EdPropertyFormatter(this.telFormatter, true).format(getContext("text", "ED"), new EDImpl<EncapsulatedData>(data));
-		assertFalse(this.result.isValid());
-		assertEquals(1, this.result.getHl7Errors().size());
-		assertEquals(Hl7ErrorCode.ONLY_ONE_TYPE_OF_CONTENT_ALLOWED, this.result.getHl7Errors().get(0).getHl7ErrorCode());
-		assertXml("something in text node", 
-				"<text compression=\"ZL\" integrityCheck=\"c29tZXRoaW5nIHRvIGVuY29kZQ==\" integrityCheckAlgorithm=\"SHA-256\" language=\"en-CA\" mediaType=\"text/plain\" representation=\"TXT\">" +
-				"<![CDATA[some cdata <& <> content]]>" +
+					"some content &amp; that will <b>not</b> be escaped" +
 				"</text>"
 		, result, true);
 	}
@@ -97,8 +95,8 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 		reference.setAddress("aValue");
 		reference.addAddressUse(CeRxDomainTestValues.HOME_ADDRESS);
 		
-		EncapsulatedData data = createEd(reference, null, null, "<content>this is some <b>bolded</b> content</content>");
-		data.setThumbnail(createEd(reference, null, "some cdata <& <> content", null));
+		EncapsulatedData data = createEd(reference, "<content>this is some <b>bolded</b> content</content>");
+		data.setThumbnail(createEd(reference, "<![CDATA[some cdata <& <> content]]>"));
 		
 		String result = new EdPropertyFormatter(this.telFormatter, true).format(getContext("text", "ED"), new EDImpl<EncapsulatedData>(data));
 		assertTrue(this.result.isValid());
@@ -111,10 +109,10 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 					"</thumbnail>" +
 					"<content>this is some <b>bolded</b> content</content>" +
 				"</text>"
-		, result);
+		, result, true);
 	}
 
-	private EncapsulatedData createEd(TelecommunicationAddress reference, String textContent, String cdataContent, String documentContent) {
+	private EncapsulatedData createEd(TelecommunicationAddress reference, String content) throws Exception {
 		EncapsulatedData data = new EncapsulatedData();
 		data.setCompression(Compression.ZLIB);
 		data.setIntegrityCheck(Base64.encodeBase64String("something to encode".getBytes()));
@@ -123,18 +121,8 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 		data.setMediaType(X_DocumentMediaType.PLAIN_TEXT);
 		data.setReferenceObj(reference);
 		data.setRepresentation(EdRepresentation.TXT);
-		if (textContent != null) {
-			data.setTextContent(textContent);
-		}
-		if (cdataContent != null) {
-			data.setCdataContent(cdataContent);
-		}
-		if (documentContent != null) {
-			try {
-				data.addDocumentContentFromString(documentContent);
-			} catch (SAXException e) {
-				Assert.fail("Should not fail creating document content");
-			}
+		if (content != null) {
+			data.setContent(content);
 		}
 		return data;
 	}

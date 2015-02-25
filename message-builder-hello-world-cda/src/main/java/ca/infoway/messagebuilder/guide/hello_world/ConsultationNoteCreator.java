@@ -113,23 +113,24 @@ public class ConsultationNoteCreator {
 
 	private EncapsulatedData createIllnessHistoryText() {
 		EncapsulatedData text = new EncapsulatedData();
+		
 		try {
-			text.addDocumentContentFromString("<paragraph>This patient was only recently discharged for a recurrent GI" +
+			text.addContent("<paragraph>This patient was only recently discharged for a recurrent GI" +
 					"bleed as described below.</paragraph>");
-			text.addDocumentContentFromString("<paragraph>He presented to the ER today c/o a dark stool yesterday but a" +
+			text.addContent("<paragraph>He presented to the ER today c/o a dark stool yesterday but a" +
 					"normal brown stool today. On exam he was hypotensive in the 80?s" +
 					"resolved after .... .... .... </paragraph>");
-			text.addDocumentContentFromString("<paragraph>Lab at discharge: Glucose 112, BUN 16, creatinine 1.1," +
+			text.addContent("<paragraph>Lab at discharge: Glucose 112, BUN 16, creatinine 1.1," +
 					"electrolytes normal. H. pylori antibody pending. Admission hematocrit" +
 					"16%, discharge hematocrit 29%. WBC 7300, platelet count 256,000." +
 					"Urinalysis normal. Urine culture: No growth. INR 1.1, PTT" +
 					"40.</paragraph>");
-			text.addDocumentContentFromString("<paragraph>He was transfused with 6 units of packed red blood cells with" +
+			text.addContent("<paragraph>He was transfused with 6 units of packed red blood cells with" +
 					".... .... ....</paragraph>");
-			text.addDocumentContentFromString("<paragraph>GI evaluation 12 September: Colonoscopy showed single red clot in" +
+			text.addContent("<paragraph>GI evaluation 12 September: Colonoscopy showed single red clot in" +
 					".... .... ....</paragraph>");
 		} catch (SAXException e) {
-			// nothing to do here, though generally you would need to handle malformed input here
+			System.out.println("Unexpected exception adding content to ED: " + e);
 		}
 		return text;
 	}
@@ -145,16 +146,15 @@ public class ConsultationNoteCreator {
 	}
 
 	private GeneralStatusSectionComponent3Bean createGeneralStatus() {
-		EncapsulatedData text = new EncapsulatedData();
-		try {
-			text.addDocumentContentFromString("<paragraph>Alert and in good spirits, no acute distress. </paragraph>");
-		} catch (SAXException e) {
-			// nothing to do here
-		}
-		
 		ca.infoway.messagebuilder.model.ccda_r1_1.generalstatussection.SectionBean section = new ca.infoway.messagebuilder.model.ccda_r1_1.generalstatussection.SectionBean();
 		section.setTitle("GENERAL STATUS");
-		section.setText(text);
+		
+		try {
+			EncapsulatedData text = new EncapsulatedData("<paragraph>Alert and in good spirits, no acute distress. </paragraph>");
+			section.setText(text);
+		} catch (SAXException e) {
+			System.out.println("Unexpected exception adding content to ED: " + e);
+		}
 		
 		GeneralStatusSectionComponent3Bean generalStatus = new GeneralStatusSectionComponent3Bean();
 		generalStatus.setSection(section);
@@ -162,17 +162,17 @@ public class ConsultationNoteCreator {
 	}
 
 	private ChiefComplaintAndReasonForVisitSectionComponent3Bean createReasonForVisit() {
-		EncapsulatedData text = new EncapsulatedData();
-		try {
-			text.addDocumentContentFromString("<paragraph>Dark stools.</paragraph>");
-		} catch (SAXException e) {
-			// nothing to do here
-		}
-		
 		SectionBean section = new SectionBean();
 		section.setTitle("REASON FOR VISIT/CHIEF COMPLAINT");
-		section.setText(text);
 		
+		try {
+			EncapsulatedData text = new EncapsulatedData("<paragraph>Dark stools.</paragraph>");
+			section.setText(text);
+		} catch (SAXException e) {
+			System.out.println("Unexpected exception adding content to ED: " + e);
+		}
+		
+
 		ChiefComplaintAndReasonForVisitSectionComponent3Bean reasonForVisit = new ChiefComplaintAndReasonForVisitSectionComponent3Bean();
 		reasonForVisit.setSection(section);
 		

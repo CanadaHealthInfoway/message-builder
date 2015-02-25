@@ -88,7 +88,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", "This is a test", unencode(data.getContent()));
+		assertEquals("content", "This is a test", unencode(data.getContent().getBytes()));
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 	
@@ -106,7 +106,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
-	public void testParseTooManyChildNodes() throws Exception {
+	public void testParseManyChildNodesAllowed() throws Exception {
 		Node node = createNode(
 				"<something>" +
 				"Some Text" +
@@ -115,9 +115,8 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
-		assertEquals(2, this.xmlResult.getHl7Errors().size());
-		assertEquals("ED only supports a single content node. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
-		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
+		assertEquals(1, this.xmlResult.getHl7Errors().size());
+		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(0).getMessage());
 		
 		this.xmlResult.clearErrors();
 		
@@ -129,11 +128,10 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.V02R02), node, this.xmlResult);
 		assertFalse(this.xmlResult.isValid());
-		assertEquals(4, this.xmlResult.getHl7Errors().size());
-		assertEquals("ED only supports a single content node. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
-		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
-		assertEquals("Reference is mandatory. (<something>)", this.xmlResult.getHl7Errors().get(2).getMessage());
-		assertEquals("Content is not permitted for ED.DOCREF. (<something>)", this.xmlResult.getHl7Errors().get(3).getMessage());
+		assertEquals(3, this.xmlResult.getHl7Errors().size());
+		assertEquals("MediaType must be provided and must be a value from x_DocumentMediaType. (<something>)", this.xmlResult.getHl7Errors().get(0).getMessage());
+		assertEquals("Reference is mandatory. (<something>)", this.xmlResult.getHl7Errors().get(1).getMessage());
+		assertEquals("Content is not permitted for ED.DOCREF. (<something>)", this.xmlResult.getHl7Errors().get(2).getMessage());
 	}
 	
 	@Test
@@ -201,7 +199,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
@@ -275,7 +273,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -286,7 +284,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCORREF", SpecificationVersion.V01R04_3), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size()); // reference should be as element; can't have both reference and content
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}
@@ -308,7 +306,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size()); // unknown value for representation; representation must be B64 or TXT
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -318,7 +316,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -329,7 +327,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" + content + "</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value", BytesUtil.asString(Base64.decodeBase64(value.getContent())));
+		assertEquals("proper text returned", "text value", BytesUtil.asString(Base64.decodeBase64(value.getContent().getBytes())));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReference());
 	}
@@ -340,7 +338,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOCREF", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(2, this.xmlResult.getHl7Errors().size()); // reference should be an element; can't have content
-		assertEquals("proper text returned", "text value", BytesUtil.asString(value.getContent()));
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}

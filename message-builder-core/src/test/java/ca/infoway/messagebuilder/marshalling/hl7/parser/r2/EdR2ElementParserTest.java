@@ -80,7 +80,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", TEXT_SIMPLE_B64, data.getTextContent());
+		assertEquals("content", TEXT_SIMPLE_B64, data.getContent());
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 
@@ -90,12 +90,12 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", TEXT_SIMPLE_B64, data.getTextContent());
+		assertEquals("content", TEXT_SIMPLE_B64, data.getContent());
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 	
 	@Test
-	public void testParseManyChildTextNodes() throws Exception {
+	public void testParseManyChildTextNodesAllowed() throws Exception {
 		Node node = createNode(
 				"<something>" +
 				"<monkey/>" +
@@ -105,12 +105,10 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
 		assertNotNull(data);
-		assertNull(data.getTextContent());
-		assertNotNull(data.getDocumentContent());
-		assertEquals(3, data.getDocumentContent().size());
+		assertNotNull(data.getContent());
 		assertXml("content", "<monkey/>" + System.getProperty("line.separator") + 
 				"<shines/>" + System.getProperty("line.separator") + 
-				"<through/>", data.getDocumentContentAsString(-1));
+				"<through/>", data.getContent());
 	}
 	
 	@Test
@@ -123,7 +121,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertEquals("content", "H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==", data.getTextContent());
+		assertEquals("content", "H4sIAAAAAAAAALOpyM2xS8vPt9EHMQATOK6nDgAAAA==", data.getContent());
 	}
 	
 	@Test
@@ -136,7 +134,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertEquals("content", "H4sIAAAAAAAAAAMAAAAAAAAAAAA=", data.getTextContent());
+		assertEquals("content", "H4sIAAAAAAAAAAMAAAAAAAAAAAA=", data.getContent());
 	}
 	
 	@Test
@@ -148,7 +146,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("Compression type", GZIP, data.getCompression());
 		assertEquals("language", "en-CA", data.getLanguage());
 		assertEquals("representation", EdRepresentation.B64, data.getRepresentation());
-		assertNull("content", data.getTextContent());
+		assertNull("content", data.getContent());
 	}
 
 	@Test
@@ -158,7 +156,50 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("signature", 
 				"this is a text node", 
-				value.getTextContent());
+				value.getContent());
+	}
+	
+	@Test
+	public void testParseTrickyTextNodeThatReallyIsntText() throws Exception {
+		Node node = createNode("<something>this is a text node<br/>with some extra<br/>formatting</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("mixed text", 
+				"this is a text node<br/>with some extra<br/>formatting", 
+				value.getContent());
+	}
+	
+	@Test
+	public void testParseTextCommentsCdataAndElements() throws Exception {
+		Node node = createNode(          
+				"<text>\n" +
+				"	this is some text\n" +
+				"	<![CDATA[& this is some > CDATA text]]>\n" +
+				"	<!--  with a comment -->\n" +
+				"	<table xmlns:fred=\"urn:hl7-org:fred\">\n" +
+				"		<thead>\n" +
+				"			<tr>\n" +
+				"				<th>and some html</th>\n" +
+				"			</tr>\n" +
+				"		</thead>\n" +
+				"	</table>\n" +
+				"</text>\n"
+			);
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertXml("mixed text", 
+				"this is some text\n" +
+				"\t&amp; this is some &gt; CDATA text\n" +
+				"<!--  with a comment -->\n" +
+				"<table xmlns:fred=\"urn:hl7-org:fred\">\n" +
+				"<thead>\n" +
+				"<tr>\n" +
+				"<th>and some html</th>\n" +
+				"</tr>\n" +
+				"</thead>\n" +
+				"</table>\n",
+				value.getContent(),
+				false);
 	}
 	
 	@Test
@@ -166,7 +207,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>text value</text>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("text returned", "text value", new String(value.getTextContent()));
+		assertEquals("text returned", "text value", new String(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReferenceObj().getAddress());
 		assertEquals("proper reference returned", "https", value.getReferenceObj().getUrlScheme().getCodeValue());
@@ -179,7 +220,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		assertEquals("ED types only allow a single reference. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
-		assertEquals("text returned", "text value", new String(value.getTextContent()));
+		assertEquals("text returned", "text value", new String(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReferenceObj().getAddress());
 		assertEquals("proper reference returned", "https", value.getReferenceObj().getUrlScheme().getCodeValue());
@@ -191,7 +232,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
-		assertEquals("proper text returned", "text value", value.getTextContent());
+		assertEquals("proper text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReferenceObj());
 	}
@@ -201,7 +242,27 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value", value.getTextContent());
+		assertEquals("proper text returned", "text value", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReferenceObj());
+	}
+	
+	@Test
+	public void testParseRepresentationValidTXTWithEmbeddedElements() throws Exception {
+		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value<br/>with some<br/>unescaped characters;</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("proper text returned", "text value<br/>with some<br/>unescaped characters;", value.getContent());
+		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
+		assertNull("no reference", value.getReferenceObj());
+	}
+	
+	@Test
+	public void testParseRepresentationValidTXTWithEscapedValues() throws Exception {
+		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value&lt;br/&gt;with some&lt;br/&gt;escaped characters;</something>");
+		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
+		assertTrue(this.xmlResult.isValid());
+		assertEquals("proper text returned", "text value&lt;br/&gt;with some&lt;br/&gt;escaped characters;", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReferenceObj());
 	}
@@ -212,7 +273,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"B64\" compression=\"DF\" mediaType=\"text/plain\">" + content + "</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value should be b64 encoded", value.getTextContent());
+		assertEquals("proper text returned", "text value should be b64 encoded", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReferenceObj());
 	}
@@ -234,9 +295,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertNull(value.getTextContent());
-		assertNull(value.getDocumentContent());
-		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
+		assertTrue("proper text returned", value.getContent().startsWith("Since this is a CDATA"));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReferenceObj().getAddress());
 		assertEquals("proper reference returned", "https", value.getReferenceObj().getUrlScheme().getCodeValue());
@@ -268,11 +327,9 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("proper thumbnail representation returned", EdRepresentation.TXT, value.getThumbnail().getRepresentation());
 		assertEquals("proper thumbnail reference returned", "thumbnail.ca/monograph/WPDM00002197.html", value.getThumbnail().getReferenceObj().getAddress());
 		assertEquals("proper thumbnail reference returned", "https", value.getThumbnail().getReferenceObj().getUrlScheme().getCodeValue());
-		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getTextContent());
+		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getContent());
 		
-		assertNull(value.getTextContent());
-		assertNull(value.getDocumentContent());
-		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
+		assertTrue("proper text returned", value.getContent().startsWith("Since this is a CDATA"));
 	}
 	
 	@Test
@@ -303,11 +360,9 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("proper thumbnail representation returned", EdRepresentation.TXT, value.getThumbnail().getRepresentation());
 		assertEquals("proper thumbnail reference returned", "thumbnail.ca/monograph/WPDM00002197.html", value.getThumbnail().getReferenceObj().getAddress());
 		assertEquals("proper thumbnail reference returned", "https", value.getThumbnail().getReferenceObj().getUrlScheme().getCodeValue());
-		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getTextContent());
+		assertEquals("proper thumbnail text returned", "thumbnail text value", value.getThumbnail().getContent());
 		
-		assertNull(value.getTextContent());
-		assertNull(value.getDocumentContent());
-		assertTrue("proper text returned", value.getCdataContent().startsWith("Since this is a CDATA"));
+		assertTrue("proper text returned", value.getContent().startsWith("Since this is a CDATA"));
 	}
 }
 

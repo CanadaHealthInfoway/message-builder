@@ -178,7 +178,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aCsName", pqr.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", pqr.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", pqr.getValue().getDisplayName());
-		assertEquals("some original text", pqr.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", pqr.getValue().getOriginalText().getContent());
 		assertEquals(new BigDecimal("1.2"), pqr.getValue().getValue());
 	}
 	
@@ -211,7 +211,7 @@ public class PqrR2ElementParserTest extends MarshallingTestCase {
 		assertNull(pqr.getValue().getOperator());
 		assertEquals(new BigDecimal("1.2"), pqr.getValue().getValue());
 		assertNull(pqr.getValue().getSimpleValue());
-		assertEquals("some original text", pqr.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", pqr.getValue().getOriginalText().getContent());
 		assertEquals(0, pqr.getValue().getTranslation().size());
 		assertEquals(0, pqr.getValue().getQualifier().size());
 	}

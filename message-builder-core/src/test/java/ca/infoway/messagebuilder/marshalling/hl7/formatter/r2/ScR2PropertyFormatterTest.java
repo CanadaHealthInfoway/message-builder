@@ -71,7 +71,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text not allowed for SC");
+		originalText.setContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 		
 		SC_R2 sc = new SC_R2Impl(codedType);
@@ -99,7 +99,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text not allowed for SC");
+		originalText.setContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 
 		SC_R2 sc = new SC_R2Impl(codedType);

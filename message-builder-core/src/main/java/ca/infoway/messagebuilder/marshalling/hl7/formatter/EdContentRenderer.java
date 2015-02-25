@@ -20,60 +20,30 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-
-import javax.xml.transform.TransformerException;
-
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
-import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.platform.Base64;
 import ca.infoway.messagebuilder.util.text.Indenter;
 
 public class EdContentRenderer {
 	
 	public void renderContent(EncapsulatedData encapsulatedData, StringBuffer buffer, int indentLevel, FormatContext context, boolean hasReferenceOrThumbnailOrDocument) {
-		boolean hasDoc = encapsulatedData.getDocumentContent() != null;
-		boolean hasCdata = encapsulatedData.getCdataContent() != null;
-		boolean hasText = encapsulatedData.getTextContent() != null;
-		boolean hasContent = (hasDoc || hasCdata || hasText);
-		validateContent(context, hasDoc, hasCdata, hasText);
+		boolean hasContent = (encapsulatedData.getContent() != null);
 		
 		if (hasReferenceOrThumbnailOrDocument && hasContent) {
 			Indenter.indentBuffer(buffer, indentLevel);
 		}
-		if (hasDoc) {
-			try {
-				String documentContentAsString = encapsulatedData.getDocumentContentAsString(indentLevel);
-				buffer.append(documentContentAsString);
-			} catch (TransformerException e) {
-				context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "ED xml document content could not be rendered: " + e.getMessage(), context.getPropertyPath()));
-			}
-		} else if (hasCdata) {
-			buffer.append("<![CDATA[" + encapsulatedData.getCdataContent() + "]]>");
-		} else if (hasText) {
-			String textContent = encapsulatedData.getTextContent();
+		if (hasContent) {
+			String textContent = encapsulatedData.getContent();
 			if (EdRepresentation.B64.equals(encapsulatedData.getRepresentation())) {
 				validateBase64Encoded("content", textContent, context);
 			}
-			buffer.append(XmlStringEscape.escape(textContent));
+			buffer.append(textContent);
 		}
 		if (hasReferenceOrThumbnailOrDocument && hasContent) {
 			buffer.append(LINE_SEPARATOR);
-		}
-	}
-
-	private void validateContent(FormatContext context, boolean hasDoc, boolean hasCdata, boolean hasText) {
-		// only one content type should be provided
-		int numProvided = (hasDoc ? 1 : 0) + (hasCdata ? 1 : 0) + (hasText ? 1 : 0);
-		if (numProvided > 1) {
-			context.getModelToXmlResult().addHl7Error(
-					new Hl7Error(Hl7ErrorCode.ONLY_ONE_TYPE_OF_CONTENT_ALLOWED, 
-							ErrorLevel.WARNING, 
-							"ED only allows for one type of content (Document, CDATA or text). Precendence given to content in order shown; other content not rendered.", 
-							context.getPropertyPath()));
 		}
 	}
 

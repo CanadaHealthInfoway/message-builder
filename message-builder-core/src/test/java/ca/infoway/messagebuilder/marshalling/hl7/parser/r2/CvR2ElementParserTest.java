@@ -177,7 +177,7 @@ public class CvR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aCsName", cv.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", cv.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", cv.getValue().getDisplayName());
-		assertEquals("some original text", cv.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", cv.getValue().getOriginalText().getContent());
 	}
 	
 	@Test
@@ -209,7 +209,7 @@ public class CvR2ElementParserTest extends MarshallingTestCase {
 		assertNull(cv.getValue().getOperator());
 		assertNull(cv.getValue().getValue());
 		assertNull(cv.getValue().getSimpleValue());
-		assertEquals("some original text", cv.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", cv.getValue().getOriginalText().getContent());
 		assertEquals(0, cv.getValue().getTranslation().size());
 		assertEquals(0, cv.getValue().getQualifier().size());
 	}
@@ -230,7 +230,7 @@ public class CvR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aCsName", co.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", co.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", co.getValue().getDisplayName());
-		assertEquals("some original text", co.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", co.getValue().getOriginalText().getContent());
 	}
 	
 	@Test
@@ -262,7 +262,7 @@ public class CvR2ElementParserTest extends MarshallingTestCase {
 		assertNull(co.getValue().getOperator());
 		assertNull(co.getValue().getValue());
 		assertNull(co.getValue().getSimpleValue());
-		assertEquals("some original text", co.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", co.getValue().getOriginalText().getContent());
 		assertEquals(0, co.getValue().getTranslation().size());
 		assertEquals(0, co.getValue().getQualifier().size());
 		

@@ -24,10 +24,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.apache.commons.lang.StringUtils;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -41,16 +40,15 @@ import ca.infoway.messagebuilder.datatype.lang.util.Compression;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.EdConstraintsHandler;
-import ca.infoway.messagebuilder.util.xml.XmlRenderer;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
@@ -151,46 +149,25 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 	}
 
 	private void handleContent(EncapsulatedData ed, Element element, XmlToModelResult result, ParseContext context) {
-		Node contentNode = determineFirstContentNode(element, result);
-		if (contentNode != null) {
-	        if (isTextNode(contentNode)) {
-	        	// debatable whether the text content should be trimmed or not; trimming for now
-	        	ed.setTextContent(StringUtils.trim(contentNode.getTextContent()));
-	        } else if (isCdataSection(contentNode)) {
-	        	ed.setCdataContent(contentNode.getNodeValue());
-	        } else {
-	        	List<Node> allContentNodes = determineAllContentNodes(element);
-	        	for (Node node : allContentNodes) {
-	        		try {
-	        			Document doc = XmlRenderer.obtainDocumentFromNode(node, true);
-	        			ed.addDocumentContent(doc);
-	        		} catch (ParserConfigurationException e) {
-	        			result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content: " + e.getMessage(), element));
-	        		}
-	        	}
-	        }
-		}
-	}
-
-	private boolean isTextNode(Node contentNode) {
-		return contentNode.getNodeName().equals("#text");
+		List<Node> allContentNodes = determineAllContentNodes(element);
+    	for (Node node : allContentNodes) {
+    		try {
+				ed.addContent(node);
+			} catch (TransformerException e) {
+				result.getHl7Errors().add(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, "An error occurred trying to parse ED content. Some or all of the content may not have been processed: " + e.getMessage(), element));
+			}
+    	}
+    	ed.trimContent();
 	}
 	
-	private boolean isCdataSection(Node contentNode) {
-		return contentNode.getNodeType() == Node.CDATA_SECTION_NODE;
-	}
-
 	private void validateInnerNodes(Element element, Hl7Errors errors) {
 		// should come in the following order (ignoring empty text nodes)
 		// at most one reference
 		// at most one thumbnail
-		// at most one content node (text, CDATA, element)
 		int referenceCount = 0;
 		int thumbnailCount = 0;
 		int contentCount = 0;
 		boolean nodesOutOfOrder = false;
-		boolean textNodeDetected = false;
-		boolean cdataNodeDetected = false;
 		
 		NodeList childNodes = element.getChildNodes();
 		for (int i = 0; i < childNodes.getLength(); i++) {
@@ -208,13 +185,6 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 			} else if (!isEmptyTextNode(node) && !isComment(node)) {
 				// MBG-193 - we need not to count comments as content, regardless of where they occur in the element.
 				contentCount++;
-				// MBG-188 - only text and CDATA nodes should trigger content count validation
-				if (isTextNode(node)) {
-					textNodeDetected = true;
-				}
-				if (isCdataSection(node)) {
-					cdataNodeDetected = true;
-				}
 			}
 		}
 		
@@ -224,38 +194,25 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		if (thumbnailCount > 1) {
 			recordError("ED types only allow a single thumbnail. Found: " + thumbnailCount, element, errors);
 		}
-		if (contentCount > 1 && (textNodeDetected || cdataNodeDetected)) {
-			recordError("ED only supports a single content node. Found: " + contentCount, element, errors);
-		}
 		if (nodesOutOfOrder) {
 			recordError("ED properties appear to be out of order. If provided, order must be (reference element, thumbnail element, content).", element, errors);
 		}
 	}
 
-	private Node determineFirstContentNode(Element element, Hl7Errors errors) {
-		// skip reference element, thumbnail element, blank text nodes
-		Node firstContentNode = null;
-		NodeList childNodes = element.getChildNodes();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node node = childNodes.item(i);
-			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName()) && !isEmptyTextNode(node)) {
-				firstContentNode = node;
-				break;
-			}
-		}
-		return firstContentNode;
-	}
-	
 	private List<Node> determineAllContentNodes(Element element) {
 		// skip reference element, thumbnail element, blank text nodes
 		List<Node> contentNodes = new ArrayList<Node>();
 		NodeList childNodes = element.getChildNodes();
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			Node node = childNodes.item(i);
-			if (!"reference".equals(node.getNodeName()) && !"thumbnail".equals(node.getNodeName()) && !isTextNode(node)) {
-				contentNodes.add(node);
+			if ("reference".equals(node.getNodeName()) || "thumbnail".equals(node.getNodeName())) {
+				// content only starts after last reference/thumbnail
+				contentNodes.clear();
+			} else {
+					contentNodes.add(node);
 			}
 		}
+		
 		return contentNodes;
 	}
 	
@@ -263,6 +220,10 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
         return isTextNode(node) && StringUtils.isBlank(node.getTextContent());
 	}
 
+	private boolean isTextNode(Node contentNode) {
+		return contentNode.getNodeName().equals("#text");
+	}
+	
     private boolean isComment(Node node) {
     	return node.getNodeName().equals("#comment");
     }

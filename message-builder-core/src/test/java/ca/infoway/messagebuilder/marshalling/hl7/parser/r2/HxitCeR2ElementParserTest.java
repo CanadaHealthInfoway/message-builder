@@ -194,7 +194,7 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aCsName", ce.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", ce.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", ce.getValue().getDisplayName());
-		assertEquals("some original text", ce.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", ce.getValue().getOriginalText().getContent());
 		assertEquals(2, ce.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), ce.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), ce.getValue().getTranslation().get(0).getCode().getCodeSystem());
@@ -239,7 +239,7 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 		assertNull(ce.getValue().getOperator());
 		assertNull(ce.getValue().getValue());
 		assertNull(ce.getValue().getSimpleValue());
-		assertEquals("some original text", ce.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", ce.getValue().getOriginalText().getContent());
 		assertEquals(2, ce.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), ce.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), ce.getValue().getTranslation().get(0).getCode().getCodeSystem());

@@ -61,7 +61,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setDisplayName("aDisplayName");
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), new CV_R2Impl(codedType));
@@ -79,7 +79,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text allowed for CV");
+		originalText.setContent("original text allowed for CV");
 		codedType.setOriginalText(originalText);
 		
 		CV_R2 cv = new CV_R2Impl(codedType);
@@ -105,7 +105,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		CV_R2 cv = new CV_R2Impl(codedType);
@@ -137,7 +137,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setDisplayName("aDisplayName");
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), new COImpl(codedType));
@@ -152,7 +152,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("original text allowed for CO");
+		originalText.setContent("original text allowed for CO");
 		codedType.setOriginalText(originalText);
 		
 		CO co = new COImpl(codedType);
@@ -178,7 +178,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.getQualifier().add(new CodeRole());
 		
 		EncapsulatedData originalText = new EncapsulatedData();
-		originalText.setTextContent("some original text");
+		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
 		CO co = new COImpl(codedType);

@@ -42,7 +42,7 @@ public class EncapsulatedDataDocumentXmlParser extends AbstractSimpleXmlParser<E
 	protected void doRenderNonNullValue(StringBuilder builder, SimpleXmlParseContext context, StandardDataType dataType, EncapsulatedData value) {
 		if (StandardDataType.ED_DOC.equals(dataType)) {
 			builder.append("<document>");
-			byte[] content = value.getContent();
+			byte[] content = value.getContent().getBytes();
 			if (content != null) {
 				builder.append(new String(Base64.encodeBase64(content)));
 			}

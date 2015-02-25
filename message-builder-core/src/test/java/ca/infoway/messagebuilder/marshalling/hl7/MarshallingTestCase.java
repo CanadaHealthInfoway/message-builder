@@ -20,7 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7;
 
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static org.junit.Assert.assertEquals;
 
 import java.text.DateFormat;
@@ -59,17 +59,17 @@ public abstract class MarshallingTestCase {
 		return new DocumentFactory().createFromString(string).getDocumentElement();
 	}
 	
-	protected static void assertXml(String description, String expected, String actual) {
-		if (actual.contains("<!--")) {
+	protected void assertXml(String description, String expected, String actual) {
+		assertXml(description, expected, actual, true);
+	}
+	
+	protected void assertXml(String description, String expected, String actual, boolean skipFirstComment) {
+		if (skipFirstComment && actual.contains("<!--")) {
 			String first = StringUtils.substringBefore(actual, "<!--");
 			String rest = StringUtils.substringAfter(StringUtils.substringAfter(actual, "<!--"), "-->");
 			actual = first + rest;
 		}
-		assertEquals(description, formatXml(expected), formatXml(actual.replaceAll("\\s+<", "<")));
-	}
-
-	private static String formatXml(String value) {
-		return value.replaceAll("><", ">" + LINE_SEPARATOR + "<").trim();
+		assertEquals(description, normalizeWhitespace(expected, true), normalizeWhitespace(actual, true));
 	}
 	
 	protected void assertDateEquals(String description, String pattern, Date expected, Date actual) {

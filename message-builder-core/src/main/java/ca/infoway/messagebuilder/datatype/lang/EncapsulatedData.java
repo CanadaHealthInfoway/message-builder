@@ -20,15 +20,15 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.datatype.lang.util.Compression;
@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.datatype.lang.util.IntegrityCheckAlgorithm;
 import ca.infoway.messagebuilder.domainvalue.x_DocumentMediaType;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlRenderer;
 
@@ -55,6 +56,8 @@ import ca.infoway.messagebuilder.util.xml.XmlRenderer;
  */
 public class EncapsulatedData {
 
+	private static final DocumentFactory DOCUMENT_FACTORY = new DocumentFactory();
+	
 	private TelecommunicationAddress reference;
 	private EncapsulatedData thumbnail;
 	
@@ -65,26 +68,26 @@ public class EncapsulatedData {
 	private String integrityCheck;
 	private IntegrityCheckAlgorithm integrityCheckAlgorithm;
 
-	// at most can provide only one of these three content types
-	private String textContent; // must be text or base64 encoded; will be escaped
-	private String cdataContent;
-	private List<Document> documentContent; // HTML content may not have a single root element
+	private String content; 
 
-	private final DocumentFactory documentFactory = new DocumentFactory();
-	
 	/**
 	 * <p>Constructs an empty ED.
 	 */
 	public EncapsulatedData() {
 	}
 	
-	public EncapsulatedData(String textContent) {
-		this.textContent = textContent;
+	public EncapsulatedData(String textContent) throws SAXException {
+		setContent(textContent);
 	}
 
-	public EncapsulatedData(Document document) {
-		this.documentContent = new ArrayList<Document>();
-		this.documentContent.add(document);
+	public EncapsulatedData(Node nodeOrDocumentContent) throws TransformerException {
+		addContent(nodeOrDocumentContent);
+	}
+
+	public EncapsulatedData(List<Node> nodeOrDocumentContents) throws TransformerException {
+		for (Node node : nodeOrDocumentContents) {
+			addContent(node);
+		}
 	}
 
 	/**
@@ -94,13 +97,14 @@ public class EncapsulatedData {
 	 * @param reference a reference
 	 * @param language
 	 * @param content content within a byte array
+	 * @throws SAXException 
 	 * @deprecated
 	 */
 	@Deprecated
 	public EncapsulatedData(x_DocumentMediaType mediaType, String reference, String language, byte[] content) {
 		this.mediaType = mediaType;
 		this.language = language;
-		this.textContent = content == null || content.length == 0 ? null : new String(content);
+		this.content = content == null || content.length == 0 ? null : XmlStringEscape.escape(new String(content));
 		if (StringUtils.isNotBlank(reference)) {
 			String[] parts = reference.split("://");
 			if (parts.length > 0) {
@@ -207,93 +211,93 @@ public class EncapsulatedData {
 	}
 
 	public boolean hasContent() {
-		return StringUtils.isNotBlank(this.textContent) || StringUtils.isNotBlank(this.getCdataContent()) || this.getDocumentContent() != null;
+		return StringUtils.isNotBlank(this.content);
 	}
 	
 	/**
-	 * <p>Returns the text content. This content will be escaped when rendered to xml.
+	 * <p>Returns the content as a String.
 	 * 
 	 * @return the content
 	 */
-	public String getTextContent() {
-		return this.textContent;
+	public String getContent() {
+		return this.content;
 	}
 	
-	public void setTextContent(String content) {
-		this.textContent = content;
-	}
-
-	/**
-	 * <p>Returns text content as a byte array. Deprecated. Please use appropriate content accessor (text, cdata, or document).
-	 * 
-	 * @return the byte array content
-	 * @deprecated
-	 */
-	@Deprecated
-	public byte[] getContent() {
-		return this.textContent == null ? null : this.textContent.getBytes();
-	}
-	
-	/**
-	 * CDATA content. This content will be wrapped in a CDATA block and *not* escaped.
-	 * 
-	 * @return the cdata content
-	 */
-	public String getCdataContent() {
-		return cdataContent;
-	}
-
-	public void setCdataContent(String cdataContent) {
-		this.cdataContent = cdataContent;
+	public void setContent(String content) throws SAXException {
+		addContent(content);
 	}
 
 	/**
 	 * Document content. ED content may contain multiple root elements 
 	 * 
 	 * @return the document
+	 * @throws TransformerException 
 	 */
-	public List<Document> getDocumentContent() {
-		return documentContent;
+	public void setContent(List<Node> nodeOrDocumentContents) throws TransformerException {
+		this.content = null;
+		for (Node node : nodeOrDocumentContents) {
+			addContent(node);
+		}
+	}
+	
+	public void addContent(String newStringContent) throws SAXException {
+		addStringContent(newStringContent, true);
+	}
+	
+	public void addContent(Node nodeOrDocument) throws TransformerException {
+		// convert to String and add to content
+		String newStringContent = convertNodeToString(nodeOrDocument);
+		try {
+			addStringContent(newStringContent, false);
+		} catch (SAXException e) {
+			// validation not done for this case; should never get here
+		}
 	}
 
-	public void setDocumentContent(List<Document> documentContent) {
-		this.documentContent = documentContent;
-	}
-	
-	public void addDocumentContent(Document document) {
-		if (this.documentContent == null) {
-			this.documentContent = new ArrayList<Document>();
+	private void addStringContent(String newStringContent, boolean validate) throws SAXException {
+		if (validate) {
+			validateStringContent(newStringContent);
 		}
-		this.documentContent.add(document);
+		if (this.content == null) {
+			this.content = newStringContent;
+		} else {
+			this.content += newStringContent;
+		}
 	}
 
-	/**
-	 * Convenience method to obtain ED xml content as a String
-	 * @param indentLevel amount to indent xml; -1 for no indenting
-	 * @return the ED document in a string
-	 * @throws TransformerException
-	 */
-	public String getDocumentContentAsString(int indentLevel) throws TransformerException {
-		if (this.documentContent == null) {
-			return null;
+	private void validateStringContent(String content) throws SAXException {
+		// wrap content in an outer tag and try to convert to document (content such as plain text won't convert to a document but could still be valid)
+		if (content != null) {
+			DOCUMENT_FACTORY.createFromString("<mbContent>" + content + "</mbContent>");
 		}
-		String result = "";
-		for (Document document : this.documentContent) {
-			result += XmlRenderer.render(document, true, indentLevel);
+	}
+
+	private String convertNodeToString(Node node) throws TransformerException {
+		Node newNode = node;
+		if (!isTextNode(node)) {
+			try {
+				// convert the node into a document in order to avoid inheriting any namespaces
+				// note, this should not remove inner namespaces in the content - may need to revisit
+				// this may be very inefficient - better to just search and replace namespaces after converting to string?
+				newNode = XmlRenderer.obtainDocumentFromNode(node, true);
+			} catch (ParserConfigurationException e) {
+				throw new TransformerException("Problem occurred trying to convert Node to a Document", e);
+			}
 		}
-		return result;
+		return XmlRenderer.render(newNode, true, 0);
 	}
 	
-	/**
-	 * Convenience method to pass in xml as a string to add to documentContent
-	 * @param documentContentAsString the string to convert to a Document
-	 * @throws SAXException
-	 */
-	public void addDocumentContentFromString(String documentContentAsString) throws SAXException {
-		addDocumentContent(this.documentFactory.createFromString(documentContentAsString));
+	private boolean isTextNode(Node node) {
+		// looking for any types that can not be converted to a document
+		short nodeType = node.getNodeType();
+		return nodeType == Node.CDATA_SECTION_NODE || nodeType == Node.TEXT_NODE || nodeType == Node.COMMENT_NODE; 
+	}
+
+	public void trimContent() {
+		this.content = StringUtils.trimToNull(this.content);
 	}
 	
-    @Override
+	@Override
     public int hashCode() {
         return new HashCodeBuilder()
         		.append(this.reference)
@@ -304,9 +308,7 @@ public class EncapsulatedData {
 		        .append(this.compression)
 		        .append(this.integrityCheck)
 		        .append(this.integrityCheckAlgorithm)
-		        .append(this.textContent)
-		        .append(this.cdataContent)
-		        .append(this.documentContent)
+		        .append(this.content)
                 .toHashCode();
     }
 
@@ -331,9 +333,7 @@ public class EncapsulatedData {
 		        .append(this.compression, that.compression)
 		        .append(this.integrityCheck, that.integrityCheck)
 		        .append(this.integrityCheckAlgorithm, that.integrityCheckAlgorithm)
-                .append(this.textContent, that.textContent)
-                .append(this.cdataContent, that.cdataContent)
-                .append(this.documentContent, that.documentContent)
+                .append(this.content, that.content)
                 .isEquals();
     }
 	
@@ -346,8 +346,8 @@ public class EncapsulatedData {
 				this.compression == null &&
 				this.integrityCheck == null &&
 				this.integrityCheckAlgorithm == null &&
-				this.textContent == null &&
-				this.cdataContent == null &&
-				this.documentContent== null;
+				this.content == null
+				;
 	}
+
 }

@@ -22,8 +22,6 @@ package ca.infoway.messagebuilder.guide.hello_world;
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.transform.TransformerException;
-
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
@@ -211,11 +209,8 @@ public class ConsultationNoteAccessor {
 	private void renderText(EncapsulatedData text) {
 		if (text == null) {
 			System.out.println("(none)");
-		}
-		try {
-			System.out.println(text.getDocumentContentAsString(0));
-		} catch (TransformerException e) {
-			System.out.println("(unable to convert to String)");
+		} else {
+			System.out.println(text.getContent());
 		}
 	}
 

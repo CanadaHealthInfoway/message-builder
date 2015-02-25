@@ -184,7 +184,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aCsName", cd.getValue().getCodeSystemName());
 		assertEquals("aCsVersion", cd.getValue().getCodeSystemVersion());
 		assertEquals("aDisplayName", cd.getValue().getDisplayName());
-		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());
@@ -228,7 +228,7 @@ public class BxitCdR2ElementParserTest extends MarshallingTestCase {
 		assertEquals("aDisplayName", cd.getValue().getDisplayName());
 		assertNull(cd.getValue().getValue());
 		assertNull(cd.getValue().getSimpleValue());
-		assertEquals("some original text", cd.getValue().getOriginalText().getTextContent());
+		assertEquals("some original text", cd.getValue().getOriginalText().getContent());
 		assertEquals(2, cd.getValue().getTranslation().size());
 		assertEquals(AdministrativeGender.MALE.getCodeValue(), cd.getValue().getTranslation().get(0).getCode().getCodeValue());
 		assertEquals(AdministrativeGender.MALE.getCodeSystem(), cd.getValue().getTranslation().get(0).getCode().getCodeSystem());
