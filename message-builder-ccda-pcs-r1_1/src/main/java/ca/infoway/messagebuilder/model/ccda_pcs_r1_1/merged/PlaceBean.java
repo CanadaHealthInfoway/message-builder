@@ -41,10 +41,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.Place","ContinuityOfCareDocumentCCD.Place","DiagnosticImagingReport.Place","DischargeSummary.Place","HistoryAndPhysical.Place","OperativeNote.Place","POCD_MT000040.Place","ProcedureNote.Place","ProgressNote.Place","USRealmHeader.Place","UnstructuredDocument.Place"})
+@Hl7PartTypeMapping({"BaseModel.Place","ConsultationNote.Place","ContinuityOfCareDocumentCCD.Place","DiagnosticImagingReport.Place","DischargeSummary.Place","HistoryAndPhysical.Place","OperativeNote.Place","ProcedureNote.Place","ProgressNote.Place","USRealmHeader.Place","UnstructuredDocument.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -103,6 +103,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -110,12 +116,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -176,6 +176,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -183,12 +189,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -248,6 +248,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -255,12 +261,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -321,6 +321,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -328,12 +334,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -394,6 +394,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -401,12 +407,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -466,6 +466,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.name</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -473,12 +479,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: DischargeSummary.Place.name</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -538,6 +538,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -547,12 +553,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Relationship: DischargeSummary.Place.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"addr"})
     public PostalAddress getAddr() {
@@ -610,6 +610,12 @@ public class PlaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Place.addr</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: DiagnosticImagingReport.Place.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -619,12 +625,6 @@ public class PlaceBean extends MessagePartBean {
      * <p>Relationship: DischargeSummary.Place.addr</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Place.addr</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setAddr(PostalAddress addr) {
         this.addr.setValue(addr);

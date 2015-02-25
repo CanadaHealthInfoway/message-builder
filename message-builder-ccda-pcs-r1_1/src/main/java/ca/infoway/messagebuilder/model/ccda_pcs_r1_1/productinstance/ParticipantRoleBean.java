@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7RootType
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -183,7 +183,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * ProductInstance.ParticipantRole.scopingEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"scopingEntity"})
     public EntityBean getScopingEntity() {
@@ -194,7 +194,7 @@ public class ParticipantRoleBean extends MessagePartBean {
      * <p>Relationship: 
      * ProductInstance.ParticipantRole.scopingEntity</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setScopingEntity(EntityBean scopingEntity) {
         this.scopingEntity = scopingEntity;

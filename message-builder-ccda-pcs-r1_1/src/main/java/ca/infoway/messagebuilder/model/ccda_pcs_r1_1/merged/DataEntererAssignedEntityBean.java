@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.DataEntererAssignedEntity","ContinuityOfCareDocumentCCD.DataEntererAssignedEntity","DiagnosticImagingReport.DataEntererAssignedEntity","DischargeSummary.DataEntererAssignedEntity","HistoryAndPhysical.DataEntererAssignedEntity","OperativeNote.DataEntererAssignedEntity","ProcedureNote.DataEntererAssignedEntity","ProgressNote.DataEntererAssignedEntity","USRealmHeader.DataEntererAssignedEntity","UnstructuredDocument.DataEntererAssignedEntity"})
 public class DataEntererAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -746,70 +746,70 @@ public class DataEntererAssignedEntityBean extends MessagePartBean {
      * <p>Relationship: 
      * OperativeNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedPerson"})
     public DataEntererPersonBean getAssignedPerson() {
@@ -822,70 +822,70 @@ public class DataEntererAssignedEntityBean extends MessagePartBean {
      * <p>Relationship: 
      * OperativeNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ConsultationNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.DataEntererAssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedPerson(DataEntererPersonBean assignedPerson) {
         this.assignedPerson = assignedPerson;

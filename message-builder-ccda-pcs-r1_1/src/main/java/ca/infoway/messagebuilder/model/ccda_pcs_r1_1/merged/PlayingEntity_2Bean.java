@@ -50,10 +50,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"AllergyIntoleranceObservation.PlayingEntity","POCD_MT000040.PlayingEntity","SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity"})
-public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ParticipantRoleChoice {
+@Hl7PartTypeMapping({"AllergyIntoleranceObservation.PlayingEntity","BaseModel.PlayingEntity","SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity"})
+public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -82,7 +82,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.realmCode</p>
+     * <p>Relationship: BaseModel.PlayingEntity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -109,7 +109,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.typeId</p>
+     * <p>Relationship: BaseModel.PlayingEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -135,7 +135,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.typeId</p>
+     * <p>Relationship: BaseModel.PlayingEntity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -161,7 +161,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.templateId</p>
+     * <p>Relationship: BaseModel.PlayingEntity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -188,7 +188,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.code</p>
+     * <p>Relationship: BaseModel.PlayingEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -214,7 +214,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.code</p>
+     * <p>Relationship: BaseModel.PlayingEntity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -240,7 +240,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.quantity</p>
+     * <p>Relationship: BaseModel.PlayingEntity.quantity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -267,7 +267,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.name</p>
+     * <p>Relationship: BaseModel.PlayingEntity.name</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -294,7 +294,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.birthTime</p>
+     * <p>Relationship: BaseModel.PlayingEntity.birthTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -320,7 +320,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.birthTime</p>
+     * <p>Relationship: BaseModel.PlayingEntity.birthTime</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -346,7 +346,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.desc</p>
+     * <p>Relationship: BaseModel.PlayingEntity.desc</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -372,7 +372,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.desc</p>
+     * <p>Relationship: BaseModel.PlayingEntity.desc</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -384,7 +384,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.classCode</p>
+     * <p>Relationship: BaseModel.PlayingEntity.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -396,7 +396,7 @@ public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.m
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.PlayingEntity.classCode</p>
+     * <p>Relationship: BaseModel.PlayingEntity.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

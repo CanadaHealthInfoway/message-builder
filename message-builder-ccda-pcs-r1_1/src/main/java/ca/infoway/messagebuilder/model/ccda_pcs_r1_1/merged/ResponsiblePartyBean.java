@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.ResponsibleParty","HistoryAndPhysical.ResponsibleParty","POCD_MT000040.ResponsibleParty"})
+@Hl7PartTypeMapping({"BaseModel.ResponsibleParty","ConsultationNote.ResponsibleParty","HistoryAndPhysical.ResponsibleParty"})
 public class ResponsiblePartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -46,12 +46,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -64,6 +58,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.ResponsibleParty.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"realmCode"})
     public List<Code> getRealmCode() {
@@ -74,12 +74,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: HistoryAndPhysical.ResponsibleParty.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -87,6 +81,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ConsultationNote.ResponsibleParty.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -98,12 +98,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: HistoryAndPhysical.ResponsibleParty.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -113,6 +107,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Relationship: ConsultationNote.ResponsibleParty.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -120,12 +120,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.ResponsibleParty.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -139,6 +133,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * ConsultationNote.ResponsibleParty.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -150,13 +150,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -165,6 +158,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -177,13 +176,6 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.ResponsibleParty.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * HistoryAndPhysical.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -192,6 +184,12 @@ public class ResponsiblePartyBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * ConsultationNote.ResponsibleParty.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.ResponsibleParty.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */

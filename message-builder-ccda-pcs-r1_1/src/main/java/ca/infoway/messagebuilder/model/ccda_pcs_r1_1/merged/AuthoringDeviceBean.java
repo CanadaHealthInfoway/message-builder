@@ -36,16 +36,16 @@ import ca.infoway.messagebuilder.datatype.impl.SCImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedString;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.MaintainedEntityBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.MaintainedEntityBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.AuthoringDevice","ContinuityOfCareDocumentCCD.AuthoringDevice","DiagnosticImagingReport.AuthoringDevice","DischargeSummary.AuthoringDevice","HistoryAndPhysical.AuthoringDevice","OperativeNote.AuthoringDevice","POCD_MT000040.AuthoringDevice","ProcedureNote.AuthoringDevice","ProgressNote.AuthoringDevice","USRealmHeader.AuthoringDevice","UnstructuredDocument.AuthoringDevice"})
-public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuthorChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.AssignedAuthorChoice {
+@Hl7PartTypeMapping({"BaseModel.AuthoringDevice","ConsultationNote.AuthoringDevice","ContinuityOfCareDocumentCCD.AuthoringDevice","DiagnosticImagingReport.AuthoringDevice","DischargeSummary.AuthoringDevice","HistoryAndPhysical.AuthoringDevice","OperativeNote.AuthoringDevice","ProcedureNote.AuthoringDevice","ProgressNote.AuthoringDevice","USRealmHeader.AuthoringDevice","UnstructuredDocument.AuthoringDevice"})
+public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuthorChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.AssignedAuthorChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -60,6 +60,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * UnstructuredDocument.AuthoringDevice.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AuthoringDevice.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -110,12 +116,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.AuthoringDevice.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -136,6 +136,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: UnstructuredDocument.AuthoringDevice.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -180,12 +186,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AuthoringDevice.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -215,6 +215,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.AuthoringDevice.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: USRealmHeader.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -259,12 +265,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.AuthoringDevice.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -285,6 +285,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * UnstructuredDocument.AuthoringDevice.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AuthoringDevice.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -335,12 +341,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.AuthoringDevice.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -361,6 +361,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: UnstructuredDocument.AuthoringDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -405,12 +411,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AuthoringDevice.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -440,6 +440,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.AuthoringDevice.code</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: USRealmHeader.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -479,12 +485,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AuthoringDevice.code</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -516,6 +516,13 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * BaseModel.AuthoringDevice.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * USRealmHeader.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -561,13 +568,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * ContinuityOfCareDocumentCCD.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.AuthoringDevice.manufacturerModelName</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -599,6 +599,13 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
+     * BaseModel.AuthoringDevice.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
      * USRealmHeader.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -648,13 +655,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AuthoringDevice.manufacturerModelName</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * ProgressNote.AuthoringDevice.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -678,6 +678,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * UnstructuredDocument.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AuthoringDevice.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -724,12 +730,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * ContinuityOfCareDocumentCCD.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.softwareName</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
@@ -759,6 +759,12 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.AuthoringDevice.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: USRealmHeader.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -805,12 +811,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AuthoringDevice.softwareName</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ProgressNote.AuthoringDevice.softwareName</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -832,6 +832,13 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * UnstructuredDocument.AuthoringDevice.asMaintainedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.AuthoringDevice.asMaintainedEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -881,13 +888,6 @@ public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuth
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AuthoringDevice.asMaintainedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * POCD_MT000040.AuthoringDevice.asMaintainedEntity</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 

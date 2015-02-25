@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.Birthplace","ContinuityOfCareDocumentCCD.Birthplace","DiagnosticImagingReport.Birthplace","DischargeSummary.Birthplace","HistoryAndPhysical.Birthplace","OperativeNote.Birthplace","POCD_MT000040.Birthplace","ProcedureNote.Birthplace","ProgressNote.Birthplace","USRealmHeader.Birthplace","UnstructuredDocument.Birthplace"})
+@Hl7PartTypeMapping({"BaseModel.Birthplace","ConsultationNote.Birthplace","ContinuityOfCareDocumentCCD.Birthplace","DiagnosticImagingReport.Birthplace","DischargeSummary.Birthplace","HistoryAndPhysical.Birthplace","OperativeNote.Birthplace","ProcedureNote.Birthplace","ProgressNote.Birthplace","USRealmHeader.Birthplace","UnstructuredDocument.Birthplace"})
 public class BirthplaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -79,7 +79,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.realmCode</p>
+     * <p>Relationship: BaseModel.Birthplace.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -153,7 +153,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.typeId</p>
+     * <p>Relationship: BaseModel.Birthplace.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -226,7 +226,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.typeId</p>
+     * <p>Relationship: BaseModel.Birthplace.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -300,7 +300,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.templateId</p>
+     * <p>Relationship: BaseModel.Birthplace.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -374,7 +374,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.place</p>
+     * <p>Relationship: BaseModel.Birthplace.place</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -447,7 +447,7 @@ public class BirthplaceBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Birthplace.place</p>
+     * <p>Relationship: BaseModel.Birthplace.place</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

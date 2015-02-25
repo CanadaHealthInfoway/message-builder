@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"HistoryAndPhysical.Location","POCD_MT000040.Location"})
+@Hl7PartTypeMapping({"BaseModel.Location","HistoryAndPhysical.Location"})
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -48,7 +48,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.realmCode</p>
+     * <p>Relationship: BaseModel.Location.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -67,7 +67,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.typeId</p>
+     * <p>Relationship: BaseModel.Location.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -85,7 +85,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.typeId</p>
+     * <p>Relationship: BaseModel.Location.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -103,7 +103,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.templateId</p>
+     * <p>Relationship: BaseModel.Location.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -122,7 +122,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.healthCareFacility</p>
+     * <p>Relationship: BaseModel.Location.healthCareFacility</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -141,7 +141,7 @@ public class LocationBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Location.healthCareFacility</p>
+     * <p>Relationship: BaseModel.Location.healthCareFacility</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

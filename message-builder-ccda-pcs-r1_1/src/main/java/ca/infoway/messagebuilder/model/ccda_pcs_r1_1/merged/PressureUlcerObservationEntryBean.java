@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FunctionalStatusSection.PressureUlcerObservationEntry","PhysicalExamSection.PressureUlcerObservationEntry"})
 public class PressureUlcerObservationEntryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.functionalstatussection.EntryChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.physicalexamsection.EntryChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

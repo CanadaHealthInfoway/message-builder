@@ -39,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.ChiefComplaintAndReasonForVisitSectionComponent3","DischargeSummary.ChiefComplaintAndReasonForVisitSectionComponent3","HistoryAndPhysical.ChiefComplaintAndReasonForVisitSectionComponent3","ProcedureNote.ChiefComplaintAndReasonForVisitSectionComponent3"})
 public class ChiefComplaintAndReasonForVisitSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedurenote.Component3Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.consultationnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.historyandphysical.Component3Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.dischargesummary.Component3Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

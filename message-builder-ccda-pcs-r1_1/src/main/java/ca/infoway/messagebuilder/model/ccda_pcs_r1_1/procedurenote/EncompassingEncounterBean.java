@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureNote.EncompassingEncounter"})
 public class EncompassingEncounterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -215,7 +215,7 @@ public class EncompassingEncounterBean extends MessagePartBean {
      * <p>Relationship: 
      * ProcedureNote.EncompassingEncounter.location</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"location"})
     public List<LocationBean> getLocation() {

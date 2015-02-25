@@ -51,15 +51,15 @@ import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.Participant2Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ReferenceBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.ReferenceRangeBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.Participant2Bean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.PreconditionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ReferenceBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +69,7 @@ import java.util.List;
 @Hl7RootType
 public class ObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -463,7 +463,7 @@ public class ObservationBean extends MessagePartBean {
      * <p>Relationship: 
      * NumberOfPressureUlcersObservation.Observation.entryRelationship</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
     public EntryRelationshipBean getEntryRelationship() {
@@ -474,7 +474,7 @@ public class ObservationBean extends MessagePartBean {
      * <p>Relationship: 
      * NumberOfPressureUlcersObservation.Observation.entryRelationship</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setEntryRelationship(EntryRelationshipBean entryRelationship) {
         this.entryRelationship = entryRelationship;

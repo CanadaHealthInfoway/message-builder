@@ -41,10 +41,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"EncounterActivities.Performer2","ImmunizationActivity.Performer2","MedicationActivity.Performer2","POCD_MT000040.Performer1","POCD_MT000040.Performer2"})
+@Hl7PartTypeMapping({"BaseModel.Performer1","BaseModel.Performer2","EncounterActivities.Performer2","ImmunizationActivity.Performer2","MedicationActivity.Performer2"})
 public class Performer2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.policyactivity.Performer2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedureactivityprocedure.Performer2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.operativenote.Performer1Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -58,19 +58,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -85,6 +73,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Relationship: MedicationActivity.Performer2.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"realmCode"})
     public List<Code> getRealmCode() {
@@ -95,19 +95,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -120,6 +108,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MedicationActivity.Performer2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -131,19 +131,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -158,6 +146,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Relationship: MedicationActivity.Performer2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTypeId(Identifier typeId) {
         this.typeId.setValue(typeId);
@@ -167,19 +167,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -194,6 +182,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Relationship: MedicationActivity.Performer2.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"templateId"})
     public List<Identifier> getTemplateId() {
@@ -204,19 +204,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -229,6 +217,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MedicationActivity.Performer2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -240,19 +240,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -267,6 +255,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Relationship: MedicationActivity.Performer2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setTime(DateInterval time) {
         this.time.setValue(time);
@@ -274,12 +274,6 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer2.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: ImmunizationActivity.Performer2.modeCode</p>
@@ -295,6 +289,12 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: MedicationActivity.Performer2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -306,12 +306,6 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.modeCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: ImmunizationActivity.Performer2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -327,6 +321,12 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * <p>Relationship: MedicationActivity.Performer2.modeCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.modeCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     public void setModeCode(Code modeCode) {
         this.modeCode.setValue(modeCode);
@@ -336,20 +336,8 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ImmunizationActivity.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -364,6 +352,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Relationship: 
      * MedicationActivity.Performer2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -375,20 +375,8 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: 
      * ImmunizationActivity.Performer2.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: POCD_MT000040.Performer1.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -405,6 +393,18 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
      * MedicationActivity.Performer2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer2.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Performer1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedEntity(AssignedEntity_1Bean assignedEntity) {
         this.assignedEntity = assignedEntity;
@@ -414,7 +414,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer1.typeCode</p>
+     * <p>Relationship: BaseModel.Performer1.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -426,7 +426,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer1.typeCode</p>
+     * <p>Relationship: BaseModel.Performer1.typeCode</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -438,7 +438,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer1.functionCode</p>
+     * <p>Relationship: BaseModel.Performer1.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -450,7 +450,7 @@ public class Performer2_1Bean extends MessagePartBean implements ca.infoway.mess
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Performer1.functionCode</p>
+     * <p>Relationship: BaseModel.Performer1.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */

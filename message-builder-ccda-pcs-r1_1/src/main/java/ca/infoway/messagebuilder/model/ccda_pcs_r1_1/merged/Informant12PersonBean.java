@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Informant12Person","ContinuityOfCareDocumentCCD.Informant12Person","DiagnosticImagingReport.Informant12Person","DischargeSummary.Informant12Person","HistoryAndPhysical.Informant12Person","OperativeNote.Informant12Person","ProcedureNote.Informant12Person","ProgressNote.Informant12Person","USRealmHeader.Informant12Person","UnstructuredDocument.Informant12Person"})
 public class Informant12PersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

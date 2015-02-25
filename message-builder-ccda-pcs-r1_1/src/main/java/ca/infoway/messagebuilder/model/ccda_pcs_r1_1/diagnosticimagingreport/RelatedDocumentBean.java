@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ParentDocumentBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.x_ActRelationshipDocument;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ParentDocumentBean;
 import java.util.List;
 
 
@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"DiagnosticImagingReport.RelatedDocument"})
 public class RelatedDocumentBean extends MessagePartBean implements RelatedDocumentChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

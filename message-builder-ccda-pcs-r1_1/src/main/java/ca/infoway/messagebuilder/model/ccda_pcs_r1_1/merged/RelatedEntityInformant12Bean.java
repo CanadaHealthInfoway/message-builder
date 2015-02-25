@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PersonBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.RoleClassMutualRelationship;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.PersonBean;
 import java.util.List;
 
 
@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.RelatedEntityInformant12","ContinuityOfCareDocumentCCD.RelatedEntityInformant12","DiagnosticImagingReport.RelatedEntityInformant12","DischargeSummary.RelatedEntityInformant12","HistoryAndPhysical.RelatedEntityInformant12","OperativeNote.RelatedEntityInformant12","ProcedureNote.RelatedEntityInformant12","ProgressNote.RelatedEntityInformant12","USRealmHeader.RelatedEntityInformant12","UnstructuredDocument.RelatedEntityInformant12"})
 public class RelatedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

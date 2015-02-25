@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MedicationsAdministeredSection.Entry","MedicationsSectionentriesOptional.Entry","MedicationsSectionentriesRequired.Entry"})
 public class Entry_7Bean extends MessagePartBean implements EntryChoice_7 {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

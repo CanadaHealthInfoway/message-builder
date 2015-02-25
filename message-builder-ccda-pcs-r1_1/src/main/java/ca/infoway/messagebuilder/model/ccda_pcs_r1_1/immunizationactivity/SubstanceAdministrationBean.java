@@ -53,6 +53,8 @@ import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ReferenceBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.BodySite;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.EvnIntMoodCode;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.MedicationProductForm;
@@ -63,8 +65,6 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2_3Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.PreconditionChoice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ReferenceBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +74,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS moodCode = new CSImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
@@ -131,7 +131,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
      * <p>Relationship: 
      * ImmunizationActivity.SubstanceAdministration.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getNegationInd() {
@@ -142,7 +142,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
      * <p>Relationship: 
      * ImmunizationActivity.SubstanceAdministration.negationInd</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);

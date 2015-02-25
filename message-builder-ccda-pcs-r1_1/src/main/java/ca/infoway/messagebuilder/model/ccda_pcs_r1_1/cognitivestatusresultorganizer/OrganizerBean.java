@@ -37,14 +37,14 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.Participant2Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PreconditionBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ReferenceBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.Participant2Bean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.PreconditionBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ReferenceBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class OrganizerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -283,7 +283,7 @@ public class OrganizerBean extends MessagePartBean {
      * <p>Relationship: 
      * CognitiveStatusResultOrganizer.Organizer.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"component"})
     public List<Component4Choice> getComponent() {

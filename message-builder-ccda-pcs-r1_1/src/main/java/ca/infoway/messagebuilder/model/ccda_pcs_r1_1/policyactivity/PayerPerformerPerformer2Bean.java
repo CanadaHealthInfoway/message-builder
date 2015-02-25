@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PolicyActivity.PayerPerformerPerformer2"})
 public class PayerPerformerPerformer2Bean extends MessagePartBean implements Performer2Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private II templateId = new IIImpl();
     private PayerPerformerAssignedEntityBean assignedEntity;
 

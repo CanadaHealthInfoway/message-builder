@@ -36,15 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.TSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.AssignedAuthorBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.AssignedAuthorBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"AssessmentScaleObservation.Author","CognitiveStatusResultObservation.Author","FunctionalStatusResultObservation.Author","MedicationSupplyOrder.Author","NumberOfPressureUlcersObservation.Author","POCD_MT000040.Author","ResultObservation.Author","VitalSignObservation.Author"})
+@Hl7PartTypeMapping({"AssessmentScaleObservation.Author","BaseModel.Author","CognitiveStatusResultObservation.Author","FunctionalStatusResultObservation.Author","MedicationSupplyOrder.Author","NumberOfPressureUlcersObservation.Author","ResultObservation.Author","VitalSignObservation.Author"})
 public class Author_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -75,7 +75,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.realmCode</p>
+     * <p>Relationship: BaseModel.Author.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -133,7 +133,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.typeId</p>
+     * <p>Relationship: BaseModel.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -190,7 +190,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.typeId</p>
+     * <p>Relationship: BaseModel.Author.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -248,7 +248,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.templateId</p>
+     * <p>Relationship: BaseModel.Author.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -307,7 +307,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.functionCode</p>
+     * <p>Relationship: BaseModel.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -365,7 +365,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.functionCode</p>
+     * <p>Relationship: BaseModel.Author.functionCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -422,7 +422,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.time</p>
+     * <p>Relationship: BaseModel.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -479,7 +479,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.time</p>
+     * <p>Relationship: BaseModel.Author.time</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -537,7 +537,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.assignedAuthor</p>
+     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -595,7 +595,7 @@ public class Author_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Author.assignedAuthor</p>
+     * <p>Relationship: BaseModel.Author.assignedAuthor</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

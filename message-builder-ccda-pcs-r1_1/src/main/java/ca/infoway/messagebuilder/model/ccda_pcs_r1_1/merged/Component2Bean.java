@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Component2","UnstructuredDocument.Component2"})
+@Hl7PartTypeMapping({"BaseModel.Component2","UnstructuredDocument.Component2"})
 public class Component2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -54,7 +54,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.realmCode</p>
+     * <p>Relationship: BaseModel.Component2.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -73,7 +73,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.typeId</p>
+     * <p>Relationship: BaseModel.Component2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -91,7 +91,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.typeId</p>
+     * <p>Relationship: BaseModel.Component2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -109,7 +109,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.templateId</p>
+     * <p>Relationship: BaseModel.Component2.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -129,7 +129,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.component2Choice</p>
+     * <p>Relationship: BaseModel.Component2.component2Choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -148,7 +148,7 @@ public class Component2Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Component2.component2Choice</p>
+     * <p>Relationship: BaseModel.Component2.component2Choice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */

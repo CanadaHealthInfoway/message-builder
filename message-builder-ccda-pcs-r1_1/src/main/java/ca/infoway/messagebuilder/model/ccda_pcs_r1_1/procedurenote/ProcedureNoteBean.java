@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.datatype.impl.TSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.RelatedDocumentBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.Language;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.ProcedureNoteDocumentTypeCode;
@@ -53,7 +54,6 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Choice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.InformationRecipientBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.LegalAuthenticatorBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.RecordTargetBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.RelatedDocumentBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +63,7 @@ import java.util.List;
 @Hl7RootType
 public class ProcedureNoteBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -91,6 +91,7 @@ public class ProcedureNoteBean extends MessagePartBean {
     private Component1Bean componentOf;
     private Component2Bean component;
 
+    protected ProcedureNoteBean() {}
 
     /**
      * <p>Relationship: ProcedureNote.ClinicalDocument.typeId</p>
@@ -455,7 +456,7 @@ public class ProcedureNoteBean extends MessagePartBean {
      * <p>Relationship: 
      * ProcedureNote.ClinicalDocument.documentationOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"documentationOf"})
     public List<DocumentationOfChoice> getDocumentationOf() {

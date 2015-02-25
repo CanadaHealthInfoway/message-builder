@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.AssignedCustodian","ContinuityOfCareDocumentCCD.AssignedCustodian","DiagnosticImagingReport.AssignedCustodian","DischargeSummary.AssignedCustodian","HistoryAndPhysical.AssignedCustodian","OperativeNote.AssignedCustodian","POCD_MT000040.AssignedCustodian","ProcedureNote.AssignedCustodian","ProgressNote.AssignedCustodian","USRealmHeader.AssignedCustodian"})
+@Hl7PartTypeMapping({"BaseModel.AssignedCustodian","ConsultationNote.AssignedCustodian","ContinuityOfCareDocumentCCD.AssignedCustodian","DiagnosticImagingReport.AssignedCustodian","DischargeSummary.AssignedCustodian","HistoryAndPhysical.AssignedCustodian","OperativeNote.AssignedCustodian","ProcedureNote.AssignedCustodian","ProgressNote.AssignedCustodian","USRealmHeader.AssignedCustodian"})
 public class AssignedCustodianBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -75,12 +75,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedCustodian.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: USRealmHeader.AssignedCustodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -101,6 +95,12 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedCustodian.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssignedCustodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -146,12 +146,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedCustodian.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: USRealmHeader.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -171,6 +165,12 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: HistoryAndPhysical.AssignedCustodian.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -214,12 +214,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedCustodian.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: USRealmHeader.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
@@ -239,6 +233,12 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: HistoryAndPhysical.AssignedCustodian.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssignedCustodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -283,12 +283,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.AssignedCustodian.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: USRealmHeader.AssignedCustodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
@@ -309,6 +303,12 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedCustodian.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.AssignedCustodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -357,13 +357,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssignedCustodian.representedCustodianOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * USRealmHeader.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -386,6 +379,13 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedCustodian.representedCustodianOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -433,13 +433,6 @@ public class AssignedCustodianBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.AssignedCustodian.representedCustodianOrganization</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * USRealmHeader.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
@@ -462,6 +455,13 @@ public class AssignedCustodianBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedCustodian.representedCustodianOrganization</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.AssignedCustodian.representedCustodianOrganization</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

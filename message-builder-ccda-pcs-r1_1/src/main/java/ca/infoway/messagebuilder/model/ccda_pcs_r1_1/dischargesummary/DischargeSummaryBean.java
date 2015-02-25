@@ -40,13 +40,14 @@ import ca.infoway.messagebuilder.datatype.impl.TSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.RelatedDocumentBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.DischargeSummaryDocumentTypeCode;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.Language;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.AuthenticatorBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.AuthorizationChoice;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Component1_2Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Component1_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.CustodianBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.DataEntererBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.DocumentationOfBean;
@@ -56,7 +57,6 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.InformationRecipient
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.LegalAuthenticatorBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.RecordTargetBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.RelatedDocumentBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class DischargeSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -91,9 +91,10 @@ public class DischargeSummaryBean extends MessagePartBean {
     private List<DocumentationOfBean> documentationOf = new ArrayList<DocumentationOfBean>();
     private List<RelatedDocumentBean> relatedDocument = new ArrayList<RelatedDocumentBean>();
     private List<AuthorizationChoice> authorization = new ArrayList<AuthorizationChoice>();
-    private Component1_2Bean componentOf;
+    private Component1_1Bean componentOf;
     private Component2Bean component;
 
+    protected DischargeSummaryBean() {}
 
     /**
      * <p>Relationship: DischargeSummary.ClinicalDocument.typeId</p>
@@ -501,10 +502,10 @@ public class DischargeSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * DischargeSummary.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"componentOf"})
-    public Component1_2Bean getComponentOf() {
+    public Component1_1Bean getComponentOf() {
         return this.componentOf;
     }
 
@@ -512,9 +513,9 @@ public class DischargeSummaryBean extends MessagePartBean {
      * <p>Relationship: 
      * DischargeSummary.ClinicalDocument.componentOf</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setComponentOf(Component1_2Bean componentOf) {
+    public void setComponentOf(Component1_1Bean componentOf) {
         this.componentOf = componentOf;
     }
 

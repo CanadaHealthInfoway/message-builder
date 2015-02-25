@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.SubjectBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Component5Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Entry_3Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.SubjectBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private ST iD = new STImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -156,7 +156,7 @@ public class SectionBean extends MessagePartBean {
     /**
      * <p>Relationship: ComplicationsOpNote.Section.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"code"})
     public Code getCode() {
@@ -166,7 +166,7 @@ public class SectionBean extends MessagePartBean {
     /**
      * <p>Relationship: ComplicationsOpNote.Section.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setCode(Code code) {
         this.code.setValue(code);
@@ -300,7 +300,7 @@ public class SectionBean extends MessagePartBean {
     /**
      * <p>Relationship: ComplicationsOpNote.Section.entry</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"entry"})
     public List<Entry_3Bean> getEntry() {

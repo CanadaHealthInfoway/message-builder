@@ -46,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AssignedEntityInformant12","ContinuityOfCareDocumentCCD.AssignedEntityInformant12","DiagnosticImagingReport.AssignedEntityInformant12","DischargeSummary.AssignedEntityInformant12","HistoryAndPhysical.AssignedEntityInformant12","OperativeNote.AssignedEntityInformant12","ProcedureNote.AssignedEntityInformant12","ProgressNote.AssignedEntityInformant12","USRealmHeader.AssignedEntityInformant12","UnstructuredDocument.AssignedEntityInformant12"})
 public class AssignedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -1062,70 +1062,70 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"assignedEntity/assignedPerson"})
     public Informant12PersonBean getAssignedEntityAssignedPerson() {
@@ -1138,70 +1138,70 @@ public class AssignedEntityInformant12Bean extends MessagePartBean implements In
      * <p>Relationship: 
      * ConsultationNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * USRealmHeader.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * HistoryAndPhysical.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DiagnosticImagingReport.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * OperativeNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * UnstructuredDocument.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProgressNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ContinuityOfCareDocumentCCD.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * DischargeSummary.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
      * ProcedureNote.AssignedEntityInformant12AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setAssignedEntityAssignedPerson(Informant12PersonBean assignedEntityAssignedPerson) {
         this.assignedEntityAssignedPerson = assignedEntityAssignedPerson;

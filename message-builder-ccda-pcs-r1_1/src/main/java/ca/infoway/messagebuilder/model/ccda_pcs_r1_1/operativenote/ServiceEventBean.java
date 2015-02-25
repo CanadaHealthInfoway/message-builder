@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"OperativeNote.ServiceEvent"})
 public class ServiceEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -172,7 +172,7 @@ public class ServiceEventBean extends MessagePartBean {
     /**
      * <p>Relationship: OperativeNote.ServiceEvent.performer</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (*)</p>
+     * <p>Conformance/Cardinality: POPULATED (*)</p>
      */
     @Hl7XmlMapping({"performer"})
     public List<Performer1Choice> getPerformer() {

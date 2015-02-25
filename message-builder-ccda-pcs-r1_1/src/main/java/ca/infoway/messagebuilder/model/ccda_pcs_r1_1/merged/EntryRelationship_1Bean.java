@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdmissionMedication.EntryRelationship","DischargeMedication.EntryRelationship"})
 public class EntryRelationship_1Bean extends MessagePartBean implements EntryRelationshipChoice_1 {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

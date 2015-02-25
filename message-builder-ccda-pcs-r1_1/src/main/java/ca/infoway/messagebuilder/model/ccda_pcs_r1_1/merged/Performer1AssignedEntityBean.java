@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PersonBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.NUCCProviderTaxonomy;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.PersonBean;
 import java.util.List;
 
 
@@ -48,7 +48,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Performer1AssignedEntity","ContinuityOfCareDocumentCCD.Performer1AssignedEntity","DiagnosticImagingReport.Performer1AssignedEntity","DischargeSummary.Performer1AssignedEntity","HistoryAndPhysical.Performer1AssignedEntity","OperativeNote.Performer1AssignedEntity","ProcedureNote.Performer1AssignedEntity","ProgressNote.Performer1AssignedEntity","USRealmHeader.Performer1AssignedEntity","UnstructuredDocument.Performer1AssignedEntity"})
 public class Performer1AssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

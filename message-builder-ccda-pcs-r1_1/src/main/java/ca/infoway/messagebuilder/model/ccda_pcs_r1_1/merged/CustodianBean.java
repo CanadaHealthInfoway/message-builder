@@ -35,10 +35,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"ConsultationNote.Custodian","ContinuityOfCareDocumentCCD.Custodian","DiagnosticImagingReport.Custodian","DischargeSummary.Custodian","HistoryAndPhysical.Custodian","OperativeNote.Custodian","POCD_MT000040.Custodian","ProcedureNote.Custodian","ProgressNote.Custodian","USRealmHeader.Custodian"})
+@Hl7PartTypeMapping({"BaseModel.Custodian","ConsultationNote.Custodian","ContinuityOfCareDocumentCCD.Custodian","DiagnosticImagingReport.Custodian","DischargeSummary.Custodian","HistoryAndPhysical.Custodian","OperativeNote.Custodian","ProcedureNote.Custodian","ProgressNote.Custodian","USRealmHeader.Custodian"})
 public class CustodianBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -91,7 +91,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.realmCode</p>
+     * <p>Relationship: BaseModel.Custodian.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -159,7 +159,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
+     * <p>Relationship: BaseModel.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -226,7 +226,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.typeId</p>
+     * <p>Relationship: BaseModel.Custodian.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -294,7 +294,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.templateId</p>
+     * <p>Relationship: BaseModel.Custodian.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -366,7 +366,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
+     * <p>Relationship: BaseModel.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 
@@ -437,7 +437,7 @@ public class CustodianBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Custodian.assignedCustodian</p>
+     * <p>Relationship: BaseModel.Custodian.assignedCustodian</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      * 

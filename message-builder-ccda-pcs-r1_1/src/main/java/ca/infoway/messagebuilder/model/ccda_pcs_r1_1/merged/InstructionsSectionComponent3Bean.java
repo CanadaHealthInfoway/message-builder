@@ -39,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"HistoryAndPhysical.InstructionsSectionComponent3","ProgressNote.InstructionsSectionComponent3"})
 public class InstructionsSectionComponent3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.progressnote.Component3Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.historyandphysical.Component3Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

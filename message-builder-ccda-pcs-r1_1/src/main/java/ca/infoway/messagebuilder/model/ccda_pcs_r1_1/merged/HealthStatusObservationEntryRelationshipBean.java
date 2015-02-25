@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"CognitiveStatusProblemObservation.HealthStatusObservationEntryRelationship","FunctionalStatusProblemObservation.HealthStatusObservationEntryRelationship","ProblemObservation.HealthStatusObservationEntryRelationship"})
 public class HealthStatusObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.problemobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();

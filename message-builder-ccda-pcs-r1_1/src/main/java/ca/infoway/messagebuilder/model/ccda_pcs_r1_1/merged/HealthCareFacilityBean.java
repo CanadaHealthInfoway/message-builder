@@ -38,10 +38,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.HealthCareFacility","ProcedureNote.HealthCareFacility"})
+@Hl7PartTypeMapping({"BaseModel.HealthCareFacility","ProcedureNote.HealthCareFacility"})
 public class HealthCareFacilityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -55,7 +55,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.classCode</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -73,7 +73,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.classCode</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -91,7 +91,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.realmCode</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -110,7 +110,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.typeId</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -128,7 +128,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.typeId</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -146,7 +146,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.templateId</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -165,7 +165,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.id</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -184,7 +184,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.code</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -202,7 +202,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.code</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -220,7 +220,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.location</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -238,7 +238,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.HealthCareFacility.location</p>
+     * <p>Relationship: BaseModel.HealthCareFacility.location</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -257,7 +257,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.HealthCareFacility.serviceProviderOrganization</p>
+     * BaseModel.HealthCareFacility.serviceProviderOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -277,7 +277,7 @@ public class HealthCareFacilityBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * POCD_MT000040.HealthCareFacility.serviceProviderOrganization</p>
+     * BaseModel.HealthCareFacility.serviceProviderOrganization</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

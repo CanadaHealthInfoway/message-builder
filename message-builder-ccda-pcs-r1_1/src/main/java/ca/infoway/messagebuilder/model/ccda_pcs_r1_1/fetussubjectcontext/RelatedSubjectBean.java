@@ -47,7 +47,7 @@ import java.util.List;
 @Hl7RootType
 public class RelatedSubjectBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -148,7 +148,7 @@ public class RelatedSubjectBean extends MessagePartBean {
     /**
      * <p>Relationship: FetusSubjectContext.RelatedSubject.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject"})
     public SubjectPersonBean getSubject() {
@@ -158,7 +158,7 @@ public class RelatedSubjectBean extends MessagePartBean {
     /**
      * <p>Relationship: FetusSubjectContext.RelatedSubject.subject</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setSubject(SubjectPersonBean subject) {
         this.subject = subject;

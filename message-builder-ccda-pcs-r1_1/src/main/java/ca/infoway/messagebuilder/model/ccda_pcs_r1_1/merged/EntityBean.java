@@ -41,10 +41,10 @@ import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"POCD_MT000040.Entity","ProductInstance.Entity"})
+@Hl7PartTypeMapping({"BaseModel.Entity","ProductInstance.Entity"})
 public class EntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -57,7 +57,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.classCode</p>
+     * <p>Relationship: BaseModel.Entity.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -75,7 +75,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.classCode</p>
+     * <p>Relationship: BaseModel.Entity.classCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -93,7 +93,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.realmCode</p>
+     * <p>Relationship: BaseModel.Entity.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -112,7 +112,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.typeId</p>
+     * <p>Relationship: BaseModel.Entity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -130,7 +130,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.typeId</p>
+     * <p>Relationship: BaseModel.Entity.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -148,7 +148,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.templateId</p>
+     * <p>Relationship: BaseModel.Entity.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -167,7 +167,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.id</p>
+     * <p>Relationship: BaseModel.Entity.id</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -186,7 +186,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.code</p>
+     * <p>Relationship: BaseModel.Entity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -204,7 +204,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.code</p>
+     * <p>Relationship: BaseModel.Entity.code</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -222,7 +222,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.desc</p>
+     * <p>Relationship: BaseModel.Entity.desc</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -240,7 +240,7 @@ public class EntityBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: POCD_MT000040.Entity.desc</p>
+     * <p>Relationship: BaseModel.Entity.desc</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 

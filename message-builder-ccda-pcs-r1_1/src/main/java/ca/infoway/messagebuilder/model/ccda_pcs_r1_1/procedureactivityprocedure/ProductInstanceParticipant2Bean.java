@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityProcedure.ProductInstanceParticipant2"})
 public class ProductInstanceParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

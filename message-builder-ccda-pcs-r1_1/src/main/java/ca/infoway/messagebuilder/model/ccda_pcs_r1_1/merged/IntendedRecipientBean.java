@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.IntendedRecipient","ContinuityOfCareDocumentCCD.IntendedRecipient","DiagnosticImagingReport.IntendedRecipient","DischargeSummary.IntendedRecipient","HistoryAndPhysical.IntendedRecipient","OperativeNote.IntendedRecipient","ProcedureNote.IntendedRecipient","ProgressNote.IntendedRecipient","USRealmHeader.IntendedRecipient","UnstructuredDocument.IntendedRecipient"})
 public class IntendedRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

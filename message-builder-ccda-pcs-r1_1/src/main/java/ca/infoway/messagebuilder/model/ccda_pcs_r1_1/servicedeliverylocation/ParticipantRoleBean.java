@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ParticipantRoleChoice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.HealthcareServiceLocation;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.DeviceBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.EntityBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.PlayingEntity_2Bean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pocd_mt000040.ParticipantRoleChoice;
 import java.util.List;
 
 
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7RootType
 public class ParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

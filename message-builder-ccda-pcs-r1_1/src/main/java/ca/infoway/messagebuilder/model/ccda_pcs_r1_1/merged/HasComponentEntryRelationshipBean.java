@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.HasComponentEntryRelationship","ProcedureActivityProcedure.HasComponentEntryRelationship"})
 public class HasComponentEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_6 {
 
-    private static final long serialVersionUID = 20150206L;
+    private static final long serialVersionUID = 20150225L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
