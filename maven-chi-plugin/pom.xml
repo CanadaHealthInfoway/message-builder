@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.6.1</version>
+		<version>1.6.2-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>maven-chi-plugin</artifactId>
