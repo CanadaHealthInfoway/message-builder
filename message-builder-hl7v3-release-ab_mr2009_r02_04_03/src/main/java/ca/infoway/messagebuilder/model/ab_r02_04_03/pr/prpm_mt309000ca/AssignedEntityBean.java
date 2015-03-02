@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ActDefinitionOrEventName_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,14 +63,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPersonBean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
+    private List<ActDefinitionOrEventNameBean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventNameBean>();
     private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
 
 
@@ -209,7 +208,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
-    public List<ActDefinitionOrEventName_2Bean> getPerformanceActDefinitionOrEvent() {
+    public List<ActDefinitionOrEventNameBean> getPerformanceActDefinitionOrEvent() {
         return this.performanceActDefinitionOrEvent;
     }
 

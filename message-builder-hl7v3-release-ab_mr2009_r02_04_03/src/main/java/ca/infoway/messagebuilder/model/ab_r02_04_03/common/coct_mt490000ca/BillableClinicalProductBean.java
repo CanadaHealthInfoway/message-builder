@@ -33,10 +33,10 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.DiagnosisInformationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HealthcareProviderBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ManufacturedProductBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActProductAcquisitionType;
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,7 +57,7 @@ import java.util.List;
 @Hl7RootType
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

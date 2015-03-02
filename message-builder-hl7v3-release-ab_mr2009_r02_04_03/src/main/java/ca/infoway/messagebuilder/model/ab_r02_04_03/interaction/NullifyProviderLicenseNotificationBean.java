@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mfmi_mt700717ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt306011ca.RoleChoice;
 
@@ -50,8 +50,8 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt306011ca.RoleChoic
  * <p>----> Payload Choice: PRPM_MT306011CA.HealthCareProvider</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN301063AB"})
-public class NullifyProviderLicenseNotificationBean extends HL7Message_1Bean<TriggerEventBean<RoleChoice>> implements InteractionBean {
+public class NullifyProviderLicenseNotificationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
 
 }

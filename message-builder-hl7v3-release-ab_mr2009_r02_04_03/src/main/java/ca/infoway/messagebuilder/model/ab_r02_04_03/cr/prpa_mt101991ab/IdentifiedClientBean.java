@@ -39,7 +39,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.merged.PersonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,12 +64,12 @@ import java.util.Set;
 @Hl7RootType
 public class IdentifiedClientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV confidentialityCode = new CVImpl();
-    private PersonBean identifiedPerson;
+    private PersonPersonBean identifiedPerson;
     private RegistrationEventBean subjectOfRegistrationEvent;
     private List<InformantBean> participation = new ArrayList<InformantBean>();
 
@@ -245,7 +244,7 @@ public class IdentifiedClientBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"identifiedPerson"})
-    public PersonBean getIdentifiedPerson() {
+    public PersonPersonBean getIdentifiedPerson() {
         return this.identifiedPerson;
     }
 
@@ -255,7 +254,7 @@ public class IdentifiedClientBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setIdentifiedPerson(PersonBean identifiedPerson) {
+    public void setIdentifiedPerson(PersonPersonBean identifiedPerson) {
         this.identifiedPerson = identifiedPerson;
     }
 

@@ -38,16 +38,15 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090502ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240012ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt260012ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470012ca.ConsentBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AuthenticationTokenBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.CreatedByBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.CreatedBy_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.EntererChoice;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Issues_1Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.QueryByParameterBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ServiceDeliveryLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,20 +71,20 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
-    private AssignedEntity_1Bean responsiblePartyAssignedEntity;
-    private CreatedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
-    private ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation;
-    private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
-    private List<Issues_1Bean> subjectOf2DetectedIssueEvent = new ArrayList<Issues_1Bean>();
+    private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
     private QueryByParameterBean<PL> queryByParameter;
 
 
@@ -300,7 +299,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntity_1Bean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -310,7 +309,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(AssignedEntity_1Bean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -321,7 +320,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedByBean getAuthor() {
+    public CreatedBy_2Bean getAuthor() {
         return this.author;
     }
 
@@ -330,7 +329,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(CreatedByBean author) {
+    public void setAuthor(CreatedBy_2Bean author) {
         this.author = author;
     }
 
@@ -354,18 +353,18 @@ public class TriggerEventBean<PL> extends MessagePartBean {
         this.dataEntererEntererChoice = dataEntererEntererChoice;
     }
 
-    public AssignedEntity_1Bean getDataEntererEntererChoiceAsAssignedEntity1() {
-        return this.dataEntererEntererChoice instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.dataEntererEntererChoice : null;
+    public HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity1() {
+        return this.dataEntererEntererChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererEntererChoice : null;
     }
     public boolean hasDataEntererEntererChoiceAsAssignedEntity1() {
-        return (this.dataEntererEntererChoice instanceof AssignedEntity_1Bean);
+        return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
     }
 
-    public AssignedEntity_2Bean getDataEntererEntererChoiceAsAssignedEntity2() {
-        return this.dataEntererEntererChoice instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.dataEntererEntererChoice : null;
+    public HealthcareOrganizationBean getDataEntererEntererChoiceAsAssignedEntity2() {
+        return this.dataEntererEntererChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererEntererChoice : null;
     }
     public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
-        return (this.dataEntererEntererChoice instanceof AssignedEntity_2Bean);
+        return (this.dataEntererEntererChoice instanceof HealthcareOrganizationBean);
     }
 
 
@@ -376,7 +375,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getDataEntryLocationServiceDeliveryLocation() {
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
 
@@ -386,28 +385,30 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation) {
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 
@@ -459,7 +460,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
-    public List<Issues_1Bean> getSubjectOf2DetectedIssueEvent() {
+    public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
         return this.subjectOf2DetectedIssueEvent;
     }
 

@@ -56,9 +56,9 @@ import java.util.Set;
  * the issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.CausalActs {
+public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

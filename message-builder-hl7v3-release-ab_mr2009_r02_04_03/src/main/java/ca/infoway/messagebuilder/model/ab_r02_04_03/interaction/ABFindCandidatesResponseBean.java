@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mfmi_mt700746ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.merged.IdentifiedEntityBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101103ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101104ab.IdentifiedEntityBean;
 
 
 
@@ -47,8 +47,8 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101103ca.Parameter
  * <p>--> Payload: PRPA_MT101103CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101104AB"})
-public class ABFindCandidatesResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,IdentifiedEntityBean>> implements InteractionBean {
+public class ABFindCandidatesResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedEntityBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
 
 }

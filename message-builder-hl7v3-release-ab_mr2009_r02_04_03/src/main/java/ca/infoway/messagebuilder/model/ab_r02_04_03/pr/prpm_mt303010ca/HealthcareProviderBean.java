@@ -47,8 +47,10 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPersonBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.RegistrationEventBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.StatusChangeDetailsBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,9 +67,9 @@ import java.util.List;
  * a Physician, Nurse or other type of caregivers.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT303010CA.HealthCareProvider"})
-public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.Choice, RoleChoice {
+public class HealthcareProviderBean extends MessagePartBean implements RoleChoice, Choice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -75,8 +77,10 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
+    private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
+    private RegistrationEventBean subjectOf1RegistrationEvent;
+    private List<StatusChangeDetailsBean> subjectOf2StateTransitionControlActEvent = new ArrayList<StatusChangeDetailsBean>();
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
@@ -293,7 +297,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
+    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -303,7 +307,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 
@@ -327,6 +331,38 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      */
     public void setIssuingOrganization(OrganizationBean issuingOrganization) {
         this.issuingOrganization = issuingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf1/registrationEvent"})
+    public RegistrationEventBean getSubjectOf1RegistrationEvent() {
+        return this.subjectOf1RegistrationEvent;
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf1RegistrationEvent(RegistrationEventBean subjectOf1RegistrationEvent) {
+        this.subjectOf1RegistrationEvent = subjectOf1RegistrationEvent;
+    }
+
+
+    /**
+     * <p>Relationship: 
+     * PRPM_MT303010CA.Subject3.stateTransitionControlActEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf2/stateTransitionControlActEvent"})
+    public List<StatusChangeDetailsBean> getSubjectOf2StateTransitionControlActEvent() {
+        return this.subjectOf2StateTransitionControlActEvent;
     }
 
 

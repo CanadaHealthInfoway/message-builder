@@ -23,13 +23,21 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt050202ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.PersonBean;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -50,11 +58,13 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient_3 {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Patient {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private PersonBean patientPerson;
+    private PN patientPersonName = new PNImpl();
+    private CV patientPersonAdministrativeGenderCode = new CVImpl();
+    private TS patientPersonBirthTime = new TSImpl();
 
 
     /**
@@ -117,22 +127,236 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>Relationship: COCT_MT050202CA.Patient.patientPerson</p>
+     * <p>Business Name: B:Patient Name</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p>
+     * 
+     * <p>ZPA.2 (partType=Family)</p>
+     * 
+     * <p>ZPA.3 (partType=Given - all repetitions except first)</p>
+     * 
+     * <p>C37 (partType=Given)</p>
+     * 
+     * <p>C38 (partType=Family)</p>
+     * 
+     * <p>PTT.030-01 (partType=Family)</p>
+     * 
+     * <p>PTT.030-02 (partType=Given - 1st occurrence)</p>
+     * 
+     * <p>PTT.030-03 (partType=Given - subsequen occurrences)</p>
+     * 
+     * <p>PTT.030-04 (partType=Suffix)</p>
+     * 
+     * <p>PTT.030-05 (partType=Prefix)</p>
+     * 
+     * <p>patient Initials</p>
+     * 
+     * <p>PID.5</p>
+     * 
+     * <p>Patient.310-CA (partType=Given)</p>
+     * 
+     * <p>Patient.311-CB (partType=Family)</p>
+     * 
+     * <p>Recipient Name First (partType=Given)</p>
+     * 
+     * <p>Recipient Name Last (partType=Family)</p>
+     * 
+     * <p>PID.5</p>
+     * 
+     * <p>PID.9 (any name other than first repetition is an 
+     * alias)</p>
+     * 
+     * <p>ZDU.3</p>
+     * 
+     * <p>ZKW.2</p>
+     * 
+     * <p>Person.givenName</p>
+     * 
+     * <p>Person.lastName</p>
+     * 
+     * <p>Person.middleName</p>
+     * 
+     * <p>Person.namePrefix</p>
+     * 
+     * <p>Person.nameSuffix</p>
+     * 
+     * <p>Used, with other patient identity attributes, to confirm 
+     * patient identity.</p><p>This element is 'populated' because 
+     * the patient's name is necessary for positive identification 
+     * of the patient in the jurisdictional client registry, 
+     * however in some circumstances it may not exist in the 
+     * registry (e.g. newborn).</p>
+     * 
+     * <p>The name by which the patient is known to the underlying 
+     * client registry application</p>
      */
-    @Hl7XmlMapping({"patientPerson"})
-    public PersonBean getPatientPerson() {
-        return this.patientPerson;
+    @Hl7XmlMapping({"patientPerson/name"})
+    public PersonName getPatientPersonName() {
+        return this.patientPersonName.getValue();
     }
 
     /**
-     * <p>Relationship: COCT_MT050202CA.Patient.patientPerson</p>
+     * <p>Business Name: B:Patient Name</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Relationship: COCT_MT050202CA.Person.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ZPA.1 (partType=Given)</p>
+     * 
+     * <p>ZPA.2 (partType=Family)</p>
+     * 
+     * <p>ZPA.3 (partType=Given - all repetitions except first)</p>
+     * 
+     * <p>C37 (partType=Given)</p>
+     * 
+     * <p>C38 (partType=Family)</p>
+     * 
+     * <p>PTT.030-01 (partType=Family)</p>
+     * 
+     * <p>PTT.030-02 (partType=Given - 1st occurrence)</p>
+     * 
+     * <p>PTT.030-03 (partType=Given - subsequen occurrences)</p>
+     * 
+     * <p>PTT.030-04 (partType=Suffix)</p>
+     * 
+     * <p>PTT.030-05 (partType=Prefix)</p>
+     * 
+     * <p>patient Initials</p>
+     * 
+     * <p>PID.5</p>
+     * 
+     * <p>Patient.310-CA (partType=Given)</p>
+     * 
+     * <p>Patient.311-CB (partType=Family)</p>
+     * 
+     * <p>Recipient Name First (partType=Given)</p>
+     * 
+     * <p>Recipient Name Last (partType=Family)</p>
+     * 
+     * <p>PID.5</p>
+     * 
+     * <p>PID.9 (any name other than first repetition is an 
+     * alias)</p>
+     * 
+     * <p>ZDU.3</p>
+     * 
+     * <p>ZKW.2</p>
+     * 
+     * <p>Person.givenName</p>
+     * 
+     * <p>Person.lastName</p>
+     * 
+     * <p>Person.middleName</p>
+     * 
+     * <p>Person.namePrefix</p>
+     * 
+     * <p>Person.nameSuffix</p>
+     * 
+     * <p>Used, with other patient identity attributes, to confirm 
+     * patient identity.</p><p>This element is 'populated' because 
+     * the patient's name is necessary for positive identification 
+     * of the patient in the jurisdictional client registry, 
+     * however in some circumstances it may not exist in the 
+     * registry (e.g. newborn).</p>
+     * 
+     * <p>The name by which the patient is known to the underlying 
+     * client registry application</p>
      */
-    public void setPatientPerson(PersonBean patientPerson) {
-        this.patientPerson = patientPerson;
+    public void setPatientPersonName(PersonName patientPersonName) {
+        this.patientPersonName.setValue(patientPersonName);
+    }
+
+
+    /**
+     * <p>Business Name: F:Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     */
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientPersonAdministrativeGenderCode() {
+        return (AdministrativeGender) this.patientPersonAdministrativeGenderCode.getValue();
+    }
+
+    /**
+     * <p>Business Name: F:Patient Gender</p>
+     * 
+     * <p>Relationship: 
+     * COCT_MT050202CA.Person.administrativeGenderCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>The element is 
+     * mandatory because the patient's gender is necessary for 
+     * positive identification of the patient in the jurisdictional 
+     * client registry and should always be known.</p>
+     * 
+     * <p>Indicates the gender (sex) of the patient as known by the 
+     * client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p>
+     */
+    public void setPatientPersonAdministrativeGenderCode(AdministrativeGender patientPersonAdministrativeGenderCode) {
+        this.patientPersonAdministrativeGenderCode.setValue(patientPersonAdministrativeGenderCode);
+    }
+
+
+    /**
+     * <p>Business Name: E:Patient Birth Date</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>This element is 
+     * 'populated' because the patient's birth date is necessary 
+     * for positive identification of the patient in the 
+     * jurisdictional client registry. However, there may be 
+     * circumstances where the date of birth is not known to the 
+     * registry.</p>
+     * 
+     * <p>Indicates the date on which the patient was born, as 
+     * known by the client registry.</p>
+     */
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientPersonBirthTime() {
+        return this.patientPersonBirthTime.getValue();
+    }
+
+    /**
+     * <p>Business Name: E:Patient Birth Date</p>
+     * 
+     * <p>Relationship: COCT_MT050202CA.Person.birthTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Used to confirm patient identity.</p><p>This element is 
+     * 'populated' because the patient's birth date is necessary 
+     * for positive identification of the patient in the 
+     * jurisdictional client registry. However, there may be 
+     * circumstances where the date of birth is not known to the 
+     * registry.</p>
+     * 
+     * <p>Indicates the date on which the patient was born, as 
+     * known by the client registry.</p>
+     */
+    public void setPatientPersonBirthTime(Date patientPersonBirthTime) {
+        this.patientPersonBirthTime.setValue(patientPersonBirthTime);
     }
 
 }

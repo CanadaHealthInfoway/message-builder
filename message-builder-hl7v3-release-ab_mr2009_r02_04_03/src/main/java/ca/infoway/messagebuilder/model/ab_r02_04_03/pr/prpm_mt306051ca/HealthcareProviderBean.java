@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
 import java.util.List;
 import java.util.Set;
 
@@ -54,11 +53,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
+    private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
 
 
@@ -143,7 +142,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
+    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -153,7 +152,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

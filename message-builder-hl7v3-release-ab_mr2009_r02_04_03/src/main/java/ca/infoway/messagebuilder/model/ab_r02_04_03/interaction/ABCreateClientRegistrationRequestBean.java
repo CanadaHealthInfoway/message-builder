@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.TriggerEvent_3Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mfmi_mt700711ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101991ab.IdentifiedClientBean;
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.cr.prpa_mt101991ab.Identifie
  * <p>--> Payload: PRPA_MT101991AB.IdentifiedEntity</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101991AB"})
-public class ABCreateClientRegistrationRequestBean extends HL7Message_1Bean<TriggerEvent_3Bean<IdentifiedClientBean>> implements InteractionBean {
+public class ABCreateClientRegistrationRequestBean extends HL7MessageBean<TriggerEventBean<IdentifiedClientBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
 
 }

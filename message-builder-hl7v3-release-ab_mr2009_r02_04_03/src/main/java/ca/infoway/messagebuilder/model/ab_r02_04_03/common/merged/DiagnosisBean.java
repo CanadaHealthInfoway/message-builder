@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActDiagnosisCode
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private CV value = new CVImpl();

@@ -47,9 +47,9 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ActDefinitionOrEventName_1Bean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPersonBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.RegistrationEventBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +76,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -84,10 +84,11 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean assignedPrincipalPerson;
+    private PrinicpalPersonBean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
+    private RegistrationEventBean subjectOf1RegistrationEvent;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
+    private List<ActDefinitionOrEventNameBean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventNameBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
@@ -299,7 +300,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPerson_1Bean getAssignedPrincipalPerson() {
+    public PrinicpalPersonBean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
 
@@ -309,7 +310,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAssignedPrincipalPerson(PrinicpalPerson_1Bean assignedPrincipalPerson) {
+    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 
@@ -337,6 +338,26 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
+     * <p>Relationship: PRPM_MT301010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf1/registrationEvent"})
+    public RegistrationEventBean getSubjectOf1RegistrationEvent() {
+        return this.subjectOf1RegistrationEvent;
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT301010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf1RegistrationEvent(RegistrationEventBean subjectOf1RegistrationEvent) {
+        this.subjectOf1RegistrationEvent = subjectOf1RegistrationEvent;
+    }
+
+
+    /**
      * <p>Relationship: PRPM_MT301010CA.ResponsibleParty.privilege</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -354,7 +375,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
-    public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
+    public List<ActDefinitionOrEventNameBean> getPerformanceActDefinitionOrEvent() {
         return this.performanceActDefinitionOrEvent;
     }
 

@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.mfmi_mt700751ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt306010ca.ParameterListBean;
 
@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt306010ca.Parameter
  * <p>--> Payload: PRPM_MT306010CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN306020AB"})
-public class FindProviderCandidatesQueryBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
+public class FindProviderCandidatesQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150302L;
 
 }
