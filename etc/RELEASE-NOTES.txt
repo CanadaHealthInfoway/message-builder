@@ -1,5 +1,5 @@
 ====
-    Copyright 2013 Canada Health Infoway, Inc.
+    Copyright 2015 Canada Health Infoway, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 
 
                           Infoway Message Builder(tm)
-                               Version 1.5.8
+                               Version 2.0
                                Release Notes
 
 INTRODUCTION:
@@ -32,8 +32,8 @@ This document contains the release notes for this version of Infoway Message Bui
 SYSTEM PROPERTIES USED WITHIN MESSAGEBUILDER:
 =============================================
 
-(new for 1.4.x) ignored.as.not.allowed
-- treat "IGNORED" conformance as "not allowed"
+(new for 2.0) messagebuilder.suppress.xsi.nil.on.nullflavor
+- for associations with a NullFlavor, suppresses the output of "xsi:nil"
 - defaults to false
 
 (new for 1.4.x) messagebuilder.abstract.ts.ignore.specializationtype.error
@@ -61,12 +61,26 @@ messagebuilder.simplexml.transportclass
  - defaults to "ca.infoway.messagebuilder.transport.rest.RestTransportLayer"
 
 
-CHANGES for 1.5.8:
+CHANGES for 2.0:
+=======================
+
+- implemented support for CDA - CCDA R1_1, CCDA pCS R1_1, pCS CDA R1_2
+- new CDA Code Resolver created
+- HelloWorld project created for MB CDA
+- R2 datatypes now supported
+- error classes have moved (to ca.infoway.messagebuilder.error)
+- errors now include an error level (INFO, WARNING, ERROR)
+- major changes to ED datatype (ca.infoway.messagebuilder.datatype.lang.EncapsulatedData)
+- validator now uses the transformer directly (instead of duplicating code)
+
+
+CHANGES for 1.5.8.1:
 =======================
 
 - added AB Immunization; removed unused interactions for AB MR2007 and AB MR2009
 20423 - created an interaction walker (Java only)
 20416 - URG changes for BC
+
 
 CHANGES for 1.5.8:
 =======================
