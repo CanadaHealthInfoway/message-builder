@@ -18,7 +18,6 @@
     Revision:      $LastChangedRevision$
 ====
 
-
                           Infoway Message Builder(tm)
                                Version 2.0
                                Release Notes
