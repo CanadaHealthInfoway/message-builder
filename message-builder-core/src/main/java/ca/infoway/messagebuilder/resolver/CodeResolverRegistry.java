@@ -164,11 +164,38 @@ public abstract class CodeResolverRegistry {
      * @param <T> the generic type
      * @param type the type
      * @param code the code
+     * @param ignoreCase ignore case when matching code
+     * @return the t
+     */
+    public static <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase) {
+        return getRegistry().lookup(type, code, ignoreCase);
+    }
+    
+    /**
+     * <p>Lookup.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
      * @param codeSystemOid the code system oid
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
     	return getRegistry().lookup(type, code, codeSystemOid);
+    }
+    
+    /**
+     * <p>Lookup.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
+     * @param codeSystemOid the code system oid
+     * @param ignoreCase ignore case when matching code
+     * @return the t
+     */
+    public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
+    	return getRegistry().lookup(type, code, codeSystemOid, ignoreCase);
     }
     
     /**
