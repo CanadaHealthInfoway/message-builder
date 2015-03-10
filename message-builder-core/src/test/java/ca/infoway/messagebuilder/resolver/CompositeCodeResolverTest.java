@@ -22,6 +22,7 @@ package ca.infoway.messagebuilder.resolver;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.Collection;
 
@@ -51,6 +52,34 @@ public class CompositeCodeResolverTest {
 		MockCharacters result = resolver.lookup(MockCharacters.class, "SPOCK", null);
 		assertNotNull("result", result);
 		assertEquals("spock", MockStarTrek.SPOCK, result);
+	}
+	
+	@Test
+	public void testShouldResolveCodeIgnoringCase() throws Exception {
+		CompositeCodeResolver resolver = new CompositeCodeResolver(
+				new EnumBasedCodeResolver(MockEnum.class),
+				new EnumBasedCodeResolver(MockStarTrek.class));
+		
+		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null, true);
+		assertNotNull("result", result);
+		assertEquals("spock", MockStarTrek.SPOCK, result);
+
+		result = resolver.lookup(MockCharacters.class, "Spock", true);
+		assertNotNull("result", result);
+		assertEquals("spock", MockStarTrek.SPOCK, result);
+	}
+	
+	@Test
+	public void testShouldNotResolveCodeWhenIncorrectCase() throws Exception {
+		CompositeCodeResolver resolver = new CompositeCodeResolver(
+				new EnumBasedCodeResolver(MockEnum.class),
+				new EnumBasedCodeResolver(MockStarTrek.class));
+		
+		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null);
+		assertNull("result", result);
+		
+		result = resolver.lookup(MockCharacters.class, "Spock", null, false);
+		assertNull("result", result);
 	}
 	
 	@Test

@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.Code;
 public interface CodeResolver {
 
 	/**
-	 * <p>Lookup.
+	 * <p>Lookup all codes for the given type.
 	 *
 	 * @param <T> the generic type
 	 * @param type the type
@@ -43,7 +43,7 @@ public interface CodeResolver {
 	public <T extends Code> Collection<T> lookup(Class<T> type);
 	
 	/**
-	 * <p>Lookup.
+	 * <p>Lookup the specific code for the given type.
 	 *
 	 * @param <T> the generic type
 	 * @param type the type
@@ -53,7 +53,18 @@ public interface CodeResolver {
 	public <T extends Code> T lookup(Class<T> type, String code);
 	
 	/**
-	 * <p>Lookup.
+	 * <p>Lookup the specific code for the given type.
+	 *
+	 * @param <T> the generic type
+	 * @param type the type
+	 * @param code the code
+	 * @param ignoreCase should the code match case
+	 * @return the t
+	 */
+	public <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase);
+	
+	/**
+	 * <p>Lookup the specific code/codeSystem for the given type.
 	 *
 	 * @param <T> the generic type
 	 * @param type the type
@@ -63,4 +74,15 @@ public interface CodeResolver {
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid);
 
+	/**
+	 * <p>Lookup the specific code/codeSystem for the given type.
+	 *
+	 * @param <T> the generic type
+	 * @param type the type
+	 * @param code the code
+	 * @param codeSystemOid the code system oid
+	 * @param ignoreCase should the code/codeSystem match case
+	 * @return the t
+	 */
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase);
 }

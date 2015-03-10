@@ -65,9 +65,32 @@ public class EnumBasedCodeResolverTest {
     }
 
 	@Test
-    public void testEnumResolverUsingInterfaceWithCodeSystem() throws Exception {
+    public void testEnumResolverUsingInterfaceWithIncorrectCodeSystem() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go.wrong.code.system", null);
+    	MockCharacters spock = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go.wrong.code.system");
+    	assertNull("spock", spock);
+    }
+	
+	@Test
+    public void testEnumResolverUsingInterfaceWithCorrectCodeSystem() throws Exception {
+    	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
+    	MockCharacters spock = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go");
+    	assertNotNull("spock", spock);
+        assertEquals("spock", MockStarTrek.SPOCK, spock);
+    }
+	
+	@Test
+    public void testEnumResolverUsingInterfaceWithCorrectCodeSystemIgnoringCase() throws Exception {
+    	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
+    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go", true);
+    	assertNotNull("spock", spock);
+        assertEquals("spock", MockStarTrek.SPOCK, spock);
+    }
+	
+	@Test
+    public void testEnumResolverUsingInterfaceWithCorrectCodeSystemNotIgnoringCase() throws Exception {
+    	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
+    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go");
     	assertNull("spock", spock);
     }
 }

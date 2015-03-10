@@ -166,6 +166,8 @@ class Hl7SourceMapper {
         // this sorts the matching relationships according to HL7v3/MIF requirements
 		Collections.sort(sortedRelationshipsMatchingUpToXmlElementNames);
 		validateElementOrder(source, xmlElementNamesInProvidedOrder, sortedRelationshipsMatchingUpToXmlElementNames, resolvedRelationshipNames);
+		
+		// only do this if relationship not null and relationship not a null flavor???
 		validateMissingMandatoryNonStructuralRelationships(source, resolvedRelationshipNames);
 	}
 

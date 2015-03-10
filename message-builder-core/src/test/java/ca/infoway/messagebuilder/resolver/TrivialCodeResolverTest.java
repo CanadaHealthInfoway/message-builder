@@ -44,6 +44,13 @@ public class TrivialCodeResolverTest {
 	}
 
 	@Test
+	public void testResolveCodeWithCodeAndCodeSystemCaseIgnore() throws Exception {
+		MockCharacters result = new TrivialCodeResolver().lookup(MockCharacters.class, CODE, CODESYSTEM, true);
+		assertEquals("result", CODE, ((Code) result).getCodeValue());
+		assertEquals("result", CODESYSTEM, ((Code) result).getCodeSystem());
+	}
+
+	@Test
 	public void testNullCode() throws Exception {
 		TrivialCodeResolver trivialCodeResolver = new TrivialCodeResolver();
 		

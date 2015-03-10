@@ -27,7 +27,6 @@ import java.util.Collection;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -63,26 +62,14 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> interfaceType, String code) {
-		return lookup(interfaceType, code, null, null);
-	}
-
-	/**
-	 * <p>Lookup.
-	 *
-	 * @param <T> the generic type
-	 * @param interfaceType the interface type
-	 * @param nullFlavor the null flavor
-	 * @return the t
-	 */
-	public <T extends Code> T lookup(Class<T> interfaceType, NullFlavor nullFlavor) {
-		return lookup(interfaceType, null, null, nullFlavor);
+		return lookup(interfaceType, code, null, false);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-		return lookup(type, code, codeSystemOid, null);
+	public <T extends Code> T lookup(Class<T> interfaceType, String code, boolean ignoreCase) {
+		return lookup(interfaceType, code, null, ignoreCase);
 	}
 
 	/**
@@ -95,21 +82,24 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 * @param nullFlavor the null flavor
 	 * @return the t
 	 */
-	@SuppressWarnings("unchecked")
-	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, NullFlavor nullFlavor) {
-		return (T) findMatchingOption(code, codeSystemOid, nullFlavor);
+	public <T extends Code> T lookup(Class<T> interfaceType, String code, String codeSystemOid) {
+		return lookup(interfaceType, code, codeSystemOid, false);
 	}
 	
-	private Object findMatchingOption(String code, String codeSystem,
-			NullFlavor nullFlavor) {
+	@SuppressWarnings("unchecked")
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
+		return (T) findMatchingOption(code, codeSystemOid, ignoreCase);
+	}
+
+	private Object findMatchingOption(String code, String codeSystem, boolean ignoreCase) {
 	    Object[] values = EnumPattern.getEnumConstants(this.e);
 	    Object result = null;
 	    for (int i = 0, length = values == null ? 0 : values.length; 
 	    		isCodeType() && result == null && i < length; i++) {
 	    	if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(codeSystem)) {
-	    		result = match((Code) values[i], code, codeSystem);
+	    		result = match((Code) values[i], code, codeSystem, ignoreCase);
 	    	} else if (StringUtils.isNotBlank(code)) {
-	    		result = match((Code) values[i], code);
+	    		result = match((Code) values[i], code, ignoreCase);
 	    	}
 	    }		
 		return result;
@@ -119,13 +109,15 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 		return Code.class.isAssignableFrom(this.e);
 	}
 
-	private Object match(Code code, String codeValue) {
-		return StringUtils.equals(code.getCodeValue(), codeValue)
-				? code : null;
+	private Object match(Code code, String codeValue, boolean ignoreCase) {
+		boolean match = (ignoreCase ? StringUtils.equalsIgnoreCase(code.getCodeValue(), codeValue) : StringUtils.equals(code.getCodeValue(), codeValue));
+		return match ? code : null;
 	}
 
-	private Object match(Code code, String codeValue, String codeSystem) {
-		return StringUtils.equals(code.getCodeValue(), codeValue)
-				&& StringUtils.equals(code.getCodeSystem(), codeSystem) ? code : null;
+	private Object match(Code code, String codeValue, String codeSystem, boolean ignoreCase) {
+		boolean matchCode = (ignoreCase ? StringUtils.equalsIgnoreCase(code.getCodeValue(), codeValue) : StringUtils.equals(code.getCodeValue(), codeValue));
+		boolean matchCodeSystem = StringUtils.equals(code.getCodeSystem(), codeSystem); // ignoreCase not checked here
+		return matchCode && matchCodeSystem ? code : null;
 	}
+
 }

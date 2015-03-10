@@ -64,6 +64,7 @@ import ca.infoway.messagebuilder.terminology.codeset.domain.VocabularyDomain;
 public class HibernateCodeSetDaoTest {
 
 	private static final String CODE = "CODE";
+	private static final String CODE_MIXED_CASE = "Code";
 	private static final String OTHER_CODE = "OTHER CODE";
 	
 	private static final Class<?> VOCABULARY_DOMAIN = AcknowledgementCondition.class;
@@ -107,6 +108,7 @@ public class HibernateCodeSetDaoTest {
 		this.support.tearDown();
 	}
 
+	@SuppressWarnings("deprecation")
 	private void tearDownTestData() throws SQLException {
 		Session session = this.support.getSessionFactory().getCurrentSession();
 		Statement statement = session.connection().createStatement();
@@ -119,6 +121,7 @@ public class HibernateCodeSetDaoTest {
 		statement.execute("delete from vocabulary_domain");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testSelectCodedValuesByVocabularyDomain_ShouldFindTwoMatchingCodes() throws Exception {
 		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
@@ -129,8 +132,12 @@ public class HibernateCodeSetDaoTest {
 		assertEquals(2, codedValues.size());
 		assertTrue(codedValueFound(codedValues, CODE));
 		assertTrue(codedValueFound(codedValues, OTHER_CODE));
+		
+		
+		
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test	
 	public void testSelectCodedValuesByVocabularyDomain_ShouldReturnEmptyListWhenThereIsNoData() throws Exception {
 		Collection<CodedValue> codedValues = this.dao.selectCodedValuesByVocabularyDomain(VOCABULARY_DOMAIN, VERSION);
@@ -138,6 +145,7 @@ public class HibernateCodeSetDaoTest {
 		assertTrue(codedValues.isEmpty());
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testSelectCodedValuesByVocabularyDomain_ShouldNotSelectCodesInOtherVocabularyDomains() throws Exception {
 		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
@@ -195,11 +203,23 @@ public class HibernateCodeSetDaoTest {
 		
 		createCodedValue(vocabularyDomain, OID, "N", VERSION);
 		
-		ValueSetEntry value = this.dao.findValueByCodeSystem(Confidentiality.class, "N", OID, VERSION);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(Confidentiality.class, "N", OID, VERSION, false);
 		
 		assertNotNull("coded value", value);
 		assertEquals("N", value.getCodedValue().getCode());
 		assertEquals(OID, value.getCodedValue().getCodeSystem().getOid());
+
+		// now ignoring case
+		value = this.dao.findValueByCodeSystem(Confidentiality.class, "n", OID, VERSION, true);
+		
+		assertNotNull("coded value", value);
+		assertEquals("N", value.getCodedValue().getCode());
+		assertEquals(OID, value.getCodedValue().getCodeSystem().getOid());
+		
+		// now not ignoring case
+		value = this.dao.findValueByCodeSystem(Confidentiality.class, "n", OID, VERSION, false);
+		
+		assertNull("coded value", value);
 	}
 
 	@Test
@@ -208,13 +228,13 @@ public class HibernateCodeSetDaoTest {
 		
 		createCodedValue(vocabularyDomain, OTHER_OID, CODE, VERSION);
 		
-		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION, false);
 		assertNull(value);
 	}
 
 	@Test
 	public void testFindCodedValueByCodeSystem_ShouldNotFindValueWhenThereIsNoData() throws Exception {
-		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION);
+		ValueSetEntry value = this.dao.findValueByCodeSystem(VOCABULARY_DOMAIN, CODE, OID, VERSION, false);
 		assertNull(value);
 	}
 	
@@ -222,19 +242,31 @@ public class HibernateCodeSetDaoTest {
 	public void testSelectCodedValuesByCode_ShouldFindMatchingCodedValue() throws Exception {
 		createCodedValue(CODE, VERSION, VOCABULARY_DOMAIN);
 
-		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
+		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION, false);
 		
 		assertEquals(1, codedValues.size());
 		
 		ValueSetEntry value = codedValues.iterator().next();
 		assertEquals(CODE, value.getCodedValue().getCode());
+		
+		// now ignoring case
+		codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE_MIXED_CASE, VERSION, true);
+		
+		assertEquals(1, codedValues.size());
+		
+		value = codedValues.iterator().next();
+		assertEquals(CODE, value.getCodedValue().getCode());
+		
+		// now not ignoring case
+		codedValues = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE_MIXED_CASE, VERSION, false);
+		assertTrue(codedValues.isEmpty());
 	}
 
 	@Test
 	public void testSelectCodedValuesByCode_ShouldFindMatchingCodedValueInSubVocabularyDomains() throws Exception {
 		createCodedValue(CODE, VERSION, SUB_VOCABULARY_DOMAIN, PARENT_VOCABULARY_DOMAIN);
 		
-		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(PARENT_VOCABULARY_DOMAIN, CODE, VERSION);
+		Collection<ValueSetEntry> codedValues = this.dao.selectValueSetsByCode(PARENT_VOCABULARY_DOMAIN, CODE, VERSION, false);
 		
 		assertEquals(1, codedValues.size());
 		
@@ -246,14 +278,14 @@ public class HibernateCodeSetDaoTest {
 	public void testSelectCodedValuesByCode_ShouldNotFindValuesInOtherVocabularyDomains() throws Exception {
 		createCodedValue(CODE, VERSION, OTHER_VOCABULARY_DOMAIN);
 		
-		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
+		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION, false);
 		
 		assertTrue(values.isEmpty());
 	}
 
 	@Test
 	public void testSelectCodedValuesByCode_ShouldNotSelectValuesWhenThereIsNoData() throws Exception {
-		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION);
+		Collection<ValueSetEntry> values = this.dao.selectValueSetsByCode(VOCABULARY_DOMAIN, CODE, VERSION, false);
 		
 		assertTrue(values.isEmpty());
 	}

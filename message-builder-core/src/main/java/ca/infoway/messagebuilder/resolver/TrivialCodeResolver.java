@@ -128,6 +128,14 @@ public class TrivialCodeResolver extends CodeResolverImpl {
     	return lookup(interfaceType, code, null);
 	}
 
+	public <T extends Code> T lookup(Class<T> interfaceType, String code, boolean ignoreCase) {
+    	return lookup(interfaceType, code, null);
+	}
+
+	public <T extends Code> T lookup(Class<T> interfaceType, String code, String codeSystemOid, boolean ignoreCase) {
+    	return lookup(interfaceType, code, codeSystemOid);
+	}
+
     /**
      * <p>Adds the domain value.
      *
@@ -142,6 +150,5 @@ public class TrivialCodeResolver extends CodeResolverImpl {
     		this.emptyDomains.remove(interfaceType);
     	}
     }
-
 
 }

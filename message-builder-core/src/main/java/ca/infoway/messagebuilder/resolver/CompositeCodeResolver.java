@@ -64,11 +64,25 @@ public class CompositeCodeResolver extends CodeResolverImpl {
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	public <T extends Code> T lookup(Class<T> type, String code) {
+		return lookup(type, code, false);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
+		return lookup(type, code, codeSystemOid, false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase) {
         Object result = null;
         for (CodeResolver resolver : this.resolvers) {
-            Object object = resolver.lookup(type, code);
+            Object object = resolver.lookup(type, code, ignoreCase);
             if (object != null) {
                 result = object;
                 break;
@@ -76,15 +90,15 @@ public class CompositeCodeResolver extends CodeResolverImpl {
         }
         return (T) result;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
         Object result = null;
         for (CodeResolver resolver : this.resolvers) {
-            Object object = resolver.lookup(type, code, codeSystemOid);
+            Object object = resolver.lookup(type, code, codeSystemOid, ignoreCase);
             if (object != null) {
                 result = object;
                 break;

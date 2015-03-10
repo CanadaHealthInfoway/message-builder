@@ -36,6 +36,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -75,14 +76,18 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<ValueSetEntry> selectValueSetsByCode(final Class<?> vocabularyDomainType, final String code, final String version) {
+	public List<ValueSetEntry> selectValueSetsByCode(final Class<?> vocabularyDomainType, final String code, final String version, final boolean ignoreCase) {
 		List<ValueSetEntry> valueSets = getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
 				Criteria criteriaValueSetEntry = session.createCriteria(ValueSetEntry.class);
 				
 				Criteria criteriaCodedValue = criteriaValueSetEntry.createCriteria("codedValue");
-				criteriaCodedValue.add(Restrictions.eq("code", code));
+				SimpleExpression codeCriteria = Restrictions.eq("code", code);
+				if (ignoreCase) {
+					codeCriteria = codeCriteria.ignoreCase();
+				}
+				criteriaCodedValue.add(codeCriteria);
 		
 				Criteria criteriaValueSet = criteriaValueSetEntry.createCriteria("valueSet");
 				criteriaValueSet.add(Restrictions.eq("version", version));
@@ -101,15 +106,19 @@ public class HibernateCodeSetDao extends HibernateDaoSupport implements MutableC
 	 * {@inheritDoc}
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ValueSetEntry findValueByCodeSystem(final Class<?> vocabularyDomainType, final String code, final String codeSystemOid, final String version) {
+	public ValueSetEntry findValueByCodeSystem(final Class<?> vocabularyDomainType, final String code, final String codeSystemOid, final String version, final boolean ignoreCase) {
 		return (ValueSetEntry) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws SQLException {
 				
 				Criteria criteriaValueSetEntry = session.createCriteria(ValueSetEntry.class);
 				
 				Criteria criteriaCodedValue = criteriaValueSetEntry.createCriteria("codedValue");
-				criteriaCodedValue.add(Restrictions.eq("code", code));
-
+				SimpleExpression codeCriteria = Restrictions.eq("code", code);
+				if (ignoreCase) {
+					codeCriteria = codeCriteria.ignoreCase();
+				}
+				criteriaCodedValue.add(codeCriteria);
+				
 				Criteria criteriaCodeSystem = criteriaCodedValue.createCriteria("codeSystem");
 			
 				criteriaCodeSystem.add(Restrictions.eq("oid", codeSystemOid));

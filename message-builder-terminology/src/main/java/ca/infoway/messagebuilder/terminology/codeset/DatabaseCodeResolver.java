@@ -30,7 +30,6 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.terminology.codeset.dao.CodeSetDao;
 import ca.infoway.messagebuilder.terminology.codeset.domain.CodedValue;
@@ -66,7 +65,14 @@ public class DatabaseCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code) {
-		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code, this.version);
+		return lookup(type, code, false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase) {
+		List<ValueSetEntry> codedValues = dao.selectValueSetsByCode(type, code, this.version, ignoreCase);
 		return (codedValues.isEmpty()) ? null : createCode(type, codedValues.get(0));
 	}
 
@@ -74,17 +80,24 @@ public class DatabaseCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
+		return lookup(type, code, codeSystemOid, false);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
 		// RM 15390 (and others) - TM: The lookup won't work if no code system is provided.
 		// An argument could be made that if this method is called then we should expect the code system to be valid,
 		// but let's err on the side of caution and do our best to find a matching code.
 		if (StringUtils.isBlank(codeSystemOid)) {
-			return lookup(type, code);
+			return lookup(type, code, ignoreCase);
 		} else {
-			ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid, this.version);
+			ValueSetEntry valueSet = this.dao.findValueByCodeSystem(type, code, codeSystemOid, this.version, ignoreCase);
 			return valueSet == null ? null : createCode(type, valueSet);
 		}
 	}
-
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -125,31 +138,4 @@ public class DatabaseCodeResolver implements CodeResolver {
 				new Integer(1), Boolean.TRUE, Boolean.TRUE));
 	}
 
-	/**
-	 * <p>Lookup.
-	 *
-	 * @param <T> the generic type
-	 * @param type the type
-	 * @param nullFlavor the null flavor
-	 * @return the t
-	 */
-	public <T extends Code> T lookup(Class<T> type, NullFlavor nullFlavor) {
-		//TODO: accept nullflavours
-		return null;
-	}
-
-	/**
-	 * <p>Lookup.
-	 *
-	 * @param <T> the generic type
-	 * @param arg0 the arg0
-	 * @param code the code
-	 * @param codeSystemOid the code system oid
-	 * @param arg3 the arg3
-	 * @return the t
-	 */
-	public <T extends Code> T lookup(Class<T> arg0, String code, String codeSystemOid, NullFlavor arg3) {
-		//TODO: accept nullflavours
-		return lookup(arg0, code, codeSystemOid);
-	}
 }

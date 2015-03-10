@@ -91,6 +91,19 @@ public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegis
      * @param <T> the generic type
      * @param type the type
      * @param code the code
+     * @param ignoreCase ignore case when matching code
+     * @return the t
+     */
+	public <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase) {
+        return getResolver(type).lookup(type, code, ignoreCase);
+	}
+
+    /**
+     * <p>Lookup.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
      * @param codeSystemOid the code system oid
      * @return the t
      */
@@ -98,6 +111,20 @@ public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegis
     	return getResolver(type).lookup(type, code, codeSystemOid);
     }
     
+    /**
+     * <p>Lookup.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
+     * @param codeSystemOid the code system oid
+     * @param ignoreCase ignore case when matching code
+     * @return the t
+     */
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
+    	return getResolver(type).lookup(type, code, codeSystemOid, ignoreCase);
+	}
+	
     /**
      * <p>Gets the resolver.
      *
@@ -108,10 +135,10 @@ public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegis
 	public <T extends Code> CodeResolver getResolver(Class<T> type) {
         if (this.resolvers.containsKey(type)) {
             return this.resolvers.get(type);
-        } else if (EnumPattern.isEnum(type)) {
+        } else if (EnumPattern.isEnum(type)) {  // or EnumPattern
+        	// not sure that this is the ideal behaviour here; do we want to return a resolver for something not registered?
+        	// (though this *is* what happens when this.instance is not null)
             return new EnumBasedCodeResolver((Class<?>) type);
-        } else if (!type.isInterface()) {
-        	return new EnumPatternCodeResolver();
         } else if (this.instance == null) {
             throw new IllegalStateException("No code resolver established for " 
                     + type.getName() + ".");
@@ -155,4 +182,5 @@ public class GenericCodeResolverRegistryImpl implements GenericCodeResolverRegis
         this.instance = null;
         this.resolvers.clear();
     }
+
 }

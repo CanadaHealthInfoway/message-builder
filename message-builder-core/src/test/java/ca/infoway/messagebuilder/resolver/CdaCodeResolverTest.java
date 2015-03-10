@@ -75,11 +75,40 @@ public class CdaCodeResolverTest {
 	}
 	
 	@Test
+	public void shouldFindCodeByCodeAndTypeIgnoringCase() {
+		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", true);
+		
+		assertNotNull(code);
+		assertEquals("N", code.getCodeValue());
+		assertEquals("2.16.840.1.113883.5.25", code.getCodeSystem());
+		assertEquals("ConfidentialityCode", code.getCodeSystemName());
+		
+		assertTrue(Displayable.class.isAssignableFrom(code.getClass()));
+		Displayable displayable = (Displayable) code;
+		assertEquals("normal", displayable.getDisplayText("en"));
+	}
+	
+	@Test
+	public void shouldNotFindCodeWhenCaseMatters() {
+		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n");
+		assertNull(code);
+	}
+	
+	@Test
 	public void shouldFindCodeByCodeAndOid() {
 		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "N", "2.16.840.1.113883.5.25");
 		assertNotNull(code);
 		
 		code = fixture.lookup(BasicConfidentialityKind.class, "N", "some.bogus.oid");
+		assertNull(code);
+	}
+	
+	@Test
+	public void shouldFindCodeByCodeAndOidWhenCaseMatters() {
+		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25", true);
+		assertNotNull(code);
+		
+		code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25");
 		assertNull(code);
 	}
 }

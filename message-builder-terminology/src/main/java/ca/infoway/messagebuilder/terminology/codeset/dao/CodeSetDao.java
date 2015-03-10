@@ -42,9 +42,10 @@ public interface CodeSetDao {
 	 * @param code the code
 	 * @param codeSystemOid the code system oid
 	 * @param version the value set version to match against 
+     * @param ignoreCase ignore case when matching code
 	 * @return the value set entry
 	 */
-	public ValueSetEntry findValueByCodeSystem(Class<?> vocabularyDomainType, String code, String codeSystemOid, String version);
+	public ValueSetEntry findValueByCodeSystem(Class<?> vocabularyDomainType, String code, String codeSystemOid, String version, boolean ignoreCase);
 	
 	/**
 	 * <p>Select value sets by code.
@@ -52,9 +53,10 @@ public interface CodeSetDao {
 	 * @param vocabularyDomainType the vocabulary domain type
 	 * @param code the code
 	 * @param version the value set version to match against 
+     * @param ignoreCase ignore case when matching code
 	 * @return the list
 	 */
-	public List<ValueSetEntry> selectValueSetsByCode(Class<?> vocabularyDomainType, String code, String version);
+	public List<ValueSetEntry> selectValueSetsByCode(Class<?> vocabularyDomainType, String code, String version, boolean ignoreCase);
 	
 	/**
 	 * <p>Select value sets by vocabulary domain.

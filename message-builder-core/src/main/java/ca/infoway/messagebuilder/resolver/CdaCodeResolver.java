@@ -50,19 +50,21 @@ public class CdaCodeResolver implements CodeResolver {
 	
 	private static class ValueSet {
 		private final Map<String, List<CodedValue>> codes = new HashMap<String, List<CodedValue>>();
+		private final Map<String, List<CodedValue>> codesByLowerCase = new HashMap<String, List<CodedValue>>();
 		
-		public CodedValue getCode(String code) {
-			List<CodedValue> codes = this.codes.get(code);
+		public CodedValue getCode(String code, boolean ignoreCase) {
+			List<CodedValue> codes = ignoreCase ? this.codesByLowerCase.get(StringUtils.lowerCase(code)) : this.codes.get(code);
 			if (codes != null && codes.size() >= 1) {
 				return codes.get(0);
 			}
 			return null;
 		}
 		
-		public CodedValue getCode(String code, String codeSystemOid) {
-			List<CodedValue> codes = this.codes.get(code);
+		public CodedValue getCode(String code, String codeSystemOid, boolean ignoreCase) {
+			List<CodedValue> codes = ignoreCase ? this.codesByLowerCase.get(StringUtils.lowerCase(code)) : this.codes.get(code);
 			if (codes != null) {
 				for (CodedValue codedValue : codes) {
+					// not applying ignoreCase to codeSystem check
 					if (StringUtils.equals(codeSystemOid, codedValue.getCodeSystemOid())) {
 						return codedValue;
 					}
@@ -85,6 +87,7 @@ public class CdaCodeResolver implements CodeResolver {
 				if (list == null) {
 					list = new ArrayList<CodedValue>();
 					this.codes.put(code.getValue(), list);
+					this.codesByLowerCase.put(StringUtils.lowerCase(code.getValue()), list);
 				}
 				list.add(code);
 			}
@@ -188,9 +191,13 @@ public class CdaCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code) {
+		return lookup(type, code, false);
+	}
+
+	public <T extends Code> T lookup(Class<T> type, String code, boolean ignoreCase) {
 		ValueSet valueSet = valueSetsByTypeName.get(type.getSimpleName());
 		if (valueSet != null) {
-			CodedValue codedValue = valueSet.getCode(code);
+			CodedValue codedValue = valueSet.getCode(code, ignoreCase);
 			if (codedValue != null) {
 				return createCode(type, codedValue);
 			}
@@ -202,9 +209,13 @@ public class CdaCodeResolver implements CodeResolver {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
+		return lookup(type, code, codeSystemOid, false);
+	}
+
+	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid, boolean ignoreCase) {
 		ValueSet valueSet = valueSetsByTypeName.get(type.getSimpleName());
 		if (valueSet != null) {
-			CodedValue codedValue = valueSet.getCode(code, codeSystemOid);
+			CodedValue codedValue = valueSet.getCode(code, codeSystemOid, ignoreCase);
 			if (codedValue != null) {
 				return createCode(type, codedValue);
 			}
