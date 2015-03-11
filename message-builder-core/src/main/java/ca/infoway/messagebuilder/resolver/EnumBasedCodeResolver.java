@@ -62,7 +62,7 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> interfaceType, String code) {
-		return lookup(interfaceType, code, null, false);
+		return lookup(interfaceType, code, null, true);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class EnumBasedCodeResolver extends CodeResolverImpl {
 	 * @return the t
 	 */
 	public <T extends Code> T lookup(Class<T> interfaceType, String code, String codeSystemOid) {
-		return lookup(interfaceType, code, codeSystemOid, false);
+		return lookup(interfaceType, code, codeSystemOid, true);
 	}
 	
 	@SuppressWarnings("unchecked")

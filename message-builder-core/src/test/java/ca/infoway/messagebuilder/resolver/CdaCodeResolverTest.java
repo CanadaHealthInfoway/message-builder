@@ -90,7 +90,7 @@ public class CdaCodeResolverTest {
 	
 	@Test
 	public void shouldNotFindCodeWhenCaseMatters() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n");
+		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", false);
 		assertNull(code);
 	}
 	
@@ -108,7 +108,7 @@ public class CdaCodeResolverTest {
 		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25", true);
 		assertNotNull(code);
 		
-		code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25");
+		code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25", false);
 		assertNull(code);
 	}
 }

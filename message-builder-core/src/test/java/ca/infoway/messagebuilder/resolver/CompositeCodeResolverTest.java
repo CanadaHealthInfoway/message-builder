@@ -75,11 +75,11 @@ public class CompositeCodeResolverTest {
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
 		
-		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null);
+		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null, false);
 		assertNull("result", result);
 		
-		result = resolver.lookup(MockCharacters.class, "Spock", null, false);
-		assertNull("result", result);
+		result = resolver.lookup(MockCharacters.class, "Spock", null, true);
+		assertNotNull("result", result);
 	}
 	
 	@Test

@@ -65,14 +65,14 @@ public class CompositeCodeResolver extends CodeResolverImpl {
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code) {
-		return lookup(type, code, false);
+		return lookup(type, code, true);
 	}
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	public <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-		return lookup(type, code, codeSystemOid, false);
+		return lookup(type, code, codeSystemOid, true);
 	}
 
 	/**

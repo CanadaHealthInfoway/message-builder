@@ -159,7 +159,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code) {
-        return lookup(type, code, true);
+        return getRegistry().lookup(type, code);
     }
     
     /**
@@ -172,7 +172,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookupWarningOnCaseMismatch(Class<T> type, String code, ErrorLogger logger) {
-        T result = getRegistry().lookup(type, code);
+        T result = getRegistry().lookup(type, code, false); // exact match
         if (result == null) {
         	// now try to find a match while ignoring case
             result = getRegistry().lookup(type, code, true);
@@ -209,7 +209,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-    	return lookup(type, code, codeSystemOid, true);
+    	return getRegistry().lookup(type, code, codeSystemOid);
     }
     
     /**
@@ -223,7 +223,7 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookupWarningOnCaseMismatch(Class<T> type, String code, String codeSystemOid, ErrorLogger logger) {
-        T result = getRegistry().lookup(type, code, codeSystemOid);
+        T result = getRegistry().lookup(type, code, codeSystemOid, false); //exact match
         if (result == null) {
         	// now try to find a match while ignoring case
             result = getRegistry().lookup(type, code, codeSystemOid, true);

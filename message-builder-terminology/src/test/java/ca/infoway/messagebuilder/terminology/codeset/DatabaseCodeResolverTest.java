@@ -83,7 +83,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldHandleLookupByCode() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSetsCollection(new String[] {CODE_VALUE})));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -124,7 +124,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeFindsNoMatch() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createEmptyCollection()));
 		}});
 		
@@ -135,7 +135,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeFindsMultipleMatches() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).selectValueSetsByCode(with(any(Class.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSetsCollection(new String[] {CODE_VALUE, "another_code"})));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -155,9 +155,9 @@ public class DatabaseCodeResolverTest {
 	}
 	
 	@Test
-	public void testShouldHandleLookupByCodeSystem() throws Exception {
+	public void testShouldHandleLookupByCodeSystemWhenIgnoringCaseByDefault() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSet(CODE_VALUE)));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
@@ -172,12 +172,12 @@ public class DatabaseCodeResolverTest {
 				will(returnValue(CODE));
 		}});
 		
-		Code result = resolver.lookup(x_NormalRestrictedTabooConfidentialityKind.class, CODE_VALUE, CODE_SYSTEM_OID);
+		Code result = resolver.lookup(x_NormalRestrictedTabooConfidentialityKind.class, CODE_VALUE.toLowerCase(), CODE_SYSTEM_OID);
 		assertSame(CODE, result);
 	}
 	
 	@Test
-	public void testShouldHandleLookupByCodeSystemWhenIgnoringCase() throws Exception {
+	public void testShouldHandleLookupByCodeSystemWhenIgnoringCaseExplicitly() throws Exception {
 		this.jmock.checking(new Expectations() {{
 			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSet(CODE_VALUE)));
@@ -199,12 +199,34 @@ public class DatabaseCodeResolverTest {
 	}
 	
 	@Test
+	public void testShouldHandleLookupByCodeSystemWhenNotIgnoringCase() throws Exception {
+		this.jmock.checking(new Expectations() {{
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+				will(returnValue(createValueSet(CODE_VALUE)));
+			one(codeFactory).create(
+					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 
+					with(hasSameContents(Arrays.asList(x_NormalRestrictedTabooConfidentialityKind.class))), 
+					with(equal(CODE_VALUE)), 
+					with(equal(CODE_SYSTEM_OID)), 
+					with(any(String.class)),
+					with(any(Map.class)),
+					with(any(Integer.class)), 
+					with(any(Boolean.class)), 
+					with(any(Boolean.class)));
+				will(returnValue(CODE));
+		}});
+		
+		Code result = resolver.lookup(x_NormalRestrictedTabooConfidentialityKind.class, CODE_VALUE, CODE_SYSTEM_OID, false);
+		assertSame(CODE, result);
+	}
+	
+	@Test
 	public void testShouldFindAllTypesForCode() {
 		final List<Class<?>> list = new ArrayList<Class<?>>();
 		list.add(x_NormalRestrictedTabooConfidentialityKind.class);
 		list.add(x_VeryBasicConfidentialityKind.class);
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSet(CODE_VALUE, list)));
 			one(codeFactory).create(
 					with(same(Confidentiality.class)), 
@@ -255,7 +277,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldNotDieWhenLookupByCodeSystemFindsNoMatch() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(null));
 		}});		
 		
@@ -266,7 +288,7 @@ public class DatabaseCodeResolverTest {
 	@Test
 	public void testShouldGenerateDisplayTextMapCorrectly() throws Exception {
 		this.jmock.checking(new Expectations() {{
-			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(false)));
+			allowing(codeSetDao).findValueByCodeSystem(with(any(Class.class)), with(any(String.class)), with(any(String.class)), with(equal(VERSION)), with(equal(true)));
 				will(returnValue(createValueSetWithDisplayText(CODE_VALUE)));
 			one(codeFactory).create(
 					with(same(x_NormalRestrictedTabooConfidentialityKind.class)), 

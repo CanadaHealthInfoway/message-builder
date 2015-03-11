@@ -90,7 +90,7 @@ public class EnumBasedCodeResolverTest {
 	@Test
     public void testEnumResolverUsingInterfaceWithCorrectCodeSystemNotIgnoringCase() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go");
+    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go", false);
     	assertNull("spock", spock);
     }
 }
