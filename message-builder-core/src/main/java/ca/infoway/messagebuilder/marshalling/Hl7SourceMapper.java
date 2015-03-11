@@ -325,7 +325,7 @@ class Hl7SourceMapper {
 			NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(relationship.getConformance(), nodes.isEmpty() ? null : nodes.get(0), new XmlToModelResult(), true);
 			NullFlavor nullFlavor = nullFlavorHelper.parseNullNode();
 			Object value = (nullFlavor == null ? new BLImpl(!nodes.isEmpty()): 
-												 new BLImpl((ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor) nullFlavor));
+												 new BLImpl(nullFlavor));
 			bean.write(relationship, value);
 		} catch (ClassCastException e){
 			this.log.info("Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 

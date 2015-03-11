@@ -38,14 +38,15 @@ import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class MoR2ElementParserTest extends MarshallingTestCase {
@@ -55,6 +56,7 @@ public class MoR2ElementParserTest extends MarshallingTestCase {
 	@Override
 	@Before
 	public void setUp() throws Exception {
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 		this.result = new XmlToModelResult();
 	}
 	

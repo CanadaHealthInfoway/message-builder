@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.TS_R2;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>HL7 datatype TS backed by a java Date.

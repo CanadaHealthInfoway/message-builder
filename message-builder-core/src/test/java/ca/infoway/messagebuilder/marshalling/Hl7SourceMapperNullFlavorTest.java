@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.model.mock.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.mock.Sender;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
@@ -80,6 +81,7 @@ public class Hl7SourceMapperNullFlavorTest {
 	@Before
 	public void setUp() throws Exception {
 		MockMessageBeanRegistry.initialize();
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 		CodeResolverRegistry.register(new TrivialCodeResolver());
 		this.service = new MockTestCaseMessageDefinitionService();
 	}

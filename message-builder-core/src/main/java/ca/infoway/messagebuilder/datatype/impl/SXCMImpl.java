@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 import ca.infoway.messagebuilder.datatype.SXCM;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.SetComponent;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>Set Component (SXCM) HL7 datatype. Backed by the java datatype SetComponent. 

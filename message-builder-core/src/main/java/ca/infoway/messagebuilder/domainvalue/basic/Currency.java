@@ -18,9 +18,8 @@
  * Revision:      $LastChangedRevision$
  */
 
-package ca.infoway.messagebuilder.datatype.lang.util;
+package ca.infoway.messagebuilder.domainvalue.basic;
 
-import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -30,7 +29,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class Currency extends EnumPattern implements Code {
+public class Currency extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.Currency {
 
 	static{ /*static init block for translation purposes. Please do not remove.*/ }
     

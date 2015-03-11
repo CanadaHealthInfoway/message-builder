@@ -20,12 +20,16 @@
 
 package ca.infoway.messagebuilder.resolver;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.error.ErrorLevel;
+import ca.infoway.messagebuilder.error.ErrorLogger;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 
 /**
  * <p>This class functions is generally used in one of two ways.  Either:
@@ -147,7 +151,7 @@ public abstract class CodeResolverRegistry {
     }
     
     /**
-     * <p>Lookup.
+     * <p>Lookup. Defaults to case insensitive.
      *
      * @param <T> the generic type
      * @param type the type
@@ -155,7 +159,31 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code) {
-        return getRegistry().lookup(type, code);
+        return lookup(type, code, true);
+    }
+    
+    /**
+     * <p>Lookup code, logging a warning if a code is found that doesn't match case.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
+     * @param logger an error logger
+     * @return the t
+     */
+    public static <T extends Code> T lookupWarningOnCaseMismatch(Class<T> type, String code, ErrorLogger logger) {
+        T result = getRegistry().lookup(type, code);
+        if (result == null) {
+        	// now try to find a match while ignoring case
+            result = getRegistry().lookup(type, code, true);
+            if (result != null) {
+            	logger.logError(
+            			Hl7ErrorCode.CODE_MATCH_ONLY_WHEN_IGNORING_CASE, 
+            			ErrorLevel.WARNING, 
+            			MessageFormat.format("A match for code {0} of type {1} was found only when ignoring case ({2}).", code, type.getSimpleName(), result.getCodeValue()));
+            }
+        }
+		return result;
     }
     
     /**
@@ -172,7 +200,7 @@ public abstract class CodeResolverRegistry {
     }
     
     /**
-     * <p>Lookup.
+     * <p>Lookup. Defaults to case insensitive.
      *
      * @param <T> the generic type
      * @param type the type
@@ -181,9 +209,34 @@ public abstract class CodeResolverRegistry {
      * @return the t
      */
     public static <T extends Code> T lookup(Class<T> type, String code, String codeSystemOid) {
-    	return getRegistry().lookup(type, code, codeSystemOid);
+    	return lookup(type, code, codeSystemOid, true);
     }
     
+    /**
+     * <p>Lookup.
+     *
+     * @param <T> the generic type
+     * @param type the type
+     * @param code the code
+     * @param codeSystemOid the code system oid
+     * @param logger an error logger
+     * @return the t
+     */
+    public static <T extends Code> T lookupWarningOnCaseMismatch(Class<T> type, String code, String codeSystemOid, ErrorLogger logger) {
+        T result = getRegistry().lookup(type, code, codeSystemOid);
+        if (result == null) {
+        	// now try to find a match while ignoring case
+            result = getRegistry().lookup(type, code, codeSystemOid, true);
+            if (result != null) {
+            	logger.logError(
+            			Hl7ErrorCode.CODE_MATCH_ONLY_WHEN_IGNORING_CASE,
+            			ErrorLevel.WARNING, 
+            			MessageFormat.format("A match for code {0} of type {1} was found only when ignoring case ({2}).", code, type.getSimpleName(), result.getCodeValue()));
+            }
+        }
+		return result;
+    }
+
     /**
      * <p>Lookup.
      *

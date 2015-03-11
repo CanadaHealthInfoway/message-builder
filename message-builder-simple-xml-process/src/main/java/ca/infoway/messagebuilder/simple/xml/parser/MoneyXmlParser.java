@@ -27,7 +27,7 @@ import java.util.Map;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParser;
 

@@ -104,7 +104,7 @@ public class DateDiff extends Diff<Date> implements NullFlavorSupport {
 		if (unit != null && unit instanceof DateConverter) {
 			return new Date(((DateConverter) unit).toMilliseconds(value == null ? 0 : value.intValue()));
 		} else if (unit != null) {
-			DefaultTimeUnit timeUnit = DefaultTimeUnit.lookup(unit.getCodeValue());
+			DefaultTimeUnit timeUnit = DefaultTimeUnit.lookup(unit.getCodeValue()); // lookup will ignore case
 			return (timeUnit == null) ? null : new Date(timeUnit.toMilliseconds(value));
 		} else {
 			return null;

@@ -25,11 +25,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -39,6 +41,11 @@ public class NullFlavorHelperTest {
 	public static final Object[] MANDATORY = {ConformanceLevel.MANDATORY, false}; 
 	public static final Object[] REQUIRED = {ConformanceLevel.REQUIRED, true}; 
 
+	@Before
+	public void setup() {
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+	}
+	
 	@Test
 	public void testConformanceHandlingForNullFlavorIsErrorFree() throws Exception {
 		assertConformance(POPULATED);

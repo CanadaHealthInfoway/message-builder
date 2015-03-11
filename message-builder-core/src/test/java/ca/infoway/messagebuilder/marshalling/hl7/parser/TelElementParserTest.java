@@ -105,6 +105,15 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	@Test
+	public void testParseMixedcaseUrlScheme() throws Exception {
+		Node node = createNode("<something value=\"mailTO://monkey\" />");
+		
+		new TelElementParser().parse(createContext("TEL.URI", SpecificationVersion.V02R02), node, this.xmlResult);
+		
+		assertTrue(this.xmlResult.isValid());
+	}
+	
+	@Test
 	public void testParseValueAttributeValidPlusExtraAttribute() throws Exception {
 		Node node = createNode("<something extra=\"extra\" value=\"mailto://monkey@monkey\" />");
 		TelecommunicationAddress address = (TelecommunicationAddress) new TelElementParser().parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
@@ -175,7 +184,7 @@ public class TelElementParserTest extends CeRxDomainValueTestCase {
 	public void testParseAddressUse() throws Exception {
 		AbstractSingleElementParser<TelecommunicationAddress> parser = new TelElementParser();
 		
-		Node node = createNode("<something use=\"H\" value=\"mailto://monkey@monkey\" />");
+		Node node = createNode("<something use=\"H\" value=\"Mailto://monkey@monkey\" />");
 		Set<TelecommunicationAddressUse> addressUses = ((TelecommunicationAddress) parser.parse(createContext("TEL.EMAIL", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue()).getAddressUses();
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("address use count", 1, addressUses.size());

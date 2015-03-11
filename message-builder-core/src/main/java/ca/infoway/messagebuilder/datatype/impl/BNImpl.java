@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 
 import ca.infoway.messagebuilder.datatype.BN;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>HL7 datatype BN. Backed by a Boolean.

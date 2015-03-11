@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>HL7 datatype LIST. Backed by a java List.

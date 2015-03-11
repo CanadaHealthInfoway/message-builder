@@ -29,7 +29,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;

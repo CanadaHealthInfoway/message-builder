@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 import ca.infoway.messagebuilder.datatype.SXPR;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.ParentheticSetExpr;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>Parenthetic Set Expression (SXPR) specializes SXCM. Backed by the java datatype ParentheticSetExpr.

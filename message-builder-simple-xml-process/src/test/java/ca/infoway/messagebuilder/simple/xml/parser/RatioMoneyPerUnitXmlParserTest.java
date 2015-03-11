@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.RTOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 

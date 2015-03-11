@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 
 /**
  * <p>Java datatype backing the Hl7 Datatype MO (MO.CAD).

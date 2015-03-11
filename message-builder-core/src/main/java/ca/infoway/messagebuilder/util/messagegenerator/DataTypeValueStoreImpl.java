@@ -129,7 +129,7 @@ public class DataTypeValueStoreImpl implements DataTypeValueStore {
 			// we are restricted to a length of 20, unfortunately
 			codeValue = StringUtils.left("_" + propertyType.getSimpleName(), CdValidationUtils.MAX_CODE_LENGTH_CERX_MR2007);
 		}
-		return new TrivialCodeResolver().lookup((Class<Code>) propertyType, codeValue, CodeSystem.HEALTH_CANADA.getRoot());
+		return this.codeResolver.lookup((Class<Code>) propertyType, codeValue, CodeSystem.HEALTH_CANADA.getRoot());
 	}
 	
 	private boolean isCeRxOrMr2007(VersionNumber version) {

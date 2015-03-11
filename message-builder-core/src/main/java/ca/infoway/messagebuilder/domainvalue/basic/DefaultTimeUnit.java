@@ -124,7 +124,8 @@ public class DefaultTimeUnit extends EnumPattern implements DateConverter, x_Tim
 	public static DefaultTimeUnit lookup(String unitCodeValue) {
 		DefaultTimeUnit result = null;
 		for (DefaultTimeUnit unit : values(DefaultTimeUnit.class)) {
-			if (StringUtils.equals(unitCodeValue, unit.getCodeValue())) {
+			// TM - relaxing check here to ignore case (normal lookups should go through CodeResolverRegistry, but in this case we want a value from this specific enum)
+			if (StringUtils.equalsIgnoreCase(unitCodeValue, unit.getCodeValue())) {
 				result = unit;
 				break;
 			}

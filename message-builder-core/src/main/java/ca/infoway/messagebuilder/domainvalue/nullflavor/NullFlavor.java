@@ -20,11 +20,6 @@
 
 package ca.infoway.messagebuilder.domainvalue.nullflavor;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang.StringUtils;
-
 import ca.infoway.messagebuilder.codesystem.CodeSystem;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
@@ -33,6 +28,10 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class NullFlavor extends EnumPattern implements ca.infoway.messagebuilder.domainvalue.NullFlavor {
 
+    static {
+    	/* static init block necessary for translation purposes. Please do not remove. */
+    }
+    
     private static final long serialVersionUID = 7363875379566291402L;
     
 	public static final NullFlavor NO_INFORMATION = new NullFlavor("NO_INFORMATION", "NI"); 
@@ -75,33 +74,6 @@ public class NullFlavor extends EnumPattern implements ca.infoway.messagebuilder
      */
     public String getCodeSystemName() {
     	return null;
-    }
-    
-    /**
-     * * fast Code lookup **.
-     *
-     * @param codeValue the code value
-     * @return the null flavor
-     */
-    public static final NullFlavor lookup(String codeValue) {
-    	if (StringUtils.isBlank(codeValue)) {
-    		return null;
-    	} else if (codeToNullFlavor.containsKey(codeValue)) {
-    		return codeToNullFlavor.get(codeValue);
-    	} else {
-    		return null;
-    	}
-    }
-    
-    private static final Map<String, NullFlavor> codeToNullFlavor;
-    
-    static {
-    	/* static init block necessary for translation purposes. Please do not remove. */
-
-    	codeToNullFlavor = new HashMap<String, NullFlavor>();
-    	for (NullFlavor nullFlavor : EnumPattern.values(NullFlavor.class)) {
-    		codeToNullFlavor.put(nullFlavor.getCodeValue(), nullFlavor);
-    	}
     }
     
 }

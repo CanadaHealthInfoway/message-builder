@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 import ca.infoway.messagebuilder.datatype.IVL_TS;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>HL7 datatype IVL. Backed by the java datatype DateInterval.

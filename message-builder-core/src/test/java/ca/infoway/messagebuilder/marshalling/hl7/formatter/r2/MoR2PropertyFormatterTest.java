@@ -30,8 +30,8 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 

@@ -30,7 +30,7 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.lang.NumberUtil;

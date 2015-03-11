@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 
 import ca.infoway.messagebuilder.datatype.BXIT;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>Set Component (SXCM) R2 datatype.

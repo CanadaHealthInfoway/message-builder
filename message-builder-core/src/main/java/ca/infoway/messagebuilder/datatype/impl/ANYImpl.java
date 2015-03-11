@@ -213,7 +213,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	 * @return whether this ANY object has a null flavor of "Not applicable" 
 	 */
 	public boolean notApplicable() {
-		return NOT_APPLICABLE.equals(getNullFlavor());
+		return NOT_APPLICABLE.getCodeValue().equals(getNullFlavor() == null ? null : getNullFlavor().getCodeValue());
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	 * @return whether this ANY object has a null flavor of "other" 
 	 */
 	public boolean other() {
-		return OTHER.equals(getNullFlavor());
+		return OTHER.getCodeValue().equals(getNullFlavor() == null ? null : getNullFlavor().getCodeValue());
 	}
 
     /**
@@ -240,7 +240,7 @@ public class ANYImpl<V> extends BareANYImpl implements ANY<V>, ANYMetaData {
 	 * @return whether this ANY object has a null flavor of "unknown" 
 	 */
 	public boolean unknown() {
-		return UNKNOWN.equals(getNullFlavor());
+		return UNKNOWN.getCodeValue().equals(getNullFlavor() == null ? null : getNullFlavor().getCodeValue());
 	}
 
 	/**

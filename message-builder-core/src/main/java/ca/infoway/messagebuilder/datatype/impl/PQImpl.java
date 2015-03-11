@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.datatype.impl;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
  * <p>A class to represent CeRx's notion of a physical quantity. Backed by the java datatype PhysicalQuantity.

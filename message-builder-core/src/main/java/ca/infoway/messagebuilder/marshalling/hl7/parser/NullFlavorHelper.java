@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -56,7 +57,7 @@ public class NullFlavorHelper {
 
 	public NullFlavor parseNullNode() {
 		String attributeValue = getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME);
-		NullFlavor nullFlavor = ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.lookup(attributeValue);
+		NullFlavor nullFlavor = CodeResolverRegistry.lookup(NullFlavor.class, attributeValue);
 		
 		if (ConformanceLevelUtil.isMandatory(this.conformanceLevel, null)) {
 			xmlToModelResult.addHl7Error(Hl7Error.createMandatoryAttributeIsNullError(
@@ -84,7 +85,7 @@ public class NullFlavorHelper {
 		String attributeValue = getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME);
 		if (attributeValue==null) {
 			return false;
-		} else if (StringUtils.isEmpty(attributeValue) || ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.lookup(attributeValue)==null) {
+		} else if (StringUtils.isEmpty(attributeValue) || CodeResolverRegistry.lookup(NullFlavor.class, attributeValue) == null) {
 			xmlToModelResult.addHl7Error(
 					new Hl7Error(Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM,
 							MessageFormat.format("The nullFavor attribute value \"{0}\" is not valid ({1})", 

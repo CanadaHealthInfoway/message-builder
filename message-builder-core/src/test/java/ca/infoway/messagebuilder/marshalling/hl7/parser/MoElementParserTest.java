@@ -36,11 +36,12 @@ import org.w3c.dom.Node;
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.MO;
 import ca.infoway.messagebuilder.datatype.lang.Money;
-import ca.infoway.messagebuilder.datatype.lang.util.Currency;
+import ca.infoway.messagebuilder.domainvalue.basic.Currency;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
+import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class MoElementParserTest extends MarshallingTestCase {
@@ -50,6 +51,7 @@ public class MoElementParserTest extends MarshallingTestCase {
 	@Override
 	@Before
 	public void setUp() throws Exception {
+		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 		this.result = new XmlToModelResult();
 	}
 	
