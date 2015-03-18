@@ -114,9 +114,15 @@ class Hl7SourceMapper {
 	}
 	
 	private void mapToTeal(Hl7Source source, BeanWrapper wrapper, Relationship relationship) {
-		mapNodeAttributesToTeal(source, wrapper, relationship);
+		boolean hasNullFlavor = mapNodeAttributesToTeal(source, wrapper, relationship);
 		
 		List<Element> elements = NodeUtil.toElementList(source.getCurrentElement());
+		
+		if (hasNullFlavor && elements.isEmpty()) {
+			// don't bother processing/validating any further
+			// however, if there are elements and the association has a nullFlavor, something weird is going on so keep processing
+			return;
+		}
 		
 		// 1) "elements" contains the xml-order of the current part's relationships - note that this can have duplicates at this point
 		// 2) "source" contains the message part being processed - this is not exposed
@@ -707,7 +713,7 @@ class Hl7SourceMapper {
 		
 	}
 
-	private void mapNodeAttributesToTeal(Hl7Source source, BeanWrapper wrapper, Relationship relationship) {
+	private boolean mapNodeAttributesToTeal(Hl7Source source, BeanWrapper wrapper, Relationship relationship) {
 		Element currentElement = source.getCurrentElement();
 		
     	NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(
@@ -716,7 +722,9 @@ class Hl7SourceMapper {
     			source.getResult(),
     			true);
     	
-    	if (nullFlavorHelper.hasValidNullFlavorAttribute()) {
+    	boolean hasValidNullFlavorAttribute = nullFlavorHelper.hasValidNullFlavorAttribute();
+    	
+		if (hasValidNullFlavorAttribute) {
     		wrapper.writeNullFlavor(source, relationship, nullFlavorHelper.parseNullNode());
     	} else {
     		NamedNodeMap map = currentElement.getAttributes();
@@ -739,6 +747,7 @@ class Hl7SourceMapper {
     		}
     	}		
         
+		return hasValidNullFlavorAttribute;
 	}
 
 	private void validateMandatoryAttributesExist(Hl7Source source,
