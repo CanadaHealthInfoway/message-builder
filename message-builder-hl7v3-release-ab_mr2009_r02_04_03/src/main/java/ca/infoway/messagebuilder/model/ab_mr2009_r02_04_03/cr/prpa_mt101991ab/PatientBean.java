@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.Subject3C
 @Hl7PartTypeMapping({"PRPA_MT101991AB.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
     private CS participationTypeCode = new CSImpl();
     private BL participationObservationEvent = new BLImpl(false);
 

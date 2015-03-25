@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class ReferencedRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
     private II id = new IIImpl();
 
 

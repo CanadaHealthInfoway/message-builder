@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthIndicator"})
 public class MultipleBirthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
     private BL value = new BLImpl();
 
 

@@ -40,6 +40,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.prpm_mt306010ca.Pa
 @Hl7PartTypeMapping({"PRPM_IN306030AB"})
 public class IdentifyProviderQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
 
 }

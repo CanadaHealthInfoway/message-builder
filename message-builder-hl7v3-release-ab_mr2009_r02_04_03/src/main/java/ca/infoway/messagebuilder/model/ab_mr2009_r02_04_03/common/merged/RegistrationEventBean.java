@@ -64,7 +64,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700717CA.RegistrationEvent","MFMI_MT700726CA.RegistrationEvent","MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<PriorRegistrationEventBean> replacementOfPriorRegistration = new ArrayList<PriorRegistrationEventBean>();

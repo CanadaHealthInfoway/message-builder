@@ -52,6 +52,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.prpm_mt306011ca.Ro
 @Hl7PartTypeMapping({"PRPM_IN301057AB"})
 public class UnlinkProviderNotificationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
 
 }

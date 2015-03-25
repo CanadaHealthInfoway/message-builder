@@ -62,7 +62,7 @@ import java.util.List;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt911107ca.ActingPerson, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20150318L;
+    private static final long serialVersionUID = 20150325L;
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
