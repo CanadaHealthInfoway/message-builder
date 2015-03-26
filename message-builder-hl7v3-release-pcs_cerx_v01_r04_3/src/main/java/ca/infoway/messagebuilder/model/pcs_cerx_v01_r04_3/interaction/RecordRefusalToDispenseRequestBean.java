@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt990020ca.ReferencedRecordBean;
 
 
 
@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Refere
  * <p>--> Payload: PORX_MT990020CA.ActRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010060CA"})
-public class RecordRefusalToDispenseRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
+public class RecordRefusalToDispenseRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

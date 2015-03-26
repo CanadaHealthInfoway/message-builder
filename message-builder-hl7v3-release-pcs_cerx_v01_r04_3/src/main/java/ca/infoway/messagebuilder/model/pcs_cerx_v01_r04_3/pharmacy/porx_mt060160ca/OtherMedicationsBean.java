@@ -42,14 +42,14 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220110ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.StatusChangesBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980030ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -88,9 +88,9 @@ import java.util.List;
  * prescriptions) will also be recorded here.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
-public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.MedicationRecord {
+public class OtherMedicationsBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -105,7 +105,7 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2DetectedIssueIndicator = new BLImpl(false);
-    private List<CommentBean> subjectOf3Annotation = new ArrayList<CommentBean>();
+    private List<NotesBean> subjectOf3Annotation = new ArrayList<NotesBean>();
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
     private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
 
@@ -547,7 +547,7 @@ public class OtherMedicationsBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/annotation"})
-    public List<CommentBean> getSubjectOf3Annotation() {
+    public List<NotesBean> getSubjectOf3Annotation() {
         return this.subjectOf3Annotation;
     }
 

@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcai_mt700211ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
 
 
 
@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerE
  * <p>--> Payload: COMT_MT500001CA.InformEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
-public class BroadcastMessageBean extends HL7Message_1Bean<TriggerEvent_1Bean<ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
+public class BroadcastMessageBean extends HL7MessageBean<TriggerEventBean<ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

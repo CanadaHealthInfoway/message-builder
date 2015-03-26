@@ -76,7 +76,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT980010CA.SubstanceAdministration","PORX_MT980020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();

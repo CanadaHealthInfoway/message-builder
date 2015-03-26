@@ -43,13 +43,13 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalConditionStatusChangesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.VersionInformationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -74,7 +74,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -87,8 +87,8 @@ public class MedicalConditionBean extends MessagePartBean {
     private ReportedByBean informant;
     private RecordedAtBean location;
     private MedicalConditionBean replacementOfMedicalCondition;
-    private List<VersionInformationBean> subjectOf1ControlActEvent = new ArrayList<VersionInformationBean>();
-    private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
+    private List<MedicalConditionStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<MedicalConditionStatusChangesBean>();
+    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
     private BL subjectOf3ChronicIndicator = new BLImpl(false);
 
 
@@ -482,7 +482,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<VersionInformationBean> getSubjectOf1ControlActEvent() {
+    public List<MedicalConditionStatusChangesBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
@@ -493,7 +493,7 @@ public class MedicalConditionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
-    public List<CommentBean> getSubjectOf2Annotation() {
+    public List<NotesBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
 

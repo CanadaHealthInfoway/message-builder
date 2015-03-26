@@ -22,14 +22,11 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
@@ -58,10 +55,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUQI_MT020000CA.QueryByParameter","QUQI_MT120000CA.QueryByParameter"})
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II queryId = new IIImpl();
     private INT initialQuantity = new INTImpl();
-    private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
 
 
@@ -218,46 +214,6 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
      */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    @Hl7XmlMapping({"initialQuantityCode"})
-    public QueryRequestLimit getInitialQuantityCode() {
-        return (QueryRequestLimit) this.initialQuantityCode.getValue();
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     */
-    public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
-        this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 

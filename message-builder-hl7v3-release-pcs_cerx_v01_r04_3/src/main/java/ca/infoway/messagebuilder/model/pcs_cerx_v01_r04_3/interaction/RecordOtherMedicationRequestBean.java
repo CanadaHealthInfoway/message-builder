@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.OtherMedicationBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt040010ca.OtherMedicationBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.OtherM
  * <p>--> Payload: PORX_MT040010CA.OtherMedication</p>
  */
 @Hl7PartTypeMapping({"PORX_IN040020CA"})
-public class RecordOtherMedicationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<OtherMedicationBean>> implements InteractionBean {
+public class RecordOtherMedicationRequestBean extends HL7MessageBean<TriggerEventBean<OtherMedicationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

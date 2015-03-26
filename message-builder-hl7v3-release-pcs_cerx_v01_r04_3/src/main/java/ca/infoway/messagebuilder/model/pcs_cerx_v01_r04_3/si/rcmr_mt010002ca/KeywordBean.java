@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.Consenter;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.merged.Consenter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private PatientBean subject1Patient;
     private ST authorSignatureText = new STImpl();
     private Consenter authorConsenter;

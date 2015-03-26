@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.quqi_mt120000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.DrugQueryParametersBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.MonographsBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.pome_mt010050ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porr_mt050016ca.MedicationDocumentsBean;
 
 
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Monogr
  * <p>--> Payload: POME_MT010050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POME_IN010020CA"})
-public class DrugDocumentQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MonographsBean,DrugQueryParametersBean>> implements InteractionBean {
+public class DrugDocumentQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationDocumentsBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

@@ -70,9 +70,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * patient that contributed to the issue being raised.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationCodedEvent","PORX_MT980020CA.ObservationCodedEvent","PORX_MT980030CA.ObservationCodedEvent"})
-public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
+public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980030ca.CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();

@@ -30,12 +30,12 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050303ca.AnimalPatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.Patient;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.PrescriptionReferenceBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SubstitutionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SupplyRequest_1Bean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,16 +57,16 @@ import java.util.List;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV confidentialityCode = new CVImpl();
     private Patient subjectPatient1;
     private PatientBean recordTargetPatient;
-    private SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
+    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
-    private CommentBean subjectOfAnnotation;
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -218,7 +218,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public SupplyRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
@@ -228,7 +228,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
@@ -293,7 +293,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
+    public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
@@ -302,7 +302,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }
 

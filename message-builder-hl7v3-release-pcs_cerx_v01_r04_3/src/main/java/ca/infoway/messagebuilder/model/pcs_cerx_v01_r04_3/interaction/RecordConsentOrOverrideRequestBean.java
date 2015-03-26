@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.ConsentBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.rcmr_mt010001ca.ConsentBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.ConsentBean;
  * <p>--> Payload: RCMR_MT010001CA.ConsentEvent</p>
  */
 @Hl7PartTypeMapping({"RCMR_IN010003CA"})
-public class RecordConsentOrOverrideRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ConsentBean>> implements InteractionBean {
+public class RecordConsentOrOverrideRequestBean extends HL7MessageBean<TriggerEventBean<ConsentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

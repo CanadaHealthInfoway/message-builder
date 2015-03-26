@@ -52,9 +52,9 @@ import java.util.Date;
  * the issue.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.CausalActs {
+public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.quqi_mt020000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000015ca.MedicalConditionsQueryParametersBean;
 
 
 
@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
  * <p>--> Payload: REPC_MT000015CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000023CA"})
-public class PatientMedicalConditionsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
+public class PatientMedicalConditionsQueryBean extends HL7MessageBean<TriggerEventBean<MedicalConditionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

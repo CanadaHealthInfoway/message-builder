@@ -42,12 +42,11 @@ import ca.infoway.messagebuilder.domainvalue.IntoleranceValue;
 import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.Records;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -86,7 +85,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private ReportedByBean informant;
     private RecordedAtBean location;
     private List<Records> supportRecords = new ArrayList<Records>();
-    private List<CommentBean> subjectOf1Annotation = new ArrayList<CommentBean>();
+    private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
     private BL subjectOf3AnnotationIndicator = new BLImpl(false);
 
@@ -580,7 +579,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/annotation"})
-    public List<CommentBean> getSubjectOf1Annotation() {
+    public List<NotesBean> getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
 

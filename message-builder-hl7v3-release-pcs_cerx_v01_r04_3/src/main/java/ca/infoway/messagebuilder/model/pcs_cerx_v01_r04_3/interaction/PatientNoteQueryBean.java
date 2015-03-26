@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.quqi_mt020000ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt300002ca.GenericQueryParametersBean;
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt300002ca.Gen
  * <p>--> Payload: COMT_MT300002CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
-public class PatientNoteQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
+public class PatientNoteQueryBean extends HL7MessageBean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

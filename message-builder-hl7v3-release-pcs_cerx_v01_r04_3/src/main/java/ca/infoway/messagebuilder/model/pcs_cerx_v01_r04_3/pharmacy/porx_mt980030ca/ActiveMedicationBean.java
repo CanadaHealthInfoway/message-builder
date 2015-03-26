@@ -60,9 +60,9 @@ import java.util.Date;
  * issue.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT980030CA.SubstanceAdministration"})
-public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.CausalActs {
+public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();

@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.quqi_mt120000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000008ca.ConditionHistoryQueryParametersBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000010ca.MedicalConditionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryParametersBean;
 
 
 
@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.GenericQueryPar
  * <p>--> Payload: REPC_MT000008CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000026CA"})
-public class PatientMedicalConditionWithHistQueryRespBean extends HL7Message_1Bean<TriggerEventBean<MedicalConditionBean,GenericQueryParametersBean>> implements InteractionBean {
+public class PatientMedicalConditionWithHistQueryRespBean extends HL7MessageBean<TriggerEventBean<MedicalConditionBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

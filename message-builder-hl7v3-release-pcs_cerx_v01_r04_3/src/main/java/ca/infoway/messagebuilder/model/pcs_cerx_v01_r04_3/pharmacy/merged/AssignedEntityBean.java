@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.AssignedEntity1","POME_MT010040CA.AssignedEntity2","POME_MT010040CA.AssignedEntity3","POME_MT010040CA.AssignedEntity4","PORR_MT050016CA.AssignedEntity","PORX_MT980010CA.AssignedEntity","PORX_MT980020CA.AssignedEntity","PORX_MT980030CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private ST assignedOrganizationName = new STImpl();
 
 

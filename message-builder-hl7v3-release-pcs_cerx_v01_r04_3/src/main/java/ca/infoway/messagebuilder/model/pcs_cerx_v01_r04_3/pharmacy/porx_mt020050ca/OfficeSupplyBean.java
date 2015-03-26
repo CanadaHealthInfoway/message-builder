@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220200ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.SupplyOrderBean;
 import java.util.Date;
 
@@ -55,7 +55,7 @@ import java.util.Date;
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
@@ -63,7 +63,7 @@ public class OfficeSupplyBean extends MessagePartBean {
     private DrugProductBean productMedication;
     private II destinationServiceDeliveryLocationId = new IIImpl();
     private SupplyOrderBean fulfillmentSupplyRequest;
-    private CommentBean subjectOfAnnotation;
+    private NotesBean subjectOfAnnotation;
 
 
     /**
@@ -428,7 +428,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
+    public NotesBean getSubjectOfAnnotation() {
         return this.subjectOfAnnotation;
     }
 
@@ -437,7 +437,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
         this.subjectOfAnnotation = subjectOfAnnotation;
     }
 

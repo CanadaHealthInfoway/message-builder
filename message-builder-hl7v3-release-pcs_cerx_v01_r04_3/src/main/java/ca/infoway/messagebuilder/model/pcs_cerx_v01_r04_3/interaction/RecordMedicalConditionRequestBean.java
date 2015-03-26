@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalConditionBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000003ca.MedicalConditionBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.merged.MedicalCon
  * <p>--> Payload: REPC_MT000003CA.MedicalCondition</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000028CA"})
-public class RecordMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
+public class RecordMedicalConditionRequestBean extends HL7MessageBean<TriggerEventBean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

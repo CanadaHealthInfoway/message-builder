@@ -43,15 +43,15 @@ import ca.infoway.messagebuilder.domainvalue.HumanSubstanceAdministrationSite;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt220210ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.InformationSourceRoleBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.immunization.merged.PartOfBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980030ca.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +79,7 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
@@ -97,7 +97,7 @@ public class ImmunizationsBean extends MessagePartBean {
     private RecordedAtBean location;
     private PartOfBean inFulfillmentOf;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
+    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
     private BL subjectOf3DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
     private BL causeAdverseReactionObservationEvent = new BLImpl(false);
@@ -662,7 +662,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/annotation"})
-    public List<CommentBean> getSubjectOf2Annotation() {
+    public List<NotesBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
 
