@@ -34,11 +34,10 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt020000ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.RequestQueryResultsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.ResultsQueryResponseBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ParameterListBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001001ca.ObservationRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.BatteryEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.ObservationReportBean;
@@ -46,6 +45,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004100ca.ReportHeaderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004200ca.DiagnosisOrInterpretationObservationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.ResultInstancePayloadChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt310000ca.ParameterListBean;
 
 /**
  * <p>Hello world example for Laboratory Information System Transactions - Lab Test Results Query.</p>
@@ -215,14 +215,14 @@ public class LabResultsQueryApp extends HelloWorldApp {
 	}
 
 	
-	private TriggerEvent_5Bean<ParameterListBean> createControlActEvent() {
-		TriggerEvent_5Bean<ParameterListBean> cae = new TriggerEvent_5Bean<ParameterListBean>();
+	private TriggerEventBean<ParameterListBean> createControlActEvent() {
+		TriggerEventBean<ParameterListBean> cae = new TriggerEventBean<ParameterListBean>();
 		
 		cae.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));	
 		cae.setCode(LAB_TEST_RESULTS_QUERY);
 		cae.setEffectiveTime(IntervalFactory.createLow(new Date()));
 		cae.setAuthor(this.createAuthor_1Bean());
-		cae.setDataEntryLocationServiceDeliveryLocation(this.createServiceLocationBean());
+		cae.setDataEntryLocationServiceDeliveryLocation(this.createServiceLocationBean2());
 		return cae;
 	}	
 }

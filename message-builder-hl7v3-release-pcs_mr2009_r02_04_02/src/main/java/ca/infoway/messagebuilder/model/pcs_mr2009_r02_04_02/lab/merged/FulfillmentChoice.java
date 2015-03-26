@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"POLB_MT002000CA.FulfillmentChoice","POLB_MT004000CA.FulfillmentChoice","POLB_MT004100CA.FulfillmentChoice","POLB_MT004200CA.FulfillmentChoice"})
+@Hl7PartTypeMapping({"POLB_MT004000CA.FulfillmentChoice","POLB_MT004100CA.FulfillmentChoice","POLB_MT004200CA.FulfillmentChoice"})
 public interface FulfillmentChoice {
 
 }

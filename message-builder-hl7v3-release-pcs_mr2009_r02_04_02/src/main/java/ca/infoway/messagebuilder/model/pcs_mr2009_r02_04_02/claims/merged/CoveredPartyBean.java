@@ -40,7 +40,6 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.CoveredPartyRoleType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RelatedPersonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,14 +50,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.CoveredParty","FICR_MT400003CA.CoveredParty","FICR_MT400004CA.CoveredParty","FICR_MT490101CA.CoveredParty","FICR_MT490102CA.CoveredParty"})
 public class CoveredPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<PN, PersonName> coveredPartyAsPatientPersonName = new SETImpl<PN, PersonName>(PNImpl.class);
     private CV coveredPartyAsPatientPersonAdministrativeGenderCode = new CVImpl();
     private TS coveredPartyAsPatientPersonBirthTime = new TSImpl();
     private AD coveredPartyAsPatientPersonAddr = new ADImpl();
-    private List<RelatedPersonBean> indirectAuthorityPersonalRelationship = new ArrayList<RelatedPersonBean>();
+    private List<PersonalRelationshipBean> indirectAuthorityPersonalRelationship = new ArrayList<PersonalRelationshipBean>();
 
 
     /**
@@ -552,7 +551,7 @@ public class CoveredPartyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
-    public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
+    public List<PersonalRelationshipBean> getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;
     }
 

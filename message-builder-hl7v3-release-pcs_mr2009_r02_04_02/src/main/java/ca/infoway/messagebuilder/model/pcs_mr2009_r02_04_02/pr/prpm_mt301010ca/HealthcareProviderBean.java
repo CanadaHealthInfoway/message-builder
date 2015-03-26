@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrivilegeBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -65,9 +65,9 @@ import java.util.List;
  * a Physician, Nurse or other type of caregivers.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.HealthCareProvider"})
-public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Choice, RoleChoice {
+public class HealthcareProviderBean extends MessagePartBean implements RoleChoice, Choice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -75,7 +75,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
+    private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
@@ -293,7 +293,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
+    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -303,7 +303,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

@@ -23,14 +23,25 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt91010
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.PN;
+import ca.infoway.messagebuilder.datatype.SET;
+import ca.infoway.messagebuilder.datatype.TEL;
+import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.PNImpl;
+import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
+import java.util.Set;
 
 
 
@@ -52,10 +63,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonB
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private ActingPersonBean relationshipHolder;
+    private PN relationshipHolderName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> relationshipHolderTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD relationshipHolderAddr = new ADImpl();
 
 
     /**
@@ -275,24 +288,209 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT910108CA.PersonalRelationship.relationshipHolder</p>
+     * <p>Business Name: A:Related Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.13</p>
+     * 
+     * <p>PVD.050-01 (PartType = Family)</p>
+     * 
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
+     * 
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
+     * 
+     * <p>PVD.050-04 (PartType = Suffix)</p>
+     * 
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
+     * 
+     * <p>The name by which the responsible person is known</p>
      */
-    @Hl7XmlMapping({"relationshipHolder"})
-    public ActingPersonBean getRelationshipHolder() {
-        return this.relationshipHolder;
+    @Hl7XmlMapping({"relationshipHolder/name"})
+    public PersonName getRelationshipHolderName() {
+        return this.relationshipHolderName.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * COCT_MT910108CA.PersonalRelationship.relationshipHolder</p>
+     * <p>Business Name: A:Related Person Name</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>ZPB3.13</p>
+     * 
+     * <p>PVD.050-01 (PartType = Family)</p>
+     * 
+     * <p>PVD.050-02 (PartType = Given - 1st rep)</p>
+     * 
+     * <p>PVD.050-03 PartType = Given - any rep other than the 
+     * first)</p>
+     * 
+     * <p>PVD.050-04 (PartType = Suffix)</p>
+     * 
+     * <p>PVD.050-05 (PartType = Prefix)</p>
+     * 
+     * <p>PVD.100-01 (PartType = Family; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-02 (PartType = Given - 1st rep; author/performer 
+     * when supervisor is also specified )</p>
+     * 
+     * <p>PVD.100-03 PartType = Given - any rep other than the 
+     * first; author/performer when supervisor is also 
+     * specified)</p>
+     * 
+     * <p>PVD.100-04 (PartType = Suffix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>PVD.100-05 (PartType = Prefix; author/performer when 
+     * supervisor is also specified)</p>
+     * 
+     * <p>D1a</p>
+     * 
+     * <p>Practitioner's Name</p>
+     * 
+     * <p>04.03</p>
+     * 
+     * <p>Prescriber.427-DR</p>
+     * 
+     * <p>Prescribing Physician Name</p>
+     * 
+     * <p>ZPS.18.3</p>
+     * 
+     * <p>ZPS.18.4</p>
+     * 
+     * <p>ZPS.18.5</p>
+     * 
+     * <p>ZPS.19.3</p>
+     * 
+     * <p>ZPS.19.4</p>
+     * 
+     * <p>ZPS.19.5</p>
+     * 
+     * <p>ZPS.10.3</p>
+     * 
+     * <p>ZPS.10.4</p>
+     * 
+     * <p>ZPS.10.5</p>
+     * 
+     * <p>ProviderPreviewInfo.ProviderName</p>
+     * 
+     * <p>Used when contacting or addressing the responsible 
+     * person. Because this will be the principle means of 
+     * identifying the responsible person, it is mandatory.</p>
+     * 
+     * <p>The name by which the responsible person is known</p>
      */
-    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
-        this.relationshipHolder = relationshipHolder;
+    public void setRelationshipHolderName(PersonName relationshipHolderName) {
+        this.relationshipHolderName.setValue(relationshipHolderName);
+    }
+
+
+    /**
+     * <p>Business Name: E:Related Person Phones and Emails</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * 
+     * <p>Used to contact the related person.</p>
+     * 
+     * <p>The phone number(s) and email address(s) by which a 
+     * related person may be contacted as known by the client 
+     * registry.</p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/telecom"})
+    public Set<TelecommunicationAddress> getRelationshipHolderTelecom() {
+        return this.relationshipHolderTelecom.rawSet();
+    }
+
+
+    /**
+     * <p>Business Name: D:Related Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to contact the related person.</p>
+     * 
+     * <p>The mail and/or physical address associated with a 
+     * related person as known by the client registry.</p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/addr"})
+    public PostalAddress getRelationshipHolderAddr() {
+        return this.relationshipHolderAddr.getValue();
+    }
+
+    /**
+     * <p>Business Name: D:Related Person Address</p>
+     * 
+     * <p>Relationship: COCT_MT910108CA.Person.addr</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Used to contact the related person.</p>
+     * 
+     * <p>The mail and/or physical address associated with a 
+     * related person as known by the client registry.</p>
+     */
+    public void setRelationshipHolderAddr(PostalAddress relationshipHolderAddr) {
+        this.relationshipHolderAddr.setValue(relationshipHolderAddr);
     }
 
 }

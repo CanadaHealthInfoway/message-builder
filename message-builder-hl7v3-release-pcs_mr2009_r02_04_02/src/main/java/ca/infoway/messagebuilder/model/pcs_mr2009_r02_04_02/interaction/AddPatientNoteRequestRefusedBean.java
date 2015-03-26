@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcai_mt700236ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
@@ -39,8 +39,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Trigge
  * <p>Control Act: MCAI_MT700236CA.ControlActEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300003CA"})
-public class AddPatientNoteRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
+public class AddPatientNoteRequestRefusedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

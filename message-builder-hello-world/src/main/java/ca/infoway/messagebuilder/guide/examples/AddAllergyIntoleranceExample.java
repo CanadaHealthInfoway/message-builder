@@ -35,7 +35,6 @@ import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ROLE_CO
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_ROUTE_OF_ADMINISTRATION;
 import static ca.infoway.messagebuilder.codesystem.CodeSystem.VOCABULARY_SEVERITY_OBSERVATION;
 import static ca.infoway.messagebuilder.datatype.lang.PersonName.createFirstNameLastName;
-import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.STREET_NAME;
 import static ca.infoway.messagebuilder.domainvalue.basic.X_BasicPostalAddressUse.HOME;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementCondition.ALWAYS;
 import static ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode.ADD_ALLERGY_INTOLERANCE_REQUEST;
@@ -52,6 +51,7 @@ import java.util.GregorianCalendar;
 import java.util.UUID;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
@@ -68,6 +68,7 @@ import ca.infoway.messagebuilder.domainvalue.ExposureAgentEntityType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.IntoleranceValue;
 import ca.infoway.messagebuilder.domainvalue.ObservationAllergyTestType;
+import ca.infoway.messagebuilder.domainvalue.ObservationCausalityAssessmentType;
 import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.RouteOfAdministration;
 import ca.infoway.messagebuilder.domainvalue.SeverityObservation;
@@ -77,29 +78,30 @@ import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.error.Hl7Error;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagnosisCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AgentCategoryBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AllergyTestsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ExposuresBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ObservationEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReportedReactionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000001ca.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.AddAllergyIntoleranceRequestBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.resolver.CompositeCodeResolver;
@@ -152,7 +154,7 @@ public class AddAllergyIntoleranceExample {
 	private static AddAllergyIntoleranceRequestBean createAddAllergyIntoleranceRequest() {
 		AddAllergyIntoleranceRequestBean messageBean = new AddAllergyIntoleranceRequestBean();
 
-		TriggerEvent_1Bean<AllergyIntoleranceBean> controlActEvent = new TriggerEvent_1Bean<AllergyIntoleranceBean>();
+		TriggerEventBean<AllergyIntoleranceBean> controlActEvent = new TriggerEventBean<AllergyIntoleranceBean>();
 		messageBean.setControlActEvent(controlActEvent);
 
 		controlActEvent.setCode(ADD_ALLERGY_INTOLERANCE_REQUEST);
@@ -184,7 +186,7 @@ public class AddAllergyIntoleranceExample {
 		severityLevelBean.setValue(lookup(SeverityObservation.class,
 				"H", VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
 		allergyIntoleranceBean
-				.setSubjectOfSeverityObservation(severityLevelBean);
+				.setSubjectOf2SeverityObservation(severityLevelBean);
 
 		allergyIntoleranceBean.setEffectiveTime(new GregorianCalendar(
 				2009, 3, 22).getTime());
@@ -195,7 +197,7 @@ public class AddAllergyIntoleranceExample {
 		allergyIntoleranceBean.setValue(lookup(IntoleranceValue.class, "NDA02",
 				VOCABULARY_ENTITY_CODE.getRoot()));
 		allergyIntoleranceBean
-				.setSubjectOfSeverityObservation(severityLevelBean);
+				.setSubjectOf2SeverityObservation(severityLevelBean);
 		allergyIntoleranceBean.setInformant(createInformant());
 		allergyIntoleranceBean.setSubjectOf1(createNote());
 		allergyIntoleranceBean.getSupportRecords()
@@ -207,10 +209,10 @@ public class AddAllergyIntoleranceExample {
 
 	private static IncludesBean createNote() {
 		NotesBean annotation = new NotesBean();
-		annotation.setText("some allergy/intolerance note text");
-		// annotation.setNoteTimestamp(new GregorianCalendar(2007, 6,
-		// 21).getTime());
 		annotation.setAuthorAssignedPerson(createHealthcareWorkerBean());
+		annotation.setAuthorTime(DateUtil.getDate(2007, 1, 12));
+		annotation.setText("some allergy/intolerance note text");
+		((ANYMetaData) annotation.getField("text")).setLanguage("en-CA");
 
 		IncludesBean notesBean = new IncludesBean();
 		notesBean.setAnnotation(annotation);
@@ -221,9 +223,7 @@ public class AddAllergyIntoleranceExample {
 		HealthcareWorkerBean noteAuthor = new HealthcareWorkerBean();
 		noteAuthor.getId().add(
 				new Identifier("12.34.56", "1"));
-		ActingPersonBean assignedPerson = new ActingPersonBean();
-		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
-		noteAuthor.setAssignedPerson(assignedPerson );
+		noteAuthor.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return noteAuthor;
 	}
 
@@ -234,21 +234,17 @@ public class AddAllergyIntoleranceExample {
 		return informant;
 	}
 
-	private static HealthcareWorkerBean createParty() {
-		HealthcareWorkerBean assignedPersonBean = new HealthcareWorkerBean();
+	private static ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean createParty() {
+		ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean assignedPersonBean = new ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean();
 		assignedPersonBean.getId().add(
 				new Identifier("12.34.56", "1"));
-		ActingPersonBean person = new ActingPersonBean();
-		person.setName(createFirstNameLastName("John", "Doe"));
-		assignedPersonBean.setAssignedPerson(person);
-		assignedPersonBean.setCode(lookup(
-				HealthcareProviderRoleType.class, "ACP", VOCABULARY_ROLE_CODE
-						.getRoot()));
+		assignedPersonBean.setCode(lookup(HealthcareProviderRoleType.class, "ACP", VOCABULARY_ROLE_CODE.getRoot()));
+		assignedPersonBean.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return assignedPersonBean;
 	}
 
 	private static void populateMessageAttributesStandardValues(
-			HL7Message_1Bean<?> message) {
+			HL7MessageBean<?> message) {
 		message.setId(new Identifier(UUID.randomUUID()
 				.toString()));
 		message.setCreationTime(new GregorianCalendar(2008, JUNE, 25, 14,
@@ -283,7 +279,7 @@ public class AddAllergyIntoleranceExample {
 	}
 
 	private static void populateRecordControlActStandardValues(
-			TriggerEvent_1Bean<AllergyIntoleranceBean> controlActEvent) {
+			TriggerEventBean<AllergyIntoleranceBean> controlActEvent) {
 		controlActEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.6", "8141234"));
 		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(
@@ -314,20 +310,18 @@ public class AddAllergyIntoleranceExample {
 		return authorBean;
 	}
 
-	private static Patient_1Bean createIdentifiedPersonBean() {
-		Patient_1Bean identifiedPersonBean = new Patient_1Bean();
+	private static PatientBean createIdentifiedPersonBean() {
+		PatientBean identifiedPersonBean = new PatientBean();
 		identifiedPersonBean.getId().add(new Identifier("3.14", "159"));
 		identifiedPersonBean.setAddr(createPostalAddress());
-		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
-				lookup(URLScheme.class, "http"), "123.456.789.10"));
+		identifiedPersonBean.getTelecom().add(
+				new TelecommunicationAddress(URLScheme.TEL, "4167620032"));
+		identifiedPersonBean.setSpecializationTypeInList("telecom", 0, StandardDataType.TEL_PHONE);
 		
-		ActingPersonBean patientPerson = new ActingPersonBean();
-		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		patientPerson.setAdministrativeGenderCode(
+		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		
-		identifiedPersonBean.setPatientPerson(patientPerson );
 		
 		return identifiedPersonBean;
 	}
@@ -339,8 +333,7 @@ public class AddAllergyIntoleranceExample {
 	private static PostalAddress createPostalAddress(String streetName) {
 		PostalAddress address1 = new PostalAddress();
 		address1.addUse(HOME);
-		address1.addPostalAddressPart(new PostalAddressPart(STREET_NAME,
-				streetName));
+		address1.addPostalAddressPart(new PostalAddressPart(streetName));
 		return address1;
 	}
 
@@ -357,7 +350,7 @@ public class AddAllergyIntoleranceExample {
 		return allergyTestEvent;
 	}
 
-	private static ReportedReactionsBean createAssessment() {
+	private static ReactionAssessmentsBean createAssessment() {
 
 		// nothing in this "kindBean" will show up in the example, as this bean does not apply in the message context
 		AgentCategoryBean kindBean = new AgentCategoryBean();
@@ -381,7 +374,7 @@ public class AddAllergyIntoleranceExample {
 		severityLevelBean.setValue(lookup(SeverityObservation.class,
 				"H", VOCABULARY_SEVERITY_OBSERVATION.getRoot()));
 
-		ReportedReactionsBean subjectObservationEvent = new ReportedReactionsBean();
+		ObservationEventBean subjectObservationEvent = new ObservationEventBean();
 		subjectObservationEvent.setId(new Identifier(
 				"2.16.840.1.113883.1.133", "15"));
 		subjectObservationEvent.setCode(lookup(ActDiagnosisCode.class, "371627004",
@@ -397,11 +390,8 @@ public class AddAllergyIntoleranceExample {
 		subjectObservationEvent
 				.setSubjectOfSeverityObservation(severityLevelBean);
 
-		ReportedReactionsBean assessmentBean = new ReportedReactionsBean();
-		// assessmentBean.setAssessmentType(lookup(ObservationCausalityAssessmentType.class,
-		// "RXNASSESS", VOCABULARY_ACT_CODE.getRoot()));
-		assessmentBean.setCode(lookup(ActDiagnosisCode.class, "371627004", SNOMED
-				.getRoot()));
+		ReactionAssessmentsBean assessmentBean = new ReactionAssessmentsBean();
+		assessmentBean.setCode(lookup(ObservationCausalityAssessmentType.class, "RXNASSESS", VOCABULARY_ACT_CODE.getRoot()));
 		assessmentBean.setStartsAfterStartOfExposureEvent(exposureEvent);
 		assessmentBean.setSubjectObservationEvent(subjectObservationEvent);
 

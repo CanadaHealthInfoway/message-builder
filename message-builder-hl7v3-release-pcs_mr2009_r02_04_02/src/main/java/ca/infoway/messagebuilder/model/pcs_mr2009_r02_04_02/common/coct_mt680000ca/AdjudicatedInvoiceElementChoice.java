@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedResultOutcomeBean;
 
 
 

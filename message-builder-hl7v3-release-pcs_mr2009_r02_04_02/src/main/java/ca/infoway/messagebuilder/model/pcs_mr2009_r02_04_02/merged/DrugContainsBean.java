@@ -120,7 +120,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Ingredient","COCT_MT220110CA.Ingredient","COCT_MT220200CA.Ingredient","COCT_MT220210CA.Ingredient","FICR_MT400003CA.Ingredient","FICR_MT400004CA.Ingredient","FICR_MT490102CA.Ingredient","POME_MT010040CA.Ingredient","POME_MT010100CA.Ingredient"})
 public class DrugContainsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private BL negationInd = new BLImpl();
     private PQ quantity = new PQImpl();
     private CV ingredientCode = new CVImpl();

@@ -23,14 +23,11 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt08010
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
-import ca.infoway.messagebuilder.domainvalue.ActSpecimenTransportationCode;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.Date;
@@ -51,46 +48,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
-    private CV code = new CVImpl();
+    private static final long serialVersionUID = 20150326L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>Business Name: P:Transportation Type</p>
-     * 
-     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Categorizes the type of transportation act being 
-     * communiated.</p>
-     * 
-     * <p>Describes the type of process step being documented and 
-     * communicated. Value is fixed to specimen received.</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActSpecimenTransportationCode getCode() {
-        return (ActSpecimenTransportationCode) this.code.getValue();
-    }
-
-    /**
-     * <p>Business Name: P:Transportation Type</p>
-     * 
-     * <p>Relationship: COCT_MT080100CA.TransportationEvent.code</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Categorizes the type of transportation act being 
-     * communiated.</p>
-     * 
-     * <p>Describes the type of process step being documented and 
-     * communicated. Value is fixed to specimen received.</p>
-     */
-    public void setCode(ActSpecimenTransportationCode code) {
-        this.code.setValue(code);
-    }
 
 
     /**

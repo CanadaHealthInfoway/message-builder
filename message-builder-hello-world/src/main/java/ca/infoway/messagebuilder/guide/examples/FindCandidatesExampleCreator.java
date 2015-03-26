@@ -33,14 +33,13 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240012ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 
 /**
  * <p>This class shows how to create a simple FindCandidates HL7 query bean.
@@ -88,12 +87,12 @@ public class FindCandidatesExampleCreator {
 		triggerEventBean.setEffectiveTime(IntervalFactory.<Date>createLowHigh(new Date(0), new Date()));
 		triggerEventBean.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
 		triggerEventBean.setAuthor(createAuthorBean());
-		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
+		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceLocationBean());
 		triggerEventBean.getQueryByParameter().setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 	}
 	
-	private ServiceDeliveryLocationBean createServiceDeliveryLocationBean() {
-		ServiceDeliveryLocationBean result = new ServiceDeliveryLocationBean();
+	private ServiceLocationBean createServiceLocationBean() {
+		ServiceLocationBean result = new ServiceLocationBean();
 		result.setId(new Identifier("2.16.124.113620.1.1.11111", "1"));
 		result.setLocationName("Intelliware's Pharmacy");
 		return result;
@@ -110,11 +109,7 @@ public class FindCandidatesExampleCreator {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
 		person.getId().add(new Identifier("1.1.1", "1"));
 		authorBean.setTime(new Date());
-		
-		ActingPersonBean assignedPerson = new ActingPersonBean();
-		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
-		
-		person.setAssignedPerson(assignedPerson);
+		person.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return person;
 	}
 	

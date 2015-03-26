@@ -52,19 +52,17 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.guide.validation.MessageValidator;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
-import ca.infoway.messagebuilder.marshalling.RenderMode;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240012ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 import ca.infoway.messagebuilder.transport.Credentials;
 import ca.infoway.messagebuilder.transport.CredentialsProvider;
 import ca.infoway.messagebuilder.transport.RequestMessage;
@@ -268,7 +266,7 @@ public abstract class HelloWorldApp {
 	
 	// -- Helper Methods
 	
-	protected void setTransportWrapperValues(HL7Message_1Bean<?> messageBean) {
+	protected void setTransportWrapperValues(HL7MessageBean<?> messageBean) {
 		// Fill in transport wrapper portion
 
 		Identifier ii = new Identifier(UUID.randomUUID().toString());
@@ -319,20 +317,20 @@ public abstract class HelloWorldApp {
 		return locationBean;
 	}
 	
-	protected ServiceDeliveryLocationBean createServiceDeliveryLocationBean() {
-		ServiceDeliveryLocationBean sdl = new ServiceDeliveryLocationBean();
-		sdl.setId(new Identifier(
+	protected ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean createServiceLocationBean2() {
+		ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean locationBean = new ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean();
+		locationBean.setId(new Identifier(
 				"2.16.840.1.113883.19.3.163.9", "DR-BLACK-CLINIC"));
 
-		sdl.setLocationName("Dr. Black Family Physician Offices");
-		return sdl;
+		locationBean.setLocationName("Dr. Black Family Physician Offices");
+		return locationBean;
 	}
-
+	
 	protected CreatedBy_2Bean createAuthor_2Bean() {
 		CreatedBy_2Bean authorBean = new CreatedBy_2Bean();
 		authorBean.setTime(new Date());
 		
-		ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean authorPerson = new ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean();
+		HealthcareWorkerBean authorPerson = new HealthcareWorkerBean();
 		
 		Identifier healthcareProviderId = new Identifier(
 				"2.16.840.1.113883.3.19.3.163.1.2", "200202888");
@@ -341,19 +339,15 @@ public abstract class HelloWorldApp {
 		EntityNamePart prefix = new EntityNamePart("Dr.", PersonNamePartType.PREFIX);
 		pn.getUses().add(EntityNameUse.LEGAL);
 		pn.addNamePart(prefix);
-
 		
 		Identifier id = new Identifier("2.16.840.1.113883.3.19.3.163.77.1",
 		"samantha.black");
 		
 		authorPerson.getId().add(id);
 		
-		ActingPersonBean assignedPerson = new ActingPersonBean();
-		assignedPerson.setAsHealthCareProviderId(healthcareProviderId);
-		assignedPerson.setName(pn);
+		authorPerson.setAssignedPersonAsHealthCareProviderId(healthcareProviderId);
+		authorPerson.setAssignedPersonName(pn);
 		
-		authorPerson.setAssignedPerson(assignedPerson);
-
 		authorBean.setAuthorPerson(authorPerson);
 
 		return authorBean;
@@ -363,7 +357,7 @@ public abstract class HelloWorldApp {
 		CreatedBy_1Bean authorBean = new CreatedBy_1Bean();
 		authorBean.setTime(new Date());
 		
-		ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean authorPerson = new ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean();
+		HealthcareWorkerBean authorPerson = new HealthcareWorkerBean();
 		
 		Identifier healthcareProviderId = new Identifier(
 				"2.16.840.1.113883.3.19.3.163.1.2", "200202888");
@@ -377,13 +371,8 @@ public abstract class HelloWorldApp {
 		Identifier id = new Identifier("2.16.840.1.113883.3.19.3.163.77.1",
 		"samantha.black");
 		
-		ActingPersonBean assignedPerson = new ActingPersonBean();
-		assignedPerson.setAsHealthCareProviderId(healthcareProviderId);
-		assignedPerson.setName(pn);
-		
-		authorPerson.setAssignedPerson(assignedPerson);
-
-		
+		authorPerson.setAssignedPersonAsHealthCareProviderId(healthcareProviderId);
+		authorPerson.setAssignedPersonName(pn);
 		authorPerson.getId().add(id);
 		authorBean.setAuthorPerson(authorPerson);
 
@@ -392,10 +381,10 @@ public abstract class HelloWorldApp {
 	
 	
 	// Record Target Set up
-	protected Patient_2Bean createRecordTarget() {
+	protected PatientBean createRecordTarget() {
 
 		// Set the Patient we're querying against
-		Patient_2Bean patient = new Patient_2Bean();
+		PatientBean patient = new PatientBean();
 
 		// Set patient identifier(s)d
 		patient.getId().add(new Identifier("2.16.840.1.113883.3.19.3.163.1", "9880897949"));
@@ -406,18 +395,14 @@ public abstract class HelloWorldApp {
 		patientName.getUses().add(EntityNameUse.LEGAL);
 		patientName.addNamePart(prefix);
 		
-		ActingPersonBean patientPerson = new ActingPersonBean();
-		patientPerson.setName(patientName);
+		patient.setPatientPersonName(patientName);
 		
 		// Now set the patient's birthdate
 		java.util.Date birthDate = (new GregorianCalendar(1949, java.util.Calendar.NOVEMBER, 05)).getTime();
-		patientPerson.setBirthTime(birthDate);
+		patient.setPatientPersonBirthTime(birthDate);
 		
 		// Set Gender
-		patientPerson.setAdministrativeGenderCode(AdministrativeGender.MALE);
-		
-		patient.setPatientPerson(patientPerson);
-		
+		patient.setPatientPersonAdministrativeGenderCode(AdministrativeGender.MALE);
 		
 		// Set the address for this patient
 		PostalAddress addr = new PostalAddress();

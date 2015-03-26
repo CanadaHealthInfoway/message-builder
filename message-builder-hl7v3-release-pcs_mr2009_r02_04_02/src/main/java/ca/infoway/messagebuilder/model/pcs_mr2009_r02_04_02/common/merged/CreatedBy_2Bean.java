@@ -66,11 +66,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Author","MFMI_MT700751CA.Author"})
 public class CreatedBy_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
-    private AuthorPerson authorPerson;
+    private AuthorPerson_2 authorPerson;
 
 
     /**
@@ -307,7 +307,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"authorPerson"})
-    public AuthorPerson getAuthorPerson() {
+    public AuthorPerson_2 getAuthorPerson() {
         return this.authorPerson;
     }
 
@@ -324,7 +324,7 @@ public class CreatedBy_2Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorPerson(AuthorPerson authorPerson) {
+    public void setAuthorPerson(AuthorPerson_2 authorPerson) {
         this.authorPerson = authorPerson;
     }
 

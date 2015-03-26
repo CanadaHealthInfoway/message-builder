@@ -25,10 +25,8 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Trigger2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260020ca.DetectedIssueEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActAdjudicationType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.InvoiceElementChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +35,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
-    private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
+    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
-    private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<DetectedIssueEventBean> reasonOfDetectedIssueEvent = new ArrayList<DetectedIssueEventBean>();
 
 
     /**
@@ -75,7 +73,7 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
     @Hl7XmlMapping({"trigger"})
-    public List<Trigger2Bean> getTrigger() {
+    public List<Trigger1Bean> getTrigger() {
         return this.trigger;
     }
 
@@ -110,7 +108,7 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
-    public List<IssuesBean> getReasonOfDetectedIssueEvent() {
+    public List<DetectedIssueEventBean> getReasonOfDetectedIssueEvent() {
         return this.reasonOfDetectedIssueEvent;
     }
 

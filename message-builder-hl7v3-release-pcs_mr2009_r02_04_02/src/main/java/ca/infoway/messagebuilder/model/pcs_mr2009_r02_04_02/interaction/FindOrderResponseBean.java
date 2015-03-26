@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt001999ca.RequestChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt330000ca.ParameterListBean;
 
@@ -50,8 +50,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt330000ca.
  * <p>--> Payload: POLB_MT330000CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POLB_IN361000CA"})
-public class FindOrderResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<RequestChoice,ParameterListBean>> implements InteractionBean {
+public class FindOrderResponseBean extends HL7MessageBean<TriggerEventBean<RequestChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

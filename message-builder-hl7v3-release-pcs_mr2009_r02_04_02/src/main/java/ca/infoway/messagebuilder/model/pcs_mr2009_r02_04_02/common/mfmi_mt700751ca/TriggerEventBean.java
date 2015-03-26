@@ -38,16 +38,15 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240012ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260012ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt470012ca.ConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EntererChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ServiceDeliveryLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,7 +71,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
@@ -81,8 +80,8 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_2Bean author;
     private EntererChoice dataEntererEntererChoice;
-    private ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation;
-    private CreatedAtBean location;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private ServiceLocationBean locationServiceDeliveryLocation;
     private AuthenticationTokenBean pertinentInformationAuthorizationToken;
     private ConsentBean subjectOf1ConsentEvent;
     private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
@@ -376,7 +375,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getDataEntryLocationServiceDeliveryLocation() {
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
 
@@ -386,28 +385,30 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation) {
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Relationship: MFMI_MT700751CA.ControlActEvent.location</p>
+     * <p>Relationship: 
+     * MFMI_MT700751CA.Location.serviceDeliveryLocation</p>
      * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 
 

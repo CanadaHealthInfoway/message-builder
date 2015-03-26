@@ -39,17 +39,15 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ObservationMethod;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050007ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ObservationResultableLabType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,17 +58,17 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.ObservationPromise"})
 public class ObservationPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV methodCode = new CVImpl();
     private ReportSectionSpecimenBean specimen;
-    private Patient_1Bean recordTargetPatient;
-    private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
+    private PatientBean recordTargetPatient;
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private PrimaryInformationRecipientBean primaryInformationRecipient;
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
@@ -220,7 +218,7 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
+    public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
@@ -229,19 +227,19 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
 
     /**
-     * <p>Relationship: POLB_MT002000CA.PromiseChoice.receiver</p>
+     * <p>Relationship: POLB_MT002000CA.Receiver.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver"})
-    public List<ElectronicResultReceiverBean> getReceiver() {
-        return this.receiver;
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
 
@@ -258,23 +256,23 @@ public class ObservationPromiseBean extends MessagePartBean implements PromiseCh
 
     /**
      * <p>Relationship: 
-     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"primaryInformationRecipient"})
-    public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
-        return this.primaryInformationRecipient;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
     }
 
     /**
      * <p>Relationship: 
-     * POLB_MT002000CA.PromiseChoice.primaryInformationRecipient</p>
+     * POLB_MT002000CA.PrimaryInformationRecipient.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
-        this.primaryInformationRecipient = primaryInformationRecipient;
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
 

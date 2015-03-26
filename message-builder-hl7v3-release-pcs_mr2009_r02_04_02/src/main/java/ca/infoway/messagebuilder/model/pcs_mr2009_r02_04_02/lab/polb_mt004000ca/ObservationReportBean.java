@@ -44,19 +44,19 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050007ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ObservationLabReportType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportableHealthIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationReport"})
 public class ObservationReportBean extends MessagePartBean implements ResultChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST title = new STImpl();
@@ -85,10 +85,10 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
     private TS effectiveTime = new TSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
-    private Patient_1Bean recordTargetPatient;
-    private List<ElectronicResultReceiverBean> receiver = new ArrayList<ElectronicResultReceiverBean>();
+    private PatientBean recordTargetPatient;
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private PrimaryInformationRecipientBean primaryInformationRecipient;
+    private RecipientChoice primaryInformationRecipientRecipientChoice;
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
@@ -345,7 +345,7 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
+    public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
@@ -354,19 +354,19 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
 
     /**
-     * <p>Relationship: POLB_MT004000CA.ResultChoice.receiver</p>
+     * <p>Relationship: POLB_MT004000CA.Receiver.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"receiver"})
-    public List<ElectronicResultReceiverBean> getReceiver() {
-        return this.receiver;
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
 
@@ -383,23 +383,37 @@ public class ObservationReportBean extends MessagePartBean implements ResultChoi
 
     /**
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"primaryInformationRecipient"})
-    public PrimaryInformationRecipientBean getPrimaryInformationRecipient() {
-        return this.primaryInformationRecipient;
+    @Hl7XmlMapping({"primaryInformationRecipient/recipientChoice"})
+    public RecipientChoice getPrimaryInformationRecipientRecipientChoice() {
+        return this.primaryInformationRecipientRecipientChoice;
     }
 
     /**
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient) {
-        this.primaryInformationRecipient = primaryInformationRecipient;
+    public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice) {
+        this.primaryInformationRecipientRecipientChoice = primaryInformationRecipientRecipientChoice;
+    }
+
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean getPrimaryInformationRecipientRecipientChoiceAsAssignedEntity1() {
+        return this.primaryInformationRecipientRecipientChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean) this.primaryInformationRecipientRecipientChoice : null;
+    }
+    public boolean hasPrimaryInformationRecipientRecipientChoiceAsAssignedEntity1() {
+        return (this.primaryInformationRecipientRecipientChoice instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean);
+    }
+
+    public HealthcareOrganizationBean getPrimaryInformationRecipientRecipientChoiceAsAssignedEntity2() {
+        return this.primaryInformationRecipientRecipientChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.primaryInformationRecipientRecipientChoice : null;
+    }
+    public boolean hasPrimaryInformationRecipientRecipientChoiceAsAssignedEntity2() {
+        return (this.primaryInformationRecipientRecipientChoice instanceof HealthcareOrganizationBean);
     }
 
 

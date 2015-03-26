@@ -53,7 +53,7 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private ST patientNonPersonLivingSubjectName = new STImpl();
     private AD patientNonPersonLivingSubjectContactPartyAddr = new ADImpl();
     private SET<TEL, TelecommunicationAddress> patientNonPersonLivingSubjectContactPartyTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);

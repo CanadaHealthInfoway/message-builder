@@ -37,8 +37,8 @@ import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RegistrationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.merged.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101104ca.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesResponseBean;
 
@@ -149,7 +149,7 @@ public class FindCandidatesApp extends HelloWorldApp {
 		Interval<Date> eventEffectivePeriod = IntervalFactory.createLow(new Date());
 		cae.setEffectiveTime(eventEffectivePeriod);
 
-		cae.setDataEntryLocationServiceDeliveryLocation(this.createServiceDeliveryLocationBean());
+		cae.setDataEntryLocationServiceDeliveryLocation(this.createServiceLocationBean());
 
 		// Setting the author
 		cae.setAuthor(this.createAuthor_2Bean());

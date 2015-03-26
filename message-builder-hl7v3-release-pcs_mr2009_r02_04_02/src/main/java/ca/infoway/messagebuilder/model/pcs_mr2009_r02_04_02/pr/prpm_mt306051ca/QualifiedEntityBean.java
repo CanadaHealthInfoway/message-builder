@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_2Bean;
 import java.util.Set;
 
 
@@ -50,12 +49,12 @@ import java.util.Set;
  * in this domain where this role is contactable.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
-public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RoleChoice {
+public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
-    private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
+    private PrinicpalPersonBean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
 
 
@@ -128,7 +127,7 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
+    public PrinicpalPersonBean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
 
@@ -138,7 +137,7 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
+    public void setQualifiedPrincipalPerson(PrinicpalPersonBean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 

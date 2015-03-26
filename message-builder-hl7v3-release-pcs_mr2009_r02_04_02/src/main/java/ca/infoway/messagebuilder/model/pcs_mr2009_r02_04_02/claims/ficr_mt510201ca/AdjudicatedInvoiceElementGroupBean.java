@@ -44,13 +44,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private MO netAmt = new MOImpl();
     private Author1Bean author;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
     private AllowableBean reference1Allowable;
     private CoverageBean coverage;
     private List<ComponentBean> component = new ArrayList<ComponentBean>();
@@ -190,7 +190,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
@@ -200,7 +200,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setReferenceAdjudicatedInvoiceElementGroup(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
+    public void setReferenceAdjudicatedInvoiceElementGroup(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
         this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
     }
 

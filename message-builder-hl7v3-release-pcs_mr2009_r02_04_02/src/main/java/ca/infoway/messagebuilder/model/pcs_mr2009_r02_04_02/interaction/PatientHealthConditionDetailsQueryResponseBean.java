@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_6Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.HealthConditionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000010ca.HealthConditionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500006ca.QueryDefinitionBean;
 
 
 
@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDef
  * <p>--> Payload: REPC_MT500006CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000026CA"})
-public class PatientHealthConditionDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<HealthConditionBean,QueryDefinitionBean>> implements InteractionBean {
+public class PatientHealthConditionDetailsQueryResponseBean extends HL7MessageBean<TriggerEventBean<HealthConditionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

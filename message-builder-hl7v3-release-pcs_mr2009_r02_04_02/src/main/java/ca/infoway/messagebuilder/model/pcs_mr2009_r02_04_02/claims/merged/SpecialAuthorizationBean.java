@@ -41,12 +41,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
     private PolicyOrAccount_1Bean coveragePolicyOrAccount;
-    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private List<Subject4Bean> subject = new ArrayList<Subject4Bean>();
     private MaximumLimitsBean limitationMaximumLimits;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
 
@@ -285,7 +285,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
      */
     @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
+    public List<Subject4Bean> getSubject() {
         return this.subject;
     }
 

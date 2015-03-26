@@ -52,18 +52,17 @@ import ca.infoway.messagebuilder.domainvalue.payload.Confidentiality;
 import ca.infoway.messagebuilder.domainvalue.transport.ProcessingMode;
 import ca.infoway.messagebuilder.marshalling.MessageBeanTransformerImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CreatedBy_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.SenderBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt300001ca.CommentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.AddPatientNoteRequestBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.CommentBean;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.transport.Credentials;
 import ca.infoway.messagebuilder.transport.CredentialsProvider;
@@ -104,7 +103,7 @@ public class AddPatientNoteExample {
 	private static AddPatientNoteRequestBean createAddPatientNoteRequest() {
 		AddPatientNoteRequestBean messageBean = new AddPatientNoteRequestBean();
 		
-		TriggerEvent_1Bean<CommentBean> controlActEvent = new TriggerEvent_1Bean<CommentBean>();
+		TriggerEventBean<CommentBean> controlActEvent = new TriggerEventBean<CommentBean>();
 		messageBean.setControlActEvent(controlActEvent);
 		
 		controlActEvent.setCode(ADD_PATIENT_NOTE_REQUEST);
@@ -129,7 +128,7 @@ public class AddPatientNoteExample {
 		return noteBean;
 	}
 	
-	private static void populateMessageAttributesStandardValues(HL7Message_1Bean<?> message) {
+	private static void populateMessageAttributesStandardValues(HL7MessageBean<?> message) {
 		message.setId(new Identifier(UUID.randomUUID().toString()));
 		message.setCreationTime(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
 		message.getProfileId().add(new Identifier("1.2.3.4.5", "profileIdExtension"));
@@ -153,7 +152,7 @@ public class AddPatientNoteExample {
 //		message.getSender().setDeviceAgentAgentOrganization(null);
 	}	
 
-	private static void populateRecordControlActStandardValues(TriggerEvent_1Bean<CommentBean> controlActEvent) {
+	private static void populateRecordControlActStandardValues(TriggerEventBean<CommentBean> controlActEvent) {
 		controlActEvent.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
 		controlActEvent.setEffectiveTime(IntervalUtil.createInterval(new Date(0), new Date()));
 		controlActEvent.setSpecializationType("effectiveTime", StandardDataType.IVL_FULL_DATE_TIME);		
@@ -180,27 +179,21 @@ public class AddPatientNoteExample {
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
 		HealthcareWorkerBean healthcareWorkerBean = new HealthcareWorkerBean();
 		healthcareWorkerBean.getId().add(new Identifier("1.1.1", "1"));
-		ActingPersonBean person = new ActingPersonBean();
-		person.setName(createFirstNameLastName("John", "Doe"));
-		healthcareWorkerBean.setAssignedPerson(person);
+		healthcareWorkerBean.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
 		return healthcareWorkerBean;
 	}
 
-	private static Patient_1Bean createIdentifiedPersonBean() {
-		Patient_1Bean identifiedPersonBean = new Patient_1Bean();
+	private static PatientBean createIdentifiedPersonBean() {
+		PatientBean identifiedPersonBean = new PatientBean();
 		identifiedPersonBean.getId().add(new Identifier("3.14", "159"));
 		identifiedPersonBean.setAddr(createPostalAddress());
 		identifiedPersonBean.getTelecom().add(new TelecommunicationAddress(
 				lookup(URLScheme.class, "http"), "123.456.789.10"));
 		
-		ActingPersonBean person = new ActingPersonBean();
-		person.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		person.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		person.setAdministrativeGenderCode(
+		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
-		
-		identifiedPersonBean.setPatientPerson(person);
-		
 		
 		return identifiedPersonBean;
 	}

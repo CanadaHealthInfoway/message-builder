@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_6Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210003ca.ReferralBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500006ca.QueryDefinitionBean;
 
 
 
@@ -44,8 +44,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt210003ca
  * <p>--> Payload: REPC_MT500006CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000091CA"})
-public class PatientReferralDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ReferralBean,QueryDefinitionBean>> implements InteractionBean {
+public class PatientReferralDetailsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ReferralBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

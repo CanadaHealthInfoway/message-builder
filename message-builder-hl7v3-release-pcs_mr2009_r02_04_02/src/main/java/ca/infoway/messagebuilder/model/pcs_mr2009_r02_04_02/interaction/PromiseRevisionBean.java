@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.PromiseChoice;
 
 
@@ -52,8 +52,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.
  * <p>----> Payload Choice: POLB_MT002000CA.ObservationPromise</p>
  */
 @Hl7PartTypeMapping({"POLB_IN122102CA"})
-public class PromiseRevisionBean extends HL7Message_1Bean<TriggerEvent_1Bean<PromiseChoice>> implements InteractionBean {
+public class PromiseRevisionBean extends HL7MessageBean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

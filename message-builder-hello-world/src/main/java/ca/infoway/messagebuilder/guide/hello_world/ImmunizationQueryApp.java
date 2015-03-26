@@ -34,9 +34,9 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_5Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.merged.ImmunizationsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt020000ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt060140ca.ImmunizationQueryParametersBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.immunization.poiz_mt060150ca.ImmunizationsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.ImmunizationsQueryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.ImmunizationsQueryResponseBean;
 
@@ -129,8 +129,8 @@ public class ImmunizationQueryApp extends HelloWorldApp {
 		return parameterList;
 	}
 	
-	private TriggerEvent_5Bean<ImmunizationQueryParametersBean> createControlActEvent() {
-		TriggerEvent_5Bean<ImmunizationQueryParametersBean> controlActEvent = new TriggerEvent_5Bean<ImmunizationQueryParametersBean>();
+	private TriggerEventBean<ImmunizationQueryParametersBean> createControlActEvent() {
+		TriggerEventBean<ImmunizationQueryParametersBean> controlActEvent = new TriggerEventBean<ImmunizationQueryParametersBean>();
 
 		controlActEvent.setCode(IMMUNIZATION_QUERY);
 
@@ -139,8 +139,7 @@ public class ImmunizationQueryApp extends HelloWorldApp {
 
 		controlActEvent.setRecordTargetPatient1(this.createRecordTarget());
 		controlActEvent.setAuthor(this.createAuthor_1Bean());
-		controlActEvent.setDataEntryLocationServiceDeliveryLocation(this
-				.createServiceLocationBean());
+		controlActEvent.setDataEntryLocationServiceDeliveryLocation(this.createServiceLocationBean2());
 		return controlActEvent;
 	}	
 	

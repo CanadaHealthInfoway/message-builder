@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"POIZ_MT030050CA.InformationSourceChoice","POIZ_MT030060CA.InformationSourceChoice","POIZ_MT060150CA.InformationSourceChoice"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.InformationSourceChoice","POIZ_MT030060CA.InformationSourceChoice"})
 public interface InformationSourceChoice {
 
 }

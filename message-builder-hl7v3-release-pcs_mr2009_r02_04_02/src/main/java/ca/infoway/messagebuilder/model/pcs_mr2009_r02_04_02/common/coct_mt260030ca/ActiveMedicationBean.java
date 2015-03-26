@@ -64,9 +64,9 @@ import java.util.Set;
  * issue.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260030CA.SubstanceAdministration"})
-public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.CausalActs {
+public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();

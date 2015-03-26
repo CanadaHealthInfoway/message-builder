@@ -80,9 +80,9 @@ import java.util.Date;
  * recording of the allergy/intolerance.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
-public class AllergyTestsBean extends MessagePartBean implements Records {
+public class AllergyTestsBean extends MessagePartBean implements Records, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000009ca.Records, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000005ca.Records {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private TS effectiveTime = new TSImpl();

@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt050303ca.AnimalPatientBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010ca.AdministrationInstructionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispenseBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PrescriptionReferenceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.SubstitutionBean;
@@ -57,14 +58,14 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private AnimalPatientBean subjectPatient;
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private SupplyEventBean component3SupplyEvent;
+    private DispenseBean component3SupplyEvent;
     private IncludesBean subjectOf;
 
 
@@ -224,7 +225,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
+    public DispenseBean getComponent3SupplyEvent() {
         return this.component3SupplyEvent;
     }
 
@@ -233,7 +234,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
+    public void setComponent3SupplyEvent(DispenseBean component3SupplyEvent) {
         this.component3SupplyEvent = component3SupplyEvent;
     }
 

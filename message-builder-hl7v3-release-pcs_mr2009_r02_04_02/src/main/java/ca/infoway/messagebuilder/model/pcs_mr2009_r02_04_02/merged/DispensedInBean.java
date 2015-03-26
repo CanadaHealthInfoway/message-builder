@@ -29,7 +29,6 @@ import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.CompliancePackageEntityType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000ca.DrugFormBean;
 
 
 
@@ -80,10 +79,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  * 
- * <p>COCT_MT300000CA.Content: Package Contents</p>
- * 
- * <p>Details of Product being dispensed</p>
- * 
  * <p>COCT_MT220110CA.Content: dispensed in</p>
  * 
  * <p>Must specify at least one of Drug Package Quantity and 
@@ -112,13 +107,12 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt300000
  * <p>Information about how the dispensed drug is or should be 
  * contained</p>
  */
-@Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
+@Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
-    private DrugFormBean containedManufacturedMaterialKind;
 
 
     /**
@@ -181,14 +175,6 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: PackageSize</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>package size</p>
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
@@ -289,14 +275,6 @@ public class DispensedInBean extends MessagePartBean {
      * 
      * <p>The quantity of the medication dosage form contained in 
      * the package given or to be given to the patient.</p>
-     * 
-     * <p>Un-merged Business Name: PackageSize</p>
-     * 
-     * <p>Relationship: COCT_MT300000CA.Content.quantity</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>package size</p>
      * 
      * <p>Un-merged Business Name: DrugPackageQuantity</p>
      * 
@@ -514,32 +492,6 @@ public class DispensedInBean extends MessagePartBean {
      */
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"containedManufacturedMaterialKind"})
-    public DrugFormBean getContainedManufacturedMaterialKind() {
-        return this.containedManufacturedMaterialKind;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT300000CA.Content.containedManufacturedMaterialKind</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
-        this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
     }
 
 }

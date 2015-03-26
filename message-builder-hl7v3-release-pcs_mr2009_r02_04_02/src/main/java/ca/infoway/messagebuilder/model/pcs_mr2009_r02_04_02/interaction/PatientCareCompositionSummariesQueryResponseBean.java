@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500003ca.CareCompositionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500005ca.QueryDefinitionBean;
 
@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt500005ca
  * <p>--> Payload: REPC_MT500005CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN041200CA"})
-public class PatientCareCompositionSummariesQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<CareCompositionBean,QueryDefinitionBean>> implements InteractionBean {
+public class PatientCareCompositionSummariesQueryResponseBean extends HL7MessageBean<TriggerEventBean<CareCompositionBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

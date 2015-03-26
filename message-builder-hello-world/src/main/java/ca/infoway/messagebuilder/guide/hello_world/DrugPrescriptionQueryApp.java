@@ -29,10 +29,10 @@ import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.payload.IssueFilterCode;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.RefersTo_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt020000ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.MedicationPrescriptionSummaryQueryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.MedicationPrescriptionSummaryQueryResponseBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt030040ca.PrescriptionBean;
@@ -89,8 +89,8 @@ public class DrugPrescriptionQueryApp extends HelloWorldApp {
 				RefersTo_1Bean<PrescriptionBean> subject = records.get(index);
 				PrescriptionBean script = subject.getAct();
 				HealthcareWorkerBean provider = script.getAuthor().getAssignedEntity();
-				String family = provider.getAssignedPerson().getName().getFamilyName();
-				String given = provider.getAssignedPerson().getName().getGivenName();
+				String family = provider.getAssignedPersonName().getFamilyName();
+				String given = provider.getAssignedPersonName().getGivenName();
 				System.out.printf("Prescriber:= %s %s\n", given, family);
 				System.out.printf("prescribed date:= %s\n", script.getAuthor().getTime().toString());
 			}
@@ -127,14 +127,14 @@ public class DrugPrescriptionQueryApp extends HelloWorldApp {
 	}
 
 	
-	private TriggerEvent_5Bean<ParameterListBean> createControlActEvent() {
+	private TriggerEventBean<ParameterListBean> createControlActEvent() {
 
-		TriggerEvent_5Bean<ParameterListBean> cae = new TriggerEvent_5Bean<ParameterListBean>();
+		TriggerEventBean<ParameterListBean> cae = new TriggerEventBean<ParameterListBean>();
 		cae.setId(new Identifier("2.16.840.1.113883.1.6", "8141234"));
 		cae.setCode(HL7TriggerEventCode.MEDICATION_PRESCRIPTION_SUMMARY_QUERY);
 
 		cae.setEffectiveTime(IntervalFactory.createLow(new Date()));
-		cae.setLocationServiceDeliveryLocation(this.createServiceLocationBean());
+		cae.setLocationServiceDeliveryLocation(this.createServiceLocationBean2());
 		cae.setAuthor(this.createAuthor_1Bean());
 		return cae;
 	}

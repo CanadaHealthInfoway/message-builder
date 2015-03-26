@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.MaximumLimitsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Subject3Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Subject4Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import java.util.ArrayList;
@@ -43,11 +43,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareOrganizationBean authorAssignedEntity;
-    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private List<Subject4Bean> subject = new ArrayList<Subject4Bean>();
     private PolicyOrAccountBean coveragePolicyOrAccount;
     private RemainingLimitsBean limitation1RemainingLimits;
     private MaximumLimitsBean limitation2MaximumLimits;
@@ -133,7 +133,7 @@ public class SpecialAuthorizationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1-100)</p>
      */
     @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
+    public List<Subject4Bean> getSubject() {
         return this.subject;
     }
 

@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_6Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000006ca.ReportedReactionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000016ca.AdverseReactionsQueryParametersBean;
 
 
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000006ca
  * <p>--> Payload: REPC_MT000016CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000002CA"})
-public class PatientAdverseReactionsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ReportedReactionBean,QueryDefinitionBean>> implements InteractionBean {
+public class PatientAdverseReactionsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ReportedReactionBean,AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

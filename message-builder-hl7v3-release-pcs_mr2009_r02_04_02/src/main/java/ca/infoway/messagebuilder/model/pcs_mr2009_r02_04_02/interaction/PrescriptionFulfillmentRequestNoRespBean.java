@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt010120ca.PrescriptionBean;
 
 
@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.porx_mt0101
  * <p>--> Payload: PORX_MT010120CA.CombinedMedicationRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010650CA"})
-public class PrescriptionFulfillmentRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionBean>> implements InteractionBean {
+public class PrescriptionFulfillmentRequestNoRespBean extends HL7MessageBean<TriggerEventBean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

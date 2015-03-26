@@ -52,7 +52,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.IsolateObservationEvent"})
 public class IsolateObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

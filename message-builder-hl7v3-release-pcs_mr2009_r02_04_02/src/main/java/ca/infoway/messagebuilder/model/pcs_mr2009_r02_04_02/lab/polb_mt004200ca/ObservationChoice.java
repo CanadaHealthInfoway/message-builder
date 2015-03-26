@@ -24,13 +24,13 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ReportableHealthIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.WasPerformedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
@@ -52,11 +52,11 @@ public interface ObservationChoice extends ca.infoway.messagebuilder.model.pcs_m
 
 
     /**
-     * <p>Relationship: POLB_MT004200CA.ObservationChoice.receiver</p>
+     * <p>Relationship: POLB_MT004200CA.Receiver.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public List<ElectronicResultReceiverBean> getReceiver();
+    public List<RoleChoice> getReceiverRoleChoice();
 
 
     /**

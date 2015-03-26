@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryRoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt960002ca.GeographicCoordinatesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.AvailableServicesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.ContactPointsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.IndirectAuthorithyOverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.PlaceBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.ResponsibleOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lr.merged.SubLocationsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ContactPointsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ResponsibleOrganizationBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
     private AD addr = new ADImpl();
