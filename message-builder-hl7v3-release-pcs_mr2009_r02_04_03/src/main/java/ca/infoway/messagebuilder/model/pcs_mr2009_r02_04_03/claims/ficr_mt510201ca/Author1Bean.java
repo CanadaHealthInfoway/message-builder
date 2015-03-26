@@ -28,7 +28,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AdjudicatorIdBean;
 import java.util.Date;
 
 
@@ -36,10 +35,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Author1"})
 public class Author1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private TS time = new TSImpl();
     private CV modeCode = new CVImpl();
-    private AdjudicatorIdBean adjudicatorRole;
+    private AdjudicatorRoleBean adjudicatorRole;
 
 
     /**
@@ -92,7 +91,7 @@ public class Author1Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"adjudicatorRole"})
-    public AdjudicatorIdBean getAdjudicatorRole() {
+    public AdjudicatorRoleBean getAdjudicatorRole() {
         return this.adjudicatorRole;
     }
 
@@ -101,7 +100,7 @@ public class Author1Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAdjudicatorRole(AdjudicatorIdBean adjudicatorRole) {
+    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
         this.adjudicatorRole = adjudicatorRole;
     }
 

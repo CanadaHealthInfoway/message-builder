@@ -30,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ClinicalReportObservationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
 import java.util.ArrayList;
@@ -70,9 +69,9 @@ import java.util.List;
  * or other report or note being written</p>
  */
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
-public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt230001ca.DocumentContent {
+public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3 {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private OccurredAtBean location;

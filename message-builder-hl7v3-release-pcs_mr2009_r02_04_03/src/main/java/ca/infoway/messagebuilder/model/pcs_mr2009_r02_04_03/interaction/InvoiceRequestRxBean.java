@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt600201ca.PaymentRequestBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700211ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 
 
 
@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Mes
  * <p>--> Payload: FICR_MT600201CA.PaymentRequest</p>
  */
 @Hl7PartTypeMapping({"FICR_IN600102CA"})
-public class InvoiceRequestRxBean extends HL7Message_1Bean<TriggerEventBean<PaymentRequestBean>> implements InteractionBean {
+public class InvoiceRequestRxBean extends HL7MessageBean<TriggerEventBean<PaymentRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

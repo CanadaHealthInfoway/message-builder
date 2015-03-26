@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT470002CA.Recipient","COCT_MT470012CA.Recipient","POIZ_MT030050CA.Recipient","POIZ_MT030060CA.Recipient","POIZ_MT060150CA.Recipient","RCMR_MT010001CA.Recipient"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.Recipient","POIZ_MT030060CA.Recipient","POIZ_MT060150CA.Recipient","RCMR_MT010001CA.Recipient"})
 public interface Recipient {
 
 }

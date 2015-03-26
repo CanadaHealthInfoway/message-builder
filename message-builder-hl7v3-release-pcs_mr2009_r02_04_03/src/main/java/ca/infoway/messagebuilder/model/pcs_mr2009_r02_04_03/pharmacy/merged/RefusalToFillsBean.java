@@ -28,9 +28,8 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -113,11 +112,11 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT030040CA.RefusalToFill","PORX_MT060040CA.RefusalToFill","PORX_MT060060CA.RefusalToFill","PORX_MT060160CA.RefusalToFill","PORX_MT060190CA.RefusalToFill","PORX_MT060340CA.RefusalToFill"})
 public class RefusalToFillsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
-    private RefusedByBean author;
-    private OccurredAtBean location;
+    private PrescribedByBean author;
+    private TargetedToPharmacyBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
@@ -513,7 +512,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public PrescribedByBean getAuthor() {
         return this.author;
     }
 
@@ -554,7 +553,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
 
@@ -597,7 +596,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
 
@@ -638,7 +637,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(OccurredAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
 

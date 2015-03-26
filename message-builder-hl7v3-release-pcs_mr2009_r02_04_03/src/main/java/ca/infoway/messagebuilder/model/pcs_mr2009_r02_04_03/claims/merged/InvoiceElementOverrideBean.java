@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoi
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementOverride","FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceElementOverrideBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
 

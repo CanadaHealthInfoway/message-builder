@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.comt_mt400001ca.MaskableRecordBean;
 
 
@@ -44,8 +44,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.ra.comt_mt400001ca.M
  * <p>--> Payload: COMT_MT400001CA.MaskableActType</p>
  */
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
-public class ChangeItemMaskingRequestBean extends HL7Message_1Bean<TriggerEventBean<MaskableRecordBean>> implements InteractionBean {
+public class ChangeItemMaskingRequestBean extends HL7MessageBean<TriggerEventBean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

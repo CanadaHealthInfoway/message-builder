@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * the patient.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientRole","POIZ_MT030060CA.PatientRole","POIZ_MT060150CA.PatientRole"})
-public class PatientRoleBean extends MessagePartBean implements InformationSourceChoice {
+public class PatientRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.poiz_mt060150ca.InformationSourceChoice, InformationSourceChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

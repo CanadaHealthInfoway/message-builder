@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_4Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mfmi_mt700711ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202301ca.LocationBean;
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202301ca.L
  * <p>--> Payload: PRPA_MT202301CA.ServiceDeliveryLocation</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN202311CA"})
-public class RecordServiceDeliveryLocationRequestBean extends HL7Message_1Bean<TriggerEvent_4Bean<LocationBean>> implements InteractionBean {
+public class RecordServiceDeliveryLocationRequestBean extends HL7MessageBean<TriggerEventBean<LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

@@ -34,13 +34,12 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AccessTypeBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090502ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910102ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ConsentedToByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActConsentInformationAccessOverrideReason;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RelatedPersonBean;
 import java.util.Date;
 
 
@@ -71,13 +70,13 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private SubjectChoice subject1SubjectChoice;
     private ConsentedToByBean author1;
-    private AssignedEntityBean author2AssignedEntity;
+    private HealthcareWorkerBean author2AssignedEntity;
     private AccessTypeBean subject2InformDefinition;
 
 
@@ -235,11 +234,11 @@ public class ConsentBean extends MessagePartBean {
         return (this.subject1SubjectChoice instanceof PatientBean);
     }
 
-    public AssignedEntityBean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof AssignedEntityBean ? (AssignedEntityBean) this.subject1SubjectChoice : null;
+    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
+        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof AssignedEntityBean);
+        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
     }
 
     public HealthcareOrganizationBean getSubject1SubjectChoiceAsAssignedEntity2() {
@@ -290,7 +289,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author2/assignedEntity"})
-    public AssignedEntityBean getAuthor2AssignedEntity() {
+    public HealthcareWorkerBean getAuthor2AssignedEntity() {
         return this.author2AssignedEntity;
     }
 
@@ -299,7 +298,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthor2AssignedEntity(AssignedEntityBean author2AssignedEntity) {
+    public void setAuthor2AssignedEntity(HealthcareWorkerBean author2AssignedEntity) {
         this.author2AssignedEntity = author2AssignedEntity;
     }
 

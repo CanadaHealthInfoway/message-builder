@@ -68,7 +68,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.OutbreakEvent","POLB_MT001010CA.OutbreakEvent","POLB_MT001999CA.OutbreakEvent","POLB_MT002000CA.OutbreakEvent","POLB_MT004000CA.OutbreakEvent","POLB_MT004100CA.OutbreakEvent","POLB_MT004200CA.OutbreakEvent"})
 public class OutbreakBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
 
 

@@ -22,8 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001001ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.LabInitiatedOrderIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OrderSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ParentTestBean;
@@ -31,7 +32,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.PriorTest
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import java.util.List;
 
@@ -39,7 +39,7 @@ import java.util.List;
 
 @Hl7PartTypeMapping({"POLB_MT001001CA.RequestChoice"})
 @Hl7RootType
-public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice {
+public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt002000ca.FulfillmentChoice {
 
 
     /**
@@ -56,7 +56,7 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public List<AssignedEntityBean> getVerifierAssignedEntity();
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
     /**

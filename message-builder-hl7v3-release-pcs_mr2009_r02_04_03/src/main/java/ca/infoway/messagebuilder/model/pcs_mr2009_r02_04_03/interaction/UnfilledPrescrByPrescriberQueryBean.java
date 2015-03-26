@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_5Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.UnfilledPrescriptionQueryParametersBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.quqi_mt020000ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.porx_mt060270ca.ParameterListBean;
 
 
 
@@ -44,8 +44,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.Unfi
  * <p>--> Payload: PORX_MT060270CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN060470CA"})
-public class UnfilledPrescrByPrescriberQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
+public class UnfilledPrescrByPrescriberQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

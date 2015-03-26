@@ -38,21 +38,19 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050201ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt260010ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt470002ca.ConsentBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910102ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.CreatedBy_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_3;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.RefersTo_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RelatedPersonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,14 +75,14 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
-    private Patient_3 recordTargetPatient1;
-    private AssignedEntityBean responsiblePartyAssignedEntity;
+    private Patient recordTargetPatient1;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
@@ -300,7 +298,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient1"})
-    public Patient_3 getRecordTargetPatient1() {
+    public Patient getRecordTargetPatient1() {
         return this.recordTargetPatient1;
     }
 
@@ -309,29 +307,29 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRecordTargetPatient1(Patient_3 recordTargetPatient1) {
+    public void setRecordTargetPatient1(Patient recordTargetPatient1) {
         this.recordTargetPatient1 = recordTargetPatient1;
     }
 
-    public PatientBean getRecordTargetPatient1AsPatient1() {
-        return this.recordTargetPatient1 instanceof PatientBean ? (PatientBean) this.recordTargetPatient1 : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean getRecordTargetPatient1AsPatient1() {
+        return this.recordTargetPatient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean) this.recordTargetPatient1 : null;
     }
     public boolean hasRecordTargetPatient1AsPatient1() {
-        return (this.recordTargetPatient1 instanceof PatientBean);
+        return (this.recordTargetPatient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean);
     }
 
-    public Patient_2Bean getRecordTargetPatient1AsPatient2() {
-        return this.recordTargetPatient1 instanceof Patient_2Bean ? (Patient_2Bean) this.recordTargetPatient1 : null;
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean getRecordTargetPatient1AsPatient2() {
+        return this.recordTargetPatient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean) this.recordTargetPatient1 : null;
     }
     public boolean hasRecordTargetPatient1AsPatient2() {
-        return (this.recordTargetPatient1 instanceof Patient_2Bean);
+        return (this.recordTargetPatient1 instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean);
     }
 
-    public Patient_1Bean getRecordTargetPatient1AsPatient3() {
-        return this.recordTargetPatient1 instanceof Patient_1Bean ? (Patient_1Bean) this.recordTargetPatient1 : null;
+    public PatientBean getRecordTargetPatient1AsPatient3() {
+        return this.recordTargetPatient1 instanceof PatientBean ? (PatientBean) this.recordTargetPatient1 : null;
     }
     public boolean hasRecordTargetPatient1AsPatient3() {
-        return (this.recordTargetPatient1 instanceof Patient_1Bean);
+        return (this.recordTargetPatient1 instanceof PatientBean);
     }
 
 
@@ -342,7 +340,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntityBean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -352,7 +350,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(AssignedEntityBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -396,11 +394,11 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
         this.dataEntererActingPerson = dataEntererActingPerson;
     }
 
-    public AssignedEntityBean getDataEntererActingPersonAsAssignedEntity1() {
-        return this.dataEntererActingPerson instanceof AssignedEntityBean ? (AssignedEntityBean) this.dataEntererActingPerson : null;
+    public HealthcareWorkerBean getDataEntererActingPersonAsAssignedEntity1() {
+        return this.dataEntererActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererActingPerson : null;
     }
     public boolean hasDataEntererActingPersonAsAssignedEntity1() {
-        return (this.dataEntererActingPerson instanceof AssignedEntityBean);
+        return (this.dataEntererActingPerson instanceof HealthcareWorkerBean);
     }
 
     public HealthcareOrganizationBean getDataEntererActingPersonAsAssignedEntity2() {

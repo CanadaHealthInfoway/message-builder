@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.comt_mt001103ca.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700226ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
  * <p>--> Payload: COMT_MT001103CA.ActEvent</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000005CA"})
-public class RecordAdverseReactionRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ActRequestBean>> implements InteractionBean {
+public class RecordAdverseReactionRequestAcceptedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

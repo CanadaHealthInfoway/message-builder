@@ -38,11 +38,11 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.DeviceProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.CoverageExtensions_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.CoverageExtensionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.DispenseInstructions_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ProcedureRequestBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -74,9 +74,9 @@ public class PrescriptionBean extends MessagePartBean {
     private PriorDeviceRequestBean predecessorPriorDeviceRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private ProcedureRequestBean component1ProcedureRequest;
-    private DispenseInstructionsBean component2SupplyRequest;
+    private DispenseInstructions_1Bean component2SupplyRequest;
     private IncludesBean subjectOf;
 
 
@@ -289,7 +289,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+    public List<CoverageExtensionsBean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -320,7 +320,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
+    public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
@@ -329,7 +329,7 @@ public class PrescriptionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
+    public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 

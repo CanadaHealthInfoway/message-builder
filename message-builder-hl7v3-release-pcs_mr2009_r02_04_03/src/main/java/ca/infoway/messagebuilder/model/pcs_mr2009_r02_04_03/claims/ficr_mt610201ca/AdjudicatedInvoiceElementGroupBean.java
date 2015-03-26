@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AdjudicatedResultsGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInvoiceGroupType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedResultOutcomeBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,14 +45,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();
     private MO netAmt = new MOImpl();
     private AdjudicatedInvoiceAuthorBean author;
     private AdjudicatedInvoiceElementGroupBean predecessorAdjudicatedInvoiceElementGroup;
-    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedInvoiceElementGroupBean>();
+    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean>();
     private AllowableBean reference1Allowable;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
     private List<AdjudicatedInvoiceElementComponentBean> component = new ArrayList<AdjudicatedInvoiceElementComponentBean>();
@@ -216,7 +215,7 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
     }
 

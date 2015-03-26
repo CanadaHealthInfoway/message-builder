@@ -44,15 +44,15 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActDiagnosisCode;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ReactionAssessmentsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,20 +77,20 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CV value = new CVImpl();
-    private HealthcareOrganizationBean responsiblePartyAssignedEntity;
-    private RefusedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private PrescribedByBean author;
     private ReportedByBean informant;
-    private OccurredAtBean location;
+    private TargetedToPharmacyBean location;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private List<ReactionAssessmentsBean> subjectOf3CausalityAssessment = new ArrayList<ReactionAssessmentsBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
@@ -356,7 +356,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareOrganizationBean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -366,7 +366,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(HealthcareOrganizationBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -378,7 +378,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public PrescribedByBean getAuthor() {
         return this.author;
     }
 
@@ -388,7 +388,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
 
@@ -422,7 +422,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
 
@@ -432,7 +432,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setLocation(OccurredAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
 
@@ -478,7 +478,7 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+    public List<ReactionAssessmentsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
     }
 

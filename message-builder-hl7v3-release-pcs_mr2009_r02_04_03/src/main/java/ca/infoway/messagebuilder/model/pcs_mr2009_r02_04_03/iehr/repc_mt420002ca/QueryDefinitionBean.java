@@ -65,7 +65,7 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private TS amendedSinceDateTimeValue = new TSImpl();
     private List<II> careCompositionIdValue = new ArrayList<II>();
     private List<CV> careCompositionTypeValue = new ArrayList<CV>();

@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410003CA.NewCommonObservationEvent","REPC_MT420003CA.NewCommonObservationEvent"})
 public class NewCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
 
 

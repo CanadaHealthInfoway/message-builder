@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CommentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt300001ca.CommentBean;
 
 
 
@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CommentBean;
  * <p>--> Payload: COMT_MT300001CA.Annotation</p>
  */
 @Hl7PartTypeMapping({"COMT_IN300001CA"})
-public class AddPatientNoteRequestBean extends HL7Message_1Bean<TriggerEventBean<CommentBean>> implements InteractionBean {
+public class AddPatientNoteRequestBean extends HL7MessageBean<TriggerEventBean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

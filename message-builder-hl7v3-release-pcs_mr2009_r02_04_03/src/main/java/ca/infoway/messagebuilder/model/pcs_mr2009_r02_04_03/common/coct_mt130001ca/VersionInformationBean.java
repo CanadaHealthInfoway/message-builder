@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RequestedByBean;
 import java.util.Date;
 
 
@@ -54,12 +54,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private ChangedByBean author;
+    private RequestedByBean author;
 
 
     /**
@@ -220,7 +220,7 @@ public class VersionInformationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
+    public RequestedByBean getAuthor() {
         return this.author;
     }
 
@@ -229,7 +229,7 @@ public class VersionInformationBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(ChangedByBean author) {
+    public void setAuthor(RequestedByBean author) {
         this.author = author;
     }
 

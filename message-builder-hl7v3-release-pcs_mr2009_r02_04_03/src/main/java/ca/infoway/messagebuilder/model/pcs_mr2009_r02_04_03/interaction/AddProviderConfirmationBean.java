@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mfmi_mt700726ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt309000ca.RoleChoice;
 
@@ -51,8 +51,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt309000ca.R
  * <p>----> Payload Choice: PRPM_MT309000CA.HealthCareProvider</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN301011CA"})
-public class AddProviderConfirmationBean extends HL7Message_1Bean<TriggerEventBean<RoleChoice>> implements InteractionBean {
+public class AddProviderConfirmationBean extends HL7MessageBean<TriggerEventBean<RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

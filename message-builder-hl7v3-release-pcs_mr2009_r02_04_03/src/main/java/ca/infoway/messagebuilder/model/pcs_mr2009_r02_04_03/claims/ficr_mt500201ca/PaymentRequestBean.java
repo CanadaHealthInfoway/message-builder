@@ -32,10 +32,10 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.ContactPartyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.ProviderBillingTaxAccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt110200ca.PayeeAccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ContactPartyBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -50,7 +50,7 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;

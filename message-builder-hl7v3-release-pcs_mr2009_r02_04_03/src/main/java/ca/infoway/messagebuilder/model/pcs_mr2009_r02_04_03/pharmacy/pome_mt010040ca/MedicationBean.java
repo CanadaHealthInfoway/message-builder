@@ -26,7 +26,6 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.AppearanceCharacteristicsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.DrugCostBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.MonographsBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +45,7 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private DrugOrCompoundBean administerableMedicine;
     private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();

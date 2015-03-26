@@ -35,13 +35,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PolicyUnderwr
 
 
 /**
- * <p>FICR_MT600201CA.PolicyOrAccount: (no business name)</p>
- * 
- * <p>id: = Coverage Identifier, extension = 
- * Policy.Plan.Group.Contract. Division.Section.Version (or 
- * similar). Carrier noted in author participation, and may not 
- * be same namespace as OID of id</p>
- * 
  * <p>FICR_MT500201CA.PolicyOrAccount: (no business name)</p>
  * 
  * <p>id: = Coverage Identifier, extension = 
@@ -49,10 +42,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PolicyUnderwr
  * similar). Carrier noted in author participation, and may not 
  * be same namespace as OID of id</p>
  */
-@Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
+@Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyOrAccount_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
@@ -61,12 +54,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>Un-merged Business Name: PolicyID</p>
-     * 
-     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
      * <p>Un-merged Business Name: PolicyIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
@@ -85,12 +72,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: PolicyID</p>
-     * 
-     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
      * <p>Un-merged Business Name: PolicyIdentifierS</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.id</p>
@@ -140,13 +121,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
      * FICR_MT610201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -164,13 +138,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT600201CA.PolicyBeneficiary.coveredPartyAsPatient</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
@@ -193,12 +160,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -215,12 +176,6 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: FICR_MT600201CA.PolicyOrAccount.author</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: FICR_MT610201CA.PolicyOrAccount.author</p>

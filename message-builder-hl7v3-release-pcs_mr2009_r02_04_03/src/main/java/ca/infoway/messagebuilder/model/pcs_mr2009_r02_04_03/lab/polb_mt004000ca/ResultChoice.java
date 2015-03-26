@@ -22,18 +22,18 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt004000ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050007ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ElectronicResultReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.FulfillmentChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OutbreakBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReportSectionSpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReportableHealthIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ResultSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice;
 import java.util.List;
 
 
@@ -56,22 +56,22 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Patient_1Bean getRecordTargetPatient();
+    public PatientBean getRecordTargetPatient();
 
     /**
      * <p>Relationship: POLB_MT004000CA.RecordTarget.patient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
+    public void setRecordTargetPatient(PatientBean recordTargetPatient);
 
 
     /**
-     * <p>Relationship: POLB_MT004000CA.ResultChoice.receiver</p>
+     * <p>Relationship: POLB_MT004000CA.Receiver.roleChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public List<ElectronicResultReceiverBean> getReceiver();
+    public List<RoleChoice> getReceiverRoleChoice();
 
 
     /**
@@ -84,19 +84,19 @@ public interface ResultChoice extends ca.infoway.messagebuilder.model.pcs_mr2009
 
     /**
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public PrimaryInformationRecipientBean getPrimaryInformationRecipient();
+    public RecipientChoice getPrimaryInformationRecipientRecipientChoice();
 
     /**
      * <p>Relationship: 
-     * POLB_MT004000CA.ResultChoice.primaryInformationRecipient</p>
+     * POLB_MT004000CA.PrimaryInformationRecipient.recipientChoice</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPrimaryInformationRecipient(PrimaryInformationRecipientBean primaryInformationRecipient);
+    public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice);
 
 
     /**

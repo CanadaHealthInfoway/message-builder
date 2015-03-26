@@ -42,22 +42,22 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090310ca.EHRRepositoryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.EHRRepositoryBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911107ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ActDefinitionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Component2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldProcedureEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Request_3Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -89,16 +89,16 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private ActingPerson responsiblePartyActingPerson;
-    private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
-    private ChangedByBean author;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson informantActingPerson;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson>();
+    private RequestedByBean author;
+    private ActingPerson informantActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
     private ServiceLocationBean custodian2ServiceDeliveryLocation;
     private OccurredAtBean location;
@@ -110,7 +110,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private ClinicalDocumentEventBean subjectOf3ClinicalDocumentEvent;
-    private List<Component2Bean> componentOf1 = new ArrayList<Component2Bean>();
+    private List<ComponentBean> componentOf1 = new ArrayList<ComponentBean>();
     private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
@@ -467,7 +467,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ActingPerson getResponsiblePartyActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
 
@@ -477,22 +477,22 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
-    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity1() {
-        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareWorkerBean getResponsiblePartyActingPersonAsAssignedEntity1() {
+        return this.responsiblePartyActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity1() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareWorkerBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
-        return this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
+        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity2() {
-        return (this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
     }
 
     public RelatedPersonBean getResponsiblePartyActingPersonAsPersonalRelationship() {
@@ -509,7 +509,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ActingPerson> getPerformerActingPerson() {
+    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
         return this.performerActingPerson;
     }
 
@@ -520,7 +520,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
+    public RequestedByBean getAuthor() {
         return this.author;
     }
 
@@ -529,7 +529,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(ChangedByBean author) {
+    public void setAuthor(RequestedByBean author) {
         this.author = author;
     }
 
@@ -540,7 +540,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson getInformantActingPerson() {
+    public ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
 
@@ -549,29 +549,29 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public PatientBean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof PatientBean ? (PatientBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof PatientBean);
     }
 
 
@@ -774,7 +774,7 @@ public class ProfessionalServiceBean extends MessagePartBean implements ca.infow
      * <p>Conformance/Cardinality: REQUIRED (1-5)</p>
      */
     @Hl7XmlMapping({"componentOf1"})
-    public List<Component2Bean> getComponentOf1() {
+    public List<ComponentBean> getComponentOf1() {
         return this.componentOf1;
     }
 

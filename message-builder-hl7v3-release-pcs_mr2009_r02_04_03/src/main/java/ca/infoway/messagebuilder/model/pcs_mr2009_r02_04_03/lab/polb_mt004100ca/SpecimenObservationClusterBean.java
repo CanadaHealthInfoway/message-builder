@@ -51,7 +51,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private ST text = new STImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

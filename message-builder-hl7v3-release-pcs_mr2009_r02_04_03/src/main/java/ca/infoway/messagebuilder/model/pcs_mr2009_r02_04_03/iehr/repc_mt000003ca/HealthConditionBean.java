@@ -42,12 +42,13 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911107ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActDiagnosisCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldConditionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,7 +73,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
     private CS statusCode = new CSImpl();
@@ -420,25 +421,25 @@ public class HealthConditionBean extends MessagePartBean {
         this.informantActingPerson = informantActingPerson;
     }
 
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public PatientBean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof PatientBean ? (PatientBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof PatientBean);
     }
 
 

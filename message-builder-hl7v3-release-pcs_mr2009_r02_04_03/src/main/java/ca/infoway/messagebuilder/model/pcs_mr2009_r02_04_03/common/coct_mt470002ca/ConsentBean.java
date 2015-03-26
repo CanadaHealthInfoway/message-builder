@@ -34,8 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AccessTypeBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ConsentedToByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActConsentInformationAccessOverrideReason;
 import java.util.Date;
@@ -67,13 +66,13 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private PatientBean subject1Patient;
     private ConsentedToByBean author1;
-    private AssignedEntityBean author2AssignedEntity;
+    private HealthcareWorkerBean author2AssignedEntity;
     private AccessTypeBean subject2InformDefinition;
 
 
@@ -251,7 +250,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author2/assignedEntity"})
-    public AssignedEntityBean getAuthor2AssignedEntity() {
+    public HealthcareWorkerBean getAuthor2AssignedEntity() {
         return this.author2AssignedEntity;
     }
 
@@ -260,7 +259,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthor2AssignedEntity(AssignedEntityBean author2AssignedEntity) {
+    public void setAuthor2AssignedEntity(HealthcareWorkerBean author2AssignedEntity) {
         this.author2AssignedEntity = author2AssignedEntity;
     }
 

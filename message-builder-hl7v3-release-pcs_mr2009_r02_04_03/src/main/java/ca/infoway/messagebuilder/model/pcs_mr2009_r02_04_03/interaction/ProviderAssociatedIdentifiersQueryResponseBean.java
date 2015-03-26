@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mfmi_mt700746ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RoleChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt306050ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt306051ca.RoleChoice;
 
 
 
@@ -52,8 +52,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.prpm_mt306050ca.P
  * <p>--> Payload: PRPM_MT306050CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPM_IN306051CA"})
-public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
+public class ProviderAssociatedIdentifiersQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

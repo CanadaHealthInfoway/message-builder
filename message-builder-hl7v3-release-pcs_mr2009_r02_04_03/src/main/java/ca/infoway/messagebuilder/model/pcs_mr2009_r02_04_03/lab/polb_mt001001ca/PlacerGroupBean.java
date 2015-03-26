@@ -32,8 +32,9 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.LabInitiatedOrderIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OrderSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ParentTestBean;
@@ -41,7 +42,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.PriorTest
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.RecipientChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +57,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
-    private List<AssignedEntityBean> verifierAssignedEntity = new ArrayList<AssignedEntityBean>();
+    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private ParentTestBean occurrenceOfActParentPointer;
     private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
@@ -162,7 +162,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"verifier/assignedEntity"})
-    public List<AssignedEntityBean> getVerifierAssignedEntity() {
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
         return this.verifierAssignedEntity;
     }
 

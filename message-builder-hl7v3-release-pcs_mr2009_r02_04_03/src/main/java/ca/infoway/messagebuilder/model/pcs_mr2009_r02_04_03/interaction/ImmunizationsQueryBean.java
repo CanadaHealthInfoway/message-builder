@@ -22,8 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.quqi_mt020000ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.poiz_mt060140ca.ImmunizationQueryParametersBean;
 
 
@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.poiz_mt
  * <p>--> Payload: POIZ_MT060140CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"POIZ_IN020010CA"})
-public class ImmunizationsQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<ImmunizationQueryParametersBean>> implements InteractionBean {
+public class ImmunizationsQueryBean extends HL7MessageBean<TriggerEventBean<ImmunizationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

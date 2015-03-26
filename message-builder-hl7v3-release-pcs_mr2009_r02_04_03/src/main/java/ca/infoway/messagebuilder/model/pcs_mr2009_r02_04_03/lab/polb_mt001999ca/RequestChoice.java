@@ -22,10 +22,11 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.polb_mt001999ca
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050007ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt080100ca.SpecimenRoleBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.LabInitiatedOrderIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OrderSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OutbreakBean;
@@ -35,7 +36,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Recipient
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.SpecimenRoleBean;
 import java.util.List;
 
 
@@ -58,14 +58,14 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public Patient_1Bean getRecordTargetPatient();
+    public PatientBean getRecordTargetPatient();
 
     /**
      * <p>Relationship: POLB_MT001999CA.RecordTarget.patient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
+    public void setRecordTargetPatient(PatientBean recordTargetPatient);
 
 
     /**
@@ -89,7 +89,7 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean> getCallBackContactAssignedEntity();
+    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean> getCallBackContactAssignedEntity();
 
 
     /**
@@ -106,7 +106,7 @@ public interface RequestChoice extends ca.infoway.messagebuilder.model.pcs_mr200
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public List<AssignedEntityBean> getVerifierAssignedEntity();
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity();
 
 
     /**

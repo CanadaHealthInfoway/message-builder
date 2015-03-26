@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.comt_mt001101ca.ReferencedRecordBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActRequestBea
  * <p>--> Payload: COMT_MT001101CA.ActRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010440CA"})
-public class SuspendPrescriptionRequestBean extends HL7Message_1Bean<TriggerEventBean<ActRequestBean>> implements InteractionBean {
+public class SuspendPrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

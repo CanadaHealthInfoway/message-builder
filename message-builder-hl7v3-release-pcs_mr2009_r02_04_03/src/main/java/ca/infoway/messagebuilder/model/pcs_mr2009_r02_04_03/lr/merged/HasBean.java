@@ -67,7 +67,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private ST assigningIdentifierOrganizationName = new STImpl();

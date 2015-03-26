@@ -23,36 +23,36 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt49010
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.DeviceProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.ClinicalDeviceBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT490101CA.DevicePassThru"})
-public class DevicePassThruBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationChoice {
+public class DevicePassThruBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationChoice_1 {
 
-    private static final long serialVersionUID = 20131209L;
-    private DeviceProductBean directTargetManufacturedProduct;
+    private static final long serialVersionUID = 20150326L;
+    private ClinicalDeviceBean directTargetManufacturedProductManufacturedClinicalDevice;
 
 
     /**
      * <p>Relationship: 
-     * FICR_MT490101CA.DirectTarget2.manufacturedProduct</p>
+     * FICR_MT490101CA.ManufacturedProduct.manufacturedClinicalDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
+    @Hl7XmlMapping({"directTarget/manufacturedProduct/manufacturedClinicalDevice"})
+    public ClinicalDeviceBean getDirectTargetManufacturedProductManufacturedClinicalDevice() {
+        return this.directTargetManufacturedProductManufacturedClinicalDevice;
     }
 
     /**
      * <p>Relationship: 
-     * FICR_MT490101CA.DirectTarget2.manufacturedProduct</p>
+     * FICR_MT490101CA.ManufacturedProduct.manufacturedClinicalDevice</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
+    public void setDirectTargetManufacturedProductManufacturedClinicalDevice(ClinicalDeviceBean directTargetManufacturedProductManufacturedClinicalDevice) {
+        this.directTargetManufacturedProductManufacturedClinicalDevice = directTargetManufacturedProductManufacturedClinicalDevice;
     }
 
 }

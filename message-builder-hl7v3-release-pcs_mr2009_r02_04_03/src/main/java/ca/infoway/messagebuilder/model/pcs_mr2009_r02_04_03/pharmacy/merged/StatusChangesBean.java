@@ -27,12 +27,12 @@ import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -101,12 +101,13 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060010CA.ControlActEvent","PORX_MT060040CA.ControlActEvent","PORX_MT060090CA.ControlActEvent","PORX_MT060160CA.ControlActEvent","PORX_MT060210CA.ControlActEvent","PORX_MT060340CA.ControlActEvent"})
 public class StatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
-    private HealthcareOrganizationBean responsiblePartyAssignedEntity;
-    private ChangedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private TS authorTime = new TSImpl();
+    private ChangedBy authorChangedBy;
 
 
     /**
@@ -689,7 +690,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareOrganizationBean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -736,92 +737,272 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(HealthcareOrganizationBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
     /**
+     * <p>Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit purposes.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
+    }
+
+    /**
+     * <p>Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>The 
+     * attribute is marked as &quot;mandatory&quot; because the 
+     * time of change must be known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060040CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription. 
+     * Also used for sorting and audit purposes.</p><p>This 
+     * attribute is marked as &quot;mandatory&quot; as the time the 
+     * comment was posted will always be known.</p>
+     * 
+     * <p>The date on which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060210CA.Author7.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the other medication. 
+     * Also used for sorting and audit purposes.</p><p>Attribute is 
+     * marked as &quot;mandatory&quot; as the time of change must 
+     * be known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060010CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit purposes.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTimestamp</p>
+     * 
+     * <p>Relationship: PORX_MT060090CA.Author6.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the prescription 
+     * dispense. Also used for sorting and audit 
+     * purposes.</p><p>The attribute is mandatory as the time of 
+     * change is known.</p>
+     * 
+     * <p>The date and time at which the change was made.</p>
+     */
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
+    }
+
+
+    /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/changedBy"})
+    public ChangedBy getAuthorChangedBy() {
+        return this.authorChangedBy;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060340CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060040CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060040CA.Author1.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060210CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060210CA.Author7.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060010CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060010CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060090CA.ControlActEvent.author</p>
+     * <p>Relationship: PORX_MT060090CA.Author6.changedBy</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setAuthorChangedBy(ChangedBy authorChangedBy) {
+        this.authorChangedBy = authorChangedBy;
     }
 
 }

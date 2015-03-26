@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt260022ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.QueryAckBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.RegistrationEventBean;
@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

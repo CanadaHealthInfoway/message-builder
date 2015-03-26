@@ -33,14 +33,16 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ReferralDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldClinicalDocumentEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Recipients;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.RequestedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Section_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -51,7 +53,7 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -59,7 +61,7 @@ public class DocumentBean extends MessagePartBean {
     private RequestedByBean author;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private SectionBean componentStructuredBodyComponentSection;
+    private Section_1Bean componentStructuredBodyComponentSection;
     private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
@@ -147,18 +149,18 @@ public class DocumentBean extends MessagePartBean {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
-    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity1() {
-        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareWorkerBean getResponsiblePartyActingPersonAsAssignedEntity1() {
+        return this.responsiblePartyActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity1() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareWorkerBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
-        return this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
+        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity2() {
-        return (this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
     }
 
     public RelatedPersonBean getResponsiblePartyActingPersonAsPersonalRelationship() {
@@ -219,7 +221,7 @@ public class DocumentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public SectionBean getComponentStructuredBodyComponentSection() {
+    public Section_1Bean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
@@ -228,7 +230,7 @@ public class DocumentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
+    public void setComponentStructuredBodyComponentSection(Section_1Bean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 

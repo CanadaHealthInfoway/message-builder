@@ -31,19 +31,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.CoveredPartyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.PolicyHolderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActInsurancePolicyType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.UnderwriterBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
     private PolicyHolderBean holderPolicyHolder;
-    private UnderwriterBean authorUnderwriter;
+    private II authorUnderwriterId = new IIImpl();
 
 
     /**
@@ -135,22 +134,26 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: FICR_MT490102CA.Author.underwriter</p>
+     * <p>Business Name: Carrier Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/underwriter"})
-    public UnderwriterBean getAuthorUnderwriter() {
-        return this.authorUnderwriter;
+    @Hl7XmlMapping({"author/underwriter/id"})
+    public Identifier getAuthorUnderwriterId() {
+        return this.authorUnderwriterId.getValue();
     }
 
     /**
-     * <p>Relationship: FICR_MT490102CA.Author.underwriter</p>
+     * <p>Business Name: Carrier Identifier</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
-        this.authorUnderwriter = authorUnderwriter;
+    public void setAuthorUnderwriterId(Identifier authorUnderwriterId) {
+        this.authorUnderwriterId.setValue(authorUnderwriterId);
     }
 
 }

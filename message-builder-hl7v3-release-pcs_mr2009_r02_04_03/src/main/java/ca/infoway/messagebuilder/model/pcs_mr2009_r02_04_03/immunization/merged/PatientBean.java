@@ -26,8 +26,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Patient","POIZ_MT030060CA.Patient","POIZ_MT060150CA.Patient"})
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Consenter {
+public class PatientBean extends MessagePartBean implements Consenter {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

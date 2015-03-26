@@ -38,16 +38,16 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090502ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt240002ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt260012ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt470002ca.ConsentBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910102ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AuthenticationTokenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.CreatedBy_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.RefersTo_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RelatedPersonBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,13 +72,13 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
-    private AssignedEntityBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedBy_1Bean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
@@ -294,7 +294,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public AssignedEntityBean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -304,7 +304,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(AssignedEntityBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -348,11 +348,11 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
         this.dataEntererActingPerson = dataEntererActingPerson;
     }
 
-    public AssignedEntityBean getDataEntererActingPersonAsAssignedEntity1() {
-        return this.dataEntererActingPerson instanceof AssignedEntityBean ? (AssignedEntityBean) this.dataEntererActingPerson : null;
+    public HealthcareWorkerBean getDataEntererActingPersonAsAssignedEntity1() {
+        return this.dataEntererActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererActingPerson : null;
     }
     public boolean hasDataEntererActingPersonAsAssignedEntity1() {
-        return (this.dataEntererActingPerson instanceof AssignedEntityBean);
+        return (this.dataEntererActingPerson instanceof HealthcareWorkerBean);
     }
 
     public HealthcareOrganizationBean getDataEntererActingPersonAsAssignedEntity2() {

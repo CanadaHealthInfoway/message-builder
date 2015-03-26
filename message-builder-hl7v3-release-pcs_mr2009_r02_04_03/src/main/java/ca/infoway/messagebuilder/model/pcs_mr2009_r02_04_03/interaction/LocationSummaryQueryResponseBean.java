@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mfmi_mt700746ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.merged.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202306ca.QueryDefinitionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202317ca.LocationBean;
 
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lr.prpa_mt202317ca.L
  * <p>--> Payload: PRPA_MT202306CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN202011CA"})
-public class LocationSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<QueryDefinitionBean,LocationBean>> implements InteractionBean {
+public class LocationSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<QueryDefinitionBean,LocationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

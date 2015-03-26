@@ -32,10 +32,11 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050007ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt080100ca.SpecimenRoleBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.AssignedEntityBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.LabInitiatedOrderIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OrderSortKeyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.OutbreakBean;
@@ -45,7 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.Recipient
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.ReferralRedirectIndicatorBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.lab.merged.SupportingClinicalInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.SpecimenRoleBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -60,15 +60,15 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001999CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
-    private Patient_1Bean recordTargetPatient;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean performerAssignedEntity;
-    private List<HealthcareOrganizationBean> callBackContactAssignedEntity = new ArrayList<HealthcareOrganizationBean>();
+    private PatientBean recordTargetPatient;
+    private HealthcareOrganizationBean performerAssignedEntity;
+    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean> callBackContactAssignedEntity = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean>();
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
-    private List<AssignedEntityBean> verifierAssignedEntity = new ArrayList<AssignedEntityBean>();
+    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private ParentTestBean occurrenceOfActParentPointer;
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
@@ -148,7 +148,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
+    public PatientBean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
 
@@ -157,7 +157,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
 
@@ -168,7 +168,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"performer/assignedEntity"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getPerformerAssignedEntity() {
+    public HealthcareOrganizationBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
     }
 
@@ -177,7 +177,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPerformerAssignedEntity(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean performerAssignedEntity) {
+    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 
@@ -189,7 +189,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"callBackContact/assignedEntity"})
-    public List<HealthcareOrganizationBean> getCallBackContactAssignedEntity() {
+    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean> getCallBackContactAssignedEntity() {
         return this.callBackContactAssignedEntity;
     }
 
@@ -212,7 +212,7 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"verifier/assignedEntity"})
-    public List<AssignedEntityBean> getVerifierAssignedEntity() {
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
         return this.verifierAssignedEntity;
     }
 

@@ -22,8 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CreatedAtBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,62 +85,96 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
-    private CreatedAtBean location;
+    private static final long serialVersionUID = 20150326L;
+    private II locationServiceDeliveryLocationId = new IIImpl();
     private List<HasBean> participant = new ArrayList<HasBean>();
 
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT500002CA.PatientCareProvisionEventPortion.location</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500001CA.PatientCareProvisionEventPortion.location</p>
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Allows linking participants to locations.</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT500004CA.PatientCareProvisionEventPortion.location</p>
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Un-merged Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Un-merged Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
      */
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"location/serviceDeliveryLocation/id"})
+    public Identifier getLocationServiceDeliveryLocationId() {
+        return this.locationServiceDeliveryLocationId.getValue();
     }
 
     /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Business Name: LocationIdReference</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT500002CA.PatientCareProvisionEventPortion.location</p>
+     * <p>Un-merged Business Name: LocationIdReference</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * REPC_MT500001CA.PatientCareProvisionEventPortion.location</p>
+     * <p>Relationship: REPC_MT500002CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
+     * <p>Allows linking participants to locations.</p>
      * 
-     * <p>Relationship: 
-     * REPC_MT500004CA.PatientCareProvisionEventPortion.location</p>
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Un-merged Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500001CA.ServiceDeliveryLocation.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
+     * 
+     * <p>Un-merged Business Name: LocationIdReference</p>
+     * 
+     * <p>Relationship: REPC_MT500004CA.ServiceDeliveryLocation.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows linking participants to locations.</p>
+     * 
+     * <p>References the location for which the participants are 
+     * being identified. This will be a location already associated 
+     * with the care composition.</p>
      */
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setLocationServiceDeliveryLocationId(Identifier locationServiceDeliveryLocationId) {
+        this.locationServiceDeliveryLocationId.setValue(locationServiceDeliveryLocationId);
     }
 
 

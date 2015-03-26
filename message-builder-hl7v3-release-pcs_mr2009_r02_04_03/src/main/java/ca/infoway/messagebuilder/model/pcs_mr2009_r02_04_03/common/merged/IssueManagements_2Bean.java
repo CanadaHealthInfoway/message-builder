@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueManagementCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
 
 
 
@@ -63,10 +63,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean
 @Hl7PartTypeMapping({"COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagements_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
-    private ChangedByBean author;
+    private PrescribedByBean author;
 
 
     /**
@@ -376,7 +376,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
+    public PrescribedByBean getAuthor() {
         return this.author;
     }
 
@@ -402,7 +402,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAuthor(ChangedByBean author) {
+    public void setAuthor(PrescribedByBean author) {
         this.author = author;
     }
 

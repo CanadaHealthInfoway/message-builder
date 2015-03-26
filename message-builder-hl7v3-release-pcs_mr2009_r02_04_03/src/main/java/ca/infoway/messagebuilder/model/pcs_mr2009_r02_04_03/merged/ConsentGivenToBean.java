@@ -37,26 +37,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the beneficiary of the consent as being a 
  * Provider or Service Location.</p>
  * 
- * <p>COCT_MT470012CA.Receiver: *consent given to</p>
- * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
- * 
- * <p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p>
- * 
- * <p>COCT_MT470002CA.Receiver: *consent given to</p>
- * 
- * <p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p>
- * 
- * <p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p>
- * 
  * <p>POIZ_MT030060CA.Receiver: (no business name)</p>
  * 
  * <p>Indicates who is receiving consent to administer the 
@@ -65,10 +45,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>Identifies the beneficiary of the consent.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","POIZ_MT030050CA.Receiver","POIZ_MT030060CA.Receiver","POIZ_MT060150CA.Receiver","RCMR_MT010001CA.Receiver"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.Receiver","POIZ_MT030060CA.Receiver","POIZ_MT060150CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private Recipient recipient;
 
 
@@ -76,18 +56,6 @@ public class ConsentGivenToBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
@@ -118,18 +86,6 @@ public class ConsentGivenToBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: RCMR_MT010001CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470012CA.Receiver.recipient</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: COCT_MT470002CA.Receiver.recipient</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 

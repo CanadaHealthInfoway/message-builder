@@ -45,18 +45,19 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt050207ca.PatientBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090310ca.EHRRepositoryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.EHRRepositoryBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911107ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActDiagnosisCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.AllergyIntoleranceStatusChangesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.AmendmentSummaryBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.NewConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldConditionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -80,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private BL negationInd = new BLImpl();
@@ -88,14 +89,14 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CD value = new CDImpl();
-    private ActingPerson responsiblePartyActingPerson;
-    private ChangedByBean author;
-    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson informantActingPerson;
+    private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private RequestedByBean author;
+    private ActingPerson informantActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private NewConditionBean successorNewCondition;
-    private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
+    private AmendmentSummaryBean subjectOf1ControlActEvent;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
@@ -473,7 +474,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ActingPerson getResponsiblePartyActingPerson() {
+    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
 
@@ -483,22 +484,22 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
-    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity1() {
-        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareWorkerBean getResponsiblePartyActingPersonAsAssignedEntity1() {
+        return this.responsiblePartyActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity1() {
-        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareWorkerBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
-        return this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
+    public HealthcareOrganizationBean getResponsiblePartyActingPersonAsAssignedEntity2() {
+        return this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.responsiblePartyActingPerson : null;
     }
     public boolean hasResponsiblePartyActingPersonAsAssignedEntity2() {
-        return (this.responsiblePartyActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
+        return (this.responsiblePartyActingPerson instanceof HealthcareOrganizationBean);
     }
 
     public RelatedPersonBean getResponsiblePartyActingPersonAsPersonalRelationship() {
@@ -515,7 +516,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
+    public RequestedByBean getAuthor() {
         return this.author;
     }
 
@@ -524,7 +525,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(ChangedByBean author) {
+    public void setAuthor(RequestedByBean author) {
         this.author = author;
     }
 
@@ -535,7 +536,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson getInformantActingPerson() {
+    public ActingPerson getInformantActingPerson() {
         return this.informantActingPerson;
     }
 
@@ -544,29 +545,29 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setInformantActingPerson(ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ActingPerson informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean ? (ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090508ca.HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public PatientBean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof PatientBean ? (PatientBean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof PatientBean);
     }
 
 
@@ -649,7 +650,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
+    public AmendmentSummaryBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
@@ -658,7 +659,7 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
+    public void setSubjectOf1ControlActEvent(AmendmentSummaryBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }
 

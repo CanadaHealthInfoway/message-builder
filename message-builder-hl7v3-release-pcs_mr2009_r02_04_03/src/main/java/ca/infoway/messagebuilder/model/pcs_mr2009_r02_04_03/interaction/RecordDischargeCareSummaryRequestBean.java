@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.DischargeCareSummaryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.repc_mt220001ca.DischargeCareSummaryBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Discharg
  * <p>--> Payload: REPC_MT220001CA.Document</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000076CA"})
-public class RecordDischargeCareSummaryRequestBean extends HL7Message_1Bean<TriggerEventBean<DischargeCareSummaryBean>> implements InteractionBean {
+public class RecordDischargeCareSummaryRequestBean extends HL7MessageBean<TriggerEventBean<DischargeCareSummaryBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

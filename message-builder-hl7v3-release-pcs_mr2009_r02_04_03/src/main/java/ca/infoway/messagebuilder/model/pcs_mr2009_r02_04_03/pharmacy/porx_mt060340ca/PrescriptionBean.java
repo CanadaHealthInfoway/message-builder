@@ -40,23 +40,24 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt220110ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt260030ca.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt270010ca.AdministrationInstructionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.SubstanceAdministrationType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.AllowedSubstitutionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ClassifiesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.CoverageExtensions_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.FirstDispenseInformation_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.Includes_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.LastDispenseInformation_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.MedicationDispenseBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.NotEligibleForTrialBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ParentPrescriptionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.PrescriptionDispensesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.PrescriptionPatientMeasurementsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.PreviousDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ProtocolsBean;
@@ -89,35 +90,35 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"PORX_MT060340CA.CombinedMedicationRequest"})
 @Hl7RootType
-public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.Prescription {
+public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.porx_mt060350ca.Prescription {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean directTargetMedication;
-    private HealthcareOrganizationBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private PrescribedByBean author;
-    private OccurredAtBean location;
+    private TargetedToPharmacyBean location;
     private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
     private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private List<CoverageExtensions_2Bean> coverageCoverage = new ArrayList<CoverageExtensions_2Bean>();
+    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotEligibleForTrialBean component2;
-    private IncludesBean component3;
-    private List<MedicationDispenseBean> fulfillment1MedicationDispense = new ArrayList<MedicationDispenseBean>();
+    private Includes_1Bean component3;
+    private List<PrescriptionDispensesBean> fulfillment1MedicationDispense = new ArrayList<PrescriptionDispensesBean>();
     private LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary;
     private FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary;
     private RemainingDispenseInformation_1Bean fulfillment4SupplyEventFutureSummary;
     private PreviousDispenseInformation_1Bean fulfillment5SupplyEventPastSummary;
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean> subjectOf3 = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean>();
+    private List<IncludesBean> subjectOf3 = new ArrayList<IncludesBean>();
     private List<StatusChangesBean> subjectOf4ControlActEvent = new ArrayList<StatusChangesBean>();
     private AllowedSubstitutionBean subjectOf5SubstitutionPermission;
     private List<RefusalToFillsBean> subjectOf6RefusalToFill = new ArrayList<RefusalToFillsBean>();
@@ -304,7 +305,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareOrganizationBean getResponsiblePartyAssignedEntity() {
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
         return this.responsiblePartyAssignedEntity;
     }
 
@@ -314,7 +315,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setResponsiblePartyAssignedEntity(HealthcareOrganizationBean responsiblePartyAssignedEntity) {
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
@@ -348,7 +349,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
 
@@ -358,7 +359,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocation(OccurredAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
 
@@ -457,7 +458,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_2Bean> getCoverageCoverage() {
+    public List<CoverageExtensionsBean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -515,7 +516,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component3"})
-    public IncludesBean getComponent3() {
+    public Includes_1Bean getComponent3() {
         return this.component3;
     }
 
@@ -525,7 +526,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3(IncludesBean component3) {
+    public void setComponent3(Includes_1Bean component3) {
         this.component3 = component3;
     }
 
@@ -537,7 +538,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment1/medicationDispense"})
-    public List<MedicationDispenseBean> getFulfillment1MedicationDispense() {
+    public List<PrescriptionDispensesBean> getFulfillment1MedicationDispense() {
         return this.fulfillment1MedicationDispense;
     }
 
@@ -668,7 +669,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (0-99)</p>
      */
     @Hl7XmlMapping({"subjectOf3"})
-    public List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean> getSubjectOf3() {
+    public List<IncludesBean> getSubjectOf3() {
         return this.subjectOf3;
     }
 

@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.qucr_mt83020
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.InvoiceTypeBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.InvoiceGroupingIdentifiersBean;
 
 
 
@@ -36,8 +36,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Invoic
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
-    private InvoiceTypeBean invoiceElementGroup;
+    private static final long serialVersionUID = 20150326L;
+    private InvoiceGroupingIdentifiersBean invoiceElementGroup;
 
 
     /**
@@ -47,7 +47,7 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"invoiceElementGroup"})
-    public InvoiceTypeBean getInvoiceElementGroup() {
+    public InvoiceGroupingIdentifiersBean getInvoiceElementGroup() {
         return this.invoiceElementGroup;
     }
 
@@ -57,7 +57,7 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setInvoiceElementGroup(InvoiceTypeBean invoiceElementGroup) {
+    public void setInvoiceElementGroup(InvoiceGroupingIdentifiersBean invoiceElementGroup) {
         this.invoiceElementGroup = invoiceElementGroup;
     }
 

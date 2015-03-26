@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.immunization.merged
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice;
 
 
 
@@ -42,7 +41,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.Choice;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Reason","POIZ_MT030060CA.Reason","POIZ_MT060150CA.Reason"})
 public class ReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private Choice choice;
 
 

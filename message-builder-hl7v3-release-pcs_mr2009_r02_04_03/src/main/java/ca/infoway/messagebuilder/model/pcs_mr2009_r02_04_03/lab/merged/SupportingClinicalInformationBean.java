@@ -107,7 +107,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.Supporti
 @Hl7PartTypeMapping({"POLB_MT001000CA.SupportingClinicalObservationEvent","POLB_MT001001CA.SupportingClinicalObservationEvent","POLB_MT001010CA.SupportingClinicalObservationEvent","POLB_MT001999CA.SupportingClinicalObservationEvent","POLB_MT002000CA.SupportingClinicalObservationEvent","POLB_MT004000CA.SupportingClinicalObservationEvent","POLB_MT004100CA.SupportingClinicalObservationEvent1","POLB_MT004100CA.SupportingClinicalObservationEvent2","POLB_MT004200CA.SupportingClinicalObservationEvent1"})
 public class SupportingClinicalInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CD code = new CDImpl();
     private ANY<Object> value = new ANYImpl<Object>();
 

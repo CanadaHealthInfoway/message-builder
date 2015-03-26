@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActDetectedIssueManagementCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -64,11 +65,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement"})
 public class IssueManagements_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
     private TS authorTime = new TSImpl();
-    private AssignedEntityBean authorAssignedEntity;
+    private HealthcareWorkerBean authorAssignedEntity;
 
 
     /**
@@ -413,7 +414,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntityBean getAuthorAssignedEntity() {
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
@@ -430,7 +431,7 @@ public class IssueManagements_1Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 

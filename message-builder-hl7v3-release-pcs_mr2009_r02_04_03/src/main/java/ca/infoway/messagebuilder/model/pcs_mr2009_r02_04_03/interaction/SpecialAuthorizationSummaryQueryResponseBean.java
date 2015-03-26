@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.ParameterList_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.SpecialAuthorizationRequestBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt490001ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt490101ca.SpecialAuthorizationRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.quqi_mt120008ca.TriggerEventBean;
 
 
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
  * <p>--> Payload: FICR_MT490001CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"FICR_IN404102CA"})
-public class SpecialAuthorizationSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<SpecialAuthorizationRequestBean,ParameterList_1Bean>> implements InteractionBean {
+public class SpecialAuthorizationSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<SpecialAuthorizationRequestBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Insura
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private PN playingAdjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;

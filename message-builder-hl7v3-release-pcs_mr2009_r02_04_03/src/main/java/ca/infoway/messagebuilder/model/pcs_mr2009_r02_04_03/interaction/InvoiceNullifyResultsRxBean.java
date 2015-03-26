@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.ficr_mt630000ca.InvoiceElementGroupBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700227ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.Trigge
  * <p>--> Payload: FICR_MT630000CA.InvoiceElementGroup</p>
  */
 @Hl7PartTypeMapping({"FICR_IN630102CA"})
-public class InvoiceNullifyResultsRxBean extends HL7Message_1Bean<TriggerEvent_2Bean<InvoiceElementGroupBean>> implements InteractionBean {
+public class InvoiceNullifyResultsRxBean extends HL7MessageBean<TriggerEventBean<InvoiceElementGroupBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

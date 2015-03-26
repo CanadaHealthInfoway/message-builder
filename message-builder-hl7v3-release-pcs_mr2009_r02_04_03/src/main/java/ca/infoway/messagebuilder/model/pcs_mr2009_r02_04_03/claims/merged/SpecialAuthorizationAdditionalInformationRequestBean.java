@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.ST;
@@ -32,14 +31,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest","FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest","FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest"})
-@Hl7RootType
+@Hl7PartTypeMapping({"FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest","FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest"})
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private ST text = new STImpl();
-    private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
 
 
     /**
@@ -49,13 +46,6 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -84,13 +74,6 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: AdditionalInformationRequestID</p>
-     * 
-     * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -107,13 +90,6 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * 
      * <p>Relationship: 
      * FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -142,45 +118,12 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
      * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
      * 
      * <p>Relationship: 
-     * FICR_MT490003CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: AdditionalInformationQuestion</p>
-     * 
-     * <p>Relationship: 
      * FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest.text</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setText(String text) {
         this.text.setValue(text);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
-    public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
-        return this.referenceSpecialAuthorizationRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * FICR_MT490003CA.Reference.specialAuthorizationRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
-        this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
     }
 
 }

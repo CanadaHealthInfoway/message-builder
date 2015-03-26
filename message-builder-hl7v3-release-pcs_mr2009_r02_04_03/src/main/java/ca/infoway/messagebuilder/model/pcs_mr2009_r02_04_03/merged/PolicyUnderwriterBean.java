@@ -29,7 +29,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyUnderwriter","FICR_MT500201CA.PolicyUnderwriter","FICR_MT600201CA.PolicyUnderwriter","FICR_MT610201CA.PolicyUnderwriter"})
 public class PolicyUnderwriterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CarrierRoleBean carrierRole;
 
 

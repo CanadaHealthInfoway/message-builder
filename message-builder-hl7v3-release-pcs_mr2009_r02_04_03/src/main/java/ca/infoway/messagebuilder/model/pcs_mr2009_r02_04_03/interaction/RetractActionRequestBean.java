@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.comt_mt001104ca.ReferencedRecordBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.mcci_mt002100ca.HL7MessageBean;
 
 
 
@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ActEventBean;
  * <p>--> Payload: COMT_MT001104CA.ActEvent</p>
  */
 @Hl7PartTypeMapping({"COMT_IN600001CA"})
-public class RetractActionRequestBean extends HL7Message_1Bean<TriggerEventBean<ActEventBean>> implements InteractionBean {
+public class RetractActionRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }
