@@ -72,9 +72,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * the patient that contributed to the issue being raised.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
-public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
+public class PatientMeasurableObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt260030ca.CausalActs, CausalActs {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CV confidentialityCode = new CVImpl();

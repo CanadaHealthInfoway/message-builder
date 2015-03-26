@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatorRoleBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceGroupCode;
 import java.util.Date;
 
@@ -53,14 +52,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private MO netAmt = new MOImpl();
     private CS authorContextControlCode = new CSImpl();
     private TS authorTime = new TSImpl();
     private CV authorModeCode = new CVImpl();
-    private AdjudicatorRoleBean authorAdjudicatorRole;
+    private AdjudicatorIdBean authorAdjudicatorRole;
     private AdjudicatedResultOutcomeBean outcomeOf;
 
 
@@ -291,7 +290,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author/adjudicatorRole"})
-    public AdjudicatorRoleBean getAuthorAdjudicatorRole() {
+    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
         return this.authorAdjudicatorRole;
     }
 
@@ -301,7 +300,7 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthorAdjudicatorRole(AdjudicatorRoleBean authorAdjudicatorRole) {
+    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
         this.authorAdjudicatorRole = authorAdjudicatorRole;
     }
 

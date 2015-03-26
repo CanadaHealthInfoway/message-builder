@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.AdjudicatedResultsGroupBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.ParameterListBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.qucr_mt800201ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.qucr_mt810201ca.AdjudicatedResultsGroupBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.quqi_mt120008ca.TriggerEventBean;
 
 
 
@@ -46,8 +46,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerE
  * <p>--> Payload: QUCR_MT800201CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"QUCR_IN810102CA"})
-public class SOFAPaymentAdviceQueryResponseRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
+public class SOFAPaymentAdviceQueryResponseRxBean extends HL7MessageBean<TriggerEventBean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

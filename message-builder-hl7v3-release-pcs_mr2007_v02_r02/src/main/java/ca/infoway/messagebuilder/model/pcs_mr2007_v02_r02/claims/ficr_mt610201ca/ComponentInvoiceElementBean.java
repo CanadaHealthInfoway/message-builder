@@ -23,8 +23,6 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt610201c
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.InvoiceElementDetailBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PaymentIntentBean;
 
 
 
@@ -45,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PaymentI
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class ComponentInvoiceElementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 
@@ -77,11 +75,11 @@ public class ComponentInvoiceElementBean extends MessagePartBean {
         return (this.adjudicatedInvoiceElementChoice instanceof PaymentIntentBean);
     }
 
-    public InvoiceElementDetailBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {
-        return this.adjudicatedInvoiceElementChoice instanceof InvoiceElementDetailBean ? (InvoiceElementDetailBean) this.adjudicatedInvoiceElementChoice : null;
+    public AdjudicatedInvoiceElementLineItemBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {
+        return this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementLineItemBean ? (AdjudicatedInvoiceElementLineItemBean) this.adjudicatedInvoiceElementChoice : null;
     }
     public boolean hasAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {
-        return (this.adjudicatedInvoiceElementChoice instanceof InvoiceElementDetailBean);
+        return (this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementLineItemBean);
     }
 
 }

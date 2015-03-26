@@ -31,7 +31,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt600201ca.CoveredPartyAsPatientChoice;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.ficr_mt600201ca.PatientConsentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.CoverageRoleType;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,10 +80,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private RelatedPersonBean indirectAuthorityPersonalRelationship;
+    private PatientToCoveredPartyPersonalRelationshipBean indirectAuthorityPersonalRelationship;
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
     private List<PatientConsentBean> subjectOf = new ArrayList<PatientConsentBean>();
 
@@ -321,7 +320,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
-    public RelatedPersonBean getIndirectAuthorityPersonalRelationship() {
+    public PatientToCoveredPartyPersonalRelationshipBean getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;
     }
 
@@ -340,7 +339,7 @@ public class CoveredPartyInformationBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
+    public void setIndirectAuthorityPersonalRelationship(PatientToCoveredPartyPersonalRelationshipBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
     }
 

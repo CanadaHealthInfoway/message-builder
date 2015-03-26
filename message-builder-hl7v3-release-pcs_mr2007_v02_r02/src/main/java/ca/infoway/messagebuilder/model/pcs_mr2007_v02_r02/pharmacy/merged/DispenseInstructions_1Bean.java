@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
-import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
@@ -36,12 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActRelationshipType;
 import ca.infoway.messagebuilder.domainvalue.ContextControl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DispenseShipToLocationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010140ca.RemainingDispensesBean;
-import java.util.ArrayList;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.TargetedToPharmacyBean;
 import java.util.Date;
-import java.util.List;
 
 
 
@@ -71,14 +66,6 @@ import java.util.List;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  * 
- * <p>PORX_MT010140CA.SupplyRequest: Dispense Instructions</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate.</p>
- * 
- * <p>This is the information that describes the authorization 
- * for a dispenser to dispense the prescription.</p>
- * 
  * <p>PORX_MT010110CA.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>One of 'quantity' and 'expectedUseTime' must be 
@@ -92,21 +79,18 @@ import java.util.List;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT010140CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
-@Hl7RootType
+@Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private INT quantity = new INTImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private CreatedAtBean location;
+    private TargetedToPharmacyBean location;
     private CS componentTypeCode = new CSImpl();
     private CS componentContextControlCode = new CSImpl();
     private BL componentContextConductionInd = new BLImpl();
     private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
-    private ActRequestBean componentOfActRequest;
 
 
     /**
@@ -360,18 +344,12 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
 
@@ -390,17 +368,11 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT010140CA.SupplyRequest.location</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.location</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocation(CreatedAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
 
@@ -558,43 +530,6 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      */
     public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
         this.componentSupplementalFillInformation = componentSupplementalFillInformation;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010140CA.InFulfillmentOf.supplyEvent</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"fulfillment/supplyEvent"})
-    public List<RemainingDispensesBean> getFulfillmentSupplyEvent() {
-        return this.fulfillmentSupplyEvent;
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    @Hl7XmlMapping({"componentOf/actRequest"})
-    public ActRequestBean getComponentOfActRequest() {
-        return this.componentOfActRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT010140CA.Component6.actRequest</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     */
-    public void setComponentOfActRequest(ActRequestBean componentOfActRequest) {
-        this.componentOfActRequest = componentOfActRequest;
     }
 
 }

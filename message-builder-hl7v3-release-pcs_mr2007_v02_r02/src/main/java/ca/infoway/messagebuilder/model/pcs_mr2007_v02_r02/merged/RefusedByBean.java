@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -39,6 +39,16 @@ import java.util.Date;
  * 
  * <p>Indicates the identity of the provider who recorded the 
  * other medication information.</p>
+ * 
+ * <p>COMT_MT300003CA.Author: *b:annotated by</p>
+ * 
+ * <p>Allows other providers to communicator with the author of 
+ * the note for follow-up enquiries. The author of an 
+ * annotation must always be known and is therefore 
+ * mandatory.</p>
+ * 
+ * <p>Identifier of the provider who created the patient 
+ * note.</p>
  * 
  * <p>PORX_MT060160CA.Author5: *refused by</p>
  * 
@@ -125,6 +135,17 @@ import java.util.Date;
  * 
  * <p>Indicates who refused to fulfill the prescription</p>
  * 
+ * <p>REPC_MT000009CA.Author3: *changed by</p>
+ * 
+ * <p>In an EHR integrated health services environment, it is 
+ * important that other providers are able to query who is 
+ * responsible for a given change. Also used by applications 
+ * for auditing and sorting. The attribute is mandatory because 
+ * the responsible provider should always be known.</p>
+ * 
+ * <p>Identity of the health service provider responsible for 
+ * the change in the allergy/intolerance status.</p>
+ * 
  * <p>REPC_MT000005CA.Author: *f:authored by</p>
  * 
  * <p>Identifies responsibility for accuracy and relevance of 
@@ -157,10 +178,10 @@ import java.util.Date;
  * 
  * <p>The person who prescribed the device.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author"})
+@Hl7PartTypeMapping({"COMT_MT300003CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author","REPC_MT000009CA.Author3"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private HealthcareWorkerBean assignedEntity;
     private TS time = new TSImpl();
 
@@ -169,6 +190,12 @@ public class RefusedByBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060210CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -241,6 +268,12 @@ public class RefusedByBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -276,6 +309,12 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: COMT_MT300003CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: PORX_MT060160CA.Author5.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -343,6 +382,12 @@ public class RefusedByBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: REPC_MT000005CA.Author.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -384,6 +429,19 @@ public class RefusedByBean extends MessagePartBean {
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
+     * <p>Un-merged Business Name: PatientNoteDate</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows other provider to evaluate the currency of the 
+     * information contained in the note.</p><p>The date of the 
+     * note creation is always known and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>The date on which the patient note was created.</p>
+     * 
      * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
@@ -413,6 +471,19 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTime</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the allergy. Also 
+     * used for sorting and audit purposes. Time of change is 
+     * always known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made.</p>
      * 
      * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
@@ -496,6 +567,19 @@ public class RefusedByBean extends MessagePartBean {
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
      * 
+     * <p>Un-merged Business Name: PatientNoteDate</p>
+     * 
+     * <p>Relationship: COMT_MT300003CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows other provider to evaluate the currency of the 
+     * information contained in the note.</p><p>The date of the 
+     * note creation is always known and is therefore 
+     * mandatory.</p>
+     * 
+     * <p>The date on which the patient note was created.</p>
+     * 
      * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 
      * <p>Relationship: PORX_MT020070CA.Author.time</p>
@@ -525,6 +609,19 @@ public class RefusedByBean extends MessagePartBean {
      * 
      * <p>The date and time on which the allergy/intolerance record 
      * was created.</p>
+     * 
+     * <p>Un-merged Business Name: ChangeTime</p>
+     * 
+     * <p>Relationship: REPC_MT000009CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the allergy. Also 
+     * used for sorting and audit purposes. Time of change is 
+     * always known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made.</p>
      * 
      * <p>Un-merged Business Name: PrescriptionOrderDate</p>
      * 

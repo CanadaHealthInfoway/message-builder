@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugContainsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugDispensedInBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +55,7 @@ import java.util.List;
 @Hl7RootType
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt270010ca.Medication {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV administerableMedicineCode = new CVImpl();
     private ST administerableMedicineName = new STImpl();
     private ST administerableMedicineDesc = new STImpl();

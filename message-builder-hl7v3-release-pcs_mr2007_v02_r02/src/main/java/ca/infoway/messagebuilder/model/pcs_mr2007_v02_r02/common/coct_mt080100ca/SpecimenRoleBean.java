@@ -36,7 +36,6 @@ import ca.infoway.messagebuilder.domainvalue.EntityRisk;
 import ca.infoway.messagebuilder.domainvalue.RoleClass;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.SpecimenTypeCode;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OtherSpecimenIdentificationsBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +52,7 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS classCode = new CSImpl();
     private II id = new IIImpl();
     private CV specimenMaterialCode = new CVImpl();

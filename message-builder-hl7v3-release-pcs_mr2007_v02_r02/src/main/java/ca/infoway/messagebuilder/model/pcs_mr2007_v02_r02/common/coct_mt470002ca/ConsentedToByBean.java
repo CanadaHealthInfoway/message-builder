@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.domainvalue.x_PhysicalVerbalParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910107ca.RelatedPersonBean;
 
 
 
@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBe
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private RelatedPersonBean personalRelationship;

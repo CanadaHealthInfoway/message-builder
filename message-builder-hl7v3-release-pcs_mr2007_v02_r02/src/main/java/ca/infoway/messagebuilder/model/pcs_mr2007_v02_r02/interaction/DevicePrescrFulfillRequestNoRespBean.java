@@ -22,9 +22,9 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.PrescriptionReferenceBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt010110ca.PrescriptionBean;
 
 
 
@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Prescr
  * <p>--> Payload: PORX_MT010110CA.DeviceRequest</p>
  */
 @Hl7PartTypeMapping({"PORX_IN010940CA"})
-public class DevicePrescrFulfillRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionReferenceBean>> implements InteractionBean {
+public class DevicePrescrFulfillRequestNoRespBean extends HL7MessageBean<TriggerEventBean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

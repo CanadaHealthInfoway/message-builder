@@ -29,7 +29,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Name: Includes</p>
  * 
+ * <p>PORX_MT060160CA.Component6: f:includes</p>
+ * 
+ * <p>An essential part of most prescriptions is the 
+ * authorization to dispense. Multiple repetitions are included 
+ * to accommodate circumstances where multiple drug products 
+ * may need to be dispensed to complete a therapy. E.g. 100 x 
+ * 20mg tablets and 50 x 10mg tablets. The association is 
+ * marked as Populated because the authorization to dispense is 
+ * a critical portion of a prescription. However the 
+ * association is allowed to be 'null' when the order is for a 
+ * medication which requires no dispense authorization (e.g. 
+ * over-the-counter medications), or when the patient already 
+ * has sufficient supply of the medication on hand to complete 
+ * the therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
+ * 
  * <p>PORX_MT030040CA.Component6: f:includes</p>
+ * 
+ * <p>An essential part of most prescriptions is the 
+ * authorization to dispense. Multiple repetitions are included 
+ * to accommodate circumstances where multiple drug products 
+ * may need to be dispensed to complete a therapy. E.g. 100 x 
+ * 20mg tablets and 50 x 10mg tablets. The association is 
+ * marked as Populated because the authorization to dispense is 
+ * a critical portion of a prescription. However the 
+ * association is allowed to be 'null' when the order is for a 
+ * medication which requires no dispense authorization (e.g. 
+ * over-the-counter medications), or when the patient already 
+ * has sufficient supply of the medication on hand to complete 
+ * the therapy.</p>
+ * 
+ * <p>Identifies the instructions for how the prescribed 
+ * medication should be dispensed to the patient.</p>
+ * 
+ * <p>PORX_MT060340CA.Component6: f:includes</p>
  * 
  * <p>An essential part of most prescriptions is the 
  * authorization to dispense. Multiple repetitions are included 
@@ -65,14 +101,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * <p>Identifies the instructions for how the prescribed 
  * medication should be dispensed to the patient.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT030040CA.Component6","PORX_MT060190CA.Component6"})
+@Hl7PartTypeMapping({"PORX_MT030040CA.Component6","PORX_MT060160CA.Component6","PORX_MT060190CA.Component6","PORX_MT060340CA.Component6"})
 public class Component6Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private DispenseInstructions_2Bean supplyRequest;
 
 
     /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060160CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
@@ -82,6 +124,12 @@ public class Component6Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -93,6 +141,12 @@ public class Component6Bean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: PORX_MT060160CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: PORX_MT030040CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
@@ -100,6 +154,12 @@ public class Component6Bean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: PORX_MT060190CA.Component6.supplyRequest</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: PORX_MT060340CA.Component6.supplyRequest</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */

@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mfmi_mt700726ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101102ca.IdentifiedPersonBean;
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.cr.prpa_mt101102ca.Ide
  * <p>--> Payload: PRPA_MT101102CA.IdentifiedEntity</p>
  */
 @Hl7PartTypeMapping({"PRPA_IN101206CA"})
-public class PersonReviseEventRejectBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
+public class PersonReviseEventRejectBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

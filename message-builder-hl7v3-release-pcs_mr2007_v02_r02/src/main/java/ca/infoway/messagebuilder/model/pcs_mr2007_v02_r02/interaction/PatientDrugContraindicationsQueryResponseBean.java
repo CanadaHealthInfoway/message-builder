@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerEvent_5Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IssuesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt260020ca.IssuesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt050020ca.GenericQueryParametersBean;
 
 
 
@@ -42,8 +42,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.merged.Generi
  * <p>--> Payload: PORX_MT050020CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"PORX_IN050040CA"})
-public class PatientDrugContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
+public class PatientDrugContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

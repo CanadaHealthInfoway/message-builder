@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.OwnerPersonBean
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactParty"})
 public class AdministrativeContactsSBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private OwnerPersonBean contactPerson;

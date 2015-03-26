@@ -38,9 +38,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * information is sent as part of the authentication token.</p>
  */
 @Hl7PartTypeMapping({"MCAI_MT700212CA.AuthorRole"})
-public class NullAuthorRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.AuthorPerson {
+public class NullAuthorRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.AuthorPerson_1 {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS classCode = new CSImpl();
 
 

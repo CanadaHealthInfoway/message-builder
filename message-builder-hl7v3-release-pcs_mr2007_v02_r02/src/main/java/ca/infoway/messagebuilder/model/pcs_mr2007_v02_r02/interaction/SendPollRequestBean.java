@@ -22,7 +22,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt102001ca.HL7MessageBean;
 
 
 
@@ -35,8 +35,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Messa
  * <p>Message: MCCI_MT102001CA.Message</p>
  */
 @Hl7PartTypeMapping({"MCCI_IN100001CA"})
-public class SendPollRequestBean extends HL7Message_2Bean implements InteractionBean {
+public class SendPollRequestBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

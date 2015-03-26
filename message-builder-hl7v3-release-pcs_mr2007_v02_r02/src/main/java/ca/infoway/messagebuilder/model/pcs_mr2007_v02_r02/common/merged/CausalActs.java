@@ -24,7 +24,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT260010CA.CausalActs","COCT_MT260020CA.CausalActs","COCT_MT260030CA.CausalActs"})
+@Hl7PartTypeMapping({"COCT_MT260010CA.CausalActs","COCT_MT260020CA.CausalActs"})
 public interface CausalActs {
 
 }

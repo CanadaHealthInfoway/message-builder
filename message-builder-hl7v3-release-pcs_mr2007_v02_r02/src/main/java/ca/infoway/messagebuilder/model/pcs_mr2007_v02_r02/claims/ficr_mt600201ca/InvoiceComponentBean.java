@@ -25,8 +25,6 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SubmittedInvoiceElementDetailsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SubmittedInvoiceGroupBean;
 
 
 
@@ -50,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.Submitte
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementComponent"})
 public class InvoiceComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private INT sequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 
@@ -98,18 +96,18 @@ public class InvoiceComponentBean extends MessagePartBean {
         this.invoiceElementChoice = invoiceElementChoice;
     }
 
-    public SubmittedInvoiceGroupBean getInvoiceElementChoiceAsInvoiceElementGroup() {
-        return this.invoiceElementChoice instanceof SubmittedInvoiceGroupBean ? (SubmittedInvoiceGroupBean) this.invoiceElementChoice : null;
+    public InvoiceGroupingInformationBean getInvoiceElementChoiceAsInvoiceElementGroup() {
+        return this.invoiceElementChoice instanceof InvoiceGroupingInformationBean ? (InvoiceGroupingInformationBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementGroup() {
-        return (this.invoiceElementChoice instanceof SubmittedInvoiceGroupBean);
+        return (this.invoiceElementChoice instanceof InvoiceGroupingInformationBean);
     }
 
-    public SubmittedInvoiceElementDetailsBean getInvoiceElementChoiceAsInvoiceElementDetail() {
-        return this.invoiceElementChoice instanceof SubmittedInvoiceElementDetailsBean ? (SubmittedInvoiceElementDetailsBean) this.invoiceElementChoice : null;
+    public InvoiceElementDetailsBean getInvoiceElementChoiceAsInvoiceElementDetail() {
+        return this.invoiceElementChoice instanceof InvoiceElementDetailsBean ? (InvoiceElementDetailsBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
-        return (this.invoiceElementChoice instanceof SubmittedInvoiceElementDetailsBean);
+        return (this.invoiceElementChoice instanceof InvoiceElementDetailsBean);
     }
 
 }

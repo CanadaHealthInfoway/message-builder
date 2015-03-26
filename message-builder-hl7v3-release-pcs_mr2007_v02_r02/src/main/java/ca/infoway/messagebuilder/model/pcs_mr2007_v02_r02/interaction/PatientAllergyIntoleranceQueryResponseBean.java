@@ -22,10 +22,10 @@ package ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.quqi_mt120006ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000004ca.AllergyIntoleranceQueryParametersBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000005ca.AllergyIntoleranceBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.GenericQueryParametersBean;
 
 
 
@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.GenericQueryPar
  * <p>--> Payload: REPC_MT000004CA.ParameterList</p>
  */
 @Hl7PartTypeMapping({"REPC_IN000016CA"})
-public class PatientAllergyIntoleranceQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<AllergyIntoleranceBean,GenericQueryParametersBean>> implements InteractionBean {
+public class PatientAllergyIntoleranceQueryResponseBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean,AllergyIntoleranceQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
 
 }

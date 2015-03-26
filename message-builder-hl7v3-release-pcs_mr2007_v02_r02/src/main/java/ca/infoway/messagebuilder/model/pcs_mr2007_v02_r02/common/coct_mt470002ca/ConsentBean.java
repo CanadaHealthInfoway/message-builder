@@ -35,13 +35,11 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.AccessTypeBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090502ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SubjectChoice;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RelatedPersonBean;
 import java.util.Date;
 
 
@@ -74,12 +72,12 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private SubjectChoice subject1SubjectChoice;
-    private PrescribedByBean author1;
+    private HealthcareWorkerBean author1AssignedEntity;
     private ConsentedToByBean author2;
     private AccessTypeBean subject2InformDefinition;
 
@@ -262,22 +260,22 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author1</p>
+     * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    @Hl7XmlMapping({"author1"})
-    public PrescribedByBean getAuthor1() {
-        return this.author1;
+    @Hl7XmlMapping({"author1/assignedEntity"})
+    public HealthcareWorkerBean getAuthor1AssignedEntity() {
+        return this.author1AssignedEntity;
     }
 
     /**
-     * <p>Relationship: COCT_MT470002CA.ConsentEvent.author1</p>
+     * <p>Relationship: COCT_MT470002CA.Author2.assignedEntity</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthor1(PrescribedByBean author1) {
-        this.author1 = author1;
+    public void setAuthor1AssignedEntity(HealthcareWorkerBean author1AssignedEntity) {
+        this.author1AssignedEntity = author1AssignedEntity;
     }
 
 

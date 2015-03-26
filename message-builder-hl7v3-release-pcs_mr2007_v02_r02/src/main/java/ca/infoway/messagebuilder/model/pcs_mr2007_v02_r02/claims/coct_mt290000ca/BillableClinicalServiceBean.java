@@ -41,11 +41,10 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.DiagnosisInformationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.HealthcareProviderBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.ManufacturedProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PatientEncounterBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActBillableClinicalServiceReason;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActProcedureCode;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -64,7 +63,7 @@ import java.util.Set;
 @Hl7RootType
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20131209L;
+    private static final long serialVersionUID = 20150326L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CV code = new CVImpl();
