@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.codehaus.plexus.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.NamedType;
@@ -233,11 +233,24 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		int matchingAssociations = checkRelationships(type, otherType, matchTypes, MatchType.ADDED);
 		checkRelationships(otherType, type, matchTypes, MatchType.REMOVED);
 		
-		boolean typeHasNoAssociations = (type.getNumberOfAssociations() == 0);
-		boolean otherTypeHasNoAssociations = (otherType.getNumberOfAssociations() == 0);
+		// TM  - to improve quality of merge candidates, to match must first have sufficient overlap, THEN
+		//    1) must have at least one association in common
+		// OR 2) must share a root type name that *isn't* Component# or Subject# (where # is a number, or blank)
 		
-		// TM  - to improve quality of merge candidates, must have at least one association matching (or both types must not have any associations)
-		return this.fuzziness.isSufficientOverlap(matchTypes) && (matchingAssociations > 0 || (typeHasNoAssociations && otherTypeHasNoAssociations));
+		return this.fuzziness.isSufficientOverlap(matchTypes) && (matchingAssociations > 0 || isRootTypeNameMatch(type.getName(), otherType.getName()));
+	}
+	
+	private boolean isRootTypeNameMatch(String name1, String name2) {
+		name1 = StringUtils.substringAfterLast(name1, ".");
+		name2 = StringUtils.substringAfterLast(name2, ".");
+		
+		if (StringUtils.isBlank(name1) || StringUtils.isBlank(name2)) {
+			return false;
+		}
+		
+		String rootName1 = name1.replaceAll("\\d*$", "");
+		String rootName2 = name2.replaceAll("\\d*$", "");
+		return rootName1.equals(rootName2) && !"Component".equals(rootName1) && !"Subject".equals(rootName1);
 	}
 	
 	private String describe(NamedType type, Named relationship) {
