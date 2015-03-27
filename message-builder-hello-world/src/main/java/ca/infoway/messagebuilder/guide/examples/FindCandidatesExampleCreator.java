@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.QueryB
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.FindCandidatesQueryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 
 /**
  * <p>This class shows how to create a simple FindCandidates HL7 query bean.
@@ -109,7 +110,9 @@ public class FindCandidatesExampleCreator {
 		HealthcareWorkerBean person = new HealthcareWorkerBean();
 		person.getId().add(new Identifier("1.1.1", "1"));
 		authorBean.setTime(new Date());
-		person.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		person.setAssignedPerson(assignedPerson);
+		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
 		return person;
 	}
 	

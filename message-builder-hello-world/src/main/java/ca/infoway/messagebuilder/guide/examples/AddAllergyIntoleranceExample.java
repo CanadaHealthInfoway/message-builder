@@ -102,6 +102,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Reaction
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000001ca.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.interaction.AddAllergyIntoleranceRequestBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.resolver.CompositeCodeResolver;
@@ -220,10 +221,14 @@ public class AddAllergyIntoleranceExample {
 	}
 
 	private static HealthcareWorkerBean createHealthcareWorkerBean() {
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
+		
 		HealthcareWorkerBean noteAuthor = new HealthcareWorkerBean();
 		noteAuthor.getId().add(
 				new Identifier("12.34.56", "1"));
-		noteAuthor.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
+		noteAuthor.setAssignedPerson(assignedPerson);
+		
 		return noteAuthor;
 	}
 
@@ -235,11 +240,15 @@ public class AddAllergyIntoleranceExample {
 	}
 
 	private static ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean createParty() {
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
+		
 		ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean assignedPersonBean = new ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean();
 		assignedPersonBean.getId().add(
 				new Identifier("12.34.56", "1"));
 		assignedPersonBean.setCode(lookup(HealthcareProviderRoleType.class, "ACP", VOCABULARY_ROLE_CODE.getRoot()));
-		assignedPersonBean.setAssignedPersonName(createFirstNameLastName("John", "Doe"));
+		assignedPersonBean.setAssignedPerson(assignedPerson);
+		
 		return assignedPersonBean;
 	}
 
@@ -318,10 +327,13 @@ public class AddAllergyIntoleranceExample {
 				new TelecommunicationAddress(URLScheme.TEL, "4167620032"));
 		identifiedPersonBean.setSpecializationTypeInList("telecom", 0, StandardDataType.TEL_PHONE);
 		
-		identifiedPersonBean.setPatientPersonName(PersonName.createFirstNameLastName("Alan", "Wall"));
-		identifiedPersonBean.setPatientPersonBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
-		identifiedPersonBean.setPatientPersonAdministrativeGenderCode(
+		ActingPersonBean patientPerson = new ActingPersonBean();
+		patientPerson.setName(PersonName.createFirstNameLastName("Alan", "Wall"));
+		patientPerson.setBirthTime(new GregorianCalendar(1972, 2, 21).getTime());
+		patientPerson.setAdministrativeGenderCode(
 				lookup(AdministrativeGender.class, "F", VOCABULARY_ADMINISTRATIVE_GENDER.getRoot()));
+		
+		identifiedPersonBean.setPatientPerson(patientPerson);
 		
 		return identifiedPersonBean;
 	}
