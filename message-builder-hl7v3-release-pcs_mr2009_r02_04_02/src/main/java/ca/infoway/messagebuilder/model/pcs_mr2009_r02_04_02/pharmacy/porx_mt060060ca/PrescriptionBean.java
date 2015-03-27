@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Component6Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.FirstDispenseInformation_2Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.Includes_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.LastDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PreviousDispenseInformation_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ProcedureRequestBean;
@@ -83,7 +83,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private ProcedureRequestBean component1ProcedureRequest;
-    private Includes_2Bean component2;
+    private Component6Bean component2;
     private RemainingDispenseInformation_2Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_2Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_2Bean fulfillment3SupplyEventLastSummary;
@@ -340,7 +340,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2"})
-    public Includes_2Bean getComponent2() {
+    public Component6Bean getComponent2() {
         return this.component2;
     }
 
@@ -350,7 +350,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2(Includes_2Bean component2) {
+    public void setComponent2(Component6Bean component2) {
         this.component2 = component2;
     }
 

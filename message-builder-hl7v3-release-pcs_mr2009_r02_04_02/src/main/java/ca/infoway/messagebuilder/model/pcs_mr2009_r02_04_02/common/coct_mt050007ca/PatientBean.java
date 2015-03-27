@@ -39,6 +39,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import java.util.List;
 import java.util.Set;
 
@@ -66,7 +67,7 @@ public class PatientBean extends MessagePartBean {
     private AD addr = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ST certificateText = new STImpl();
-    private PersonBean patientPerson;
+    private ActingPersonBean patientPerson;
     private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
 
 
@@ -155,7 +156,7 @@ public class PatientBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"patientPerson"})
-    public PersonBean getPatientPerson() {
+    public ActingPersonBean getPatientPerson() {
         return this.patientPerson;
     }
 
@@ -164,7 +165,7 @@ public class PatientBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setPatientPerson(PersonBean patientPerson) {
+    public void setPatientPerson(ActingPersonBean patientPerson) {
         this.patientPerson = patientPerson;
     }
 

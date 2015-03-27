@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_2Bean;
 import java.util.List;
 import java.util.Set;
 
@@ -65,7 +66,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private PrinicpalPersonBean assignedPrincipalPerson;
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
 
 
@@ -148,7 +149,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPersonBean getAssignedPrincipalPerson() {
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
 
@@ -158,7 +159,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 

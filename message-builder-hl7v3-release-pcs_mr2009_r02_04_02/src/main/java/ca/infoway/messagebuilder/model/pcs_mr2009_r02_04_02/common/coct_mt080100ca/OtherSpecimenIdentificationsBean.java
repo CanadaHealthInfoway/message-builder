@@ -24,12 +24,13 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.SpecimenIdentifierRoleType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ResponsibleOrganizationBean;
 
 
 
@@ -48,7 +49,8 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private ResponsibleOrganizationBean assigningOrganization;
+    private II assigningOrganizationId = new IIImpl();
+    private ST assigningOrganizationName = new STImpl();
 
 
     /**
@@ -122,24 +124,76 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT080100CA.IdentifiedEntity.assigningOrganization</p>
+     * <p>Business Name: Organization Identifier</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
-    @Hl7XmlMapping({"assigningOrganization"})
-    public ResponsibleOrganizationBean getAssigningOrganization() {
-        return this.assigningOrganization;
+    @Hl7XmlMapping({"assigningOrganization/id"})
+    public Identifier getAssigningOrganizationId() {
+        return this.assigningOrganizationId.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * COCT_MT080100CA.IdentifiedEntity.assigningOrganization</p>
+     * <p>Business Name: Organization Identifier</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Relationship: COCT_MT080100CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
-    public void setAssigningOrganization(ResponsibleOrganizationBean assigningOrganization) {
-        this.assigningOrganization = assigningOrganization;
+    public void setAssigningOrganizationId(Identifier assigningOrganizationId) {
+        this.assigningOrganizationId.setValue(assigningOrganizationId);
+    }
+
+
+    /**
+     * <p>Business Name: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    @Hl7XmlMapping({"assigningOrganization/name"})
+    public String getAssigningOrganizationName() {
+        return this.assigningOrganizationName.getValue();
+    }
+
+    /**
+     * <p>Business Name: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT080100CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    public void setAssigningOrganizationName(String assigningOrganizationName) {
+        this.assigningOrganizationName.setValue(assigningOrganizationName);
     }
 
 }

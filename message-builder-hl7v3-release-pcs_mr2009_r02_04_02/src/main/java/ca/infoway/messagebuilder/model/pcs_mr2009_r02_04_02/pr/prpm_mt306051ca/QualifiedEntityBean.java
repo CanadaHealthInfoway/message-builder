@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_2Bean;
 import java.util.Set;
 
 
@@ -54,7 +55,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
-    private PrinicpalPersonBean qualifiedPrincipalPerson;
+    private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
 
 
@@ -127,7 +128,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPersonBean getQualifiedPrincipalPerson() {
+    public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
 
@@ -137,7 +138,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setQualifiedPrincipalPerson(PrinicpalPersonBean qualifiedPrincipalPerson) {
+    public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 

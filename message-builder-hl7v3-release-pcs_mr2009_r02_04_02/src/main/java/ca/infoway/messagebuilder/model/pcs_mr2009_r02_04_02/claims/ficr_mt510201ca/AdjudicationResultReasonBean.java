@@ -26,6 +26,7 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.Trigger2Bean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class AdjudicationResultReasonBean extends MessagePartBean implements Adj
 
     private static final long serialVersionUID = 20150326L;
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
-    private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
+    private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
 
 
     /**
@@ -67,13 +68,13 @@ public class AdjudicationResultReasonBean extends MessagePartBean implements Adj
 
     /**
      * <p>Relationship: 
-     * FICR_MT510201CA.Trigger2.adjudicationResultRequiredAct</p>
+     * FICR_MT510201CA.AdjudicationCodeChoice.trigger</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
-    @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
-    public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
-        return this.triggerAdjudicationResultRequiredAct;
+    @Hl7XmlMapping({"trigger"})
+    public List<Trigger2Bean> getTrigger() {
+        return this.trigger;
     }
 
 }

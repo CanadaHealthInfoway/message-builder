@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.PrescriptionReferenceBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.SupplyOrderBean;
 import java.util.Date;
 
 
@@ -58,7 +58,7 @@ public class OfficeSupplyBean extends MessagePartBean {
     private PQ quantity = new PQImpl();
     private DispensedBean product;
     private II destinationServiceDeliveryLocationId = new IIImpl();
-    private PrescriptionReferenceBean fulfillmentSupplyRequest;
+    private SupplyOrderBean fulfillmentSupplyRequest;
     private IncludesBean subjectOf;
 
 
@@ -239,7 +239,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public PrescriptionReferenceBean getFulfillmentSupplyRequest() {
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
         return this.fulfillmentSupplyRequest;
     }
 
@@ -249,7 +249,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setFulfillmentSupplyRequest(PrescriptionReferenceBean fulfillmentSupplyRequest) {
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 

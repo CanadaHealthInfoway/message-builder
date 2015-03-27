@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt40000
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.ClinicalDeviceBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ClinicalDeviceBean;
 
 
 

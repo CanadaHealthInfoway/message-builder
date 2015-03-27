@@ -62,9 +62,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewCommo
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldCommonObservationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Request_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -106,7 +106,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240007ca.ServiceLocationBean indirectTargetServiceDeliveryLocation;
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
-    private RequestedByBean author;
+    private ChangedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911107ca.ActingPerson informantActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
     private ServiceLocationBean custodian2ServiceDeliveryLocation;
@@ -612,7 +612,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -622,7 +622,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 

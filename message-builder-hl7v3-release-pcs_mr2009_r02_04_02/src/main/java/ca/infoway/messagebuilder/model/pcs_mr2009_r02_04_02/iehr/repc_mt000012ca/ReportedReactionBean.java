@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagnosisCode;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReactionAssessmentsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AllergyIntoleranceSeverityLevelBean;
 import java.util.ArrayList;
 import java.util.Date;

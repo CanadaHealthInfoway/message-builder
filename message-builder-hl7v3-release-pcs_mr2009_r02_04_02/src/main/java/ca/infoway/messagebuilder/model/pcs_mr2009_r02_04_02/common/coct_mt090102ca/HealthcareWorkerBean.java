@@ -24,15 +24,14 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ResponsibleOrganizationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActingPersonBean;
 import java.util.Set;
 
 
@@ -55,9 +54,9 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
     private static final long serialVersionUID = 20150326L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
-    private PN assignedPersonName = new PNImpl();
-    private II assignedPersonAsHealthCareProviderId = new IIImpl();
-    private ResponsibleOrganizationBean representedOrganization;
+    private ActingPersonBean assignedPerson;
+    private II representedOrganizationId = new IIImpl();
+    private ST representedOrganizationName = new STImpl();
 
 
     /**
@@ -80,106 +79,98 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Business Name: B: Healthcare Worker Name</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>This is a human-readable name and is essential for 
-     * validation of the person. As a result, the attribute is 
-     * mandatory</p>
-     * 
-     * <p>The name of the involved person.</p>
-     */
-    @Hl7XmlMapping({"assignedPerson/name"})
-    public PersonName getAssignedPersonName() {
-        return this.assignedPersonName.getValue();
-    }
-
-    /**
-     * <p>Business Name: B: Healthcare Worker Name</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.Person.name</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>This is a human-readable name and is essential for 
-     * validation of the person. As a result, the attribute is 
-     * mandatory</p>
-     * 
-     * <p>The name of the involved person.</p>
-     */
-    public void setAssignedPersonName(PersonName assignedPersonName) {
-        this.assignedPersonName.setValue(assignedPersonName);
-    }
-
-
-    /**
-     * <p>Business Name: C: License Number</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    @Hl7XmlMapping({"assignedPerson/asHealthCareProvider/id"})
-    public Identifier getAssignedPersonAsHealthCareProviderId() {
-        return this.assignedPersonAsHealthCareProviderId.getValue();
-    }
-
-    /**
-     * <p>Business Name: C: License Number</p>
-     * 
-     * <p>Relationship: COCT_MT090102CA.HealthCareProvider.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows lookup on college website, confirmation of 
-     * identity, etc. Regulations occasionally require license 
-     * numbers to be specified as part of clinical records.</p>
-     * 
-     * <p>If the identifier used in the root of the CMET is the 
-     * same as the license number, the license number should be 
-     * sent in both places.</p>
-     * 
-     * <p>The license number issued to the provider and relevant to 
-     * the current action.</p>
-     */
-    public void setAssignedPersonAsHealthCareProviderId(Identifier assignedPersonAsHealthCareProviderId) {
-        this.assignedPersonAsHealthCareProviderId.setValue(assignedPersonAsHealthCareProviderId);
-    }
-
-
-    /**
      * <p>Relationship: 
-     * COCT_MT090102CA.AssignedEntity.representedOrganization</p>
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"representedOrganization"})
-    public ResponsibleOrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
+    @Hl7XmlMapping({"assignedPerson"})
+    public ActingPersonBean getAssignedPerson() {
+        return this.assignedPerson;
     }
 
     /**
      * <p>Relationship: 
-     * COCT_MT090102CA.AssignedEntity.representedOrganization</p>
+     * COCT_MT090102CA.AssignedEntity.assignedPerson</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setRepresentedOrganization(ResponsibleOrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
+    public void setAssignedPerson(ActingPersonBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
+
+
+    /**
+     * <p>Business Name: D: Organization identifier</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     */
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getRepresentedOrganizationId() {
+        return this.representedOrganizationId.getValue();
+    }
+
+    /**
+     * <p>Business Name: D: Organization identifier</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
+     */
+    public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
+        this.representedOrganizationId.setValue(representedOrganizationId);
+    }
+
+
+    /**
+     * <p>Business Name: E: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getRepresentedOrganizationName() {
+        return this.representedOrganizationName.getValue();
+    }
+
+    /**
+     * <p>Business Name: E: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT090102CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    public void setRepresentedOrganizationName(String representedOrganizationName) {
+        this.representedOrganizationName.setValue(representedOrganizationName);
     }
 
 }

@@ -55,11 +55,11 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240003
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActDiagnosisCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AmendmentSummaryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AllergyIntoleranceStatusChangesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewConditionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldConditionBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -92,14 +92,14 @@ public class HealthConditionBean extends MessagePartBean {
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private CD value = new CDImpl();
     private ActingPerson responsiblePartyActingPerson;
-    private RequestedByBean author;
+    private ChangedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911107ca.ActingPerson informantActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private HealthConditionBean replacementOfConditionEvent;
     private NewConditionBean successorNewCondition;
-    private AmendmentSummaryBean subjectOf1ControlActEvent;
+    private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf3ControlActEvent;
     private BL subjectOf4AnnotationIndicator = new BLImpl(false);
@@ -497,7 +497,7 @@ public class HealthConditionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -506,7 +506,7 @@ public class HealthConditionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
@@ -653,7 +653,7 @@ public class HealthConditionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public AmendmentSummaryBean getSubjectOf1ControlActEvent() {
+    public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 
@@ -662,7 +662,7 @@ public class HealthConditionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf1ControlActEvent(AmendmentSummaryBean subjectOf1ControlActEvent) {
+    public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
         this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }
 

@@ -49,6 +49,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.ActDefinitionOrEventNameBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrinicpalPerson_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.PrivilegeBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -85,7 +87,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPersonBean assignedPrincipalPerson;
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<ActDefinitionOrEventNameBean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventNameBean>();
@@ -283,7 +285,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPersonBean getAssignedPrincipalPerson() {
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
 
@@ -293,7 +295,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 

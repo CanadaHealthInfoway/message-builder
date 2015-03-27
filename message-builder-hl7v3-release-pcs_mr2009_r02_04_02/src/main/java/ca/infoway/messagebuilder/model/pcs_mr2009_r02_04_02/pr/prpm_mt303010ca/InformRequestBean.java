@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInformRequestType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.DispenseShipToLocationBean;
 
 
 
@@ -49,7 +49,7 @@ public class InformRequestBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
+    private DispenseShipToLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
 
@@ -130,7 +130,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+    public DispenseShipToLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
@@ -140,7 +140,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+    public void setSubjectServiceDeliveryLocation(DispenseShipToLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
@@ -164,11 +164,11 @@ public class InformRequestBean extends MessagePartBean {
         this.indirectTargetChoice = indirectTargetChoice;
     }
 
-    public ServiceDeliveryLocationBean getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof ServiceDeliveryLocationBean ? (ServiceDeliveryLocationBean) this.indirectTargetChoice : null;
+    public DispenseShipToLocationBean getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof DispenseShipToLocationBean ? (DispenseShipToLocationBean) this.indirectTargetChoice : null;
     }
     public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof ServiceDeliveryLocationBean);
+        return (this.indirectTargetChoice instanceof DispenseShipToLocationBean);
     }
 
     public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {

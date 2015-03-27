@@ -52,7 +52,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260030
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.SubstanceAdministrationType;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.StatusChangesBean;
 import java.util.ArrayList;
@@ -100,7 +100,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     private CV routeCode = new CVImpl();
     private DrugProductBean consumableMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private RefusedByBean author;
     private TargetedToPharmacyBean location;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
@@ -401,7 +401,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public RefusedByBean getAuthor() {
         return this.author;
     }
 
@@ -410,7 +410,7 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 

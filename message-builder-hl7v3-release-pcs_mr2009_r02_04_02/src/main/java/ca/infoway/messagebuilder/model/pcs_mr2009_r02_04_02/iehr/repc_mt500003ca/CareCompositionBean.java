@@ -53,15 +53,15 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090508
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.AmendmentSummaryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.ControlActEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.DischargeDiagnosisBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.NewPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.OldPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.Request_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.merged.SpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -110,7 +110,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     private INT subject3PatientPatientEntityQuantifiedKindQuantity = new INTImpl();
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
-    private RequestedByBean author;
+    private ChangedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911107ca.ActingPerson informantActingPerson;
     private ActingPerson dischargerActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
@@ -122,7 +122,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent;
     private BL subjectOf1AnnotationIndicator = new BLImpl(false);
-    private AmendmentSummaryBean subjectOf2ControlActEvent;
+    private ControlActEventBean subjectOf2ControlActEvent;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
@@ -608,7 +608,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -618,7 +618,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
@@ -862,7 +862,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf2/controlActEvent"})
-    public AmendmentSummaryBean getSubjectOf2ControlActEvent() {
+    public ControlActEventBean getSubjectOf2ControlActEvent() {
         return this.subjectOf2ControlActEvent;
     }
 
@@ -871,7 +871,7 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf2ControlActEvent(AmendmentSummaryBean subjectOf2ControlActEvent) {
+    public void setSubjectOf2ControlActEvent(ControlActEventBean subjectOf2ControlActEvent) {
         this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
     }
 

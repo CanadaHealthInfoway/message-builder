@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * administered. Immunizing Agent represents a generic vaccine 
  * as opposed to a manufactured instance of a vaccine.</p>
  */
-@Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT490101CA.Medicine","POIZ_MT070020CA.Medicine"})
+@Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT400003CA.Medicine","FICR_MT400004CA.Medicine","FICR_MT490101CA.Medicine","FICR_MT490102CA.Medicine","POIZ_MT070020CA.Medicine"})
 public class ImmunizingAgentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -54,6 +54,7 @@ public class ImmunizingAgentBean extends MessagePartBean {
     private ST name = new STImpl();
     private ST desc = new STImpl();
     private CV formCode = new CVImpl();
+    private DrugContainsBean ingredient;
 
 
     /**
@@ -66,6 +67,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -97,6 +116,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugCode</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.code</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugCode</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.code</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -132,6 +169,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"name"})
     public String getName() {
@@ -150,6 +205,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugName</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugName</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -172,6 +245,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"desc"})
     public String getDesc() {
@@ -190,6 +281,24 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugDescription</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: DrugDescription</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
@@ -214,6 +323,36 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Un-merged Business Name: DrugForm</p>
      * 
      * <p>Relationship: FICR_MT490101CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -248,9 +387,87 @@ public class ImmunizingAgentBean extends MessagePartBean {
      * <p>Indicates the form in which the drug product must be, or 
      * has been manufactured or custom prepared. Examples include: 
      * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
+     * 
+     * <p>Un-merged Business Name: DrugForm</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.formCode</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the form in which the drug product must be, or 
+     * has been manufactured or custom prepared. Examples include: 
+     * tablet, suspension, liquid, injectable, capsule, etc.</p>
      */
     public void setFormCode(OrderableDrugForm formCode) {
         this.formCode.setValue(formCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"ingredient"})
+    public DrugContainsBean getIngredient() {
+        return this.ingredient;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT490102CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400004CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: FICR_MT400003CA.Medicine.ingredient</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setIngredient(DrugContainsBean ingredient) {
+        this.ingredient = ingredient;
     }
 
 }

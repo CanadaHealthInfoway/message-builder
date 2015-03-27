@@ -31,9 +31,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SpecialAuthorizationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SpecialAuthorizationChoice_1;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.merged.SubstanceAdministration_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActSpecialAuthorizationCode;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ActiveMedicationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.Subject5Bean;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
-    private PrescribedByBean author;
+    private HealthcareWorkerBean authorAssignedEntity;
     private List<Subject5Bean> subject1 = new ArrayList<Subject5Bean>();
     private SpecialAuthorizationChoice_1 subject2SpecialAuthorizationChoice;
     private SpecialAuthorizationBean fulfillmentSpecialAuthorization;
@@ -106,24 +106,22 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorizationRequest.author</p>
+     * <p>Relationship: FICR_MT490101CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
     }
 
     /**
-     * <p>Relationship: 
-     * FICR_MT490101CA.SpecialAuthorizationRequest.author</p>
+     * <p>Relationship: FICR_MT490101CA.Author2.assignedEntity</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
@@ -160,11 +158,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
         this.subject2SpecialAuthorizationChoice = subject2SpecialAuthorizationChoice;
     }
 
-    public SubstanceAdministration_1Bean getSubject2SpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return this.subject2SpecialAuthorizationChoice instanceof SubstanceAdministration_1Bean ? (SubstanceAdministration_1Bean) this.subject2SpecialAuthorizationChoice : null;
+    public ActiveMedicationBean getSubject2SpecialAuthorizationChoiceAsSubstanceAdministration() {
+        return this.subject2SpecialAuthorizationChoice instanceof ActiveMedicationBean ? (ActiveMedicationBean) this.subject2SpecialAuthorizationChoice : null;
     }
     public boolean hasSubject2SpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return (this.subject2SpecialAuthorizationChoice instanceof SubstanceAdministration_1Bean);
+        return (this.subject2SpecialAuthorizationChoice instanceof ActiveMedicationBean);
     }
 
     public DevicePassThruBean getSubject2SpecialAuthorizationChoiceAsDevicePassThru() {

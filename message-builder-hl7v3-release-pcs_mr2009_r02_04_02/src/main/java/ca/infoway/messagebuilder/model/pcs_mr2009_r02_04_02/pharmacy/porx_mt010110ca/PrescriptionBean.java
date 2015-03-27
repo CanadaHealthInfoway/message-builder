@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.CoverageExtensionsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseInstructions_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.CoverageExtensions_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.DispenseInstructionsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pharmacy.merged.ProcedureRequestBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,9 +74,9 @@ public class PrescriptionBean extends MessagePartBean {
     private PriorDeviceRequestBean predecessorPriorDeviceRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private ProcedureRequestBean component1ProcedureRequest;
-    private DispenseInstructions_1Bean component2SupplyRequest;
+    private DispenseInstructionsBean component2SupplyRequest;
     private IncludesBean subjectOf;
 
 
@@ -289,7 +289,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensionsBean> getCoverageCoverage() {
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -320,7 +320,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructions_1Bean getComponent2SupplyRequest() {
+    public DispenseInstructionsBean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
@@ -329,7 +329,7 @@ public class PrescriptionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
+    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 

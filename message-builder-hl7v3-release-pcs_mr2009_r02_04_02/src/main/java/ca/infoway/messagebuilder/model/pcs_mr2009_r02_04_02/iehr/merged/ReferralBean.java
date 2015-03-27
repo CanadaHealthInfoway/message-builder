@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActCareProvisionRequestType;
 import ca.infoway.messagebuilder.domainvalue.x_ActStatusActiveComplete;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.AdministeredByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.OccurredAtBean;
 import java.util.ArrayList;
@@ -67,11 +68,11 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ProviderBean performerAssignedEntity;
+    private AdministeredByBean performer;
     private OccurredAtBean location;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private ActRequest2Bean componentActRequest;
-    private PatientCareProvisionEvent2Bean fulfillmentPatientCareProvisionEvent;
+    private DischargeCareSummaryReportBean fulfillmentPatientCareProvisionEvent;
 
 
     /**
@@ -431,48 +432,54 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public ProviderBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
+    @Hl7XmlMapping({"performer"})
+    public AdministeredByBean getPerformer() {
+        return this.performer;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210002CA.Performer.assignedEntity</p>
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionRequest.performer</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: REPC_MT210001CA.Performer.assignedEntity</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: REPC_MT210003CA.Performer.assignedEntity</p>
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionRequest.performer</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionRequest.performer</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setPerformerAssignedEntity(ProviderBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
+    public void setPerformer(AdministeredByBean performer) {
+        this.performer = performer;
     }
 
 
@@ -626,7 +633,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/patientCareProvisionEvent"})
-    public PatientCareProvisionEvent2Bean getFulfillmentPatientCareProvisionEvent() {
+    public DischargeCareSummaryReportBean getFulfillmentPatientCareProvisionEvent() {
         return this.fulfillmentPatientCareProvisionEvent;
     }
 
@@ -652,7 +659,7 @@ public class ReferralBean extends MessagePartBean implements DocumentContent_1 {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setFulfillmentPatientCareProvisionEvent(PatientCareProvisionEvent2Bean fulfillmentPatientCareProvisionEvent) {
+    public void setFulfillmentPatientCareProvisionEvent(DischargeCareSummaryReportBean fulfillmentPatientCareProvisionEvent) {
         this.fulfillmentPatientCareProvisionEvent = fulfillmentPatientCareProvisionEvent;
     }
 

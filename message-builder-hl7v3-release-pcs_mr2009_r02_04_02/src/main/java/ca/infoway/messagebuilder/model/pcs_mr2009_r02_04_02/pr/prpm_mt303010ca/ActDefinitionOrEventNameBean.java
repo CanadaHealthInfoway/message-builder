@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.LocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.pr.merged.Location_1Bean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -61,7 +61,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<LocationBean> location = new ArrayList<LocationBean>();
+    private List<Location_1Bean> location = new ArrayList<Location_1Bean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
 
 
@@ -110,7 +110,7 @@ public class ActDefinitionOrEventNameBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-25)</p>
      */
     @Hl7XmlMapping({"location"})
-    public List<LocationBean> getLocation() {
+    public List<Location_1Bean> getLocation() {
         return this.location;
     }
 

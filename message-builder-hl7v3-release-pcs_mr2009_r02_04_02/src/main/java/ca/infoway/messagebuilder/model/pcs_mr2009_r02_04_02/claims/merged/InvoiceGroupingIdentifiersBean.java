@@ -24,24 +24,44 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.MO;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.InvoiceElementComponentBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.PolicyOrAccountBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt280001ca.A_BillableActChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt680000ca.AdjudicatedInvoiceElementGroupBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActInvoiceGroupType;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"FICR_MT610201CA.InvoiceElementGroup","QUCR_MT830201CA.InvoiceElementGroup"})
-public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt610201ca.InvoiceElementChoice {
+@Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroup","FICR_MT610201CA.InvoiceElementGroup","QUCR_MT830201CA.InvoiceElementGroup"})
+public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt610201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt600201ca.InvoiceElementChoice {
 
     private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private MO netAmt = new MOImpl();
+    private FinancialContractBean inFulfillmentOfFinancialContract;
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
+    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<PolicyOrAccountBean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccountBean>();
+    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
+    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
+    private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
 
 
     /**
@@ -60,6 +80,12 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
      * 
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: InvoiceGroupingIdentifier</p>
      * 
@@ -89,6 +115,12 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
      * <p>Set of identifiers that uniquely identify the Invoice 
      * Grouping.</p>
      * 
+     * <p>Un-merged Business Name: InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
      * <p>Un-merged Business Name: InvoiceGroupingIdentifier</p>
      * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.id</p>
@@ -102,6 +134,12 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
 
     /**
      * <p>Business Name: InvoiceType</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceType</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
@@ -119,6 +157,12 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
      * 
      * <p>Un-merged Business Name: InvoiceType</p>
      * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.code</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceType</p>
+     * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.code</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
@@ -129,7 +173,43 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
 
 
     /**
+     * <p>Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+
+    /**
+     * <p>Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Un-merged Business Name: TimePeriodForInvoice</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.effectiveTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
      * <p>Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
@@ -147,12 +227,142 @@ public class InvoiceGroupingIdentifiersBean extends MessagePartBean implements c
      * 
      * <p>Un-merged Business Name: InvoiceSubTotal</p>
      * 
+     * <p>Relationship: FICR_MT600201CA.InvoiceElementGroup.netAmt</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: InvoiceSubTotal</p>
+     * 
      * <p>Relationship: FICR_MT610201CA.InvoiceElementGroup.netAmt</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setNetAmt(Money netAmt) {
         this.netAmt.setValue(netAmt);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/financialContract"})
+    public FinancialContractBean getInFulfillmentOfFinancialContract() {
+        return this.inFulfillmentOfFinancialContract;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupInFulfillmentOf.financialContract</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setInFulfillmentOfFinancialContract(FinancialContractBean inFulfillmentOfFinancialContract) {
+        this.inFulfillmentOfFinancialContract = inFulfillmentOfFinancialContract;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Predecessor.invoiceElementCrossReference</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Reference.adjudicatedInvoiceElementGroup</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementCoverage.policyOrAccount</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public List<PolicyOrAccountBean> getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroupAttachment.healthDocumentAttachment</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementGroup.component</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
+     */
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.InvoiceElementReason.billableActChoice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT600201CA.Suggests.invoiceElementOverride</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
+    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
+        return this.triggerForInvoiceElementOverride;
     }
 
 }

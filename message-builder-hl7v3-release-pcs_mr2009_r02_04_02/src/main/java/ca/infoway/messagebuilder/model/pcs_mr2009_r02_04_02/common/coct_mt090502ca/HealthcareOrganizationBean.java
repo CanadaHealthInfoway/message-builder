@@ -23,8 +23,12 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt09050
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ResponsibleOrganizationBean;
 
 
 
@@ -42,28 +46,81 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.merged.ResponsibleOr
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911102ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.AuthorPerson_2, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.merged.EntererChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.RecipientChoice {
 
     private static final long serialVersionUID = 20150326L;
-    private ResponsibleOrganizationBean representedOrganization;
+    private II representedOrganizationId = new IIImpl();
+    private ST representedOrganizationName = new STImpl();
 
 
     /**
-     * <p>Relationship: 
-     * COCT_MT090502CA.AssignedEntity.representedOrganization</p>
+     * <p>Business Name: D: Organization identifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
-    @Hl7XmlMapping({"representedOrganization"})
-    public ResponsibleOrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getRepresentedOrganizationId() {
+        return this.representedOrganizationId.getValue();
     }
 
     /**
-     * <p>Relationship: 
-     * COCT_MT090502CA.AssignedEntity.representedOrganization</p>
+     * <p>Business Name: D: Organization identifier</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows the organization to be referenced when determining 
+     * privileges and for drill-downs to retrieve additional 
+     * information. Because of its importance, the attribute is 
+     * mandatory.</p>
+     * 
+     * <p>A unique identifier for the organization</p>
      */
-    public void setRepresentedOrganization(ResponsibleOrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
+    public void setRepresentedOrganizationId(Identifier representedOrganizationId) {
+        this.representedOrganizationId.setValue(representedOrganizationId);
+    }
+
+
+    /**
+     * <p>Business Name: E: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getRepresentedOrganizationName() {
+        return this.representedOrganizationName.getValue();
+    }
+
+    /**
+     * <p>Business Name: E: Organization Name</p>
+     * 
+     * <p>Relationship: COCT_MT090502CA.Organization.name</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for human recognition of the organization as well 
+     * as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p>
+     * 
+     * <p>Identifies the name of the organization</p>
+     */
+    public void setRepresentedOrganizationName(String representedOrganizationName) {
+        this.representedOrganizationName.setValue(representedOrganizationName);
     }
 
 }
