@@ -250,6 +250,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		
 		String rootName1 = name1.replaceAll("\\d*$", "");
 		String rootName2 = name2.replaceAll("\\d*$", "");
+		// unfortunately, HL7v3/CDA models use Component and Subject generically, so we should almost never allow these types to merge
 		return rootName1.equals(rootName2) && !"Component".equals(rootName1) && !"Subject".equals(rootName1);
 	}
 	
