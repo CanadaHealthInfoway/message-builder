@@ -22,15 +22,12 @@ package ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt020070ca.SupplyRequestBean;
 
 
 
@@ -69,8 +66,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private BL componentContextConductionInd = new BLImpl();
-    private SupplyRequestBean componentSupplyRequest;
+    private Component2Bean component;
 
 
     /**
@@ -361,49 +357,25 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
+    @Hl7XmlMapping({"component"})
+    public Component2Bean getComponent() {
+        return this.component;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    @Hl7XmlMapping({"component/supplyRequest"})
-    public SupplyRequestBean getComponentSupplyRequest() {
-        return this.componentSupplyRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
-     */
-    public void setComponentSupplyRequest(SupplyRequestBean componentSupplyRequest) {
-        this.componentSupplyRequest = componentSupplyRequest;
+    public void setComponent(Component2Bean component) {
+        this.component = component;
     }
 
 }

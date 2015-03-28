@@ -60,7 +60,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * previously covered by a patient's drug plan.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
-public class CoverageExtensionsBean extends MessagePartBean {
+public class CoverageExtensions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private CS moodCode = new CSImpl();

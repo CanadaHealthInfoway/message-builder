@@ -28,6 +28,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.merged.DispenseInstructions_1Bean;
 
 
 
@@ -50,7 +51,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private SupplyRequestBean componentSupplyRequest;
+    private DispenseInstructions_1Bean componentSupplyRequest;
 
 
     /**
@@ -207,7 +208,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component/supplyRequest"})
-    public SupplyRequestBean getComponentSupplyRequest() {
+    public DispenseInstructions_1Bean getComponentSupplyRequest() {
         return this.componentSupplyRequest;
     }
 
@@ -216,7 +217,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponentSupplyRequest(SupplyRequestBean componentSupplyRequest) {
+    public void setComponentSupplyRequest(DispenseInstructions_1Bean componentSupplyRequest) {
         this.componentSupplyRequest = componentSupplyRequest;
     }
 
