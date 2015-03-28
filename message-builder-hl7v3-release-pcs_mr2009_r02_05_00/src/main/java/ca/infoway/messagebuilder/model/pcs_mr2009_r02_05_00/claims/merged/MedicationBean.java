@@ -26,11 +26,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"FICR_MT400003CA.Medication","FICR_MT400004CA.Medication","FICR_MT490102CA.Medication"})
+@Hl7PartTypeMapping({"FICR_MT400001CA.Medication","FICR_MT400003CA.Medication","FICR_MT400004CA.Medication","FICR_MT490101CA.Medication","FICR_MT490102CA.Medication"})
 public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
-    private Medicine_2Bean administerableMedicine;
+    private MedicineBean administerableMedicine;
 
 
     /**
@@ -54,9 +54,23 @@ public class MedicationBean extends MessagePartBean {
      * FICR_MT490102CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.Medication.administerableMedicine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.Medication.administerableMedicine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"administerableMedicine"})
-    public Medicine_2Bean getAdministerableMedicine() {
+    public MedicineBean getAdministerableMedicine() {
         return this.administerableMedicine;
     }
 
@@ -81,8 +95,22 @@ public class MedicationBean extends MessagePartBean {
      * FICR_MT490102CA.Medication.administerableMedicine</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT400001CA.Medication.administerableMedicine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * FICR_MT490101CA.Medication.administerableMedicine</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAdministerableMedicine(Medicine_2Bean administerableMedicine) {
+    public void setAdministerableMedicine(MedicineBean administerableMedicine) {
         this.administerableMedicine = administerableMedicine;
     }
 

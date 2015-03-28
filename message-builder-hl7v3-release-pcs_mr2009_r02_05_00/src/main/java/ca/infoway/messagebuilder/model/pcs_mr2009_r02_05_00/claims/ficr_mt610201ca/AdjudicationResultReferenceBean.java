@@ -23,7 +23,7 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.ficr_mt61020
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceElementDetail_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceElementDetailBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceGroupingIdentifiersBean;
 
 
@@ -77,11 +77,11 @@ public class AdjudicationResultReferenceBean extends MessagePartBean {
         return (this.invoiceElementChoice instanceof InvoiceGroupingIdentifiersBean);
     }
 
-    public InvoiceElementDetail_2Bean getInvoiceElementChoiceAsInvoiceElementDetail() {
-        return this.invoiceElementChoice instanceof InvoiceElementDetail_2Bean ? (InvoiceElementDetail_2Bean) this.invoiceElementChoice : null;
+    public InvoiceElementDetailBean getInvoiceElementChoiceAsInvoiceElementDetail() {
+        return this.invoiceElementChoice instanceof InvoiceElementDetailBean ? (InvoiceElementDetailBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
-        return (this.invoiceElementChoice instanceof InvoiceElementDetail_2Bean);
+        return (this.invoiceElementChoice instanceof InvoiceElementDetailBean);
     }
 
 }

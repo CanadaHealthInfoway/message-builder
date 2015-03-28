@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.ficr_mt510201ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.Trigger2Bean;
 import java.util.List;
 
 
@@ -31,10 +32,10 @@ public interface AdjudicationCodeChoice {
 
     /**
      * <p>Relationship: 
-     * FICR_MT510201CA.Trigger2.adjudicationResultRequiredAct</p>
+     * FICR_MT510201CA.AdjudicationCodeChoice.trigger</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
-    public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct();
+    public List<Trigger2Bean> getTrigger();
 
 }

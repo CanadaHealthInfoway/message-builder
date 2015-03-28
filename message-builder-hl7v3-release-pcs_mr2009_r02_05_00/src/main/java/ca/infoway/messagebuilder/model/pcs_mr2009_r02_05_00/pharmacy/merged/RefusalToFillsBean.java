@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -115,7 +115,7 @@ public class RefusalToFillsBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
-    private PrescribedByBean author;
+    private RefusedByBean author;
     private TargetedToPharmacyBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
@@ -512,7 +512,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public RefusedByBean getAuthor() {
         return this.author;
     }
 
@@ -553,7 +553,7 @@ public class RefusalToFillsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 

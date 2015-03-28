@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInformRequestType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.merged.ServiceDeliveryLocationBean;
 
 
 

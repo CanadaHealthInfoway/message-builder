@@ -22,9 +22,8 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SpecimenMaterialBean;
 
 
 
@@ -32,166 +31,66 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SpecimenBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
-    private ST specimenMaterialDesc = new STImpl();
+    private SpecimenMaterialBean specimenMaterial;
 
 
     /**
-     * <p>Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500004CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500001CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500003CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500002CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
-     * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
      */
-    @Hl7XmlMapping({"specimenMaterial/desc"})
-    public String getSpecimenMaterialDesc() {
-        return this.specimenMaterialDesc.getValue();
+    @Hl7XmlMapping({"specimenMaterial"})
+    public SpecimenMaterialBean getSpecimenMaterial() {
+        return this.specimenMaterial;
     }
 
     /**
-     * <p>Business Name: FocusArea</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500004CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500004CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500001CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500001CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500003CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500003CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
+     * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
-     * 
-     * <p>Un-merged Business Name: FocusArea</p>
-     * 
-     * <p>Relationship: REPC_MT500002CA.Material.desc</p>
+     * <p>Relationship: REPC_MT500002CA.Specimen.specimenMaterial</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows grouping observations, procedures and other 
-     * records directly associated with a particular mole, tumor or 
-     * other potion of a patient not easily referenced as a coded 
-     * body site.</p><p>This element is optional because not all 
-     * systems will support Localized Health Condition-based 
-     * Collections</p>
-     * 
-     * <p>Describes the specific body region or area associated 
-     * with a Localized Health Condition-based 
-     * Collection.</p><p>E.g. &quot;Left-most mole approximately 
-     * one inch below left shoulder-blade&quot;</p>
      */
-    public void setSpecimenMaterialDesc(String specimenMaterialDesc) {
-        this.specimenMaterialDesc.setValue(specimenMaterialDesc);
+    public void setSpecimenMaterial(SpecimenMaterialBean specimenMaterial) {
+        this.specimenMaterial = specimenMaterial;
     }
 
 }

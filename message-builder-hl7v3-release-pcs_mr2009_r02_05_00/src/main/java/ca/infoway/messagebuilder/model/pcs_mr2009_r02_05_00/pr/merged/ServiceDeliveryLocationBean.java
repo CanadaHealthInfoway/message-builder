@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.LIST;
+import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.TS;
@@ -35,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
+import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -45,13 +47,14 @@ import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 
 /**
  * <p>Business Name: ServiceDeliveryLocation</p>
  * 
- * <p>PRPM_MT303010CA.ServiceDeliveryLocation: Service Delivery 
+ * <p>PRPM_MT306011CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
  * <p>Roleclass required to support the identification of the 
@@ -81,7 +84,7 @@ import java.util.List;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  * 
- * <p>PRPM_MT301010CA.ServiceDeliveryLocation: Service Delivery 
+ * <p>PRPM_MT309000CA.ServiceDeliveryLocation: Service Delivery 
  * Location</p>
  * 
  * <p>Roleclass required to support the identification of the 
@@ -111,11 +114,11 @@ import java.util.List;
  * location; each clinic uses its own mailing address and 
  * telephone number.</p>
  */
-@Hl7PartTypeMapping({"PRPM_MT301010CA.ServiceDeliveryLocation","PRPM_MT303010CA.ServiceDeliveryLocation"})
-public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt301010ca.Choice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt303010ca.Choice {
+@Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
+public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.prpm_mt306011ca.Choice {
 
     private static final long serialVersionUID = 20150326L;
-    private II id = new IIImpl();
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
@@ -129,9 +132,9 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: PRPM_MT306011CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
      * <p>Required attribute supports the validation and 
      * identification of the service delivery location</p>
@@ -142,52 +145,19 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: 
      * ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: PRPM_MT309000CA.ServiceDeliveryLocation.id</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (1-10)</p>
      * 
-     * <p>Required attribute supports the validation and 
+     * <p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>A unique identifier for the service delivery 
      * location.</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-
-    /**
-     * <p>Business Name: ServiceDeliveryLocationIdentifier</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationIdentifier</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.ServiceDeliveryLocation.id</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>A unique identifier for the service delivery 
-     * location.</p>
-     */
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
@@ -197,24 +167,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>The code identifying the specific service delivery 
-     * location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
@@ -231,24 +188,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.code</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.code</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>The code identifying the specific service delivery 
-     * location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationType</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the validation and 
+     * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>The code identifying the specific service delivery 
@@ -265,23 +209,11 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.addr</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.addr</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
      * 
      * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>Address of the specific service delivery location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationAddress</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.addr</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (1-10)</p>
-     * 
-     * <p>Populated attribute supports the validation and 
      * identification of the service delivery location</p>
      * 
      * <p>Address of the specific service delivery location</p>
@@ -298,20 +230,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>The telecom for the specific service delivery 
-     * location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationTelecom</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.telecom</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.telecom</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      * 
@@ -334,21 +253,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>Effective date of the specific service delivery 
-     * location</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -370,21 +275,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * ServiceDeliveryLocationEffectiveDate</p>
      * 
      * <p>Relationship: 
-     * PRPM_MT303010CA.ServiceDeliveryLocation.effectiveTime</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Required attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>Effective date of the specific service delivery 
-     * location</p>
-     * 
-     * <p>Un-merged Business Name: 
-     * ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Relationship: 
-     * PRPM_MT301010CA.ServiceDeliveryLocation.effectiveTime</p>
+     * PRPM_MT306011CA.ServiceDeliveryLocation.effectiveTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -404,18 +295,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * 
      * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>The name of the service delivery location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -434,18 +314,7 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
      * 
      * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
      * 
-     * <p>Relationship: PRPM_MT303010CA.Place.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p>
-     * 
-     * <p>The name of the service delivery location</p>
-     * 
-     * <p>Un-merged Business Name: ServiceDeliveryLocationName</p>
-     * 
-     * <p>Relationship: PRPM_MT301010CA.Place.name</p>
+     * <p>Relationship: PRPM_MT306011CA.Place.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

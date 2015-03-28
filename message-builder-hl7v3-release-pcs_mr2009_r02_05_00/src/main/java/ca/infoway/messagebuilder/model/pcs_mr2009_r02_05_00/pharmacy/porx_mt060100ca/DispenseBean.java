@@ -41,7 +41,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SupervisedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PrescribedAdminidtrationInstructionBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PrescriptionReferenceBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.SupplyEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import java.util.Set;
@@ -71,7 +70,7 @@ public class DispenseBean extends MessagePartBean {
     private TargetedToPharmacyBean location;
     private SupplyEventBean component1SupplyEvent;
     private PrescribedAdminidtrationInstructionBean component2AdministrationInstructions;
-    private PrescriptionReferenceBean fulfillmentSubstanceAdministrationRequest;
+    private PrescriptionBean fulfillmentSubstanceAdministrationRequest;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl(false);
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
 
@@ -304,7 +303,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getFulfillmentSubstanceAdministrationRequest() {
+    public PrescriptionBean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
 
@@ -314,7 +313,7 @@ public class DispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setFulfillmentSubstanceAdministrationRequest(PrescriptionReferenceBean fulfillmentSubstanceAdministrationRequest) {
+    public void setFulfillmentSubstanceAdministrationRequest(PrescriptionBean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
 

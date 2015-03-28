@@ -65,7 +65,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST text = new STImpl();
-    private PrescribedByBean author;
+    private ChangedByBean author;
 
 
     /**
@@ -375,7 +375,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -401,7 +401,7 @@ public class IssueManagements_2Bean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 

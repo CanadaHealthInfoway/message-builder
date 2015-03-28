@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActMedicationDocumentCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.AssignedEntity3Bean;
 import java.util.Date;
 
 
@@ -60,7 +60,7 @@ public class MonographsBean extends MessagePartBean {
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV languageCode = new CVImpl();
-    private AssignedEntityBean authorAssignedEntity;
+    private AssignedEntity3Bean authorAssignedEntity;
 
 
     /**
@@ -277,7 +277,7 @@ public class MonographsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntityBean getAuthorAssignedEntity() {
+    public AssignedEntity3Bean getAuthorAssignedEntity() {
         return this.authorAssignedEntity;
     }
 
@@ -286,7 +286,7 @@ public class MonographsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
+    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
     }
 

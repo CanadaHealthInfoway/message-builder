@@ -46,9 +46,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.NewClinicalDocumentEvent_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReplacesRecordIdsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.RequestedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
@@ -86,7 +86,7 @@ public class ReferralBean extends MessagePartBean {
     private EHRRepositoryBean custodian2AssignedDevice;
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private List<ReplacesRecordIdsBean> predecessorOldClinicalDocumentEvent = new ArrayList<ReplacesRecordIdsBean>();
-    private Section_1Bean componentStructuredBodyComponentSection;
+    private Section_2Bean componentStructuredBodyComponentSection;
     private NewClinicalDocumentEvent_2Bean successorNewClinicalDocumentEvent;
     private IncludesBean subjectOf1;
     private BL subjectOf2AnnotationIndicator = new BLImpl(false);
@@ -386,7 +386,7 @@ public class ReferralBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public Section_1Bean getComponentStructuredBodyComponentSection() {
+    public Section_2Bean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
@@ -395,7 +395,7 @@ public class ReferralBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponentStructuredBodyComponentSection(Section_1Bean componentStructuredBodyComponentSection) {
+    public void setComponentStructuredBodyComponentSection(Section_2Bean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 

@@ -35,13 +35,14 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActPriority;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.ContactPartyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.HealthDocumentAttachment_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.PolicyOrAccount_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.SpecialAuthorizationChoice_1;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.SpecialAuthorizationCriteriaBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.SpecialAuthorizationRequestCrossReferenceBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.SubstanceAdministration_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActSpecialAuthorizationCode;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ActiveMedicationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -260,11 +261,11 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
         this.subjectSpecialAuthorizationChoice = subjectSpecialAuthorizationChoice;
     }
 
-    public SubstanceAdministration_1Bean getSubjectSpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return this.subjectSpecialAuthorizationChoice instanceof SubstanceAdministration_1Bean ? (SubstanceAdministration_1Bean) this.subjectSpecialAuthorizationChoice : null;
+    public ActiveMedicationBean getSubjectSpecialAuthorizationChoiceAsSubstanceAdministration() {
+        return this.subjectSpecialAuthorizationChoice instanceof ActiveMedicationBean ? (ActiveMedicationBean) this.subjectSpecialAuthorizationChoice : null;
     }
     public boolean hasSubjectSpecialAuthorizationChoiceAsSubstanceAdministration() {
-        return (this.subjectSpecialAuthorizationChoice instanceof SubstanceAdministration_1Bean);
+        return (this.subjectSpecialAuthorizationChoice instanceof ActiveMedicationBean);
     }
 
     public DevicePassThruBean getSubjectSpecialAuthorizationChoiceAsDevicePassThru() {

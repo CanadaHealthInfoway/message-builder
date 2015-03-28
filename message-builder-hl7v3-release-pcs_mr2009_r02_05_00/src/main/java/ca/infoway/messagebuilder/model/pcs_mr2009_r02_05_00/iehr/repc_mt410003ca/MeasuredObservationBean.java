@@ -61,10 +61,10 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Componen
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.NewCommonObservationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.OldCommonObservationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Request_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.BecauseOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;

@@ -53,7 +53,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt240003
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt910108ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911108ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ActEventBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.AmendmentSummaryBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ControlActEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.DischargeDiagnosisBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.NewPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.OldPatientCareProvisionEventBean;
@@ -61,9 +61,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Particip
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Request_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.SpecimenBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.BecauseOfBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
@@ -117,7 +117,7 @@ public class CareCompositionBean extends MessagePartBean {
     private INT subject3PatientPatientEntityQuantifiedKindQuantity = new INTImpl();
     private ActingPerson responsiblePartyActingPerson;
     private List<ActingPerson> performerActingPerson = new ArrayList<ActingPerson>();
-    private RequestedByBean author;
+    private ChangedByBean author;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt911107ca.ActingPerson informantActingPerson;
     private ActingPerson dischargerActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
@@ -134,7 +134,7 @@ public class CareCompositionBean extends MessagePartBean {
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private VersionInformationBean subjectOf2ControlActEvent;
     private BL subjectOf3AnnotationIndicator = new BLImpl(false);
-    private AmendmentSummaryBean subjectOf4ControlActEvent;
+    private ControlActEventBean subjectOf4ControlActEvent;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
@@ -596,7 +596,7 @@ public class CareCompositionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -606,7 +606,7 @@ public class CareCompositionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 
@@ -927,7 +927,7 @@ public class CareCompositionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf4/controlActEvent"})
-    public AmendmentSummaryBean getSubjectOf4ControlActEvent() {
+    public ControlActEventBean getSubjectOf4ControlActEvent() {
         return this.subjectOf4ControlActEvent;
     }
 
@@ -936,7 +936,7 @@ public class CareCompositionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSubjectOf4ControlActEvent(AmendmentSummaryBean subjectOf4ControlActEvent) {
+    public void setSubjectOf4ControlActEvent(ControlActEventBean subjectOf4ControlActEvent) {
         this.subjectOf4ControlActEvent = subjectOf4ControlActEvent;
     }
 

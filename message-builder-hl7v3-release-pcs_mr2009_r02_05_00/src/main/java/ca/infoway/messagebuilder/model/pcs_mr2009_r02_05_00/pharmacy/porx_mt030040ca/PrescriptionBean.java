@@ -48,7 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.PrescribedByB
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SupervisedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.ClassifiesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.FirstDispenseInformation_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.Includes_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.LastDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PrescribedAdminidtrationInstructionBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PreviousDispenseInformation_1Bean;
@@ -92,7 +91,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private PrescribedAdminidtrationInstructionBean component1AdministrationInstructions;
-    private Includes_1Bean component2;
+    private IncludesBean component2;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
@@ -395,7 +394,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2"})
-    public Includes_1Bean getComponent2() {
+    public IncludesBean getComponent2() {
         return this.component2;
     }
 
@@ -405,7 +404,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2(Includes_1Bean component2) {
+    public void setComponent2(IncludesBean component2) {
         this.component2 = component2;
     }
 

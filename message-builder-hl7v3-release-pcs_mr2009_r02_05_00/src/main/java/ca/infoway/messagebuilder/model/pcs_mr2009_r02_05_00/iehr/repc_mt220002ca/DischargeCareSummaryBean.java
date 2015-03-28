@@ -27,18 +27,15 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.CareSummaryDocumentType;
@@ -57,8 +54,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.NewClini
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ParentDocumentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReplacesRecordIdsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.RequestedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
@@ -100,7 +98,7 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
     private List<ReplacesRecordIdsBean> predecessorOldClinicalDocumentEvent = new ArrayList<ReplacesRecordIdsBean>();
     private ParentDocumentBean appendageParentDocument;
     private DocumentContent_2 component1DocumentContent;
-    private ED<EncapsulatedData> component2StructuredBodyComponentSectionText = new EDImpl<EncapsulatedData>();
+    private Section_1Bean component2StructuredBodyComponentSection;
     private NewClinicalDocumentEvent_2Bean successorNewClinicalDocumentEvent;
     private List<AddendumDocumentBean> appendageOfAddendumDocument = new ArrayList<AddendumDocumentBean>();
     private IncludesBean subjectOf1;
@@ -486,26 +484,22 @@ public class DischargeCareSummaryBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>Business Name: Document Overview Content</p>
-     * 
-     * <p>Relationship: REPC_MT220002CA.Section.text</p>
+     * <p>Relationship: REPC_MT220002CA.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"component2/structuredBody/component/section/text"})
-    public EncapsulatedData getComponent2StructuredBodyComponentSectionText() {
-        return this.component2StructuredBodyComponentSectionText.getValue();
+    @Hl7XmlMapping({"component2/structuredBody/component/section"})
+    public Section_1Bean getComponent2StructuredBodyComponentSection() {
+        return this.component2StructuredBodyComponentSection;
     }
 
     /**
-     * <p>Business Name: Document Overview Content</p>
-     * 
-     * <p>Relationship: REPC_MT220002CA.Section.text</p>
+     * <p>Relationship: REPC_MT220002CA.Component3.section</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2StructuredBodyComponentSectionText(EncapsulatedData component2StructuredBodyComponentSectionText) {
-        this.component2StructuredBodyComponentSectionText.setValue(component2StructuredBodyComponentSectionText);
+    public void setComponent2StructuredBodyComponentSection(Section_1Bean component2StructuredBodyComponentSection) {
+        this.component2StructuredBodyComponentSection = component2StructuredBodyComponentSection;
     }
 
 

@@ -43,8 +43,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.common.coct_mt011001
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.AuthenticatedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReplacesRecordIdsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

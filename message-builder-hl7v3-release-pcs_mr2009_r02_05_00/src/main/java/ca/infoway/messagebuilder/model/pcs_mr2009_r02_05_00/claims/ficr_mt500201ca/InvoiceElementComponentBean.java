@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceElementDetail_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceElementDetailBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.InvoiceElementGroupBean;
 
 
@@ -100,11 +100,11 @@ public class InvoiceElementComponentBean extends MessagePartBean {
         return (this.invoiceElementChoice instanceof InvoiceElementGroupBean);
     }
 
-    public InvoiceElementDetail_1Bean getInvoiceElementChoiceAsInvoiceElementDetail() {
-        return this.invoiceElementChoice instanceof InvoiceElementDetail_1Bean ? (InvoiceElementDetail_1Bean) this.invoiceElementChoice : null;
+    public InvoiceElementDetailBean getInvoiceElementChoiceAsInvoiceElementDetail() {
+        return this.invoiceElementChoice instanceof InvoiceElementDetailBean ? (InvoiceElementDetailBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
-        return (this.invoiceElementChoice instanceof InvoiceElementDetail_1Bean);
+        return (this.invoiceElementChoice instanceof InvoiceElementDetailBean);
     }
 
 }

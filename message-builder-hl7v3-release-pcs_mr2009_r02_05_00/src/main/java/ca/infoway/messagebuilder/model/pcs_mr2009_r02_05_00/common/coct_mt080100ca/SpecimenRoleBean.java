@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.SpecimenMaterialBean;
 import java.util.ArrayList;
 import java.util.List;
 

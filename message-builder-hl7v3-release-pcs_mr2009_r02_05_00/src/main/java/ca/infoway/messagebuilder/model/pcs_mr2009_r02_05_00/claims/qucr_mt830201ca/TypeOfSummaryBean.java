@@ -33,6 +33,7 @@ import ca.infoway.messagebuilder.datatype.impl.MOImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.AdjudicationResultIdentifierBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInvoiceAdjudicationPaymentSummaryType;
 import java.util.ArrayList;
 import java.util.Date;

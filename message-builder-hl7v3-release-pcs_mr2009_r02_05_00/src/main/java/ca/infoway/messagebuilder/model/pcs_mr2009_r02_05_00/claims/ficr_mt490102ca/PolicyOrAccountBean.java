@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.CoveredPartyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.claims.merged.PolicyHolderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.domainvalue.ActInsurancePolicyType;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.UnderwriterBean;
 
 
 
@@ -42,7 +43,7 @@ public class PolicyOrAccountBean extends MessagePartBean {
     private CV code = new CVImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
     private PolicyHolderBean holderPolicyHolder;
-    private II authorUnderwriterId = new IIImpl();
+    private UnderwriterBean authorUnderwriter;
 
 
     /**
@@ -134,26 +135,22 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Carrier Identifier</p>
-     * 
-     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
+     * <p>Relationship: FICR_MT490102CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/underwriter/id"})
-    public Identifier getAuthorUnderwriterId() {
-        return this.authorUnderwriterId.getValue();
+    @Hl7XmlMapping({"author/underwriter"})
+    public UnderwriterBean getAuthorUnderwriter() {
+        return this.authorUnderwriter;
     }
 
     /**
-     * <p>Business Name: Carrier Identifier</p>
-     * 
-     * <p>Relationship: FICR_MT490102CA.Underwriter.id</p>
+     * <p>Relationship: FICR_MT490102CA.Author.underwriter</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorUnderwriterId(Identifier authorUnderwriterId) {
-        this.authorUnderwriterId.setValue(authorUnderwriterId);
+    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
+        this.authorUnderwriter = authorUnderwriter;
     }
 
 }

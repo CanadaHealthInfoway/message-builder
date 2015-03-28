@@ -34,7 +34,8 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.PrescriptionReferenceBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pharmacy.merged.SupplyOrderBean;
 import java.util.Date;
 
 
@@ -57,8 +58,8 @@ public class OfficeSupplyBean extends MessagePartBean {
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private DispensedBean product;
-    private II destinationServiceDeliveryLocationId = new IIImpl();
-    private PrescriptionReferenceBean fulfillmentSupplyRequest;
+    private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
+    private SupplyOrderBean fulfillmentSupplyRequest;
     private IncludesBean subjectOf;
 
 
@@ -195,40 +196,24 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: C:Ship-to Facility Id</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: 
+     * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getDestinationServiceDeliveryLocationId() {
-        return this.destinationServiceDeliveryLocationId.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
 
     /**
-     * <p>Business Name: C:Ship-to Facility Id</p>
-     * 
-     * <p>Relationship: PORX_MT020050CA.ServiceDeliveryLocation.id</p>
+     * <p>Relationship: 
+     * PORX_MT020050CA.Destination2.serviceDeliveryLocation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows tracking what drugs are dispensed to a facility. 
-     * The attribute is mandatory because identification of the 
-     * facility must be known.</p>
-     * 
-     * <p>Identifier of the facility where the dispensed medication 
-     * was shipped.</p>
      */
-    public void setDestinationServiceDeliveryLocationId(Identifier destinationServiceDeliveryLocationId) {
-        this.destinationServiceDeliveryLocationId.setValue(destinationServiceDeliveryLocationId);
+    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -239,7 +224,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public PrescriptionReferenceBean getFulfillmentSupplyRequest() {
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
         return this.fulfillmentSupplyRequest;
     }
 
@@ -249,7 +234,7 @@ public class OfficeSupplyBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setFulfillmentSupplyRequest(PrescriptionReferenceBean fulfillmentSupplyRequest) {
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 

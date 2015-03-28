@@ -53,9 +53,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.NewClini
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ParentDocumentBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Recipients;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.ReplacesRecordIdsBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_2Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.RequestedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.iehr.merged.Section_3Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.merged.RequestedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_05_00.pr.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
@@ -97,7 +97,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     private AuthenticatedByBean authenticator;
     private List<ReplacesRecordIdsBean> predecessorOldClinicalDocumentEvent = new ArrayList<ReplacesRecordIdsBean>();
     private ParentDocumentBean appendageParentDocument;
-    private Section_2Bean componentStructuredBodyComponentSection;
+    private Section_3Bean componentStructuredBodyComponentSection;
     private NewClinicalDocumentEvent_1Bean successorNewClinicalDocumentEvent;
     private List<AddendumDocumentBean> appendageOfAddendumDocument = new ArrayList<AddendumDocumentBean>();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
@@ -500,7 +500,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public Section_2Bean getComponentStructuredBodyComponentSection() {
+    public Section_3Bean getComponentStructuredBodyComponentSection() {
         return this.componentStructuredBodyComponentSection;
     }
 
@@ -509,7 +509,7 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponentStructuredBodyComponentSection(Section_2Bean componentStructuredBodyComponentSection) {
+    public void setComponentStructuredBodyComponentSection(Section_3Bean componentStructuredBodyComponentSection) {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
