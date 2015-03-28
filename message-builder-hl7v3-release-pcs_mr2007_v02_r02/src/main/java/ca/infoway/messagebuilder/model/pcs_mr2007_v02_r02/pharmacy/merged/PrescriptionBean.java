@@ -47,7 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt220110ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.IsPartOfBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.TargetedToPharmacyBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt060190ca.PrescribedBecauseOfBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

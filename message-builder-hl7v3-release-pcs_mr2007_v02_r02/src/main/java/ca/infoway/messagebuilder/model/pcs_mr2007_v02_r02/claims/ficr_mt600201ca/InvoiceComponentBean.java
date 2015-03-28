@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SubmittedInvoiceElementDetailsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SubmittedInvoiceGroupBean;
 
 
 
@@ -96,18 +98,18 @@ public class InvoiceComponentBean extends MessagePartBean {
         this.invoiceElementChoice = invoiceElementChoice;
     }
 
-    public InvoiceGroupingInformationBean getInvoiceElementChoiceAsInvoiceElementGroup() {
-        return this.invoiceElementChoice instanceof InvoiceGroupingInformationBean ? (InvoiceGroupingInformationBean) this.invoiceElementChoice : null;
+    public SubmittedInvoiceGroupBean getInvoiceElementChoiceAsInvoiceElementGroup() {
+        return this.invoiceElementChoice instanceof SubmittedInvoiceGroupBean ? (SubmittedInvoiceGroupBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementGroup() {
-        return (this.invoiceElementChoice instanceof InvoiceGroupingInformationBean);
+        return (this.invoiceElementChoice instanceof SubmittedInvoiceGroupBean);
     }
 
-    public InvoiceElementDetailsBean getInvoiceElementChoiceAsInvoiceElementDetail() {
-        return this.invoiceElementChoice instanceof InvoiceElementDetailsBean ? (InvoiceElementDetailsBean) this.invoiceElementChoice : null;
+    public SubmittedInvoiceElementDetailsBean getInvoiceElementChoiceAsInvoiceElementDetail() {
+        return this.invoiceElementChoice instanceof SubmittedInvoiceElementDetailsBean ? (SubmittedInvoiceElementDetailsBean) this.invoiceElementChoice : null;
     }
     public boolean hasInvoiceElementChoiceAsInvoiceElementDetail() {
-        return (this.invoiceElementChoice instanceof InvoiceElementDetailsBean);
+        return (this.invoiceElementChoice instanceof SubmittedInvoiceElementDetailsBean);
     }
 
 }

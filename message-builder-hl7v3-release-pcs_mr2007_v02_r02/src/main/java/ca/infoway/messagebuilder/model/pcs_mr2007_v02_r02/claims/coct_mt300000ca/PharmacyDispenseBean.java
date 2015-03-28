@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.PatientEncounterBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugDispensedInBean;
 import java.util.Date;
 
 
@@ -61,7 +62,7 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private PackageContentsBean productContent;
+    private DrugDispensedInBean productContent;
     private PharmacistRoleBean performerPharmacistRole;
     private ServiceLocationBean originServiceDeliveryLocation;
     private ServiceLocationBean destinationServiceDeliveryLocation;
@@ -227,7 +228,7 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/content"})
-    public PackageContentsBean getProductContent() {
+    public DrugDispensedInBean getProductContent() {
         return this.productContent;
     }
 
@@ -236,7 +237,7 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProductContent(PackageContentsBean productContent) {
+    public void setProductContent(DrugDispensedInBean productContent) {
         this.productContent = productContent;
     }
 

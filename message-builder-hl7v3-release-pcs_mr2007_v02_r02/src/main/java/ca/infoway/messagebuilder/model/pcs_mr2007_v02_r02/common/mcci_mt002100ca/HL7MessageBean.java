@@ -41,7 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.RoutingInstructionLinesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.Sender_1Bean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.ToBeRespondedToByBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,7 +73,7 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
     private CS acceptAckCode = new CSImpl();
     private ReceiverBean receiver;
     private ToBeRespondedToByBean respondTo;
-    private Sender_1Bean sender;
+    private SenderBean sender;
     private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private CAE controlActEvent;
 
@@ -486,7 +486,7 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"sender"})
-    public Sender_1Bean getSender() {
+    public SenderBean getSender() {
         return this.sender;
     }
 
@@ -495,7 +495,7 @@ public class HL7MessageBean<CAE> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setSender(Sender_1Bean sender) {
+    public void setSender(SenderBean sender) {
         this.sender = sender;
     }
 

@@ -38,7 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.coct_mt110200ca.PayeeAccountBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.BusinessArrangementBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.claims.merged.SummaryDetailsBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.domainvalue.ActInvoiceAdjudicationPaymentCode;

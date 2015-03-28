@@ -32,6 +32,7 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ChangedByBean;
 import java.util.Date;
 
 
@@ -105,7 +106,7 @@ public class StatusChangesBean extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private Author1Bean author;
+    private ChangedByBean author;
 
 
     /**
@@ -778,7 +779,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public Author1Bean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -819,7 +820,7 @@ public class StatusChangesBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(Author1Bean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 

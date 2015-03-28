@@ -30,8 +30,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugContainsBean;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.DrugDispensedInBean;
 import java.util.ArrayList;
 import java.util.List;
 

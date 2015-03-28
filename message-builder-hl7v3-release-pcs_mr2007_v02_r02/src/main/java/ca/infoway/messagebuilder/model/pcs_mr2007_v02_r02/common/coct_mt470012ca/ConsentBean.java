@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt090502ca
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.merged.SubjectChoice;
+import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.ConsentedToByBean;
 import java.util.Date;
 
 
