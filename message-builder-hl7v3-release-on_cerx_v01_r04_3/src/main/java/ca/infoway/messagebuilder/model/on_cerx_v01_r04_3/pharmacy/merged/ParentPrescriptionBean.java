@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010120ON.PriorCombinedMedicationRequest","PORX_MT060040ON.PriorSupplyRequest","PORX_MT060160ON.PriorCombinedMedicationRequest","PORX_MT060340ON.PriorCombinedMedicationRequest"})
+@Hl7PartTypeMapping({"PORX_MT060040ON.PriorSupplyRequest","PORX_MT060160ON.PriorCombinedMedicationRequest","PORX_MT060340ON.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -92,23 +92,6 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT060340ON.PriorCombinedMedicationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>New or Repeat (if present, then Repeat)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
-     * 
-     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120ON.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -167,23 +150,6 @@ public class ParentPrescriptionBean extends MessagePartBean {
      * 
      * <p>Relationship: 
      * PORX_MT060340ON.PriorCombinedMedicationRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>New or Repeat (if present, then Repeat)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
-     * 
-     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: 
-     * PORX_MT010120ON.PriorCombinedMedicationRequest.id</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 

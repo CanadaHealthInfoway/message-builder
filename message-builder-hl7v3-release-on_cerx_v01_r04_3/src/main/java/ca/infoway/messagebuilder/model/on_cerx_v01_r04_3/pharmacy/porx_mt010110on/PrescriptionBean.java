@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt050203on.PatientBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt120600on.NotesBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt141007on.DeviceProductBean;
-import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.CoverageExtensionsBean;
+import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.CoverageExtensions_1Bean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.DispenseInstructions_1Bean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.ProcedureRequestBean;
@@ -72,7 +72,7 @@ public class PrescriptionBean extends MessagePartBean {
     private PriorDeviceRequestBean predecessorPriorDeviceRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
-    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseInstructions_1Bean component2SupplyRequest;
     private NotesBean subjectOfAnnotation;
@@ -327,7 +327,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensionsBean> getCoverageCoverage() {
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 

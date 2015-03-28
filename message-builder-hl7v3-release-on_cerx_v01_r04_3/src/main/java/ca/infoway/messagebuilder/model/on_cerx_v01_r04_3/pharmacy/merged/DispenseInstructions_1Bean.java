@@ -67,6 +67,11 @@ import java.util.Date;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  * 
+ * <p>PORX_MT020060ON.SupplyRequest: (no business name)</p>
+ * 
+ * <p>AT least one of Total Prescribed Quantity or Total Days 
+ * Supply must be specified</p>
+ * 
  * <p>PORX_MT060060ON.SupplyRequest: Dispense Instructions</p>
  * 
  * <p>A_BillablePharmacyDispense</p>
@@ -79,7 +84,7 @@ import java.util.Date;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010110ON.SupplyRequest","PORX_MT060040ON.SupplyRequest","PORX_MT060060ON.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT010110ON.SupplyRequest","PORX_MT020060ON.SupplyRequest","PORX_MT060040ON.SupplyRequest","PORX_MT060060ON.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -124,6 +129,18 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020060ON.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows determination of the amount that remains to be 
+     * dispensed against the prescription.</p>
+     * 
+     * <p>The overall amount of device to be dispensed under this 
+     * prescription.</p>
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
@@ -183,6 +200,18 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
+     * <p>Relationship: PORX_MT020060ON.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows determination of the amount that remains to be 
+     * dispensed against the prescription.</p>
+     * 
+     * <p>The overall amount of device to be dispensed under this 
+     * prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
      * <p>Relationship: PORX_MT060060ON.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -238,6 +267,21 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
      * dispensing and use of the prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060ON.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getExpectedUseTime() {
@@ -280,6 +324,21 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
      * dispensing and use of the prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060ON.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription</p>
      */
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);

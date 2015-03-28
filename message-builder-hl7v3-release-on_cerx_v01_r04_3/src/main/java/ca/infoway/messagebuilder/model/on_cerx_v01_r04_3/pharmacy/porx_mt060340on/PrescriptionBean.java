@@ -42,16 +42,16 @@ import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt050203on.
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt090107on.ProviderBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt120600on.NotesBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.common.coct_mt220110on.DrugProductBean;
-import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.AllowedSubstitutionBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.ClassifiesBean;
+import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.CoverageExtensions_2Bean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.FirstDispenseInformation_1Bean;
-import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.Includes_1Bean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.LastDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.NotEligibleForTrialBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.ParentPrescriptionBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PrescribedBecauseOfBean;
+import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PrescriptionDispensesBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PrescriptionPatientMeasurementsBean;
 import ca.infoway.messagebuilder.model.on_cerx_v01_r04_3.pharmacy.merged.PreviousDispenseInformation_1Bean;
@@ -103,11 +103,11 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
+    private List<CoverageExtensions_2Bean> coverageCoverage = new ArrayList<CoverageExtensions_2Bean>();
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotEligibleForTrialBean component2;
-    private Includes_1Bean component3;
+    private IncludesBean component3;
     private List<PrescriptionDispensesBean> fulfillment1MedicationDispense = new ArrayList<PrescriptionDispensesBean>();
     private LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary;
     private FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary;
@@ -603,7 +603,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensionsBean> getCoverageCoverage() {
+    public List<CoverageExtensions_2Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -661,7 +661,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component3"})
-    public Includes_1Bean getComponent3() {
+    public IncludesBean getComponent3() {
         return this.component3;
     }
 
@@ -671,7 +671,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent3(Includes_1Bean component3) {
+    public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }
 
