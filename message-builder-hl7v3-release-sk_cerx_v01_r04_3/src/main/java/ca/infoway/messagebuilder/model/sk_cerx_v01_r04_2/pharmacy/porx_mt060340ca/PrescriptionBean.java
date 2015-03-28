@@ -39,16 +39,16 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt050203ca.
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt220110ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.AllowedSubstitutionBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ClassifiesBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.Component6Bean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.CoverageExtensions_2Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.FirstDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.LastDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.NotEligibleForTrialBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ParentPrescriptionBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescribedBecauseOfBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescriptionDispensesBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescriptionPatientMeasurementsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PreviousDispenseInformation_1Bean;
@@ -104,10 +104,10 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
     private BL derivedFromSourceDispense = new BLImpl(false);
-    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
+    private List<CoverageExtensions_2Bean> coverageCoverage = new ArrayList<CoverageExtensions_2Bean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private NotEligibleForTrialBean component2;
-    private Component6Bean component3;
+    private IncludesBean component3;
     private List<PrescriptionDispensesBean> fulfillment1MedicationDispense = new ArrayList<PrescriptionDispensesBean>();
     private LastDispenseInformation_1Bean fulfillment2SupplyEventLastSummary;
     private FirstDispenseInformation_1Bean fulfillment3SupplyEventFirstSummary;
@@ -873,7 +873,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensionsBean> getCoverageCoverage() {
+    public List<CoverageExtensions_2Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 
@@ -929,7 +929,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * patient.</div>
      */
     @Hl7XmlMapping({"component3"})
-    public Component6Bean getComponent3() {
+    public IncludesBean getComponent3() {
         return this.component3;
     }
 
@@ -943,7 +943,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * prescribed</p> <div>medication should be dispensed to the 
      * patient.</div>
      */
-    public void setComponent3(Component6Bean component3) {
+    public void setComponent3(IncludesBean component3) {
         this.component3 = component3;
     }
 

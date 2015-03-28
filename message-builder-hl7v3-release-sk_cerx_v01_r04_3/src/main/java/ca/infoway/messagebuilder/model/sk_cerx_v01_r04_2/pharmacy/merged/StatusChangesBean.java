@@ -105,7 +105,7 @@ public class StatusChangesBean extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
-    private Author1Bean author;
+    private ManagedByBean author;
 
 
     /**
@@ -890,7 +890,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <p>prescription dispense status.&nbsp;</p></p>
      */
     @Hl7XmlMapping({"author"})
-    public Author1Bean getAuthor() {
+    public ManagedByBean getAuthor() {
         return this.author;
     }
 
@@ -951,7 +951,7 @@ public class StatusChangesBean extends MessagePartBean {
      * <div>application responsible for the change in the</div> 
      * <p>prescription dispense status.&nbsp;</p></p>
      */
-    public void setAuthor(Author1Bean author) {
+    public void setAuthor(ManagedByBean author) {
         this.author = author;
     }
 

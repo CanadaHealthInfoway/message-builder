@@ -40,8 +40,7 @@ import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt120600ca.
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt220100ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.AllowedSubstitutionBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ClassifiesBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.CoverageExtensionsBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ParentPrescriptionBean;
+import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.CoverageExtensions_1Bean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.PrescriptionPatientMeasurementsBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged.ProtocolsBean;
@@ -78,11 +77,11 @@ public class PrescriptionBean extends MessagePartBean {
     private DrugProductBean directTargetMedication;
     private PatientBean subjectPatient;
     private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
-    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
+    private PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
-    private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private Component2Bean component2;
     private IncludesBean component3;
@@ -370,7 +369,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
-    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
+    public PriorCombinedMedicationRequestBean getPredecessorPriorCombinedMedicationRequest() {
         return this.predecessorPriorCombinedMedicationRequest;
     }
 
@@ -380,7 +379,7 @@ public class PrescriptionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
+    public void setPredecessorPriorCombinedMedicationRequest(PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest) {
         this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
 
@@ -463,7 +462,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensionsBean> getCoverageCoverage() {
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
         return this.coverageCoverage;
     }
 

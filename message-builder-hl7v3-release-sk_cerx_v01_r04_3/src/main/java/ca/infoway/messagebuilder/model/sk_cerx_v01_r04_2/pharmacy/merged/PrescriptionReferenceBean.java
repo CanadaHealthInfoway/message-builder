@@ -22,15 +22,12 @@ package ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.sk_cerx_v01_r04_2.pharmacy.porx_mt020070ca.SupplyRequestBean;
 
 
 
@@ -80,8 +77,7 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     private II id = new IIImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private RefusedByBean author;
-    private BL componentContextConductionInd = new BLImpl();
-    private SupplyRequestBean componentSupplyRequest;
+    private Component6Bean component;
 
 
     /**
@@ -586,9 +582,9 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;This can only be specified if the id is 
      * &lsquo;UNK&rsquo; or</p> <div>a BUS error issue will be 
@@ -596,18 +592,18 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * this must be specified</div> <div>or a MISSCOND error issue 
      * will be returned.</div>
      */
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
+    @Hl7XmlMapping({"component"})
+    public Component6Bean getComponent() {
+        return this.component;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PORX_MT020070CA.Component2.contextConductionInd</p>
+     * PORX_MT020070CA.SubstanceAdministrationRequest.component</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
      * <p>&nbsp;This can only be specified if the id is 
      * &lsquo;UNK&rsquo; or</p> <div>a BUS error issue will be 
@@ -615,32 +611,8 @@ public class PrescriptionReferenceBean extends MessagePartBean {
      * this must be specified</div> <div>or a MISSCOND error issue 
      * will be returned.</div>
      */
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    @Hl7XmlMapping({"component/supplyRequest"})
-    public SupplyRequestBean getComponentSupplyRequest() {
-        return this.componentSupplyRequest;
-    }
-
-    /**
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: PORX_MT020070CA.Component2.supplyRequest</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     */
-    public void setComponentSupplyRequest(SupplyRequestBean componentSupplyRequest) {
-        this.componentSupplyRequest = componentSupplyRequest;
+    public void setComponent(Component6Bean component) {
+        this.component = component;
     }
 
 }
