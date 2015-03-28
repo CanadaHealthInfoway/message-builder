@@ -35,6 +35,8 @@ import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Informant12Bean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Participant2Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Performer2Bean;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.RegionOfInterest"})
 public class RegionOfInterestBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private ST iD = new STImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

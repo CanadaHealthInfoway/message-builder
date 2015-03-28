@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.basemodel.Component2Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.CDAHeaderDocumentType;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.CustodianBean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.RelatedDocumentBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ import java.util.List;
 @Hl7RootType
 public class PcCDAHeaderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();

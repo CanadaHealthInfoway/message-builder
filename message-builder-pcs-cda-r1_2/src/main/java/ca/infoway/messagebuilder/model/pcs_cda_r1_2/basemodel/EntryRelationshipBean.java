@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.EntryRelationship"})
 public class EntryRelationshipBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS typeCode = new CSImpl();
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();

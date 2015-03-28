@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Device"})
 public class DeviceBean extends MessagePartBean implements ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

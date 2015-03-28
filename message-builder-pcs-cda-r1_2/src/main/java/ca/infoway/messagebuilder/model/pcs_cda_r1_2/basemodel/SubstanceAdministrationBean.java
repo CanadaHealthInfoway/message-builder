@@ -53,6 +53,8 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.x_DocumentSubstanceMood;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Informant12Bean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Participant2Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Performer2Bean;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +64,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.SubstanceAdministration"})
 public class SubstanceAdministrationBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS moodCode = new CSImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

@@ -38,6 +38,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.domainvalue.x_ActClassDocumentEntryOrganizer;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Informant12Bean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Participant2Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Performer2Bean;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Organizer"})
 public class OrganizerBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS classCode = new CSImpl();
     private CS moodCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

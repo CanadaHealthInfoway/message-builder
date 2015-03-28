@@ -42,6 +42,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.CustodianBean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Informant12Bean;
+import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.Participant2Bean;
 import ca.infoway.messagebuilder.model.pcs_cda_r1_2.merged.RelatedDocumentBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ import java.util.List;
 @Hl7RootType
 public class BaseModelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -73,7 +75,7 @@ public class BaseModelBean extends MessagePartBean {
     private List<InformationRecipientBean> informationRecipient = new ArrayList<InformationRecipientBean>();
     private LegalAuthenticatorBean legalAuthenticator;
     private List<AuthenticatorBean> authenticator = new ArrayList<AuthenticatorBean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
     private List<InFulfillmentOfBean> inFulfillmentOf = new ArrayList<InFulfillmentOfBean>();
     private List<DocumentationOfBean> documentationOf = new ArrayList<DocumentationOfBean>();
     private List<RelatedDocumentBean> relatedDocument = new ArrayList<RelatedDocumentBean>();
@@ -431,7 +433,7 @@ public class BaseModelBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 
