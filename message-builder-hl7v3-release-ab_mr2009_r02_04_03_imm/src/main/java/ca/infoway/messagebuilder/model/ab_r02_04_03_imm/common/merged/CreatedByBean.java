@@ -30,13 +30,13 @@ import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.common.coct_mt911108ca.ActingPerson;
 import java.util.Date;
 
 
 
 /**
- * <p>Business Name: CreatedBy</p>
- * 
  * <p>MCAI_MT700211CA.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
@@ -55,6 +55,31 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  * 
+ * <p>COCT_MT130001CA.Author3: *changed by</p>
+ * 
+ * <p>In an EHR integrated health services environment, it is 
+ * important that other providers are able to query who is 
+ * responsible for a given change. Also used by applications 
+ * for auditing and sorting. The attribute is mandatory because 
+ * the responsible provider should always be known.</p>
+ * 
+ * <p>Identity of the health service provider responsible for 
+ * the change.</p>
+ * 
+ * <p>COCT_MT260022CA.Author1: managed by</p>
+ * 
+ * <p>OverrideReason.provider</p>
+ * 
+ * <p>ManagedContraindication.provider</p>
+ * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>Part of the audit record, but may not always be known for 
+ * historical managements.</p>
+ * 
+ * <p>Identifies the provider who created the management of the 
+ * issue.</p>
+ * 
  * <p>QUQI_MT020002AB.Author: a:*created by</p>
  * 
  * <p>If AuthorizationToken is specified and communicates 
@@ -66,6 +91,18 @@ import java.util.Date;
  * 
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
+ * 
+ * <p>COCT_MT260030CA.Author1: *managed by</p>
+ * 
+ * <p>OverrideReason.provider</p>
+ * 
+ * <p>ManagedContraindication.provider</p>
+ * 
+ * <p>A_DetectedMedicationIssue</p>
+ * 
+ * <p>Part of the audit record and therefore mandatory.</p>
+ * 
+ * <p>Identifies the provider who managed the issue.</p>
  * 
  * <p>QUQI_MT020000AB.Author: a:*created by</p>
  * 
@@ -79,7 +116,7 @@ import java.util.Date;
  * <p>Indicates the person responsible for the event that 
  * caused this message.</p>
  */
-@Hl7PartTypeMapping({"MCAI_MT700211CA.Author","QUQI_MT020000AB.Author","QUQI_MT020002AB.Author"})
+@Hl7PartTypeMapping({"COCT_MT130001CA.Author3","COCT_MT260020CA.Author1","COCT_MT260022CA.Author1","COCT_MT260030CA.Author1","MCAI_MT700211CA.Author","QUQI_MT020000AB.Author","QUQI_MT020002AB.Author"})
 public class CreatedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -87,11 +124,11 @@ public class CreatedByBean extends MessagePartBean {
     private CV modeCode = new CVImpl();
     private ED<String> signatureText = new EDImpl<String>();
     private AuthorPerson authorPerson;
+    private ActingPerson actingPerson;
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
-     * <p>Business Name: TimeOfCreation</p>
-     * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Author.time</p>
@@ -109,6 +146,35 @@ public class CreatedByBean extends MessagePartBean {
      * effective period would be next Tuesday.)</p><p>This date can 
      * be back-dated.</p>
      * 
+     * <p>Un-merged Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the event. Also used 
+     * for sorting and audit purposes. Time of change is always 
+     * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: QUQI_MT020002AB.Author.time</p>
@@ -125,6 +191,26 @@ public class CreatedByBean extends MessagePartBean {
      * Tuesday, the time of creation would be today and the change 
      * effective period would be next Tuesday.)</p><p>This date can 
      * be back-dated.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
@@ -149,8 +235,6 @@ public class CreatedByBean extends MessagePartBean {
     }
 
     /**
-     * <p>Business Name: TimeOfCreation</p>
-     * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: MCAI_MT700211CA.Author.time</p>
@@ -168,6 +252,35 @@ public class CreatedByBean extends MessagePartBean {
      * effective period would be next Tuesday.)</p><p>This date can 
      * be back-dated.</p>
      * 
+     * <p>Un-merged Business Name: ChangeDatetime</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the event. Also used 
+     * for sorting and audit purposes. Time of change is always 
+     * known and thus the attribute is mandatory.</p>
+     * 
+     * <p>The date on which the change was made. Note that this may 
+     * be earlier or occassionally later than when the change is 
+     * actually effective.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record but not always available and 
+     * therefore only marked as 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider used this 
+     * management for the issue in the past.</p>
+     * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
      * <p>Relationship: QUQI_MT020002AB.Author.time</p>
@@ -184,6 +297,26 @@ public class CreatedByBean extends MessagePartBean {
      * Tuesday, the time of creation would be today and the change 
      * effective period would be next Tuesday.)</p><p>This date can 
      * be back-dated.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>ManagedContraindication.CreationDate</p>
+     * 
+     * <p>Part of the audit record, but not always available and 
+     * therefore 'populated'.</p>
+     * 
+     * <p>The date and time on which the provider managed the 
+     * issue.</p>
+     * 
+     * <p>Un-merged Business Name: ManagementDate</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
      * 
      * <p>Un-merged Business Name: TimeOfCreation</p>
      * 
@@ -440,6 +573,78 @@ public class CreatedByBean extends MessagePartBean {
      */
     public void setAuthorPerson(AuthorPerson authorPerson) {
         this.authorPerson = authorPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"actingPerson"})
+    public ActingPerson getActingPerson() {
+        return this.actingPerson;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT130001CA.Author3.actingPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setActingPerson(ActingPerson actingPerson) {
+        this.actingPerson = actingPerson;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260022CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260030CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: COCT_MT260020CA.Author1.assignedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

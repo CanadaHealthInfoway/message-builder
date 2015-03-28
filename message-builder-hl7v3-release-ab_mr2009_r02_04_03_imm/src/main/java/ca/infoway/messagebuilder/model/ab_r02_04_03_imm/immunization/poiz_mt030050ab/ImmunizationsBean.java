@@ -46,7 +46,6 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.common.coct_mt050205ab.P
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.InvestigationEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.LocationBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.NewImmunizationEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.OldImmunizationEventBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.PatientImmunizationObservationsBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03_imm.immunization.merged.ReasonBean;
@@ -89,7 +88,7 @@ public class ImmunizationsBean extends MessagePartBean {
     private OldImmunizationEventBean predecessorOldImmunizationEvent;
     private ReasonBean reason;
     private List<PatientImmunizationObservationsBean> pertinentInformationPatientImmunizationObservations = new ArrayList<PatientImmunizationObservationsBean>();
-    private NewImmunizationEventBean successorNewImmunizationEvent;
+    private NewImmunizationEventIDBean successorNewImmunizationEvent;
     private NotesBean subjectOfAnnotation;
     private InvestigationEventBean causeInvestigationEvent;
 
@@ -575,7 +574,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"successor/newImmunizationEvent"})
-    public NewImmunizationEventBean getSuccessorNewImmunizationEvent() {
+    public NewImmunizationEventIDBean getSuccessorNewImmunizationEvent() {
         return this.successorNewImmunizationEvent;
     }
 
@@ -585,7 +584,7 @@ public class ImmunizationsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setSuccessorNewImmunizationEvent(NewImmunizationEventBean successorNewImmunizationEvent) {
+    public void setSuccessorNewImmunizationEvent(NewImmunizationEventIDBean successorNewImmunizationEvent) {
         this.successorNewImmunizationEvent = successorNewImmunizationEvent;
     }
 
