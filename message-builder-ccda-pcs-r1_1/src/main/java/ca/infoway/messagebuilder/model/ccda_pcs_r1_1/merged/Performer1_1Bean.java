@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Performer1","DiagnosticImagingReport.Performer1","DischargeSummary.Performer1","HistoryAndPhysical.Performer1","ProgressNote.Performer1","USRealmHeader.Performer1","UnstructuredDocument.Performer1"})
 public class Performer1_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

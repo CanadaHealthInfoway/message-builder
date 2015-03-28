@@ -49,7 +49,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private ST iD = new STImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

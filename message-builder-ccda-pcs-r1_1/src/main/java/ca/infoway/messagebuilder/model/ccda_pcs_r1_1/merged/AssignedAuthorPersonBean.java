@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AssignedAuthorPerson","ContinuityOfCareDocumentCCD.AssignedAuthorPerson","DiagnosticImagingReport.AssignedAuthorPerson","DischargeSummary.AssignedAuthorPerson","HistoryAndPhysical.AssignedAuthorPerson","OperativeNote.AssignedAuthorPerson","ProcedureNote.AssignedAuthorPerson","ProgressNote.AssignedAuthorPerson","USRealmHeader.AssignedAuthorPerson","UnstructuredDocument.AssignedAuthorPerson"})
 public class AssignedAuthorPersonBean extends MessagePartBean implements AssignedAuthorChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

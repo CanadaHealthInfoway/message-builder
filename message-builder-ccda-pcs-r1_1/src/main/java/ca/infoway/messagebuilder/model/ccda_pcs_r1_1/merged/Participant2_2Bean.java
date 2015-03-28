@@ -35,41 +35,60 @@ import ca.infoway.messagebuilder.datatype.impl.IVLTSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.servicedeliverylocation.ParticipantRoleBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"EncounterActivities.Participant2","ProcedureActivityAct.Participant2","ProcedureActivityObservation.Participant2"})
-public class Participant2_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.encounteractivities.Participant2Choice {
+@Hl7PartTypeMapping({"BaseModel.Participant2","ProcedureNote.Participant1"})
+public class Participant2_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.advancedirectiveobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.encounteractivities.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.allergyintoleranceobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.medicationactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedureactivityprocedure.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedurenote.Participant1Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.nonmedicinalsupplyactivity.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.policyactivity.Participant2Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
+    private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVLTSCDAR1 time = new IVLTSCDAR1Impl();
     private CE awarenessCode = new CEImpl();
     private ParticipantRoleBean participantRole;
+    private AssociatedEntityBean associatedEntity;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.realmCode</p>
+     * <p>Relationship: BaseModel.Participant2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public ParticipationType getTypeCode() {
+        return (ParticipationType) this.typeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant2.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setTypeCode(ParticipationType typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant2.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Participant2.realmCode</p>
+     * <p>Relationship: ProcedureNote.Participant1.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -82,20 +101,13 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.typeId</p>
+     * <p>Relationship: BaseModel.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Participant2.typeId</p>
+     * <p>Relationship: ProcedureNote.Participant1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -107,20 +119,13 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.typeId</p>
+     * <p>Relationship: BaseModel.Participant2.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Participant2.typeId</p>
+     * <p>Relationship: ProcedureNote.Participant1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -132,21 +137,13 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.templateId</p>
+     * <p>Relationship: BaseModel.Participant2.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.Participant2.templateId</p>
+     * <p>Relationship: ProcedureNote.Participant1.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -159,20 +156,13 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.time</p>
+     * <p>Relationship: BaseModel.Participant2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Participant2.time</p>
+     * <p>Relationship: ProcedureNote.Participant1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -184,20 +174,13 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: EncounterActivities.Participant2.time</p>
+     * <p>Relationship: BaseModel.Participant2.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.time</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: ProcedureActivityAct.Participant2.time</p>
+     * <p>Relationship: ProcedureNote.Participant1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -209,22 +192,7 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterActivities.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.Participant2.awarenessCode</p>
+     * <p>Relationship: BaseModel.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -236,22 +204,7 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterActivities.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.awarenessCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.Participant2.awarenessCode</p>
+     * <p>Relationship: BaseModel.Participant2.awarenessCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -263,22 +216,7 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterActivities.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.Participant2.participantRole</p>
+     * <p>Relationship: BaseModel.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
@@ -290,27 +228,36 @@ public class Participant2_2Bean extends MessagePartBean implements ca.infoway.me
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterActivities.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityObservation.Participant2.participantRole</p>
-     * 
-     * <p>Conformance/Cardinality: POPULATED (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProcedureActivityAct.Participant2.participantRole</p>
+     * <p>Relationship: BaseModel.Participant2.participantRole</p>
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     public void setParticipantRole(ParticipantRoleBean participantRole) {
         this.participantRole = participantRole;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureNote.Participant1.associatedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"associatedEntity"})
+    public AssociatedEntityBean getAssociatedEntity() {
+        return this.associatedEntity;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: ProcedureNote.Participant1.associatedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setAssociatedEntity(AssociatedEntityBean associatedEntity) {
+        this.associatedEntity = associatedEntity;
     }
 
 }

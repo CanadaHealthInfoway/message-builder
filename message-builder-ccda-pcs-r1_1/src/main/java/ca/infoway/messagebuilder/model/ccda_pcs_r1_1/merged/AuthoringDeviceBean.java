@@ -45,7 +45,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.AuthoringDevice","ConsultationNote.AuthoringDevice","ContinuityOfCareDocumentCCD.AuthoringDevice","DiagnosticImagingReport.AuthoringDevice","DischargeSummary.AuthoringDevice","HistoryAndPhysical.AuthoringDevice","OperativeNote.AuthoringDevice","ProcedureNote.AuthoringDevice","ProgressNote.AuthoringDevice","USRealmHeader.AuthoringDevice","UnstructuredDocument.AuthoringDevice"})
 public class AuthoringDeviceBean extends MessagePartBean implements AssignedAuthorChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.AssignedAuthorChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

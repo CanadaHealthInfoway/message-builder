@@ -39,7 +39,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.InformationRecipient","ContinuityOfCareDocumentCCD.InformationRecipient","DiagnosticImagingReport.InformationRecipient","DischargeSummary.InformationRecipient","HistoryAndPhysical.InformationRecipient","OperativeNote.InformationRecipient","ProcedureNote.InformationRecipient","ProgressNote.InformationRecipient","USRealmHeader.InformationRecipient","UnstructuredDocument.InformationRecipient"})
 public class InformationRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

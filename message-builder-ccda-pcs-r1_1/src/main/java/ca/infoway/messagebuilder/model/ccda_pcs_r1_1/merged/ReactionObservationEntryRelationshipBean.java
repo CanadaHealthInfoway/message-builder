@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.ReactionObservationEntryRelationship","ImmunizationActivity.ReactionObservationEntryRelationship","MedicationActivity.ReactionObservationEntryRelationship","SubstanceOrDeviceAllergyIntoleranceObservation.ReactionObservationEntryRelationship"})
 public class ReactionObservationEntryRelationshipBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.medicationactivity.EntryRelationshipChoice, EntryRelationshipChoice_2 {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

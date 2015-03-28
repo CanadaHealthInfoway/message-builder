@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Component1","ContinuityOfCareDocumentCCD.Component1","DischargeSummary.Component1","OperativeNote.Component1","USRealmHeader.Component1","UnstructuredDocument.Component1"})
 public class Component1_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

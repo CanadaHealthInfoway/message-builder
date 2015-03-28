@@ -42,7 +42,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Component4"})
 public class Component4Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.vitalsignsorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.resultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.cognitivestatusresultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.functionalstatusresultorganizer.Component4Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

@@ -40,6 +40,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PersonBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Organization_2Bean;
 import java.util.List;
 
 
@@ -47,7 +48,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PhysicianOfRecordParticipant.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -56,7 +57,7 @@ public class AssignedEntityBean extends MessagePartBean {
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PersonBean assignedPerson;
-    private OrganizationBean representedOrganization;
+    private Organization_2Bean representedOrganization;
 
 
     /**
@@ -192,7 +193,7 @@ public class AssignedEntityBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
+    public Organization_2Bean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
@@ -202,7 +203,7 @@ public class AssignedEntityBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+    public void setRepresentedOrganization(Organization_2Bean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }
 

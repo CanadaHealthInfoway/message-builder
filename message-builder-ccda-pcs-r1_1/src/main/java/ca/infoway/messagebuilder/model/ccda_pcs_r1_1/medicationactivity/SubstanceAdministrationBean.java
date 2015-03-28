@@ -73,7 +73,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS moodCode = new CSImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

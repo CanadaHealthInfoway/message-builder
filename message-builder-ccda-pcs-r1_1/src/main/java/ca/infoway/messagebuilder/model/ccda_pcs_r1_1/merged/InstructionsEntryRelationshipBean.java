@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.InstructionsEntryRelationship","MedicationActivity.InstructionsEntryRelationship","ProcedureActivityAct.InstructionsEntryRelationship","ProcedureActivityObservation.InstructionsEntryRelationship","ProcedureActivityProcedure.InstructionsEntryRelationship"})
 public class InstructionsEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);

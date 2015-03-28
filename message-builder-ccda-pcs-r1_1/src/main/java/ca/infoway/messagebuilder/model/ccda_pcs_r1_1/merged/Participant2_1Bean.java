@@ -35,21 +35,25 @@ import ca.infoway.messagebuilder.datatype.impl.IVLTSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"AllergyIntoleranceObservation.Participant2","CaregiverCharacteristics.Participant2","SubstanceOrDeviceAllergyIntoleranceObservation.Participant2"})
-public class Participant2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.allergyintoleranceobservation.Participant2Choice {
+@Hl7PartTypeMapping({"AllergyIntoleranceObservation.Participant2","BaseModel.Participant1","CaregiverCharacteristics.Participant2","SubstanceOrDeviceAllergyIntoleranceObservation.Participant2"})
+public class Participant2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.allergyintoleranceobservation.Participant2Choice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedurenote.Participant1Choice, Participant1Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVLTSCDAR1 time = new IVLTSCDAR1Impl();
     private CE awarenessCode = new CEImpl();
     private ParticipantRoleBean participantRole;
+    private CS typeCode = new CSImpl();
+    private CE functionCode = new CEImpl();
+    private AssociatedEntityBean associatedEntity;
 
 
     /**
@@ -57,6 +61,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * CaregiverCharacteristics.Participant2.realmCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
@@ -90,6 +100,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Participant1.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.typeId</p>
      * 
@@ -112,6 +128,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Relationship: 
      * CaregiverCharacteristics.Participant2.typeId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -144,6 +166,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Participant1.templateId</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.templateId</p>
      * 
@@ -171,6 +199,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
+     * <p>Relationship: BaseModel.Participant1.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
      * <p>Relationship: 
      * AllergyIntoleranceObservation.Participant2.time</p>
      * 
@@ -192,6 +226,12 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: CaregiverCharacteristics.Participant2.time</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.time</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
@@ -319,6 +359,78 @@ public class Participant2_1Bean extends MessagePartBean implements ca.infoway.me
      */
     public void setParticipantRole(ParticipantRoleBean participantRole) {
         this.participantRole = participantRole;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public ParticipationType getTypeCode() {
+        return (ParticipationType) this.typeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setTypeCode(ParticipationType typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    @Hl7XmlMapping({"functionCode"})
+    public Code getFunctionCode() {
+        return (Code) this.functionCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.functionCode</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     */
+    public void setFunctionCode(Code functionCode) {
+        this.functionCode.setValue(functionCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.associatedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    @Hl7XmlMapping({"associatedEntity"})
+    public AssociatedEntityBean getAssociatedEntity() {
+        return this.associatedEntity;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.Participant1.associatedEntity</p>
+     * 
+     * <p>Conformance/Cardinality: POPULATED (1)</p>
+     */
+    public void setAssociatedEntity(AssociatedEntityBean associatedEntity) {
+        this.associatedEntity = associatedEntity;
     }
 
 }

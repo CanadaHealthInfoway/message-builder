@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PlanOfCareSection.PlanOfCareActivitySubstanceAdministrationEntry"})
 public class PlanOfCareActivitySubstanceAdministrationEntryBean extends MessagePartBean implements EntryChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

@@ -35,15 +35,18 @@ import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.problemobservation.ObservationBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.EntryRelationshipChoice;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.boundaryobservation.ObservationBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.x_ActRelationshipEntryRelationship;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.instructions.ActBean;
 import java.util.List;
 
 
 
-@Hl7PartTypeMapping({"DeceasedObservation.EntryRelationship","EncounterDiagnosis.EntryRelationship","HospitalAdmissionDiagnosis.EntryRelationship","HospitalDischargeDiagnosis.EntryRelationship","PostprocedureDiagnosis.EntryRelationship","PreoperativeDiagnosis.EntryRelationship","ProblemConcernActCondition.EntryRelationship"})
-public class EntryRelationship_2Bean extends MessagePartBean implements EntryRelationshipChoice_5 {
+@Hl7PartTypeMapping({"BaseModel.EntryRelationship","MedicationSupplyOrder.EntryRelationship","ReferencedFramesObservation.EntryRelationship"})
+public class EntryRelationship_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.reactionobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.allergyproblemact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.medicationdispense.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.procedureactivityobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.studyact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.coverageactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.familyhistoryobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.encounteractivities.EntryRelationshipChoice, EntryRelationshipChoice_1, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.policyactivity.EntryRelationshipChoice, EntryRelationshipChoice_4, EntryRelationshipChoice_3, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.assessmentscaleobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pressureulcerobservation.EntryRelationshipChoice, EntryRelationshipChoice_5, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.sopinstanceobservation.EntryRelationshipChoice, EntryRelationshipChoice_7, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.pregnancyobservation.EntryRelationshipChoice, EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_pcs_r1_1.authorizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
@@ -53,55 +56,22 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
+    private ActBean act;
+    private CS typeCode = new CSImpl();
+    private EntryRelationshipChoice entryRelationshipChoice;
 
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.inversionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -114,49 +84,13 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.inversionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.inversionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.inversionInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.inversionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -169,49 +103,21 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.contextConductionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.contextConductionInd</p>
+     * MedicationSupplyOrder.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.contextConductionInd</p>
+     * BaseModel.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -224,49 +130,21 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.contextConductionInd</p>
+     * ReferencedFramesObservation.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.contextConductionInd</p>
+     * MedicationSupplyOrder.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.contextConductionInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.contextConductionInd</p>
+     * BaseModel.EntryRelationship.contextConductionInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -279,49 +157,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.negationInd</p>
+     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.negationInd</p>
+     * MedicationSupplyOrder.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -334,49 +183,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.negationInd</p>
+     * ReferencedFramesObservation.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.negationInd</p>
+     * MedicationSupplyOrder.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.negationInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.negationInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.negationInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -389,49 +209,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.realmCode</p>
+     * ReferencedFramesObservation.EntryRelationship.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.realmCode</p>
+     * MedicationSupplyOrder.EntryRelationship.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.realmCode</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.realmCode</p>
+     * <p>Relationship: BaseModel.EntryRelationship.realmCode</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -445,48 +236,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: EncounterDiagnosis.EntryRelationship.typeId</p>
+     * ReferencedFramesObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.typeId</p>
+     * MedicationSupplyOrder.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -499,48 +262,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: EncounterDiagnosis.EntryRelationship.typeId</p>
+     * ReferencedFramesObservation.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.typeId</p>
+     * MedicationSupplyOrder.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.typeId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.typeId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.typeId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -553,49 +288,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.templateId</p>
+     * ReferencedFramesObservation.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.templateId</p>
+     * MedicationSupplyOrder.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.templateId</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.templateId</p>
+     * <p>Relationship: BaseModel.EntryRelationship.templateId</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
@@ -609,49 +315,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.sequenceNumber</p>
+     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.sequenceNumber</p>
+     * MedicationSupplyOrder.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -664,49 +341,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.sequenceNumber</p>
+     * ReferencedFramesObservation.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.sequenceNumber</p>
+     * MedicationSupplyOrder.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.sequenceNumber</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.sequenceNumber</p>
+     * <p>Relationship: BaseModel.EntryRelationship.sequenceNumber</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -719,49 +367,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.seperatableInd</p>
+     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.seperatableInd</p>
+     * MedicationSupplyOrder.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -774,49 +393,20 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.seperatableInd</p>
+     * ReferencedFramesObservation.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.seperatableInd</p>
+     * MedicationSupplyOrder.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.seperatableInd</p>
-     * 
-     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.seperatableInd</p>
+     * <p>Relationship: BaseModel.EntryRelationship.seperatableInd</p>
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
@@ -829,49 +419,7 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.observation</p>
+     * ReferencedFramesObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
@@ -884,54 +432,86 @@ public class EntryRelationship_2Bean extends MessagePartBean implements EntryRel
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
      * <p>Relationship: 
-     * HospitalDischargeDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * EncounterDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PostprocedureDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * ProblemConcernActCondition.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * HospitalAdmissionDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * PreoperativeDiagnosis.EntryRelationship.observation</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Un-merged Business Name: (no business name specified)</p>
-     * 
-     * <p>Relationship: 
-     * DeceasedObservation.EntryRelationship.observation</p>
+     * ReferencedFramesObservation.EntryRelationship.observation</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     public void setObservation(ObservationBean observation) {
         this.observation = observation;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationSupplyOrder.EntryRelationship.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"act"})
+    public ActBean getAct() {
+        return this.act;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: MedicationSupplyOrder.EntryRelationship.act</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAct(ActBean act) {
+        this.act = act;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"typeCode"})
+    public x_ActRelationshipEntryRelationship getTypeCode() {
+        return (x_ActRelationshipEntryRelationship) this.typeCode.getValue();
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: BaseModel.EntryRelationship.typeCode</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setTypeCode(x_ActRelationshipEntryRelationship typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    @Hl7XmlMapping({"entryRelationshipChoice"})
+    public EntryRelationshipChoice getEntryRelationshipChoice() {
+        return this.entryRelationshipChoice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: 
+     * BaseModel.EntryRelationship.entryRelationshipChoice</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setEntryRelationshipChoice(EntryRelationshipChoice entryRelationshipChoice) {
+        this.entryRelationshipChoice = entryRelationshipChoice;
     }
 
 }

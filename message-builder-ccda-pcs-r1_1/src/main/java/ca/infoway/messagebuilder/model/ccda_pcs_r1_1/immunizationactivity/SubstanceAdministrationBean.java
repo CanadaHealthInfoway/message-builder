@@ -61,7 +61,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.MedicationProdu
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.MedicationRoute;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2_3Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.PreconditionChoice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
@@ -74,7 +74,7 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS moodCode = new CSImpl();
     private BL negationInd = new BLImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
@@ -99,7 +99,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
     private Performer2_1Bean performer;
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant2_3Bean> participant = new ArrayList<Participant2_3Bean>();
+    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
     private List<EntryRelationshipChoice> entryRelationship = new ArrayList<EntryRelationshipChoice>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionChoice> precondition = new ArrayList<PreconditionChoice>();
@@ -570,7 +570,7 @@ public class SubstanceAdministrationBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant2_3Bean> getParticipant() {
+    public List<Participant2Bean> getParticipant() {
         return this.participant;
     }
 

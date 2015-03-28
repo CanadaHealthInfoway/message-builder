@@ -38,7 +38,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Authorization","ContinuityOfCareDocumentCCD.Authorization","DiagnosticImagingReport.Authorization","DischargeSummary.Authorization","HistoryAndPhysical.Authorization","OperativeNote.Authorization","ProcedureNote.Authorization","ProgressNote.Authorization","USRealmHeader.Authorization","UnstructuredDocument.Authorization"})
 public class AuthorizationBean extends MessagePartBean implements AuthorizationChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

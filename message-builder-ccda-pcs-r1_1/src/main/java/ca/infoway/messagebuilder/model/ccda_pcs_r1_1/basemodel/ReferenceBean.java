@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Reference"})
 public class ReferenceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_pcs_r1_1.advancedirectiveobservation.ReferenceChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS typeCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

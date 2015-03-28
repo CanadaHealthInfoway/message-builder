@@ -55,7 +55,9 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.x_DocumentSubstanceMood;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.EntryRelationship_2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2_2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Performer2_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
 import java.util.ArrayList;
@@ -66,7 +68,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Supply"})
 public class SupplyBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS moodCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
@@ -87,8 +89,8 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, Componen
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
-    private List<EntryRelationshipBean> entryRelationship = new ArrayList<EntryRelationshipBean>();
+    private List<Participant2_2Bean> participant = new ArrayList<Participant2_2Bean>();
+    private List<EntryRelationship_2Bean> entryRelationship = new ArrayList<EntryRelationship_2Bean>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
 
@@ -418,7 +420,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, Componen
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant2Bean> getParticipant() {
+    public List<Participant2_2Bean> getParticipant() {
         return this.participant;
     }
 
@@ -429,7 +431,7 @@ public class SupplyBean extends MessagePartBean implements EntryChoice, Componen
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"entryRelationship"})
-    public List<EntryRelationshipBean> getEntryRelationship() {
+    public List<EntryRelationship_2Bean> getEntryRelationship() {
         return this.entryRelationship;
     }
 

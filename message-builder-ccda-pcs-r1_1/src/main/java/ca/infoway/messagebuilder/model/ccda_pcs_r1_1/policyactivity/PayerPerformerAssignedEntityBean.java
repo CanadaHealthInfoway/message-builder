@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.domainvalue.FinanciallyResponsiblePartyType;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Organization_2Bean;
 import java.util.List;
 
 
@@ -44,12 +45,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"PolicyActivity.PayerPerformerAssignedEntity"})
 public class PayerPerformerAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private CE code = new CEImpl();
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
-    private OrganizationBean representedOrganization;
+    private Organization_2Bean representedOrganization;
 
 
     /**
@@ -137,7 +138,7 @@ public class PayerPerformerAssignedEntityBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
+    public Organization_2Bean getRepresentedOrganization() {
         return this.representedOrganization;
     }
 
@@ -147,7 +148,7 @@ public class PayerPerformerAssignedEntityBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+    public void setRepresentedOrganization(Organization_2Bean representedOrganization) {
         this.representedOrganization = representedOrganization;
     }
 

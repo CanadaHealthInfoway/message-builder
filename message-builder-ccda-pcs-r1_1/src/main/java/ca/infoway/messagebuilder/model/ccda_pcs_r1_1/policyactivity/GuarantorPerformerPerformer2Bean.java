@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PolicyActivity.GuarantorPerformerPerformer2"})
 public class GuarantorPerformerPerformer2Bean extends MessagePartBean implements Performer2Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private II templateId = new IIImpl();
     private IVLTSCDAR1 time = new IVLTSCDAR1Impl();
     private GuarantorPerformerAssignedEntityBean assignedEntity;

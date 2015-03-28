@@ -43,7 +43,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdvanceDirectiveObservation.VerifierParticipant2"})
 public class VerifierParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private II templateId = new IIImpl();

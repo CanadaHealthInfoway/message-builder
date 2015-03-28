@@ -54,7 +54,6 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.Participant2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.PreconditionBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ProductBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.basemodel.ReferenceBean;
@@ -64,6 +63,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Author_1Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.ImmunizationMedicationInformationProductBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.MedicationInformationProductBean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2_2Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.ProductChoice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.SpecimenBean;
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ import java.util.List;
 @Hl7RootType
 public class SupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
@@ -95,7 +95,7 @@ public class SupplyBean extends MessagePartBean {
     private Performer2Bean performer;
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();
-    private List<Participant2Bean> participant = new ArrayList<Participant2Bean>();
+    private List<Participant2_2Bean> participant = new ArrayList<Participant2_2Bean>();
     private List<EntryRelationshipChoice> entryRelationship = new ArrayList<EntryRelationshipChoice>();
     private List<ReferenceBean> reference = new ArrayList<ReferenceBean>();
     private List<PreconditionBean> precondition = new ArrayList<PreconditionBean>();
@@ -445,7 +445,7 @@ public class SupplyBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant2Bean> getParticipant() {
+    public List<Participant2_2Bean> getParticipant() {
         return this.participant;
     }
 

@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.InFulfillmentOfBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Informant12Choice;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.InformationRecipientBean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.LegalAuthenticatorBean;
-import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant1Bean;
+import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.Participant2_3Bean;
 import ca.infoway.messagebuilder.model.ccda_pcs_r1_1.merged.RecordTargetBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7RootType
 public class DischargeSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
@@ -86,7 +86,7 @@ public class DischargeSummaryBean extends MessagePartBean {
     private List<InformationRecipientBean> informationRecipient = new ArrayList<InformationRecipientBean>();
     private LegalAuthenticatorBean legalAuthenticator;
     private List<AuthenticatorBean> authenticator = new ArrayList<AuthenticatorBean>();
-    private List<Participant1Bean> participant = new ArrayList<Participant1Bean>();
+    private List<Participant2_3Bean> participant = new ArrayList<Participant2_3Bean>();
     private List<InFulfillmentOfBean> inFulfillmentOf = new ArrayList<InFulfillmentOfBean>();
     private List<DocumentationOfBean> documentationOf = new ArrayList<DocumentationOfBean>();
     private List<RelatedDocumentBean> relatedDocument = new ArrayList<RelatedDocumentBean>();
@@ -445,7 +445,7 @@ public class DischargeSummaryBean extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-*)</p>
      */
     @Hl7XmlMapping({"participant"})
-    public List<Participant1Bean> getParticipant() {
+    public List<Participant2_3Bean> getParticipant() {
         return this.participant;
     }
 

@@ -40,7 +40,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Consent","ConsultationNote.Consent","ContinuityOfCareDocumentCCD.Consent","DiagnosticImagingReport.Consent","DischargeSummary.Consent","HistoryAndPhysical.Consent","OperativeNote.Consent","ProcedureNote.Consent","ProgressNote.Consent","USRealmHeader.Consent","UnstructuredDocument.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);

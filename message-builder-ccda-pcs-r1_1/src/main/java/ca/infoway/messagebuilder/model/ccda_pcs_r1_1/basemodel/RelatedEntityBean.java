@@ -50,7 +50,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.RelatedEntity"})
 public class RelatedEntityBean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private CS classCode = new CSImpl();
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();

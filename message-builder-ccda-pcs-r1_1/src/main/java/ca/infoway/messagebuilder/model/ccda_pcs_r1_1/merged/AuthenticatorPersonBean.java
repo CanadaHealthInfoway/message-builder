@@ -41,7 +41,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AuthenticatorPerson","ContinuityOfCareDocumentCCD.AuthenticatorPerson","DiagnosticImagingReport.AuthenticatorPerson","DischargeSummary.AuthenticatorPerson","HistoryAndPhysical.AuthenticatorPerson","OperativeNote.AuthenticatorPerson","ProcedureNote.AuthenticatorPerson","ProgressNote.AuthenticatorPerson","USRealmHeader.AuthenticatorPerson","UnstructuredDocument.AuthenticatorPerson"})
 public class AuthenticatorPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150225L;
+    private static final long serialVersionUID = 20150328L;
     private LIST<CS, Code> realmCode = new LISTImpl<CS, Code>(CSImpl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
