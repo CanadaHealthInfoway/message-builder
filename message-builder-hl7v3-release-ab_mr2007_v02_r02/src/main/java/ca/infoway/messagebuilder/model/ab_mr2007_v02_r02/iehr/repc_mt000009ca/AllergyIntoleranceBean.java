@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseStatusChangesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsPartOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
@@ -90,7 +91,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     private TargetedToPharmacyBean location;
     private AllergyIntoleranceBean replacementOfIntoleranceCondition;
     private List<Records> supportRecords = new ArrayList<Records>();
-    private List<AllergyIntoleranceStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<AllergyIntoleranceStatusChangesBean>();
+    private List<DispenseStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<DispenseStatusChangesBean>();
     private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
     private AllergyIntoleranceSeverityLevelBean subjectOf3SeverityObservation;
     private List<IsPartOfBean> componentOf = new ArrayList<IsPartOfBean>();
@@ -806,7 +807,7 @@ public class AllergyIntoleranceBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<AllergyIntoleranceStatusChangesBean> getSubjectOf1ControlActEvent() {
+    public List<DispenseStatusChangesBean> getSubjectOf1ControlActEvent() {
         return this.subjectOf1ControlActEvent;
     }
 

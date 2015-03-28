@@ -49,6 +49,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrimaryPerformer3Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrinicpalPerson_2Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ResponsiblePartyBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,7 +89,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private PrinicpalPersonBean assignedPrincipalPerson;
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private OrganizationBean representedOrganization;
     private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
 
@@ -305,7 +307,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPersonBean getAssignedPrincipalPerson() {
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
         return this.assignedPrincipalPerson;
     }
 
@@ -315,7 +317,7 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
         this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 

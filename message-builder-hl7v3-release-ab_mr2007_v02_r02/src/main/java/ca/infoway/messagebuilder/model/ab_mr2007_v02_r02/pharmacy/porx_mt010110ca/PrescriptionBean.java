@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.CoverageExtensionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructions_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ProcedureRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
@@ -76,7 +76,7 @@ public class PrescriptionBean extends MessagePartBean {
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private ProcedureRequestBean component1ProcedureRequest;
-    private DispenseInstructionsBean component2SupplyRequest;
+    private DispenseInstructions_1Bean component2SupplyRequest;
     private NotesBean subjectOfAnnotation;
 
 
@@ -397,7 +397,7 @@ public class PrescriptionBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
+    public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
@@ -406,7 +406,7 @@ public class PrescriptionBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
+    public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 

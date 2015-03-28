@@ -25,11 +25,14 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
+import java.util.Date;
 
 
 
@@ -63,7 +66,8 @@ public class NotesBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private ST text = new STImpl();
     private CV languageCode = new CVImpl();
-    private RefusedByBean author;
+    private TS authorTime = new TSImpl();
+    private ProviderBean authorAssignedPerson;
 
 
     /**
@@ -157,22 +161,70 @@ public class NotesBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
+     * <p>Business Name: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the note was posted.</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
      */
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/time"})
+    public Date getAuthorTime() {
+        return this.authorTime.getValue();
     }
 
     /**
-     * <p>Relationship: COCT_MT120600CA.Annotation.author</p>
+     * <p>Business Name: Note Timestamp</p>
+     * 
+     * <p>Relationship: COCT_MT120600CA.Author.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The date and time at which the note was posted.</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
+     * 
+     * <p>Identifies timing of the annotation for sorting and for 
+     * audit purposes.</p><p>This attribute is mandatory because 
+     * the time of creation of the annotation will always be 
+     * known.</p>
+     */
+    public void setAuthorTime(Date authorTime) {
+        this.authorTime.setValue(authorTime);
+    }
+
+
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
+    }
+
+    /**
+     * <p>Relationship: COCT_MT120600CA.Author.assignedPerson</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     */
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
     }
 
 }

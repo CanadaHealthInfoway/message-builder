@@ -41,11 +41,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt260030ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseStatusChangesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SubstitutionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseStatusChangesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescriptionReference_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SupplyEventBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SupplyRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +82,7 @@ public class DispenseBean extends MessagePartBean {
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private HealthcareWorkerBean performerAssignedEntity;
     private TargetedToPharmacyBean location;
-    private SupplyRequestBean inFulfillmentOfSubstanceAdministrationRequest;
+    private PrescriptionReference_1Bean inFulfillmentOfSubstanceAdministrationRequest;
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SubstitutionBean component2SubstitutionMade;
     private SupplyEventBean component3SupplyEvent;
@@ -372,7 +372,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public SupplyRequestBean getInFulfillmentOfSubstanceAdministrationRequest() {
+    public PrescriptionReference_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
@@ -382,7 +382,7 @@ public class DispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequestBean inFulfillmentOfSubstanceAdministrationRequest) {
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReference_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 

@@ -39,10 +39,10 @@ import ca.infoway.messagebuilder.domainvalue.HL7StandardVersionCode;
 import ca.infoway.messagebuilder.domainvalue.ProcessingID;
 import ca.infoway.messagebuilder.domainvalue.ResponseMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.ToBeRespondedToByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AcknowledgementBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SenderBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ToBeRespondedToByBean;
 import java.util.Date;
 import java.util.List;
 

@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrinicpalPersonBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrinicpalPerson_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrivilegeBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,7 +77,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private PrinicpalPersonBean healthCarePrincipalPerson;
+    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
 
 
@@ -315,7 +315,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
+    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -325,7 +325,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

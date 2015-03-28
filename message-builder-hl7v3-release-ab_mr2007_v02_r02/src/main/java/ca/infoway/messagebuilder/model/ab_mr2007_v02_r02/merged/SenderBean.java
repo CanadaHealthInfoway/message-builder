@@ -41,7 +41,7 @@ import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"MCCI_MT000100CA.Sender","MCCI_MT000300CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT102001CA.Sender"})
+@Hl7PartTypeMapping({"MCCI_MT000100CA.Sender","MCCI_MT000300CA.Sender","MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -116,6 +116,22 @@ public class SenderBean extends MessagePartBean {
      * <p>May be important for sender validation. Usually also the 
      * address to which responses are sent. This is optional 
      * because not all environments require network addresses.</p>
+     * 
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>soap:Header\wsa:From</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses. It 
+     * is mandatory when communicating using SOAP.</p>
      */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getTelecom() {
@@ -182,6 +198,22 @@ public class SenderBean extends MessagePartBean {
      * <p>May be important for sender validation. Usually also the 
      * address to which responses are sent. This is optional 
      * because not all environments require network addresses.</p>
+     * 
+     * <p>Un-merged Business Name: SendingNetworkAddress</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Sender.telecom</p>
+     * 
+     * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
+     * 
+     * <p>The network address of the application which sent the 
+     * message.</p>
+     * 
+     * <p>soap:Header\wsa:From</p>
+     * 
+     * <p>May be important for sender validation. Usually also the 
+     * address to which responses are sent. This is optional 
+     * because not all environments require network addresses. It 
+     * is mandatory when communicating using SOAP.</p>
      */
     public void setTelecom(TelecommunicationAddress telecom) {
         this.telecom.setValue(telecom);
@@ -242,6 +274,20 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Because this is the key identifier of where the message 
      * is coming from, this attribute is mandatory.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>soap:Header\wsa:From\@endpointID</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
      */
     @Hl7XmlMapping({"device/id"})
     public Identifier getDeviceId() {
@@ -302,6 +348,20 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Because this is the key identifier of where the message 
      * is coming from, this attribute is mandatory.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationIdentifier</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.id</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p>
+     * 
+     * <p>soap:Header\wsa:From\@endpointID</p>
+     * 
+     * <p>Because this is the key identifier of where the message 
+     * is intended to go, this attribute is mandatory.</p>
      */
     public void setDeviceId(Identifier deviceId) {
         this.deviceId.setValue(deviceId);
@@ -347,6 +407,17 @@ public class SenderBean extends MessagePartBean {
      * <p>Un-merged Business Name: SendingApplicationName</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -406,6 +477,17 @@ public class SenderBean extends MessagePartBean {
      * application sending the message.</p>
      * 
      * <p>Provides useful information when debugging.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.name</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>This is the name associated with the system or 
+     * application sending the message.</p>
+     * 
+     * <p>Provides useful information when debugging.</p>
      */
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
@@ -458,6 +540,19 @@ public class SenderBean extends MessagePartBean {
      * SendingApplicationConfigurationInformation</p>
      * 
      * <p>Relationship: MCCI_MT000100CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.desc</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      * 
@@ -526,6 +621,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Provides additional information that may assist in 
      * debugging interactions.</p>
+     * 
+     * <p>Un-merged Business Name: 
+     * SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.desc</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides additional information about the configuration 
+     * of the sending application. Useful when debugging.</p>
+     * 
+     * <p>Provides additional information that may assist in 
+     * debugging interactions.</p>
      */
     public void setDeviceDesc(String deviceDesc) {
         this.deviceDesc.setValue(deviceDesc);
@@ -582,6 +690,18 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>Can help to isolate the source of a problem when 
      * debugging.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
      */
     @Hl7XmlMapping({"device/existenceTime"})
     public Interval<Date> getDeviceExistenceTime() {
@@ -632,6 +752,18 @@ public class SenderBean extends MessagePartBean {
      * <p>Relationship: MCCI_MT000100CA.Device1.existenceTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p>
+     * 
+     * <p>Can help to isolate the source of a problem when 
+     * debugging.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationVersionDate</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.existenceTime</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the last time the sending application was 
      * modified or reconfigured.</p>
@@ -698,6 +830,19 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>May be used to filter messages based on the compliance 
      * testing of the sending software.</p>
+     * 
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002100CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
      */
     @Hl7XmlMapping({"device/manufacturerModelName"})
     public String getDeviceManufacturerModelName() {
@@ -752,6 +897,19 @@ public class SenderBean extends MessagePartBean {
      * MCCI_MT000100CA.Device1.manufacturerModelName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the version number of the piece of software 
+     * used to construct the message.</p>
+     * 
+     * <p>May be used to filter messages based on the compliance 
+     * testing of the sending software.</p>
+     * 
+     * <p>Un-merged Business Name: SendingSoftwareVersionNumber</p>
+     * 
+     * <p>Relationship: 
+     * MCCI_MT002100CA.Device1.manufacturerModelName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the version number of the piece of software 
      * used to construct the message.</p>
@@ -814,6 +972,18 @@ public class SenderBean extends MessagePartBean {
      * 
      * <p>May be used to filter messages based on sending 
      * application compliance testing.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
      */
     @Hl7XmlMapping({"device/softwareName"})
     public String getDeviceSoftwareName() {
@@ -864,6 +1034,18 @@ public class SenderBean extends MessagePartBean {
      * <p>Relationship: MCCI_MT000100CA.Device1.softwareName</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Indicates the name of the software used to construct the 
+     * message.</p>
+     * 
+     * <p>May be used to filter messages based on sending 
+     * application compliance testing.</p>
+     * 
+     * <p>Un-merged Business Name: SendingApplicationSoftwareName</p>
+     * 
+     * <p>Relationship: MCCI_MT002100CA.Device1.softwareName</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Indicates the name of the software used to construct the 
      * message.</p>

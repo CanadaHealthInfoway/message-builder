@@ -41,13 +41,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt260030ca.IssuesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Author4Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseStatusChangesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsPartOfBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ParentPrescriptionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.CoverageExtensionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseStatusChangesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructions_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.FirstDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.LastDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
@@ -94,7 +93,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DeviceProductBean directTargetManufacturedProduct;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private Author4Bean author;
     private TargetedToPharmacyBean location;
     private ParentPrescriptionBean predecessorPriorSupplyRequest;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
@@ -102,7 +101,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL derivedFromSourceDispense = new BLImpl(false);
     private List<CoverageExtensionsBean> coverageCoverage = new ArrayList<CoverageExtensionsBean>();
     private ProcedureRequestBean component1ProcedureRequest;
-    private DispenseInstructionsBean component2SupplyRequest;
+    private DispenseInstructions_1Bean component2SupplyRequest;
     private LastDispenseInformationBean fulfillment1SupplyEventLastSummary;
     private FirstDispenseInformationBean fulfillment2SupplyEventFirstSummary;
     private RemainingDispenseInformationBean fulfillment3SupplyEventFutureSummary;
@@ -385,7 +384,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public Author4Bean getAuthor() {
         return this.author;
     }
 
@@ -394,7 +393,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(Author4Bean author) {
         this.author = author;
     }
 
@@ -531,7 +530,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
+    public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
@@ -540,7 +539,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
+    public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 

@@ -22,10 +22,11 @@ package ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.pome_mt010040
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt120402ca.Indications;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AssignedEntityBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private PatientBean subjectPatient;
-    private AssignedEntityBean authorAssignedEntity;
+    private ST authorAssignedEntityAssignedOrganizationName = new STImpl();
     private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<Indications> reasonIndications = new ArrayList<Indications>();
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
@@ -73,22 +74,40 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>Relationship: POME_MT010040CA.Author3.assignedEntity</p>
+     * <p>Business Name: Recommending Authority Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the name of the organization or agency that 
+     * created the dosage recommendation</p>
+     * 
+     * <p>The source of a recommendation may influence prescriber's 
+     * willingness to use the recommended dose and is therefore 
+     * mandatory</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntityBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
+    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
+    public String getAuthorAssignedEntityAssignedOrganizationName() {
+        return this.authorAssignedEntityAssignedOrganizationName.getValue();
     }
 
     /**
-     * <p>Relationship: POME_MT010040CA.Author3.assignedEntity</p>
+     * <p>Business Name: Recommending Authority Name</p>
+     * 
+     * <p>Relationship: POME_MT010040CA.Organization4.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Indicates the name of the organization or agency that 
+     * created the dosage recommendation</p>
+     * 
+     * <p>The source of a recommendation may influence prescriber's 
+     * willingness to use the recommended dose and is therefore 
+     * mandatory</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    public void setAuthorAssignedEntityAssignedOrganizationName(String authorAssignedEntityAssignedOrganizationName) {
+        this.authorAssignedEntityAssignedOrganizationName.setValue(authorAssignedEntityAssignedOrganizationName);
     }
 
 

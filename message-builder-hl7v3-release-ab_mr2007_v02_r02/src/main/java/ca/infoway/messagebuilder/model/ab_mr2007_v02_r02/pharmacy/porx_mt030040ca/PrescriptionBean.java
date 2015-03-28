@@ -46,12 +46,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ClassifiesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.FirstDispenseInformationBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsPartOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.LastDispenseInformationBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.OverriddenByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PreviousDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RemainingDispenseInformationBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220110ca.DrugProductBean;
@@ -83,7 +83,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean directTargetMedication;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private OverriddenByBean author;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
@@ -407,7 +407,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public OverriddenByBean getAuthor() {
         return this.author;
     }
 
@@ -417,7 +417,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(OverriddenByBean author) {
         this.author = author;
     }
 

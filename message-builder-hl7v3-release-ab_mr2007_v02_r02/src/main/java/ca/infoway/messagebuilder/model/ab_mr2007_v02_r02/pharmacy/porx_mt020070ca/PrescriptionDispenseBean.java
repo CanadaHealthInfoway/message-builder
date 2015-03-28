@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt270010ca.AdministrationInstructionsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SubstitutionBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SubstanceAdministrationRequestBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DeviceRequest_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
-    private SubstanceAdministrationRequestBean inFulfillmentOfSubstanceAdministrationRequest;
+    private DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
     private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private SupplyEventBean component3SupplyEvent;
@@ -198,7 +198,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getInFulfillmentOfSubstanceAdministrationRequest() {
+    public DeviceRequest_1Bean getInFulfillmentOfSubstanceAdministrationRequest() {
         return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
 
@@ -208,7 +208,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setInFulfillmentOfSubstanceAdministrationRequest(SubstanceAdministrationRequestBean inFulfillmentOfSubstanceAdministrationRequest) {
+    public void setInFulfillmentOfSubstanceAdministrationRequest(DeviceRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 

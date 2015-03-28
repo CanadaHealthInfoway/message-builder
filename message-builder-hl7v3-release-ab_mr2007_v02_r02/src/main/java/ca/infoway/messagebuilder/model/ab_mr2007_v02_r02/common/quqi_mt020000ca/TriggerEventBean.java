@@ -42,9 +42,9 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470002ca.
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthenticationTokenBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedBy_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.Patient;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.QueryByParameterBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsPartOfBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090102ca.AssignedPersonBean;
@@ -79,7 +79,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private CV reasonCode = new CVImpl();
     private Patient recordTargetPatient1;
     private AssignedPersonBean responsiblePartyAssignedEntity;
-    private CreatedBy_1Bean author;
+    private CreatedByBean author;
     private ActingPerson dataEntererActingPerson;
     private ServiceLocationBean locationServiceDeliveryLocation;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
@@ -331,7 +331,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedBy_1Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -340,7 +340,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setAuthor(CreatedBy_1Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 

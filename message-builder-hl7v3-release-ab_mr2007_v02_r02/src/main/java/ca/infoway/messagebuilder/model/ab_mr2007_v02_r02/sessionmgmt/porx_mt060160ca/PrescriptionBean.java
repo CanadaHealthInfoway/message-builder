@@ -39,9 +39,9 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.domainvalue.AlbertaPrescriptionSource;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AllowedSubstitutionBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.Author4Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ClassifiesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.FirstDispenseInformationBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.LastDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ParentPrescriptionBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescriptionPatientMeasurementsBean;
@@ -53,9 +53,9 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt0502
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220110ca.DrugProductBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.CoverageExtensionsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.NotEligibleForTrialBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.PrescribedBecauseOfBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.PrescriptionDispensesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.RefusalToFillsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.StatusChangesBean;
@@ -99,7 +99,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
     private PatientBean subjectPatient;
     private DrugProductBean directTargetMedication;
     private ProviderBean responsiblePartyAssignedPerson;
-    private PrescribedByBean author;
+    private Author4Bean author;
     private CV informantAssignedEntityAssignedDeviceCode = new CVImpl();
     private TargetedToPharmacyBean location;
     private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
@@ -736,7 +736,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public Author4Bean getAuthor() {
         return this.author;
     }
 
@@ -746,7 +746,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(Author4Bean author) {
         this.author = author;
     }
 

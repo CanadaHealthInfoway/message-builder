@@ -35,9 +35,9 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DeviceRequest_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseDetailsBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ProcedureRequestBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SubstanceAdministrationRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.Set;
 
@@ -60,7 +60,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     private II id = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private BL subject = new BLImpl(false);
-    private SubstanceAdministrationRequestBean inFulfillmentOfDeviceRequest;
+    private DeviceRequest_1Bean inFulfillmentOfDeviceRequest;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean component2SupplyEvent;
     private NotesBean subjectOfAnnotation;
@@ -195,7 +195,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
-    public SubstanceAdministrationRequestBean getInFulfillmentOfDeviceRequest() {
+    public DeviceRequest_1Bean getInFulfillmentOfDeviceRequest() {
         return this.inFulfillmentOfDeviceRequest;
     }
 
@@ -205,7 +205,7 @@ public class PrescriptionDispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setInFulfillmentOfDeviceRequest(SubstanceAdministrationRequestBean inFulfillmentOfDeviceRequest) {
+    public void setInFulfillmentOfDeviceRequest(DeviceRequest_1Bean inFulfillmentOfDeviceRequest) {
         this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
     }
 

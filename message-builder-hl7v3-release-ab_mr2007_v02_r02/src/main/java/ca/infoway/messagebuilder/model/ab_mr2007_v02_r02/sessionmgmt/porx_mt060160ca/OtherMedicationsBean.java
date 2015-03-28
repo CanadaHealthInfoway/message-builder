@@ -47,7 +47,6 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt0502
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt220110ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.StatusChangesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.porx_mt980030ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.porx_mt980040ca.AdministrationInstructionsBean;
@@ -117,7 +116,7 @@ public class OtherMedicationsBean extends MessagePartBean implements MedicationR
     private PatientBean subjectPatient;
     private DrugProductBean consumableMedication;
     private ProviderBean responsiblePartyAssignedPerson;
-    private RefusedByBean author;
+    private ProviderBean authorAssignedPerson;
     private TargetedToPharmacyBean location;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
@@ -532,22 +531,22 @@ public class OtherMedicationsBean extends MessagePartBean implements MedicationR
 
 
     /**
-     * <p>Relationship: PORX_MT060160CA.OtherMedication.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
     }
 
     /**
-     * <p>Relationship: PORX_MT060160CA.OtherMedication.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
     }
 
 

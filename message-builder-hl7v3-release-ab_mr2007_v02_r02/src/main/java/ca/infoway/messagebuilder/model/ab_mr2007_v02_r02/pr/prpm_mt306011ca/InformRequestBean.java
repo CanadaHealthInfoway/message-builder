@@ -34,6 +34,7 @@ import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ServiceDeliveryLocationBean;
 
 
 

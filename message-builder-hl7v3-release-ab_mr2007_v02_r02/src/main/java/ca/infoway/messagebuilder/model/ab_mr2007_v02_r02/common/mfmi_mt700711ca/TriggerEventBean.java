@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt240012ca.
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt260012ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt470012ca.ConsentBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthenticationTokenBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedBy_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090102ca.AssignedPersonBean;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private AssignedPersonBean responsiblePartyAssignedEntity;
-    private CreatedBy_2Bean author;
+    private CreatedByBean author;
     private EntererChoice dataEntererEntererChoice;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ServiceLocationBean locationServiceDeliveryLocation;
@@ -283,7 +283,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedBy_2Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -292,7 +292,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setAuthor(CreatedBy_2Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 

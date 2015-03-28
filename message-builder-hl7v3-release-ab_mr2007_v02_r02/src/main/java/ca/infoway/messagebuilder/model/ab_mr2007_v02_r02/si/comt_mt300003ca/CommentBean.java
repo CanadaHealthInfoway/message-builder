@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.domainvalue.ActPatientAnnotationCode;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
 import java.util.Set;
 
@@ -63,7 +62,7 @@ public class CommentBean extends MessagePartBean {
     private ST text = new STImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private RefusedByBean author;
+    private AnnotatedByBean author;
     private TargetedToPharmacyBean location;
 
 
@@ -283,7 +282,7 @@ public class CommentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public AnnotatedByBean getAuthor() {
         return this.author;
     }
 
@@ -292,7 +291,7 @@ public class CommentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(AnnotatedByBean author) {
         this.author = author;
     }
 

@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.OverriddenByBean;
 
 
 
@@ -54,7 +54,7 @@ public class SupplyOrderBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private OverriddenByBean author;
 
 
     /**
@@ -169,7 +169,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public OverriddenByBean getAuthor() {
         return this.author;
     }
 
@@ -186,7 +186,7 @@ public class SupplyOrderBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(OverriddenByBean author) {
         this.author = author;
     }
 

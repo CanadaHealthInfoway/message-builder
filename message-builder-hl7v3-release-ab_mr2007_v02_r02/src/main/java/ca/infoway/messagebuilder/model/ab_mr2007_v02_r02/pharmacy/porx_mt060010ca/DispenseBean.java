@@ -40,11 +40,11 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt260030ca.IssuesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseStatusChangesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseDetailsBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseStatusChangesBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescriptionReference_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.ProcedureRequestBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.SupplyRequestBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt120600ca.NotesBean;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,7 +103,7 @@ public class DispenseBean extends MessagePartBean {
     private TargetedToPharmacyBean location;
     private ProcedureRequestBean component1ProcedureRequest;
     private DispenseDetailsBean component2SupplyEvent;
-    private SupplyRequestBean fulfillmentSupplyRequest;
+    private PrescriptionReference_1Bean fulfillmentSupplyRequest;
     private List<DispenseStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<DispenseStatusChangesBean>();
     private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf3AnnotationIndicator = new BLImpl(false);
@@ -368,7 +368,7 @@ public class DispenseBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyRequestBean getFulfillmentSupplyRequest() {
+    public PrescriptionReference_1Bean getFulfillmentSupplyRequest() {
         return this.fulfillmentSupplyRequest;
     }
 
@@ -378,7 +378,7 @@ public class DispenseBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setFulfillmentSupplyRequest(SupplyRequestBean fulfillmentSupplyRequest) {
+    public void setFulfillmentSupplyRequest(PrescriptionReference_1Bean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 

@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090502ca.
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt910102ca.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.SubjectChoice;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ConsentedToByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090102ca.AssignedPersonBean;
 import java.util.Date;

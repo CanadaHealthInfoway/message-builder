@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090502ca.
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt240012ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt260012ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.AuthenticationTokenBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedBy_2Bean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.EntererChoice;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090102ca.AssignedPersonBean;
@@ -73,7 +73,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private AssignedPersonBean responsiblePartyAssignedEntity;
-    private CreatedBy_2Bean author;
+    private CreatedByBean author;
     private EntererChoice dataEntererEntererChoice;
     private ServiceLocationBean locationServiceDeliveryLocation;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
@@ -283,7 +283,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public CreatedBy_2Bean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -292,7 +292,7 @@ public class TriggerEventBean<PL> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      */
-    public void setAuthor(CreatedBy_2Bean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 

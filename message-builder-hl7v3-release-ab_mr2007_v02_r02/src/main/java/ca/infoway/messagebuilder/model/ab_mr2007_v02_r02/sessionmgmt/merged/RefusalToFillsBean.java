@@ -30,6 +30,7 @@ import ca.infoway.messagebuilder.domainvalue.ActSupplyFulfillmentRefusalReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +76,7 @@ public class RefusalToFillsBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private TS effectiveTime = new TSImpl();
     private CV reasonCode = new CVImpl();
-    private RefusedByBean author;
+    private ProviderBean authorAssignedPerson;
     private TargetedToPharmacyBean location;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
 
@@ -191,36 +192,36 @@ public class RefusalToFillsBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.RefusalToFill.author</p>
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.RefusalToFill.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060340CA.RefusalToFill.author</p>
+     * <p>Relationship: PORX_MT060340CA.Author.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: PORX_MT060160CA.RefusalToFill.author</p>
+     * <p>Relationship: PORX_MT060160CA.Author5.assignedPerson</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
     }
 
 

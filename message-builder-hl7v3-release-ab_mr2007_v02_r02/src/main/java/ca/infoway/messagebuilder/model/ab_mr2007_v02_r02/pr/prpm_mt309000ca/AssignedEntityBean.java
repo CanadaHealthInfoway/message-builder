@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.PrimaryPerformer3Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ResponsiblePartyBean;
 import java.util.ArrayList;
 import java.util.List;

@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pr.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.DispenseShipToLocationBean;
 
 
 
@@ -54,7 +54,7 @@ public class InformRequestBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private CV subjectModeCode = new CVImpl();
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
+    private DispenseShipToLocationBean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
 
@@ -125,7 +125,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+    public DispenseShipToLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
@@ -135,7 +135,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+    public void setSubjectServiceDeliveryLocation(DispenseShipToLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 

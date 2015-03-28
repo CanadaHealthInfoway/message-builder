@@ -35,12 +35,12 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.CreatedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RefersToBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.coct_mt470000ca.ConsentBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.porx_mt980010ca.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,7 +72,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
-    private RefusedByBean author;
+    private CreatedByBean author;
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private TargetedToPharmacyBean location;
@@ -267,7 +267,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public CreatedByBean getAuthor() {
         return this.author;
     }
 
@@ -276,7 +276,7 @@ public class TriggerEventBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(CreatedByBean author) {
         this.author = author;
     }
 

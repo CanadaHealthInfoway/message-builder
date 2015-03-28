@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.domainvalue.ActConsentType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.OverriddenByBean;
 import java.util.Date;
 
 
@@ -81,7 +81,7 @@ public class ConsentBean extends MessagePartBean {
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private ConsentedToByBean author1;
-    private PrescribedByBean author2;
+    private OverriddenByBean author2;
     private InformationAccessBean componentPermissionToInform;
 
 
@@ -319,7 +319,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"author2"})
-    public PrescribedByBean getAuthor2() {
+    public OverriddenByBean getAuthor2() {
         return this.author2;
     }
 
@@ -328,7 +328,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setAuthor2(PrescribedByBean author2) {
+    public void setAuthor2(OverriddenByBean author2) {
         this.author2 = author2;
     }
 

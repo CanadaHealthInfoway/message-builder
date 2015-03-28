@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.ReactionAssessmentsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AllergyIntoleranceSeverityLevelBean;
 import java.util.ArrayList;
 import java.util.Date;

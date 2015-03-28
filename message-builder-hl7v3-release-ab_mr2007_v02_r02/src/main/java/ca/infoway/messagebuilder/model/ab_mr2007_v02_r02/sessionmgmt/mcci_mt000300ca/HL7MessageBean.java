@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.AcknowledgementB
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ReceiverBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.RoutingInstructionLinesBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.SenderBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.sessionmgmt.merged.ToBeRespondedToByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.ToBeRespondedToByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

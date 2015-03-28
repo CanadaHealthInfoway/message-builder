@@ -41,8 +41,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.common.coct_mt141007ca.DeviceProductBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.IsPartOfBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.PrescribedByBean;
-import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructionsBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.merged.OverriddenByBean;
+import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.DispenseInstructions_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.FirstDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.LastDispenseInformationBean;
 import ca.infoway.messagebuilder.model.ab_mr2007_v02_r02.pharmacy.merged.PrescribedBecauseOfBean;
@@ -78,12 +78,12 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DeviceProductBean directTargetManufacturedProduct;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private OverriddenByBean author;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private ProcedureRequestBean component1ProcedureRequest;
-    private DispenseInstructionsBean component2SupplyRequest;
+    private DispenseInstructions_1Bean component2SupplyRequest;
     private RemainingDispenseInformationBean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformationBean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformationBean fulfillment3SupplyEventLastSummary;
@@ -364,7 +364,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public OverriddenByBean getAuthor() {
         return this.author;
     }
 
@@ -373,7 +373,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(OverriddenByBean author) {
         this.author = author;
     }
 
@@ -457,7 +457,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"component2/supplyRequest"})
-    public DispenseInstructionsBean getComponent2SupplyRequest() {
+    public DispenseInstructions_1Bean getComponent2SupplyRequest() {
         return this.component2SupplyRequest;
     }
 
@@ -466,7 +466,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
+    public void setComponent2SupplyRequest(DispenseInstructions_1Bean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
     }
 
