@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
 import java.util.List;
 import java.util.Set;
 
@@ -57,7 +58,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private PrinicpalPersonBean healthCarePrincipalPerson;
+    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
 
 
@@ -142,7 +143,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
+    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -152,7 +153,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

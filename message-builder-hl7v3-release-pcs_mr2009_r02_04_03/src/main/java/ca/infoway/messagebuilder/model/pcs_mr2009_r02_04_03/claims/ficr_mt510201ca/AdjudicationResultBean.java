@@ -25,6 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.claims.merged.Trigger2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt260020ca.DetectedIssueEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActAdjudicationType;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class AdjudicationResultBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
-    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
+    private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
     private List<DetectedIssueEventBean> reasonOfDetectedIssueEvent = new ArrayList<DetectedIssueEventBean>();
@@ -73,7 +74,7 @@ public class AdjudicationResultBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
     @Hl7XmlMapping({"trigger"})
-    public List<Trigger1Bean> getTrigger() {
+    public List<Trigger2Bean> getTrigger() {
         return this.trigger;
     }
 

@@ -35,6 +35,7 @@ import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt220210ca.DrugProductBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt910107ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.DispenseShipToLocationBean;
 import java.util.Date;
 
 

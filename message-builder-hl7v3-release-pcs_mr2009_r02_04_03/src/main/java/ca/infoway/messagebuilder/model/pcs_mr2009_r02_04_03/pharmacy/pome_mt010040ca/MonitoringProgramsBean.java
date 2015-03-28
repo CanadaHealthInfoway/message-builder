@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue.ActMonitoringProtocolType;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.AssignedEntity3Bean;
 
 
 
@@ -52,7 +52,7 @@ public class MonitoringProgramsBean extends MessagePartBean {
     private static final long serialVersionUID = 20150326L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
-    private AssignedEntityBean custodianAssignedEntity;
+    private AssignedEntity3Bean custodianAssignedEntity;
 
 
     /**
@@ -137,7 +137,7 @@ public class MonitoringProgramsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"custodian/assignedEntity"})
-    public AssignedEntityBean getCustodianAssignedEntity() {
+    public AssignedEntity3Bean getCustodianAssignedEntity() {
         return this.custodianAssignedEntity;
     }
 
@@ -146,7 +146,7 @@ public class MonitoringProgramsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setCustodianAssignedEntity(AssignedEntityBean custodianAssignedEntity) {
+    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
         this.custodianAssignedEntity = custodianAssignedEntity;
     }
 

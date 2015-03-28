@@ -38,15 +38,6 @@ import java.util.Set;
 /**
  * <p>Business Name: ParentPrescription</p>
  * 
- * <p>PORX_MT060040CA.PriorSupplyRequest: Parent Prescription</p>
- * 
- * <p>Helps link prescriptions together, and subsequently 
- * indications for prescribing.</p>
- * 
- * <p>This is the original prescription that is being renewed. 
- * The current prescription uses the original prescription as 
- * the basis for its information.</p>
- * 
  * <p>PORX_MT060340CA.PriorCombinedMedicationRequest: Parent 
  * Prescription</p>
  * 
@@ -67,7 +58,7 @@ import java.util.Set;
  * The current prescription uses the original prescription as 
  * the basis for its information.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT060040CA.PriorSupplyRequest","PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
+@Hl7PartTypeMapping({"PORX_MT060160CA.PriorCombinedMedicationRequest","PORX_MT060340CA.PriorCombinedMedicationRequest"})
 public class ParentPrescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -77,20 +68,6 @@ public class ParentPrescriptionBean extends MessagePartBean {
 
     /**
      * <p>Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
-     * 
-     * <p>Relationship: PORX_MT060040CA.PriorSupplyRequest.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1-2)</p>
-     * 
-     * <p>Allows a prescription renewal (this prescription) to note 
-     * the previous prescription id that was renewed;</p><p>Allows 
-     * tracking a therapy across multiple renewal 
-     * prescriptions.</p>
-     * 
-     * <p>A reference to a previous prescription which the current 
-     * prescription replaces.</p>
      * 
      * <p>Un-merged Business Name: PreviousPrescriptionOrderNumber</p>
      * 

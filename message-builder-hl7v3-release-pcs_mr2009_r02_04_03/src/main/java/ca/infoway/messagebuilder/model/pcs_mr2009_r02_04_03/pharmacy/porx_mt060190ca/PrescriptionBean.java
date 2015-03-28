@@ -47,8 +47,8 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.TargetedToPharmacyBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.ClassifiesBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.Component2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.FirstDispenseInformation_1Bean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.Includes_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.LastDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.PreviousDispenseInformation_1Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.pharmacy.merged.RefusalToFillsBean;
@@ -91,7 +91,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private AdministrationInstructionsBean component1AdministrationInstructions;
-    private Includes_1Bean component2;
+    private Component2Bean component2;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
@@ -417,7 +417,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2"})
-    public Includes_1Bean getComponent2() {
+    public Component2Bean getComponent2() {
         return this.component2;
     }
 
@@ -427,7 +427,7 @@ public class PrescriptionBean extends MessagePartBean implements MedicationRecor
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2(Includes_1Bean component2) {
+    public void setComponent2(Component2Bean component2) {
         this.component2 = component2;
     }
 

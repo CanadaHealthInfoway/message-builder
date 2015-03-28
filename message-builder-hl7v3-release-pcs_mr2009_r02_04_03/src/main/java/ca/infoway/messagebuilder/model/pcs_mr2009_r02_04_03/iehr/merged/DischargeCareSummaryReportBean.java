@@ -80,7 +80,7 @@ import java.util.List;
  * other event for which the discharge or care report is being 
  * written.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
+@Hl7PartTypeMapping({"REPC_MT210001CA.PatientCareProvisionEvent2","REPC_MT210002CA.PatientCareProvisionEvent2","REPC_MT210003CA.PatientCareProvisionEvent2","REPC_MT220001CA.PatientCareProvisionEvent","REPC_MT220002CA.PatientCareProvisionEvent","REPC_MT220003CA.PatientCareProvisionEvent"})
 public class DischargeCareSummaryReportBean extends MessagePartBean implements DocumentContent_2 {
 
     private static final long serialVersionUID = 20150326L;
@@ -96,8 +96,6 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
 
     /**
-     * <p>Business Name: ReportedOnCareCompositionLink</p>
-     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
@@ -124,6 +122,30 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
@@ -136,6 +158,23 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
      */
     @Hl7XmlMapping({"id"})
     public Identifier getId() {
@@ -143,8 +182,6 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
     /**
-     * <p>Business Name: ReportedOnCareCompositionLink</p>
-     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
@@ -171,6 +208,30 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
      * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210002CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210001CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
      * <p>Un-merged Business Name: ReportedOnCareCompositionLink</p>
      * 
      * <p>Relationship: 
@@ -183,6 +244,23 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
      * 
      * <p>Provides the identifier of the discrete encounter, 
      * episode or care event being reported on.</p>
+     * 
+     * <p>Un-merged Business Name: ReferralReportLink</p>
+     * 
+     * <p>Relationship: 
+     * REPC_MT210003CA.PatientCareProvisionEvent2.id</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Provides a direct link between the referral and the 
+     * resulting report.</p>
+     * 
+     * <p>This linkage may be established after the document has 
+     * been created if the report provides a direct link to the 
+     * referral.</p>
+     * 
+     * <p>A unique identifier for the report resulting from the 
+     * action requested by this referral.</p>
      */
     public void setId(Identifier id) {
         this.id.setValue(id);

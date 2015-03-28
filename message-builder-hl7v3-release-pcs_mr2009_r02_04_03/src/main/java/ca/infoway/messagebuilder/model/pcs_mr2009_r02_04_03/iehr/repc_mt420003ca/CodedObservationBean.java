@@ -62,9 +62,9 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.NewCommo
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.OldCommonObservationEventBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.Request_2Bean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.BecauseOfBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.ChangedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -106,7 +106,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
     private ServiceLocationBean indirectTargetServiceDeliveryLocation;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
     private List<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt911108ca.ActingPerson>();
-    private RequestedByBean author;
+    private ChangedByBean author;
     private ActingPerson informantActingPerson;
     private EHRRepositoryBean custodian1AssignedDevice;
     private ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt240003ca.ServiceLocationBean custodian2ServiceDeliveryLocation;
@@ -612,7 +612,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public ChangedByBean getAuthor() {
         return this.author;
     }
 
@@ -622,7 +622,7 @@ public class CodedObservationBean extends MessagePartBean implements ca.infoway.
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(ChangedByBean author) {
         this.author = author;
     }
 

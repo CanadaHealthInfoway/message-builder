@@ -50,7 +50,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.common.coct_mt090108
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.AllergyIntoleranceSeverityLevelBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.RefusedByBean;
 import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,7 +82,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     private CV uncertaintyCode = new CVImpl();
     private CV value = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
+    private RefusedByBean author;
     private ReportedByBean informant;
     private TargetedToPharmacyBean location;
     private List<Records> supportRecords = new ArrayList<Records>();
@@ -485,7 +485,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
+    public RefusedByBean getAuthor() {
         return this.author;
     }
 
@@ -494,7 +494,7 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthor(PrescribedByBean author) {
+    public void setAuthor(RefusedByBean author) {
         this.author = author;
     }
 
