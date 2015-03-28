@@ -92,7 +92,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
     private BL preconditionVerificationEventCriterion = new BLImpl(false);
     private BL derivedFromSourceDispense = new BLImpl(false);
     private ST component1AdministrationInstructionsText = new STImpl();
-    private Includes_1Bean component2;
+    private Component2Bean component2;
     private RemainingDispenseInformation_1Bean fulfillment1SupplyEventFutureSummary;
     private FirstDispenseInformation_1Bean fulfillment2SupplyEventFirstSummary;
     private LastDispenseInformation_1Bean fulfillment3SupplyEventLastSummary;
@@ -756,7 +756,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"component2"})
-    public Includes_1Bean getComponent2() {
+    public Component2Bean getComponent2() {
         return this.component2;
     }
 
@@ -768,7 +768,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setComponent2(Includes_1Bean component2) {
+    public void setComponent2(Component2Bean component2) {
         this.component2 = component2;
     }
 

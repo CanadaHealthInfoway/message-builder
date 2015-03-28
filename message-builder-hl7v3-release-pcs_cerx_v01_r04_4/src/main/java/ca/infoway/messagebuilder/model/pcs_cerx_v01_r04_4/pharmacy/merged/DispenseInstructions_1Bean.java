@@ -79,7 +79,7 @@ import java.util.Date;
  * includes the quantity to be dispensed, how often the 
  * quantity is to be dispensed, etc.</p>
  */
-@Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
+@Hl7PartTypeMapping({"PORX_MT010110CA.SupplyRequest","PORX_MT020060CA.SupplyRequest","PORX_MT060040CA.SupplyRequest","PORX_MT060060CA.SupplyRequest"})
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
@@ -124,6 +124,21 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>The overall number of devices to be dispensed under this 
      * prescription. Includes any first fills (trials, aligning 
      * quantities), the initial standard fill plus all refills.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>AT least one of Total Prescribed Quantity or Total Days 
+     * Supply must be specified</p>
+     * 
+     * <p>Allows determination of the amount that remains to be 
+     * dispensed against the prescription.</p>
+     * 
+     * <p>The overall amount of device to be dispensed under this 
+     * prescription.</p>
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
@@ -183,6 +198,21 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
      * 
+     * <p>Relationship: PORX_MT020060CA.SupplyRequest.quantity</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>AT least one of Total Prescribed Quantity or Total Days 
+     * Supply must be specified</p>
+     * 
+     * <p>Allows determination of the amount that remains to be 
+     * dispensed against the prescription.</p>
+     * 
+     * <p>The overall amount of device to be dispensed under this 
+     * prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalPrescribedQuantity</p>
+     * 
      * <p>Relationship: PORX_MT010110CA.SupplyRequest.quantity</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -225,6 +255,24 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 
      * <p>Relationship: 
+     * PORX_MT020060CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>AT least one of Total Prescribed Quantity or Total Days 
+     * Supply must be specified</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
      * PORX_MT010110CA.SupplyRequest.expectedUseTime</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -263,6 +311,24 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
      * <p>The number of days that the overall prescribed item is 
      * expected to last, if the patient is compliant with the 
      * dispensing and use of the prescription.</p>
+     * 
+     * <p>Un-merged Business Name: TotalDaysSupply</p>
+     * 
+     * <p>Relationship: 
+     * PORX_MT020060CA.SupplyRequest.expectedUseTime</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>AT least one of Total Prescribed Quantity or Total Days 
+     * Supply must be specified</p>
+     * 
+     * <p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late').</p>
+     * 
+     * <p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription</p>
      * 
      * <p>Un-merged Business Name: TotalDaysSupply</p>
      * 

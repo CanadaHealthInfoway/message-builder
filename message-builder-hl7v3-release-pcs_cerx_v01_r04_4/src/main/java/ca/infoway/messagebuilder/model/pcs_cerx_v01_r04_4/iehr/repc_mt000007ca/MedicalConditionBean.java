@@ -46,6 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt050203ca.PatientBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.common.coct_mt120600ca.NotesBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.merged.ReportedByBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.merged.RefusedByBean;
 import java.util.ArrayList;

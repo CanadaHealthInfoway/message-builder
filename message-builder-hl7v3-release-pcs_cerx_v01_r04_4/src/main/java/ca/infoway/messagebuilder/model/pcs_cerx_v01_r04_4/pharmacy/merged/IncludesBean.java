@@ -54,7 +54,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * should be dispensed to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060040CA.Component6","PORX_MT060060CA.Component6"})
-public class Includes_2Bean extends MessagePartBean {
+public class IncludesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private DispenseInstructions_1Bean supplyRequest;

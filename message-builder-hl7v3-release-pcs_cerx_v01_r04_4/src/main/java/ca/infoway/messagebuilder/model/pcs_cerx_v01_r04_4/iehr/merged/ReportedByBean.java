@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.repc_mt000007ca.Consenter;
+import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_4.iehr.repc_mt000012ca.Choice;
 import java.util.Date;
 
 
@@ -84,6 +86,26 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  * 
+ * <p>REPC_MT000007CA.Informant: reported by</p>
+ * 
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
+ * 
+ * <p>Indicates where the information that led to the recording 
+ * of this medical condition came from. The possible 3 sources 
+ * of the information are: the patient, the patient's 
+ * representative or a health-care provider.</p>
+ * 
+ * <p>REPC_MT000012CA.Informant: d:reported by</p>
+ * 
+ * <p>The original source of the information can be important 
+ * in evaluating its accuracy and importance.</p>
+ * 
+ * <p>Indicates where the information that led to the recording 
+ * of this information came from. The possible 3 sources of the 
+ * information are: the patient, the patient's representative 
+ * or a health-care provider.</p>
+ * 
  * <p>REPC_MT000014CA.Informant: b:reported by</p>
  * 
  * <p>Allows for establishment of timelines between reported 
@@ -126,12 +148,14 @@ import java.util.Date;
  * information are: the patient, the patient's representative 
  * or a health-care provider.</p>
  */
-@Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000003CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000007CA.Informant","REPC_MT000009CA.Informant","REPC_MT000010CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant","REPC_MT000014CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20150326L;
     private TS time = new TSImpl();
     private Party party;
+    private Consenter consenter;
+    private Choice choice;
 
 
     /**
@@ -195,6 +219,29 @@ public class ReportedByBean extends MessagePartBean {
      * <p>Allows for establishment of timelines between onset date, 
      * reported date and recorded date, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for establishment of timelines between condition 
+     * onset date, reported date and recorded date.</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between reaction 
+     * onset date, reported date and recorded date, and is 
+     * therefore mandatory.</p>
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
@@ -313,6 +360,29 @@ public class ReportedByBean extends MessagePartBean {
      * <p>Allows for establishment of timelines between onset date, 
      * reported date and recorded date, and is therefore 
      * mandatory.</p>
+     * 
+     * <p>The date on which the adverse reaction was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedTimestamp</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     * 
+     * <p>Allows for establishment of timelines between condition 
+     * onset date, reported date and recorded date.</p>
+     * 
+     * <p>The date on which the medical condition was reported.</p>
+     * 
+     * <p>Un-merged Business Name: ReportedDate</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.time</p>
+     * 
+     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * 
+     * <p>Allows for establishment of timelines between reaction 
+     * onset date, reported date and recorded date, and is 
+     * therefore mandatory.</p>
      * 
      * <p>The date on which the adverse reaction was reported.</p>
      * 
@@ -487,6 +557,54 @@ public class ReportedByBean extends MessagePartBean {
      */
     public void setParty(Party party) {
         this.party = party;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"consenter"})
+    public Consenter getConsenter() {
+        return this.consenter;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000007CA.Informant.consenter</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setConsenter(Consenter consenter) {
+        this.consenter = consenter;
+    }
+
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"choice"})
+    public Choice getChoice() {
+        return this.choice;
+    }
+
+    /**
+     * <p>Un-merged Business Name: (no business name specified)</p>
+     * 
+     * <p>Relationship: REPC_MT000012CA.Informant.choice</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setChoice(Choice choice) {
+        this.choice = choice;
     }
 
 }
