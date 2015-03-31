@@ -51,6 +51,9 @@
 -namespaceMapping ca.infoway.messagebuilder.schema Ca.Infoway.Messagebuilder.Schema
 		
 -namespaceMapping ca.infoway.messagebuilder.service Ca.Infoway.Messagebuilder.Service
+
+-namespaceMapping ca.infoway.messagebuilder.terminology Ca.Infoway.Messagebuilder.Terminology
+-namespaceMapping ca.infoway.messagebuilder.terminology.domainvalue Ca.Infoway.Messagebuilder.Terminology.Domainvalue
 		
 -namespaceMapping ca.infoway.messagebuilder.transport.mohawk.sample Ca.Infoway.Messagebuilder.Transport.Mohawk.Sample
 -namespaceMapping ca.infoway.messagebuilder.transport.mohawk Ca.Infoway.Messagebuilder.Transport.Mohawk
