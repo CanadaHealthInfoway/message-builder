@@ -20,9 +20,6 @@
 
 package ca.infoway.messagebuilder.error;
 
-import org.apache.commons.lang.StringUtils;
-
-
 /**
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
@@ -75,19 +72,5 @@ public enum ErrorCode {
 	SCHEMATRON,
 	CODE_MATCH_ONLY_WHEN_IGNORING_CASE	
 	;
-	
-	public static ErrorCode transformCode(Hl7ErrorCode hl7ErrorCode) {
-		if (hl7ErrorCode == null) {
-			return null;
-		}
-		ErrorCode[] values = ErrorCode.values();
-		String name = hl7ErrorCode.name();
-		for (int i = 0; i < values.length; i++) {
-			if (StringUtils.equals(values[i].name(), name)) {
-				return values[i];
-			}
-		}
-		return null;
-	}
 	
 }

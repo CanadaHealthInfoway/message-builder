@@ -28,7 +28,7 @@ public class ErrorCodeTest {
 	public void testAllHl7ErrorCodesAreInErrorCode() {
 		Hl7ErrorCode[] oldErrorCode = Hl7ErrorCode.values();
 		for (int i = 0; i < oldErrorCode.length; i++) {
-			ErrorCode newErrorCode = ErrorCode.transformCode(oldErrorCode[i]);
+			ErrorCode newErrorCode = TransformError.transformCode(oldErrorCode[i]);
 			if (newErrorCode == null) {
 				fail("ErrorCode is missing Hl7ErrorCode: " + oldErrorCode[i].name());
 			}

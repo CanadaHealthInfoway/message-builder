@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.error;
 
+import org.apache.commons.lang.StringUtils;
+
 public class TransformError {
 
 	private final Hl7Error error;
@@ -26,7 +28,7 @@ public class TransformError {
 
 	public TransformError(Hl7Error error) {
 		this.error = error;
-		this.errorCode = ErrorCode.transformCode(error.getHl7ErrorCode());
+		this.errorCode = TransformError.transformCode(error.getHl7ErrorCode());
 	}
 	
 	public ErrorCode getErrorCode() {
@@ -53,4 +55,19 @@ public class TransformError {
 	public String toString() {
 		return this.error.toString();
 	}
+	
+	public static ErrorCode transformCode(Hl7ErrorCode hl7ErrorCode) {
+		if (hl7ErrorCode == null) {
+			return null;
+		}
+		ErrorCode[] values = ErrorCode.values();
+		String name = hl7ErrorCode.name();
+		for (int i = 0; i < values.length; i++) {
+			if (StringUtils.equals(values[i].name(), name)) {
+				return values[i];
+			}
+		}
+		return null;
+	}
+	
 }
