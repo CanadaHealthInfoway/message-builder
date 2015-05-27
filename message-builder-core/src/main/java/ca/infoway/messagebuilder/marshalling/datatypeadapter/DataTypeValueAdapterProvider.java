@@ -29,13 +29,16 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 public class DataTypeValueAdapterProvider {
 	
 	private static final DataTypeAdapter NULL_DATA_TYPE_ADAPTER = new DataTypeAdapter() {
-		public BareANY adapt(BareANY any) {
+		public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
+			return any;
+		}
+		public BareANY adapt(String toDataTypeName, BareANY any) {
 			return any;
 		}
 		public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
 			return true;
 		}
-		public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+		public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 			return true;
 		}
 	};
@@ -68,10 +71,10 @@ public class DataTypeValueAdapterProvider {
 		return matchingAdapter;
 	}
 
-	public DataTypeAdapter getAdapter(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public DataTypeAdapter getAdapter(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		DataTypeAdapter matchingAdapter = NULL_DATA_TYPE_ADAPTER;
 		for (DataTypeAdapter adapter : adapters) {
-			if (adapter.canAdapt(fromDataTypeName, toDateType)) {
+			if (adapter.canAdapt(fromDataTypeName, toDataType)) {
 				matchingAdapter = adapter;
 				break;
 			}

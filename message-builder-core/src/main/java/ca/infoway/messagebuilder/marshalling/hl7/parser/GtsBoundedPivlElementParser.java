@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 import ca.infoway.messagebuilder.xml.Cardinality;
 
 @DataTypeHandler("GTS.BOUNDEDPIVL")
@@ -117,22 +118,22 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 	private List<Element> findComponents(Element element, XmlToModelResult xmlToModelResult) {
 		List<Element> result = new ArrayList<Element>();
 		NodeList list = element.getChildNodes();
-		int length = list == null ? 0 : list.getLength();
-		for (int i = 0; i < length; i++) {
-			Node node = list.item(i);
-			if (node.getNodeType() != Node.ELEMENT_NODE) {
-				// skip it
-			} else if (StringUtils.equals("comp", NodeUtil.getLocalOrTagName((Element) node))) {
-				result.add((Element) node);
-			} else {
-				xmlToModelResult.addHl7Error(
-						new Hl7Error(
-								Hl7ErrorCode.DATA_TYPE_ERROR,
-								MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node)),
-								(Element) node
-						)
-				);
-			}
+		if (list != null) {
+	        for (Node node : new XmlNodeListIterable(list)) {
+				if (node.getNodeType() != Node.ELEMENT_NODE) {
+					// skip it
+				} else if (StringUtils.equals("comp", NodeUtil.getLocalOrTagName((Element) node))) {
+					result.add((Element) node);
+				} else {
+					xmlToModelResult.addHl7Error(
+							new Hl7Error(
+									Hl7ErrorCode.DATA_TYPE_ERROR,
+									MessageFormat.format("Unexpected tag {0} in GTS.BOUNDEDPIVL", XmlDescriber.describeSingleElement((Element) node)),
+									(Element) node
+							)
+					);
+				}
+	        }
 		}
 		return result;
 	}

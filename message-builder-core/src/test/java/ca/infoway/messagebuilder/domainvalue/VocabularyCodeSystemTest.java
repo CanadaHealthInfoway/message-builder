@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.j5goodies.Predicates;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
- * @sharpen.ignore missing test
+ * @sharpen.ignore missing test - classpath scanning. Should not need to translate this test as long as it runs in Java.
  */
 public class VocabularyCodeSystemTest {
 	

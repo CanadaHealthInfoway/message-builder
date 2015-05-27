@@ -40,9 +40,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Entry"})
 public class EntryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.functionalstatussection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.assessmentandplansection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureindicationssection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.plannedproceduresection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.anesthesiasection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.preoperativediagnosissection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.hospitaladmissionmedicationssectionentriesoptional.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_8, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_10, ca.infoway.messagebuilder.model.ccda_r1_1.payerssection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_9, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_7, ca.infoway.messagebuilder.model.ccda_r1_1.postprocedurediagnosissection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicalequipmentsection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_5, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_4, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_3, ca.infoway.messagebuilder.model.ccda_r1_1.familyhistorysection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.physicalexamsection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.merged.EntryChoice_1, ca.infoway.messagebuilder.model.ccda_r1_1.planofcaresection.EntryChoice, ca.infoway.messagebuilder.model.ccda_r1_1.socialhistorysection.EntryChoice {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private EntryChoice entryChoice;

@@ -36,7 +36,7 @@ public abstract class AbstractAttributePropertyFormatter<V> extends AbstractNull
 	protected static final String EMPTY_STRING = "";
 
     @Override
-	public String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
+	protected String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) {
     	V value = extractBareValue(bareAny);
         return createElement(context, getAttributeNameValuePairs(context, value, bareAny), indentLevel, true, true);
     }

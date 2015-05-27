@@ -76,7 +76,7 @@ public class PqR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<P
 	private void createChildContent(PhysicalQuantity pq, FormatContext context,	int indentLevel, StringBuilder result) {
 		FormatContext newContext = new FormatContextImpl("PQR", "translation", context);
 		for (CodedTypeR2<Code> translation : pq.getTranslation()) {
-			String formattedTranslation = this.pqrPropertyFormatter.format(newContext, new PQRImpl(translation), indentLevel);
+			String formattedTranslation = this.pqrPropertyFormatter.format(newContext, new PQRImpl<Code>(translation), indentLevel);
 			result.append(formattedTranslation);
 		}
 	}

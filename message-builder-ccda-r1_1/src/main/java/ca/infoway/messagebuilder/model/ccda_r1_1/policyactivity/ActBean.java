@@ -42,10 +42,10 @@ import java.util.List;
 @Hl7RootType
 public class ActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CD_R2 code = new CD_R2Impl();
+    private CD_R2<HealthInsuranceType> code = new CD_R2Impl<HealthInsuranceType>();
     private List<Performer2Choice> performer = new ArrayList<Performer2Choice>();
     private List<Participant2Choice> participant = new ArrayList<Participant2Choice>();
     private List<EntryRelationshipChoice> entryRelationship = new ArrayList<EntryRelationshipChoice>();

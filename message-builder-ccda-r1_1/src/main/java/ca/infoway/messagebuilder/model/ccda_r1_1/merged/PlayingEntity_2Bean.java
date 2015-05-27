@@ -54,16 +54,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.PlayingEntity","BaseModel.PlayingEntity","SubstanceOrDeviceAllergyIntoleranceObservation.PlayingEntity"})
 public class PlayingEntity_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.basemodel.ParticipantRoleChoice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
     private LIST<PQ, PhysicalQuantity> quantity = new LISTImpl<PQ, PhysicalQuantity>(PQImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private TS_R2 birthTime = new TS_R2Impl();
     private ED<EncapsulatedData> desc = new EDImpl<EncapsulatedData>();
-    private CS_R2 classCode = new CS_R2Impl();
+    private CS_R2<EntityClassRoot> classCode = new CS_R2Impl<EntityClassRoot>();
 
 
     /**

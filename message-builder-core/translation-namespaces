@@ -1,5 +1,6 @@
 -namespaceMapping ca.infoway.messagebuilder.annotation Ca.Infoway.Messagebuilder.Annotation
 -namespaceMapping ca.infoway.messagebuilder.classfinder Ca.Infoway.Messagebuilder.ClassFinder
+-namespaceMapping ca.infoway.messagebuilder.codeRegistry Ca.Infoway.Messagebuilder.CodeRegistry
 -namespaceMapping ca.infoway.messagebuilder.codesystem Ca.Infoway.Messagebuilder.Codesystem
 		
 -namespaceMapping ca.infoway.messagebuilder.datatype.impl Ca.Infoway.Messagebuilder.Datatype.Impl
@@ -18,6 +19,8 @@
 -namespaceMapping ca.infoway.messagebuilder.domainvalue.transport Ca.Infoway.Messagebuilder.Domainvalue.Transport
 -namespaceMapping ca.infoway.messagebuilder.domainvalue.util Ca.Infoway.Messagebuilder.Domainvalue.Util
 -namespaceMapping ca.infoway.messagebuilder.domainvalue Ca.Infoway.Messagebuilder.Domainvalue
+
+-namespaceMapping ca.infoway.messagebuilder.error Ca.Infoway.Messagebuilder.Error
 		
 -namespaceMapping ca.infoway.messagebuilder.j5goodies Ca.Infoway.Messagebuilder.J5goodies
 		
@@ -30,9 +33,13 @@
 -namespaceMapping ca.infoway.messagebuilder.messageset Ca.Infoway.Messagebuilder.Messageset
 		
 -namespaceMapping ca.infoway.messagebuilder.marshalling.datatypeadapter Ca.Infoway.Messagebuilder.Marshalling.Datatypeadapter
+-namespaceMapping ca.infoway.messagebuilder.marshalling.hl7.constraints Ca.Infoway.Messagebuilder.Marshalling.HL7.Constraints
+-namespaceMapping ca.infoway.messagebuilder.marshalling.hl7.parser.r2 Ca.Infoway.Messagebuilder.Marshalling.HL7.Parser.R2
 -namespaceMapping ca.infoway.messagebuilder.marshalling.hl7.parser Ca.Infoway.Messagebuilder.Marshalling.HL7.Parser
+-namespaceMapping ca.infoway.messagebuilder.marshalling.hl7.formatter.r2 Ca.Infoway.Messagebuilder.Marshalling.HL7.Formatter.R2
 -namespaceMapping ca.infoway.messagebuilder.marshalling.hl7.formatter Ca.Infoway.Messagebuilder.Marshalling.HL7.Formatter
 -namespaceMapping ca.infoway.messagebuilder.marshalling.hl7 Ca.Infoway.Messagebuilder.Marshalling.HL7
+-namespaceMapping ca.infoway.messagebuilder.marshalling.polymorphism Ca.Infoway.Messagebuilder.Marshalling.Polymorphism
 -namespaceMapping ca.infoway.messagebuilder.marshalling Ca.Infoway.Messagebuilder.Marshalling
 				
 -namespaceMapping ca.infoway.messagebuilder.model.mock Ca.Infoway.Messagebuilder.Model.Mock
@@ -44,9 +51,9 @@
 
 -namespaceMapping ca.infoway.messagebuilder.platform Ca.Infoway.Messagebuilder.Platform
 		
--namespaceMapping ca.infoway.messagebuilder.resolver.configurator Ca.Infoway.Messagebuilder.Terminology.Configurator
--namespaceMapping ca.infoway.messagebuilder.resolver.domainvalue Ca.Infoway.Messagebuilder.Terminology.Domainvalue
--namespaceMapping ca.infoway.messagebuilder.resolver Ca.Infoway.Messagebuilder.Terminology
+-namespaceMapping ca.infoway.messagebuilder.resolver.configurator Ca.Infoway.Messagebuilder.Resolver.Configurator
+-namespaceMapping ca.infoway.messagebuilder.resolver.domainvalue Ca.Infoway.Messagebuilder.Resolver.Domainvalue
+-namespaceMapping ca.infoway.messagebuilder.resolver Ca.Infoway.Messagebuilder.Resolver
 		
 -namespaceMapping ca.infoway.messagebuilder.schema Ca.Infoway.Messagebuilder.Schema
 		
@@ -69,8 +76,10 @@
 		
 -namespaceMapping ca.infoway.messagebuilder.version Ca.Infoway.Messagebuilder.Version
 		
+-namespaceMapping ca.infoway.messagebuilder.xml.cda.vocabulary Ca.Infoway.Messagebuilder.Xml.Cda.Vocabulary
 -namespaceMapping ca.infoway.messagebuilder.xml.service Ca.Infoway.Messagebuilder.Xml.Service
 -namespaceMapping ca.infoway.messagebuilder.xml.util Ca.Infoway.Messagebuilder.Xml.Util
+-namespaceMapping ca.infoway.messagebuilder.xml.cdavalidator Ca.Infoway.Messagebuilder.Xml.Cdavalidator
 -namespaceMapping ca.infoway.messagebuilder.xml.validator Ca.Infoway.Messagebuilder.Xml.Validator
 -namespaceMapping ca.infoway.messagebuilder.xml.visitor Ca.Infoway.Messagebuilder.Xml.Visitor
 -namespaceMapping ca.infoway.messagebuilder.xml Ca.Infoway.Messagebuilder.Xml

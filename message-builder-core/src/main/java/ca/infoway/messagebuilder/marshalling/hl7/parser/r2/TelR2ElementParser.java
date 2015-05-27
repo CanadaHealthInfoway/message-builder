@@ -51,6 +51,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * Parses an TEL element into a String. (R2) The element looks like this:
@@ -144,8 +145,7 @@ public class TelR2ElementParser extends AbstractSingleElementParser<Telecommunic
 
 	private void parseUseablePeriods(Node node,	XmlToModelResult xmlToModelResult, TelecommunicationAddress result, ParseContext context) {
 		NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (childNode instanceof Element) {
                 Element useablePeriodElement = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(useablePeriodElement);

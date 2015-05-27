@@ -20,6 +20,8 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
+import java.util.Date;
+
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -315,4 +317,35 @@ public class IntervalFactory {
 	public static <T> Interval<T> createFromUncertainRange(UncertainRange<T> urg) {
 		return new Interval<T>(urg.getLow(), urg.getHigh(), urg.getCentre(), urg.getWidth(), urg.getRepresentation(), urg.getLowNullFlavor(), urg.getHighNullFlavor(), urg.getCentreNullFlavor());
 	}
+
+	public static Interval<MbDate> createMbDateInterval(Interval<Date> dateInterval) {
+		MbDate low = convert(dateInterval.getLow());
+		MbDate high = convert(dateInterval.getHigh());
+		MbDate centre = convert(dateInterval.getCentre());
+		Diff<MbDate> width = convert(dateInterval.getWidth()); 
+		return new Interval<MbDate>(low, high, centre, width, dateInterval.getRepresentation(), dateInterval.getLowNullFlavor(), 
+				dateInterval.getHighNullFlavor(), dateInterval.getCentreNullFlavor(), convert(dateInterval.getValue()), dateInterval.getOperator(),
+				dateInterval.getLowInclusive(), dateInterval.getHighInclusive());
+	}
+	
+	private static Diff<MbDate> convert(Diff<Date> dateDiff) {
+		if (dateDiff == null) {
+			return null;
+		}
+		Diff<MbDate> mbDateDiff; 
+		if (dateDiff instanceof DateDiff) {
+			mbDateDiff = new MbDateDiff(convert(dateDiff.getValue()), ((DateDiff) dateDiff).getValueAsPhysicalQuantity());
+		} else {
+			mbDateDiff = new Diff<MbDate>(convert(dateDiff.getValue()));
+		}
+		if (dateDiff.hasNullFlavor()) {
+			mbDateDiff.setNullFlavor(dateDiff.getNullFlavor());
+		}
+		return mbDateDiff;
+	}
+	
+	private static MbDate convert(Date date) {
+		return date == null ? null : new MbDate(date); 
+	}
+
 }

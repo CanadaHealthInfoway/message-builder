@@ -20,13 +20,15 @@
 
 package ca.infoway.messagebuilder.xml.delta;
 
-/**
- * Provides the and old value for the change.
- */
 import javax.persistence.MappedSuperclass;
 
 import org.apache.commons.lang.ObjectUtils;
 
+/**
+ * Provides the and old value for the change.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 @MappedSuperclass
 public abstract class NewIntegerValueConstraint extends Constraint {
 

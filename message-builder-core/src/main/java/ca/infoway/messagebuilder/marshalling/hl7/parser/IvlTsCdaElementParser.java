@@ -31,15 +31,16 @@ import ca.infoway.messagebuilder.datatype.IVLTSCDAR1;
 import ca.infoway.messagebuilder.datatype.impl.IVLTSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.IvlTsConstraintsHandler;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 
 @DataTypeHandler("IVLTSCDAR1")
 class IvlTsCdaElementParser implements ElementParser {
@@ -69,8 +70,7 @@ class IvlTsCdaElementParser implements ElementParser {
 	
 	private BareANY convertDataType(BareANY dataType) {
 		Object bareValue = dataType.getBareValue();
-		@SuppressWarnings("unchecked")
-		Interval<Date> ivlTsR1 = (bareValue instanceof Interval ? (Interval<Date>) bareValue : null);
+		Interval<Date> ivlTsR1 = GenericClassUtil.castBareValueAsIntervalDate(bareValue);
 		DateInterval ivlTsR2 = (ivlTsR1 == null ? null : convertIvlTs(ivlTsR1));
 		
 		IVLTSCDAR1 result = new IVLTSCDAR1Impl();

@@ -22,6 +22,10 @@ package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import java.util.Date;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 @DataTypeHandler("IVL<TS>")
@@ -33,5 +37,10 @@ class IvlTsElementParser extends IvlElementParser<Date> {
 
 	public IvlTsElementParser(boolean isUncertainRange) {
 		super(isUncertainRange);
+	}
+	
+	@Override
+	protected BareANY doCreateDataTypeInstance(String typeName) {
+		return new IVLImpl<TS, Interval<Date>>();
 	}
 }

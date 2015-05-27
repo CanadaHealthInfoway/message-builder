@@ -54,6 +54,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * AD - Address (R2)
@@ -106,9 +107,8 @@ class AdR2ElementParser extends AbstractSingleElementParser<PostalAddress> {
         NodeList childNodes = node.getChildNodes();
         boolean foundUseablePeriod = false;
         boolean loggedUseablePeriodError = false;
-        
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             String childElementName = NodeUtil.getLocalOrTagName(childNode);
             boolean isUseablePeriod = "useablePeriod".equals(childElementName);
             
@@ -164,8 +164,7 @@ class AdR2ElementParser extends AbstractSingleElementParser<PostalAddress> {
     private PostalAddress parseAddressPartTypes(Node node, XmlToModelResult xmlToModelResult) {
         PostalAddress result = new PostalAddress();
         NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (isNonBlankTextNode(childNode)) {
                 String value = childNode.getNodeValue();
                 result.addPostalAddressPart(new PostalAddressPart(value));

@@ -20,13 +20,14 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
+import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -108,7 +109,12 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertNotNull(data.getContent());
 		assertXml("content", "<monkey/>" + System.getProperty("line.separator") + 
 				"<shines/>" + System.getProperty("line.separator") + 
-				"<through/>", data.getContent());
+				"<through/>", removeExtraSpaces(data.getContent()));
+	}
+	
+	//For .NET compatibility
+	private String removeExtraSpaces(String xmlString) {
+		return xmlString.replaceAll(" />", "/>");
 	}
 	
 	@Test
@@ -166,7 +172,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("mixed text", 
 				"this is a text node<br/>with some extra<br/>formatting", 
-				value.getContent());
+				removeExtraSpaces(value.getContent()));
 	}
 	
 	@Test
@@ -207,7 +213,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<text mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>text value</text>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("text returned", "text value", new String(value.getContent()));
+		assertEquals("text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReferenceObj().getAddress());
 		assertEquals("proper reference returned", "https", value.getReferenceObj().getUrlScheme().getCodeValue());
@@ -220,7 +226,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		assertEquals("ED types only allow a single reference. Found: 2", this.xmlResult.getHl7Errors().get(0).getMessage());
-		assertEquals("text returned", "text value", new String(value.getContent()));
+		assertEquals("text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReferenceObj().getAddress());
 		assertEquals("proper reference returned", "https", value.getReferenceObj().getUrlScheme().getCodeValue());
@@ -252,7 +258,7 @@ public class EdR2ElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<something representation=\"TXT\" compression=\"DF\" mediaType=\"text/plain\">text value<br/>with some<br/>unescaped characters;</something>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser(this.telParser, true).parse(createContext("ED", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("proper text returned", "text value<br/>with some<br/>unescaped characters;", value.getContent());
+		assertEquals("proper text returned", "text value<br/>with some<br/>unescaped characters;", removeExtraSpaces(value.getContent()));
 		assertEquals("proper media type returned", X_DocumentMediaType.PLAIN_TEXT, value.getMediaType());
 		assertNull("no reference", value.getReferenceObj());
 	}

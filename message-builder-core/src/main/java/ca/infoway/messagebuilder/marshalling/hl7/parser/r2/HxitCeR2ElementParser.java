@@ -20,9 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.HXITImpl;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * HXIT<CE> (R2)
@@ -30,10 +33,14 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 @DataTypeHandler("HXIT<CE>")
 class HxitCeR2ElementParser extends CeR2ElementParser {
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new HXITImpl();
+		return new HXITImpl<Code>();
+	}
+	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createHXITInstance(context.getExpectedReturnType());
 	}
 
 	@Override

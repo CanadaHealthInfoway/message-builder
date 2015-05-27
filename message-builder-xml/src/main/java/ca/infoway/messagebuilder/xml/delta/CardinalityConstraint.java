@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
  * <p>Provides the and old value for the change.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 @Table(name="cardinality_change")

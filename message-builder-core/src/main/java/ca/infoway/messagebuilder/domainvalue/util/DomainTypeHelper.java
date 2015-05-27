@@ -60,7 +60,8 @@ public class DomainTypeHelper {
 		}
 		if (StringUtils.isNotBlank(sanitizedDomainType)) {
 			try {
-				return (Class<Code>) Class.forName("ca.infoway.messagebuilder.domainvalue." + sanitizedDomainType);
+				String packageName = ClassUtils.getPackageName(OtherIdentifierRoleType.class); //.NET need to get namespace for domainvalue
+				return (Class<Code>) Class.forName(packageName + "." + sanitizedDomainType);
 			} catch (ClassNotFoundException e) {
 				// this is an expected result
 			}

@@ -178,7 +178,11 @@ class XmlRenderingVisitor implements Visitor {
 	public XmlRenderingVisitor(boolean isR2, boolean isCda) {
 		this.isR2 = isR2;
 		this.isCda = isCda;
-		this.formatterRegistry = (isR2 ? FormatterR2Registry.getInstance() : FormatterRegistry.getInstance());
+		if (isR2) {
+			this.formatterRegistry = FormatterR2Registry.getInstance();
+		} else {
+			this.formatterRegistry = FormatterRegistry.getInstance();
+		}
 	}
 	
 	private Buffer currentBuffer() {
@@ -418,13 +422,13 @@ class XmlRenderingVisitor implements Visitor {
 				if (relationship.hasFixedValue()) {
 					// suppress rendering fixed values for optional or required
 					if (isMandatoryOrPopulated) {
-						any = (BareANY) DataTypeFactory.createDataType(relationship.getType());
+						any = (BareANY) DataTypeFactory.createDataType(relationship.getType(), this.isCda && this.isR2);
 						Object fixedValue = NonStructuralHl7AttributeRenderer.getFixedValue(relationship, version, this.isR2, this.result, propertyPath);
 						((BareANYImpl) any).setBareValue(fixedValue);
 					}
 				} else {
 					any = hl7Value;
-					any = this.adapterProvider.getAdapter(any != null ? any.getClass() : null, type).adapt(any);
+					any = this.adapterProvider.getAdapter(any != null ? any.getClass() : null, type).adapt(type, any);
 
 					// TODO - CDA - TM - implement default value handling
 //					boolean valueNotProvided = (any.getBareValue() == null && !any.hasNullFlavor());

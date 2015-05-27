@@ -46,12 +46,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Performer1","DiagnosticImagingReport.Performer1","DischargeSummary.Performer1","HistoryAndPhysical.Performer1","ProgressNote.Performer1","USRealmHeader.Performer1","UnstructuredDocument.Performer1"})
 public class Performer1_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<ParticipationType> typeCode = new CS_R2Impl<ParticipationType>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 functionCode = new CE_R2Impl();
+    private CE_R2<ParticipationFunction> functionCode = new CE_R2Impl<ParticipationFunction>();
     private IVL_TS time = new IVL_TSImpl();
     private Performer1AssignedEntityBean assignedEntity;
 

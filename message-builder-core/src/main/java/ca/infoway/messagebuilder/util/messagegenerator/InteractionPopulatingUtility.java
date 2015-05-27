@@ -21,10 +21,10 @@ package ca.infoway.messagebuilder.util.messagegenerator;
 
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.ConformanceOption.ALL;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.ConformanceOption.MANDATORY_INCLUDING_PAYLOAD;
-import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_5;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_10;
-import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_25;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_100;
+import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_25;
+import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MAXIMUM_WITH_LIMIT_5;
 import static ca.infoway.messagebuilder.util.messagegenerator.InteractionPopulatingUtility.MultipleCardinalityOption.MINIMUM_WITH_AT_LEAST_1;
 
 import java.lang.reflect.ParameterizedType;

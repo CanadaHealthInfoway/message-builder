@@ -27,7 +27,9 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.SXCMTSCDAR1;
 import ca.infoway.messagebuilder.datatype.TSCDAR1;
+import ca.infoway.messagebuilder.datatype.impl.SXCMTSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.impl.TSCDAR1Impl;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
@@ -55,20 +57,28 @@ public class TsCdaElementParser implements ElementParser {
 	
 	public BareANY parse(ParseContext context, List<Node> nodes, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		BareANY tsResult = this.tsParser.parse(convertContext(context), nodes, xmlToModelResult);
-		return convertDataType(tsResult);
+		return convertDataType(context, tsResult);
 	}
 	
-	private BareANY convertDataType(BareANY dataType) {
+	private BareANY convertDataType(ParseContext context, BareANY dataType) {
 		Object bareValue = dataType.getBareValue();
 		Date date = (bareValue instanceof Date ? (Date) bareValue : null);
 		MbDate mbDate = (date == null ? null : new MbDate(date));
 		
-		TSCDAR1 result = new TSCDAR1Impl();
-		result.setDataType(dataType.getDataType());
-		result.setNullFlavor(dataType.getNullFlavor());
-		result.setBareValue(mbDate);
-		result.setOperator(((ANYMetaData) dataType).getOperator());
-		return result;
+		if ("SXCMTSCDAR1".equals(context.getType())) {
+			SXCMTSCDAR1 result = new SXCMTSCDAR1Impl();
+			result.setDataType(dataType.getDataType());
+			result.setNullFlavor(dataType.getNullFlavor());
+			result.setBareValue(mbDate);
+			return result;
+		} else {
+			TSCDAR1 result = new TSCDAR1Impl();
+			result.setDataType(dataType.getDataType());
+			result.setNullFlavor(dataType.getNullFlavor());
+			result.setBareValue(mbDate);
+			result.setOperator(((ANYMetaData) dataType).getOperator());
+			return result;
+		}
 	}
 
 	private ParseContext convertContext(ParseContext parseContext) {

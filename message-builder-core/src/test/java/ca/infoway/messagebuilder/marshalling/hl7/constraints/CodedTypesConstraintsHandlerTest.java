@@ -27,16 +27,17 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -44,15 +45,23 @@ import ca.infoway.messagebuilder.xml.Relationship;
 
 public class CodedTypesConstraintsHandlerTest {
 
+	private static final Class<ca.infoway.messagebuilder.domainvalue.ActStatus> TYPE = ca.infoway.messagebuilder.domainvalue.ActStatus.class;
+	
 	private CodedTypesConstraintsHandler constraintsHandler = new CodedTypesConstraintsHandler();
 	private TrivialCodeResolver trivialCodeResolver = new TrivialCodeResolver();
 	
-	private final List<Hl7Error> errors = new ArrayList<Hl7Error>();
+	private List<Hl7Error> errors;
 	private ErrorLogger errorLogger = new ErrorLogger() {
 		public void logError(Hl7ErrorCode errorCode, ErrorLevel errorLevel, String message) {
 			errors.add(new Hl7Error(errorCode, errorLevel, message, ""));
 		}
 	}; 
+	
+	@Before
+	public void setUp() {
+		//NUnit does not allocate a new instance for each test method. Need to do this in setUp.
+		errors = new ArrayList<Hl7Error>();
+	}
 	
 	@Test
 	public void testNullCases() {
@@ -174,7 +183,7 @@ public class CodedTypesConstraintsHandlerTest {
 
 	@Test
 	public void testIncorrectQualifierNameCodeAndQualifierNameCodeSystem() {
-		Code incorrectName = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "badCode", "badCodeSystem");
+		Code incorrectName = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "badCode", "badCodeSystem");
 
 		ConstrainedDatatype constraints = createConstraints(true);
 		CodedTypeR2<Code> codedType = createCodedType();
@@ -222,7 +231,7 @@ public class CodedTypesConstraintsHandlerTest {
 
 	@Test
 	public void testMissingCodeSystem() {
-		Code codeMissingCodeSystem = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "okCode", null);
+		Code codeMissingCodeSystem = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "okCode", null);
 
 		ConstrainedDatatype constraints = createConstraints(true);
 		CodedTypeR2<Code> codedType = createCodedType();
@@ -244,7 +253,7 @@ public class CodedTypesConstraintsHandlerTest {
 
 	@Test
 	public void testIncorrectCodeSystem() {
-		Code incorrectCode = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "badCode", "badCodeSystem");
+		Code incorrectCode = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "badCode", "badCodeSystem");
 
 		ConstrainedDatatype constraints = createConstraints(true);
 		CodedTypeR2<Code> codedType = createCodedType();
@@ -262,10 +271,10 @@ public class CodedTypesConstraintsHandlerTest {
 	}
 
 	private CodedTypeR2<Code> createCodedType() {
-		Code codeWithFixedCodeSystem = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "aCode", "1.2.840.10008.2.6.1");
+		Code codeWithFixedCodeSystem = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "aCode", "1.2.840.10008.2.6.1");
 		
-		Code name = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "121139", "1.2.840.10008.2.16.4");
-		Code value = this.trivialCodeResolver.lookup(ca.infoway.messagebuilder.domainvalue.ActStatus.class, "anotherCode", "1.2.88888888");
+		Code name = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "121139", "1.2.840.10008.2.16.4");
+		Code value = this.trivialCodeResolver.<ca.infoway.messagebuilder.domainvalue.ActStatus>lookup(TYPE, "anotherCode", "1.2.88888888");
 		
 		CodeRole qualifier = new CodeRole(new CodedTypeR2<Code>(name), new CodedTypeR2<Code>(value));
 		

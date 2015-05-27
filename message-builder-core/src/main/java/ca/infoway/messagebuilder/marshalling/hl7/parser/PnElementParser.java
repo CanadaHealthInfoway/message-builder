@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * PN - Personal Name
@@ -97,8 +98,7 @@ class PnElementParser extends AbstractEntityNameElementParser {
     }
 
 	private void handlePersonName(XmlToModelResult xmlToModelResult, PersonName result, NodeList childNodes) throws XmlToModelTransformationException {
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
 			if (childNode instanceof Element) {
 				Element element = (Element) childNode;
 				String name = NodeUtil.getLocalOrTagName(element);

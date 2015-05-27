@@ -44,10 +44,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"AllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship","SubstanceOrDeviceAllergyIntoleranceObservation.AllergyStatusObservationEntryRelationship"})
 public class AllergyStatusObservationEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_2 {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();

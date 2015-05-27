@@ -20,6 +20,7 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.CE_R2;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.QTY;
@@ -29,7 +30,6 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.TimingEvent;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
@@ -73,10 +73,10 @@ public class EivlTsR2PropertyFormatter extends AbstractNullFlavorPropertyFormatt
 		String result = "";
 		if (value.getEvent() != null) {
 			FormatContext newContext = new FormatContextImpl("CE", "event", context);
-			CodedTypeR2<TimingEvent> codedType = new CodedTypeR2<TimingEvent>();
+			CodedTypeR2<Code> codedType = new CodedTypeR2<Code>(); //Fixup for .NET
 			codedType.setCode(value.getEvent());
 			codedType.setCodeSystemName("TimingEvent");
-			CE_R2 ceAny = new CE_R2Impl(codedType);
+			CE_R2<Code> ceAny = new CE_R2Impl<Code>(codedType);
 			result = this.ceR2PropertyFormatter.format(newContext, ceAny, indentLevel);
 		}
 		return result;

@@ -19,6 +19,8 @@
  */
 package ca.infoway.messagebuilder.error;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 
 public class TransformError {
@@ -60,11 +62,11 @@ public class TransformError {
 		if (hl7ErrorCode == null) {
 			return null;
 		}
-		ErrorCode[] values = ErrorCode.values();
+		List<ErrorCode> values = ErrorCode.values(ErrorCode.class);
 		String name = hl7ErrorCode.name();
-		for (int i = 0; i < values.length; i++) {
-			if (StringUtils.equals(values[i].name(), name)) {
-				return values[i];
+		for (int i = 0; i < values.size(); i++) {
+			if (StringUtils.equals(values.get(i).name(), name)) {
+				return values.get(i);
 			}
 		}
 		return null;

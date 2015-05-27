@@ -50,13 +50,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.RegionOfInterest"})
 public class RegionOfInterestBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private ST iD = new STImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 code = new CS_R2Impl();
+    private CS_R2<Code> code = new CS_R2Impl<Code>();
     private LIST<INT, Integer> value = new LISTImpl<INT, Integer>(INTImpl.class);
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();

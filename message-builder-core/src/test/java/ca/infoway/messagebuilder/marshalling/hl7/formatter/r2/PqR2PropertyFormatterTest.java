@@ -32,6 +32,7 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
@@ -42,12 +43,23 @@ import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.TestableAbstractValueNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class PqR2PropertyFormatterTest extends FormatterTestCase {
+	
+	private static class TestablePqR2PropertyFormatter extends PqR2PropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<PhysicalQuantity> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, PhysicalQuantity t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+		public String formatNonNullDataTypeForTest(FormatContext context, BareANY hl7Value, int indentLevel) {
+			return super.formatNonNullDataType(context, hl7Value, indentLevel);
+		}
+	}
 
 	@Before
 	public void setup() {
@@ -57,7 +69,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
 	
     @Test
     public void testFormatPhysicalQuantityNull() throws Exception {
-        String result = new PqR2PropertyFormatter().format(createContext("PQ"), new PQImpl());
+        String result = new TestablePqR2PropertyFormatter().format(createContext("PQ"), new PQImpl());
         
         // a null value for PQ elements results in a nullFlavor attribute (but not via calling getAttributeNameValuePairs, only through format() itself)
         assertEquals("map size", "<name nullFlavor=\"NI\"/>", result.trim());
@@ -67,7 +79,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testFormatPhysicalQuantitySpecificNull() throws Exception {
         PQImpl dataType = new PQImpl(NullFlavor.NOT_APPLICABLE);
-		String result = new PqR2PropertyFormatter().format(createContext("PQ"), dataType);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("PQ"), dataType);
         
         assertEquals("map size", "<name nullFlavor=\"NA\"/>", result.trim());
         assertTrue(this.result.isValid());
@@ -82,7 +94,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         PQImpl dataType = new PQImpl(NullFlavor.NOT_APPLICABLE);
         dataType.setValue(pq);
         
-		String result = new PqR2PropertyFormatter().format(createContext("PQ"), dataType);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("PQ"), dataType);
         
         assertEquals("map size", "<name nullFlavor=\"NA\"/>", result.trim());
         assertTrue(this.result.isValid());
@@ -90,7 +102,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     
     @Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String> resultMap = new PqR2PropertyFormatter().getAttributeNameValuePairs(createContext("PQ"), new PhysicalQuantity(), null);
+        Map<String,String> resultMap = new TestablePqR2PropertyFormatter().getAttributeNameValuePairsForTest(createContext("PQ"), new PhysicalQuantity(), null);
         
         // an empty value for PQ elements results no attributes whatsoever
         assertEquals("map size", 0, resultMap.size());
@@ -100,7 +112,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testFormatPhysicalQuantityValueOrUnitNull() throws Exception {
         // no name-value pairs
-        PqR2PropertyFormatter formatter = new PqR2PropertyFormatter();
+        PqR2PropertyFormatter formatter = new TestablePqR2PropertyFormatter();
         
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setUnit(CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE);
@@ -121,7 +133,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new PqR2PropertyFormatter().getAttributeNameValuePairs(createContext("PQ"), physicalQuantity, null);
+        Map<String, String> result = new TestablePqR2PropertyFormatter().getAttributeNameValuePairsForTest(createContext("PQ"), physicalQuantity, null);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));
@@ -149,7 +161,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         physicalQuantity.getTranslation().add(translation1);
         physicalQuantity.getTranslation().add(translation2);
         
-        Map<String, String> result = new PqR2PropertyFormatter().getAttributeNameValuePairs(createContext("PQ"), physicalQuantity, null);
+        Map<String, String> result = new TestablePqR2PropertyFormatter().getAttributeNameValuePairsForTest(createContext("PQ"), physicalQuantity, null);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));
@@ -158,7 +170,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         assertTrue("unit key as expected", result.containsKey("unit"));
         assertEquals("unit", unit.getCodeValue(), result.get("unit"));
         
-		String xml = new PqR2PropertyFormatter().format(createContext("PQ"), new PQImpl(physicalQuantity), 0);
+		String xml = new TestablePqR2PropertyFormatter().format(createContext("PQ"), new PQImpl(physicalQuantity), 0);
 		
 		assertXml("should see translations", "<name unit=\"U/L\" value=\"33.45\"><translation code=\"M\" codeSystem=\"2.16.840.1.113883.5.1\" displayName=\"Male\"/><translation code=\"active\" codeSystem=\"2.16.840.1.113883.5.14\" displayName=\"Active\"/></name>", xml);
         
@@ -175,7 +187,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         
         PQ rawPq = new PQImpl(physicalQuantity);
         
-		String result = new PqR2PropertyFormatter().format(createContext("PQ"), rawPq, 0);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("PQ"), rawPq, 0);
 		
 		String expectedResult = "<name unit=\"U/L\" value=\"33.45\"/>";
         assertEquals("output", expectedResult, result.trim());
@@ -186,10 +198,10 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
     	
     	// nullFlavor, value, and unit are all optional in the schema (unit will default to "1")
     	
-    	PqR2PropertyFormatter formatter = new PqR2PropertyFormatter();
+    	TestablePqR2PropertyFormatter formatter = new TestablePqR2PropertyFormatter();
     	PQImpl pqImpl = new PQImpl();
     	pqImpl.setValue(new PhysicalQuantity());
-		String result = formatter.formatNonNullDataType(createContext("PQ"), pqImpl, 0);
+		String result = formatter.formatNonNullDataTypeForTest(createContext("PQ"), pqImpl, 0);
 		assertEquals("<name/>", result.trim());
     }
     
@@ -228,7 +240,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         PQ rawPq = new PQImpl(physicalQuantity);
         rawPq.setOperator(SetOperator.PERIODIC_HULL);
         
-		String result = new PqR2PropertyFormatter().format(createContext("PQ"), rawPq, 0);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("PQ"), rawPq, 0);
 		
 		String expectedResult = "<name unit=\"U/L\" value=\"33.45\"/>";
         assertEquals("output", expectedResult, result.trim());
@@ -248,7 +260,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         PQ rawPq = new PQImpl(physicalQuantity);
         rawPq.setOperator(SetOperator.PERIODIC_HULL);
         
-		String result = new PqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
 		
 		String expectedResult = "<name operator=\"P\" unit=\"U/L\" value=\"33.45\"/>";
         assertEquals("output", expectedResult, result.trim());
@@ -266,17 +278,13 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         
         PQ rawPq = new PQImpl(physicalQuantity);
         
-		String result = new PqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
+		String result = new TestablePqR2PropertyFormatter().format(createContext("SXCM<PQ>"), rawPq, 0);
 		
 		String expectedResult = "<name unit=\"U/L\" value=\"33.45\"/>";
         assertEquals("output", expectedResult, result.trim());
         assertTrue(this.result.isValid());
     }
     
-    /**
-     * 
-     * @sharpen.remove
-     */
     @Test
     public void testEdgeCasesForFormatPhysicalQuantityFormattingThatCauseTroubleForDotNet() throws Exception {
         assertFormattingAsExpected("0.0", "0.0");
@@ -287,7 +295,7 @@ public class PqR2PropertyFormatterTest extends FormatterTestCase {
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(CeRxDomainTestValues.CENTIMETRE);
-        Map<String, String> result = new PqR2PropertyFormatter().getAttributeNameValuePairs(createContext("PQ"), physicalQuantity, null);
+        Map<String, String> result = new TestablePqR2PropertyFormatter().getAttributeNameValuePairsForTest(createContext("PQ"), physicalQuantity, null);
         assertEquals("value " + quantity, formattedQuantity, result.get("value"));
     }
 

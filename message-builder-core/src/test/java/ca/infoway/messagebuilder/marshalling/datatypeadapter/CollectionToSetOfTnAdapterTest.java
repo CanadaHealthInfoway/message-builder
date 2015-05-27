@@ -20,20 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.datatypeadapter;
 
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.matchers.JUnitMatchers;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.LIST;
@@ -45,7 +38,7 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 
 /**
- * @sharpen.ignore - test - translated manually 
+ * @sharpen.ignore - due to generics issues
  */
 @SuppressWarnings("unchecked")
 public class CollectionToSetOfTnAdapterTest {
@@ -69,14 +62,33 @@ public class CollectionToSetOfTnAdapterTest {
 		list.rawList().add("text1");
 		list.rawList().add("text2");
 		
-		BareANY adapted = this.adapter.adapt(list);
+		BareANY adapted = this.adapter.adapt("SET<TN>", list);
 		assertTrue("type", adapted instanceof SET);
 		
 		Set<Object> set = (Set) adapted.getBareValue();
 		assertEquals("size", 2, set.size());
-		assertThat("all TNs", set, JUnitMatchers.everyItem(instanceOf(TN.class)));
-		assertThat(set, hasItem(tn("text1")));
-		assertThat(set, hasItem(tn("text2")));
+		assertTrue("all TNs", everyItemTN(set));
+		assertTrue(hasItemWithValue(set, "text1"));
+		assertTrue(hasItemWithValue(set, "text2"));
+	}
+	
+	private boolean hasItemWithValue(Set<Object> set, String value) {
+		for (Object item : set) {
+			TN tnItem = (TN) item;
+			if (tnItem.getValue().getName().equals(value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean everyItemTN(Set<Object> set) {
+		for (Object item : set) {
+			if (!(item instanceof TN)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Test
@@ -85,26 +97,14 @@ public class CollectionToSetOfTnAdapterTest {
 		list.rawSet().add("text1");
 		list.rawSet().add("text2");
 		
-		BareANY adapted = this.adapter.adapt(list);
+		BareANY adapted = this.adapter.adapt("SET<TN>", list);
 		assertTrue("type", adapted instanceof SET);
 		
 		Set<Object> set = (Set) adapted.getBareValue();
 		assertEquals("size", 2, set.size());
-		assertThat("all TNs", set, JUnitMatchers.everyItem(instanceOf(TN.class)));
-		assertThat(set, hasItem(tn("text1")));
-		assertThat(set, hasItem(tn("text2")));
-	}
-
-	private Matcher<? extends Object> tn(final String text) {
-		return new TypeSafeMatcher<TN>() {
-			@Override
-			public boolean matchesSafely(TN tn) {
-				return text.equals(tn.getValue().getName());
-			}
-			public void describeTo(Description description) {
-				description.appendText("TN(" + text + ")");
-			}
-		};
+		assertTrue("all TNs", everyItemTN(set));
+		assertTrue(hasItemWithValue(set, "text1"));
+		assertTrue(hasItemWithValue(set, "text2"));
 	}
 
 }

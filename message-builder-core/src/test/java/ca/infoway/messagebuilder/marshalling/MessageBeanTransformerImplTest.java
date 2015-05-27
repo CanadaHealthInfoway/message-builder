@@ -40,9 +40,6 @@ import ca.infoway.messagebuilder.util.xml.ClasspathResource;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionService;
 
-/**
- * @sharpen.ignore missing test
- */
 public class MessageBeanTransformerImplTest {
 	
 	private MessageBeanTransformerImpl transformer;

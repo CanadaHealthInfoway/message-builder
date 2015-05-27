@@ -20,8 +20,9 @@
 
 package ca.infoway.messagebuilder.util.iterator;
 
-import static ca.infoway.messagebuilder.util.iterator.NodeListIterator.collatedElements;
 import static org.junit.Assert.assertEquals;
+
+import static ca.infoway.messagebuilder.util.iterator.NodeListIterator.collatedElements;
 
 import java.util.Arrays;
 import java.util.LinkedList;

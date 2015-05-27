@@ -47,15 +47,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.AssignedEntityInformant12","ContinuityOfCareDocumentCCD.AssignedEntityInformant12","DiagnosticImagingReport.AssignedEntityInformant12","DischargeSummary.AssignedEntityInformant12","HistoryAndPhysical.AssignedEntityInformant12","OperativeNote.AssignedEntityInformant12","ProcedureNote.AssignedEntityInformant12","ProgressNote.AssignedEntityInformant12","USRealmHeader.AssignedEntityInformant12","UnstructuredDocument.AssignedEntityInformant12"})
 public class AssignedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> assignedEntityRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> assignedEntityRealmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II assignedEntityTypeId = new IIImpl();
     private LIST<II, Identifier> assignedEntityTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> assignedEntityId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 assignedEntityCode = new CE_R2Impl();
+    private CE_R2<Code> assignedEntityCode = new CE_R2Impl<Code>();
     private LIST<AD, PostalAddress> assignedEntityAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> assignedEntityTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private Informant12PersonBean assignedEntityAssignedPerson;

@@ -30,15 +30,24 @@ import java.util.UUID;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.TestableAbstractValueNullFlavorPropertyFormatter;
 
 public class IiR2PropertyFormatterTest extends MarshallingTestCase {
+	
+	private static class TestableIiR2PropertyFormatter extends IiR2PropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<Identifier> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, Identifier t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
 
 	@Test
     public void testGetAttributeNameValuePairsForValidII() throws Exception {
@@ -52,7 +61,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 4, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
@@ -71,7 +80,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.V01R04_3, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 2, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
@@ -89,7 +98,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
@@ -107,7 +116,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
         assertFalse(modelToXmlResult.getHl7Errors().isEmpty());
         assertEquals(1, modelToXmlResult.getHl7Errors().size());
@@ -125,7 +134,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
         assertTrue("no errors", modelToXmlResult.getHl7Errors().isEmpty());
         
@@ -141,7 +150,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 		FormatContextImpl context = new FormatContextImpl(modelToXmlResult, null, "name", "II", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false);
         
-		Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(context, ii, iiHl7);
+		Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(context, ii, iiHl7);
         assertEquals("map size", 1, result.size());
         assertFalse("one error", modelToXmlResult.isValid());
         assertEquals("one error", 1, modelToXmlResult.getHl7Errors().size());
@@ -152,7 +161,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("11.22.33.44", "extensionString");
-        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
+        Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");
@@ -165,7 +174,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
         ModelToXmlResult xmlResult = new ModelToXmlResult();
 		IIImpl dataType = new IIImpl(ii);
 		dataType.setDataType(StandardDataType.II);
-		new IiR2PropertyFormatter().format(new FormatContextImpl(xmlResult, null, "name", "II", null, null, false), dataType);
+		new TestableIiR2PropertyFormatter().format(new FormatContextImpl(xmlResult, null, "name", "II", null, null, false), dataType);
         assertFalse(xmlResult.isValid());
         assertEquals(1, xmlResult.getHl7Errors().size());
         assertEquals("Attribute \"root\" must be specified for II", xmlResult.getHl7Errors().get(0).getMessage());
@@ -174,7 +183,7 @@ public class IiR2PropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsExtensionNotFilled() throws Exception {
         Identifier ii = new Identifier("11.22.33.44", null);
-        Map<String, String> result = new IiR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
+        Map<String, String> result = new TestableIiR2PropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), ii, new IIImpl(ii));
         assertEquals("map size", 1, result.size());
         
         assertKeyValuePairInMap(result, "root", "11.22.33.44");

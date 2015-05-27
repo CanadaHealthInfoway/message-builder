@@ -58,15 +58,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"PolicyActivity.CoveredPartyParticipantParticipantRole"})
 public class CoveredPartyParticipantParticipantRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<CoverageRoleType> code = new CE_R2Impl<CoverageRoleType>();
     private AD addr = new ADImpl();
-    private CS_R2 playingEntityClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> playingEntityRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private CS_R2<EntityClassRoot> playingEntityClassCode = new CS_R2Impl<EntityClassRoot>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> playingEntityRealmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II playingEntityTypeId = new IIImpl();
     private LIST<II, Identifier> playingEntityTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 playingEntityCode = new CE_R2Impl();
+    private CE_R2<Code> playingEntityCode = new CE_R2Impl<Code>();
     private LIST<PQ, PhysicalQuantity> playingEntityQuantity = new LISTImpl<PQ, PhysicalQuantity>(PQImpl.class);
     private PN playingEntityName = new PNImpl();
     private TS_R2 playingEntityBirthTime = new TS_R2Impl();

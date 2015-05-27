@@ -33,6 +33,6 @@ import ca.infoway.messagebuilder.model.ClinicalDocumentBean;
 @Hl7PartTypeMapping({"DiagnosticImagingReport"})
 public class DiagnosticImagingReport extends DiagnosticImagingReportBean implements ClinicalDocumentBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
 
 }

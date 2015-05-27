@@ -44,7 +44,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), new SC_R2Impl(NullFlavor.NO_INFORMATION));
+		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), new SC_R2Impl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -59,7 +59,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setDisplayName("aDisplayName");
 		codedType.setSimpleValue("simple text value");
 		
-		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), new SC_R2Impl(codedType));
+		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), new SC_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -74,7 +74,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 		
-		SC_R2 sc = new SC_R2Impl(codedType);
+		SC_R2<Code> sc = new SC_R2Impl<Code>(codedType);
 		sc.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), sc);
@@ -102,7 +102,7 @@ public class ScR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text not allowed for SC");
 		codedType.setOriginalText(originalText);
 
-		SC_R2 sc = new SC_R2Impl(codedType);
+		SC_R2<Code> sc = new SC_R2Impl<Code>(codedType);
 		
 		String result = new ScR2PropertyFormatter().format(getContext("name", "SC"), sc);
 		

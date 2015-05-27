@@ -44,9 +44,9 @@ public class CodedTypeEvaluator {
 		
 		Hl7TypeName typeToCheck = parsedType;
 		if (isCollectionType(typeToCheck)) {
-			List<Hl7TypeName> parameters = parsedType.getParameters();
-			if (parameters.size() == 1) {
-				typeToCheck = parameters.get(0);
+			List<Hl7TypeName> parsedTypeParameters = parsedType.getParameters();
+			if (parsedTypeParameters.size() == 1) {
+				typeToCheck = parsedTypeParameters.get(0);
 			}
 		}
 		
@@ -59,6 +59,16 @@ public class CodedTypeEvaluator {
 		
 		// FIXME - CDA - TM - SC (for R1) is not a coded type (though it likely should be modified to be one)
 		return Arrays.asList("CD", "CV", "CE", "CO", "SC", "CS", "PQR").contains(rootType);
+	}
+	
+	public static String getR2CodedType(String type) {
+		String r2Type = type;
+		if (isCodedType(type)) {
+			if ("CD".equals(type) || "CV".equals(type) || "CE".equals(type) || "SC".equals(type) || "CS".equals(type)) {
+				r2Type = type + "_R2";
+			}
+		}
+		return r2Type;
 	}
 
 	private static boolean isCollectionType(Hl7TypeName typeToCheck) {

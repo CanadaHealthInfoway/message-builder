@@ -44,12 +44,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"AdvanceDirectiveObservation.VerifierParticipant2"})
 public class VerifierParticipant2Bean extends MessagePartBean implements Participant2Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private II templateId = new IIImpl();
     private IVL_TS time = new IVL_TSImpl();
-    private CE_R2 awarenessCode = new CE_R2Impl();
+    private CE_R2<Code> awarenessCode = new CE_R2Impl<Code>();
     private VerifierParticipantRoleBean participantRole;
 
 

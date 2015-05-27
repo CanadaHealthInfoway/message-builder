@@ -108,8 +108,7 @@ public class XmlDescriber {
 		int count = 0;
 		if (node.getParentNode() instanceof Element) {
 			NodeList childs = node.getParentNode().getChildNodes();
-			for (int i = 0; i < childs.getLength(); i++) {
-				Node child = childs.item(i);
+	        for (Node child : new XmlNodeListIterable(childs)) {
 				if (hasSameName(node, child)) {
 					count++;
 				}
@@ -142,9 +141,11 @@ public class XmlDescriber {
 		builder.append("<").append(NodeUtil.getLocalOrTagName(element));
 		NamedNodeMap attributes = element.getAttributes();
 		ArrayList<String> set = new ArrayList<String>();
-		for (int i = 0, length = attributes == null ? 0 : attributes.getLength(); i < length; i++) {
-			Attr item = (Attr) attributes.item(i);
-			set.add(item.getName());
+		if (attributes != null) {
+			for (Node node : new XmlNamedNodeMapIterable(attributes)) {
+				Attr item = (Attr) node;
+				set.add(item.getName());
+			}
 		}
 		
 		Collections.sort(set);

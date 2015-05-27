@@ -93,7 +93,8 @@ public class Interval<T> extends SetComponent<T> {
 		this(null, null, null, null, Representation.SIMPLE, null, null, null, value, operator, null, null);
 	}
 
-	private Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor, NullFlavor centreNullFlavor, T value, SetOperator operator, Boolean lowInclusive, Boolean highInclusive) {
+	Interval(T low, T high, T centre, Diff<T> width, Representation representation, NullFlavor lowNullFlavor, NullFlavor highNullFlavor,
+		 NullFlavor centreNullFlavor, T value, SetOperator operator, Boolean lowInclusive, Boolean highInclusive) {
 		super(value, operator);
 		this.low = low;
 		this.high = high;

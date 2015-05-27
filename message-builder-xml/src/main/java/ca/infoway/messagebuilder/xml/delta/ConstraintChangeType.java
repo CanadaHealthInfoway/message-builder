@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.xml.delta;
 
 /**
  * All the Constraint types.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 public enum ConstraintChangeType {
 	ADD,

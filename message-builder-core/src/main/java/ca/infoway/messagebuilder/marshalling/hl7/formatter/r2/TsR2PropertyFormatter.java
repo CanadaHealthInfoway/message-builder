@@ -63,7 +63,7 @@ public class TsR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormat
     private final SxcmR2PropertyFormatterHelper sxcmHelper = new SxcmR2PropertyFormatterHelper();
     
     @Override
-    public String getValue(MbDate mbDate, FormatContext context, BareANY bareAny) {
+    protected String getValue(MbDate mbDate, FormatContext context, BareANY bareAny) {
     	Date date = (mbDate == null ? null : mbDate.getValue());
     	// write out the date using the "full" pattern; clients can override this using a system property or a DateWithPattern date
     	VersionNumber version = getVersion(context);

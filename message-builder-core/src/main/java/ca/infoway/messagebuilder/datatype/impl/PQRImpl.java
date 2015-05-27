@@ -31,12 +31,12 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public class PQRImpl extends ANYImpl<CodedTypeR2<? extends Code>> implements PQR {
+public class PQRImpl<T extends Code> extends ANYImpl<CodedTypeR2<T>> implements PQR<T> {
 	/**
 	 * <p>Constructs an empty CV.
 	 */
 	public PQRImpl() {
-		this((CodedTypeR2<? extends Code>) null);
+		this((CodedTypeR2<T>) null);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class PQRImpl extends ANYImpl<CodedTypeR2<? extends Code>> implements PQR
 	 * 
 	 * @param defaultValue an initial value
 	 */
-	public PQRImpl(CodedTypeR2<? extends Code> defaultValue) {
+	public PQRImpl(CodedTypeR2<T> defaultValue) {
 		this(defaultValue, null, StandardDataType.PQR);
 	}
 
@@ -64,7 +64,7 @@ public class PQRImpl extends ANYImpl<CodedTypeR2<? extends Code>> implements PQR
 	 * @param nullFlavor a null flavor
 	 * @param dataType an HL7 datatype
 	 */
-	public PQRImpl(CodedTypeR2<? extends Code> value, NullFlavor nullFlavor, StandardDataType dataType) {
+	public PQRImpl(CodedTypeR2<T> value, NullFlavor nullFlavor, StandardDataType dataType) {
 		super(value, nullFlavor, dataType);
 	}
 	

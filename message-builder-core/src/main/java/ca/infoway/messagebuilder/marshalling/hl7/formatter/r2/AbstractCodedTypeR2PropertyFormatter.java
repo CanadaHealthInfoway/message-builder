@@ -41,12 +41,13 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractAttributePropertyFormatter;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.EdPropertyFormatter;
@@ -74,9 +75,14 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
     	
     	return result;
     }
+    
+	@Override
+    protected CodedTypeR2<Code> extractBareValue(BareANY hl7Value) {
+    	return hl7Value == null ? null : CodedTypeR2Helper.convertCodedTypeR2(hl7Value.getBareValue());
+    }
 
     @Override
-    public String formatNonNullDataType(FormatContext context, BareANY hl7Value, int indentLevel) {
+    protected String formatNonNullDataType(FormatContext context, BareANY hl7Value, int indentLevel) {
     	CodedTypeR2<Code> codedType = extractBareValue(hl7Value);
     	
     	handleConstraints(codedType, context.getConstraints(), context.getPropertyPath(), context.getModelToXmlResult());
@@ -159,7 +165,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 			if (translationAllowed()) {
 				FormatContext newContext = new FormatContextImpl("CD", "translation", context);
 				for (CodedTypeR2<Code> translation : codedType.getTranslation()) {
-					CD_R2 cdAny = new CD_R2Impl(translation);
+					CD_R2<Code> cdAny = new CD_R2Impl<Code>(translation);
 					cdAny.setNullFlavor(translation.getNullFlavorForTranslationOnly());
 					String transationString = createTranslation(translation, cdAny, indentLevel, newContext);
 					result.append(transationString);
@@ -168,7 +174,7 @@ abstract class AbstractCodedTypeR2PropertyFormatter extends AbstractAttributePro
 		}
 	}
 
-	protected String createTranslation(CodedTypeR2<Code> translation, CD_R2 cdAny, int indentLevel, FormatContext newContext) {
+	protected String createTranslation(CodedTypeR2<Code> translation, CD_R2<Code> cdAny, int indentLevel, FormatContext newContext) {
 		// subclasses must implement as required 
 		return "";
 	}

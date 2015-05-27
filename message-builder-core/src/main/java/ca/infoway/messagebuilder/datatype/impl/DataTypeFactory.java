@@ -37,9 +37,9 @@ public class DataTypeFactory {
 	 * @param typeName the type
 	 * @return the created datatype
 	 */
-	@SuppressWarnings("unchecked")
-	public static final ANY createDataType(String typeName) {
-		Class<? extends ANYImpl<?>> implementation = DataTypeImplementationFactory.getImplementation(typeName);
+	@SuppressWarnings("rawtypes")
+	public static final ANY createDataType(String typeName, boolean isCdaR2) {
+		Class<? extends ANYImpl<?>> implementation = DataTypeImplementationFactory.getImplementation(typeName,isCdaR2);
 		try {
 			if (implementation!=null) {
 				return implementation.newInstance();

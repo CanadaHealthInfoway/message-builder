@@ -33,9 +33,6 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive;
 
-/**
- * @sharpen.ignore - datatype - translated manually
- */
 public class GenericMathTest {
 	
 	@Test

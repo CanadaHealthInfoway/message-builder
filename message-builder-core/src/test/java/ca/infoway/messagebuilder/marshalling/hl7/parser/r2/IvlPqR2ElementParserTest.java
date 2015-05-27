@@ -20,11 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 
 import java.util.Arrays;
 

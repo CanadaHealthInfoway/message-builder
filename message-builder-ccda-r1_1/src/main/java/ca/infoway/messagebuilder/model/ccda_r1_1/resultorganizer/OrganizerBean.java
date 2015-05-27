@@ -57,14 +57,14 @@ import java.util.List;
 @Hl7RootType
 public class OrganizerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<ActClass> classCode = new CS_R2Impl<ActClass>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CD_R2 code = new CD_R2Impl();
-    private CS_R2 statusCode = new CS_R2Impl();
+    private CD_R2<Code> code = new CD_R2Impl<Code>();
+    private CS_R2<ResultStatus> statusCode = new CS_R2Impl<ResultStatus>();
     private IVL_TS effectiveTime = new IVL_TSImpl();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();

@@ -76,15 +76,14 @@ public class NodeUtil {
         if (node != null) {
             text = "";
             NodeList textList = node.getChildNodes();
-            for (int i = 0; i < textList.getLength(); i++) {
-               	Node child = textList.item(i);
+            for (Node child : new XmlNodeListIterable(textList)) {
                	if (child.getNodeType() == Node.TEXT_NODE 
                			|| child.getNodeType() == Node.CDATA_SECTION_NODE) {
                    	text += ((Text) child).getData();
                	} else if (recurse && child.getNodeType() == Node.ELEMENT_NODE) {
                		text += getTextValue(child, recurse);
                	}
-            }
+			}
         }
         return text;
     }
@@ -96,9 +95,10 @@ public class NodeUtil {
      */
 	public static List<Node> asList(NodeList children) {
 		List<Node> nodes = new ArrayList<Node>();
-		int length = children == null ? 0 : children.getLength();
-		for (int i = 0; i < length; i++) {
-			nodes.add(children.item(i));
+		if (children != null) {
+			for (Node node : new XmlNodeListIterable(children)) {
+				nodes.add(node);
+			}
 		}
 		return nodes;
 	}
@@ -125,12 +125,12 @@ public class NodeUtil {
 	public static List<Element> toElementList(Node node) {
 	    List<Element> elements = new ArrayList<Element>();
 	    NodeList childNodes = node.getChildNodes();
-	    int length = childNodes == null ? 0 : childNodes.getLength();
-	    for (int i = 0; i < length; i++) {
-	        Node childNode = childNodes.item(i);
-	        if (childNode instanceof Element) {
-	            elements.add((Element)childNode);
-	        }
+	    if (childNodes != null) {
+	    	for (Node childNode : new XmlNodeListIterable(childNodes)) {
+		        if (childNode instanceof Element) {
+		            elements.add((Element)childNode);
+		        }
+			}
 	    }
 	    return elements;
 	}

@@ -33,7 +33,6 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7StandardVersionCode;
 import ca.infoway.messagebuilder.marshalling.hl7.IiValidationUtils;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class TopLevelBeanBridgeWrapper implements PartBridge {
 

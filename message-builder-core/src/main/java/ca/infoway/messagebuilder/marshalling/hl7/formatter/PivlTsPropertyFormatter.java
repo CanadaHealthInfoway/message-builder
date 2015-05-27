@@ -202,7 +202,7 @@ class PivlTsPropertyFormatter extends AbstractNullFlavorPropertyFormatter<Period
 		PhysicalQuantity quantity = period.getValueAsPhysicalQuantity();
 		FormatContext newContext = new FormatContextImpl("PQ.TIME", context);
 		// getAttributeNameValuePairs is never called with a null value; directly calling it from here is a bit of a cheat, so ensure no null passed in
-		return quantity == null ? new HashMap<String, String>() : new PqPropertyFormatter().getAttributeNameValuePairs(newContext, quantity, null);
+		return quantity == null ? new HashMap<String, String>() : new PqPropertyFormatter().getAttributeNameValuePairs(newContext, quantity);
 	}
 
 }

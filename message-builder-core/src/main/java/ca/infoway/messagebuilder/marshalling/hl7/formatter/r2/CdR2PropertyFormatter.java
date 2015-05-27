@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 class CdR2PropertyFormatter extends CeR2PropertyFormatter {
 
 	protected String createTranslation(CodedTypeR2<Code> translation, int indentLevel, FormatContext newContext) {
-		return this.format(newContext, new CD_R2Impl(translation), indentLevel);
+		return this.format(newContext, new CD_R2Impl<Code>(translation), indentLevel);
 	}
 
 	@Override

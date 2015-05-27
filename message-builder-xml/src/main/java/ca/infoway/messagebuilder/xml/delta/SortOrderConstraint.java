@@ -29,6 +29,8 @@ import javax.persistence.Table;
  * 
  * Note: Currently, this can only apply to Attributes, and should only be used during creation of a new one.
  * The general problem of re-ordering existing relationships is much too complicated to solve all at once.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")

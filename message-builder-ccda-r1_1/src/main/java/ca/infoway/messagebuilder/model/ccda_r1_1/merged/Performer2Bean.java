@@ -44,12 +44,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"ProcedureActivityAct.Performer2","ProcedureActivityObservation.Performer2","ProcedureActivityProcedure.Performer2"})
 public class Performer2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Performer2Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
-    private CE_R2 modeCode = new CE_R2Impl();
+    private CE_R2<Code> modeCode = new CE_R2Impl<Code>();
     private AssignedEntity_2Bean assignedEntity;
 
 

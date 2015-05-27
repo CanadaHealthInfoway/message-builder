@@ -172,7 +172,7 @@ public class TypeName {
 	@Deprecated
 	public boolean isInteraction() {
 		// TM - hack to allow CDA procssing to mark some names as interactions
-		if (this.isInteraction != null && this.isInteraction) {
+		if (this.isInteraction != null && (boolean) this.isInteraction) { //Cast for .NET
 			return true;
 		}
 		return getPartCount() == 1 && this.name.length() >= 7 

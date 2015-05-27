@@ -27,13 +27,16 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 public abstract class ParserTestCase extends CeRxDomainValueTestCase {
 
 	protected List<Node> asList(NodeList list) {
 		List<Node> result = new ArrayList<Node>();
-		for (int i = 0, length = list == null ? 0 : list.getLength(); i < length; i++) {
-			result.add(list.item(i));
+		if (list != null) {
+	        for (Node childNode : new XmlNodeListIterable(list)) {
+	        	result.add(childNode);
+			}
 		}
 		return result;
 	}

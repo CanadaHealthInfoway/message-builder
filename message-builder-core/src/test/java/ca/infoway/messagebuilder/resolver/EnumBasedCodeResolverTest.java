@@ -29,10 +29,11 @@ import java.util.Collection;
 import org.junit.After;
 import org.junit.Test;
 
-/**
- * @sharpen.ignore - test - translated manually
- */
 public class EnumBasedCodeResolverTest {
+	
+	//Not inlined for .NET translation
+	private static final Class<MockEnum> MOCK_ENUM_TYPE = MockEnum.class;
+	private static final Class<MockCharacters> MOCK_CHARACTERS_TYPE = MockCharacters.class;
 
 	@After
 	public void tearDown() {
@@ -43,14 +44,14 @@ public class EnumBasedCodeResolverTest {
     public void testEnumResolver() throws Exception {
         CodeResolverRegistry.registerResolver(MockEnum.class, new EnumBasedCodeResolver(MockEnum.class));
 
-        MockEnum fred = CodeResolverRegistry.lookup(MockEnum.class, "FRED");
+        MockEnum fred = CodeResolverRegistry.<MockEnum>lookup(MOCK_ENUM_TYPE, "FRED");
         assertNotNull("fred", fred);
         assertEquals("fred", MockEnum.FRED, fred);
     }
 
 	@Test
     public void testAllValues() throws Exception {
-    	Collection<MockEnum> results = new EnumBasedCodeResolver(MockEnum.class).lookup(MockEnum.class);
+    	Collection<MockEnum> results = new EnumBasedCodeResolver(MockEnum.class).<MockEnum>lookup(MOCK_ENUM_TYPE);
     	assertNotNull("results", results);
     	assertEquals("size", 5, results.size());
     }
@@ -59,7 +60,7 @@ public class EnumBasedCodeResolverTest {
     public void testEnumResolverUsingInterface() throws Exception {
         CodeResolverRegistry.registerResolver(MockCharacters.class, new EnumBasedCodeResolver(MockEnum.class));
 
-        MockCharacters fred = CodeResolverRegistry.lookup(MockCharacters.class, "FRED");
+        MockCharacters fred = CodeResolverRegistry.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "FRED");
         assertNotNull("fred", fred);
         assertEquals("fred", MockEnum.FRED, fred);
     }
@@ -67,14 +68,14 @@ public class EnumBasedCodeResolverTest {
 	@Test
     public void testEnumResolverUsingInterfaceWithIncorrectCodeSystem() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go.wrong.code.system");
+    	MockCharacters spock = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "SPOCK", "to.boldly.go.wrong.code.system");
     	assertNull("spock", spock);
     }
 	
 	@Test
     public void testEnumResolverUsingInterfaceWithCorrectCodeSystem() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go");
+    	MockCharacters spock = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "SPOCK", "to.boldly.go");
     	assertNotNull("spock", spock);
         assertEquals("spock", MockStarTrek.SPOCK, spock);
     }
@@ -82,7 +83,7 @@ public class EnumBasedCodeResolverTest {
 	@Test
     public void testEnumResolverUsingInterfaceWithCorrectCodeSystemIgnoringCase() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go", true);
+    	MockCharacters spock = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", "to.boldly.go", true);
     	assertNotNull("spock", spock);
         assertEquals("spock", MockStarTrek.SPOCK, spock);
     }
@@ -90,7 +91,7 @@ public class EnumBasedCodeResolverTest {
 	@Test
     public void testEnumResolverUsingInterfaceWithCorrectCodeSystemNotIgnoringCase() throws Exception {
     	EnumBasedCodeResolver resolver = new EnumBasedCodeResolver(MockStarTrek.class);
-    	MockCharacters spock = resolver.lookup(MockCharacters.class, "Spock", "to.boldly.go", false);
+    	MockCharacters spock = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", "to.boldly.go", false);
     	assertNull("spock", spock);
     }
 }

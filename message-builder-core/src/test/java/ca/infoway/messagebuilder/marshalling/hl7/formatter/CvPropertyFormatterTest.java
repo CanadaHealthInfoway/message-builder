@@ -29,7 +29,9 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -42,17 +44,23 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
  * to the CS class. This will likely change in the future.
  */
 public class CvPropertyFormatterTest extends FormatterTestCase {
+	
+	private static class TestableCvPropertyFormatter extends CvPropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<Code> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, Code t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), null, null);
+		Map<String,String>  result = new TestableCvPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), null, null);
 		assertEquals("map size", 0, result.size());
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairs() throws Exception {
 		// used as expected: an enumerated object is passed in
-		Map<String, String> result = new CvPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), CeRxDomainTestValues.CENTIMETRE, null);
+		Map<String, String> result = new TestableCvPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.result, null, "name", null, null, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), CeRxDomainTestValues.CENTIMETRE, null);
 		assertEquals("map size", 2, result.size());
 		
 		assertTrue("key as expected", result.containsKey("code"));
@@ -64,7 +72,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testHandlingOfTrivialCodes() throws Exception {
-		String result = new CvPropertyFormatter().format(getContext("name"), new CVImpl(NullFlavor.NO_INFORMATION));
+		String result = new TestableCvPropertyFormatter().format(getContext("name"), new CVImpl(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -72,7 +80,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testHandlingOfSimpleCodes() throws Exception {
-		String result = new CvPropertyFormatter().format(getContext("name"), new CVImpl(CeRxDomainTestValues.CENTIMETRE));
+		String result = new TestableCvPropertyFormatter().format(getContext("name"), new CVImpl(CeRxDomainTestValues.CENTIMETRE));
 		
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
@@ -85,7 +93,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 		CVImpl cvImpl = new CVImpl(CeRxDomainTestValues.CENTIMETRE);
 		cvImpl.setDisplayName("testDisplayName");
 		
-		String result = new CvPropertyFormatter().format(getContext("name", StandardDataType.CV.getType()), cvImpl);
+		String result = new TestableCvPropertyFormatter().format(getContext("name", StandardDataType.CV.getType()), cvImpl);
 		
 		assertEquals(2, this.result.getHl7Errors().size());
 		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
@@ -100,7 +108,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 		cvImpl.setDisplayName("testDisplayName");
 		
 		FormatContext context = getContext("name", StandardDataType.CV.getType(), SpecificationVersion.V02R04_BC);
-		String result = new CvPropertyFormatter().format(context, cvImpl);
+		String result = new TestableCvPropertyFormatter().format(context, cvImpl);
 		
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertTrue(this.result.getHl7Errors().get(0).getMessage().startsWith("Could not locate a registered domain type to match "));
@@ -114,7 +122,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 		cvImpl.setDisplayName("testDisplayName");
 		
 		FormatContext context = getContext("name", StandardDataType.CV.getType(), SpecificationVersion.V02R04_BC);
-		String result = new CvPropertyFormatter().format(context, cvImpl);
+		String result = new TestableCvPropertyFormatter().format(context, cvImpl);
 		
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals("CV should not include the 'displayName' property (when a nullFlavor)", this.result.getHl7Errors().get(0).getMessage());
@@ -126,7 +134,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalTextAndNullFlavor() throws Exception {
 		CVImpl cv = new CVImpl(NullFlavor.NO_INFORMATION);
 		cv.setOriginalText("some original text");
-		String result = new CvPropertyFormatter().format(getContext("name"), cv);
+		String result = new TestableCvPropertyFormatter().format(getContext("name"), cv);
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"><originalText>some original text</originalText></name>", StringUtils.trim(result));
 	}
@@ -135,7 +143,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	public void testOriginalText() throws Exception {
 		CVImpl cv = new CVImpl(null);
 		cv.setOriginalText("some original text");
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "CV", null, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CWE, false), cv);
+		String result = new TestableCvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", "CV", null, null, false, SpecificationVersion.R02_04_03, null, null, CodingStrength.CWE, false), cv);
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name><originalText>some original text</originalText></name>", StringUtils.trim(result));
 	}
@@ -143,7 +151,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndOptional() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), cv);
+		String result = new TestableCvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.OPTIONAL, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), cv);
 		assertTrue(this.result.isValid());
 		assertEquals("result", "", StringUtils.trim(result));
 	}
@@ -151,7 +159,7 @@ public class CvPropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testNoValueAndMandatory() throws Exception {
 		CVImpl cv = new CVImpl(null);
-		String result = new CvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), cv);
+		String result = new TestableCvPropertyFormatter().format(new FormatContextImpl(this.result, null, "name", null, ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, CodingStrength.CNE, false), cv);
 		assertFalse(this.result.isValid());
 		assertEquals(1, this.result.getHl7Errors().size());
 		assertEquals("result", "<name/>", StringUtils.trim(result));

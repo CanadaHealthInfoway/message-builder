@@ -40,8 +40,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Informant12","DiagnosticImagingReport.Informant12"})
 public class Informant12Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.merged.Informant12Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private Informant12Choice informant12Choice;

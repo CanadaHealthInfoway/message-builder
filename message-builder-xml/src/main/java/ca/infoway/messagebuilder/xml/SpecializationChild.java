@@ -28,6 +28,8 @@ import org.simpleframework.xml.Root;
  * <p>A class that models a specialization child of an abstract class.
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - due to trickiness with isDefault field
  */
 @Root
 public class SpecializationChild implements Comparable<SpecializationChild> {
@@ -92,7 +94,7 @@ public class SpecializationChild implements Comparable<SpecializationChild> {
 	}
 
 	public boolean isDefault() {
-		return isDefault == null ? false : isDefault;
+		return isDefault == null ? false : (boolean) isDefault; //Cast for .NET
 	}
 
 	public void setDefault(boolean isDefault) {

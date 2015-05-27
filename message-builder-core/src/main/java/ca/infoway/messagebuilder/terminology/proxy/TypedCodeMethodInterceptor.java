@@ -31,6 +31,8 @@ import org.apache.commons.lang.exception.ExceptionUtils;
  * <p>The Class TypedCodeMethodInterceptor.
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - Moved from terminology project - requires manual translation 
  */
 public class TypedCodeMethodInterceptor implements MethodInterceptor {
 

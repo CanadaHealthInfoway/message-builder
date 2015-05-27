@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
@@ -117,13 +118,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		assertEquals("", result);
     }
     
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasicAbstract() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
@@ -139,13 +136,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", "<name><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
 	}
 
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasicPartTime() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Date lowDate = new DateWithPattern(DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone), "yyyyMMddHHZZZZZ");
 		Date highDate = new DateWithPattern(DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone), "yyyyMMddHHZZZZZ");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
@@ -163,13 +156,9 @@ public class IvlTsR2PropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", "<name><low value=\"2006122511-0500\"/><high value=\"2007010210-0500\"/></name>", result);
 	}
 
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasic() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));

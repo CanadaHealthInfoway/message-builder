@@ -24,6 +24,9 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 @Table(name="add_context_binding_vocabulary_change")

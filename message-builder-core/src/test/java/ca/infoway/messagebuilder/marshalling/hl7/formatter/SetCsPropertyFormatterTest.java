@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 
 import org.junit.Test;
 

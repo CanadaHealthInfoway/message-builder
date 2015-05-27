@@ -39,7 +39,7 @@ class CeR2PropertyFormatter extends CvR2PropertyFormatter {
 	}
 	
 	@Override
-	protected String createTranslation(CodedTypeR2<Code> translation, CD_R2 cdAny, int indentLevel, FormatContext newContext) {
+	protected String createTranslation(CodedTypeR2<Code> translation, CD_R2<Code> cdAny, int indentLevel, FormatContext newContext) {
 		return this.format(newContext, cdAny, indentLevel);
 	}
 }

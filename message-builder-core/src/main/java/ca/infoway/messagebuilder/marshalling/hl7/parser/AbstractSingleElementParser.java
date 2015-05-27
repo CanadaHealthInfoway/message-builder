@@ -45,6 +45,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 public abstract class AbstractSingleElementParser<V> extends AbstractElementParser {
 	
@@ -119,8 +120,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
     protected Node getNamedChildNode(Node node, String childNodeName) {
         Node result = null;
         NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength() && result == null; i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (childNodeName.equals(NodeUtil.getLocalOrTagName(childNode))) {
                 result = childNode;
             }
@@ -170,8 +170,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 
 	protected void validateNoChildren(ParseContext context, Node node) throws XmlToModelTransformationException {
 		NodeList childNodes = node.getChildNodes();
-		for (int i=0; i < childNodes.getLength(); ++i) {
-			Node item = childNodes.item(i);
+        for (Node item : new XmlNodeListIterable(childNodes)) {
 			if (isNonTrivialChildNode(item)) {
 				throw new XmlToModelTransformationException("Expected " + getType(context) + " node to have no children");
 			}
@@ -181,8 +180,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	protected void validateMaxChildCount(ParseContext context, Node node, int maxChildren) throws XmlToModelTransformationException {
 		NodeList childNodes = node.getChildNodes();
 		int numNontrivialChildNodes = 0;
-		for (int i=0; i < childNodes.getLength(); ++i) {
-			Node item = childNodes.item(i);
+        for (Node item : new XmlNodeListIterable(childNodes)) {
 			if (isNonTrivialChildNode(item)) {
 				numNontrivialChildNodes++;
 			}
@@ -204,12 +202,12 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 	protected String getOriginalText(Element element) {
         NodeList children = element.getChildNodes();
         String result = null;
-        int length = children == null ? 0 : children.getLength();
-        for (int i = 0; i < length; i++) {
-            Node node = children.item(i);
-            if (node.getNodeType() != Node.ELEMENT_NODE) {
-            } else if ("originalText".equals(NodeUtil.getLocalOrTagName(node))) {
-                result = NodeUtil.getTextValue(node);
+        if (children != null) {
+            for (Node node : new XmlNodeListIterable(children)) {
+	            if (node.getNodeType() != Node.ELEMENT_NODE) {
+	            } else if ("originalText".equals(NodeUtil.getLocalOrTagName(node))) {
+	                result = NodeUtil.getTextValue(node);
+	            }
             }
         }
         return result;

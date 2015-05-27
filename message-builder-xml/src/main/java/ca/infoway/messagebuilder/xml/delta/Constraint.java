@@ -36,6 +36,8 @@ import javax.persistence.TemporalType;
 
 /**
  * Responsible for providing the information regarding the change.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Inheritance(strategy=InheritanceType.JOINED)
 @Entity

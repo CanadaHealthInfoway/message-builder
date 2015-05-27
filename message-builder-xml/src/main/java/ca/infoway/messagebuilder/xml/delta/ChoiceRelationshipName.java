@@ -23,6 +23,9 @@ package ca.infoway.messagebuilder.xml.delta;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 @Embeddable
 public class ChoiceRelationshipName {
 

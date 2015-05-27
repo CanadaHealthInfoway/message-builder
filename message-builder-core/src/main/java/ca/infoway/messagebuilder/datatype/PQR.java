@@ -28,5 +28,5 @@ import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface PQR extends ANY<CodedTypeR2<? extends Code>> {
+public interface PQR<T extends Code> extends ANY<CodedTypeR2<T>> {
 }

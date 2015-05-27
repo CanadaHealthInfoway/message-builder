@@ -30,6 +30,9 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class Template {
 	
 	private String oid;

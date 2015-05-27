@@ -30,10 +30,10 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -41,18 +41,24 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.IvlTsConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 
+/**
+ * @sharpen.ignore - due to generics trickiness in parse method
+ */
 @DataTypeHandler("IVL<TS>")
 class IvlTsR2ElementParser implements ElementParser {
 
 	private final IvlTsConstraintsHandler constraintsHandler = new IvlTsConstraintsHandler();
 	
-	private static IvlR2ElementParser<Date> actualIvlTsParser = new IvlR2ElementParser<Date>() {
+	private static class ActualIvlTsParserClass extends IvlR2ElementParser<Date> {
 		protected Object extractValue(BareANY any) {
 			Object value = any == null ? null : any.getBareValue();
 			return value == null ? null : ((MbDate) value).getValue();
 		}
-	};
+	}
+	
+	private static IvlR2ElementParser<Date> actualIvlTsParser = new ActualIvlTsParserClass();
 	
 	public IvlTsR2ElementParser() {
 	}
@@ -61,9 +67,9 @@ class IvlTsR2ElementParser implements ElementParser {
 		BareANY parsedValue = actualIvlTsParser.parse(context, nodes, xmlToModelResult);
 		// need to wrap result in a DateInterval
 		Object bareValue = parsedValue.getBareValue();
-		if (bareValue != null && bareValue instanceof Interval<?>) {
-			@SuppressWarnings("unchecked")
-			DateInterval newValue = new DateInterval((Interval<Date>) bareValue);
+		Interval<Date> interval = GenericClassUtil.castBareValueAsIntervalDate(bareValue);
+		if (interval != null) {
+			DateInterval newValue = new DateInterval(interval);
 			
 			Node node = (nodes == null || nodes.size() == 0 ? null : nodes.get(0)); // should always have a node
 			handleConstraints(context, xmlToModelResult, (Element) node, newValue);

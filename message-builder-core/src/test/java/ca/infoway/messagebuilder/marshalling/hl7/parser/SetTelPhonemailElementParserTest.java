@@ -28,7 +28,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.w3c.dom.Node;
 

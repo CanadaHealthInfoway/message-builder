@@ -24,7 +24,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
@@ -33,17 +32,28 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.util.DateWithPattern;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 
 public class TsFullDatePropertyFormatterTest {
+	
+	private static class TestableTsFullDatePropertyFormatter extends TsFullDatePropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<Date> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, Date t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+		public String getValueForTest(Date date, FormatContext context, BareANY bareAny) {
+			return super.getValue(date, context, bareAny);
+		}
+	}
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String,String>  result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", null, null, null, false), null, new TSImpl());
+		Map<String,String>  result = new TestableTsFullDatePropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(xmlResult, null, "name", null, null, null, false), null, new TSImpl());
 
 		// a null value for TS elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -58,7 +68,7 @@ public class TsFullDatePropertyFormatterTest {
 		// used as expected: a date object is passed in
 		Date calendar = DateUtil.getDate(1999, 3, 23, 10, 11, 12, 0);
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), calendar, null);
+		Map<String, String> result = new TestableTsFullDatePropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), calendar, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -73,7 +83,7 @@ public class TsFullDatePropertyFormatterTest {
 		DateWithPattern dateWithInvalidPattern = new DateWithPattern(calendar, "yyyyMMMdd");
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), dateWithInvalidPattern, null);
+		Map<String, String> result = new TestableTsFullDatePropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), dateWithInvalidPattern, null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected (even though invalid)", "1999Apr23", result.get("value"));
@@ -91,7 +101,7 @@ public class TsFullDatePropertyFormatterTest {
 		assertEquals("same dates should be equal", calendar, dateWithPattern);
 		
 		ModelToXmlResult xmlResult = new ModelToXmlResult();
-		Map<String, String> result = new TsFullDatePropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), dateWithPattern, null);
+		Map<String, String> result = new TestableTsFullDatePropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(xmlResult, null, "name", "TS.DATE", null, null, false, SpecificationVersion.R02_04_02, null, null, null, false), dateWithPattern, null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -99,17 +109,12 @@ public class TsFullDatePropertyFormatterTest {
 		assertTrue(xmlResult.getHl7Errors().isEmpty());
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void testGetValueGeneratesDifferentStringsForDifferentTimeZones() throws Exception  {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		format.setTimeZone(TimeZone.getTimeZone("Canada/Ontario"));
-		Date date = format.parse("1999-02-01");
+		Date date = DateUtil.getDate(1992, 1, 1, 0, 0, 0, 0, TimeZoneUtil.getTimeZone("Canada/Ontario"));
 		
-		String gmtSixValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")), null);
-		String gmtFiveValue = new TsFullDatePropertyFormatter().getValue(date, createFormatContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")), null);
+		String gmtSixValue = new TestableTsFullDatePropertyFormatter().getValueForTest(date, createFormatContextWithTimeZone(TimeZoneUtil.getTimeZone("Canada/Saskatchewan")), null);
+		String gmtFiveValue = new TestableTsFullDatePropertyFormatter().getValueForTest(date, createFormatContextWithTimeZone(TimeZoneUtil.getTimeZone("Canada/Ontario")), null);
 		assertFalse(StringUtils.equals(gmtSixValue, gmtFiveValue));
 	}
 

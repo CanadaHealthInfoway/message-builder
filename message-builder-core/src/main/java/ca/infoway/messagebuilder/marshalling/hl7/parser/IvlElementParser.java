@@ -36,6 +36,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
@@ -213,10 +214,9 @@ abstract class IvlElementParser<T> extends AbstractSingleElementParser<Interval<
 						element));
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new IVLImpl();
+		return new IVLImpl<QTY<T>, Interval<T>>();
 	}
 
 	private BareANY createType(ParseContext context, Element element, XmlToModelResult parseResult) {

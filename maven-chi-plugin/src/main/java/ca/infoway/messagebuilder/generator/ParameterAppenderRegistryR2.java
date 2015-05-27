@@ -76,32 +76,19 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 	}
 	
 	static class ParameterAppenderForListOrSetR2 extends DefaultWrappedParameterAppender {
-		private static final String CODED_TYPE_STRING = "CodedTypeR2<? extends Code>";
 
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
 			if (!CollectionUtils.isEmpty(parameters)) {
 				builder.append("<");
 				List<String> flattenedParameters = flatten(parameters, language);
-				if (parameters.get(0).isCodedType()) {
-					String firstParam = flattenedParameters.get(0);
-					if (firstParam.contains("CodedTypeR2<")) {
-						int firstIndex = firstParam.indexOf("CodedTypeR2<");
-						int lastIndex = firstParam.indexOf(">", firstIndex);
-						firstParam = firstParam.substring(0, firstIndex) + CODED_TYPE_STRING + firstParam.substring(lastIndex + 1); 
+				boolean first = true;
+				for (String parameter : flattenedParameters) {
+					if (!first) {
+						builder.append(", ");
 					}
-					builder.append(firstParam);
-					builder.append(", ");
-					builder.append(CODED_TYPE_STRING);
-				} else {
-					boolean first = true;
-					for (String parameter : flattenedParameters) {
-						if (!first) {
-							builder.append(", ");
-						}
-						builder.append(parameter);
-						first = false;
-					}
+					builder.append(parameter);
+					first = false;
 				}
 				builder.append(">");
 			}
@@ -212,6 +199,9 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 	static class ParameterAppenderForCodeR2 extends DefaultWrappedParameterAppender {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
+			builder.append("<");
+			builder.append(getTypeNameForDotNet(dataType, language));
+			builder.append(">");
 		}
 		
 		@Override
@@ -220,8 +210,15 @@ class ParameterAppenderRegistryR2 extends ParameterAppenderRegistry {
 			int lastIndexOf = builder.lastIndexOf(unparameterizedShortName);
 			builder.delete(lastIndexOf, builder.length());
 			builder.append("CodedTypeR2<");
-			builder.append(unparameterizedShortName);
+			builder.append(getTypeNameForDotNet(dataType, language));
 			builder.append(">");
+		}
+		
+		private String getTypeNameForDotNet(DataType dataType, ProgrammingLanguage language) {
+			//Workaround name collisions in .NET. Note the programming language passed in is sometime hard-coded to JAVA so it cannot be relied on.
+			//For Java, this will always return the unparameterized short name
+			boolean isDomainValueDataType = dataType.getTypeName().indexOf("Domainvalue") >= 0;
+			return isDomainValueDataType ? dataType.getTypeName() : dataType.getUnparameterizedShortName(language);
 		}
 	}
 }

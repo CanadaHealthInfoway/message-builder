@@ -20,11 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
+import static org.junit.Assert.fail;
+
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode.SYNTAX_ERROR;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode.UNKNOWN_SENDER;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailType.ERROR;
 import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_MR2009;
-import static org.junit.Assert.fail;
 
 import java.util.Date;
 import java.util.UUID;
@@ -55,9 +56,6 @@ import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionServic
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorImpl;
 import ca.infoway.messagebuilder.xml.validator.MessageValidatorResult;
 
-/**
- * @sharpen.ignore missing test.
- */
 public class TealBeanRenderWalkerIntegrationTest {
 
 	private TealBeanRenderWalker walker;

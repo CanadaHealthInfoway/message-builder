@@ -20,9 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.SC_R2Impl;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * SC (R2)
@@ -31,8 +34,13 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class ScR2ElementParser extends CsR2ElementParser {
 	
 	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createSCInstance(context.getExpectedReturnType());
+	}
+	
+	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new SC_R2Impl();
+		return new SC_R2Impl<Code>();
 	}
 	
 	@Override

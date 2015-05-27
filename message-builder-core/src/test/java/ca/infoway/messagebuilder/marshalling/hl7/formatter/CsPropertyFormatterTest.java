@@ -32,6 +32,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
@@ -39,6 +40,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 
 public class CsPropertyFormatterTest extends FormatterTestCase {
+	
+	private static class TestableCsPropertyFormatter extends CsPropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<Code> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, Code t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
     
     class FakeCode implements Code {
         public FakeCode() {
@@ -60,14 +67,14 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
 
     @Test
     public void testGetAttributeNameValuePairsNullValue() throws Exception {
-        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, null);
+        Map<String, String> result = new TestableCsPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), null, null);
         assertEquals("map size", 0, result.size());
     }
 
     @Test
     public void testGetAttributeNameValuePairsEnum() throws Exception {
         // used as expected: an enumerated object is passed in
-        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
+        Map<String, String> result = new TestableCsPropertyFormatter().getAttributeNameValuePairsForTest(
         		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), 
         		CeRxDomainTestValues.CENTIMETRE, null);
         assertEquals("map size", 1, result.size());
@@ -78,7 +85,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
 
     @Test
     public void testGetAttributeNameValuePairsWithoutCodeSystem() throws Exception {
-        Map<String, String> result = new CsPropertyFormatter().getAttributeNameValuePairs(
+        Map<String, String> result = new TestableCsPropertyFormatter().getAttributeNameValuePairsForTest(
         		new FormatContextImpl(new ModelToXmlResult(), null, "name", null, null, null, false), 
         		new MockCodeImpl("fred", "The Flintstones"),
         		null);
@@ -92,7 +99,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
         CSImpl cs = new CSImpl(new FakeCode());
         cs.setOriginalText("The Flintstones");
         
-		String result = new CsPropertyFormatter().format(
+		String result = new TestableCsPropertyFormatter().format(
         		getContext("character"),
                 cs);
         
@@ -105,7 +112,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     
     @Test
     public void testFormatNull() throws Exception {
-        String result = new CsPropertyFormatter().format(getContext("option"), new CSImpl(NullFlavor.OTHER));
+        String result = new TestableCsPropertyFormatter().format(getContext("option"), new CSImpl(NullFlavor.OTHER));
         
 		assertTrue(this.result.isValid());
         Document document = new DocumentFactory().createFromString(result);
@@ -120,7 +127,7 @@ public class CsPropertyFormatterTest extends FormatterTestCase {
     
     @Test
     public void testFormatNullWithCodeSystem() throws Exception {
-        String xml = new CsPropertyFormatter().format(
+        String xml = new TestableCsPropertyFormatter().format(
         		getContext("option"),
         		new CSImpl(NullFlavor.OTHER));
         

@@ -45,8 +45,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.PatientRole","ContinuityOfCareDocumentCCD.PatientRole","DiagnosticImagingReport.PatientRole","DischargeSummary.PatientRole","HistoryAndPhysical.PatientRole","OperativeNote.PatientRole","ProcedureNote.PatientRole","ProgressNote.PatientRole","USRealmHeader.PatientRole"})
 public class PatientRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);

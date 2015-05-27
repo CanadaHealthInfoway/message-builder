@@ -27,22 +27,29 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 
+/**
+ * @sharpen.ignore - due to generics issues
+ */
 @SuppressWarnings("unchecked")
 public class AnyToSetOfAnyAdapter implements DataTypeAdapter {
 
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		return !StandardDataType.isSetOrList(fromDataTypeName)
-		    && SET.class.isAssignableFrom(toDateType);
+		    && SET.class.isAssignableFrom(toDataType);
 	}
 
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
 		return false;
 	}
 
-	public BareANY adapt(BareANY any) {
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
 		SETImpl set = new SETImpl(any.getClass());
 		((Set) set.getValue()).add(any);
 		return (BareANY) set;
+	}
+
+	public BareANY adapt(String toDataTypeName, BareANY any) {
+		return any;
 	}
 
 }

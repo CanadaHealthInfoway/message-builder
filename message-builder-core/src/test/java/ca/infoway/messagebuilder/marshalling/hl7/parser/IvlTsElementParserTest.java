@@ -27,7 +27,6 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -47,17 +46,15 @@ import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-/**
- * @author administrator
- * @sharpen.ignore Timezone handling
- */
 public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 
 	private XmlToModelResult result;
@@ -78,7 +75,7 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@SuppressWarnings("unchecked")
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		return (Interval<Date>) this.parser.parse(
 				ParseContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null, null, false), 
 				Arrays.asList(node), 
@@ -87,13 +84,10 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParseLowHigh() throws Exception {
+		Date expectedResultLow = DateUtil.getDate(2006, 7, 10, 12, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
+		Date expectedResultHigh = DateUtil.getDate(2006, 7, 12, 15, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2006-08-10_12:00:00");
-		Date expectedResultHigh = format.parse("2006-08-12_15:00:00");
-
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
 		Node node = createNode(
@@ -126,11 +120,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 
 	@Test
     public void testParseEffectiveTimeDateWithSpecializationTypeAlternative() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2013-03-11_16:44:02");
+		Date expectedResultLow = DateUtil.getDate(2013, 2, 11, 16, 44, 2, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
 		// specializationType should not have to be specified as "IVL&lt;TS.FULLDATETIME&gt;", but should be accepted as "IVL_TS.FULLDATETIME" (which is how the MB formatter would write it)
@@ -146,11 +138,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParseEffectiveTimeDateWithSpecializationTypeAlternative2() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2013-03-11_16:44:02");
+		Date expectedResultLow = DateUtil.getDate(2013, 2, 11, 16, 44, 2, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
     	Node node = createNode("<effectiveTime specializationType=\"IVL&lt;TS.FULLDATETIME&gt;\"><low value=\"20130311164402.7530-0" + hours + "00\"/><high nullFlavor=\"NA\" /></effectiveTime>");
@@ -165,11 +155,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParsePartTimeDateWithSpecializationType() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2013-03-11_16");
+		Date expectedResultLow = DateUtil.getDate(2013, 2, 11, 16, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
     	Node node = createNode("<effectiveTime specializationType=\"IVL_TS.FULLDATEPARTTIME\"><low value=\"2013031116-0" + hours + "00\"/><high nullFlavor=\"NA\" /></effectiveTime>");
@@ -254,12 +242,9 @@ public class IvlTsElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseLow() throws Exception {
+		Date expectedResultLow = DateUtil.getDate(2005, 7, 10, 14, 34, 56, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2005-08-10_14:34:56");
-
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
         Node node = createNode(

@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
@@ -84,13 +85,9 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
         assertXml("result", "<name><width nullFlavor=\"OTH\"/></name>", result);
     }
     
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasicAbstract() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
@@ -104,13 +101,9 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATETIME\" xsi:type=\"IVL_TS\"><low value=\"20061225111213.0000-0500\"/><high value=\"20070102101112.0000-0500\"/></name>", result);
 	}
 
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasicAbstractPartTime() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Date lowDate = new DateWithPattern(DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone), "yyyyMMddHHZZZZZ");
 		Date highDate = new DateWithPattern(DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone), "yyyyMMddHHZZZZZ");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
@@ -126,13 +119,9 @@ public class IvlTsFullDateTimePropertyFormatterTest extends FormatterTestCase {
 		assertXml("result", "<name specializationType=\"IVL_TS.FULLDATEPARTTIME\" xsi:type=\"IVL_TS\"><low value=\"2006122511-0500\"/><high value=\"2007010210-0500\"/></name>", result);
 	}
 
-	/**
-	 * 
-	 * @sharpen.remove timezone handling
-	 */
 	@Test
 	public void testBasicAbstractInvalidSpecializationType() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));

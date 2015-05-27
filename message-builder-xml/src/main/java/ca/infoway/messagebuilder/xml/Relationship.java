@@ -56,8 +56,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	private String name;
 	@Attribute(required=false)
 	private boolean attribute;
-	@Attribute(required=false)
-	private String namespace;
+	@Attribute(name="namespace", required=false)
+	private String namespaze; //Reserved word in C#
 	@Attribute(required=false)
 	private String type;
 	@Attribute(required=false)
@@ -156,18 +156,18 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 
 	public String getNamespace() {
-		return namespace;
+		return namespaze;
 	}
 
-	public void setNamespace(String namespace) {
-		this.namespace = namespace;
+	public void setNamespace(String namespaze) {
+		this.namespaze = namespaze;
 	}
 
 	public String getQualifiedName() {
-		if (this.namespace == null) {
+		if (this.namespaze == null) {
 			return this.name;
 		} else {
-			return this.namespace + ":" + this.name;
+			return this.namespaze + ":" + this.name;
 		}
 	}
 
@@ -656,7 +656,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 		this.nonFixedVocabularyBinding = nonFixedVocabularyBinding;
 	}
 
-	public Boolean getPrintDatatype() {
+	public boolean getPrintDatatype() {
 		return this.printDatatype == null ? false : this.printDatatype.booleanValue();
 	}
 
@@ -665,7 +665,7 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 
 	public boolean isDefaultChoice() {
-		return defaultChoice == null ? false : defaultChoice;
+		return defaultChoice == null ? false : (boolean) defaultChoice; //Cast for .NET
 	}
 
 	public void setDefaultChoice(Boolean defaultChoice) {

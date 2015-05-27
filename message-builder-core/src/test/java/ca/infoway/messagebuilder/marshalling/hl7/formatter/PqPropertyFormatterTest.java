@@ -32,6 +32,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
@@ -42,6 +43,15 @@ import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConf
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class PqPropertyFormatterTest extends FormatterTestCase {
+	
+	private static class TestablePqPropertyFormatter extends PqPropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<PhysicalQuantity> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, PhysicalQuantity t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+		public String formatNonNullDataTypeForTest(FormatContext context, BareANY bareAny, int indentLevel) {
+			return super.formatNonNullDataType(context, bareAny, indentLevel);
+		}
+	}
 
 	@Before
 	public void setup() {
@@ -51,7 +61,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
 	
     @Test
     public void testFormatPhysicalQuantityNull() throws Exception {
-        String result = new PqPropertyFormatter().format(createContext("PQ.BASIC"), new PQImpl());
+        String result = new TestablePqPropertyFormatter().format(createContext("PQ.BASIC"), new PQImpl());
         
         // a null value for PQ elements results in a nullFlavor attribute (but not via calling getAttributeNameValuePairs, only through format() itself)
         assertEquals("map size", "<name nullFlavor=\"NI\"/>", result.trim());
@@ -61,7 +71,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testFormatPhysicalQuantityNullMissingOriginalText() throws Exception {
         PQImpl dataType = new PQImpl(NullFlavor.NOT_APPLICABLE);
-		String result = new PqPropertyFormatter().format(createContext("PQ.LAB"), dataType);
+		String result = new TestablePqPropertyFormatter().format(createContext("PQ.LAB"), dataType);
         
         assertEquals("map size", "<name nullFlavor=\"NA\"/>", result.trim());
         assertFalse(this.result.isValid());
@@ -74,7 +84,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         PQImpl dataType = new PQImpl(NullFlavor.NOT_APPLICABLE);
         dataType.setValue(pq);
         
-		String result = new PqPropertyFormatter().format(createContext("PQ.LAB"), dataType);
+		String result = new TestablePqPropertyFormatter().format(createContext("PQ.LAB"), dataType);
         
         assertEquals("map size", "<name nullFlavor=\"NA\"/>", result.trim());
         assertFalse(this.result.isValid());
@@ -83,7 +93,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     
     @Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String> resultMap = new PqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), new PhysicalQuantity(), null);
+        Map<String,String> resultMap = new TestablePqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), new PhysicalQuantity());
         
         // an empty value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, resultMap.size());
@@ -95,7 +105,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     @Test
     public void testFormatPhysicalQuantityValueOrUnitNull() throws Exception {
         // no name-value pairs
-        PqPropertyFormatter formatter = new PqPropertyFormatter();
+        PqPropertyFormatter formatter = new TestablePqPropertyFormatter();
         
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setUnit(CeRxDomainTestValues.ENZYME_UNIT_MICROMOLES_MINUTE_PER_LITRE);
@@ -117,7 +127,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), physicalQuantity, null);
+        Map<String, String> result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), physicalQuantity);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));
@@ -140,7 +150,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         rawPq.setOriginalText("some original text");
         rawPq.setValue(physicalQuantity);
         
-		String result = new PqPropertyFormatter().format(createContext("PQ.BASIC"), rawPq, 0);
+		String result = new TestablePqPropertyFormatter().format(createContext("PQ.BASIC"), rawPq, 0);
 		
 		String expectedResult = "<name unit=\"U/L\" value=\"33.45\">" + SystemUtils.LINE_SEPARATOR +
 								"  <originalText>some original text</originalText>" + SystemUtils.LINE_SEPARATOR +
@@ -170,7 +180,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     	String expectedErrorDecimal = "PhysicalQuantity for MR2009/PQ.BASIC can contain a maximum of 2 decimal places";
     	String expectedErrorInteger = "PhysicalQuantity for MR2009/PQ.BASIC can contain a maximum of 11 integer places";
     	
-		new PqPropertyFormatter().format(new FormatContextImpl(this.result,
+		new TestablePqPropertyFormatter().format(new FormatContextImpl(this.result,
 				null, "name", "PQ.BASIC", ConformanceLevel.MANDATORY, null, false, SpecificationVersion.R02_04_02, null, null, null, false), new PQImpl(physicalQuantity), 0);
 		if (decimalError) {
 			assertEquals(expectedErrorDecimal, this.result.getHl7Errors().get(0).getMessage());
@@ -182,10 +192,10 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
     
     @Test
     public void testFormatNonNullWithEmptyPq() {
-    	PqPropertyFormatter formatter = new PqPropertyFormatter();
+    	TestablePqPropertyFormatter formatter = new TestablePqPropertyFormatter();
     	PQImpl pqImpl = new PQImpl();
     	pqImpl.setValue(new PhysicalQuantity());
-		String string = formatter.formatNonNullDataType(createContext("PQ.BASIC"), pqImpl, 0);
+		String string = formatter.formatNonNullDataTypeForTest(createContext("PQ.BASIC"), pqImpl, 0);
 		String lineBreak = System.getProperty("line.separator");
 		assertEquals("<name nullFlavor=\"NI\"/>" + lineBreak, string);
     }
@@ -227,7 +237,7 @@ public class PqPropertyFormatterTest extends FormatterTestCase {
         PhysicalQuantity physicalQuantity = new PhysicalQuantity();
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(CeRxDomainTestValues.CENTIMETRE);
-        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), physicalQuantity, null);
+        Map<String, String> result = new TestablePqPropertyFormatter().getAttributeNameValuePairs(createContext("PQ.BASIC"), physicalQuantity);
         assertEquals("value " + quantity, formattedQuantity, result.get("value"));
     }
 

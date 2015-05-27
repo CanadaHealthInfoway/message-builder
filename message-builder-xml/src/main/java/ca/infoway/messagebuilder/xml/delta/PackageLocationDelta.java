@@ -25,6 +25,8 @@ import javax.persistence.Entity;
 
 /**
  * For one package location provides all the information regarding to model changes.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 @DiscriminatorValue("PACKAGE_LOCATION")

@@ -21,13 +21,11 @@
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
 import static org.junit.Assert.assertEquals;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -41,6 +39,8 @@ import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
+import ca.infoway.messagebuilder.platform.DateFormatUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -100,9 +100,6 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
@@ -113,15 +110,9 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 				(Date) new TsElementParser().parse(createContext(), node, this.xmlResult).getBareValue());
     }
     
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZonePlus() throws Exception {
-		//Date expectedCalendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862);
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
-		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		Date expectedCalendar = format.parse("2008-03-31_10:58:57.862");
+		Date expectedCalendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862, TimeZoneUtil.getTimeZone("America/New_York"));
 		
 		Node node = createNode("<something extra=\"extra\" value=\"20080331155857.8620+0100\" />");
 		assertDateEquals("correct value returned", FULL_DATE_TIME,  
@@ -143,14 +134,11 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void timeInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
 		Node node = createNode("<something value=\"19990303101112\" />");
-		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-6")), node, this.xmlResult).getBareValue());
-		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("GMT-5")), node, this.xmlResult).getBareValue());
+		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZoneUtil.getTimeZone("GMT-6")), node, this.xmlResult).getBareValue());
+		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZoneUtil.getTimeZone("GMT-5")), node, this.xmlResult).getBareValue());
 		assertTrue(saskDate.compareTo(ontarioDate) > 0);
 	}
 	
@@ -158,12 +146,7 @@ public class TsFullDateTimeElementParserTest extends MarshallingTestCase {
 		return ParseContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V02R02, null, timeZone, ConformanceLevel.POPULATED, null, null, null, null, false);
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	private String getCurrentTimeZone(Date calendar) {
-		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(calendar);
-		return currentTimeZone;
+		return DateFormatUtil.format(calendar, "Z");
 	}
 }

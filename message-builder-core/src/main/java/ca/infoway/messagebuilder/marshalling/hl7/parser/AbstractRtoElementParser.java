@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 public abstract class AbstractRtoElementParser<N, D> extends AbstractSingleElementParser<Ratio<N, D>> {
 
@@ -56,8 +57,7 @@ public abstract class AbstractRtoElementParser<N, D> extends AbstractSingleEleme
 		boolean denominatorFound = false;
 		
 		NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (childNode instanceof Element) {
                 Element element = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(element);

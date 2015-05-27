@@ -25,9 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 
 public class PolymorphismHandlerTest {
 

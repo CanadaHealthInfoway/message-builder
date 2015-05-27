@@ -46,7 +46,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), new CV_R2Impl(NullFlavor.NO_INFORMATION));
+		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), new CV_R2Impl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -64,7 +64,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), new CV_R2Impl(codedType));
+		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), new CV_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -82,7 +82,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text allowed for CV");
 		codedType.setOriginalText(originalText);
 		
-		CV_R2 cv = new CV_R2Impl(codedType);
+		CV_R2<Code> cv = new CV_R2Impl<Code>(codedType);
 		cv.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), cv);
@@ -108,7 +108,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		CV_R2 cv = new CV_R2Impl(codedType);
+		CV_R2<Code> cv = new CV_R2Impl<Code>(codedType);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CV"), cv);
 		
@@ -122,7 +122,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testNullFlavorCo() throws Exception {
-		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), new COImpl(NullFlavor.NO_INFORMATION));
+		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), new COImpl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -140,7 +140,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), new COImpl(codedType));
+		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), new COImpl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -155,7 +155,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text allowed for CO");
 		codedType.setOriginalText(originalText);
 		
-		CO co = new COImpl(codedType);
+		CO<Code> co = new COImpl<Code>(codedType);
 		co.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), co);
@@ -181,7 +181,7 @@ public class CvR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		CO co = new COImpl(codedType);
+		CO<Code> co = new COImpl<Code>(codedType);
 		
 		String result = new CvR2PropertyFormatter().format(getContext("name", "CO"), co);
 		

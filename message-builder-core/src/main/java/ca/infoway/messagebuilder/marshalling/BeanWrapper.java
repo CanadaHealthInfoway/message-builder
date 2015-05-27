@@ -119,7 +119,7 @@ class BeanWrapper {
 				ListElementUtil.addElement(property.get(), value.getBareValue());
 			}
 		} else {
-			value = this.adapterProvider.getAdapter(dataTypeName, field.getClass()).adapt(value);
+			value = this.adapterProvider.getAdapter(dataTypeName, field.getClass()).adapt(field.getClass(), value);
 			if (value.hasNullFlavor()) {
 				new DataTypeFieldHelper(property.getBean(), property.getName()).setNullFlavor(value.getNullFlavor());
 			}
@@ -183,10 +183,11 @@ class BeanWrapper {
 
 	@SuppressWarnings("unchecked")
 	private Object resolveCodeValue(Relationship relationship, String attributeValue, VersionNumber version, boolean isR2) {
-		Code codeLookup = CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship, version, CodeTypeRegistry.getInstance()), attributeValue);
+		Class<Code> returnType = (Class<Code>) DomainTypeHelper.getReturnType(relationship, version, CodeTypeRegistry.getInstance());
+		Code codeLookup = CodeResolverRegistry.lookup(returnType, attributeValue);
 		Object result = codeLookup;
 		if (isR2) {
-			result = new CodedTypeR2<Code>(codeLookup);
+			result = CodedTypeR2Helper.convertCodedTypeR2(new CodedTypeR2<Code>(codeLookup), returnType);
 		}
 		return result;
 	}

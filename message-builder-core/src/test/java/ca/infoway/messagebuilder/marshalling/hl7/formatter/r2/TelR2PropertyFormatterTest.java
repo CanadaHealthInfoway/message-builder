@@ -37,7 +37,6 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainTestValues;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
-import ca.infoway.messagebuilder.marshalling.hl7.formatter.r2.TelR2PropertyFormatter;
 
 public class TelR2PropertyFormatterTest extends FormatterTestCase {
 

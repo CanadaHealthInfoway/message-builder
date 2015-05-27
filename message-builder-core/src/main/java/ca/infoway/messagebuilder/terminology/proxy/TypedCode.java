@@ -39,6 +39,8 @@ import ca.infoway.messagebuilder.terminology.domainvalue.Sortable;
  * AdministrableDrugForm.
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - Moved from terminology project - requires manual translation 
  */
 public class TypedCode implements Code, Displayable, Sortable, Active, Common, Serializable {
 

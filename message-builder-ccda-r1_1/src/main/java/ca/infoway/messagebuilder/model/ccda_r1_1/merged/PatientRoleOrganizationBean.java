@@ -51,15 +51,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.PatientRoleOrganization","ContinuityOfCareDocumentCCD.PatientRoleOrganization","DiagnosticImagingReport.PatientRoleOrganization","DischargeSummary.PatientRoleOrganization","HistoryAndPhysical.PatientRoleOrganization","OperativeNote.PatientRoleOrganization","ProcedureNote.PatientRoleOrganization","ProgressNote.PatientRoleOrganization","USRealmHeader.PatientRoleOrganization","UnstructuredDocument.PatientRoleOrganization"})
 public class PatientRoleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<ON, OrganizationName> name = new LISTImpl<ON, OrganizationName>(ONImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private CE_R2 standardIndustryClassCode = new CE_R2Impl();
+    private CE_R2<Code> standardIndustryClassCode = new CE_R2Impl<Code>();
     private OrganizationPartOfBean asOrganizationPartOf;
 
 

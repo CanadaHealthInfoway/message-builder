@@ -45,6 +45,8 @@ import ca.infoway.messagebuilder.xml.cda.vocabulary.ValueSetDefinitionSystem;
  * Knows how to provide Codes sourced from the Trifolia voc.xml file.
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - terminology - translated manually
  */
 public class CdaCodeResolver implements CodeResolver {
 	

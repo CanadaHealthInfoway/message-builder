@@ -31,12 +31,12 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public class CV_R2Impl extends ANYImpl<CodedTypeR2<? extends Code>> implements CV_R2 {
+public class CV_R2Impl<T extends Code> extends ANYImpl<CodedTypeR2<T>> implements CV_R2<T> {
 	/**
 	 * <p>Constructs an empty CV.
 	 */
 	public CV_R2Impl() {
-		this((CodedTypeR2<? extends Code>) null);
+		this((CodedTypeR2<T>) null);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class CV_R2Impl extends ANYImpl<CodedTypeR2<? extends Code>> implements C
 	 * 
 	 * @param defaultValue an initial value
 	 */
-	public CV_R2Impl(CodedTypeR2<? extends Code> defaultValue) {
+	public CV_R2Impl(CodedTypeR2<T> defaultValue) {
 		this(defaultValue, null, StandardDataType.CV);
 	}
 
@@ -64,7 +64,7 @@ public class CV_R2Impl extends ANYImpl<CodedTypeR2<? extends Code>> implements C
 	 * @param nullFlavor a null flavor
 	 * @param dataType an HL7 datatype
 	 */
-	public CV_R2Impl(CodedTypeR2<? extends Code> value, NullFlavor nullFlavor, StandardDataType dataType) {
+	public CV_R2Impl(CodedTypeR2<T> value, NullFlavor nullFlavor, StandardDataType dataType) {
 		super(value, nullFlavor, dataType);
 	}
 	

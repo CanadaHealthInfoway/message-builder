@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class DateDiff extends Diff<Date> implements NullFlavorSupport {
+public class DateDiff extends Diff<Date> implements NullFlavorSupport, DiffWithQuantityAndUnit {
 
 	// SS-20090407: Bug 10882 has been opened to allow this class to handle fractional units.
 	

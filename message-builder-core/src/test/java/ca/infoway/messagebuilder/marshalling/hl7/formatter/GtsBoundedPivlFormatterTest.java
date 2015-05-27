@@ -24,7 +24,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.junit.After;
 import org.junit.Before;
@@ -43,22 +42,18 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.UnitsOfMeasureCaseSensitive;
 import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConfigurator;
 
-/**
- * @sharpen.ignore
- */
 public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 	
 	@Before
 	public void setup() {
-		TimeZone.setDefault(TimeZone.getTimeZone("GMT-6:00"));
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
 	}
 	
 	@After
 	public void teardown() {
-		TimeZone.setDefault(null);
 	}
 
 	@Test
@@ -305,7 +300,7 @@ public class GtsBoundedPivlFormatterTest extends FormatterTestCase {
 
 		
 		String result = new GtsBoundedPivlFormatter().format(
-				new FormatContextImpl(this.result, null, "name", "GTS.BOUNDEDPIVL", null, null, false, SpecificationVersion.V01R04_3, TimeZone.getTimeZone("GMT-7:00"), null, null, false), 
+				new FormatContextImpl(this.result, null, "name", "GTS.BOUNDEDPIVL", null, null, false, SpecificationVersion.V01R04_3, TimeZoneUtil.getTimeZone("GMT-7"), null, null, false), 
 				new GTSImpl(gts));
 		assertXml("result", "<name xsi:type=\"SXPR_TS\">" +
 				"<comp operator=\"I\" xsi:type=\"IVL_TS\">" +

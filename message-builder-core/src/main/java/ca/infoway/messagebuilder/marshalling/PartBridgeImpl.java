@@ -25,7 +25,6 @@ import java.util.List;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.util.ConformanceLevelUtil;
 
 class PartBridgeImpl implements PartBridge {
 	

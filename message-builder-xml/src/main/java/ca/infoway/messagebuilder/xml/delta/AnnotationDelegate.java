@@ -29,6 +29,8 @@ import ca.infoway.messagebuilder.xml.AnnotationType;
 
 /**
  * Provides the information for the UI to display.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 public class AnnotationDelegate implements Serializable {
 

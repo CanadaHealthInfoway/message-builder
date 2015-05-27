@@ -19,8 +19,8 @@
  */
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -30,6 +30,7 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.SXCMTSCDAR1;
 import ca.infoway.messagebuilder.datatype.TSCDAR1;
 import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
@@ -64,10 +65,9 @@ public class TsCdaElementParserTest extends MarshallingTestCase {
 		BareANY parseResult = this.parser.parse(context, Arrays.asList(node), this.xmlResult);
 		
 		assertTrue(this.xmlResult.isValid());
-		assertTrue(parseResult instanceof TSCDAR1);
+		assertTrue(parseResult instanceof SXCMTSCDAR1);
 		assertTrue(parseResult.getBareValue() instanceof MbDate);
 		assertEquals(expectedDate, ((MbDate) parseResult.getBareValue()).getValue());
-		assertEquals("E", ((TSCDAR1) parseResult).getOperator().getCodeValue());
 	}
 	
 }

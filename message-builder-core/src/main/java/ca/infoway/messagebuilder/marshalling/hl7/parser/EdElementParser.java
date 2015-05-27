@@ -49,6 +49,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.EdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.EdConstraintsHandler;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
@@ -170,8 +171,7 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		boolean nodesOutOfOrder = false;
 		
 		NodeList childNodes = element.getChildNodes();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node node = childNodes.item(i);
+        for (Node node : new XmlNodeListIterable(childNodes)) {
 			if ("reference".equals(node.getNodeName())) {
 				if (thumbnailCount > 0 || contentCount > 0) {
 					nodesOutOfOrder = true;
@@ -203,8 +203,7 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		// skip reference element, thumbnail element, blank text nodes
 		List<Node> contentNodes = new ArrayList<Node>();
 		NodeList childNodes = element.getChildNodes();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node node = childNodes.item(i);
+        for (Node node : new XmlNodeListIterable(childNodes)) {
 			if ("reference".equals(node.getNodeName()) || "thumbnail".equals(node.getNodeName())) {
 				// content only starts after last reference/thumbnail
 				contentNodes.clear();
@@ -221,7 +220,7 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 	}
 
 	private boolean isTextNode(Node contentNode) {
-		return contentNode.getNodeName().equals("#text");
+		return contentNode.getNodeName().equals("#text") || contentNode.getNodeName().equals("#whitespace"); //.NET
 	}
 	
     private boolean isComment(Node node) {
@@ -232,7 +231,10 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		if (element.hasAttribute("integrityCheckAlgorithm")) {
 			String icaString = element.getAttribute("integrityCheckAlgorithm");
 			try {
-				IntegrityCheckAlgorithm ica = IntegrityCheckAlgorithm.valueOf(icaString);
+				IntegrityCheckAlgorithm ica = IntegrityCheckAlgorithm.valueOf(IntegrityCheckAlgorithm.class, icaString);
+				if (!StringUtils.isBlank(icaString) && ica == null) { //Invalid enum value
+					throw new IllegalArgumentException();
+				}
 				ed.setIntegrityCheckAlgorithm(ica);
 			} catch (Exception e) {
 				recordError("Unknown value for integrityCheckAlgorithm: " + icaString, element, result);
@@ -269,7 +271,10 @@ public class EdElementParser extends AbstractSingleElementParser<EncapsulatedDat
 		if (element.hasAttribute("representation")) {
 			String representationString = element.getAttribute("representation");
 			try {
-				EdRepresentation representation = EdRepresentation.valueOf(representationString);
+				EdRepresentation representation = EdRepresentation.valueOf(EdRepresentation.class, representationString);
+				if (!StringUtils.isBlank(representationString) && representation == null) { //Invalid enum value
+					throw new IllegalArgumentException();
+				}
 				ed.setRepresentation(representation);
 			} catch (Exception e) {
 				recordError("Unknown value for representation: " + representationString, element, result);

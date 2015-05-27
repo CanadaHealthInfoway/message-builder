@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConf
 import ca.infoway.messagebuilder.xml.Cardinality;
 
 /**
- * @sharpen.ignore
+ * @sharpen.ignore - translate manually due to generics
  */
 public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
 
@@ -58,10 +58,10 @@ public class SetRtoPqPqPropertyFormatterTest extends FormatterTestCase {
     public void testFormatValueNonNull() throws Exception {
 
 		PhysicalQuantity numerator1 = new PhysicalQuantity(BigDecimal.ONE, UnitsOfMeasureCaseSensitive.CENTIMETRE);
-		PhysicalQuantity denominator1 = new PhysicalQuantity(BigDecimal.valueOf(2), UnitsOfMeasureCaseSensitive.CUBIC_CENTIMETER);
+		PhysicalQuantity denominator1 = new PhysicalQuantity(new BigDecimal(2), UnitsOfMeasureCaseSensitive.CUBIC_CENTIMETER);
 
 		PhysicalQuantity numerator2 = new PhysicalQuantity(BigDecimal.TEN, UnitsOfMeasureCaseSensitive.MILLIMETER);
-		PhysicalQuantity denominator2 = new PhysicalQuantity(BigDecimal.valueOf(11), UnitsOfMeasureCaseSensitive.CUBIC_MILIMETER);
+		PhysicalQuantity denominator2 = new PhysicalQuantity(new BigDecimal(11), UnitsOfMeasureCaseSensitive.CUBIC_MILIMETER);
 
 		Ratio<PhysicalQuantity,PhysicalQuantity> ratio1 = new Ratio<PhysicalQuantity,PhysicalQuantity>(numerator1, denominator1);
 		Ratio<PhysicalQuantity,PhysicalQuantity> ratio2 = new Ratio<PhysicalQuantity,PhysicalQuantity>(numerator2, denominator2);

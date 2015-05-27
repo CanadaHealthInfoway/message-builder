@@ -21,16 +21,18 @@ package ca.infoway.messagebuilder.error;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public class ErrorCodeTest {
 	@Test
 	public void testAllHl7ErrorCodesAreInErrorCode() {
-		Hl7ErrorCode[] oldErrorCode = Hl7ErrorCode.values();
-		for (int i = 0; i < oldErrorCode.length; i++) {
-			ErrorCode newErrorCode = TransformError.transformCode(oldErrorCode[i]);
+		List<Hl7ErrorCode> oldErrorCode = Hl7ErrorCode.values(Hl7ErrorCode.class);
+		for (int i = 0; i < oldErrorCode.size(); i++) {
+			ErrorCode newErrorCode = TransformError.transformCode(oldErrorCode.get(i));
 			if (newErrorCode == null) {
-				fail("ErrorCode is missing Hl7ErrorCode: " + oldErrorCode[i].name());
+				fail("ErrorCode is missing Hl7ErrorCode: " + oldErrorCode.get(i).name());
 			}
 		}
 	}

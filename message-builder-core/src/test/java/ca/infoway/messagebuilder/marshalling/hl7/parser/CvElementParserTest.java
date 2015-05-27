@@ -20,6 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import static ca.infoway.messagebuilder.SpecificationVersion.R02_04_02;
 import static ca.infoway.messagebuilder.SpecificationVersion.V01R04_3;
 import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
@@ -27,11 +33,6 @@ import static ca.infoway.messagebuilder.xml.CodingStrength.CNE;
 import static ca.infoway.messagebuilder.xml.CodingStrength.CWE;
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;

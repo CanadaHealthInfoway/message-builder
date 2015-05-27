@@ -303,6 +303,14 @@ public class MessageSet implements MessagePartResolver {
 		return this.constrainedDatatypes.get(typeName);
 	}
 	
+	//For XML Serialization in .NET
+	public Map<String, ConstrainedDatatype> getConstrainedDatatypes() {
+		return constrainedDatatypes;
+	}
+	public void setConstrainedDatatypes(Map<String, ConstrainedDatatype> constrainedDatatypes) {
+		this.constrainedDatatypes = constrainedDatatypes;
+	}
+	
 	/**
 	 * <p>Get the component.
 	 * @return the component

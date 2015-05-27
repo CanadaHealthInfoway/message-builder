@@ -213,13 +213,24 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 			DataType elementDataType = getDataType().getParameters()[0];
 			if (elementDataType.isCodedType()) {
 				if (elementDataType.isR2()) {
-					elementType = "CodedTypeR2";
+					if (this.language == ProgrammingLanguage.JAVA) {
+						elementType = "CodedTypeR2";
+					} else {
+						elementType = "CodedTypeR2<" + getTypeNameForDotNet(elementDataType) + ">";
+					}
 				} else {
 					elementType = elementDataType.getUnparameterizedShortName(this.language);
 				}
 			}
 		} 
 		return elementType;
+	}
+	
+	private String getTypeNameForDotNet(DataType dataType) {
+		//Workaround name collisions in .NET.
+		//For Java, this will always return the unparameterized short name
+		boolean isDomainValueDataType = dataType.getTypeName().indexOf("Domainvalue") >= 0;
+		return isDomainValueDataType ? dataType.getTypeName() : dataType.getUnparameterizedShortName(language);
 	}
 
 	public boolean isInitializedAtConstructionTime() {

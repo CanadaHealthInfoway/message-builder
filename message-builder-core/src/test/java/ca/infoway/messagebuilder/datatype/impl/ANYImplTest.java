@@ -27,9 +27,6 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 
-/**
- * @sharpen.ignore - datatype - translated manually
- */
 public class ANYImplTest {
 	
 	@Test

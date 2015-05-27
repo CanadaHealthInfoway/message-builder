@@ -31,12 +31,12 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public class HXITImpl<T> extends ANYImpl<T> implements HXIT<T> {
+public class HXITImpl<T extends Code> extends ANYImpl<CodedTypeR2<T>> implements HXIT<T> {
 	/**
 	 * <p>Constructs an empty CV.
 	 */
 	public HXITImpl() {
-		this((CodedTypeR2<? extends Code>) null);
+		this((CodedTypeR2<T>) null);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class HXITImpl<T> extends ANYImpl<T> implements HXIT<T> {
 	 * 
 	 * @param defaultValue an initial value
 	 */
-	public HXITImpl(CodedTypeR2<? extends Code> defaultValue) {
+	public HXITImpl(CodedTypeR2<T> defaultValue) {
 		this(defaultValue, null, StandardDataType.HXIT_CE);
 	}
 
@@ -64,9 +64,8 @@ public class HXITImpl<T> extends ANYImpl<T> implements HXIT<T> {
 	 * @param nullFlavor a null flavor
 	 * @param dataType an HL7 datatype
 	 */
-	@SuppressWarnings("unchecked")
-	public HXITImpl(CodedTypeR2<? extends Code> value, NullFlavor nullFlavor, StandardDataType dataType) {
-		super((T) value, nullFlavor, dataType);
+	public HXITImpl(CodedTypeR2<T> value, NullFlavor nullFlavor, StandardDataType dataType) {
+		super(value, nullFlavor, dataType);
 	}
 	
 }

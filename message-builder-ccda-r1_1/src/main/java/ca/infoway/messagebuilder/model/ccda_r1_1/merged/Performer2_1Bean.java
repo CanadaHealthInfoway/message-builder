@@ -45,15 +45,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Performer1","BaseModel.Performer2","EncounterActivities.Performer2","ImmunizationActivity.Performer2","MedicationActivity.Performer2"})
 public class Performer2_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.Performer2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityprocedure.Performer2Choice, ca.infoway.messagebuilder.model.ccda_r1_1.operativenote.Performer1Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
-    private CE_R2 modeCode = new CE_R2Impl();
+    private CE_R2<Code> modeCode = new CE_R2Impl<Code>();
     private AssignedEntity_1Bean assignedEntity;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CE_R2 functionCode = new CE_R2Impl();
+    private CS_R2<x_ServiceEventPerformer> typeCode = new CS_R2Impl<x_ServiceEventPerformer>();
+    private CE_R2<Code> functionCode = new CE_R2Impl<Code>();
 
 
     /**

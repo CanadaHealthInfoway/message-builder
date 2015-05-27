@@ -29,6 +29,8 @@ import org.simpleframework.xml.Text;
  * <p>Only used in the context of CDA documents
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - The @Text simple xml annotation has not been ported to .NET. 
  */
 @Root
 public class SchematronDescription {

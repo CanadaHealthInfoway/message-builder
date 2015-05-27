@@ -42,11 +42,15 @@ public class TsToIvlAdapter implements DataTypeAdapter {
 		return false;
 	}
 
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		return false;
 	}
-	
-	public BareANY adapt(BareANY any) {
+
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
+		return any;
+	}
+
+	public BareANY adapt(String toDataTypeName, BareANY any) {
 		return new DataTypeAdapterHelper().copyAndReturnAdapted(
 				any, 
 				(BareANY) new IVLImpl<TS,Interval<Date>>(), 

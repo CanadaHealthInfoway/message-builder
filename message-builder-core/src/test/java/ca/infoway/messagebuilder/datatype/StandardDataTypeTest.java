@@ -20,18 +20,16 @@
 
 package ca.infoway.messagebuilder.datatype;
 
-import static ca.infoway.messagebuilder.datatype.StandardDataType.convertSimpleXmlToDataType;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.datatype.StandardDataType.convertSimpleXmlToDataType;
 
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
-/**
- * @sharpen.ignore - datatype - translated manually
- */
 public class StandardDataTypeTest {
 	
 	@Test

@@ -49,18 +49,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CE_R2 administrativeGenderCode = new CE_R2Impl();
+    private CE_R2<Code> administrativeGenderCode = new CE_R2Impl<Code>();
     private TS_R2 birthTime = new TS_R2Impl();
-    private CE_R2 maritalStatusCode = new CE_R2Impl();
-    private CE_R2 religiousAffiliationCode = new CE_R2Impl();
-    private CE_R2 raceCode = new CE_R2Impl();
-    private CE_R2 ethnicGroupCode = new CE_R2Impl();
+    private CE_R2<Code> maritalStatusCode = new CE_R2Impl<Code>();
+    private CE_R2<Code> religiousAffiliationCode = new CE_R2Impl<Code>();
+    private CE_R2<Code> raceCode = new CE_R2Impl<Code>();
+    private CE_R2<Code> ethnicGroupCode = new CE_R2Impl<Code>();
     private List<GuardianBean> guardian = new ArrayList<GuardianBean>();
     private BirthplaceBean birthplace;
     private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();

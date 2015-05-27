@@ -29,9 +29,6 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse;
 import ca.infoway.messagebuilder.domainvalue.basic.URLScheme;
 
-/**
- * @sharpen.ignore - datatype - translated manually
- */
 public class TelecommunicationsAddressTest {
 
 	@Test
@@ -43,9 +40,13 @@ public class TelecommunicationsAddressTest {
         address.addAddressUse(TelecommunicationAddressUse.DIRECT);
         
         Iterator<ca.infoway.messagebuilder.domainvalue.TelecommunicationAddressUse> i = address.getAddressUses().iterator();
+        i.hasNext(); //for sharpen .NET mapping
         assertEquals(i.next().getCodeValue(), TelecommunicationAddressUse.ANSWERING_MACHINE.getCodeValue());
+        i.hasNext(); //for sharpen .NET mapping
         assertEquals(i.next().getCodeValue(), TelecommunicationAddressUse.DIRECT.getCodeValue());
+        i.hasNext(); //for sharpen .NET mapping
         assertEquals(i.next().getCodeValue(), TelecommunicationAddressUse.EMERGENCY_CONTACT.getCodeValue());
+        i.hasNext(); //for sharpen .NET mapping
         assertEquals(i.next().getCodeValue(), TelecommunicationAddressUse.WORKPLACE.getCodeValue());
     }
     

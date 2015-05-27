@@ -20,9 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.PQRImpl;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * PQR (R2)
@@ -32,7 +35,12 @@ class PqrR2ElementParser extends CvR2ElementParser {
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new PQRImpl();
+		return new PQRImpl<Code>();
+	}
+	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createPQRInstance(context.getExpectedReturnType());
 	}
 
 	@Override

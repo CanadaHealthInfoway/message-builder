@@ -47,7 +47,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), new CD_R2Impl(NullFlavor.NO_INFORMATION));
+		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), new CD_R2Impl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -90,7 +90,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), new CD_R2Impl(codedType));
+		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), new CD_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -114,7 +114,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setOriginalText(originalText);
 
 		
-		CD_R2 cd = new CD_R2Impl(codedType);
+		CD_R2<Code> cd = new CD_R2Impl<Code>(codedType);
 		cd.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), cd);
@@ -162,7 +162,7 @@ public class CdR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 
-		CD_R2 cd = new CD_R2Impl(codedType);
+		CD_R2<Code> cd = new CD_R2Impl<Code>(codedType);
 		
 		String result = new CdR2PropertyFormatter().format(getContext("name", "CD"), cd);
 		

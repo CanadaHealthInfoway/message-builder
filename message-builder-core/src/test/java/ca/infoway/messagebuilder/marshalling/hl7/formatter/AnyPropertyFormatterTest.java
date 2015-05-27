@@ -119,7 +119,7 @@ public class AnyPropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testCdWithAllMetadata() throws Exception {
-		ANYImpl<Object> cdImpl = new ANYImpl<Object>(MockEnum.BARNEY, null, StandardDataType.CD_LAB);
+		ANYImpl<MockEnum> cdImpl = new ANYImpl<MockEnum>(MockEnum.BARNEY, null, StandardDataType.CD_LAB);
 		cdImpl.setDisplayName("disp name");
 		cdImpl.setOriginalText("orig text");
 		cdImpl.getTranslations().add(new CDImpl(MockEnum.BETTY));

@@ -25,11 +25,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
- * 
- * @author administrator
- *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
-
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 @Table(name="data_type_change")

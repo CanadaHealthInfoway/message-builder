@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.xml;
 
-import static ca.infoway.messagebuilder.xml.Hl7TypeName.parse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.xml.Hl7TypeName.parse;
 
 import org.junit.Test;
 

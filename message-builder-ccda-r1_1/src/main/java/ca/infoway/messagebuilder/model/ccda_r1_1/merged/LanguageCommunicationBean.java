@@ -46,13 +46,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.LanguageCommunication","ContinuityOfCareDocumentCCD.LanguageCommunication","DiagnosticImagingReport.LanguageCommunication","DischargeSummary.LanguageCommunication","HistoryAndPhysical.LanguageCommunication","OperativeNote.LanguageCommunication","ProcedureNote.LanguageCommunication","ProgressNote.LanguageCommunication","USRealmHeader.LanguageCommunication","UnstructuredDocument.LanguageCommunication"})
 public class LanguageCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 languageCode = new CS_R2Impl();
-    private CE_R2 modeCode = new CE_R2Impl();
-    private CE_R2 proficiencyLevelCode = new CE_R2Impl();
+    private CS_R2<Language> languageCode = new CS_R2Impl<Language>();
+    private CE_R2<LanguageAbilityMode> modeCode = new CE_R2Impl<LanguageAbilityMode>();
+    private CE_R2<LanguageAbilityProficiency> proficiencyLevelCode = new CE_R2Impl<LanguageAbilityProficiency>();
     private BL preferenceInd = new BLImpl();
 
 

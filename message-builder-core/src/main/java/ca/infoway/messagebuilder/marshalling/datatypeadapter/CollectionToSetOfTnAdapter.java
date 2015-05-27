@@ -35,6 +35,9 @@ import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.xml.Hl7TypeName;
 
+/**
+ * @sharpen.ignore - due to generics issues
+ */
 @SuppressWarnings("unchecked")
 public class CollectionToSetOfTnAdapter implements DataTypeAdapter {
 
@@ -61,11 +64,15 @@ public class CollectionToSetOfTnAdapter implements DataTypeAdapter {
 		return containerOfTn;
 	}
 	
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		return false;
 	}
 	
-	public BareANY adapt(BareANY any) {
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
+		return any;
+	}
+	
+	public BareANY adapt(String toDataTypeName, BareANY any) {
 		Collection collection = ((COLLECTION) any).rawCollection();
 
 		SETImpl adaptedSet = new SETImpl(TNImpl.class);

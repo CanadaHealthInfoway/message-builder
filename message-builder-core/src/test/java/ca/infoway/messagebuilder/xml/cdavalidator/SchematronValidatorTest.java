@@ -36,8 +36,10 @@ import org.simpleframework.xml.core.Persister;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.cdavalidator.SchematronValidator;
 
+/**
+ * @sharpen.ignore Manually translate
+ */
 public class SchematronValidatorTest {
 	
 	private static Serializer serializer = new Persister(new AnnotationStrategy());

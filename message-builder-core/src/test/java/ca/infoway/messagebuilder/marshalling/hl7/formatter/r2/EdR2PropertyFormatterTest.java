@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.xml.sax.SAXParseException;
+import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
@@ -64,7 +64,7 @@ public class EdR2PropertyFormatterTest extends FormatterTestCase {
 		try {
 			createEd(reference, "some content & that will <b>not</b> be escaped");
 			fail("Should not get here due to unescaped content");
-		} catch (SAXParseException e) {
+		} catch (SAXException e) {
 			// expected to throw an exception on the "&"
 		}
 	}

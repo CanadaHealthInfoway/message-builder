@@ -45,12 +45,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"EncounterActivities.EncounterDiagnosisEntryRelationship"})
 public class EncounterDiagnosisEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<x_ActRelationshipEntryRelationship> typeCode = new CS_R2Impl<x_ActRelationshipEntryRelationship>();
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();

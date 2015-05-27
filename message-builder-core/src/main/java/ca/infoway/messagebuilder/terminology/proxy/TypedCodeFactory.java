@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.sf.cglib.proxy.Enhancer;
+
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.terminology.domainvalue.Active;
 import ca.infoway.messagebuilder.terminology.domainvalue.Common;
@@ -40,6 +41,8 @@ import ca.infoway.messagebuilder.terminology.domainvalue.Sortable;
  * Creates an instance of Code that is assignable to a specific type.
  *
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - Moved from terminology project - requires manual translation 
  */
 public class TypedCodeFactory {
 

@@ -44,6 +44,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementPar
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * ANY (R2)
@@ -169,8 +170,7 @@ public class AnyR2ElementParser extends AbstractSingleElementParser<Object> {
 		if (xsiType != null) {
 			String innerType = null;
 			NodeList childNodes = node.getChildNodes();
-			for (int i = 0; i < childNodes.getLength(); i++) {
-				Node child = childNodes.item(0);
+	        for (Node child : new XmlNodeListIterable(childNodes)) {
 				innerType = getXsiType(child);
 				if (StringUtils.isNotBlank(innerType)) {
 					break;

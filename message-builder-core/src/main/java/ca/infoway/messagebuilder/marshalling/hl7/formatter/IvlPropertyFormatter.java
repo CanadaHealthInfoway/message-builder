@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
-import ca.infoway.messagebuilder.datatype.impl.DataTypeImplementationFactory;
+import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.datatype.impl.QTYImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
 import ca.infoway.messagebuilder.datatype.lang.DateDiff;
@@ -270,7 +270,7 @@ abstract class IvlPropertyFormatter<T> extends AbstractNullFlavorPropertyFormatt
 
 	private BareANY wrapWithHl7DataType(String hl7DataType, BareDiff diff) {
 		try {
-			BareANY hl7Value = (BareANY) DataTypeImplementationFactory.getImplementation(hl7DataType).newInstance();
+			BareANY hl7Value = (BareANY) DataTypeFactory.createDataType(hl7DataType, false);
 			if (diff!=null) {
 				if (diff.getBareValue()!=null) {
 					((BareANYImpl) hl7Value).setBareValue(diff.getBareValue());

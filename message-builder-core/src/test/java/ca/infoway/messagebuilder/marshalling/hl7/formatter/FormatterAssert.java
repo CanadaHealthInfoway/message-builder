@@ -34,24 +34,24 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
 
 public class FormatterAssert extends Assert {
 
-	static void assertInvalidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context) {
+	static void assertInvalidUrlScheme(TestableAbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context) {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
 		address.setAddress("sometext");
 		
-		formatter.getAttributeNameValuePairs(context, address, new TELImpl());
+		formatter.getAttributeNameValuePairsForTest(context, address, new TELImpl());
 
 		assertFalse(context.getModelToXmlResult().isValid());
 		assertEquals(1, context.getModelToXmlResult().getHl7Errors().size());
 		assertTrue("expected message", context.getModelToXmlResult().getHl7Errors().get(0).getMessage().contains("Scheme " + urlScheme.getCodeValue() + " is not valid"));
 	}
 
-	static void assertValidUrlScheme(AbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context, String expected) throws Exception {
+	static void assertValidUrlScheme(TestableAbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> formatter, URLScheme urlScheme, FormatContext context, String expected) throws Exception {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(urlScheme);
 		address.setAddress("someAddress");
 		
-		Map<String, String> result = formatter.getAttributeNameValuePairs(context, address, new TELImpl());
+		Map<String, String> result = formatter.getAttributeNameValuePairsForTest(context, address, new TELImpl());
 		
 		assertTrue(context.getModelToXmlResult().isValid());
 		

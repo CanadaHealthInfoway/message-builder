@@ -51,12 +51,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.RelatedEntity"})
 public class RelatedEntityBean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<RoleClassMutualRelationship> classCode = new CS_R2Impl<RoleClassMutualRelationship>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
     private LIST<AD, PostalAddress> addr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private IVL_TS effectiveTime = new IVL_TSImpl();

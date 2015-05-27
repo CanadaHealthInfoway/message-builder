@@ -44,10 +44,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"ImmunizationActivity.InstructionsEntryRelationship","MedicationActivity.InstructionsEntryRelationship","ProcedureActivityAct.InstructionsEntryRelationship","ProcedureActivityObservation.InstructionsEntryRelationship","ProcedureActivityProcedure.InstructionsEntryRelationship"})
 public class InstructionsEntryRelationshipBean extends MessagePartBean implements EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();

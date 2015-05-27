@@ -33,11 +33,12 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.convert.AnnotationStrategy;
 import org.simpleframework.xml.core.Persister;
 
-import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.xml.MessageSet;
-import ca.infoway.messagebuilder.xml.cdavalidator.ContainedTemplateValidator;
 
+/**
+ * @sharpen.ignore Manually translate
+ */
 public class ContainedTemplateValidatorTest {
 	
 	private static Serializer serializer = new Persister(new AnnotationStrategy());
@@ -53,7 +54,7 @@ public class ContainedTemplateValidatorTest {
 		
 		ContainedTemplateValidator validator = new ContainedTemplateValidator(derivedMessageSet.getPackageLocations().values());
 		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(SchematronValidatorTest.class.getResourceAsStream("contained-template-test.xml")));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("contained-template-test.xml")));
 		StringWriter writer = new StringWriter();
 		while (reader.ready()) {
 			writer.append(reader.readLine());

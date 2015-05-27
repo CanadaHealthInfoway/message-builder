@@ -28,10 +28,9 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-/**
- * @sharpen.ignore - test - translated manually
- */
 public class CompositeCodeResolverTest {
+	
+	private static final Class<MockCharacters> MOCK_CHARACTERS_TYPE = MockCharacters.class; //Skip inline for .NET translation
 	
 	@Test
 	public void testShouldCompositeCollections() throws Exception {
@@ -39,7 +38,8 @@ public class CompositeCodeResolverTest {
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
 		
-		Collection<MockCharacters> c = resolver.lookup(MockCharacters.class);
+		
+		Collection<MockCharacters> c = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE);
 		assertEquals("size", 11, c.size());
 	}
 	
@@ -49,7 +49,7 @@ public class CompositeCodeResolverTest {
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
 		
-		MockCharacters result = resolver.lookup(MockCharacters.class, "SPOCK", null);
+		MockCharacters result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "SPOCK", null);
 		assertNotNull("result", result);
 		assertEquals("spock", MockStarTrek.SPOCK, result);
 	}
@@ -60,11 +60,11 @@ public class CompositeCodeResolverTest {
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
 		
-		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null, true);
+		MockCharacters result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", null, true);
 		assertNotNull("result", result);
 		assertEquals("spock", MockStarTrek.SPOCK, result);
 
-		result = resolver.lookup(MockCharacters.class, "Spock", true);
+		result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", true);
 		assertNotNull("result", result);
 		assertEquals("spock", MockStarTrek.SPOCK, result);
 	}
@@ -75,10 +75,10 @@ public class CompositeCodeResolverTest {
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
 		
-		MockCharacters result = resolver.lookup(MockCharacters.class, "Spock", null, false);
+		MockCharacters result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", null, false);
 		assertNull("result", result);
 		
-		result = resolver.lookup(MockCharacters.class, "Spock", null, true);
+		result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "Spock", null, true);
 		assertNotNull("result", result);
 	}
 	
@@ -87,8 +87,8 @@ public class CompositeCodeResolverTest {
 		CompositeCodeResolver resolver = new CompositeCodeResolver(
 				new EnumBasedCodeResolver(MockEnum.class),
 				new EnumBasedCodeResolver(MockStarTrek.class));
-		
-		MockCharacters result = resolver.lookup(MockCharacters.class, "SPOCK", "to.boldly.go");
+
+		MockCharacters result = resolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "SPOCK", "to.boldly.go");
 		assertNotNull("result", result);
 		assertEquals("spock", MockStarTrek.SPOCK, result);
 	}

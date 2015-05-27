@@ -30,6 +30,9 @@ import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Documentation;
 
+/**
+ * @sharpen.ignore - related class is only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class AnnotationMatcherTest {
 
 	private AnnotationMatcher annotationMatcher;

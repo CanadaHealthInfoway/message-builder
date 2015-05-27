@@ -29,18 +29,27 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.AbstractPropertyFormatter;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContext;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.formatter.TestableAbstractValueNullFlavorPropertyFormatter;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class IntR2PropertyFormatterTest extends FormatterTestCase {
+	
+	private static class TestableIntR2PropertyFormatter extends IntR2PropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<Integer> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, Integer t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), null, new INTImpl());
+		Map<String,String>  result = new TestableIntR2PropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.result, null, "name", null, null, null, false), null, new INTImpl());
 
 		// a null value for INT elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -53,7 +62,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerValid() throws Exception {
 		String integerValue = "34";
-		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
+		Map<String, String> result = new TestableIntR2PropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -63,7 +72,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullCaseMandatory() throws Exception {
-		String result = new IntR2PropertyFormatter().format(
+		String result = new TestableIntR2PropertyFormatter().format(
 				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null, false), new INTImpl());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 		assertTrue("no errors", this.result.isValid());
@@ -71,7 +80,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testNullCasePopulated() throws Exception {
-		String result = new IntR2PropertyFormatter().format(
+		String result = new TestableIntR2PropertyFormatter().format(
 				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.POPULATED, null, false), new INTImpl());
 		assertXml("result", "<name nullFlavor=\"NI\"/>", result);
 		assertTrue("no errors", this.result.isValid());
@@ -79,7 +88,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	
 	@Test
 	public void testNullCaseNotMandatory() throws Exception {
-		String result = new IntR2PropertyFormatter().format(
+		String result = new TestableIntR2PropertyFormatter().format(
 				new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.OPTIONAL, null, false), null);
 		assertTrue("result", StringUtils.isBlank(result));
 		assertTrue("no errors", this.result.isValid());
@@ -88,7 +97,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	@Test
 	public void testGetAttributeNameValuePairsIntegerZero() throws Exception {
 		String integerValue = "0";
-		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
+		Map<String, String> result = new TestableIntR2PropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.result, null, "name", null, null, null, false), new Integer(integerValue), null);
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -101,7 +110,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 		String integerValue = "-1";
 		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
 		Integer integer = new Integer(integerValue);
-		Map<String, String> result = new IntR2PropertyFormatter().getAttributeNameValuePairs(context, integer, new INTImpl(integer));
+		Map<String, String> result = new TestableIntR2PropertyFormatter().getAttributeNameValuePairsForTest(context, integer, new INTImpl(integer));
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
@@ -109,7 +118,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 
 		context.getModelToXmlResult().clearErrors();
 		
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				new INTImpl(integer));
 		assertEquals("xml output as expected", "<name value=\"-1\"/>", output.trim());
@@ -120,7 +129,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 	public void testGetAttributeNameValuePairsIntegerZeroNoWarnings() throws Exception {
 		String integerValue = "0";
 		FormatContextImpl context = new FormatContextImpl(this.result, null, "name", "INT", ConformanceLevel.REQUIRED, null, false);
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				new INTImpl(new Integer(integerValue)));
 		assertEquals("xml output as expected", "<name value=\"0\"/>", output.trim());
@@ -135,7 +144,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setOperator(SetOperator.INCLUDE);
 		
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				dataType);
 		assertEquals("xml output as expected", "<name value=\"123\"/>", output.trim());
@@ -151,7 +160,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setUnsorted(true);
 		
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				dataType);
 		assertEquals("xml output as expected", "<name unsorted=\"true\" value=\"123\"/>", output.trim());
@@ -166,7 +175,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		dataType.setOperator(SetOperator.INCLUDE);
 		
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				dataType);
 		assertEquals("xml output as expected", "<name operator=\"I\" value=\"123\"/>", output.trim());
@@ -180,7 +189,7 @@ public class IntR2PropertyFormatterTest extends FormatterTestCase {
 		
 		INTImpl dataType = new INTImpl(new Integer(integerValue));
 		
-		String output = new IntR2PropertyFormatter().format(
+		String output = new TestableIntR2PropertyFormatter().format(
 				context,
 				dataType);
 		assertEquals("xml output as expected", "<name value=\"123\"/>", output.trim());

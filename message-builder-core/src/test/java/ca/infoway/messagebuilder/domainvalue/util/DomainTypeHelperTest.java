@@ -23,8 +23,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
-
 public class DomainTypeHelperTest {
 
 	@Test

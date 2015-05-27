@@ -24,6 +24,7 @@ package ca.infoway.messagebuilder.model;
  * 
  * @author robertsj
  *
+ * @sharpen.ignore - named differently in .NET
  */
 public interface ClinicalDocumentBean extends InteractionBean {
 

@@ -52,15 +52,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.RelatedEntityInformant12","ContinuityOfCareDocumentCCD.RelatedEntityInformant12","DiagnosticImagingReport.RelatedEntityInformant12","DischargeSummary.RelatedEntityInformant12","HistoryAndPhysical.RelatedEntityInformant12","OperativeNote.RelatedEntityInformant12","ProcedureNote.RelatedEntityInformant12","ProgressNote.RelatedEntityInformant12","USRealmHeader.RelatedEntityInformant12","UnstructuredDocument.RelatedEntityInformant12"})
 public class RelatedEntityInformant12Bean extends MessagePartBean implements Informant12Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 relatedEntityClassCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> relatedEntityRealmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private CS_R2<RoleClassMutualRelationship> relatedEntityClassCode = new CS_R2Impl<RoleClassMutualRelationship>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> relatedEntityRealmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II relatedEntityTypeId = new IIImpl();
     private LIST<II, Identifier> relatedEntityTemplateId = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 relatedEntityCode = new CE_R2Impl();
+    private CE_R2<Code> relatedEntityCode = new CE_R2Impl<Code>();
     private LIST<AD, PostalAddress> relatedEntityAddr = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private LIST<TEL, TelecommunicationAddress> relatedEntityTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private IVL_TS relatedEntityEffectiveTime = new IVL_TSImpl();

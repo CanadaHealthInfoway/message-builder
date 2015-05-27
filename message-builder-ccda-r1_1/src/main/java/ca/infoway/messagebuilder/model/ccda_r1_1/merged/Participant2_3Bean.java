@@ -46,15 +46,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Participant1","ContinuityOfCareDocumentCCD.Participant1","DiagnosticImagingReport.Participant1","DischargeSummary.Participant1","EncounterActivities.Participant2","HistoryAndPhysical.Participant1","OperativeNote.Participant1","ProcedureActivityAct.Participant2","ProcedureActivityObservation.Participant2","ProgressNote.Participant1","USRealmHeader.Participant1","UnstructuredDocument.Participant1"})
 public class Participant2_3Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.Participant2Choice, Participant1Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private IVL_TS time = new IVL_TSImpl();
-    private CE_R2 awarenessCode = new CE_R2Impl();
+    private CE_R2<Code> awarenessCode = new CE_R2Impl<Code>();
     private ParticipantRoleBean participantRole;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private CE_R2 functionCode = new CE_R2Impl();
+    private CS_R2<ParticipationType> typeCode = new CS_R2Impl<ParticipationType>();
+    private CE_R2<Code> functionCode = new CE_R2Impl<Code>();
     private AssociatedEntityBean associatedEntity;
 
 

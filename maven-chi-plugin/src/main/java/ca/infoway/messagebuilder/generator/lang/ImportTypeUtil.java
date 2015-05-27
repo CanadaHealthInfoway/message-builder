@@ -35,7 +35,11 @@ public class ImportTypeUtil {
 		Set<Object> importTypes = new HashSet<Object>();
 		if (language == ProgrammingLanguage.C_SHARP) {
 			importTypes.add("Ca.Infoway.Messagebuilder.Annotation.Hl7PartTypeMapping");
-			importTypes.add("Ca.Infoway.Messagebuilder.Model.IInteraction");
+			if (type.isCda()) {
+				importTypes.add("Ca.Infoway.Messagebuilder.Model.IClinicalDocument");
+			} else {
+				importTypes.add("Ca.Infoway.Messagebuilder.Model.IInteraction");
+			}
 		} else {
 			importTypes.add("ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping");
 			if (type.isCda()) {

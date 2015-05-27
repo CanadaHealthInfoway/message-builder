@@ -41,9 +41,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"ResultsSectionentriesOptional.Entry","ResultsSectionentriesRequired.Entry"})
 public class Entry_9Bean extends MessagePartBean implements EntryChoice_9 {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private OrganizerBean organizer;

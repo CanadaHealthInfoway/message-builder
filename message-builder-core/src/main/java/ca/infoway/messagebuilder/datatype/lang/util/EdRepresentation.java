@@ -20,7 +20,16 @@
 
 package ca.infoway.messagebuilder.datatype.lang.util;
 
-public enum EdRepresentation {
-	B64,
-	TXT
+import ca.infoway.messagebuilder.lang.EnumPattern;
+
+public class EdRepresentation extends EnumPattern {
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final EdRepresentation B64 = new EdRepresentation("B64");
+	public static final EdRepresentation TXT = new EdRepresentation("TXT");
+	
+	private EdRepresentation(String name) {
+		super(name);
+	}
 }

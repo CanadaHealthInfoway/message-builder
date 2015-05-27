@@ -76,25 +76,25 @@ import java.util.List;
 @Hl7RootType
 public class SubstanceAdministrationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 moodCode = new CS_R2Impl();
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<PlanOfCareSupplyMoodCode> moodCode = new CS_R2Impl<PlanOfCareSupplyMoodCode>();
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CD_R2 code = new CD_R2Impl();
+    private CD_R2<Code> code = new CD_R2Impl<Code>();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
-    private CS_R2 statusCode = new CS_R2Impl();
+    private CS_R2<Code> statusCode = new CS_R2Impl<Code>();
     private LIST<SXCM_R2<MbDate>, MbDate> effectiveTime = new LISTImpl<SXCM_R2<MbDate>, MbDate>(SXCM_R2Impl.class);
-    private CE_R2 priorityCode = new CE_R2Impl();
+    private CE_R2<Code> priorityCode = new CE_R2Impl<Code>();
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
-    private CE_R2 routeCode = new CE_R2Impl();
-    private LIST<CD_R2, CodedTypeR2<? extends Code>> approachSiteCode = new LISTImpl<CD_R2, CodedTypeR2<? extends Code>>(CD_R2Impl.class);
+    private CE_R2<Code> routeCode = new CE_R2Impl<Code>();
+    private LIST<CD_R2<Code>, CodedTypeR2<Code>> approachSiteCode = new LISTImpl<CD_R2<Code>, CodedTypeR2<Code>>(CD_R2Impl.class);
     private IVL<PQ, Interval<PhysicalQuantity>> doseQuantity = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
     private IVL<PQ, Interval<PhysicalQuantity>> rateQuantity = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
     private RTO<PhysicalQuantity, PhysicalQuantity> maxDoseQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
-    private CE_R2 administrationUnitCode = new CE_R2Impl();
+    private CE_R2<Code> administrationUnitCode = new CE_R2Impl<Code>();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();
     private ConsumableBean consumable;

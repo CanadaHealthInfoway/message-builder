@@ -20,11 +20,14 @@
 
 package ca.infoway.messagebuilder.datatype;
 
+import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+
 
 /**
  * <p>R2 datatype HXIT
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface HXIT<T> extends ANY<T> {
+public interface HXIT<T extends Code> extends ANY<CodedTypeR2<T>> {
 }

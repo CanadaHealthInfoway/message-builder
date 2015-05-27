@@ -99,7 +99,7 @@ public class DataTypeTest {
 	@Test
 	public void shouldGetCodeTypeR2() throws Exception {
 		DataType dataType = new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true);
-		assertEquals("CD", "CD", dataType.getShortWrappedName());
+		assertEquals("CD", "CD<ActStatus>", dataType.getShortWrappedName());
 		assertEquals("CD", "CodedTypeR2<ActStatus>", dataType.getShortName(ProgrammingLanguage.JAVA));
 		assertEquals("CD", "ActStatus", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}
@@ -107,7 +107,7 @@ public class DataTypeTest {
 	@Test
 	public void shouldGetListCodeTypeR2() throws Exception {
 		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), true, new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true));
-		assertEquals("LIST<CD>", "LIST<CD, CodedTypeR2<? extends Code>>", dataType.getShortWrappedName());
+		assertEquals("LIST<CD>", "LIST<CD<ActStatus>, CodedTypeR2<ActStatus>>", dataType.getShortWrappedName());
 		assertEquals("LIST<CD>", "List<CodedTypeR2<ActStatus>>", dataType.getShortName(ProgrammingLanguage.JAVA));
 		assertEquals("LIST<CD>", "List", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}
@@ -123,7 +123,7 @@ public class DataTypeTest {
 	@Test
 	public void shouldGetListCodeTypeBxitR2() throws Exception {
 		DataType dataType = new DataType(DataTypeGenerationDetails.LIST, List.class.getName(), true, new DataType(DataTypeGenerationDetails.BXIT_CD_R2, "ca.infoway.messagebuilder.domainvalue.ActStatus", true, new DataType(DataTypeGenerationDetails.CD, "ca.infoway.messagebuilder.domainvalue.ActStatus", true)));
-		assertEquals("LIST<BXIT>", "LIST<BXIT<CodedTypeR2<? extends Code>>, CodedTypeR2<? extends Code>>", dataType.getShortWrappedName());
+		assertEquals("LIST<BXIT>", "LIST<BXIT<CodedTypeR2<ActStatus>>, CodedTypeR2<ActStatus>>", dataType.getShortWrappedName());
 		assertEquals("LIST<BXIT>", "List<CodedTypeR2<ActStatus>>", dataType.getShortName(ProgrammingLanguage.JAVA));
 		assertEquals("LIST<BXIT>", "List", dataType.getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}

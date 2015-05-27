@@ -22,7 +22,9 @@ package ca.infoway.messagebuilder.xml.template;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
 
-
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class TemplateReference {
 	
 	private String context;

@@ -88,6 +88,10 @@ public class IiValidationUtils {
 	}
 	
 	public boolean isUuid(String root) {
+        // avoid trying to create a UUID - if not a uuid, the call is expensive (especially for .NET)
+        if (root == null || !(root.length() == 36 || root.length() == 32)) {
+            return false;
+        }
 		try {
 			UUID.fromString(root);
 			return true;

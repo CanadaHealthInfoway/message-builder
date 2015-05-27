@@ -23,8 +23,8 @@ package ca.infoway.messagebuilder.marshalling.hl7;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 
 public class ModelToXmlResult implements Hl7Errors {

@@ -20,16 +20,17 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
 import static ca.infoway.messagebuilder.datatype.lang.util.Compression.gunzip;
 import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.HTML_TEXT;
 import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.PLAIN_TEXT;
 import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 import static ca.infoway.messagebuilder.platform.Base64.decodeBase64String;
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 

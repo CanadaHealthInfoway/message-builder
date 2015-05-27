@@ -25,8 +25,8 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 public interface DataTypeAdapter {
 	
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName);
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType);
-	public BareANY adapt(BareANY any);
-
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType);
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any);
+	public BareANY adapt(String toDataTypeName, BareANY any);
 
 }

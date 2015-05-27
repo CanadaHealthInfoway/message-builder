@@ -27,7 +27,9 @@ import ca.infoway.messagebuilder.datatype.COLLECTION;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 
-@SuppressWarnings("unchecked")
+/**
+ * @sharpen.ignore - due to generics issues
+ */
 public class CollectionOfAnyToAnyAdapter implements DataTypeAdapter {
 
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
@@ -38,11 +40,15 @@ public class CollectionOfAnyToAnyAdapter implements DataTypeAdapter {
 		return false;
 	}
 	
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		return false;
 	}
-	
-	public BareANY adapt(BareANY any) {
+
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
+		return any;
+	}
+
+	public BareANY adapt(String toDataTypeName, BareANY any) {
 		Collection collection = ((COLLECTION<?>) any).getValue();
 		
 		BareANY element = null;

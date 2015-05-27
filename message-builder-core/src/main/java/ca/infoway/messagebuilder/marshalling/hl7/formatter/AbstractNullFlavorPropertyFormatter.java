@@ -79,7 +79,7 @@ public abstract class AbstractNullFlavorPropertyFormatter<V> extends AbstractPro
 
 	@SuppressWarnings("unchecked")
 	protected V extractBareValue(BareANY hl7Value) {
-		return hl7Value == null ? null : (V) hl7Value.getBareValue();
+		return hl7Value == null ? (V)(Object)null : (V) hl7Value.getBareValue(); //Cast as Object for .NET translation
 	}
 
 	protected String formatNonNullDataType(FormatContext context, BareANY dataType, int indentLevel) {

@@ -48,6 +48,7 @@ import ca.infoway.messagebuilder.platform.CodeUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * AD - Address
@@ -112,8 +113,7 @@ class AdElementParser extends AbstractSingleElementParser<PostalAddress> {
     private PostalAddress parseNode(Node node, XmlToModelResult xmlToModelResult) {
         PostalAddress result = new PostalAddress();
         NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (isNonBlankTextNode(childNode)) {
                 String value = childNode.getNodeValue();
                 result.addPostalAddressPart(new PostalAddressPart(value));

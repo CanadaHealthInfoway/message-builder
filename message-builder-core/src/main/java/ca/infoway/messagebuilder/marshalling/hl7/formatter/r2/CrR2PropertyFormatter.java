@@ -90,12 +90,12 @@ public class CrR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<C
 
 	private String formatName(FormatContext context, CodedTypeR2<Code> name, int indentLevel) {
 		FormatContext newContext = new FormatContextImpl("CV", ConformanceLevel.OPTIONAL, Cardinality.create("0-1"), "name", context);
-		return this.cvFormatter.format(newContext, new CV_R2Impl(name), indentLevel);
+		return this.cvFormatter.format(newContext, new CV_R2Impl<Code>(name), indentLevel);
 	}
 
 	private String formatValue(FormatContext context, CodedTypeR2<Code> value, int indentLevel) {
 		FormatContext newContext = new FormatContextImpl("CD", ConformanceLevel.OPTIONAL, Cardinality.create("0-1"), "value", context);
-		return this.cdFormatter.format(newContext, new CD_R2Impl(value), indentLevel);
+		return this.cdFormatter.format(newContext, new CD_R2Impl<Code>(value), indentLevel);
 	}
 	
 }

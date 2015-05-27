@@ -39,11 +39,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
-import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
@@ -51,12 +49,11 @@ import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
@@ -66,9 +63,11 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.r2.ParserR2Registry;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
 import ca.infoway.messagebuilder.model.InteractionBean;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNamedNodeMapIterable;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -458,7 +457,9 @@ class Hl7SourceMapper {
 				
 				int newErrorsCount = (source.getResult().getHl7Errors().size() - currentErrorCount);
 				for (int i = 0; i < newErrorsCount; i++) {
-					Hl7Error removedError = source.getResult().getHl7Errors().remove(currentErrorCount);
+					List<Hl7Error> hl7Errors = source.getResult().getHl7Errors();
+					Hl7Error removedError = hl7Errors.get(currentErrorCount);
+					hl7Errors.remove(currentErrorCount); //.NET conversion
 					newChoiceCandidate.addError(removedError);
 				}
 				
@@ -678,10 +679,9 @@ class Hl7SourceMapper {
 					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType()) {
 					if (source.isR2()) {
-						if (value instanceof ANY) {
-							Object value2 = ((ANY<?>) value).getValue();
-							@SuppressWarnings("unchecked")
-							Code code = value2 == null ? null : ((CodedTypeR2<Code>) value2).getCode();
+						if (GenericClassUtil.isInstanceOfANY(value)) {
+							Object value2 = GenericClassUtil.getValueFromANY(value);
+							Code code = value2 == null ? null : CodedTypeR2Helper.getCode(value2);
 							valid = (code != null && code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
 						}
 					} else {
@@ -728,9 +728,7 @@ class Hl7SourceMapper {
     		wrapper.writeNullFlavor(source, relationship, nullFlavorHelper.parseNullNode());
     	} else {
     		NamedNodeMap map = currentElement.getAttributes();
-    		int length = map.getLength();
-    		for (int i = 0; i < length; i++) {
-    			Node attributeNode = map.item(i);
+    		for (Node attributeNode : new XmlNamedNodeMapIterable(map)) {
     			Relationship attributeRelationship = source.getRelationship(NodeUtil.getLocalOrTagName(attributeNode));
     			if (!NamespaceUtil.isHl7Node(attributeNode)) {
     				// quietly ignore it

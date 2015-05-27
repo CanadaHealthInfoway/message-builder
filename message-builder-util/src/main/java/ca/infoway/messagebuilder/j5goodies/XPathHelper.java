@@ -111,11 +111,12 @@ public class XPathHelper {
      * <p>Get a list of nodes.
      * @param base - the base node
      * @param xpathExpression - the xpath expression (namespace aware).
+     * @param prefix - ignored, just for .NET translation
      * @param namespace - the namespace.
      * @return - the node list.
      * @throws XPathExpressionException - if the XPath is not valid
      */
-    public NodeList getNodes(Node base, String xpathExpression, String namespace) throws XPathExpressionException {
+    public NodeList getNodes(Node base, String xpathExpression, String prefix, String namespace) throws XPathExpressionException {
         XPath xpath = createXpath(new NamespaceContextImpl(namespace));
         XPathExpression expression = xpath.compile(xpathExpression);
         

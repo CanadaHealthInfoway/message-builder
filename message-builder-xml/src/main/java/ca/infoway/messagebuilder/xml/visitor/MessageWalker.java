@@ -33,9 +33,11 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.util.xml.XmlNamedNodeMapIterable;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -109,17 +111,18 @@ public class MessageWalker {
 
 	private void processUnknownStructuralAttributes(Set<String> knownItems,	Element element, MessageVisitor visitor) {
 		NamedNodeMap attrs = element.getAttributes();
-		int length = attrs == null ? 0 : attrs.getLength();
-		for (int i = 0; i < length; i++) {  
-			Attr item = (Attr) attrs.item(i);
-			if (isIgnorable(item)) {
-				// skip it
-			} else if (!NamespaceUtil.isHl7Node(item)) {
-				// skip it
-			} else if (!knownItems.contains(item.getName())) {
-				knownItems.add(item.getName());
-				// this call will intentionally fail fast with an error (since relationship is null)
-				visitor.visitStructuralAttribute(element, item, null);
+		if (attrs != null) {
+			for (Node node : new XmlNamedNodeMapIterable(attrs)) {
+				Attr item = (Attr) node;
+				if (isIgnorable(item)) {
+					// skip it
+				} else if (!NamespaceUtil.isHl7Node(item)) {
+					// skip it
+				} else if (!knownItems.contains(item.getName())) {
+					knownItems.add(item.getName());
+					// this call will intentionally fail fast with an error (since relationship is null)
+					visitor.visitStructuralAttribute(element, item, null);
+				}
 			}
 		}
 	}
@@ -301,7 +304,10 @@ public class MessageWalker {
 				if (!relationshipBridge.isStructuralAttribute()) {
 					Set<String> names = relationshipBridge.getNames();
 					if (!names.isEmpty()) {
-						properlyOrderedProvidedRelationshipNames.add(names.iterator().next());
+						Iterator<String> iterator = names.iterator();
+						if (iterator.hasNext()) { //For .NET translation
+							properlyOrderedProvidedRelationshipNames.add(iterator.next());
+						}
 						if (names.size() > 1) {
 							// not expecting this to ever happen, but need to know if it does so we can adjust the code
 							visitor.addError("Internal error: found more than one name " + listNames(names), element);

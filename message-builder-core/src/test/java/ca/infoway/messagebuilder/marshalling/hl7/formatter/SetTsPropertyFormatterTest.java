@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -36,12 +35,9 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
+import ca.infoway.messagebuilder.platform.DateFormatUtil;
 import ca.infoway.messagebuilder.xml.Cardinality;
 
-/**
- * @author administrator
- * @sharpen.ignore Timezone handling
- */
 public class SetTsPropertyFormatterTest extends FormatterTestCase {
 
 	private FormatterRegistry formatterRegistry = FormatterRegistry.getInstance();
@@ -66,9 +62,8 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 				new FormatContextImpl(new ModelToXmlResult(), null, "blah", "SET<TS>", MANDATORY, Cardinality.create("1-4"), false), 
 				set);
 		
-		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone1 = tzformat.format(calendar1);
-		String currentTimeZone2 = tzformat.format(calendar2);
+		String currentTimeZone1 = DateFormatUtil.format(calendar1, "Z");
+		String currentTimeZone2 = DateFormatUtil.format(calendar2, "Z");
 		
 		String expectedValue1 = "19990101122959.0000" + currentTimeZone1;
 		String expectedValue2 = "20010203133000.0000" + currentTimeZone2;

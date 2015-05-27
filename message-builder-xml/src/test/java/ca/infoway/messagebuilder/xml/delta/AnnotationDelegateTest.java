@@ -26,6 +26,9 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 
+/**
+ * @sharpen.ignore - related class is only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class AnnotationDelegateTest {
 
 	@Test

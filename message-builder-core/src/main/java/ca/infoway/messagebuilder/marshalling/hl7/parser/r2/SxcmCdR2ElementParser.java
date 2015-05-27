@@ -24,7 +24,9 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.SXCM_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * SXCM<CD> (R2)
@@ -37,4 +39,8 @@ class SxcmCdR2ElementParser extends CdR2ElementParser {
 		return new SXCM_R2Impl<CodedTypeR2<Code>>();
 	}
 	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createSXCMInstance(context.getExpectedReturnType());
+	}
 }

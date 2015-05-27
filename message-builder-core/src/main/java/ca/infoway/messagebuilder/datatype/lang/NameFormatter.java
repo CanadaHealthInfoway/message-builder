@@ -20,8 +20,9 @@
 
 package ca.infoway.messagebuilder.datatype.lang;
 
-import static ca.infoway.messagebuilder.util.iterator.EmptyIterable.nullSafeIterable;
 import static org.apache.commons.lang.StringUtils.trimToEmpty;
+
+import static ca.infoway.messagebuilder.util.iterator.EmptyIterable.nullSafeIterable;
 
 import java.util.ArrayList;
 import java.util.List;

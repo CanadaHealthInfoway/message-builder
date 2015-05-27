@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
+
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 
 import java.util.ArrayList;
 import java.util.List;

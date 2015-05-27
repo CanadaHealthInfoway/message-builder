@@ -38,9 +38,6 @@ import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 
-/**
- * @sharpen.ignore data type adapter
- */
 public class IvlToTsAdapterTest {
 
 	private IvlToTsAdapter adapter;
@@ -65,7 +62,7 @@ public class IvlToTsAdapterTest {
 	@Test
 	public void shouldAdaptCorrectly() throws Exception {
 		IVLImpl<TS, Interval<Date>> ivl = new IVLImpl<TS, Interval<Date>>(IntervalFactory.<Date>createLow(new Date()));
-		BareANY adapted = this.adapter.adapt(ivl);
+		BareANY adapted = this.adapter.adapt(TS.class, ivl);
 		assertTrue(adapted instanceof TS);
 		assertEquals("low", ((TS) adapted).getValue(), ivl.getValue().getLow());
 	}

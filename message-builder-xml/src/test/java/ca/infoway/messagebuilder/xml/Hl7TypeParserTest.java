@@ -26,9 +26,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.xml.Hl7TypeName;
-import ca.infoway.messagebuilder.xml.Hl7TypeParser;
-
 
 /**
  * @sharpen.ignore - datatype - translated manually

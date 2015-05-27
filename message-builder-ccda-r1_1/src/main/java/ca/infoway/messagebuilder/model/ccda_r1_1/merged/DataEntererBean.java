@@ -42,8 +42,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.DataEnterer","ContinuityOfCareDocumentCCD.DataEnterer","DiagnosticImagingReport.DataEnterer","DischargeSummary.DataEnterer","HistoryAndPhysical.DataEnterer","OperativeNote.DataEnterer","ProcedureNote.DataEnterer","ProgressNote.DataEnterer","USRealmHeader.DataEnterer","UnstructuredDocument.DataEnterer"})
 public class DataEntererBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private TS_R2 time = new TS_R2Impl();

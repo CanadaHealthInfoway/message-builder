@@ -41,6 +41,7 @@ import ca.infoway.messagebuilder.xml.PackageLocation;
 
 public class ContainedTemplateValidator {
 	
+	private static final String PREFIX = "cda";
 	private static final String NAMESPACE = "urn:hl7-org:v3";
 	
 	private Map<String,PackageLocation> packagesByOid;
@@ -49,7 +50,9 @@ public class ContainedTemplateValidator {
 	public ContainedTemplateValidator(Collection<PackageLocation> locations) {
 		packagesByOid = new HashMap<String, PackageLocation>();
 		for (PackageLocation packageLocation : locations) {
-			packagesByOid.put(packageLocation.getTemplateOid(), packageLocation);
+			if (packageLocation.getTemplateOid() != null) {
+				packagesByOid.put(packageLocation.getTemplateOid(), packageLocation);
+			}
 		}
 	}
 
@@ -71,7 +74,7 @@ public class ContainedTemplateValidator {
 	private void validate(Node xml, String baseNodeXPath,
 			String containedNodeXPath, Hl7Errors validationResult) {
 		try {
-			NodeList baseNodes = xPathHelper.getNodes(xml, baseNodeXPath, NAMESPACE);
+			NodeList baseNodes = xPathHelper.getNodes(xml, baseNodeXPath, "cda", NAMESPACE);
 			for (int i = 0, ilength = baseNodes.getLength(); i < ilength; i++) {
 				validateSingleNode(baseNodes.item(i), containedNodeXPath, validationResult);
 			}
@@ -82,12 +85,12 @@ public class ContainedTemplateValidator {
 
 	private void validateSingleNode(Node baseNode, String containedNodeXPath,
 			Hl7Errors validationResult) throws XPathExpressionException {
-		NodeList baseTemplateIds = xPathHelper.getNodes(baseNode, "cda:templateId/@root", NAMESPACE);
+		NodeList baseTemplateIds = xPathHelper.getNodes(baseNode, "cda:templateId/@root", PREFIX, NAMESPACE);
 		for (int j = 0, jlength = baseTemplateIds.getLength(); j < jlength; j++) {
 			String templateId = baseTemplateIds.item(j).getNodeValue();
 			PackageLocation packageLocation = packagesByOid.get(templateId);
 			if (packageLocation != null && packageLocation.getContainedTemplateConstraints() != null && !packageLocation.getContainedTemplateConstraints().isEmpty()) {
-				NodeList containedTemplateIds = xPathHelper.getNodes(baseNode, containedNodeXPath, NAMESPACE);
+				NodeList containedTemplateIds = xPathHelper.getNodes(baseNode, containedNodeXPath, PREFIX, NAMESPACE);
 				HashMap<String, Integer> containedTemplateMap = populateContainedTemplateMap(containedTemplateIds);
 				
 				for (ContainedTemplate containedTemplate : packageLocation.getContainedTemplateConstraints()) {
@@ -95,7 +98,7 @@ public class ContainedTemplateValidator {
 					if (count == null) {
 						count = 0;
 					}
-					if (!containedTemplate.getCardinality().contains(count)) {
+					if (!containedTemplate.getCardinality().contains((int)count)) { //Cast for .NET
 						validationResult.addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_CARDINALITY_CONSTRAINT, "Expected [" + containedTemplate.getRawCardinality() + "] instances of template "
 								+ containedTemplate.getTemplateOid()
 								+ ", but found " + count, baseNode));
@@ -115,7 +118,7 @@ public class ContainedTemplateValidator {
 			while (containedTemplateId != null && containedPackageLocation != null) {
 				int count = 1;
 				if (containedTemplateMap.containsKey(containedTemplateId)) {
-					count += containedTemplateMap.get(containedTemplateId);
+					count += (int) containedTemplateMap.get(containedTemplateId); //Cast for .NET
 				}
 				containedTemplateMap.put(containedTemplateId, count);
 				

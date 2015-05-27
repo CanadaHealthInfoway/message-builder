@@ -20,9 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter.r2;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,8 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.error.ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterTestCase;
 import ca.infoway.messagebuilder.xml.Cardinality;

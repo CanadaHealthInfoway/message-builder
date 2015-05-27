@@ -20,10 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -38,8 +37,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
-
-// FIXME - CDA - TM - removed sharpen ignore annotation; should be able to get these tests running in .NET (likely call to hasItem?)
 
 public class SetIiElementParserTest extends ParserTestCase {
 
@@ -60,8 +57,8 @@ public class SetIiElementParserTest extends ParserTestCase {
 		
 		assertNotNull("null", rawSet);
 		assertEquals("size", 2, rawSet.size());
-		assertThat(rawSet, hasItem(new Identifier("rootValue", "fred")));
-		assertThat(rawSet, hasItem(new Identifier("rootValue2", "extensionValue")));
+		assertTrue(rawSet.contains(new Identifier("rootValue", "fred")));
+		assertTrue(rawSet.contains(new Identifier("rootValue2", "extensionValue")));
 	}
 
 	@Test
@@ -80,7 +77,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 		rawSet.add(new Identifier("3.3", "newExtension"));
 		
 		assertEquals("size", 3, rawSet.size());
-		assertThat(rawSet, hasItem(new Identifier("3.3", "newExtension")));
+		assertTrue(rawSet.contains(new Identifier("3.3", "newExtension")));
 	}
 	
 	@Test
@@ -98,8 +95,8 @@ public class SetIiElementParserTest extends ParserTestCase {
 		@SuppressWarnings({ "unchecked"})
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
 		assertEquals("size", 2, rawSet.size());
-		assertThat(rawSet, hasItem(new Identifier("1.1", "fred")));
-		assertThat(rawSet, hasItem(new Identifier("2.2", "extensionValue")));
+		assertTrue(rawSet.contains(new Identifier("1.1", "fred")));
+		assertTrue(rawSet.contains(new Identifier("2.2", "extensionValue")));
 		
 		assertEquals("errors", 1, this.xmlResult.getHl7Errors().size());
 		assertEquals("message", "Duplicate value not allowed for SET", this.xmlResult.getHl7Errors().get(0).getMessage());

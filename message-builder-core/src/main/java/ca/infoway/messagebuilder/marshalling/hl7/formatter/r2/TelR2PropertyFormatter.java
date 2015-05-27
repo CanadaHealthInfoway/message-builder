@@ -55,6 +55,13 @@ public class TelR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<
 
 //	private static final TelValidationUtils TEL_VALIDATION_UTILS = new TelValidationUtils();
 	
+	//For .NET conversion to open up visibility of protected method
+	private static class TsR2PropertyFormatterVisible extends TsR2PropertyFormatter {
+		public Map<String,String> getAttributeNameValuePairsVisible(FormatContext context, MbDate t, ca.infoway.messagebuilder.datatype.BareANY bareAny) {
+			return getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
+	
 	@Override
 	protected String formatNonNullValue(FormatContext context, TelecommunicationAddress value, int indentLevel) {
 		
@@ -102,7 +109,7 @@ public class TelR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<
     	for (Date period : useablePeriods.keySet()) {
     		MbDate mbDate = new MbDate(period);
 			TS_R2 ts = new TS_R2Impl(mbDate, useablePeriods.get(period));
-			Map<String, String> attributes = new TsR2PropertyFormatter().getAttributeNameValuePairs(tsFormatContext, mbDate, ts);
+			Map<String, String> attributes = new TsR2PropertyFormatterVisible().getAttributeNameValuePairsVisible(tsFormatContext, mbDate, ts);
 			buffer.append(createElement("useablePeriod", attributes, indentLevel, true, true));
 		}
 	}

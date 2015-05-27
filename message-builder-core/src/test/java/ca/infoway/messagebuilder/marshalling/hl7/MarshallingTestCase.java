@@ -20,8 +20,9 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7;
 
-import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static org.junit.Assert.assertEquals;
+
+import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 
 import java.text.DateFormat;
 import java.util.Date;

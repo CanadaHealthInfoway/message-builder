@@ -73,24 +73,24 @@ import java.util.List;
 @Hl7RootType
 public class ObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CD_R2 code = new CD_R2Impl();
+    private CD_R2<Code> code = new CD_R2Impl<Code>();
     private ST derivationExpr = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
-    private CS_R2 statusCode = new CS_R2Impl();
+    private CS_R2<ResultStatus> statusCode = new CS_R2Impl<ResultStatus>();
     private IVL_TS effectiveTime = new IVL_TSImpl();
-    private CE_R2 priorityCode = new CE_R2Impl();
+    private CE_R2<Code> priorityCode = new CE_R2Impl<Code>();
     private IVL<INT, Interval<Integer>> repeatNumber = new IVLImpl<INT, Interval<Integer>>();
-    private CS_R2 languageCode = new CS_R2Impl();
+    private CS_R2<Code> languageCode = new CS_R2Impl<Code>();
     private ANY<Object> value = new ANYImpl<Object>();
-    private LIST<CE_R2, CodedTypeR2<? extends Code>> interpretationCode = new LISTImpl<CE_R2, CodedTypeR2<? extends Code>>(CE_R2Impl.class);
-    private CE_R2 methodCode = new CE_R2Impl();
-    private CD_R2 targetSiteCode = new CD_R2Impl();
+    private LIST<CE_R2<Code>, CodedTypeR2<Code>> interpretationCode = new LISTImpl<CE_R2<Code>, CodedTypeR2<Code>>(CE_R2Impl.class);
+    private CE_R2<Code> methodCode = new CE_R2Impl<Code>();
+    private CD_R2<Code> targetSiteCode = new CD_R2Impl<Code>();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();
     private List<Performer2_1Bean> performer = new ArrayList<Performer2_1Bean>();

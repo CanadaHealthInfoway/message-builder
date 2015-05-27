@@ -20,6 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.INT;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 @DataTypeHandler("IVL<INT>")
@@ -27,4 +31,8 @@ class IvlIntElementParser extends IvlElementParser<Integer> {
 
 	// IVL<INT> does not appear to be used anywhere in CeRx, MR2007 (including V02R01) or MR2009
 	
+	@Override
+	protected BareANY doCreateDataTypeInstance(String typeName) {
+		return new IVLImpl<INT, Interval<Integer>>();
+	}
 }

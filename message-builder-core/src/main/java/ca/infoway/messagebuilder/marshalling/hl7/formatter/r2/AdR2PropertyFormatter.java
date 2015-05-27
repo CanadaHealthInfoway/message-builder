@@ -83,7 +83,7 @@ class AdR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<PostalAd
 		
 		Boolean isNotOrdered = postalAddress.getIsNotOrdered();
 		if (isNotOrdered != null) {
-			attributeMap.put("isNotOrdered", isNotOrdered.toString());
+			attributeMap.put("isNotOrdered", isNotOrdered.toString().toLowerCase()); //lowercase for .NET
 		}
         
         StringBuffer buffer = new StringBuffer();

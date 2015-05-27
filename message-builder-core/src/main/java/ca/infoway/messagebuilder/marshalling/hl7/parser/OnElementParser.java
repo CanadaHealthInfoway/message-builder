@@ -37,6 +37,7 @@ import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * ON - OrganizationName
@@ -59,8 +60,7 @@ class OnElementParser extends AbstractEntityNameElementParser {
 	protected EntityName parseNode(Node node, XmlToModelResult xmlToModelResult) {
         OrganizationName result = new OrganizationName();
         NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (childNode.getNodeType() == Node.TEXT_NODE) {
                 String value = childNode.getNodeValue();
                 result.addNamePart(new EntityNamePart(value));

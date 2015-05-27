@@ -27,9 +27,9 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.lang.CodeRole;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.resolver.TrivialCodeResolver;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
@@ -73,7 +73,8 @@ public class CodedTypesConstraintsHandler {
 				String nameCodeSystem = qualifierName.getCodeSystem();
 				String newNameCodeSystem = this.constraintsHandler.validateConstraint("qualifier.name.codeSystem", nameCodeSystem, constraints, logger);
 				if (!StringUtils.equals(nameCode, newNameCode) || !StringUtils.equals(nameCodeSystem, newNameCodeSystem)) {
-					Code newName = this.trivialCodeResolver.lookup(Code.class, newNameCode, newNameCodeSystem);
+					Class<Code> type = Code.class; //For .NET translation
+					Code newName = this.trivialCodeResolver.<Code>lookup(type, newNameCode, newNameCodeSystem);
 					qualifierName.setCode(newName);
 				}
 			}

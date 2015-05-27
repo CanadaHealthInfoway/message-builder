@@ -55,6 +55,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 /**
  * Abstract parser class for all name parsers.
@@ -94,8 +95,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
     
 	private List<EntityNamePart> parseNameParts(ParseContext context, NodeList childNodes, XmlToModelResult xmlToModelResult) {
 		List<EntityNamePart> parts = new ArrayList<EntityNamePart>();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node childNode = childNodes.item(i);
+		for (Node childNode : new XmlNodeListIterable(childNodes)) {
 			if (childNode instanceof Element) {
 				Element element = (Element) childNode;
 				String name = NodeUtil.getLocalOrTagName(element);
@@ -179,7 +179,11 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
     private NamePartType getNamePartType(String value, String type, Element element, XmlToModelResult xmlToModelResult) {
     	NamePartType partType = null;
     	try {
-    		partType = getNamePartType(StringUtils.equals(ORGANIZATION_NAME_TYPE, type) ? OrganizationNamePartType.class : PersonNamePartType.class, value);
+    		if (StringUtils.equals(ORGANIZATION_NAME_TYPE, type)) {
+        		partType = getNamePartType(OrganizationNamePartType.class, value);
+    		} else {
+        		partType = getNamePartType(PersonNamePartType.class, value);
+    		}
     	} catch(XmlToModelTransformationException e) {
     		recordError(e.getMessage(), element, xmlToModelResult);
     	}
@@ -210,8 +214,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
         boolean loggedValidTimeError = false;
         
         NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+        for (Node childNode : new XmlNodeListIterable(childNodes)) {
             String childElementName = NodeUtil.getLocalOrTagName(childNode);
             boolean isValidTime = VALID_TIME_ELEMENT.equals(childElementName);
             
@@ -231,7 +234,7 @@ abstract class AbstractNameR2ElementParser<V extends EntityName> extends Abstrac
                 	}
                 }
             }
-        }
+		}
         return validTime;
 	}
 

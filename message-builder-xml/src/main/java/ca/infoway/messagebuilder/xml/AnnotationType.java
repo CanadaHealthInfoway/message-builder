@@ -38,8 +38,6 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  */
 public class AnnotationType extends EnumPattern {
 
-	static{ /*static init block for translation purposes. Please do not remove.*/ }
-	
 	private static final long serialVersionUID = 3066114109382422542L;
 	
 	public static final AnnotationType CONSTRAINT = new AnnotationType("CONSTRAINT", "CONSTRAINT", "constraint", "formalConstraint"); 
@@ -66,6 +64,8 @@ public class AnnotationType extends EnumPattern {
 	public static final AnnotationType DEPRECATION_INFO = new AnnotationType("DEPRECATION_INFO", "DEPRECATION INFO", "deprecationInfo");
 	
 	private static final List<AnnotationType> _typesAllowingMultipleCardinality = new ArrayList<AnnotationType>();
+	
+	//For C# Translation, there should only be 1 static block in this class
 	static { 
 		_typesAllowingMultipleCardinality.add(AnnotationType.USAGE_NOTES);
 		_typesAllowingMultipleCardinality.add(AnnotationType.DESIGN_COMMENTS);
@@ -79,6 +79,7 @@ public class AnnotationType extends EnumPattern {
 		_typesAllowingMultipleCardinality.add(AnnotationType.BALLOT_COMMENT);
 		_typesAllowingMultipleCardinality.add(AnnotationType.CHANGE_REQUEST);
 	}
+	
 	public static final List<AnnotationType> typesAllowingMultipleCardinality = Collections.unmodifiableList(_typesAllowingMultipleCardinality);
 
 	private final String[] mifElementNames;

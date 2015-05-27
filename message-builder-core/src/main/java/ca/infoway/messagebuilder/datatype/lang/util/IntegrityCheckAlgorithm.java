@@ -20,7 +20,16 @@
 
 package ca.infoway.messagebuilder.datatype.lang.util;
 
-public enum IntegrityCheckAlgorithm {
-	SHA_1,
-	SHA_256
+import ca.infoway.messagebuilder.lang.EnumPattern;
+
+public class IntegrityCheckAlgorithm extends EnumPattern {
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final IntegrityCheckAlgorithm SHA_1 = new IntegrityCheckAlgorithm("SHA_1");
+	public static final IntegrityCheckAlgorithm SHA_256 = new IntegrityCheckAlgorithm("SHA_256");
+	
+	private IntegrityCheckAlgorithm(String name) {
+		super(name);
+	}
 }

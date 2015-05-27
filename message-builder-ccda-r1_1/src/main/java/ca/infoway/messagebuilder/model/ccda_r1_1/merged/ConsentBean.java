@@ -41,13 +41,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Consent","ConsultationNote.Consent","ContinuityOfCareDocumentCCD.Consent","DiagnosticImagingReport.Consent","DischargeSummary.Consent","HistoryAndPhysical.Consent","OperativeNote.Consent","ProcedureNote.Consent","ProgressNote.Consent","USRealmHeader.Consent","UnstructuredDocument.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
-    private CS_R2 statusCode = new CS_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
+    private CS_R2<Code> statusCode = new CS_R2Impl<Code>();
 
 
     /**

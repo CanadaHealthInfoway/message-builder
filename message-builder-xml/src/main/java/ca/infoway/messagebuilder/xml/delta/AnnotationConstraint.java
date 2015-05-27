@@ -34,6 +34,8 @@ import ca.infoway.messagebuilder.xml.AnnotationType;
 
 /**
  * Contains the information for making a change to the annotations.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")

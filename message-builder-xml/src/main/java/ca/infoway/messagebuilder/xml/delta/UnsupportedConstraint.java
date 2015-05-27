@@ -32,8 +32,9 @@ import org.apache.commons.lang.StringUtils;
  * model. The {@link DeltaSetApplier} will not be able to apply the changes recoded 
  * with this constraint. This constraint type is created for use in the 
  * {@link DeltaSetGenerator}.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
-
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 @Table(name="unsupported_change")

@@ -43,11 +43,12 @@ import ca.infoway.messagebuilder.datatype.lang.DateInterval;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementParser;
@@ -55,6 +56,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.CodeLookupUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.EdElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
 /**
@@ -83,9 +85,11 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 		throw new UnsupportedOperationException("Nothing should be calling this method.");
 	}
 	
+	protected abstract BareANY doCreateR2DataTypeInstance(ParseContext context);
+	
     @Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult result) {
-    	BareANY codedTypeAny = doCreateDataTypeInstance(context.getType());
+    	BareANY codedTypeAny = doCreateR2DataTypeInstance(context);
         
     	Element element = (Element) node;
 
@@ -115,7 +119,7 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
     		codedType = null;
     	}
     	
-    	((BareANYImpl) codedTypeAny).setBareValue(codedType);
+    	((BareANYImpl) codedTypeAny).setBareValue(CodedTypeR2Helper.convertCodedTypeR2(codedType, context.getExpectedReturnType()));
         return codedTypeAny;
     }
 
@@ -249,15 +253,13 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
 	private void handleSimpleValue(Element element, CodedTypeR2<Code> codedType, ParseContext context, XmlToModelResult result) {
 		String value = null;
 		NodeList childNodes = element.getChildNodes();
-		int childNodeCount = childNodes.getLength();
-		
 		Node textNode = null; 
 		int numTextNodes = 0;
-		for (int i = 0; i < childNodeCount; i++) {
-			if (childNodes.item(i).getNodeType() == Node.TEXT_NODE) {
-				if (StringUtils.isNotBlank(childNodes.item(i).getNodeValue())) {
+		for (Node childNode : new XmlNodeListIterable(childNodes)) {
+			if (childNode.getNodeType() == Node.TEXT_NODE) {
+				if (StringUtils.isNotBlank(childNode.getNodeValue())) {
 					if (textNode == null) {
-						textNode = childNodes.item(i);
+						textNode = childNode;
 					}
 					numTextNodes++;
 				}

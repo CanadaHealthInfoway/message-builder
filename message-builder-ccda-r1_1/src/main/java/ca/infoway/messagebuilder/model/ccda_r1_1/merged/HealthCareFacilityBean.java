@@ -42,13 +42,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.HealthCareFacility","ProcedureNote.HealthCareFacility"})
 public class HealthCareFacilityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<RoleClassServiceDeliveryLocation> classCode = new CS_R2Impl<RoleClassServiceDeliveryLocation>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
     private PlaceBean location;
     private Organization_1Bean serviceProviderOrganization;
 

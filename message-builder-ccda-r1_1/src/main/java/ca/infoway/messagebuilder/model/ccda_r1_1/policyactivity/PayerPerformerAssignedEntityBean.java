@@ -46,9 +46,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"PolicyActivity.PayerPerformerAssignedEntity"})
 public class PayerPerformerAssignedEntityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<FinanciallyResponsiblePartyType> code = new CE_R2Impl<FinanciallyResponsiblePartyType>();
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
     private Organization_2Bean representedOrganization;

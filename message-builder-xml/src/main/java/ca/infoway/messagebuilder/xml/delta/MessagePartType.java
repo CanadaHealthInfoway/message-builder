@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.xml.delta;
 
 /**
  * <p>The type of selected element.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 public enum MessagePartType {
 	ASSOCIATION, ATTRIBUTE, CLASS, INTERACTION, PACKAGE_LOCATION;

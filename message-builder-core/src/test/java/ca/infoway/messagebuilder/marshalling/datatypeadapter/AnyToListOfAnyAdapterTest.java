@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 
 /**
- * @sharpen.ignore data type adapter
+ * @sharpen.ignore - due to generics issues
  */
 @SuppressWarnings("unchecked")
 public class AnyToListOfAnyAdapterTest {
@@ -52,9 +52,9 @@ public class AnyToListOfAnyAdapterTest {
 	@Test
 	public void shouldAdaptCorrectly() throws Exception {
 		IIImpl ii = new IIImpl(new Identifier("1", "2"));
-		BareANY adapted = this.adapter.adapt(ii);
+		BareANY adapted = this.adapter.adapt(LIST.class, ii);
 		assertTrue(adapted instanceof LIST);
-		assertTrue(((LIST<II, ?>) adapted).getValue().contains(ii));
+		assertTrue(((LIST<II, Identifier>) adapted).getValue().contains(ii));
 	}
 	
 }

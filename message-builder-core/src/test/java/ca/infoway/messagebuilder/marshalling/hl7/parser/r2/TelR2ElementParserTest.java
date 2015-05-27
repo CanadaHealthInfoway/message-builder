@@ -135,8 +135,10 @@ public class TelR2ElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals("correct number of useable periods", 2, address.getUseablePeriods().size());
 		
 		Iterator<Entry<Date, SetOperator>> iterator = address.getUseablePeriods().entrySet().iterator();
-		Entry<Date, SetOperator> firstPeriod = iterator.next();
-		Entry<Date, SetOperator> secondPeriod = iterator.next();
+		@SuppressWarnings("unchecked")
+		Entry<Date, SetOperator> firstPeriod = iterator.hasNext() ? iterator.next() : (Entry<Date, SetOperator>)(Object)null;
+		@SuppressWarnings("unchecked")
+		Entry<Date, SetOperator> secondPeriod = iterator.hasNext() ? iterator.next() : (Entry<Date, SetOperator>)(Object)null;
 		
 		assertEquals("first period", DateUtil.getDate(1999, 2, 3, 10, 11, 12, 0), firstPeriod.getKey());
 		assertEquals("first operator", SetOperator.INCLUDE, firstPeriod.getValue());

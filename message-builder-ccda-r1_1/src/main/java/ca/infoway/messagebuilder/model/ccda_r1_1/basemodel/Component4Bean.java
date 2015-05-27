@@ -43,8 +43,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Component4"})
 public class Component4Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.vitalsignsorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.resultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.cognitivestatusresultorganizer.Component4Choice, ca.infoway.messagebuilder.model.ccda_r1_1.functionalstatusresultorganizer.Component4Choice {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();

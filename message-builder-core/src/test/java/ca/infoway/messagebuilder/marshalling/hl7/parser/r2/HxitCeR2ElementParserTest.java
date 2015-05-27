@@ -20,14 +20,15 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 
 import java.util.Date;
 import java.util.TimeZone;
@@ -36,9 +37,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
-import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.HXIT;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.IntervalFactory;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
@@ -47,6 +46,7 @@ import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
 import ca.infoway.messagebuilder.marshalling.hl7.MockCharacters;
 import ca.infoway.messagebuilder.marshalling.hl7.MockEnum;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
@@ -67,8 +67,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", ce.getValue());
@@ -78,8 +78,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("value", ce.getValue());
@@ -89,8 +89,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", ce.getValue().getCodeValue());
@@ -100,8 +100,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertEquals("value", "BARNEY", ce.getValue().getCodeValue());
@@ -111,8 +111,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, MANDATORY, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("empty node returns null", ce.getValue());
@@ -121,8 +121,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
         assertNull("node with no code attribute returns null", ce.getValue());
@@ -131,8 +131,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -142,8 +142,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -155,7 +155,7 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
     	
         Node node = createNode("<something nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
         this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), node, this.xmlResult);
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), node, this.xmlResult);
         
         assertFalse(this.xmlResult.isValid());
 		assertEquals("warning message count", 1, this.xmlResult.getHl7Errors().size()); // invalid NF
@@ -164,8 +164,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
-        HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-        		ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+        HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+        		ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
         assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -174,7 +174,7 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
     
 	@Test
 	public void testParseValidFull() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
@@ -186,8 +186,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 								"  <validTime><low value=\"20061225121213.0000-0400\"/><high value=\"20070102111112.0000-0400\"/></validTime>" +
 							   "</something>");
 		
-		HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-				ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+		HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+				ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
 		assertEquals("enum found properly", MockEnum.FRED, ce.getValue().getCode());
@@ -206,7 +206,7 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 	
 	@Test
 	public void testParseFull() throws Exception {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		Interval<Date> interval = IntervalFactory.<Date>createLowHigh(
 				DateUtil.getDate(2006, 11, 25, 11, 12, 13, 0, timeZone),
 				DateUtil.getDate(2007, 0, 2, 10, 11, 12, 0, timeZone));
@@ -222,8 +222,8 @@ public class HxitCeR2ElementParserTest extends MarshallingTestCase {
 				"  <validTime><low value=\"20061225121213.0000-0400\"/><high value=\"20070102111112.0000-0400\"/></validTime>" +
 				"</something>");
 		
-		HXIT<CodedTypeR2<Code>> ce = (HXIT<CodedTypeR2<Code>>) this.parser.parse(
-				ParseContextImpl.create("HXIT<CodedTypeR2<Code>><CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
+		HXIT<MockCharacters> ce = (HXIT<MockCharacters>) this.parser.parse(
+				ParseContextImpl.create("HXIT<CE>", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, 
 				this.xmlResult);
 		

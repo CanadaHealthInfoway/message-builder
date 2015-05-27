@@ -28,7 +28,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +49,9 @@ import ca.infoway.messagebuilder.domainvalue.basic.DefaultTimeUnit;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
+import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.CeRxDomainValueTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
@@ -59,10 +60,6 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
-/**
- * @author administrator
- * @sharpen.ignore Timezone handling
- */
 public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 
 	private XmlToModelResult result;
@@ -82,7 +79,7 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 	}
 	
 	private Interval<Date> parse(Node node, String type, ConformanceLevel conformanceLevel) throws XmlToModelTransformationException {
-		TimeZone timeZone = TimeZone.getTimeZone("America/Toronto");
+		TimeZone timeZone = TimeZoneUtil.getTimeZone("America/Toronto");
 		DateInterval dateInterval = (DateInterval) this.parser.parse(
 				ParseContextImpl.create(type, Interval.class, SpecificationVersion.V02R02, timeZone, timeZone, conformanceLevel, null, null, false), 
 				Arrays.asList(node), 
@@ -92,13 +89,10 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParseLowHigh() throws Exception {
+		Date expectedResultLow = DateUtil.getDate(2006, 7, 10, 12, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
+		Date expectedResultHigh = DateUtil.getDate(2006, 7, 12, 15, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2006-08-10_12:00:00");
-		Date expectedResultHigh = format.parse("2006-08-12_15:00:00");
-
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
 		Node node = createNode(
@@ -112,9 +106,7 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 
 	@Test
 	public void testParseLowHighAlt() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultCenter = format.parse("2006-08-11_00:00:00");
+		Date expectedResultCenter = DateUtil.getDate(2006, 7, 11, 0, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
         Node node = createNode(
                 "<effectiveTime><low value=\"20060810\" /><high value=\"20060812\" /></effectiveTime>");
@@ -147,11 +139,9 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 
 	@Test
     public void testParseEffectiveTimeDate3() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2013-03-11_16:44:02");
+		Date expectedResultLow = DateUtil.getDate(2013, 2, 11, 16, 44, 2, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
     	Node node = createNode("<effectiveTime><low value=\"20130311164402.7530-0" + hours + "00\"/><high nullFlavor=\"NA\" /></effectiveTime>");
@@ -166,11 +156,9 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
 	
 	@Test
     public void testParsePartTimeDate() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2013-03-11_16");
+		Date expectedResultLow = DateUtil.getDate(2013, 2, 11, 16, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
     	Node node = createNode("<effectiveTime><low value=\"2013031116-0" + hours + "00\"/><high nullFlavor=\"NA\" /></effectiveTime>");
@@ -231,12 +219,9 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseLow() throws Exception {
+		Date expectedResultLow = DateUtil.getDate(2005, 7, 10, 14, 34, 56, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultLow = format.parse("2005-08-10_14:34:56");
-
-		int offset = TimeZone.getTimeZone("America/Toronto").getOffset(expectedResultLow.getTime());
+		int offset = TimeZoneUtil.getUTCOffset("America/Toronto", expectedResultLow);
 		int hours = -1 * offset/(1000*60*60);
 		
         Node node = createNode(
@@ -407,9 +392,7 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseLowWidth() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultCenter = format.parse("2005-08-15_00:00:00");
+		Date expectedResultCenter = DateUtil.getDate(2005, 7, 15, 0, 0, 0, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
 		Node node = createNode(
             "<effectiveTime><low value=\"20050810\" /><width value=\"10\" unit=\"d\" /></effectiveTime>");
@@ -423,9 +406,7 @@ public class IvlTsR2ElementParserTest extends CeRxDomainValueTestCase {
     
 	@Test
     public void testParseLowFullDateTime() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		format.setTimeZone(TimeZone.getTimeZone("America/Toronto"));
-		Date expectedResultlow = format.parse("2005-08-10_23:03:27");
+		Date expectedResultlow = DateUtil.getDate(2005, 7, 10, 23, 3, 27, 0, TimeZoneUtil.getTimeZone("America/Toronto"));
 
 		Node node = createNode(
     	"<effectiveTime><low value=\"20050810230327\" /></effectiveTime>");

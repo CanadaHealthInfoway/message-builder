@@ -52,6 +52,9 @@ import com.helger.schematron.pure.model.PSRule;
 import com.helger.schematron.pure.model.PSSchema;
 import com.helger.schematron.pure.preprocess.PSPreprocessor;
 
+/**
+ * @sharpen.ignore - Manually translated to .NET. 
+ */
 public class SchematronValidator {
 	
 	private boolean initiated = false;
@@ -66,10 +69,10 @@ public class SchematronValidator {
 	private void initiate(List<SchematronContext> contexts) {
 		if (!contexts.isEmpty()) {
 			PSSchema schema = new PSSchema();
-			PSNS namespace = new PSNS();
-			namespace.setPrefix("cda");
-			namespace.setUri("urn:hl7-org:v3");
-			schema.addNS(namespace);
+			PSNS namespaze = new PSNS();
+			namespaze.setPrefix("cda");
+			namespaze.setUri("urn:hl7-org:v3");
+			schema.addNS(namespaze);
 			
 			for (SchematronContext context : contexts) {
 				PSPattern pattern = new PSPattern();

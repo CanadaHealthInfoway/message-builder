@@ -74,7 +74,7 @@ public class PivlTsR2PropertyFormatter extends AbstractNullFlavorPropertyFormatt
 			attributesMap.put(ALIGNMENT, value.getAlignment().getCalendarCycleCode());
 		}
 		if (value.getInstitutionSpecified() != null) {
-			attributesMap.put(INSTITUTION_SPECIFIED, value.getInstitutionSpecified().toString());
+			attributesMap.put(INSTITUTION_SPECIFIED, value.getInstitutionSpecified().toString().toLowerCase());
 		}
 		return attributesMap;
 	}

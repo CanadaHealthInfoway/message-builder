@@ -37,7 +37,8 @@
 -methodMapping java.util.Collections.synchronizedList Ca.Infoway.Messagebuilder.CollUtils.SynchronizedList 
 -methodMapping java.util.Collections.synchronizedMap Ca.Infoway.Messagebuilder.CollUtils.SynchronizedMap 
 -methodMapping java.util.Collections.synchronizedSet Ca.Infoway.Messagebuilder.CollUtils.SynchronizedSet 
--methodMapping java.util.Collections.unmodifiableMap Ca.Infoway.Messagebuilder.CollUtils.CreateUnmodifiableDictionary 
+-methodMapping java.util.Collections.unmodifiableMap Ca.Infoway.Messagebuilder.CollUtils.CreateUnmodifiableDictionary
+-methodMapping java.util.Collections.unmodifiableList Ca.Infoway.Messagebuilder.CollUtils.CreateUnmodifiableList  
 		
 -typeMapping java.util.Date Ca.Infoway.Messagebuilder.PlatformDate 
 -methodMapping java.util.Date.after After 

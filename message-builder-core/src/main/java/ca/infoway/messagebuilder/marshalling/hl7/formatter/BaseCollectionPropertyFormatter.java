@@ -25,20 +25,22 @@ import java.util.Collection;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareCollection;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.IiCollectionConstraintHandler.ConstraintResult;
 import ca.infoway.messagebuilder.marshalling.polymorphism.PolymorphismHandler;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.ConstrainedDatatype;
 
@@ -81,17 +83,11 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 		if (hl7Value == null) {
 			return "";
 		}
-		handleConstraints(getSubType(context), context.getConstraints(), convertToCollection(hl7Value), context);
+		
+		Collection<BareANY> bareAnyCollection = GenericClassUtil.convertToBareANYCollection(hl7Value);
+		
+		handleConstraints(getSubType(context), context.getConstraints(), hl7Value, bareAnyCollection, context);
 		return super.format(context, hl7Value, indentLevel);
-	}
-
-	@SuppressWarnings("unchecked")
-	private Collection<BareANY> convertToCollection(BareANY hl7Value) {
-		Object bareValue = (hl7Value == null ? null : hl7Value.getBareValue());
-		if (bareValue instanceof Collection<?>) {
-			return (Collection<BareANY>) bareValue;
-		}
-		return null;
 	}
 	
 	@Override
@@ -136,12 +132,18 @@ public abstract class BaseCollectionPropertyFormatter extends AbstractNullFlavor
 		};
 	}
 
-	private void handleConstraints(String type, ConstrainedDatatype constraints, Collection<BareANY> collection, FormatContext context) {
-		ConstraintResult constraintResult = this.constraintHandler.checkConstraints(type, constraints, collection);
+	private void handleConstraints(String type, ConstrainedDatatype constraints, BareANY hl7Value, 
+			Collection<BareANY> bareAnyCollection, FormatContext context) {
+		ConstraintResult constraintResult = this.constraintHandler.checkConstraints(type, constraints, bareAnyCollection);
 		if (constraintResult != null && !constraintResult.isFoundMatch()) {
 			// there should be a match, but if not we need to create an II with the appropriate values and add to collection
 			Identifier identifier = constraintResult.getIdentifer();
-			collection.add(new IIImpl(identifier));
+			
+			//In Java these are really the same collection due to type erasure. In .NET we need two different collections.
+			@SuppressWarnings("unchecked")
+			Collection<II> iiCollection = (Collection<II>) hl7Value.getBareValue();
+			iiCollection.add(new IIImpl(identifier));
+			
 			context.getModelToXmlResult().addHl7Error(new Hl7Error(Hl7ErrorCode.CDA_FIXED_CONSTRAINT_PROVIDED, ErrorLevel.INFO, "A fixed constraint was added for compliance: " + identifier, context.getPropertyPath()));
 		}
 	}

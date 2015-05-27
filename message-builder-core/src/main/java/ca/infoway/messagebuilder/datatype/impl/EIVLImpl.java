@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.datatype.impl;
 
 import ca.infoway.messagebuilder.datatype.EIVL;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.lang.EventRelatedPeriodicIntervalTime;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 /**
@@ -30,7 +29,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public class EIVLImpl<T> extends ANYImpl<T> implements EIVL<T> {
+public class EIVLImpl<EventRelatedPeriodicIntervalTime> extends ANYImpl<EventRelatedPeriodicIntervalTime> implements EIVL<EventRelatedPeriodicIntervalTime> {
 	/**
 	 * <p>Constructs an empty EIVL.
 	 */
@@ -63,9 +62,8 @@ public class EIVLImpl<T> extends ANYImpl<T> implements EIVL<T> {
 	 * @param nullFlavor a null flavor
 	 * @param dataType an HL7 datatype
 	 */
-	@SuppressWarnings("unchecked")
 	public EIVLImpl(EventRelatedPeriodicIntervalTime value, NullFlavor nullFlavor, StandardDataType dataType) {
-		super((T) value, nullFlavor, dataType);
+		super(value, nullFlavor, dataType);
 	}
 	
 }

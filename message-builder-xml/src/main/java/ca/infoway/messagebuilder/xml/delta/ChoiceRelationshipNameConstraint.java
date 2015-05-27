@@ -31,6 +31,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.IndexColumn;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")
 public class ChoiceRelationshipNameConstraint extends Constraint {

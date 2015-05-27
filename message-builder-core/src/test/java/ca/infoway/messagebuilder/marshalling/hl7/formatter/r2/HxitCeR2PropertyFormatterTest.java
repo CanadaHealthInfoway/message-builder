@@ -49,7 +49,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), new CE_R2Impl(NullFlavor.NO_INFORMATION));
+		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), new CE_R2Impl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -80,7 +80,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), new CE_R2Impl(codedType));
+		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), new CE_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -100,7 +100,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text allowed for CE");
 		codedType.setOriginalText(originalText);
 		
-		CE_R2 ce = new CE_R2Impl(codedType);
+		CE_R2<Code> ce = new CE_R2Impl<Code>(codedType);
 		ce.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), ce);
@@ -138,7 +138,7 @@ public class HxitCeR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		CE_R2 ce = new CE_R2Impl(codedType);
+		CE_R2<Code> ce = new CE_R2Impl<Code>(codedType);
 		
 		String result = new HxitCeR2PropertyFormatter().format(getContext("name", "HXIT<CE>"), ce);
 		

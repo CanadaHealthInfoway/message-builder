@@ -26,6 +26,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.xml.CodedTypeEvaluator;
 
 /**
  * <p>A factory for obtaining datatype implementation classes from a type name.
@@ -45,13 +46,17 @@ public class DataTypeImplementationFactory {
 	 * @return the impl class corresponding to the type name
 	 */
 	@SuppressWarnings("unchecked")
-	public static final Class<? extends ANYImpl<?>> getImplementation(String typeName) {
+	public static final Class<? extends ANYImpl<?>> getImplementation(String typeName, boolean isCdaR2) {
 		Class<? extends ANYImpl<?>> implementation = null;
 		
 		StandardDataType dataType = StandardDataType.getByTypeName(typeName);
 		if (dataType!=null) {
 			try {
-				implementation = (Class<? extends ANYImpl<?>>) Class.forName(MessageFormat.format("{0}.{1}Impl", ANYImpl.class.getPackage().getName(), dataType.getRootType()));
+				String implTypeName = dataType.getRootType();
+				if (isCdaR2 && dataType.isCoded()) {
+					implTypeName = CodedTypeEvaluator.getR2CodedType(typeName);
+				}
+				implementation = (Class<? extends ANYImpl<?>>) Class.forName(MessageFormat.format("{0}.{1}Impl", ANYImpl.class.getPackage().getName(), implTypeName));
 			} catch (ClassNotFoundException e) {
 				LOG.error("Unable to find implementation for type: " + typeName, e);
 			}

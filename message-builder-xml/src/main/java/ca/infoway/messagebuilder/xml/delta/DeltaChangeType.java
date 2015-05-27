@@ -22,6 +22,8 @@ package ca.infoway.messagebuilder.xml.delta;
 
 /**
  * The different type of changes that can be made on a delta.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 public enum DeltaChangeType {
 	CLONE("Clone"), 

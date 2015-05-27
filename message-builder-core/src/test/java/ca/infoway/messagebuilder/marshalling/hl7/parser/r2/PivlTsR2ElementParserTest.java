@@ -58,7 +58,7 @@ public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 		assertTrue(this.xmlResult.isValid());
 		
 		assertEquals(CalendarCycle.DAY_OF_THE_MONTH, pivl.getAlignment());
-		assertTrue(pivl.getInstitutionSpecified());
+		assertTrue((boolean)pivl.getInstitutionSpecified()); //Cast for .NET translation
 		assertEquals(lowDate, pivl.getPhase().getLow());
 		assertEquals(highDate, pivl.getPhase().getHigh());
 		assertEquals(new BigDecimal(11), pivl.getPeriod().getQuantity());
@@ -76,7 +76,7 @@ public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 		assertTrue(this.xmlResult.isValid());
 		
 		assertNull(pivl.getAlignment());
-		assertFalse(pivl.getInstitutionSpecified());
+		assertFalse((boolean)pivl.getInstitutionSpecified());//Cast for .NET translation
 		assertNull(pivl.getPhase());
 		assertNull(pivl.getPeriod());
 	}
@@ -107,7 +107,7 @@ public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 		assertTrue(this.xmlResult.getHl7Errors().get(0).getMessage().contains("CalendarCycle"));
 		
 		assertNull(pivl.getAlignment());
-		assertFalse(pivl.getInstitutionSpecified());
+		assertFalse((boolean)pivl.getInstitutionSpecified());//Cast for .NET translation
 		assertNull(pivl.getPhase());
 		assertNull(pivl.getPeriod());
 	}
@@ -125,7 +125,7 @@ public class PivlTsR2ElementParserTest extends MarshallingTestCase {
 		assertTrue(this.xmlResult.getHl7Errors().get(0).getMessage().contains("institutionSpecified"));
 		
 		assertNull(pivl.getAlignment());
-		assertFalse(pivl.getInstitutionSpecified());
+		assertFalse((boolean)pivl.getInstitutionSpecified());//Cast for .NET translation
 		assertNull(pivl.getPhase());
 		assertNull(pivl.getPeriod());
 	}

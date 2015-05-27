@@ -20,15 +20,16 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.DELIMITER;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.HOUSE_NUMBER;
 import static ca.infoway.messagebuilder.datatype.lang.util.PostalAddressPartType.UNIT_ID;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertContainsSame;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.toSet;
-import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;

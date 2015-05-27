@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.util;
 
-import static ca.infoway.messagebuilder.j5goodies.EnumeratedIterable.iterable;
-import static ca.infoway.messagebuilder.xml.service.ManifestMessageDefinitionService.MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE;
 import static java.util.Arrays.asList;
 import static org.apache.commons.lang.StringUtils.split;
+
+import static ca.infoway.messagebuilder.j5goodies.EnumeratedIterable.iterable;
+import static ca.infoway.messagebuilder.xml.service.ManifestMessageDefinitionService.MANIFEST_MBT_MODEL_VERSION_NUMBERS_ATTRIBUTE;
 
 import java.io.IOException;
 import java.io.InputStream;

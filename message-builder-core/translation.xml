@@ -56,21 +56,22 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-collections-3.2.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.3.6.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.5.9-SNAPSHOT.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.5.9-SNAPSHOT-tests.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.5.9-SNAPSHOT.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.5.9-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.7.1.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/ph-schematron-2.8.3.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/ph-commons-5.0.2.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-2.0.3-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.0.3-SNAPSHOT-tests.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-2.0.3-SNAPSHOT.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-2.0.3-SNAPSHOT.jar"/>
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
 		</sharpen>
 
-		<exec dir="${sharpen.workspace.dir}" executable="svn">
-		  <arg line="co"/>
-		  <arg line="--username tmcgrady"/>
-		  <arg line="--password P00l3333"/>
-		  <arg line="https://svnemri.infoway-inforoute.ca/internal/Projects/MessageBuilderToolDotNet/sourceCode/trunk mbtdotnet"/>
+		<exec dir="${sharpen.workspace.dir}" executable="hg">
+		  <arg line="clone"/>
+		  <arg line="http://fsmercurial.intware.com/repo/chi-mbtdotnet"/>
+		  <arg line="mbtdotnet"/>
 		</exec>
 
 		<copy todir="${sharpen.workspace.dir}/mbtdotnet/${project}/Main" overwrite="true">

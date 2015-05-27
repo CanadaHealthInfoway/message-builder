@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 
 /**
- * @sharpen.ignore data type adapter
+ * @sharpen.ignore - due to generics issues
  */
 public class CollectionOfAnyToAnyAdapterTest {
 
@@ -59,7 +59,7 @@ public class CollectionOfAnyToAnyAdapterTest {
 		LIST<II, Identifier> list = new LISTImpl<II, Identifier>(IIImpl.class); 
 		list.getValue().add(ii);
 		
-		BareANY adapted = this.adapter.adapt(list);
+		BareANY adapted = this.adapter.adapt("II", list);
 		assertTrue(adapted instanceof II);
 		assertSame(adapted, ii);
 	}
@@ -70,7 +70,7 @@ public class CollectionOfAnyToAnyAdapterTest {
 		SET<II, Identifier> set = new SETImpl<II, Identifier>(IIImpl.class); 
 		set.getValue().add(ii);
 		
-		BareANY adapted = this.adapter.adapt(set);
+		BareANY adapted = this.adapter.adapt("II", set);
 		assertTrue(adapted instanceof II);
 		assertSame(adapted, ii);
 	}

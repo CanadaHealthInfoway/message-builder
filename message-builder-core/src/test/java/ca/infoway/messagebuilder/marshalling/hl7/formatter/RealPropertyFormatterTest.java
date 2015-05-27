@@ -29,10 +29,17 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.REALImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 
 public class RealPropertyFormatterTest {
+	
+	private static class TestableRealPropertyFormatter extends RealPropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<BigDecimal> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, BigDecimal t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
 
 	private ModelToXmlResult modelToXmlResult = new ModelToXmlResult();
 	
@@ -43,7 +50,7 @@ public class RealPropertyFormatterTest {
 
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new RealPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), null, new REALImpl());
+		Map<String,String>  result = new TestableRealPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), null, new REALImpl());
 
 		// a null value for REAL elements results in a nullFlavor attribute
 		assertEquals("map size", 1, result.size());
@@ -57,7 +64,7 @@ public class RealPropertyFormatterTest {
 	public void testFormatCorrectly() throws Exception {
 		String realValue = "0.2564";
 
-		Map<String, String> result = new RealPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
+		Map<String, String> result = new TestableRealPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", realValue, result.get("value"));
@@ -68,7 +75,7 @@ public class RealPropertyFormatterTest {
 	public void testNegativeValue() throws Exception{
 		String realValue = "-0.56899";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
+		String result = new TestableRealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"-0.56899\"/>", result.trim());
 		assertTrue("no errors", this.modelToXmlResult.isValid());
 	}
@@ -76,7 +83,7 @@ public class RealPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToZero() throws Exception{
 		String realValue = "0.0";
-		Map<String, String> result = new RealPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
+		Map<String, String> result = new TestableRealPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "0.0", result.get("value"));		
@@ -87,7 +94,7 @@ public class RealPropertyFormatterTest {
 	public void testValueManyDigitsToLeftOfDecimal() throws Exception{
 		String realValue = "12345.0001";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
+		String result = new TestableRealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"12345.0001\"/>", result.trim());
 		assertTrue("no errors", this.modelToXmlResult.isValid());
 	}
@@ -96,7 +103,7 @@ public class RealPropertyFormatterTest {
 	public void testValueManyDigitsOnBothSidesOfDecimal() throws Exception{
 		String realValue = "123456.123456";
 		BigDecimal bigDecimal = new BigDecimal(realValue);
-		String result = new RealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
+		String result = new TestableRealPropertyFormatter().format(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new REALImpl(bigDecimal));
 		assertEquals("xml output", "<name value=\"123456.123456\"/>", result.trim());
 		assertTrue("no errors", this.modelToXmlResult.isValid());
 	}
@@ -104,7 +111,7 @@ public class RealPropertyFormatterTest {
 	@Test
 	public void testValueEqualsToOne() throws Exception{
 		String realValue = "1.0";
-		Map<String, String> result = new RealPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
+		Map<String, String> result = new TestableRealPropertyFormatter().getAttributeNameValuePairsForTest(new FormatContextImpl(this.modelToXmlResult, null, "name", null, null, null, false), new BigDecimal(realValue), null);
 		assertEquals("map size", 1, result.size());
 		assertTrue("key as expected", result.containsKey("value"));
 		assertEquals("value as expected", "1.0", result.get("value"));

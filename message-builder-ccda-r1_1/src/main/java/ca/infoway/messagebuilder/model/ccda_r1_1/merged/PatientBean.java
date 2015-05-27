@@ -53,18 +53,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.Patient","ContinuityOfCareDocumentCCD.Patient","DiagnosticImagingReport.Patient","DischargeSummary.Patient","HistoryAndPhysical.Patient","OperativeNote.Patient","ProcedureNote.Patient","ProgressNote.Patient","USRealmHeader.Patient","UnstructuredDocument.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CE_R2 administrativeGenderCode = new CE_R2Impl();
+    private CE_R2<AdministrativeGender> administrativeGenderCode = new CE_R2Impl<AdministrativeGender>();
     private TS_R2 birthTime = new TS_R2Impl();
-    private CE_R2 maritalStatusCode = new CE_R2Impl();
-    private CE_R2 religiousAffiliationCode = new CE_R2Impl();
-    private CE_R2 raceCode = new CE_R2Impl();
-    private CE_R2 ethnicGroupCode = new CE_R2Impl();
+    private CE_R2<MaritalStatus> maritalStatusCode = new CE_R2Impl<MaritalStatus>();
+    private CE_R2<ReligiousAffiliation> religiousAffiliationCode = new CE_R2Impl<ReligiousAffiliation>();
+    private CE_R2<Race> raceCode = new CE_R2Impl<Race>();
+    private CE_R2<EthnicityGroup> ethnicGroupCode = new CE_R2Impl<EthnicityGroup>();
     private List<GuardianBean> guardian = new ArrayList<GuardianBean>();
     private BirthplaceBean birthplace;
     private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();

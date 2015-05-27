@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleElementParser<UncertainRange<V>> {
 
@@ -56,8 +57,7 @@ abstract class UrgElementParser<T extends QTY<V>, V> extends AbstractSingleEleme
 	private Boolean getInclusiveValue(String elementName, ParseContext context, Node node, XmlToModelResult xmlToModelResult) {
 		Boolean result = null;
 		NodeList childNodes = node.getChildNodes();
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			Node child = childNodes.item(i);
+        for (Node child : new XmlNodeListIterable(childNodes)) {
 			if (elementName.equalsIgnoreCase(child.getNodeName())) {
 				String inclusive = getAttributeValue(child, "inclusive");
 				if (inclusive != null) {

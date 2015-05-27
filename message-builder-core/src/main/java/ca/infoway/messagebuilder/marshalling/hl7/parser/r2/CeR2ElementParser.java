@@ -26,6 +26,7 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CE_R2Impl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
@@ -38,7 +39,12 @@ class CeR2ElementParser extends CvR2ElementParser {
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new CE_R2Impl();
+		return new CE_R2Impl<Code>();
+	}
+	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createCEInstance(context.getExpectedReturnType());
 	}
 
 	@Override

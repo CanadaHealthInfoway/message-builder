@@ -28,24 +28,23 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.Code;
 
-/**
- * @sharpen.ignore - test - translated manually
- */
 public class TrivialCodeResolverTest {
+	
+	private static final Class<MockCharacters> MOCK_CHARACTERS_TYPE = MockCharacters.class; //Not inlined for .NET translation purposes
 
 	private static final String CODESYSTEM = "CODESYSTEM";
 	private static final String CODE = "CODE";
 
 	@Test
 	public void testResolveCodeWithCodeAndCodeSystem() throws Exception {
-		MockCharacters result = new TrivialCodeResolver().lookup(MockCharacters.class, CODE, CODESYSTEM);
+		MockCharacters result = new TrivialCodeResolver().<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, CODE, CODESYSTEM);
 		assertEquals("result", CODE, ((Code) result).getCodeValue());
 		assertEquals("result", CODESYSTEM, ((Code) result).getCodeSystem());
 	}
 
 	@Test
 	public void testResolveCodeWithCodeAndCodeSystemCaseIgnore() throws Exception {
-		MockCharacters result = new TrivialCodeResolver().lookup(MockCharacters.class, CODE, CODESYSTEM, true);
+		MockCharacters result = new TrivialCodeResolver().<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, CODE, CODESYSTEM, true);
 		assertEquals("result", CODE, ((Code) result).getCodeValue());
 		assertEquals("result", CODESYSTEM, ((Code) result).getCodeSystem());
 	}
@@ -55,9 +54,9 @@ public class TrivialCodeResolverTest {
 		TrivialCodeResolver trivialCodeResolver = new TrivialCodeResolver();
 		
 		trivialCodeResolver.addDomainValue(null, MockCharacters.class);
-		assertNull("null", trivialCodeResolver.lookup(MockCharacters.class, "foo"));
+		assertNull("null", trivialCodeResolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "foo"));
 		trivialCodeResolver.addDomainValue(createMockCharactersCode("foo"), MockCharacters.class);
-		assertNotNull("not null", trivialCodeResolver.lookup(MockCharacters.class, "foo"));
+		assertNotNull("not null", trivialCodeResolver.<MockCharacters>lookup(MOCK_CHARACTERS_TYPE, "foo"));
 	}
 
 	private Code createMockCharactersCode(final String code) {

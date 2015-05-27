@@ -178,7 +178,8 @@ class EnR2PropertyFormatter extends AbstractNullFlavorPropertyFormatter<EntityNa
 	private void checkPartTypeForOn(NamePartType type, FormatContext context) {
 		// valid types are null, delimiter, prefix, suffix
 		if (type != null) {
-			OrganizationNamePartType onType = EnumPattern.valueOf(OrganizationNamePartType.class, StringUtils.upperCase(type.getValue()));
+			String typeValue = type.getValue() == null ? null : type.getValue().toUpperCase(); //.NET conversion
+			OrganizationNamePartType onType = EnumPattern.valueOf(OrganizationNamePartType.class, typeValue);
 			if (onType == null) {
 				recordError(context, MessageFormat.format("Name parts of type {0} are not valid for ON data types. Only delimiter, prefix, suffix, and free-format text are allowed.", type.getValue()));			
 			}

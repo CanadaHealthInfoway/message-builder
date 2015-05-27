@@ -20,9 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling;
 
-import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_NEWFOUNDLAND;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_NEWFOUNDLAND;
 
 import org.junit.After;
 import org.junit.Before;

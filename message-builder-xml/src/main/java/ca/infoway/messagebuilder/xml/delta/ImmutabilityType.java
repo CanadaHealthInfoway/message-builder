@@ -22,6 +22,9 @@ package ca.infoway.messagebuilder.xml.delta;
 
 import org.apache.commons.lang.WordUtils;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public enum ImmutabilityType {
 
 	NORMAL, IMMUTABLE;

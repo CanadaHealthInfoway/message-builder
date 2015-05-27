@@ -47,18 +47,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.EntryRelationship","MedicationSupplyOrder.EntryRelationship","ReferencedFramesObservation.EntryRelationship"})
 public class EntryRelationship_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.ccda_r1_1.reactionobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.immunizationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.allergyproblemact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.medicationdispense.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.procedureactivityobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.studyact.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.problemobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.coverageactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.familyhistoryobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.encounteractivities.EntryRelationshipChoice, EntryRelationshipChoice_1, EntryRelationshipChoice_6, ca.infoway.messagebuilder.model.ccda_r1_1.policyactivity.EntryRelationshipChoice, EntryRelationshipChoice_4, EntryRelationshipChoice_3, ca.infoway.messagebuilder.model.ccda_r1_1.assessmentscaleobservation.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.pressureulcerobservation.EntryRelationshipChoice, EntryRelationshipChoice_5, ca.infoway.messagebuilder.model.ccda_r1_1.sopinstanceobservation.EntryRelationshipChoice, EntryRelationshipChoice_7, ca.infoway.messagebuilder.model.ccda_r1_1.medicationactivity.EntryRelationshipChoice, ca.infoway.messagebuilder.model.ccda_r1_1.pregnancyobservation.EntryRelationshipChoice, EntryRelationshipChoice_2, ca.infoway.messagebuilder.model.ccda_r1_1.authorizationactivity.EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private BL inversionInd = new BLImpl();
     private BL contextConductionInd = new BLImpl();
     private BL negationInd = new BLImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private INT sequenceNumber = new INTImpl();
     private BL seperatableInd = new BLImpl();
     private ObservationBean observation;
     private ActBean act;
-    private CS_R2 typeCode = new CS_R2Impl();
+    private CS_R2<x_ActRelationshipEntryRelationship> typeCode = new CS_R2Impl<x_ActRelationshipEntryRelationship>();
     private EntryRelationshipChoice entryRelationshipChoice;
 
 

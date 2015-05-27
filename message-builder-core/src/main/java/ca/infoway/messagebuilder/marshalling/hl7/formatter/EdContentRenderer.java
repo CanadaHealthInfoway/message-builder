@@ -20,6 +20,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
+
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.util.EdRepresentation;
 import ca.infoway.messagebuilder.error.Hl7Error;

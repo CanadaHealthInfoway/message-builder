@@ -20,13 +20,14 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertContainsSame;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertInvalidUrlScheme;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertValidUrlScheme;
 import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.toSet;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 import java.util.Set;
@@ -36,6 +37,7 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
@@ -46,6 +48,12 @@ import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.marshalling.hl7.TelValidationUtils;
 
 public class TelPhonemailPropertyFormatterTest {
+	
+	private static class TestableTelPhonemailPropertyFormatter extends TelPhonemailPropertyFormatter implements TestableAbstractValueNullFlavorPropertyFormatter<TelecommunicationAddress> {
+		public Map<String, String> getAttributeNameValuePairsForTest(FormatContext context, TelecommunicationAddress t, BareANY bareAny) {
+			return super.getAttributeNameValuePairs(context, t, bareAny);
+		}
+	}
 
 	private ModelToXmlResult xmlResult = new ModelToXmlResult();
 
@@ -56,7 +64,7 @@ public class TelPhonemailPropertyFormatterTest {
 	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String>  result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), null, new TELImpl());
+		Map<String,String>  result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE"), null, new TELImpl());
 
 		assertTrue(this.xmlResult.isValid());
 		
@@ -80,7 +88,7 @@ public class TelPhonemailPropertyFormatterTest {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
 		address.setAddress("value");
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE"), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		
@@ -99,7 +107,7 @@ public class TelPhonemailPropertyFormatterTest {
 		TELImpl bareAny = new TELImpl();
 		bareAny.setDataType(StandardDataType.TEL_PHONE);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONEMAIL"), address, bareAny);
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONEMAIL"), address, bareAny);
 		
 		assertTrue(this.xmlResult.isValid());
 		
@@ -118,7 +126,7 @@ public class TelPhonemailPropertyFormatterTest {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
 		address.setAddress("value");
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONEMAIL"), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONEMAIL"), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -138,7 +146,7 @@ public class TelPhonemailPropertyFormatterTest {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.TELEPHONE);
 		address.setAddress("value");
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.ALL"), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.ALL"), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -160,7 +168,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.setAddress("value");
 		TELImpl bareAny = new TELImpl();
 		bareAny.setDataType(null);
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONEMAIL"), address, bareAny);
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONEMAIL"), address, bareAny);
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -178,31 +186,31 @@ public class TelPhonemailPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsPhonemailAllValidSchemes() throws Exception {
 		FormatContextImpl context = createContext("TEL.PHONE");
-		assertValidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.FAX, context, "fax:");
-		assertValidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.TELEPHONE, context, "tel:");
+		assertValidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.FAX, context, "fax:");
+		assertValidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.TELEPHONE, context, "tel:");
 		
 		context = createContext("TEL.EMAIL");
-		assertValidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto:");
+		assertValidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto:");
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairsAllInvalidSchemes() throws Exception {
 		FormatContextImpl context = createContext("TEL.PHONE");
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.FILE, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.FILE, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.FTP, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.FTP, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.HTTP, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.HTTP, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.HTTPS, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.HTTPS, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.MLLP, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.MLLP, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.MODEM, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.MODEM, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelPhonemailPropertyFormatter(), CeRxDomainTestValues.NFS, context);
+		assertInvalidUrlScheme(new TestableTelPhonemailPropertyFormatter(), CeRxDomainTestValues.NFS, context);
 	}
 	
 	@Test
@@ -212,7 +220,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.setAddress("value");
 		address.addAddressUse(CeRxDomainTestValues.HOME_ADDRESS);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE"), address, new TELImpl());
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 2, result.size());
 		
@@ -223,7 +231,7 @@ public class TelPhonemailPropertyFormatterTest {
 		assertEquals("use as expected", "H", result.get("use"));
 
 		address.addAddressUse(CeRxDomainTestValues.MOBILE_CONTACT);
-		result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), address, new TELImpl());
+		result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE"), address, new TELImpl());
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 2, result.size());
 		
@@ -250,7 +258,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(addressUse);
 
 		this.xmlResult.clearErrors();
-		new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE"), address, new TELImpl());
+		new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE"), address, new TELImpl());
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
 		assertEquals("expected message", "TelecomAddressUse is not valid: " + addressUse.getCodeValue(), this.xmlResult.getHl7Errors().get(0).getMessage());
@@ -275,7 +283,7 @@ public class TelPhonemailPropertyFormatterTest {
 		this.xmlResult.clearErrors();
 		FormatContextImpl context = createContext("TEL.PHONE");
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(context, address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(context, address, new TELImpl());
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 2, result.size());
 		
@@ -290,7 +298,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// mailto: + 43 = 50 (max)
 		address.setAddress("1234567890123456789012345678901234567890123");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.EMAIL"), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.EMAIL"), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
@@ -306,7 +314,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// mailto: + 44 = 51 (max+1)
 		address.setAddress("12345678901234567890123456789012345678901234");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.EMAIL"), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.EMAIL"), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -323,7 +331,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// tel: + 36 = 40 (max)
 		address.setAddress("123456789012345678901234567890123456");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
@@ -339,7 +347,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// tel: + 37 = 41 (max + 1)
 		address.setAddress("1234567890123456789012345678901234567");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -356,7 +364,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// tel: + 21 = 25 (max)
 		address.setAddress("123456789012345678901");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
@@ -372,7 +380,7 @@ public class TelPhonemailPropertyFormatterTest {
 		// tel: + 22 = 26 (max + 1)
 		address.setAddress("1234567890123456789012");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -401,7 +409,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.VACATION_HOME); // invalid
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.WORKPLACE);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.EMAIL"), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.EMAIL"), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(9, this.xmlResult.getHl7Errors().size()); // 8 bad uses + 1 for too many
@@ -434,7 +442,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.VACATION_HOME); // invalid
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.WORKPLACE);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.R02_04_02), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(6, this.xmlResult.getHl7Errors().size()); // 5 bad uses + 1 for too many
@@ -467,7 +475,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.VACATION_HOME); // invalid
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.WORKPLACE);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.V02R02), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(7, this.xmlResult.getHl7Errors().size()); // 6 bad uses + 1 for too many
@@ -500,7 +508,7 @@ public class TelPhonemailPropertyFormatterTest {
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.VACATION_HOME); // invalid
 		address.addAddressUse(ca.infoway.messagebuilder.domainvalue.basic.TelecommunicationAddressUse.WORKPLACE);
 		
-		Map<String, String> result = new TelPhonemailPropertyFormatter().getAttributeNameValuePairs(createContext("TEL.PHONE", SpecificationVersion.V01R04_3), address, new TELImpl());
+		Map<String, String> result = new TestableTelPhonemailPropertyFormatter().getAttributeNameValuePairsForTest(createContext("TEL.PHONE", SpecificationVersion.V01R04_3), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(8, this.xmlResult.getHl7Errors().size()); // 7 bad uses + 1 for too many

@@ -44,7 +44,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl(NullFlavor.NO_INFORMATION));
+		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -55,7 +55,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		CodedTypeR2<Code> codedType = new CodedTypeR2<Code>();
 		codedType.setCode(CeRxDomainTestValues.CENTIMETRE);
 		
-		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl(codedType));
+		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -69,7 +69,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		codedType.setCodeSystemName("aCodeSystemName");
 		codedType.setDisplayName("aDisplayName");
 		
-		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl(codedType));
+		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), new CS_R2Impl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -84,7 +84,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text not allowed for CS");
 		codedType.setOriginalText(originalText);
 		
-		CS_R2 cs = new CS_R2Impl(codedType);
+		CS_R2<Code> cs = new CS_R2Impl<Code>(codedType);
 		cs.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), cs);
@@ -112,7 +112,7 @@ public class CsR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text not allowed for CS");
 		codedType.setOriginalText(originalText);
 		
-		CS_R2 cs = new CS_R2Impl(codedType);
+		CS_R2<Code> cs = new CS_R2Impl<Code>(codedType);
 		
 		String result = new CsR2PropertyFormatter().format(getContext("name", "CS"), cs);
 		

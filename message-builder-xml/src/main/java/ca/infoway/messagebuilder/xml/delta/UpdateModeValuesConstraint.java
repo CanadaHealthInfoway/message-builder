@@ -39,6 +39,8 @@ import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 /**
  * Contains a list of updateModeValues.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 @PrimaryKeyJoinColumn(name = "id")

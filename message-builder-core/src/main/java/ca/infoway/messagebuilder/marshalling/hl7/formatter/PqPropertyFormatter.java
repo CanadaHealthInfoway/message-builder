@@ -61,6 +61,11 @@ public class PqPropertyFormatter extends AbstractAttributePropertyFormatter<Phys
 		
         return createPhysicalQuantityAttributes(physicalQuantity, bareANY);
     }
+    
+    //.NET conversion. Create a public method for PivlTsPropertyFormatter and unit tests 
+    public Map<String, String> getAttributeNameValuePairs(FormatContext context, PhysicalQuantity physicalQuantity) {
+    	return getAttributeNameValuePairs(context, physicalQuantity, null);
+    }
 
 	private void validatePhysicalQuantity(FormatContext context, PhysicalQuantity physicalQuantity, BareANY bareANY) {
 		

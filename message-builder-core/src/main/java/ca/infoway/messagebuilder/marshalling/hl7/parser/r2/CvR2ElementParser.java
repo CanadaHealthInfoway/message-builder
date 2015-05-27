@@ -20,10 +20,13 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.COImpl;
 import ca.infoway.messagebuilder.datatype.impl.CV_R2Impl;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * CV/CO (R2)
@@ -32,11 +35,19 @@ import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 class CvR2ElementParser extends ScR2ElementParser {
 	
 	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		if ("CO".equals(context.getType())) {
+			return CodedTypeR2Helper.createCOInstance(context.getExpectedReturnType());
+		}
+		return CodedTypeR2Helper.createCVInstance(context.getExpectedReturnType());
+	}
+	
+	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		if ("CO".equals(typeName)) {
-			return new COImpl();
+			return new COImpl<Code>();
 		}
-		return new CV_R2Impl();
+		return new CV_R2Impl<Code>();
 	}
 	
 	@Override

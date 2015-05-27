@@ -27,22 +27,29 @@ import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 
+/**
+ * @sharpen.ignore - due to generics issues
+ */
 @SuppressWarnings("unchecked")
 public class AnyToListOfAnyAdapter implements DataTypeAdapter {
 
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		return !StandardDataType.isSetOrList(fromDataTypeName)
-		    && LIST.class.isAssignableFrom(toDateType);
+		    && LIST.class.isAssignableFrom(toDataType);
 	}
 
 	public boolean canAdapt(Class<? extends BareANY> fromDataType, String toDataTypeName) {
 		return false;
 	}
 
-	public BareANY adapt(BareANY any) {
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
 		LISTImpl set = new LISTImpl(any.getClass());
 		((List) set.getValue()).add(any);
 		return (BareANY) set;
+	}
+
+	public BareANY adapt(String toDataTypeName, BareANY any) {
+		return any;
 	}
 
 }

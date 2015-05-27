@@ -35,6 +35,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
+/**
+ * @sharpen.ignore Manually translate due to getId and setId which don't seem to be handled well by sharpen
+ */
 @Hl7PartTypeMapping({ "COCT_MT470000CA.ConsentEvent" })
 public class ConsentEventBean extends MessagePartBean implements Identifiable, Serializable {
 

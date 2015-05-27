@@ -20,11 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertInvalidUrlScheme;
-import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertValidUrlScheme;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertInvalidUrlScheme;
+import static ca.infoway.messagebuilder.marshalling.hl7.formatter.FormatterAssert.assertValidUrlScheme;
 
 import java.util.Map;
 
@@ -49,7 +50,7 @@ public class TelUriPropertyFormatterTest {
 	
 	@Test
 	public void testGetAttributeNameValuePairsNullValue() throws Exception {
-		Map<String,String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), null, new TELImpl());
+		Map<String,String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext(), null, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 
@@ -69,7 +70,7 @@ public class TelUriPropertyFormatterTest {
 		TelecommunicationAddress address = new TelecommunicationAddress();
 		address.setUrlScheme(CeRxDomainTestValues.FILE);
 		address.setAddress("value");
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext(), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
@@ -85,7 +86,7 @@ public class TelUriPropertyFormatterTest {
 		address.setAddress("value");
 		address.getAddressUses().add(TelecommunicationAddressUse.HOME);
 		
-		new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext(), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());
@@ -94,26 +95,26 @@ public class TelUriPropertyFormatterTest {
 	@Test
 	public void testGetAttributeNameValuePairsTelAllValidUris() throws Exception {
 		FormatContextImpl context = createContext();
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FILE, context, "file://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FTP, context, "ftp://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTP, context, "http://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.HTTPS, context, "https://");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto:");
-		assertValidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.NFS, context, "nfs://");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.FILE, context, "file://");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.FTP, context, "ftp://");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.HTTP, context, "http://");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.HTTPS, context, "https://");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.MAILTO, context, "mailto:");
+		assertValidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.NFS, context, "nfs://");
 	}
 
 	@Test
 	public void testGetAttributeNameValuePairsAllInvalidUris() throws Exception {
 		FormatContextImpl context = createContext();
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.FAX, context);
+		assertInvalidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.FAX, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MLLP, context);
+		assertInvalidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.MLLP, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.MODEM, context);
+		assertInvalidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.MODEM, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELEPHONE, context);
+		assertInvalidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.TELEPHONE, context);
 		this.xmlResult.clearErrors();
-		assertInvalidUrlScheme(new TelUriPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
+		assertInvalidUrlScheme(new TestableTelUriPropertyFormatter(), CeRxDomainTestValues.TELNET, context);
 	}
 	
 	@Test
@@ -123,7 +124,7 @@ public class TelUriPropertyFormatterTest {
 		// file:// + 248 = 255 (max)
 		address.setAddress("12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext(), address, new TELImpl());
 		
 		assertTrue(this.xmlResult.isValid());
 		assertEquals("map size", 1, result.size());
@@ -139,7 +140,7 @@ public class TelUriPropertyFormatterTest {
 		// file:// + 249 = 256 (1 over max)
 		address.setAddress("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789");
 		
-		Map<String, String> result = new TelUriPropertyFormatter().getAttributeNameValuePairs(createContext(), address, new TELImpl());
+		Map<String, String> result = new TestableTelUriPropertyFormatter().getAttributeNameValuePairsForTest(createContext(), address, new TELImpl());
 		
 		assertFalse(this.xmlResult.isValid());
 		assertEquals(1, this.xmlResult.getHl7Errors().size());

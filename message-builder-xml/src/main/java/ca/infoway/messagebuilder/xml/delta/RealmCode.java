@@ -24,6 +24,9 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class RealmCode {
 
 	private final String code;

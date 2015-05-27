@@ -21,13 +21,12 @@
 package ca.infoway.messagebuilder.devtools;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 
 /**
- * @sharpen.ignore missing test
+ * @sharpen.ignore missing test - dev tool
  */
 public class MessageBeanFactoryTest {
 	

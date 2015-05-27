@@ -42,6 +42,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.AbstractSingleElementPar
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.util.xml.XmlNodeListIterable;
 
 public abstract class AbstractRtoR2ElementParser<N, D> extends AbstractSingleElementParser<Ratio<N, D>> {
 
@@ -60,8 +61,7 @@ public abstract class AbstractRtoR2ElementParser<N, D> extends AbstractSingleEle
 		boolean denominatorFound = false;
 		
 		NodeList childNodes = node.getChildNodes();
-        for (int i = 0; i < childNodes.getLength(); i++) {
-            Node childNode = childNodes.item(i);
+		for (Node childNode : new XmlNodeListIterable(childNodes)) {
             if (childNode instanceof Element) {
                 Element element = (Element) childNode;
                 String name = NodeUtil.getLocalOrTagName(element);
@@ -76,7 +76,7 @@ public abstract class AbstractRtoR2ElementParser<N, D> extends AbstractSingleEle
                     result.setDenominator(getDenominatorValue(element, innerTypes.get(1).toString(), context, xmlToModelResult));
                 }
             }
-        }
+		}
         
         checkNumerator(result, numeratorFound, node, context, xmlToModelResult);
         
@@ -88,7 +88,7 @@ public abstract class AbstractRtoR2ElementParser<N, D> extends AbstractSingleEle
 	private void checkDenominator(Ratio<N, D> result, boolean denominatorFound, Node node, ParseContext context, XmlToModelResult xmlToModelResult) {
 		if (denominatorFound) {
         	if (result.getDenominator() instanceof PhysicalQuantity) {
-        		PhysicalQuantity pqDenominator = (PhysicalQuantity) result.getDenominator();
+        		PhysicalQuantity pqDenominator = (PhysicalQuantity)(Object) result.getDenominator(); //cast to Object for .NET translation
         		if (BigDecimal.ZERO.equals(pqDenominator.getQuantity())) {
         			recordError("Denominator value can not be zero.", context, node, xmlToModelResult);
         		} else if (pqDenominator.getQuantity() == null) {

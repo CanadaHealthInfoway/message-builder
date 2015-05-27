@@ -39,8 +39,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.InFulfillmentOf","ConsultationNote.InFulfillmentOf","ContinuityOfCareDocumentCCD.InFulfillmentOf","DiagnosticImagingReport.InFulfillmentOf","DischargeSummary.InFulfillmentOf","HistoryAndPhysical.InFulfillmentOf","OperativeNote.InFulfillmentOf","ProcedureNote.InFulfillmentOf","ProgressNote.InFulfillmentOf","USRealmHeader.InFulfillmentOf","UnstructuredDocument.InFulfillmentOf"})
 public class InFulfillmentOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private OrderBean order;

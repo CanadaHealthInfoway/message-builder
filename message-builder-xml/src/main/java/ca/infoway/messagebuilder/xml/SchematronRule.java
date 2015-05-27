@@ -29,6 +29,8 @@ import org.simpleframework.xml.Root;
  * <p>Only used in the context of CDA documents
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * @sharpen.ignore - due to differences in simple xml implementation in .NET vs Java
  */
 @Root
 public class SchematronRule {

@@ -33,9 +33,9 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.VersionNumber;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -128,11 +128,15 @@ class ConversionContext {
 			}
 		}
 
+		Set<String> keysToRemove = new HashSet<String>();
 		for (Iterator<Map.Entry<String, Interaction>> iterator = candidateInteractions.entrySet().iterator(); iterator.hasNext(); ) {
 			Map.Entry<String, Interaction> entry = iterator.next();
 			if (parentTemplateIds.contains(entry.getKey())) {
-				iterator.remove();
+				keysToRemove.add(entry.getKey());
 			}
+		}
+		for (String key : keysToRemove) {
+			candidateInteractions.remove(key);
 		}
 		 
 		return determineSuitableInteraction(candidateInteractions, baseModel, firstInteractionMatch, version, errors);
@@ -150,7 +154,8 @@ class ConversionContext {
 			}
 		} else if (candidateInteractions.size() == 1) {
 			// this should be the normal case
-			result = candidateInteractions.values().iterator().next();						
+			Iterator<Interaction> iterator = candidateInteractions.values().iterator();
+			result = iterator.hasNext() ? iterator.next() : null; //For .NET translation						
 		} else {  
 			// more than one interaction matched; error, and use "first" matching interaction
 			result = firstInteractionMatch;

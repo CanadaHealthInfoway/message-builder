@@ -31,21 +31,21 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.VersionNumber;
 import ca.infoway.messagebuilder.codeRegistry.CodeTypeRegistry;
-import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.ANYMetaData;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.domainvalue.util.DomainTypeHelper;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.lang.XmlStringEscape;
 import ca.infoway.messagebuilder.marshalling.hl7.CdValidationUtils;
 import ca.infoway.messagebuilder.marshalling.hl7.constraints.CodedTypesConstraintsHandler;
+import ca.infoway.messagebuilder.platform.GenericClassUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolver;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -165,11 +165,10 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
 		ANYMetaData anyCd = (ANYMetaData) hl7Value;
 		CD cd = new CDImpl();
 		if (anyCd != null) {
-			if (hl7Value instanceof ANY<?>) {
-				@SuppressWarnings("unchecked")
-				ANY<Object> anyObj = (ANY<Object>) hl7Value;
-				if (anyObj.getValue() instanceof Code) { 
-					cd.setValue((Code) anyObj.getValue());
+			if (GenericClassUtil.isInstanceOfANY(hl7Value)) {
+				Object value = GenericClassUtil.getValueFromANY(hl7Value);
+				if (value instanceof Code) { 
+					cd.setValue((Code) value);
 				}
 			}
 			

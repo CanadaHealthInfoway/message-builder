@@ -87,7 +87,8 @@ class EivlTsR2ElementParser extends AbstractSingleElementParser<EventRelatedPeri
 			ParseContext newContext = ParseContextImpl.create("CE", TimingEvent.class, context);
 			BareANY parsedEvent = this.ceR2ElementParser.parse(newContext, eventNode, result);
 			if (parsedEvent != null) {
-				event.setEvent(((CodedTypeR2<TimingEvent>) parsedEvent.getBareValue()).getCode());
+				CodedTypeR2<TimingEvent> codedTypeR2 = (CodedTypeR2<TimingEvent>) parsedEvent.getBareValue(); //Special cast for .NET
+				event.setEvent(codedTypeR2.getCode());
 			}
 		}
 	}

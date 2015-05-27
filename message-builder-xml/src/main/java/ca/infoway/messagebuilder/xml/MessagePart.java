@@ -246,8 +246,8 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * @param name - the name of the relationship
 	 * @return - the relationship
 	 */
-	public Relationship getRelationship(String name, String namespace) {
-		return getRelationship(name, namespace, null);
+	public Relationship getRelationship(String name, String namespaze) {
+		return getRelationship(name, namespaze, null);
 	}
 	
 	/**
@@ -256,12 +256,12 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	 * @param interaction - the interaction (used to resolve names of template parameters) or null
 	 * @return - the relationship
 	 */
-	public Relationship getRelationship(String name, String namespace, Interaction interaction) {
+	public Relationship getRelationship(String name, String namespaze, Interaction interaction) {
 		
 		Relationship result = null;
 		//First look for children matching 'name'
 		for (Relationship relationship : this.relationships) {
-			if (matchesRelationshipByName(name, namespace, relationship) 
+			if (matchesRelationshipByName(name, namespaze, relationship) 
 					|| matchesRelationshipByTraversalName(name, relationship, interaction)) {
 				result = relationship;
 				break;
@@ -287,7 +287,7 @@ public class MessagePart implements Documentable, HasDifferences, Named {
 	private boolean matchesRelationshipByChoiceOptionName(String name, Relationship relationship) {
 		return relationship.isChoice() && relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(name)) != null;
 	}
-	private boolean matchesRelationshipByName(String name, String namespace, Relationship relationship) {
+	private boolean matchesRelationshipByName(String name, String namespaze, Relationship relationship) {
 		// TM - removing check against namespace; this may eventually be reinstated
 		return isNotBlank(name) && name.equals(relationship.getName()); 
 				// && (StringUtils.equals(namespace, relationship.getNamespace()));

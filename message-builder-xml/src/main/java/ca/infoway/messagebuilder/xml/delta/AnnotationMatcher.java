@@ -29,6 +29,9 @@ import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
 import ca.infoway.messagebuilder.xml.Documentation;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class AnnotationMatcher {
 	
 	public AnnotationMatcher() {

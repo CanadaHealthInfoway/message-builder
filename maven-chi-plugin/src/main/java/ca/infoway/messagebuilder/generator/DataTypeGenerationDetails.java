@@ -259,7 +259,7 @@ enum DataTypeGenerationDetails implements Typed {
 	RTO_MO_CAD_PQ_BASIC("RTO<MO.CAD, PQ.BASIC>", RTO.class.getName(), Ratio.class.getName(), null),
 	
 	TS("TS", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
-	TS_R2("TS", TS_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"), // need to correct for .NET
+	TS_R2("TS", TS_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.Datatype.Lang.MbDate"), 
 	TS_DATE("TS.DATE", "PartialDate", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_DATETIME("TS.DATETIME", "PartialDateTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
 	TS_FULLDATEPARTTIME("TS.FULLDATEPARTTIME", "FullDatePartTime", TS.class.getName(), Date.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
@@ -289,7 +289,7 @@ enum DataTypeGenerationDetails implements Typed {
 	
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
 	SXCM_R2("SXCM", SXCM_R2.class.getName(), Object.class.getName(), null),
-	SXCM_TS_R2("SXCM<TS>", SXCM_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	SXCM_TS_R2("SXCM<TS>", SXCM_R2.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.Datatype.Lang.MbDate"),
 	SXCM_PQ_R2("SXCM<PQ>", "PhysicalQuantity", SXCM_R2.class.getName(), PhysicalQuantity.class.getName(), null), 
 	SXCM_MO_R2("SXCM<MO>", "Money", SXCM_R2.class.getName(), Money.class.getName(), null), 
 	SXCM_INT_R2("SXCM<INT>", "integer", SXCM_R2.class.getName(), Integer.class.getName(), "System.int?"), 
@@ -301,8 +301,8 @@ enum DataTypeGenerationDetails implements Typed {
 	BAG("BAG", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.IList"), 
 	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"),
 
-	TSCDAR1("TSCDAR1", TSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"), // need to correct for .NET
-	SXCMTSCDAR1("SXCMTSCDAR1", SXCMTSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.PlatformDate"),
+	TSCDAR1("TSCDAR1", TSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.Datatype.Lang.MbDate"), 
+	SXCMTSCDAR1("SXCMTSCDAR1", SXCMTSCDAR1.class.getName(), MbDate.class.getName(), "Ca.Infoway.Messagebuilder.Datatype.Lang.MbDate"),
 	IVLTSCDAR1("IVLTSCDAR1", "DateInterval", IVLTSCDAR1.class.getName(), DateInterval.class.getName(), null), 
 	PIVLTSCDAR1("PIVLTSCDAR1", PIVLTSCDAR1.class.getName(), PeriodicIntervalTimeR2.class.getName(), null);
 	

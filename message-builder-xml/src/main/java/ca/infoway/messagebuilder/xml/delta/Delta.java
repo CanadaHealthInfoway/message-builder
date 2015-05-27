@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.xml.delta;
 
 import static javax.persistence.CascadeType.ALL;
+
 import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.ADD_CHOICE;
 import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.ANNOTATION;
 import static ca.infoway.messagebuilder.xml.delta.ConstraintChangeType.CHANGE_TEMPLATE_PARAMETER;
@@ -58,6 +59,8 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 /**
  * For one class/attribute/association provides all the information regarding to model changes.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET
  */
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)

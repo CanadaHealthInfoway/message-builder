@@ -29,6 +29,8 @@ import javax.persistence.Id;
 
 /**
  * Contains the entry to be added.
+ *
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
  */
 @Entity
 public class AddInteractionArgument implements Serializable {

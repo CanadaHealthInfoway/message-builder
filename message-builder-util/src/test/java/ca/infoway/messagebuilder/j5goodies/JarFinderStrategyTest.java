@@ -23,7 +23,6 @@ package ca.infoway.messagebuilder.j5goodies;
 import java.net.URL;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
 

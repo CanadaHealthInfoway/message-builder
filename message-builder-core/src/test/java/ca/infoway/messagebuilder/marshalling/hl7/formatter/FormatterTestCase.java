@@ -20,9 +20,10 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import static org.junit.Assert.assertEquals;
+
+import static ca.infoway.messagebuilder.marshalling.WhitespaceUtil.normalizeWhitespace;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -50,17 +51,18 @@ import ca.infoway.messagebuilder.resolver.configurator.DefaultCodeResolutionConf
 public abstract class FormatterTestCase {
 	
 	@Before
-	public void setup() {
+	public void formatterTestCaseSetup() {
 		DefaultCodeResolutionConfigurator.configureCodeResolversWithTrivialDefault();
+		result = new ModelToXmlResult(); //NUnit does not create a new instance for each test method
 	}
 	
 	@After
-	public void tearDown() {
+	public void formatterTestCaseTearDown() {
 		CodeResolverRegistry.unregisterAll();
 		this.result.clearErrors();
 	}
 	
-	protected ModelToXmlResult result = new ModelToXmlResult();
+	protected ModelToXmlResult result;
 
 	protected void assertXml(String description, String expected, String actual) {
 		assertXml(description, expected, actual, false);

@@ -56,8 +56,10 @@
 		
 			<java fork="true" classname="org.eclipse.core.launcher.Main" failonerror="true" timeout="1800000">
 			
-				<!--<jvmarg value="-Xdebug" />
-				<jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,address=8888,suspend=y" />-->
+				<!--
+				<jvmarg value="-Xdebug" />
+				<jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,address=8888,suspend=y" />
+				-->
 				<jvmarg value="-Xms256m" />
 				<jvmarg value="-Xmx512m" />
 				

@@ -25,8 +25,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.delta.AnnotationConstraint;
 
+/**
+ * @sharpen.ignore - related class is only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class AnnotationConstraintTest {
 
 	@Test

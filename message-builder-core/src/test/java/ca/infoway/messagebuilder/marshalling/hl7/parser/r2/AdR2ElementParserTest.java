@@ -20,15 +20,17 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
+
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.Test;
@@ -115,7 +117,7 @@ public class AdR2ElementParserTest extends MarshallingTestCase {
         assertEquals("number of name parts", 4, postalAddress.getParts().size());
         assertEquals("number of useablePeriods", 2, postalAddress.getUseablePeriods().size());
         
-        assertTrue(ad.getValue().getIsNotOrdered());
+        assertTrue((boolean)ad.getValue().getIsNotOrdered()); //cast for .NET translation
         
         assertPostalAddressPartAsExpected("city", postalAddress.getParts().get(0), PostalAddressPartType.CITY, "city name");
         assertPostalAddressPartAsExpected("free", postalAddress.getParts().get(1), null, "freeform");
@@ -155,7 +157,7 @@ public class AdR2ElementParserTest extends MarshallingTestCase {
         assertEquals("number of name parts", 4, postalAddress.getParts().size());
         assertEquals("number of useablePeriods", 2, postalAddress.getUseablePeriods().size());
         
-        assertTrue(ad.getValue().getIsNotOrdered());
+        assertTrue((boolean)ad.getValue().getIsNotOrdered());//cast for .NET translation
         
         assertPostalAddressPartAsExpected("city", postalAddress.getParts().get(0), PostalAddressPartType.CITY, "city name");
         assertPostalAddressPartAsExpected("free", postalAddress.getParts().get(1), null, "freeform");
@@ -197,7 +199,10 @@ public class AdR2ElementParserTest extends MarshallingTestCase {
         AD ad = (AD) new AdR2ElementParser().parse(createContext("AD", V02R02), node, this.xmlResult);
 		assertTrue(this.xmlResult.isValid());
         assertEquals("one use", 1, ad.getValue().getUses().size());
-        assertTrue("contains HOME use", ad.getValue().getUses().iterator().next().getCodeValue().equals(PostalAddressUse.HOME.getCodeValue()));
+        Iterator<ca.infoway.messagebuilder.domainvalue.PostalAddressUse> iterator = ad.getValue().getUses().iterator();
+        if (iterator.hasNext()) { //.NET
+        	assertTrue("contains HOME use", iterator.next().getCodeValue().equals(PostalAddressUse.HOME.getCodeValue()));
+        }
     }
     
 	@Test

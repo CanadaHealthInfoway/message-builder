@@ -20,9 +20,12 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
+import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.CD_R2Impl;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * CD (R2)
@@ -32,7 +35,12 @@ class CdR2ElementParser extends CeR2ElementParser {
 	
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
-		return new CD_R2Impl();
+		return new CD_R2Impl<Code>();
+	}
+	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createCDInstance(context.getExpectedReturnType());
 	}
 
 	@Override

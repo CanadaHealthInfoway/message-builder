@@ -20,14 +20,15 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser.r2;
 
-import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.SpecificationVersion.V02R02;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.OPTIONAL;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,6 +43,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 
+@SuppressWarnings("unchecked")
 public class ScR2ElementParserTest extends MarshallingTestCase {
 	
 	private ScR2ElementParser parser;
@@ -57,7 +59,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"NI\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -68,7 +70,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseOtherNullNode() throws Exception {
         Node node = createNode("<something nullFlavor=\"OTH\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -79,7 +81,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseCodeWithNullNode() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"OTH\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -90,7 +92,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseCodeWithNullNodeAndCodeSystem() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\" nullFlavor=\"OTH\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -101,7 +103,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseEmptyNode() throws Exception {
         Node node = createNode("<something/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, MANDATORY, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -111,7 +113,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseNoCodeAttributeNode() throws Exception {
         Node node = createNode("<something notvalue=\"\" />");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertTrue(this.xmlResult.isValid());
@@ -121,7 +123,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseInvalid() throws Exception {
         Node node = createNode("<something code=\"ER\" />");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
@@ -132,7 +134,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidWithEmptyNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
@@ -154,7 +156,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 	@Test
     public void testParseValidWithInvalidNullFavorAttributeValue() throws Exception {
         Node node = createNode("<something code=\"BARNEY\" nullFlavor=\"NOT A VALID NULL FAVOR VALUE\"/>");
-        SC_R2 sc = (SC_R2) this.parser.parse(
+        SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
         		ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
         		node, this.xmlResult);
         assertFalse(this.xmlResult.isValid());
@@ -168,7 +170,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 							   " some text goes here" +
 							   "</something>");
 		
-		SC_R2 sc = (SC_R2) this.parser.parse(
+		SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
 				ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, this.xmlResult);
 		assertTrue("valid", this.xmlResult.isValid());
@@ -191,7 +193,7 @@ public class ScR2ElementParserTest extends MarshallingTestCase {
 				"  <translation code=\"F\" codeSystem=\"2.16.840.1.113883.5.1\" />" +
 				"</something>");
 		
-		SC_R2 sc = (SC_R2) this.parser.parse(
+		SC_R2<MockCharacters> sc = (SC_R2<MockCharacters>) this.parser.parse(
 				ParseContextImpl.create("SC", MockCharacters.class, V02R02, null, null, OPTIONAL, null, null, false), 
 				node, 
 				this.xmlResult);

@@ -25,9 +25,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -40,7 +38,9 @@ import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
+import ca.infoway.messagebuilder.platform.DateFormatUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -96,9 +96,6 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertValidValueAttribute(DateUtil.getDate(1999, 2, 3, 0, 0, 0, 0), "19990303");
     }
     
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidValueAttributeWithTimeZoneMinus() throws Exception {
 		Date calendar = DateUtil.getDate(2008, 2, 31, 15, 58, 57, 862);
@@ -107,14 +104,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertValidValueAttribute(calendar, expectedValue);
     }
     
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void testParseValidValueAttributeWithTimeZonePlusHasCorrectDatePattern() throws Exception {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
-		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		Date calendar = format.parse("2008-03-31_10:58:57.862");
+		Date calendar = DateUtil.getDate(2008, 2, 31, 10, 58, 57, 862, TimeZoneUtil.getTimeZone("America/New_York"));
 
 		String value = "20080331155857.8620+0100";
 		assertValidValueAttribute(calendar, value);
@@ -142,9 +134,6 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
     }
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidDateForExceptionCase() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -209,9 +198,6 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertEquals("no timezone missing error", 0, this.xmlResult.getHl7Errors().size());
     }
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseNoFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -261,9 +247,6 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidFullDateTimeSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -275,9 +258,6 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("no errors", this.xmlResult.getHl7Errors().isEmpty());
     }
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
     public void testParseValidFullDateTimeButWithFullDateSpecificationTypeForAbstractFullDateWithTime() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25, 14, 16, 10, 0);
@@ -294,59 +274,39 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertTrue("specialization type error", this.xmlResult.getHl7Errors().get(0).getMessage().equals(expectedErrorMsg));
     }
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void dateShouldBeUnaffectedByDateTimeTimeZone() throws Exception {
 		Date expectedResult = DateUtil.getDate(2008, 5, 25);
 		String value = "20080625";
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
-		ParseContext context = ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null, null, null, false);
+		ParseContext context = ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, null, TimeZoneUtil.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null, null, null, false);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void shouldBeConvertedDueToTimeZone() throws Exception {
-		//Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0);
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
-		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		Date expectedResult = format.parse("2008-06-24_23:00:00.000");
+		Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0, TimeZoneUtil.getTimeZone("America/New_York"));
 
 		String value = "20080625";
 		Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATEWITHTIME\" />");
-		ParseContext context = ParseContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, TimeZone.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null, null, null, false);
+		ParseContext context = ParseContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02, null, TimeZoneUtil.getTimeZone("GMT-3"), ConformanceLevel.POPULATED, null, null, null, null, false);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should have been converted due to time zone", FULL_DATE_TIME, expectedResult, date);
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	@Test
 	public void dateShouldBeAffectedByDateTimeZone() throws Exception {
-		//Date expectedResult = DateUtil.getDate(2008, 5, 24);
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss.SSS");
-		format.setTimeZone(TimeZone.getTimeZone("America/New_York"));
-		Date expectedResult = format.parse("2008-06-24_23:00:00.000");
+		Date expectedResult = DateUtil.getDate(2008, 5, 24, 23, 0, 0, 0, TimeZoneUtil.getTimeZone("America/New_York"));
 		
 		String value = "20080625";
         Node node = createNode("<something value=\"" + value + "\" specializationType=\"TS.FULLDATE\" />");
-		ParseContext context = ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZone.getTimeZone("GMT-3"), null, ConformanceLevel.POPULATED, null, null, null, null, false);
+		ParseContext context = ParseContextImpl.create("TS.FULLDATE", Date.class, SpecificationVersion.R02_04_02, TimeZoneUtil.getTimeZone("GMT-3"), null, ConformanceLevel.POPULATED, null, null, null, null, false);
 		Date date = (Date)new TsElementParser().parse(context, node, this.xmlResult).getBareValue();
 		assertDateEquals("should not be different even though different time zone", FULL_DATE, expectedResult, date);
 	}
 	
-	/**
-	 * @sharpen.remove
-	 */
 	private String getCurrentTimeZone(Date calendar) {
-		SimpleDateFormat tzformat = new SimpleDateFormat("Z");
-		String currentTimeZone = tzformat.format(calendar);
-		return currentTimeZone;
+		return DateFormatUtil.format(calendar, "Z");
 	}
 }

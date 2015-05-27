@@ -53,15 +53,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.ObservationMedia"})
 public class ObservationMediaBean extends MessagePartBean implements EntryChoice, Component4Choice, EntryRelationshipChoice {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private ST iD = new STImpl();
-    private CS_R2 classCode = new CS_R2Impl();
-    private CS_R2 moodCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private CS_R2<ActClassObservation> classCode = new CS_R2Impl<ActClassObservation>();
+    private CS_R2<ActMood> moodCode = new CS_R2Impl<ActMood>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CS_R2 languageCode = new CS_R2Impl();
+    private CS_R2<Code> languageCode = new CS_R2Impl<Code>();
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
     private SubjectBean subject;
     private List<SpecimenBean> specimen = new ArrayList<SpecimenBean>();

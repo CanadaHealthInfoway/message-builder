@@ -21,6 +21,7 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static ca.infoway.messagebuilder.marshalling.FixedValueAttributeBeanBridge.FIXED;
+
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.xml.Relationship;

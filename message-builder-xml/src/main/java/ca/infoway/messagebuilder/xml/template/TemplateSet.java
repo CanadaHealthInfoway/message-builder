@@ -26,11 +26,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 import ca.infoway.messagebuilder.xml.delta.Delta;
 import ca.infoway.messagebuilder.xml.delta.DeltaChangeType;
 
+/**
+ * @sharpen.ignore - only used at runtime by maven-chi-plugin - no need to translate to .NET 
+ */
 public class TemplateSet {
 
 	private Map<String,Template> templates = new HashMap<String,Template>();

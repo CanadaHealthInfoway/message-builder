@@ -31,10 +31,10 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 
 public class IvlToTsAdapter implements DataTypeAdapter {
 
-	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDateType) {
+	public boolean canAdapt(String fromDataTypeName, Class<? extends BareANY> toDataType) {
 		if ((StandardDataType.IVL_FULL_DATE.getType().equals(fromDataTypeName)
 		 || StandardDataType.IVL_FULL_DATE_WITH_TIME.getType().equals(fromDataTypeName))
-		 && TS.class.isAssignableFrom(toDateType)) {
+		 && TS.class.isAssignableFrom(toDataType)) {
 			return true;
 		}
 		return false;
@@ -45,12 +45,15 @@ public class IvlToTsAdapter implements DataTypeAdapter {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
-	public BareANY adapt(BareANY any) {
+	public BareANY adapt(Class<? extends BareANY> toDataType, BareANY any) {
 		IVL<TS,Interval<Date>> ivl = (IVL<TS,Interval<Date>>) any;
 		return (BareANY) new DataTypeAdapterHelper().copyAndReturnAdapted(
 				any, 
 				(BareANY) new TSImpl(), 
 				((Interval<Date>) ivl.getValue()).getLow());
+	}
+
+	public BareANY adapt(String toDataTypeName, BareANY any) {
+		return any;
 	}
 }

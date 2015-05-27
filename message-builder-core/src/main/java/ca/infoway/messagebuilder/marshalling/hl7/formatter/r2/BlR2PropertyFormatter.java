@@ -61,7 +61,7 @@ class BlR2PropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Boo
 	}
 	
 	@Override
-	public Map<String, String> getAttributeNameValuePairs(FormatContext context, Boolean bool, BareANY bareAny) {
+	protected Map<String, String> getAttributeNameValuePairs(FormatContext context, Boolean bool, BareANY bareAny) {
 		return super.getAttributeNameValuePairs(context, bool, bareAny);
 	}
 	

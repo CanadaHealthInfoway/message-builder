@@ -52,12 +52,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"UnstructuredDocument.AssignedAuthor"})
 public class AssignedAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<HealthcareProviderTaxonomy> code = new CE_R2Impl<HealthcareProviderTaxonomy>();
     private AD addr = new ADImpl();
     private TEL telecom = new TELImpl();
     private AssignedAuthorChoice assignedAuthorChoice;

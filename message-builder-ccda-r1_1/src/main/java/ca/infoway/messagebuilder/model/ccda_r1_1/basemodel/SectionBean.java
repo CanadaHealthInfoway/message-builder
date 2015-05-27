@@ -50,17 +50,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private ST iD = new STImpl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
-    private CE_R2 confidentialityCode = new CE_R2Impl();
-    private CS_R2 languageCode = new CS_R2Impl();
+    private CE_R2<Code> confidentialityCode = new CE_R2Impl<Code>();
+    private CS_R2<Code> languageCode = new CS_R2Impl<Code>();
     private SubjectBean subject;
     private List<Author_1Bean> author = new ArrayList<Author_1Bean>();
     private List<Informant12Bean> informant = new ArrayList<Informant12Bean>();

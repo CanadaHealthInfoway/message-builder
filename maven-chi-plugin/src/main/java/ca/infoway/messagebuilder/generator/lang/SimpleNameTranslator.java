@@ -63,6 +63,9 @@ public class SimpleNameTranslator implements NameTranslator {
 		//  the name collision and allow the class to be moved into the same package with all the message parts. Since
 		//  the .Net classes never had the "Bean" suffix in the first place, what is the corresponding change?
 		if (this.language == ProgrammingLanguage.C_SHARP) {
+			if (this.isCda && name.isInteraction()) {
+				return "Document";
+			}
 			return "";
 		} else if (this.helper.isAbstract(name) || (this.isCda && name.isInteraction())) {
 			return "";

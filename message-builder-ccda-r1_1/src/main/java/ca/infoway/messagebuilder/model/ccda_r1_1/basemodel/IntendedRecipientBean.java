@@ -47,9 +47,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"BaseModel.IntendedRecipient"})
 public class IntendedRecipientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 classCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<x_InformationRecipientRole> classCode = new CS_R2Impl<x_InformationRecipientRole>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<II, Identifier> id = new LISTImpl<II, Identifier>(IIImpl.class);

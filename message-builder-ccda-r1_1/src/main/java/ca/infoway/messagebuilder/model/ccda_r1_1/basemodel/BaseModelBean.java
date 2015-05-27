@@ -58,16 +58,16 @@ import java.util.List;
 @Hl7RootType
 public class BaseModelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<Code> code = new CE_R2Impl<Code>();
     private ST title = new STImpl();
     private TS_R2 effectiveTime = new TS_R2Impl();
-    private CE_R2 confidentialityCode = new CE_R2Impl();
-    private CS_R2 languageCode = new CS_R2Impl();
+    private CE_R2<Code> confidentialityCode = new CE_R2Impl<Code>();
+    private CS_R2<Code> languageCode = new CS_R2Impl<Code>();
     private II setId = new IIImpl();
     private INT versionNumber = new INTImpl();
     private TS_R2 copyTime = new TS_R2Impl();

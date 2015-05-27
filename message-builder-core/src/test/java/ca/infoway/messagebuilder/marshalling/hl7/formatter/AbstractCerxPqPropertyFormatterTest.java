@@ -20,10 +20,11 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
-import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLIGRAM;
+import static ca.infoway.messagebuilder.domainvalue.basic.UnitsOfMeasureCaseSensitive.MILLILITRE;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class AbstractCerxPqPropertyFormatterTest extends FormatterTestCase {
     
 	@Test
     public void testFormatPhysicalQuantityEmpty() throws Exception {
-        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), new PhysicalQuantity(), null);
+        Map<String,String>  result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), new PhysicalQuantity());
         
         // an empty value for PQ elements results in a nullFlavor attribute
         assertEquals("map size", 1, result.size());
@@ -90,7 +91,7 @@ public class AbstractCerxPqPropertyFormatterTest extends FormatterTestCase {
         physicalQuantity.setQuantity(new BigDecimal(quantity));
         physicalQuantity.setUnit(unit);
         
-        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), physicalQuantity, null);
+        Map<String, String> result = new PqPropertyFormatter().getAttributeNameValuePairs(createContext(), physicalQuantity);
         assertEquals("map size", 2, result.size());
         
         assertTrue("key as expected", result.containsKey("value"));

@@ -125,8 +125,8 @@ public class XmlRenderer {
             document.renameNode(node, namespace, node.getNodeName());
         }
         NodeList list = node.getChildNodes();
-        for (int i = 0; i < list.getLength(); ++i) {
-            renameNamespaceRecursive(list.item(i), namespace);
+        for (Node childNode : new XmlNodeListIterable(list)) {
+            renameNamespaceRecursive(childNode, namespace);
         }
     }
 }

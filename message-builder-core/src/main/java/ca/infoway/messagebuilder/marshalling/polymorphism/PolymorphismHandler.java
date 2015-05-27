@@ -20,24 +20,6 @@
 
 package ca.infoway.messagebuilder.marshalling.polymorphism;
 
-import static ca.infoway.messagebuilder.datatype.StandardDataType.BXIT_CD;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CD;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CE;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CO;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CS;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.CV;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.EIVL_TS;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.EN;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.HXIT_CE;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.IVL_TS;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.ON;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.PIVL_TS;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.PN;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.SXCM_CD;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.SXCM_TS;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.TN;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.TS;
-
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,34 +27,31 @@ import java.util.List;
 import java.util.Map;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 
 public class PolymorphismHandler {
 
 	private static Map<StandardDataType, List<StandardDataType>> allowedMappings = new HashMap<StandardDataType, List<StandardDataType>>();
-	static {
-		allowedMappings.put(TS, Arrays.asList(SXCM_TS, PIVL_TS, IVL_TS, EIVL_TS));
-		allowedMappings.put(SXCM_TS, Arrays.asList(PIVL_TS, IVL_TS, EIVL_TS));
-		allowedMappings.put(CD, Arrays.asList(CE, BXIT_CD, SXCM_CD, CV, HXIT_CE, CS, CO));
-		allowedMappings.put(CE, Arrays.asList(CV, HXIT_CE, CS, CO));
-		allowedMappings.put(CV, Arrays.asList(CS, CO));
-		allowedMappings.put(EN, Arrays.asList(PN, ON, TN));
-	}
-	
-	
 	private static Map<StandardDataType, StandardDataType> cdaR1MappingsToNew = new HashMap<StandardDataType, StandardDataType>();
+	private static Map<StandardDataType, StandardDataType> cdaR1MappingsToOld = new HashMap<StandardDataType, StandardDataType>();
+	
+	//Only 1 static init block in .NET
 	static {
+		//Static imports here seem to confuse sharpen
+		allowedMappings.put(StandardDataType.TS, Arrays.asList(StandardDataType.SXCM_TS, StandardDataType.PIVL_TS, StandardDataType.IVL_TS, StandardDataType.EIVL_TS));
+		allowedMappings.put(StandardDataType.SXCM_TS, Arrays.asList(StandardDataType.PIVL_TS, StandardDataType.IVL_TS, StandardDataType.EIVL_TS));
+		allowedMappings.put(StandardDataType.CD, Arrays.asList(StandardDataType.CE, StandardDataType.BXIT_CD, StandardDataType.SXCM_CD, StandardDataType.CV, StandardDataType.HXIT_CE, StandardDataType.CS, StandardDataType.CO));
+		allowedMappings.put(StandardDataType.CE, Arrays.asList(StandardDataType.CV, StandardDataType.HXIT_CE, StandardDataType.CS, StandardDataType.CO));
+		allowedMappings.put(StandardDataType.CV, Arrays.asList(StandardDataType.CS, StandardDataType.CO));
+		allowedMappings.put(StandardDataType.EN, Arrays.asList(StandardDataType.PN, StandardDataType.ON, StandardDataType.TN));
+		
 		cdaR1MappingsToNew.put(StandardDataType.TS, StandardDataType.TSCDAR1);
 		cdaR1MappingsToNew.put(StandardDataType.PIVL_TS, StandardDataType.PIVLTSCDAR1);
 		cdaR1MappingsToNew.put(StandardDataType.SXCM_TS, StandardDataType.SXCMTSCDAR1);
 		cdaR1MappingsToNew.put(StandardDataType.IVL_TS, StandardDataType.IVLTSCDAR1);
-	}
-	
-	
-	private static Map<StandardDataType, StandardDataType> cdaR1MappingsToOld = new HashMap<StandardDataType, StandardDataType>();
-	static {
+		
 		cdaR1MappingsToOld.put(StandardDataType.TSCDAR1, StandardDataType.TS);
 		cdaR1MappingsToOld.put(StandardDataType.PIVLTSCDAR1, StandardDataType.PIVL_TS);
 		cdaR1MappingsToOld.put(StandardDataType.SXCMTSCDAR1, StandardDataType.SXCM_TS);

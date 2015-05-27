@@ -30,12 +30,13 @@ import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.MarshallingException;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.ErrorLogger;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
-import ca.infoway.messagebuilder.error.ErrorLevel;
 import ca.infoway.messagebuilder.error.Hl7Errors;
 import ca.infoway.messagebuilder.j5goodies.Generics;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
@@ -98,8 +99,13 @@ public abstract class SetOrListElementParser extends AbstractElementParser {
 		}
 		
 		handleConstraints(subType, list, context.getConstraints(), nodes, xmlToModelResult);
-		
-		return wrapWithHl7DataType(context.getType(), subType, list);
+		BareANY wrapResult = null;
+		try {
+			wrapResult = wrapWithHl7DataType(context.getType(), subType, list, context);
+		} catch (MarshallingException e) {
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.INTERNAL_ERROR, e.getMessage(), (String)null));
+		}
+		return wrapResult;
 	}
 
 	private String determineActualType(Node node, String subType, boolean isCda, Hl7Errors errors) {
@@ -159,7 +165,7 @@ public abstract class SetOrListElementParser extends AbstractElementParser {
 				Hl7ErrorCode.INTERNAL_ERROR, "Could not add parsed value to collection", (Element) node));
 	}
 	
-	protected abstract BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection);
+	protected abstract BareANY wrapWithHl7DataType(String type, String subType, Collection<BareANY> collection, ParseContext context);
 
 	protected abstract Collection<BareANY> getCollectionType(ParseContext context);
 

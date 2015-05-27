@@ -67,15 +67,15 @@ import java.util.List;
 @Hl7RootType
 public class HistoryAndPhysicalBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
+    private static final long serialVersionUID = 20150504L;
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
-    private CE_R2 code = new CE_R2Impl();
+    private CE_R2<HPDocumentType> code = new CE_R2Impl<HPDocumentType>();
     private ST title = new STImpl();
     private TS_R2 effectiveTime = new TS_R2Impl();
-    private CE_R2 confidentialityCode = new CE_R2Impl();
-    private CS_R2 languageCode = new CS_R2Impl();
+    private CE_R2<BasicConfidentialityKind> confidentialityCode = new CE_R2Impl<BasicConfidentialityKind>();
+    private CS_R2<Language> languageCode = new CS_R2Impl<Language>();
     private II setId = new IIImpl();
     private INT versionNumber = new INTImpl();
     private TS_R2 copyTime = new TS_R2Impl();

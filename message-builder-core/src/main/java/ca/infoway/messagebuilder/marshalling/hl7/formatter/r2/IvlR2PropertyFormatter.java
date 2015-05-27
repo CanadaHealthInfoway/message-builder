@@ -31,11 +31,12 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.QTY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
-import ca.infoway.messagebuilder.datatype.impl.DataTypeImplementationFactory;
+import ca.infoway.messagebuilder.datatype.impl.DataTypeFactory;
 import ca.infoway.messagebuilder.datatype.impl.QTYImpl;
 import ca.infoway.messagebuilder.datatype.lang.BareDiff;
-import ca.infoway.messagebuilder.datatype.lang.DateDiff;
+import ca.infoway.messagebuilder.datatype.lang.DiffWithQuantityAndUnit;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.datatype.lang.MbDate;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.util.Representation;
 import ca.infoway.messagebuilder.datatype.lang.util.RepresentationUtil;
@@ -203,19 +204,13 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 		return isLow ? value.getLowInclusive() : value.getHighInclusive();
 	}
 
-	@SuppressWarnings("unchecked")
 	private QTY<T> createQTY(T value, NullFlavor nullFlavor) {
-		value = (T) convertValueIfNecessary(value);
 		return new QTYImpl<T>(null, value, nullFlavor, StandardDataType.QTY);
 	}
 
-	protected Object convertValueIfNecessary(T value) {
-		return value;
-	}
-
 	protected String getDateDiffUnits(BareDiff diff) {
-    	if (diff instanceof DateDiff) {
-    		UnitsOfMeasureCaseSensitive unit = ((DateDiff) diff).getUnit();
+    	if (diff instanceof DiffWithQuantityAndUnit) {
+    		UnitsOfMeasureCaseSensitive unit = ((DiffWithQuantityAndUnit) diff).getUnit();
 			return unit != null ? unit.getCodeValue() : ""; 
     	} else {
     		return UNITS_OF_MEASURE_DAY;
@@ -223,11 +218,17 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
     }
 
     protected String formatDateDiff(BareDiff diff) {
-    	if (diff instanceof DateDiff) {
-    		PhysicalQuantity quantity = ((DateDiff) diff).getValueAsPhysicalQuantity();
+    	if (diff instanceof DiffWithQuantityAndUnit) {
+    		PhysicalQuantity quantity = ((DiffWithQuantityAndUnit) diff).getValueAsPhysicalQuantity();
     		return quantity == null ? "" : ObjectUtils.toString(quantity.getQuantity());
     	} else {
-            long l = ((Date) diff.getBareValue()).getTime() / DateUtils.MILLIS_PER_DAY;
+    		Date date;
+    		if (diff.getBareValue() instanceof Date) {
+    			date = (Date) diff.getBareValue();
+    		} else {
+    			date = ((MbDate) diff.getBareValue()).getValue();
+    		}
+            long l = date.getTime() / DateUtils.MILLIS_PER_DAY;
             return String.valueOf(l);
     	}
     }
@@ -267,7 +268,7 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 
 	private BareANY wrapWithHl7DataType(String hl7DataType, BareDiff diff) {
 		try {
-			BareANY hl7Value = (BareANY) DataTypeImplementationFactory.getImplementation(hl7DataType).newInstance();
+			BareANY hl7Value = (BareANY) DataTypeFactory.createDataType(hl7DataType, true);
 			if (diff!=null) {
 				if (diff.getBareValue()!=null) {
 					((BareANYImpl) hl7Value).setBareValue(diff.getBareValue());
@@ -298,7 +299,7 @@ abstract class IvlR2PropertyFormatter<T> extends AbstractNullFlavorPropertyForma
 			String result = formatter.format(newContext, value, indentLevel);
     		if (inclusive != null) {
     			// TM - small hack to add in the inclusive attribute (low/high) (operator, simple only, is already formatted by using the SXCM type)
-    			result = result.replaceFirst(" value=", " inclusive=\"" + inclusive.toString() + "\" value=");
+    			result = result.replaceFirst(" value=", " inclusive=\"" + inclusive.toString().toLowerCase() + "\" value=");
     		}
     		return result;
     	} else {

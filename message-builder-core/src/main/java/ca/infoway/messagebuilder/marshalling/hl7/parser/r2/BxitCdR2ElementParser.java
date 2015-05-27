@@ -24,7 +24,9 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.impl.BXITImpl;
 import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
+import ca.infoway.messagebuilder.marshalling.CodedTypeR2Helper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 /**
  * BXIT<CD> (R2)
@@ -35,6 +37,11 @@ class BxitCdR2ElementParser extends CdR2ElementParser {
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new BXITImpl<CodedTypeR2<Code>>();
+	}
+	
+	@Override
+	protected BareANY doCreateR2DataTypeInstance(ParseContext context) {
+		return CodedTypeR2Helper.createBXITInstance(context.getExpectedReturnType());
 	}
 	
 	@Override

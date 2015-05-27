@@ -22,7 +22,6 @@ package ca.infoway.messagebuilder.marshalling;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.MarshallingException;
-import ca.infoway.messagebuilder.datatype.lang.CodedTypeR2;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.error.Hl7Errors;
@@ -74,8 +73,8 @@ abstract class StructuralAttributeRenderer {
                     + relationship.getName()
                     + " has no type information");
         } else if ("CS".equals(type)) {
-        	if (value instanceof CodedTypeR2) {
-        		return ((CodedTypeR2<?>)value).getCodeValue(); 
+        	if (CodedTypeR2Helper.isCodedTypeR2(value)) {
+        		return CodedTypeR2Helper.getCodeValue(value);
         	} else if (value instanceof Code) {
         		return ((Code)value).getCodeValue();
         	} else {

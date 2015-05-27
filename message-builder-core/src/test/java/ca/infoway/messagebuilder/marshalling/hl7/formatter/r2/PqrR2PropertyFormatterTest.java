@@ -44,7 +44,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 
 	@Test
 	public void testNullFlavor() throws Exception {
-		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), new PQRImpl(NullFlavor.NO_INFORMATION));
+		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), new PQRImpl<Code>(NullFlavor.NO_INFORMATION));
 		
 		assertTrue(this.result.isValid());
 		assertEquals("result", "<name nullFlavor=\"NI\"/>", StringUtils.trim(result));
@@ -63,7 +63,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 
-		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), new PQRImpl(codedType));
+		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), new PQRImpl<Code>(codedType));
 		
 		assertTrue(this.result.isValid());
 		
@@ -78,7 +78,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("original text allowed for PQR");
 		codedType.setOriginalText(originalText);
 
-		PQR pqr = new PQRImpl(codedType);
+		PQR<Code> pqr = new PQRImpl<Code>(codedType);
 		pqr.setNullFlavor(NullFlavor.NO_INFORMATION);
 		
 		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), pqr);
@@ -105,7 +105,7 @@ public class PqrR2PropertyFormatterTest extends FormatterTestCase {
 		originalText.setContent("some original text");
 		codedType.setOriginalText(originalText);
 		
-		PQR pqr = new PQRImpl(codedType);
+		PQR<Code> pqr = new PQRImpl<Code>(codedType);
 		
 		String result = new PqrR2PropertyFormatter().format(getContext("name", "PQR"), pqr);
 		

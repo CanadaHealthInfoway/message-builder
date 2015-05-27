@@ -38,6 +38,8 @@ import ca.infoway.messagebuilder.terminology.proxy.TypedCodeFactory;
 
 public class CdaCodeResolverTest {
 
+	private static final Class<BasicConfidentialityKind> TYPE = BasicConfidentialityKind.class;
+	
 	private CdaCodeResolver fixture;
 
 	@Before
@@ -50,7 +52,7 @@ public class CdaCodeResolverTest {
 	
 	@Test
 	public void shouldFindAllCodesByType() {
-		Collection<BasicConfidentialityKind> collection = fixture.lookup(BasicConfidentialityKind.class);
+		Collection<BasicConfidentialityKind> collection = fixture.<BasicConfidentialityKind>lookup(TYPE);
 		assertEquals(3, collection.size());
 		
 		Set<String> expectedCodes = new HashSet<String>(Arrays.asList("N", "R", "V"));
@@ -62,7 +64,7 @@ public class CdaCodeResolverTest {
 
 	@Test
 	public void shouldFindCodeByCodeAndType() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "N");
+		BasicConfidentialityKind code = fixture.<BasicConfidentialityKind>lookup(TYPE, "N");
 		
 		assertNotNull(code);
 		assertEquals("N", code.getCodeValue());
@@ -76,7 +78,7 @@ public class CdaCodeResolverTest {
 	
 	@Test
 	public void shouldFindCodeByCodeAndTypeIgnoringCase() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", true);
+		BasicConfidentialityKind code = fixture.<BasicConfidentialityKind>lookup(TYPE, "n", true);
 		
 		assertNotNull(code);
 		assertEquals("N", code.getCodeValue());
@@ -90,25 +92,25 @@ public class CdaCodeResolverTest {
 	
 	@Test
 	public void shouldNotFindCodeWhenCaseMatters() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", false);
+		BasicConfidentialityKind code = fixture.<BasicConfidentialityKind>lookup(TYPE, "n", false);
 		assertNull(code);
 	}
 	
 	@Test
 	public void shouldFindCodeByCodeAndOid() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "N", "2.16.840.1.113883.5.25");
+		BasicConfidentialityKind code = fixture.<BasicConfidentialityKind>lookup(TYPE, "N", "2.16.840.1.113883.5.25");
 		assertNotNull(code);
 		
-		code = fixture.lookup(BasicConfidentialityKind.class, "N", "some.bogus.oid");
+		code = fixture.<BasicConfidentialityKind>lookup(TYPE, "N", "some.bogus.oid");
 		assertNull(code);
 	}
 	
 	@Test
 	public void shouldFindCodeByCodeAndOidWhenCaseMatters() {
-		BasicConfidentialityKind code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25", true);
+		BasicConfidentialityKind code = fixture.<BasicConfidentialityKind>lookup(TYPE, "n", "2.16.840.1.113883.5.25", true);
 		assertNotNull(code);
 		
-		code = fixture.lookup(BasicConfidentialityKind.class, "n", "2.16.840.1.113883.5.25", false);
+		code = fixture.<BasicConfidentialityKind>lookup(TYPE, "n", "2.16.840.1.113883.5.25", false);
 		assertNull(code);
 	}
 }

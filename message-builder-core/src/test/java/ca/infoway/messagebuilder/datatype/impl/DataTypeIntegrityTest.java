@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.j5goodies.ClassFinder;
 import ca.infoway.messagebuilder.j5goodies.ClassPredicate;
 
 /**
- * @sharpen.ignore - datatype - translated manually
+ * @sharpen.ignore - datatype - Test is more applicable to Java than .NET as long as .NET classes are manually translated correctly.
  */
 public class DataTypeIntegrityTest {
 	

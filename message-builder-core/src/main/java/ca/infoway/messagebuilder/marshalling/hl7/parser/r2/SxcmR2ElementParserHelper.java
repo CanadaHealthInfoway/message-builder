@@ -26,7 +26,6 @@ import ca.infoway.messagebuilder.datatype.lang.util.SetOperator;
 import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.error.Hl7Errors;
-import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContext;
 
 public class SxcmR2ElementParserHelper {

@@ -25,6 +25,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import org.junit.Test;
@@ -35,8 +36,8 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.error.ErrorLevel;
+import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParseContextImpl;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserTestCase;
@@ -80,7 +81,10 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals(ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
-		assertEquals(new Identifier("1.2.3.4", "5678"), rawSet.iterator().next());
+		Iterator<Identifier> iterator = rawSet.iterator();
+		if (iterator.hasNext()) {
+			assertEquals(new Identifier("1.2.3.4", "5678"), iterator.next());
+		}
 	}
 
 	@Test
@@ -110,7 +114,10 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals(ErrorLevel.WARNING, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
-		assertEquals(new Identifier("1.2.3.4", "5678"), rawSet.iterator().next());
+		Iterator<Identifier> iterator = rawSet.iterator();
+		if (iterator.hasNext()) {
+			assertEquals(new Identifier("1.2.3.4", "5678"), iterator.next());
+		}
 	}
 
 	@Test
@@ -140,7 +147,10 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertEquals(ErrorLevel.INFO, xmlToModelResult.getHl7Errors().get(0).getHl7ErrorLevel());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
-		assertEquals(new Identifier("1.2.3.4"), rawSet.iterator().next());
+		Iterator<Identifier> iterator = rawSet.iterator();
+		if (iterator.hasNext()) {
+			assertEquals(new Identifier("1.2.3.4"), iterator.next());
+		}
 	}
 
 	@Test
@@ -167,7 +177,10 @@ public class SetIiR2ElementParserTest extends ParserTestCase {
 		assertTrue(xmlToModelResult.getHl7Errors().isEmpty());
 		assertNotNull("null", rawSet);
 		assertEquals("size", 1, rawSet.size());
-		assertEquals(new Identifier("1.2.3.4"), rawSet.iterator().next());
+		Iterator<Identifier> iterator = rawSet.iterator();
+		if (iterator.hasNext()) {
+			assertEquals(new Identifier("1.2.3.4"), iterator.next());
+		}
 	}
 
 }

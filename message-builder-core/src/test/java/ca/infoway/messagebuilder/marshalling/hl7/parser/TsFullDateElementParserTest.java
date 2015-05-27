@@ -38,6 +38,7 @@ import ca.infoway.messagebuilder.error.Hl7Error;
 import ca.infoway.messagebuilder.error.Hl7ErrorCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.MarshallingTestCase;
+import ca.infoway.messagebuilder.marshalling.hl7.TimeZoneUtil;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
@@ -99,15 +100,11 @@ public class TsFullDateElementParserTest extends MarshallingTestCase {
         assertEquals("error message type", Hl7ErrorCode.DATA_TYPE_ERROR, hl7Error.getHl7ErrorCode());
 	}
 
-    /**
-     *
-     * @sharpen.remove
-     */
 	@Test
 	public void dateInterpretedAsSaskShouldBeGreaterThanSameTimeInterpretedAsOntario() throws Exception {
 		Node node = createNode("<something value=\"19990303000000\" />");
-		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("Canada/Saskatchewan")), node, this.xmlResult).getBareValue());
-		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZone.getTimeZone("Canada/Ontario")), node, this.xmlResult).getBareValue());
+		Date saskDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZoneUtil.getTimeZone("Canada/Saskatchewan")), node, this.xmlResult).getBareValue());
+		Date ontarioDate = ((Date)new TsElementParser().parse(createContextWithTimeZone(TimeZoneUtil.getTimeZone("Canada/Ontario")), node, this.xmlResult).getBareValue());
 		assertTrue(saskDate.compareTo(ontarioDate) > 0);
 	}
 

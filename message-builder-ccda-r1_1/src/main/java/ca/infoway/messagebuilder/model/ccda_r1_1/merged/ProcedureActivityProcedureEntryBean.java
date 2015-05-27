@@ -41,9 +41,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"AnesthesiaSection.ProcedureActivityProcedureEntry","ProceduresSectionentriesOptional.ProcedureActivityProcedureEntry","ProceduresSectionentriesRequired.ProcedureActivityProcedureEntry"})
 public class ProcedureActivityProcedureEntryBean extends MessagePartBean implements EntryChoice_8, ca.infoway.messagebuilder.model.ccda_r1_1.anesthesiasection.EntryChoice {
 
-    private static final long serialVersionUID = 20150328L;
-    private CS_R2 typeCode = new CS_R2Impl();
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private CS_R2<x_ActRelationshipEntry> typeCode = new CS_R2Impl<x_ActRelationshipEntry>();
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private ProcedureBean procedure;

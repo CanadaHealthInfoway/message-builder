@@ -20,13 +20,14 @@
 
 package ca.infoway.messagebuilder.marshalling.hl7.parser;
 
-import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.PLAIN_TEXT;
-import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import static ca.infoway.messagebuilder.datatype.lang.util.Compression.GZIP;
+import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.PLAIN_TEXT;
+import static ca.infoway.messagebuilder.domainvalue.basic.X_DocumentMediaType.XML_TEXT;
 
 import org.junit.Test;
 import org.w3c.dom.Node;
@@ -78,7 +79,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 				"</something>");
 		EncapsulatedData data = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.V02R02), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("content", TEXT_SIMPLE, new String(data.getContent()));
+		assertEquals("content", TEXT_SIMPLE, data.getContent());
 		assertEquals("media type", X_DocumentMediaType.PLAIN_TEXT, data.getMediaType());
 	}
 
@@ -190,7 +191,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		assertEquals(2, this.xmlResult.getHl7Errors().size());  // must provide specializationType and mediaType
 		assertEquals("signature", 
 				"this is a text node", 
-				new String(value.getContent()));
+				value.getContent());
 	}
 	
 	@Test
@@ -219,7 +220,7 @@ public class EdElementParserTest extends CeRxDomainValueTestCase {
 		Node node = createNode("<text specializationType=\"ED.DOC\" mediaType=\"text/html\"><reference value=\"https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html\"/>text value</text>");
 		EncapsulatedData value = (EncapsulatedData) new EdElementParser().parse(createContext("ED.DOC", SpecificationVersion.R02_04_03), node, this.xmlResult).getBareValue();
 		assertTrue(this.xmlResult.isValid());
-		assertEquals("text returned", "text value", new String(value.getContent()));
+		assertEquals("text returned", "text value", value.getContent());
 		assertEquals("proper media type returned", X_DocumentMediaType.HTML_TEXT, value.getMediaType());
 		assertEquals("proper reference returned", "https://pipefq.ehealthsask.ca/monograph/WPDM00002197.html", value.getReference());
 	}

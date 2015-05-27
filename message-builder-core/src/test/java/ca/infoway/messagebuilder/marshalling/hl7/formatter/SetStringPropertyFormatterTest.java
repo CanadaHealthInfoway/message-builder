@@ -21,7 +21,6 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.datatype.ST;

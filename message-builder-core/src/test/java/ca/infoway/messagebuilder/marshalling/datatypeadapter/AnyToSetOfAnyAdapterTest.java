@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 
 /**
- * @sharpen.ignore data type adapter
+ * @sharpen.ignore - due to generics issues
  */
 public class AnyToSetOfAnyAdapterTest {
 
@@ -52,9 +52,9 @@ public class AnyToSetOfAnyAdapterTest {
 	@Test
 	public void shouldAdaptCorrectly() throws Exception {
 		IIImpl ii = new IIImpl(new Identifier("1", "2"));
-		BareANY adapted = this.adapter.adapt(ii);
+		BareANY adapted = this.adapter.adapt(SET.class, ii);
 		assertTrue(adapted instanceof SET);
-		assertTrue(((SET<II, ?>) adapted).getValue().contains(ii));
+		assertTrue(((SET<II, Identifier>) adapted).getValue().contains(ii));
 	}
 	
 }

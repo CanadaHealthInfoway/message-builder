@@ -42,8 +42,8 @@ import java.util.List;
 @Hl7PartTypeMapping({"ConsultationNote.LegalAuthenticatorPerson","ContinuityOfCareDocumentCCD.LegalAuthenticatorPerson","DiagnosticImagingReport.LegalAuthenticatorPerson","DischargeSummary.LegalAuthenticatorPerson","HistoryAndPhysical.LegalAuthenticatorPerson","OperativeNote.LegalAuthenticatorPerson","ProcedureNote.LegalAuthenticatorPerson","ProgressNote.LegalAuthenticatorPerson","USRealmHeader.LegalAuthenticatorPerson","UnstructuredDocument.LegalAuthenticatorPerson"})
 public class LegalAuthenticatorPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150328L;
-    private LIST<CS_R2, CodedTypeR2<? extends Code>> realmCode = new LISTImpl<CS_R2, CodedTypeR2<? extends Code>>(CS_R2Impl.class);
+    private static final long serialVersionUID = 20150504L;
+    private LIST<CS_R2<Code>, CodedTypeR2<Code>> realmCode = new LISTImpl<CS_R2<Code>, CodedTypeR2<Code>>(CS_R2Impl.class);
     private II typeId = new IIImpl();
     private LIST<II, Identifier> templateId = new LISTImpl<II, Identifier>(IIImpl.class);
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
