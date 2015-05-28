@@ -23,6 +23,8 @@ package ca.infoway.messagebuilder.datatype.impl;
 import static org.junit.Assert.assertNotNull;
 
 import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -31,12 +33,28 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 
 public class DataTypeImplementationFactoryTest {
 	
-	public static StandardDataType[] DATA_TYPES = EnumPattern.values(StandardDataType.class).toArray(new StandardDataType[0]); 
+	private static final Set<StandardDataType> CDA_R2_TYPES = new HashSet<StandardDataType>();
+	private static final StandardDataType[] DATA_TYPES = EnumPattern.values(StandardDataType.class).toArray(new StandardDataType[0]);
+	
+	static {
+		CDA_R2_TYPES.add(StandardDataType.CD);
+		CDA_R2_TYPES.add(StandardDataType.CV);
+		CDA_R2_TYPES.add(StandardDataType.CE);
+		CDA_R2_TYPES.add(StandardDataType.CO);
+		CDA_R2_TYPES.add(StandardDataType.SC);
+		CDA_R2_TYPES.add(StandardDataType.CS);
+		CDA_R2_TYPES.add(StandardDataType.PQR);
+	}
 	
 	@Test
 	public void makeSureDataTypeHasAnImplemenation() throws Exception {
 		for (StandardDataType type : DATA_TYPES) {
 			if (type != StandardDataType.COLLECTION && type != StandardDataType.BAG) {
+				if (type.isCoded() && CDA_R2_TYPES.contains(type)) {
+					assertNotNull(MessageFormat.format("no implementation for: {0}", 
+							type.getType()), 
+							DataTypeImplementationFactory.getImplementation(type.getType(), true));
+				}
 				assertNotNull(MessageFormat.format("no implementation for: {0}", 
 						type.getType()), 
 						DataTypeImplementationFactory.getImplementation(type.getType(), false));
