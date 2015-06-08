@@ -136,7 +136,9 @@ public class MessageBeanTransformerImpl {
 		
 		ModelToXmlResult result = visitor.toXml();
 		
-		performAdditionalCdaValidation(version, result.getXmlMessage(), result);
+		if (this.service.isCda(version)) {
+			performAdditionalCdaValidation(version, result.getXmlMessage(), result);
+		}
 		
 		if (!result.isValid() && isStrict()) {
 			throw new InvalidRenderInputException(result.getHl7Errors());
