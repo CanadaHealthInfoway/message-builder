@@ -95,4 +95,7 @@ class ParseContextImpl implements ParseContext {
 		return isCda;
 	}
 
+	public boolean isFixedValue() {
+		return relationship.hasFixedValue();
+	}
 }

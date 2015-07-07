@@ -45,11 +45,12 @@ public class CodeLookupUtils {
 
     public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
     		Element element, String type, XmlToModelResult xmlToModelResult) {
-    	return getCorrespondingCode(code, codeSystem, expectedReturnType, element, type, xmlToModelResult, false);
+    	return getCorrespondingCode(code, codeSystem, expectedReturnType, element, type, xmlToModelResult, false, false);
     }
     
     public Code getCorrespondingCode(String code, String codeSystem, Type expectedReturnType, 
-    		Element element, String type, XmlToModelResult xmlToModelResult, boolean relaxCodeSystemCheck) {
+    		Element element, String type, XmlToModelResult xmlToModelResult, boolean relaxCodeSystemCheck,
+    		boolean relaxCodeCheck) {
     	
     	Class<? extends Code> codeType = getReturnTypeAsCodeType(expectedReturnType);
     	
@@ -73,17 +74,33 @@ public class CodeLookupUtils {
 
         // if a code is specified and there is no matching enum value for it,
 		// something is seriously wrong
-        if (StringUtils.isNotBlank(code) && result == null) {
+        if (StringUtils.isNotBlank(code) && result == null && !relaxCodeCheck) {
         	xmlToModelResult.addHl7Error(createInvalidCodeError(element, codeType, code));
         }
 
-        // the following code will preserve the codeSystem even if the actual code can not be found
-        if (result == null && !StringUtils.isEmpty(codeSystem) && isInterface(codeType)) {
-			result = FullCodeWrapper.wrap(codeType, null, codeSystem);
+        if (result == null && isInterface(codeType)) {
+        	//MBR-335: In some cases we have fixed values that are not part of the generated API and that have
+        	//values that do not conform to the expected return type. In this case, just fake up a value as
+        	//it will be discarded later in HL7SourceMapper. See PolicyActivity.GuarantorPerformerAssignedEntity
+        	//in ccda r1_1 message set for an example. i.e. GUAR is not a valid RoleClass
+        	if (relaxCodeCheck) {
+        		result = wrapFixedCodeValue(code, codeSystem, codeType);
+        		
+       		// the following code will preserve the codeSystem even if the actual code can not be found
+        	} else if (!StringUtils.isEmpty(codeSystem)) {
+        		result = FullCodeWrapper.wrap(codeType, null, codeSystem);
+        	}
 		}
 		
     	return result;
     }
+
+	private Code wrapFixedCodeValue(String code, String codeSystem, Type returnType) {
+		@SuppressWarnings("unchecked")
+		Class<Code> codeType = (Class<Code>) returnType;
+		Code trivialCode = new TrivialCodeResolver().<Code>lookup(codeType, code);
+		return FullCodeWrapper.wrap(codeType, trivialCode, codeSystem);
+	}
 
 	private Code getCode(Type expectedReturnType, String codeValue, String codeSystem) {
 		CodeResolver resolver = null;

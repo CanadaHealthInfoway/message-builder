@@ -41,5 +41,6 @@ public interface ParseContext extends Typed {
 	public Cardinality getCardinality();
 	public ConstrainedDatatype getConstraints();
 	public boolean isCda();
+	public boolean isFixedValue();
 	
 }

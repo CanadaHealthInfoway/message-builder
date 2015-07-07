@@ -42,10 +42,11 @@ public class ParseContextImpl implements ParseContext {
 	private final Cardinality cardinality;
 	private final ConstrainedDatatype constraints;
 	private final boolean isCda;
+	private final boolean isFixedValue;
 
 	private ParseContextImpl(String type, Type returnType, VersionNumber version,
 			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, 
-			CodingStrength strength, Integer length, ConstrainedDatatype constraints, boolean isCda) {
+			CodingStrength strength, Integer length, ConstrainedDatatype constraints, boolean isCda, boolean isFixedValue) {
 		this.type = type;
 		this.expectedReturnType = returnType;
 		this.version = version;
@@ -57,6 +58,7 @@ public class ParseContextImpl implements ParseContext {
 		this.length = length;
 		this.constraints = constraints;
 		this.isCda = isCda;
+		this.isFixedValue = isFixedValue;
 	}
 
 	public String getType() {
@@ -102,16 +104,25 @@ public class ParseContextImpl implements ParseContext {
 	public boolean isCda() {
 		return isCda;
 	}
+	
+	public boolean isFixedValue() {
+		return isFixedValue;
+	}
 
 	// tests only
-	public static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, ConstrainedDatatype constraints, boolean isCda) {
-		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null, constraints, isCda);
+	public static ParseContext create(String type, Type returnType, VersionNumber version, TimeZone dateTimeZone, 
+			TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, ConstrainedDatatype constraints, 
+			boolean isCda) {
+		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, null, null, 
+				constraints, isCda, false);
 	}
 
 	// tests only
 	public static ParseContext create(String type, Type returnType, VersionNumber version,
-			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, CodingStrength strength, Integer length, ConstrainedDatatype constraints, boolean isCda) {
-		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, strength, length, constraints, isCda);
+			TimeZone dateTimeZone, TimeZone dateTimeTimeZone, ConformanceLevel conformance, Cardinality cardinality, 
+			CodingStrength strength, Integer length, ConstrainedDatatype constraints, boolean isCda) {
+		return new ParseContextImpl(type, returnType, version, dateTimeZone, dateTimeTimeZone, conformance, cardinality, 
+				strength, length, constraints, isCda, false);
 	}
 	
 	public static ParseContext create(String newType, ParseContext oldContext) {
@@ -119,26 +130,39 @@ public class ParseContextImpl implements ParseContext {
 	}
 	
 	public static ParseContext createWithConstraints(String newType, ParseContext oldContext) {
-		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints(), oldContext.isCda());
+		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), 
+				oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), 
+				oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints(), oldContext.isCda(),
+				oldContext.isFixedValue());
 	}
 	
 	public static ParseContext createWithConstraints(String newType, Type newReturnType, ParseContext oldContext) {
-		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints(), oldContext.isCda());
+		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), 
+				oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), 
+				oldContext.getCodingStrength(), oldContext.getLength(), oldContext.getConstraints(), oldContext.isCda(),
+				oldContext.isFixedValue());
 	}
 	
 	public static ParseContext create(String newType, Type newReturnType, ParseContext oldContext) {
 		// not passing constraints down unless constraints are explicitly provided
-		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), oldContext.getCodingStrength(), oldContext.getLength(), null, oldContext.isCda());
+		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), 
+				oldContext.getDateTimeTimeZone(), oldContext.getConformance(), oldContext.getCardinality(), 
+				oldContext.getCodingStrength(), oldContext.getLength(), null, oldContext.isCda(),
+				oldContext.isFixedValue());
 	}
 
 	public static ParseContext create(String newType, ConformanceLevel newConformance, Cardinality newCardinality, ParseContext oldContext) {
 		// not passing constraints down unless constraints are explicitly provided
-		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength(), null, oldContext.isCda());
+		return new ParseContextImpl(newType, oldContext.getExpectedReturnType(), oldContext.getVersion(), oldContext.getDateTimeZone(), 
+				oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), 
+				oldContext.getLength(), null, oldContext.isCda(), oldContext.isFixedValue());
 	}
 
 	public static ParseContext create(String newType, Type newReturnType, ConformanceLevel newConformance, Cardinality newCardinality, ParseContext oldContext) {
 		// not passing constraints down unless constraints are explicitly provided
-		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), oldContext.getLength(), null, oldContext.isCda());
+		return new ParseContextImpl(newType, newReturnType, oldContext.getVersion(), oldContext.getDateTimeZone(), 
+				oldContext.getDateTimeTimeZone(), newConformance, newCardinality, oldContext.getCodingStrength(), 
+				oldContext.getLength(), null, oldContext.isCda(), oldContext.isFixedValue());
 	}
 	
 }

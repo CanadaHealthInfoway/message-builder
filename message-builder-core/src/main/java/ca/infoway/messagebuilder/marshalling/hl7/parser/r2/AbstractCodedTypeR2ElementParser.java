@@ -171,7 +171,13 @@ public abstract class AbstractCodedTypeR2ElementParser extends AbstractSingleEle
     		}
     	}
 		
-		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, context.getExpectedReturnType(), element, context.getType(), result, true);
+    	//MBR-335: In some cases we have fixed values that are not part of the generated API and that have
+    	//values that do not conform to the expected return type. In this case, just fake up a value as
+    	//it will be discarded later in HL7SourceMapper. See PolicyActivity.GuarantorPerformerAssignedEntity
+    	//in ccda r1_1 message set for an example. i.e. GUAR is not a valid RoleClass
+		boolean relaxCodeCheck = context.isFixedValue();
+		Code actualCode = this.codeLookupUtils.getCorrespondingCode(code, codeSystem, context.getExpectedReturnType(), 
+				element, context.getType(), result, true, relaxCodeCheck);
 		codedType.setCode(actualCode);
 	}
 

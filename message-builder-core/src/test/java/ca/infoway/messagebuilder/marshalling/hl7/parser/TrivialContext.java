@@ -81,4 +81,7 @@ public class TrivialContext implements ParseContext {
 		return false;
 	}
 
+	public boolean isFixedValue() {
+		return false;
+	}
 }
