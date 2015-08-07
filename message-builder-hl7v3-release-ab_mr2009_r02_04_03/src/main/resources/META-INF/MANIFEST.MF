@@ -6,7 +6,7 @@ Build-Jdk: 1.6.0_45
 Implementation-Title: message-builder-hl7v3-release-ab_mr2009_r02_04_03
 Implementation-Vendor-Id: ca.infoway.messagebuilder
 Application-Name: message-builder-hl7v3-release-ab_mr2009_r02_04_03
-Implementation-Build-Date: 2015-03-18_15-32-25
+Implementation-Build-Date: 2015-08-07_08-37-19
 Implementation-Version: 1.6.1
 MBT-Message-Set: /messageSet_ab_mr2009_r02_04_03.xml
 MBT-Model-Version-Numbers: R02_04_03_AB
