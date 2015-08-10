@@ -59,11 +59,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueDefinition","COCT_MT260020CA.DetectedIssueDefinition","COCT_MT260030CA.DetectedIssueDefinition"})
 public class IssueDescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();
     private TS authorTime = new TSImpl();
-    private AssignedEntity_1Bean authorAssignedEntity;
+    private ResponsibleOrganizationBean authorAssignedEntityAssignedOrganization;
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
 
 
@@ -396,48 +396,54 @@ public class IssueDescriptionBean extends MessagePartBean {
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260020CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260030CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity_1Bean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
+    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization"})
+    public ResponsibleOrganizationBean getAuthorAssignedEntityAssignedOrganization() {
+        return this.authorAssignedEntityAssignedOrganization;
     }
 
     /**
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260020CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260020CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260030CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260030CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
      * <p>Un-merged Business Name: (no business name specified)</p>
      * 
-     * <p>Relationship: COCT_MT260010CA.Author2.assignedEntity</p>
+     * <p>Relationship: 
+     * COCT_MT260010CA.AssignedEntity.assignedOrganization</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setAuthorAssignedEntity(AssignedEntity_1Bean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    public void setAuthorAssignedEntityAssignedOrganization(ResponsibleOrganizationBean authorAssignedEntityAssignedOrganization) {
+        this.authorAssignedEntityAssignedOrganization = authorAssignedEntityAssignedOrganization;
     }
 
 

@@ -36,7 +36,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * accurately calculated. This has important compliance 
  * implications.</p>
  * 
- * <p>To flag a prescription as '''PRN''' without specifying a 
+ * <p>To flag a prescription as 'PRN' without specifying a 
  * condition, include the association but specify a null flavor 
  * for the Dosage Condition.</p>
  * 
@@ -47,7 +47,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private ST text = new STImpl();
 
 

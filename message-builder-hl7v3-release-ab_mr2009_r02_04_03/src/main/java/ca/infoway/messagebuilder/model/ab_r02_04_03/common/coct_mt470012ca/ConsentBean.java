@@ -34,12 +34,11 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AccessTypeBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.AssignedEntity_2Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090102ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090502ca.HealthcareOrganizationBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt910102ca.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt911102ca.ActingPerson;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ConsentedToByBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.ActConsentInformationAccessOverrideReason;
 import java.util.Date;
 
@@ -71,13 +70,13 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private SubjectChoice subject1SubjectChoice;
     private ConsentedToByBean author1;
-    private AssignedEntity_1Bean author2AssignedEntity;
+    private HealthcareWorkerBean author2AssignedEntity;
     private AccessTypeBean subject2InformDefinition;
 
 
@@ -235,18 +234,18 @@ public class ConsentBean extends MessagePartBean {
         return (this.subject1SubjectChoice instanceof PatientBean);
     }
 
-    public AssignedEntity_1Bean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.subject1SubjectChoice : null;
+    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
+        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof AssignedEntity_1Bean);
+        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
     }
 
-    public AssignedEntity_2Bean getSubject1SubjectChoiceAsAssignedEntity2() {
-        return this.subject1SubjectChoice instanceof AssignedEntity_2Bean ? (AssignedEntity_2Bean) this.subject1SubjectChoice : null;
+    public HealthcareOrganizationBean getSubject1SubjectChoiceAsAssignedEntity2() {
+        return this.subject1SubjectChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity2() {
-        return (this.subject1SubjectChoice instanceof AssignedEntity_2Bean);
+        return (this.subject1SubjectChoice instanceof HealthcareOrganizationBean);
     }
 
     public RelatedPersonBean getSubject1SubjectChoiceAsPersonalRelationship() {
@@ -290,7 +289,7 @@ public class ConsentBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"author2/assignedEntity"})
-    public AssignedEntity_1Bean getAuthor2AssignedEntity() {
+    public HealthcareWorkerBean getAuthor2AssignedEntity() {
         return this.author2AssignedEntity;
     }
 
@@ -299,7 +298,7 @@ public class ConsentBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setAuthor2AssignedEntity(AssignedEntity_1Bean author2AssignedEntity) {
+    public void setAuthor2AssignedEntity(HealthcareWorkerBean author2AssignedEntity) {
         this.author2AssignedEntity = author2AssignedEntity;
     }
 

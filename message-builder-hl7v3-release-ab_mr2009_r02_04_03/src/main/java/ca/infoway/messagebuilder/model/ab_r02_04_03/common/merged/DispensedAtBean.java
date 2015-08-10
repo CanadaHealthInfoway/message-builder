@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
 
 
 
@@ -54,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location"})
 public class DispensedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private ServiceLocationBean serviceDeliveryLocation;
 
 

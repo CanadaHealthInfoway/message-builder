@@ -35,7 +35,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.EntityRisk;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.HumanLabSpecimenEntityType;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.IdentifiedPersonBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,11 +51,11 @@ import java.util.List;
 @Hl7RootType
 public class SpecimenRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private CD specimenMaterialCode = new CDImpl();
     private ST specimenMaterialDesc = new STImpl();
-    private List<IdentifiedPersonBean> specimenMaterialAsIdentifiedEntity = new ArrayList<IdentifiedPersonBean>();
+    private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
     private CV specimenMaterialAsContentContainerRiskCode = new CVImpl();
     private List<SpecimenProcessStepsBean> subjectOfTransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
@@ -194,7 +193,7 @@ public class SpecimenRoleBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
     @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
-    public List<IdentifiedPersonBean> getSpecimenMaterialAsIdentifiedEntity() {
+    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
         return this.specimenMaterialAsIdentifiedEntity;
     }
 

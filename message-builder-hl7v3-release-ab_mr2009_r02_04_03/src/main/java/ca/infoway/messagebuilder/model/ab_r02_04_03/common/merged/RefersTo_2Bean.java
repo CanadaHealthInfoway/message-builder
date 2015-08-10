@@ -25,6 +25,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090310ca.EHRRepositoryBean;
 
 
 
@@ -33,9 +34,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MFMI_MT700711CA.Subject2: f:refers to</p>
  * 
- * <p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p>
+ * <p>On 'creation' interactions (where the state transition is 
+ * null-&gt;active), this must be true otherwise it must be 
+ * false.</p>
  * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
@@ -50,9 +51,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>MFMI_MT700716CA.Subject2: f:refers to</p>
  * 
- * <p>On '''creation''' interactions (where the state 
- * transition is null-&gt;active), this must be true otherwise 
- * it must be false.</p>
+ * <p>On 'creation' interactions (where the state transition is 
+ * null-&gt;active), this must be true otherwise it must be 
+ * false.</p>
  * 
  * <p>Provides information about the thing being created, 
  * modified or removed.</p>
@@ -68,7 +69,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private BL contextConductionInd = new BLImpl();
     private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;

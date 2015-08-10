@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.TerritorialAutho
 @Hl7PartTypeMapping({"PRPM_MT306051CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private CV code = new CVImpl();
     private CV territoryCode = new CVImpl();
     private TerritorialAuthorityBean partTerritorialAuthority;

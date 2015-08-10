@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.domainvalue.HumanLanguage;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.Issues_2Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt260022ca.IssuesBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.RefersTo_3Bean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -64,14 +64,14 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV reasonCode = new CVImpl();
     private CE languageCode = new CEImpl();
     private RefersTo_3Bean<RR> subject;
-    private List<Issues_2Bean> subjectOfDetectedIssueEvent = new ArrayList<Issues_2Bean>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -304,7 +304,7 @@ public class TriggerEventBean<RR> extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<Issues_2Bean> getSubjectOfDetectedIssueEvent() {
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
     }
 

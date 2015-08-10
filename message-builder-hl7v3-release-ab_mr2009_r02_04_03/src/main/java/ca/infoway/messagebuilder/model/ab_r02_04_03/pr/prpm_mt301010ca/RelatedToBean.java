@@ -27,7 +27,6 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.ProviderLicenseBean;
 import java.util.Date;
 
 
@@ -38,7 +37,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
@@ -101,18 +100,25 @@ public class RelatedToBean extends MessagePartBean {
         return (this.roleChoice instanceof AssignedEntityBean);
     }
 
-    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity() {
+    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity1() {
         return this.roleChoice instanceof QualifiedEntityBean ? (QualifiedEntityBean) this.roleChoice : null;
     }
-    public boolean hasRoleChoiceAsQualifiedEntity() {
+    public boolean hasRoleChoiceAsQualifiedEntity1() {
         return (this.roleChoice instanceof QualifiedEntityBean);
     }
 
-    public ProviderLicenseBean getRoleChoiceAsHealthCareProvider() {
-        return this.roleChoice instanceof ProviderLicenseBean ? (ProviderLicenseBean) this.roleChoice : null;
+    public QualifiedEntity2Bean getRoleChoiceAsQualifiedEntity2() {
+        return this.roleChoice instanceof QualifiedEntity2Bean ? (QualifiedEntity2Bean) this.roleChoice : null;
+    }
+    public boolean hasRoleChoiceAsQualifiedEntity2() {
+        return (this.roleChoice instanceof QualifiedEntity2Bean);
+    }
+
+    public HealthcareProviderBean getRoleChoiceAsHealthCareProvider() {
+        return this.roleChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.roleChoice : null;
     }
     public boolean hasRoleChoiceAsHealthCareProvider() {
-        return (this.roleChoice instanceof ProviderLicenseBean);
+        return (this.roleChoice instanceof HealthcareProviderBean);
     }
 
 }

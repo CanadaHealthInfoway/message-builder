@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.InformantClass;
 @Hl7PartTypeMapping({"PRPA_MT101991AB.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private CS typeCode = new CSImpl();
     private DocumentEventBean documentEvent;
 

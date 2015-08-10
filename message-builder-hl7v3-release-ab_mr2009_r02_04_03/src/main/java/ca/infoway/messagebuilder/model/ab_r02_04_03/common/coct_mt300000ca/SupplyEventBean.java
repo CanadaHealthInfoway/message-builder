@@ -35,9 +35,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.DrugDispensedInBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.PatientEncounterBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ServiceLocationBean;
 import java.util.Date;
 
 
@@ -51,12 +50,12 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private DrugDispensedInBean productContent;
+    private PackageContentsBean productContent;
     private PharmacistRoleBean performerPharmacistRole;
     private ServiceLocationBean originServiceDeliveryLocation;
     private ServiceLocationBean destinationServiceDeliveryLocation;
@@ -166,7 +165,7 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/content"})
-    public DrugDispensedInBean getProductContent() {
+    public PackageContentsBean getProductContent() {
         return this.productContent;
     }
 
@@ -175,7 +174,7 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProductContent(DrugDispensedInBean productContent) {
+    public void setProductContent(PackageContentsBean productContent) {
         this.productContent = productContent;
     }
 

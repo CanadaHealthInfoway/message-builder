@@ -34,7 +34,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 
@@ -93,11 +93,18 @@ public class RelatedToBean extends MessagePartBean {
         return (this.roleChoice instanceof AssignedEntityBean);
     }
 
-    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity() {
+    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity1() {
         return this.roleChoice instanceof QualifiedEntityBean ? (QualifiedEntityBean) this.roleChoice : null;
     }
-    public boolean hasRoleChoiceAsQualifiedEntity() {
+    public boolean hasRoleChoiceAsQualifiedEntity1() {
         return (this.roleChoice instanceof QualifiedEntityBean);
+    }
+
+    public QualifiedEntity2Bean getRoleChoiceAsQualifiedEntity2() {
+        return this.roleChoice instanceof QualifiedEntity2Bean ? (QualifiedEntity2Bean) this.roleChoice : null;
+    }
+    public boolean hasRoleChoiceAsQualifiedEntity2() {
+        return (this.roleChoice instanceof QualifiedEntity2Bean);
     }
 
     public HealthcareProviderBean getRoleChoiceAsHealthCareProvider() {

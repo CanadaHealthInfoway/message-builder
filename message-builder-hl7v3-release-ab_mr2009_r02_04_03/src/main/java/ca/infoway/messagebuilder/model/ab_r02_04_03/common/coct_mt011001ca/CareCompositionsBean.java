@@ -34,7 +34,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,13 +57,13 @@ import java.util.List;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
     private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private ServiceDeliveryLocationBean locationServiceDeliveryLocation;
 
 
     /**
@@ -222,7 +221,7 @@ public class CareCompositionsBean extends MessagePartBean {
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+    public ServiceDeliveryLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
     }
 
@@ -232,7 +231,7 @@ public class CareCompositionsBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+    public void setLocationServiceDeliveryLocation(ServiceDeliveryLocationBean locationServiceDeliveryLocation) {
         this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
     }
 

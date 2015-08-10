@@ -50,8 +50,9 @@ import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.ConfidenceValueBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_2Bean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.RegistrationEventBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.StatusChangeDetailsBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -69,9 +70,9 @@ import java.util.Set;
  * a Physician, Nurse or other type of caregivers.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.HealthCareProvider"})
-public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.Choice, RoleChoice {
+public class HealthcareProviderBean extends MessagePartBean implements Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -79,7 +80,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
+    private PrinicpalPersonBean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
     private RegistrationEventBean subjectOf1RegistrationEvent;
     private List<StatusChangeDetailsBean> subjectOf2StateTransitionControlActEvent = new ArrayList<StatusChangeDetailsBean>();
@@ -153,8 +154,8 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The provider'''s name pertaining to the specific 
-     * healthcare provider role.</p>
+     * <p>The provider's name pertaining to the specific healthcare 
+     * provider role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {
@@ -167,7 +168,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.addr</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-20)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider</p>
@@ -186,7 +187,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Relationship: PRPM_MT306011CA.HealthCareProvider.telecom</p>
      * 
-     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-100)</p>
      * 
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
@@ -283,7 +284,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
+    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -293,7 +294,7 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

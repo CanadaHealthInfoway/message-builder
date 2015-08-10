@@ -22,22 +22,28 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt303010ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrinicpalPersonBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.RegistrationEventBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 
@@ -57,52 +63,38 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20140515L;
-    private II id = new IIImpl();
+    private static final long serialVersionUID = 20150810L;
+    private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
+    private BL equivalenceInd = new BLImpl();
+    private PrinicpalPersonBean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
+    private RegistrationEventBean subjectOf1RegistrationEvent;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
 
 
     /**
-     * <p>Business Name: Expertise or Credentials Role Identifier</p>
+     * <p>Business Name: Expertise Role Identifier</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.QualifiedEntity.id</p>
      * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
+     * <p>Conformance/Cardinality: MANDATORY (*)</p>
      * 
      * <p>Mandatory attribute supports the identification of the 
      * healthcare provider credentials</p>
      * 
-     * <p>Unique identifier for the Expertise or Credential.</p>
+     * <p>Unique identifier for the Expertise.</p>
      */
     @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-
-    /**
-     * <p>Business Name: Expertise or Credentials Role Identifier</p>
-     * 
-     * <p>Relationship: PRPM_MT303010CA.QualifiedEntity.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p>
-     * 
-     * <p>Unique identifier for the Expertise or Credential.</p>
-     */
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public Set<Identifier> getId() {
+        return this.id.rawSet();
     }
 
 
     /**
-     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise Role Type</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.QualifiedEntity.code</p>
      * 
@@ -124,7 +116,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Business Name: Expertise or Credentials Role Type</p>
+     * <p>Business Name: Expertise Role Type</p>
      * 
      * <p>Relationship: PRPM_MT303010CA.QualifiedEntity.code</p>
      * 
@@ -146,8 +138,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Business Name: Expertise or Credentials Role Effective 
-     * Date</p>
+     * <p>Business Name: Expertise Role Effective Date</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.QualifiedEntity.effectiveTime</p>
@@ -169,8 +160,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
     /**
-     * <p>Business Name: Expertise or Credentials Role Effective 
-     * Date</p>
+     * <p>Business Name: Expertise Role Effective Date</p>
      * 
      * <p>Relationship: 
      * PRPM_MT303010CA.QualifiedEntity.effectiveTime</p>
@@ -192,13 +182,39 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
+     * <p>Business Name: Expertise Equivalency</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.QualifiedEntity.equivalenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    @Hl7XmlMapping({"equivalenceInd"})
+    public Boolean getEquivalenceInd() {
+        return this.equivalenceInd.getValue();
+    }
+
+    /**
+     * <p>Business Name: Expertise Equivalency</p>
+     * 
+     * <p>Relationship: 
+     * PRPM_MT303010CA.QualifiedEntity.equivalenceInd</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
+     */
+    public void setEquivalenceInd(Boolean equivalenceInd) {
+        this.equivalenceInd.setValue(equivalenceInd);
+    }
+
+
+    /**
      * <p>Relationship: 
      * PRPM_MT303010CA.QualifiedEntity.qualifiedPrincipalPerson</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPerson_1Bean getQualifiedPrincipalPerson() {
+    public PrinicpalPersonBean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
 
@@ -208,7 +224,7 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setQualifiedPrincipalPerson(PrinicpalPerson_1Bean qualifiedPrincipalPerson) {
+    public void setQualifiedPrincipalPerson(PrinicpalPersonBean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 
@@ -232,6 +248,26 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
      */
     public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
         this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    @Hl7XmlMapping({"subjectOf1/registrationEvent"})
+    public RegistrationEventBean getSubjectOf1RegistrationEvent() {
+        return this.subjectOf1RegistrationEvent;
+    }
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf1RegistrationEvent(RegistrationEventBean subjectOf1RegistrationEvent) {
+        this.subjectOf1RegistrationEvent = subjectOf1RegistrationEvent;
     }
 
 

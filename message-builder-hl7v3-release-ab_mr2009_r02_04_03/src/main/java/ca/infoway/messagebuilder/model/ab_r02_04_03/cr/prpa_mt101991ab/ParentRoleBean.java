@@ -40,7 +40,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101991AB.ParentRole"})
 public class ParentRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private INT quantity = new INTImpl();

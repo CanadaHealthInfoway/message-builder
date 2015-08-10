@@ -22,21 +22,12 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.TEL;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
-import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import java.util.Set;
 
 
 
@@ -66,14 +57,6 @@ import java.util.Set;
  * <p>Identifies the organization or group assigning the 
  * associated specimen identifier.</p>
  * 
- * <p>COCT_MT090508CA.Organization: Responsible organization</p>
- * 
- * <p>Used for determining responsibility and potentially 
- * confirming permissions.</p>
- * 
- * <p>Identifies the organization on whose behalf the action is 
- * performed.</p>
- * 
  * <p>COCT_MT090108CA.Organization: Responsible organization</p>
  * 
  * <p>Used for determining responsibility and potentially 
@@ -82,14 +65,12 @@ import java.util.Set;
  * <p>Identifies the organization on whose behalf the action is 
  * performed.</p>
  */
-@Hl7PartTypeMapping({"COCT_MT080100CA.Organization","COCT_MT090102CA.Organization","COCT_MT090108CA.Organization","COCT_MT090502CA.Organization","COCT_MT090508CA.Organization","COCT_MT260010CA.Organization","COCT_MT260020CA.Organization","COCT_MT260030CA.Organization"})
+@Hl7PartTypeMapping({"COCT_MT080100CA.Organization","COCT_MT090102CA.Organization","COCT_MT090108CA.Organization","COCT_MT090502CA.Organization","COCT_MT260010CA.Organization","COCT_MT260020CA.Organization","COCT_MT260030CA.Organization"})
 public class ResponsibleOrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private ST name = new STImpl();
     private II id = new IIImpl();
-    private CV assignedOrganizationCode = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> assignedOrganizationTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -133,18 +114,6 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * <p>Un-merged Business Name: OrganizationName</p>
      * 
      * <p>Relationship: COCT_MT080100CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationName</p>
-     * 
-     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
@@ -242,18 +211,6 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OrganizationName</p>
      * 
-     * <p>Relationship: COCT_MT090508CA.Organization.name</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows for human recognition of the organization as well 
-     * as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p>
-     * 
-     * <p>Identifies the name of the organization</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationName</p>
-     * 
      * <p>Relationship: COCT_MT090108CA.Organization.name</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -332,19 +289,6 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationIdentifier</p>
-     * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -405,19 +349,6 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      * 
      * <p>Un-merged Business Name: OrganizationIdentifier</p>
      * 
-     * <p>Relationship: COCT_MT090508CA.Organization.id</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Allows the organization to be referenced when determining 
-     * privileges and for drill-downs to retrieve additional 
-     * information. Because of its importance, the attribute is 
-     * mandatory.</p>
-     * 
-     * <p>A unique identifier for the organization</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationIdentifier</p>
-     * 
      * <p>Relationship: COCT_MT090108CA.Organization.id</p>
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
@@ -431,69 +362,6 @@ public class ResponsibleOrganizationBean extends MessagePartBean {
      */
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Business Name: OrganizationType</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationType</p>
-     * 
-     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides context to the action and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
-     */
-    @Hl7XmlMapping({"assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getAssignedOrganizationCode() {
-        return (HealthcareOrganizationRoleType) this.assignedOrganizationCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: OrganizationType</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationType</p>
-     * 
-     * <p>Relationship: COCT_MT090508CA.AssignedOrganization.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Provides context to the action and is therefore 
-     * mandatory.</p>
-     * 
-     * <p>Identifies the type of organization on whose behalf the 
-     * action was taken. E.g. Pharmacy, Clinic, Hospital, etc.</p>
-     */
-    public void setAssignedOrganizationCode(HealthcareOrganizationRoleType assignedOrganizationCode) {
-        this.assignedOrganizationCode.setValue(assignedOrganizationCode);
-    }
-
-
-    /**
-     * <p>Business Name: OrganizationPhoneAndEmails</p>
-     * 
-     * <p>Un-merged Business Name: OrganizationPhoneAndEmails</p>
-     * 
-     * <p>Relationship: 
-     * COCT_MT090508CA.AssignedOrganization.telecom</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-5)</p>
-     * 
-     * <p>This is the most commonly used contact information and is 
-     * returned to avoid unnecessary queries against the client 
-     * registry.</p>
-     * 
-     * <p>Identifies contact information for the responsible 
-     * organization.</p>
-     */
-    @Hl7XmlMapping({"assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getAssignedOrganizationTelecom() {
-        return this.assignedOrganizationTelecom.rawSet();
     }
 
 }

@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt090310ca.EHRRepositoryBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +64,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700717CA.RegistrationEvent","MFMI_MT700726CA.RegistrationEvent","MFMI_MT700746CA.RegistrationEvent"})
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<PriorRegistrationEventBean> replacementOfPriorRegistration = new ArrayList<PriorRegistrationEventBean>();

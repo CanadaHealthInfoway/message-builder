@@ -23,6 +23,7 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.pr.prpm_mt303010ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.PrivilegeBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.pr.merged.RegistrationEventBean;
 import java.util.List;
 
 
@@ -30,6 +31,21 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RoleChoice"})
 @Hl7RootType
 public interface RoleChoice {
+
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public RegistrationEventBean getSubjectOf1RegistrationEvent();
+
+    /**
+     * <p>Relationship: PRPM_MT303010CA.Subject2.registrationEvent</p>
+     * 
+     * <p>Conformance/Cardinality: REQUIRED (1)</p>
+     */
+    public void setSubjectOf1RegistrationEvent(RegistrationEventBean subjectOf1RegistrationEvent);
 
 
     /**

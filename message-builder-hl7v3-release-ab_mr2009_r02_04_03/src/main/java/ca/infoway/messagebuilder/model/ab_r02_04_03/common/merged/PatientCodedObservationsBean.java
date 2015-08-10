@@ -64,9 +64,9 @@ import java.util.Set;
  * patient that contributed to the issue being raised.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
-public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
+public class PatientCodedObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt260020ca.CausalActs, ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt260010ca.CausalActs, ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt260030ca.CausalActs {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);

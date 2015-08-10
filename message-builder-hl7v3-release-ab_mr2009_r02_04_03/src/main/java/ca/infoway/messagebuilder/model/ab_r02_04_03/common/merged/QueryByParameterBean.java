@@ -23,15 +23,12 @@ package ca.infoway.messagebuilder.model.ab_r02_04_03.common.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.domainvalue.QueryRequestLimit;
 import ca.infoway.messagebuilder.domainvalue.ResponseModality;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.ArrayList;
@@ -53,11 +50,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private II queryId = new IIImpl();
     private CS responseModalityCode = new CSImpl();
     private INT initialQuantity = new INTImpl();
-    private CV initialQuantityCode = new CVImpl();
     private PL parameterList;
     private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
 
@@ -705,190 +701,6 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
      */
     public void setInitialQuantity(Integer initialQuantity) {
         this.initialQuantity.setValue(initialQuantity);
-    }
-
-
-    /**
-     * <p>Business Name: QueryLimitType</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     */
-    @Hl7XmlMapping({"initialQuantityCode"})
-    public QueryRequestLimit getInitialQuantityCode() {
-        return (QueryRequestLimit) this.initialQuantityCode.getValue();
-    }
-
-    /**
-     * <p>Business Name: QueryLimitType</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020000CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700751CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * MFMI_MT700746CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT020002CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120008CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     * 
-     * <p>Un-merged Business Name: QueryLimitType</p>
-     * 
-     * <p>Relationship: 
-     * QUQI_MT120006CA.QueryByParameter.initialQuantityCode</p>
-     * 
-     * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
-     * 
-     * <p>Needed to quantify the types of records requested to be 
-     * returned in the query.</p>
-     * 
-     * <p>Defines the units associated with the magnitude of the 
-     * maximum size limit of a query response that can be accepted 
-     * by the requesting application.</p>
-     */
-    public void setInitialQuantityCode(QueryRequestLimit initialQuantityCode) {
-        this.initialQuantityCode.setValue(initialQuantityCode);
     }
 
 

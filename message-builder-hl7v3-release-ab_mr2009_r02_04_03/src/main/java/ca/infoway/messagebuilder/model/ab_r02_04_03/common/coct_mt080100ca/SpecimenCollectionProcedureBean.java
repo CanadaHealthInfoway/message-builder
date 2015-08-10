@@ -31,8 +31,8 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_r02_04_03.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.ab_r02_04_03.domainvalue.SurgicalPathologyMethodCode;
-import ca.infoway.messagebuilder.model.ab_r02_04_03.merged.NotesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -53,7 +53,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20140515L;
+    private static final long serialVersionUID = 20150810L;
     private ST text = new STImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV methodCode = new CVImpl();
