@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT011001CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private CV code = new CVImpl();
 
 

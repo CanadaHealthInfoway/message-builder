@@ -29,6 +29,7 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActInformRequestType;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.ServiceDeliveryLocation_2Bean;
 
 
 
@@ -47,10 +48,10 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActInform
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private CD code = new CDImpl();
     private CE subjectModeCode = new CEImpl();
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
+    private ServiceDeliveryLocation_2Bean subjectServiceDeliveryLocation;
     private Choice indirectTargetChoice;
 
 
@@ -131,7 +132,7 @@ public class InformRequestBean extends MessagePartBean {
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+    public ServiceDeliveryLocation_2Bean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
 
@@ -141,7 +142,7 @@ public class InformRequestBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: POPULATED (1)</p>
      */
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocation_2Bean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
@@ -165,11 +166,11 @@ public class InformRequestBean extends MessagePartBean {
         this.indirectTargetChoice = indirectTargetChoice;
     }
 
-    public ServiceDeliveryLocationBean getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof ServiceDeliveryLocationBean ? (ServiceDeliveryLocationBean) this.indirectTargetChoice : null;
+    public ServiceDeliveryLocation_2Bean getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof ServiceDeliveryLocation_2Bean ? (ServiceDeliveryLocation_2Bean) this.indirectTargetChoice : null;
     }
     public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof ServiceDeliveryLocationBean);
+        return (this.indirectTargetChoice instanceof ServiceDeliveryLocation_2Bean);
     }
 
     public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {

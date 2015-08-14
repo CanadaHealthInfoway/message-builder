@@ -59,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

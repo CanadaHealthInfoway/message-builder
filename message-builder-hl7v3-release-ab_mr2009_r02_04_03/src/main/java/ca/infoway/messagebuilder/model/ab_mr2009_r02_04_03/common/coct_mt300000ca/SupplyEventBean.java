@@ -36,6 +36,7 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt240003ca.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.DrugDispensedInBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.merged.PatientEncounterBean;
 import java.util.Date;
 
@@ -50,12 +51,12 @@ import java.util.Date;
 @Hl7RootType
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private CV code = new CVImpl();
     private TS effectiveTime = new TSImpl();
     private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private PackageContentsBean productContent;
+    private DrugDispensedInBean productContent;
     private PharmacistRoleBean performerPharmacistRole;
     private ServiceLocationBean originServiceDeliveryLocation;
     private ServiceLocationBean destinationServiceDeliveryLocation;
@@ -165,7 +166,7 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
     @Hl7XmlMapping({"product/content"})
-    public PackageContentsBean getProductContent() {
+    public DrugDispensedInBean getProductContent() {
         return this.productContent;
     }
 
@@ -174,7 +175,7 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
      * 
      * <p>Conformance/Cardinality: REQUIRED (1)</p>
      */
-    public void setProductContent(PackageContentsBean productContent) {
+    public void setProductContent(DrugDispensedInBean productContent) {
         this.productContent = productContent;
     }
 

@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.CertifiedEntityType;
-import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrinicpalPersonBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrivilegeBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.RegistrationEventBean;
 import java.util.ArrayList;
@@ -50,12 +50,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.QualifiedEntity2"})
 public class QualifiedEntity2Bean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private BL equivalenceInd = new BLImpl();
-    private PrinicpalPersonBean qualifiedPrincipalPerson;
+    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
     private OrganizationBean qualificationGrantingOrganization;
     private RegistrationEventBean subjectOf1RegistrationEvent;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
@@ -164,7 +164,7 @@ public class QualifiedEntity2Bean extends MessagePartBean implements RoleChoice 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPersonBean getQualifiedPrincipalPerson() {
+    public PrinicpalPerson_1Bean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
     }
 
@@ -174,7 +174,7 @@ public class QualifiedEntity2Bean extends MessagePartBean implements RoleChoice 
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setQualifiedPrincipalPerson(PrinicpalPersonBean qualifiedPrincipalPerson) {
+    public void setQualifiedPrincipalPerson(PrinicpalPerson_1Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 

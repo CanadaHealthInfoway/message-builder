@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.HealthcareProviderBean;
 import java.util.Date;
 
 
@@ -37,7 +38,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private RoleChoice roleChoice;
 

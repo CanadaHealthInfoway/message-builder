@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.prpm_mt303014ab.Pr
 @Hl7PartTypeMapping({"PRPM_IN301067AB"})
 public class MergeProviderNotificationBean extends HL7MessageBean<TriggerEventBean<ProviderLicenseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
 
 }

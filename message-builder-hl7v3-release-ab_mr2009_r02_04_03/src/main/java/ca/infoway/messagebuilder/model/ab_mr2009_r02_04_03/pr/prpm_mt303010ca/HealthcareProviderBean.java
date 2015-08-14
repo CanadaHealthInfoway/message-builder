@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.domainvalue.RoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrinicpalPersonBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrinicpalPerson_1Bean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.PrivilegeBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.RegistrationEventBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.StatusChangeDetailsBean;
@@ -72,7 +72,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice, Choice {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -80,7 +80,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private PrinicpalPersonBean healthCarePrincipalPerson;
+    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
     private OrganizationBean issuingOrganization;
     private RegistrationEventBean subjectOf1RegistrationEvent;
     private List<StatusChangeDetailsBean> subjectOf2StateTransitionControlActEvent = new ArrayList<StatusChangeDetailsBean>();
@@ -283,7 +283,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPersonBean getHealthCarePrincipalPerson() {
+    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
         return this.healthCarePrincipalPerson;
     }
 
@@ -293,7 +293,7 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * 
      * <p>Conformance/Cardinality: REQUIRED (0-1)</p>
      */
-    public void setHealthCarePrincipalPerson(PrinicpalPersonBean healthCarePrincipalPerson) {
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 

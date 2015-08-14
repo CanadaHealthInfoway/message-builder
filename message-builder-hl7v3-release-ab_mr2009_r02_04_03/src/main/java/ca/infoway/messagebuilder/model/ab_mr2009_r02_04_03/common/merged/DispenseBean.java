@@ -59,7 +59,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt260020ca.CausalActs, ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt260010ca.CausalActs {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

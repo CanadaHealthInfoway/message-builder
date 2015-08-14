@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.HealthCareProviderBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.pr.merged.HealthcareProviderBean;
 import java.util.Date;
 
 
@@ -54,11 +54,11 @@ import java.util.Date;
 @Hl7RootType
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private II id = new IIImpl();
     private IVL<TS, Interval<Date>> relatedToEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private HealthcareWorkerBean relatedToHealthcareWorker;
-    private HealthCareProviderBean indirectAuthorityHealthCareProvider;
+    private HealthcareProviderBean indirectAuthorityHealthCareProvider;
 
 
     /**
@@ -162,7 +162,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
     @Hl7XmlMapping({"indirectAuthority/healthCareProvider"})
-    public HealthCareProviderBean getIndirectAuthorityHealthCareProvider() {
+    public HealthcareProviderBean getIndirectAuthorityHealthCareProvider() {
         return this.indirectAuthorityHealthCareProvider;
     }
 
@@ -172,7 +172,7 @@ public class HealthcareWorkerBean extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      */
-    public void setIndirectAuthorityHealthCareProvider(HealthCareProviderBean indirectAuthorityHealthCareProvider) {
+    public void setIndirectAuthorityHealthCareProvider(HealthcareProviderBean indirectAuthorityHealthCareProvider) {
         this.indirectAuthorityHealthCareProvider = indirectAuthorityHealthCareProvider;
     }
 

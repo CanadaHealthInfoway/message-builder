@@ -36,16 +36,15 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.LISTImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
-import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
-import ca.infoway.messagebuilder.domainvalue.PersonalRelationshipRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.cr.merged.OtherIDsNonHealthcareIdentifiersBean;
+import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.cr.merged.PersonalRelationshipBean;
 import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.merged.LanguageCommunicationBean;
 import java.util.ArrayList;
 import java.util.Date;
@@ -72,7 +71,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT101991AB.Person"})
 public class PersonPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
     private LIST<TEL, TelecommunicationAddress> telecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV administrativeGenderCode = new CVImpl();
@@ -85,7 +84,7 @@ public class PersonPersonBean extends MessagePartBean {
     private PatientBean asPatient;
     private List<OtherIDsNonHealthcareIdentifiersBean> asOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
     private ParentRoleBean parentRole;
-    private List<CV> personalRelationshipCode = new ArrayList<CV>();
+    private List<PersonalRelationshipBean> personalRelationship = new ArrayList<PersonalRelationshipBean>();
     private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
 
 
@@ -423,21 +422,13 @@ public class PersonPersonBean extends MessagePartBean {
 
 
     /**
-     * <p>Business Name: Client Next of Kin</p>
+     * <p>Relationship: PRPA_MT101991AB.Person.personalRelationship</p>
      * 
-     * <p>Relationship: PRPA_MT101991AB.PersonalRelationship.code</p>
-     * 
-     * <p>Conformance/Cardinality: MANDATORY (1)</p>
-     * 
-     * <p>Mandatory attribute that supports understanding the 
-     * relationship between the client and the ParentClient</p>
-     * 
-     * <p>A code further specifying the kind of Role such as 
-     * Mother, Father, Natural Parent or Step Parent</p>
+     * <p>Conformance/Cardinality: REQUIRED (0-10)</p>
      */
-    @Hl7XmlMapping({"personalRelationship/code"})
-    public List<PersonalRelationshipRoleType> getPersonalRelationshipCode() {
-        return new RawListWrapper<CV, PersonalRelationshipRoleType>(personalRelationshipCode, CVImpl.class);
+    @Hl7XmlMapping({"personalRelationship"})
+    public List<PersonalRelationshipBean> getPersonalRelationship() {
+        return this.personalRelationship;
     }
 
 

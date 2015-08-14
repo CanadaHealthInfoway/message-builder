@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private InvoiceElementChoice invoiceElementChoice;
 
 

@@ -49,7 +49,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private ST text = new STImpl();
     private CV languageCode = new CVImpl();
     private II subjectAnnotatedActId = new IIImpl();

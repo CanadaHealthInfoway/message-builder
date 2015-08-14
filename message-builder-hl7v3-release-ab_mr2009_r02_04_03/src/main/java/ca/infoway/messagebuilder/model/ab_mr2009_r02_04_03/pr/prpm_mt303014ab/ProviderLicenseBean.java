@@ -60,7 +60,7 @@ import java.util.Set;
 @Hl7RootType
 public class ProviderLicenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private II indirectAuthorithyOverHealthcareWorkerId = new IIImpl();

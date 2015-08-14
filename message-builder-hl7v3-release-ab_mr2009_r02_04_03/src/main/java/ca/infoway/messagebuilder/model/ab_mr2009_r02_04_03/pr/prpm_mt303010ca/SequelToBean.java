@@ -31,7 +31,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private INT sequenceNumber = new INTImpl();
     private InformRequestBean informRequest;
 

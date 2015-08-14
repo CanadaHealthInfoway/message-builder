@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActInvoic
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private CV code = new CVImpl();
     private PQ unitQuantity = new PQImpl();
     private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();

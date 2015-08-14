@@ -35,7 +35,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.ActIdenti
 @Hl7PartTypeMapping({"PRPA_MT101991AB.DocumentEvent"})
 public class DocumentEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
 

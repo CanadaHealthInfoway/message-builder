@@ -71,7 +71,7 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102AB.ObservationEvent","PRPA_MT101102CA.ObservationEvent","PRPA_MT101104AB.ObservationEvent","PRPA_MT101104CA.ObservationEvent","PRPA_MT101106CA.ObservationEvent","PRPM_MT306011CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150807L;
+    private static final long serialVersionUID = 20150814L;
     private CV code = new CVImpl();
     private REAL value = new REALImpl();
 
