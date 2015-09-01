@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: root
+Build-Jdk: 1.6.0_45
+Implementation-Title: message-builder-hl7v3-release-ns_mr2009_r02_04_03
+Implementation-Vendor-Id: ca.infoway.messagebuilder
+Application-Name: message-builder-hl7v3-release-ns_mr2009_r02_04_03
+Implementation-Build-Date: 2015-09-01_14-55-40
+Implementation-Version: 2.1.1
+MBT-Message-Set: /messageSet_ns_mr2009_r02_04_03.xml
+MBT-Model-Version-Numbers: R02_04_03_NS
+MBT-Version: 2.1.1
+
