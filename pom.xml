@@ -66,6 +66,7 @@
            <module>message-builder-hl7v3-release-pcs_mr2009_r02_05_00</module>
            <module>message-builder-hl7v3-release-on_cerx_v01_r04_3</module>
            <module>message-builder-hl7v3-release-nb_drug</module>
+           <module>message-builder-hl7v3-release-nb_pr_cr_lr</module>
            <module>message-builder-hl7v3-release-ns_mr2009_r02_04_03</module>
            <module>message-builder-mif-comparer</module>
            <module>message-builder-html</module>
