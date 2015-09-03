@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt240003c
 @Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location"})
 public class DispensedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20150902L;
     private ServiceLocationBean serviceDeliveryLocation;
 
 

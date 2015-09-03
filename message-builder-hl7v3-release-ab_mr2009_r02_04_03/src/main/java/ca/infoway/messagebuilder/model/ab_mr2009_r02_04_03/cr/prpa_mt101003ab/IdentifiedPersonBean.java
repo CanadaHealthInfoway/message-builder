@@ -60,7 +60,7 @@ import java.util.List;
 @Hl7RootType
 public class IdentifiedPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private LIST<PN, PersonName> identifiedPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV identifiedPersonAdministrativeGenderCode = new CVImpl();

@@ -82,7 +82,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.domainvalue.Restricti
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrivilegeCategorization","PRPM_MT303010CA.PrivilegeCategorization","PRPM_MT306011CA.PrivilegeCategorization","PRPM_MT309000CA.PrivilegeCategorization"})
 public class PrivilegeCategorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20150902L;
     private CV code = new CVImpl();
     private CV value = new CVImpl();
 

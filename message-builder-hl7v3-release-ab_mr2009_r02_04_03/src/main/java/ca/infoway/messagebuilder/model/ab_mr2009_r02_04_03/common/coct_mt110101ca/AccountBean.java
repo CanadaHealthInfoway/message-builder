@@ -40,7 +40,7 @@ import java.util.Set;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20150902L;
     private SET<II, Identifier> holderPayorRoleId = new SETImpl<II, Identifier>(IIImpl.class);
 
 

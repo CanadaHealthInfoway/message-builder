@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.ab_mr2009_r02_04_03.common.coct_mt240012c
 @Hl7PartTypeMapping({"COCT_MT470012CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150814L;
+    private static final long serialVersionUID = 20150902L;
     private Recipient recipient;
 
 
