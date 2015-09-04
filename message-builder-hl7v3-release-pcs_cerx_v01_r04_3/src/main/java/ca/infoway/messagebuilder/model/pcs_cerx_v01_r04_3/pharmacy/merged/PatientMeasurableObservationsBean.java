@@ -72,7 +72,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT980010CA.ObservationMeasurableEvent","PORX_MT980020CA.ObservationMeasurableEvent","PORX_MT980030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs, ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.pharmacy.porx_mt980030ca.CausalActs {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
@@ -380,9 +380,10 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 
@@ -446,9 +447,10 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 

@@ -57,7 +57,7 @@ import java.util.Date;
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p>
  * 
- * <p>Status can only be 'ACTIVE' or 'COMPLETED'</p>
+ * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
  * 
  * <p>Necessary component of a person's overall medication 
  * profile. Allows DUR checking against a more complete drug 
@@ -78,7 +78,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
