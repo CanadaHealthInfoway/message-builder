@@ -100,6 +100,7 @@ public class JavadocProjectCheckTest {
 		this.projectExclusions.add("message-builder-hl7v3-release-nb_drug");
 		this.projectExclusions.add("message-builder-hl7v3-release-nb_pr_cr_lr");
 		this.projectExclusions.add("message-builder-hl7v3-release-ns_mr2009_r02_04_03");
+		this.projectExclusions.add("message-builder-hl7v3-release-ns_cerx_v01_r04_3");
 		this.projectExclusions.add("message-builder-mif-comparer");
 		this.projectExclusions.add("message-builder-demiftifier");
 		this.projectExclusions.add("message-builder-html");
