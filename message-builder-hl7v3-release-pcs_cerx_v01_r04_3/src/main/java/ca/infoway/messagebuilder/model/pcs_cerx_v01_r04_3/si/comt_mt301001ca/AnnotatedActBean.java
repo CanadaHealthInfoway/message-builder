@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050202ca
 @Hl7PartTypeMapping({"COMT_MT301001CA.AnnotatedAct"})
 public class AnnotatedActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private PatientBean subjectPatient;
 

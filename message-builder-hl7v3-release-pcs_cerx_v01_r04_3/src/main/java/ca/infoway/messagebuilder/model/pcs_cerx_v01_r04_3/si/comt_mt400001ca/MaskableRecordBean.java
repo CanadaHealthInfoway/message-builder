@@ -48,7 +48,7 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.common.coct_mt050203ca
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CV confidentialityCode = new CVImpl();
