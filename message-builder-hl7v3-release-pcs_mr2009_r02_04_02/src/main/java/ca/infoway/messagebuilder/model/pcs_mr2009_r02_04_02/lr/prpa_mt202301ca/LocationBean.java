@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CV code = new CVImpl();
     private SET<ST, String> name = new SETImpl<ST, String>(STImpl.class);
     private AD addr = new ADImpl();

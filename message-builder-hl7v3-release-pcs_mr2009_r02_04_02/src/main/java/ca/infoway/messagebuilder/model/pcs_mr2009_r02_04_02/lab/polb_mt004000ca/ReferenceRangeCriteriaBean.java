@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.Observat
 @Hl7PartTypeMapping({"POLB_MT004000CA.ObservationEventCriterion"})
 public class ReferenceRangeCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CD code = new CDImpl();
     private ST value = new STImpl();
 

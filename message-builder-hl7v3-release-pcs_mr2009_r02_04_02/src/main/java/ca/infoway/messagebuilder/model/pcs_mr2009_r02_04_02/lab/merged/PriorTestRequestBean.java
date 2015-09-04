@@ -45,8 +45,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001010CA.PriorActRequest: Prior Test Request</p>
  * 
- * <p>The classCode shall carry one of 'ACT', 'BATTERY' or 
- * 'OBS' according to the parent order classCode.</p>
+ * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
+ * or '''OBS''' according to the parent order classCode.</p>
  * 
  * <p>This is used primarily for Order referrals.</p>
  * 
@@ -56,8 +56,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>POLB_MT001001CA.PriorActRequest: Prior Test Request</p>
  * 
- * <p>The classCode shall carry one of 'ACT', 'BATTERY' or 
- * 'OBS' according to the parent order classCode.</p>
+ * <p>The classCode shall carry one of '''ACT''', '''BATTERY''' 
+ * or '''OBS''' according to the parent order classCode.</p>
  * 
  * <p>This is used primarily for Order referrals.</p>
  * 
@@ -68,7 +68,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.PriorActRequest","POLB_MT001001CA.PriorActRequest","POLB_MT001010CA.PriorActRequest","POLB_MT001999CA.PriorActRequest"})
 public class PriorTestRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CS statusCode = new CSImpl();
 

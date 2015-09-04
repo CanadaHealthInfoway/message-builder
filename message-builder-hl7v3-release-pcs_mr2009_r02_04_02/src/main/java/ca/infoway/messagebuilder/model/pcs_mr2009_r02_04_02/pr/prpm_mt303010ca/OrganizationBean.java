@@ -46,7 +46,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private AD addr = new ADImpl();
@@ -71,7 +71,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider's functional role.</p><p>3. Organization 
+     * with a provider'''s functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p>
      */
     @Hl7XmlMapping({"id"})
@@ -97,7 +97,7 @@ public class OrganizationBean extends MessagePartBean {
      * Organization Name(s)</p><p>1. Organization that is 
      * responsible for registering the provider for a specific 
      * healthcare provider role.</p><p>2. Organization associated 
-     * with a provider's functional role.</p><p>3. Organization 
+     * with a provider'''s functional role.</p><p>3. Organization 
      * that grants the qualifications or expertise.</p>
      */
     public void setId(Identifier id) {
@@ -118,7 +118,7 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a provider's functional 
+     * Organization associated with a provider'''s functional 
      * role.</p><p>3. Organization that grants the qualifications 
      * or expertise.</p>
      */
@@ -140,7 +140,7 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a provider's functional 
+     * Organization associated with a provider'''s functional 
      * role.</p><p>3. Organization that grants the qualifications 
      * or expertise.</p>
      */

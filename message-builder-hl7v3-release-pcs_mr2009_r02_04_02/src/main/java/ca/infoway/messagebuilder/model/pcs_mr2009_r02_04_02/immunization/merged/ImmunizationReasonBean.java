@@ -42,7 +42,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.domainvalue.ActImmun
 @Hl7PartTypeMapping({"POIZ_MT030050CA.ImmunizationReason","POIZ_MT030060CA.ImmunizationReason","POIZ_MT060150CA.ImmunizationReason"})
 public class ImmunizationReasonBean extends MessagePartBean implements Choice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private ST text = new STImpl();
     private CV reasonCode = new CVImpl();
 
