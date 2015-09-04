@@ -264,13 +264,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
  * 
  * <p>QUQI_MT020000CA.AuthorizationToken: Authentication Token</p>
  * 
- * <p>If specified, then the concepts covered by the to
+ * <p>If specified, then the concepts covered by the token must 
+ * not be specified (i.e. at least one participation of author, 
+ * dataEnterer, responsibleParty, location and 
+ * dataEntryLocation must not be specified)</p>
+ * 
+ * <p>Only one of Id or Text must be specified.</p>
+ * 
+ *
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 

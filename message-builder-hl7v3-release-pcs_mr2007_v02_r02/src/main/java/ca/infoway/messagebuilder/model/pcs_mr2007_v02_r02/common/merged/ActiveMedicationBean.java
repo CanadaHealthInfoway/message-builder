@@ -59,7 +59,7 @@ import java.util.Date;
  * 
  * <p>Indicates an active medication (prescription or 
  * non-prescription medication) that is recorded in the 
- * patient's record and which contributed to triggering the 
+ * patient'''s record and which contributed to triggering the 
  * issue.</p>
  * 
  * <p>COCT_MT260020CA.SubstanceAdministration: Active 
@@ -76,7 +76,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private CS moodCode = new CSImpl();
     private II id = new IIImpl();
     private CD code = new CDImpl();
@@ -451,8 +451,8 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Requested Duration</p>
      * 
-     * <p>Allows the provider to evaluate 'duplicate therapy' and 
-     * similar timing-based issues.</p>
+     * <p>Allows the provider to evaluate '''duplicate therapy''' 
+     * and similar timing-based issues.</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -489,8 +489,8 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Requested Duration</p>
      * 
-     * <p>Allows the provider to evaluate 'duplicate therapy' and 
-     * similar timing-based issues.</p>
+     * <p>Allows the provider to evaluate '''duplicate therapy''' 
+     * and similar timing-based issues.</p>
      * 
      * <p>The date and time during which the patient is expected to 
      * be taking the drug which triggered the issue.</p>
@@ -525,9 +525,9 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
@@ -563,9 +563,9 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
      * 
      * <p>Conformance/Cardinality: OPTIONAL (0-1)</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the drug information.</p><p>The attribute is optional 
-     * because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * drug, and thus defines the required sensitivity for the 
