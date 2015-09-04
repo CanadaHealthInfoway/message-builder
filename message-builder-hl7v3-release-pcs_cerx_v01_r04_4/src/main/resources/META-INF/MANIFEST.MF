@@ -2,15 +2,13 @@ Manifest-Version: 1.0
 Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
 Built-By: root
-Build-Jdk: 1.6.0_34
-Implementation-Title: message-builder-hl7v3-release-pcs_cerx_4_4_from_
- v3generator
+Build-Jdk: 1.6.0_45
+Implementation-Title: message-builder-hl7v3-release-pcs_cerx_v01_r04_4
 Implementation-Vendor-Id: ca.infoway.messagebuilder
-Application-Name: message-builder-hl7v3-release-pcs_cerx_4_4_from_v3ge
- nerator
-Implementation-Build-Date: 2014-05-06_08-02-10
-Implementation-Version: 1.5.8-SNAPSHOT
-MBT-Version: 1.5.8-SNAPSHOT
+Application-Name: message-builder-hl7v3-release-pcs_cerx_v01_r04_4
+Implementation-Build-Date: 2015-09-04_09-05-36
+Implementation-Version: 2.1.1
 MBT-Message-Set: /messageSet_pcs_cerx_v01_r04_4.xml
 MBT-Model-Version-Numbers: V01R04_4
+MBT-Version: 2.1.1
 
