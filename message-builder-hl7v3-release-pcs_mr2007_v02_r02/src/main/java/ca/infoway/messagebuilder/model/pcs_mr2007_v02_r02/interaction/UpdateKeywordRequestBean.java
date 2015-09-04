@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.si.rcmr_mt010002ca.Key
 @Hl7PartTypeMapping({"RCMR_IN010006CA"})
 public class UpdateKeywordRequestBean extends HL7MessageBean<TriggerEventBean<KeywordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }

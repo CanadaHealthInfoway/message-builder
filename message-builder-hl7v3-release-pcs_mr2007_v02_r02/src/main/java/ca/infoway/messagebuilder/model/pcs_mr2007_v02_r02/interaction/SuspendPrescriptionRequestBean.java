@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.mcci_mt002100ca
 @Hl7PartTypeMapping({"PORX_IN010440CA"})
 public class SuspendPrescriptionRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }

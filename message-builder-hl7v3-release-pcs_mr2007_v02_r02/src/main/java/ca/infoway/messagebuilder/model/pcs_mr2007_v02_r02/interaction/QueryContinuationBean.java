@@ -37,6 +37,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.common.quqi_mt000001ca
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
 public class QueryContinuationBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }

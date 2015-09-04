@@ -46,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.iehr.repc_mt000019ca.C
 @Hl7PartTypeMapping({"REPC_IN000017CA"})
 public class PatientAllergyIntoleranceWithHistQueryBean extends HL7MessageBean<TriggerEventBean<ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }
