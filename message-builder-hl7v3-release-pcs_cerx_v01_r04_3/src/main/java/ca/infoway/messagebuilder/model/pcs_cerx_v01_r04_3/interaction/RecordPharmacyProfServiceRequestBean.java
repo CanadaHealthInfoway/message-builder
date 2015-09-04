@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.iehr.repc_mt000017ca.P
 @Hl7PartTypeMapping({"REPC_IN000044CA"})
 public class RecordPharmacyProfServiceRequestBean extends HL7MessageBean<TriggerEventBean<ProfessionalServiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }

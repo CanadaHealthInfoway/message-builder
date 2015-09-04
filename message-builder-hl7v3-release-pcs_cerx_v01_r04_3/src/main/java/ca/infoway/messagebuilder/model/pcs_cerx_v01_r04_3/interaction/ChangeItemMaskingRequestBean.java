@@ -46,6 +46,6 @@ import ca.infoway.messagebuilder.model.pcs_cerx_v01_r04_3.si.comt_mt400001ca.Mas
 @Hl7PartTypeMapping({"COMT_IN400001CA"})
 public class ChangeItemMaskingRequestBean extends HL7MessageBean<TriggerEventBean<MaskableRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
 
 }
