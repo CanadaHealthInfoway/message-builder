@@ -66,7 +66,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatient","FICR_MT510201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private PersonalRelationshipBean indirectAuthorityPersonalRelationship;

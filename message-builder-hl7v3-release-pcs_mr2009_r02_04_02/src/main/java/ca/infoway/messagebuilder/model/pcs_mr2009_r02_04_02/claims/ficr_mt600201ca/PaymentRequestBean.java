@@ -46,7 +46,7 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private MO amt = new MOImpl();
     private ContactPartyBean primaryPerformerContactParty;

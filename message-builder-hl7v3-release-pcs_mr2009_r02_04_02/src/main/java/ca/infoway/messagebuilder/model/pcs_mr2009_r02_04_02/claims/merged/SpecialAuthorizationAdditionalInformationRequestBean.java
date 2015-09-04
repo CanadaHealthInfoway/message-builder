@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400004CA.SpecialAuthorizationAdditionalInformationRequest","FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest"})
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private ST text = new STImpl();
 

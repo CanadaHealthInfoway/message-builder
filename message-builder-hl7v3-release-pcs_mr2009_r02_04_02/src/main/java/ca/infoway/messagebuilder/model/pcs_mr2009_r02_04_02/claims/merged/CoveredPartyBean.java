@@ -50,7 +50,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.CoveredParty","FICR_MT400003CA.CoveredParty","FICR_MT400004CA.CoveredParty","FICR_MT490101CA.CoveredParty","FICR_MT490102CA.CoveredParty"})
 public class CoveredPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private SET<PN, PersonName> coveredPartyAsPatientPersonName = new SETImpl<PN, PersonName>(PNImpl.class);

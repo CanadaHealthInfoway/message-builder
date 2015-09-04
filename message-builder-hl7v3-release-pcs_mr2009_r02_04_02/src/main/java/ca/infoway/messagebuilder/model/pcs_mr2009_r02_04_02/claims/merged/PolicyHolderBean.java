@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyHolder","FICR_MT400003CA.PolicyHolder","FICR_MT400004CA.PolicyHolder","FICR_MT490102CA.PolicyHolder"})
 public class PolicyHolderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private PolicyHolderChoice policyHolderChoice;
 

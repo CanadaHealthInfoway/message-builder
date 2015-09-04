@@ -42,7 +42,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatientPerson"})
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private PN name = new PNImpl();
     private CV administrativeGenderCode = new CVImpl();
     private TS birthTime = new TSImpl();

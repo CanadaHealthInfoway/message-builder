@@ -32,7 +32,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private ED<EncapsulatedData> value = new EDImpl<EncapsulatedData>();
 
 

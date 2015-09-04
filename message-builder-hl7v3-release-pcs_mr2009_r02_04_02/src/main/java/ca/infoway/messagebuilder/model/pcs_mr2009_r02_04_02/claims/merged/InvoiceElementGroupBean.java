@@ -51,7 +51,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementGroup","FICR_MT510201CA.InvoiceElementGroup"})
 public class InvoiceElementGroupBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt510201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.claims.ficr_mt500201ca.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private CV code = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

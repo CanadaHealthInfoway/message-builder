@@ -44,7 +44,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private CS statusCode = new CSImpl();

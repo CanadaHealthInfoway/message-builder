@@ -32,7 +32,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private TS time = new TSImpl();
     private AdjudicatorRoleBean adjudicatorRole;
 
