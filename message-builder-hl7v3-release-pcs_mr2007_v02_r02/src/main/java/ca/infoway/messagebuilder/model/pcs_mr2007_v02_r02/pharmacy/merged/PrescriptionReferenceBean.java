@@ -76,7 +76,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.merged.RefusedByBean;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;

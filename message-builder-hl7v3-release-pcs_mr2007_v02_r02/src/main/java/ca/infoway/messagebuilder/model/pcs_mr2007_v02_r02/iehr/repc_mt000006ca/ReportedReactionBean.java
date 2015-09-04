@@ -81,7 +81,7 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private ST text = new STImpl();
@@ -264,9 +264,9 @@ public class ReportedReactionBean extends MessagePartBean {
      * <p>Allows the patient to have discrete control over access 
      * to their adverse reaction data.</p><p>Taboo allows the 
      * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can't have both normal and one 
-     * of the other codes simultaneously.</p><p>The attribute is 
-     * required because even if a jurisdiction doesn't support 
+     * care giver.</p><p>Constraint: Can'''t have both normal and 
+     * one of the other codes simultaneously.</p><p>The attribute 
+     * is required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 
      * masked data returned from other jurisdictions.</p>
      * 

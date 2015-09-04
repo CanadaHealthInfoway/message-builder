@@ -67,7 +67,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements RoleChoice, Choice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CV code = new CVImpl();
     private LIST<PN, PersonName> name = new LISTImpl<PN, PersonName>(PNImpl.class);
@@ -163,8 +163,8 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
      * <p>Required attribute supports the identification of the 
      * healthcare provider</p>
      * 
-     * <p>The provider's name pertaining to the specific healthcare 
-     * provider role.</p>
+     * <p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p>
      */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getName() {

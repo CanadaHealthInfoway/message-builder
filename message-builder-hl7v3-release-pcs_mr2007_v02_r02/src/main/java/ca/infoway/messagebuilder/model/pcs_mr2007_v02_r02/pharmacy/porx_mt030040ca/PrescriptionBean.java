@@ -76,7 +76,7 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2007_v02_r02.pharmacy.porx_mt060300ca.Prescription {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -243,7 +243,7 @@ public class PrescriptionBean extends MessagePartBean implements ca.infoway.mess
      * <p>Allows the patient to have discrete control over access 
      * to their medication data.</p><p>Taboo allows the provider to 
      * request restricted access to patient or their care 
-     * giver.</p><p>Constraint: Can't have both normal and one of 
+     * giver.</p><p>Constraint: Can'''t have both normal and one of 
      * the other codes simultaneously.</p><p>The attribute is 
      * required because even if a jurisdiction doesn't support 
      * masking on the way in, it will need to need to communicate 

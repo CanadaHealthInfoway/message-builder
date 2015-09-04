@@ -51,7 +51,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private ST name = new STImpl();
     private SET<AD, PostalAddress> addr = new SETImpl<AD, PostalAddress>(ADImpl.class);
@@ -109,7 +109,7 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a provider's functional 
+     * Organization associated with a provider'''s functional 
      * role.</p><p>3. Organization that grants the qualifications 
      * or expertise.</p>
      */
@@ -131,7 +131,7 @@ public class OrganizationBean extends MessagePartBean {
      * 
      * <p>1. Organization that is responsible for registering the 
      * provider for a specific healthcare provider role.</p><p>2. 
-     * Organization associated with a provider's functional 
+     * Organization associated with a provider'''s functional 
      * role.</p><p>3. Organization that grants the qualifications 
      * or expertise.</p>
      */

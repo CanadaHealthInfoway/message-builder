@@ -67,7 +67,7 @@ import java.util.Set;
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p>
  * 
- * <p>Status can only be 'ACTIVE' or 'COMPLETED'</p>
+ * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
  * 
  * <p>Reported Issue is only permitted if Issue Indicator is 
  * not present and vice versa</p>
@@ -94,7 +94,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060160CA.OtherMedication"})
 public class OtherMedicationsBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();

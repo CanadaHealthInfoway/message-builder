@@ -63,7 +63,7 @@ import java.util.Set;
  * <p>routeCode must not be used when code is SNOMED and is 
  * mandatory otherwise</p>
  * 
- * <p>Status can only be 'ACTIVE' or 'COMPLETED'</p>
+ * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
  * 
  * <p>Necessary component of a person's overall medication 
  * profile. Allows DUR checking against a more complete drug 
@@ -84,7 +84,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
 public class OtherMedicationBean extends MessagePartBean implements MedicationRecord {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private CS statusCode = new CSImpl();
@@ -285,7 +285,7 @@ public class OtherMedicationBean extends MessagePartBean implements MedicationRe
      * <p>Provides support for additional confidentiality 
      * constraint to reflect the wishes of the patient.</p><p>Taboo 
      * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can't have both 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
      * normal and one of the other codes simultaneously.</p><p>The 
      * attribute is required because even if a jurisdiction doesn't 
      * support masking on the way in, it will need to need to 
