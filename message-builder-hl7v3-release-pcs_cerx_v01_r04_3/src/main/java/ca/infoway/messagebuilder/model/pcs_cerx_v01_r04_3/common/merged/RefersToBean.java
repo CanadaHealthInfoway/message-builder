@@ -94,7 +94,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","QUQI_MT120000CA.Subject2"})
 public class RefersToBean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private BL contextConductionInd = new BLImpl();
     private ACT act;
 
@@ -109,9 +109,9 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On 'creation' interactions (where the state transition is 
-     * null-&gt;active), this must be true otherwise it must be 
-     * false.</p>
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
@@ -136,9 +136,9 @@ public class RefersToBean<ACT> extends MessagePartBean {
      * 
      * <p>Conformance/Cardinality: MANDATORY (1)</p>
      * 
-     * <p>On 'creation' interactions (where the state transition is 
-     * null-&gt;active), this must be true otherwise it must be 
-     * false.</p>
+     * <p>On '''creation''' interactions (where the state 
+     * transition is null-&gt;active), this must be true otherwise 
+     * it must be false.</p>
      * 
      * <p>Cascading of trigger event objects allows different 
      * messages to employ consistent and common 
