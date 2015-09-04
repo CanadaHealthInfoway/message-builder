@@ -85,7 +85,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II locationServiceDeliveryLocationId = new IIImpl();
     private List<HasBean> participant = new ArrayList<HasBean>();
 

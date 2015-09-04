@@ -92,7 +92,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.SubSection","REPC_MT210003CA.SubSection","REPC_MT220001CA.SubSection","REPC_MT220003CA.SubSection","REPC_MT230001CA.SubSection","REPC_MT230003CA.SubSection"})
 public class DocumentSectionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CV code = new CVImpl();
     private ST title = new STImpl();
     private ED<EncapsulatedData> text = new EDImpl<EncapsulatedData>();

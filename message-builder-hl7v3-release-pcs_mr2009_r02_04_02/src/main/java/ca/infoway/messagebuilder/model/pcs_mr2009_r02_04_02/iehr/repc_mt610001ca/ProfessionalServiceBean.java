@@ -79,7 +79,7 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();

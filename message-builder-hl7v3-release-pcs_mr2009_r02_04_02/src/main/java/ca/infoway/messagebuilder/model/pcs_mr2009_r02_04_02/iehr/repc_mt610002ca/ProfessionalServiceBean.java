@@ -89,7 +89,7 @@ import java.util.Set;
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private BL negationInd = new BLImpl();

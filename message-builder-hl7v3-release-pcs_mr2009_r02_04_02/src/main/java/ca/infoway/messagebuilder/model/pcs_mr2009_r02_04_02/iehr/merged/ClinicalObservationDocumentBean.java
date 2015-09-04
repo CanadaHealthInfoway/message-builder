@@ -71,7 +71,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
 public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3 {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CD code = new CDImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private OccurredAtBean location;
