@@ -134,7 +134,7 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240007
  * locations involved is greater than the limit supported by 
  * the message, multiple encounters should be used.</p>
  * 
- * <p>REPC_MT420003CA.Location: *g:occurred at'</p>
+ * <p>REPC_MT420003CA.Location: *g:occurred at''</p>
  * 
  * <p> <i>The site of the actual event provides context for 
  * interpreting the record. In some cases, it may also provide 
@@ -254,15 +254,21 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt240007
  * indicates the location where the referred service is to be 
  * performed.</p>
  * 
- * <p>REPC_MT410001CA.Location: *g:occurred at'</p>
+ * <p>REPC_MT410001CA.Location: *g:occurred at''</p>
  * 
- * <p> <i>The site of the actual event provides context fo
+ * <p> <i>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</i> </p>
+ * 
+ * <p> <i>This identifies the location where the Measured 
+ * Observation actually occurred. E.g. Patient's residence, 
+ *
  * ... [rest of documentation truncated due to excessive length]
  */
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Location","POIZ_MT030060CA.Location","POIZ_MT060150CA.Location","REPC_MT210001CA.Location3","REPC_MT210002CA.Location3","REPC_MT210003CA.Location3","REPC_MT220001CA.Location2","REPC_MT220002CA.Location2","REPC_MT220003CA.Location2","REPC_MT230001CA.Location","REPC_MT230002CA.Location","REPC_MT230003CA.Location","REPC_MT410001CA.Location","REPC_MT410003CA.Location","REPC_MT420001CA.Location","REPC_MT420003CA.Location","REPC_MT500001CA.Location","REPC_MT500002CA.Location","REPC_MT500003CA.Location","REPC_MT500004CA.Location","REPC_MT610001CA.Location","REPC_MT610002CA.Location"})
 public class OccurredAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private ServiceLocationBean serviceDeliveryLocation;
 
 
