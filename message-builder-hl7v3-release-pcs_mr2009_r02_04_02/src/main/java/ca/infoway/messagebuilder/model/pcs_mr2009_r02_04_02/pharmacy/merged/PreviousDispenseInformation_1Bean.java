@@ -85,7 +85,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventPastSummary","PORX_MT060160CA.SupplyEventPastSummary","PORX_MT060190CA.SupplyEventPastSummary","PORX_MT060340CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
 

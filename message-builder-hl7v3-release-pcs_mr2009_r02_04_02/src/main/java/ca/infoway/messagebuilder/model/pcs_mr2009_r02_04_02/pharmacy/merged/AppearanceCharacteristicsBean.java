@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.Characteristic","POME_MT010100CA.Characteristic"})
 public class AppearanceCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private CV code = new CVImpl();
     private ST value = new STImpl();
 

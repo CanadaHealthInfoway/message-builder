@@ -55,7 +55,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component2","PORX_MT060340CA.Component2"})
 public class NotEligibleForTrialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private BL negationInd = new BLImpl();
 
 
