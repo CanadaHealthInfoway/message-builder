@@ -22,5 +22,5 @@ package ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_03.domainvalue;
 
 import ca.infoway.messagebuilder.Code;
 
-public interface ActImmunizationReason extends Code {
+public interface NameLegalUse extends Code {
 }
