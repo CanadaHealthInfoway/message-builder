@@ -52,6 +52,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004999ca.
 @Hl7PartTypeMapping({"POLB_IN224202CA"})
 public class ResultRevisionRequestBean extends HL7MessageBean<TriggerEventBean<ResultInstancePayloadChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

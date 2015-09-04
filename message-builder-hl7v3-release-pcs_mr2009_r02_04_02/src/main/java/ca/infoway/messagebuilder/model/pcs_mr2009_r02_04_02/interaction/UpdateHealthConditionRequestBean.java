@@ -45,6 +45,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000014ca
 @Hl7PartTypeMapping({"REPC_IN000032CA"})
 public class UpdateHealthConditionRequestBean extends HL7MessageBean<TriggerEventBean<HealthConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }
