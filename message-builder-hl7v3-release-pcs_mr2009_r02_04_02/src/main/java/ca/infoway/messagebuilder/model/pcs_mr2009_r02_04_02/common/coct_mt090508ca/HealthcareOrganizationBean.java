@@ -57,7 +57,7 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911107ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.merged.RoleChoice, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt004000ca.RecipientChoice {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II representedOrganizationId = new IIImpl();
     private ST representedOrganizationName = new STImpl();
     private CV representedOrganizationAssignedOrganizationCode = new CVImpl();

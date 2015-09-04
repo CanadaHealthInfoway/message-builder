@@ -68,7 +68,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260020ca.CausalActs, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260010ca.CausalActs, ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.coct_mt260030ca.CausalActs {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
     private II id = new IIImpl();
     private CD code = new CDImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
@@ -304,9 +304,10 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
      * withheld because the prescription is masked will be given a 
      * NULL flavour of 'Masked')</p>
      * 
-     * <p>Conveys the patient's wishes relating to the sensitivity 
-     * of the observation information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p>
+     * <p>Conveys the patient'''s wishes relating to the 
+     * sensitivity of the observation information.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p>
      * 
      * <p>An indication of sensitivity surrounding the related 
      * measurable observation, and thus defines the required 
