@@ -93,7 +93,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT000001CA.MaterialKind","REPC_MT000002CA.MaterialKind","REPC_MT000005CA.MaterialKind","REPC_MT000006CA.MaterialKind","REPC_MT000009CA.MaterialKind","REPC_MT000012CA.MaterialKind","REPC_MT000013CA.MaterialKind"})
 public class AgentCategoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150903L;
     private CV code = new CVImpl();
     private ST name = new STImpl();
 
