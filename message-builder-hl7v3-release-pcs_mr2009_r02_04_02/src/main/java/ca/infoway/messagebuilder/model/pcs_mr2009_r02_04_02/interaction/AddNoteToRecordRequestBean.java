@@ -44,6 +44,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.si.comt_mt301001ca.C
 @Hl7PartTypeMapping({"COMT_IN301001CA"})
 public class AddNoteToRecordRequestBean extends HL7MessageBean<TriggerEventBean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

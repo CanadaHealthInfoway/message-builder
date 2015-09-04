@@ -59,6 +59,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000008ca
 @Hl7PartTypeMapping({"COMT_IN200000CA"})
 public class ClinicalSummaryProfileQueryResponseBean extends HL7MessageBean<TriggerEventBean<Summary,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

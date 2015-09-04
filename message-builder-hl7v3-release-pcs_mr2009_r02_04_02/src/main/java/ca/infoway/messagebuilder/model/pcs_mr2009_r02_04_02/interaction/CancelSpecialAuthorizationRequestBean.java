@@ -47,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100
 @Hl7PartTypeMapping({"FICR_IN400005CA"})
 public class CancelSpecialAuthorizationRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

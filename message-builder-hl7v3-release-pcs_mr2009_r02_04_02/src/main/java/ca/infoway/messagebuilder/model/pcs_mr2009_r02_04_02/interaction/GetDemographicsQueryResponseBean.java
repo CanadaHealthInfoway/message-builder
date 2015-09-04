@@ -48,6 +48,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.cr.prpa_mt101102ca.I
 @Hl7PartTypeMapping({"PRPA_IN101102CA"})
 public class GetDemographicsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

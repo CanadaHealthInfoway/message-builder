@@ -43,6 +43,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.common.mcci_mt002100
 @Hl7PartTypeMapping({"COMT_IN500001CA"})
 public class BroadcastMessageBean extends HL7MessageBean<TriggerEventBean<ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.si.comt_mt500001ca.BroadcastMessageBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

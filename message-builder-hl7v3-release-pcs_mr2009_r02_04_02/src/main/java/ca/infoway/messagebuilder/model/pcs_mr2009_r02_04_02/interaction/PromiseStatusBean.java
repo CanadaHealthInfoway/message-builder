@@ -53,6 +53,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.lab.polb_mt002000ca.
 @Hl7PartTypeMapping({"POLB_IN222000CA"})
 public class PromiseStatusBean extends HL7MessageBean<TriggerEventBean<PromiseChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }

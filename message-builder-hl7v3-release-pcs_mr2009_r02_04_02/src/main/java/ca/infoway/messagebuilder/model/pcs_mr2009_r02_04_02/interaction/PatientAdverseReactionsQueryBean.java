@@ -47,6 +47,6 @@ import ca.infoway.messagebuilder.model.pcs_mr2009_r02_04_02.iehr.repc_mt000016ca
 @Hl7PartTypeMapping({"REPC_IN000001CA"})
 public class PatientAdverseReactionsQueryBean extends HL7MessageBean<TriggerEventBean<AdverseReactionsQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20150326L;
+    private static final long serialVersionUID = 20150902L;
 
 }
